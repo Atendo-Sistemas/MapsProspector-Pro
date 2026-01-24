@@ -2,19 +2,48 @@
 import React, { useState, useEffect } from 'react';
 import { CRMConfig, SearchHistoryItem, AppUser, AppTenant } from './types';
 import { Prospecting } from './components/Prospecting';
-import { Login } from './components/Login';
+
+// Componente Toast Interno
+const Toast = ({ message, onClose }: { message: string; onClose: () => void }) => {
+  useEffect(() => {
+    const timer = setTimeout(onClose, 3000);
+    return () => clearTimeout(timer);
+  }, [onClose]);
+
+  return (
+    <div className="fixed bottom-10 right-10 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 z-[9999] animate-[slideIn_0.3s_ease-out]">
+      <div className="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white">
+        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M5 13l4 4L19 7" /></svg>
+      </div>
+      <div>
+        <h4 className="font-bold text-sm">Sucesso</h4>
+        <p className="text-xs text-slate-300">{message}</p>
+      </div>
+    </div>
+  );
+};
 
 const App: React.FC = () => {
-  // Estado de Autenticação
-  const [isAuthenticated, setIsAuthenticated] = useState(false);
-  const [user, setUser] = useState<AppUser | null>(null);
+  // Estado de Usuário (Mockado para acesso direto)
+  const [user, setUser] = useState<AppUser>({
+    id: 'admin',
+    name: 'Administrador',
+    email: 'admin@atendo.maps',
+    tenantId: "1",
+    profile: 'admin'
+  });
 
   const [activeTab, setActiveTab] = useState<'search' | 'history' | 'settings'>('search');
   const [history, setHistory] = useState<SearchHistoryItem[]>([]);
   const [selectedHistory, setSelectedHistory] = useState<{ query: string; location: string; tag: string } | undefined>();
   const [hasApiKey, setHasApiKey] = useState<boolean>(false);
+  
+  // GPS States
   const [userCoords, setUserCoords] = useState<{ latitude: number; longitude: number } | undefined>();
+  const [userLocationName, setUserLocationName] = useState<string>(''); // Nome legível do local
   const [locStatus, setLocStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  
+  const [toastMsg, setToastMsg] = useState<string | null>(null);
   
   const [config, setConfig] = useState<CRMConfig>({
     baseUrl: '',
@@ -38,11 +67,36 @@ const App: React.FC = () => {
 
   const refreshLocation = () => {
     setLocStatus('loading');
+    setUserLocationName('');
+    
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
-        (pos) => {
-          setUserCoords({ latitude: pos.coords.latitude, longitude: pos.coords.longitude });
+        async (pos) => {
+          const { latitude, longitude } = pos.coords;
+          setUserCoords({ latitude, longitude });
           setLocStatus('success');
+
+          // Reverse Geocoding (Gratuito via OSM Nominatim para UX)
+          try {
+            const res = await fetch(`https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}&zoom=10`); // Zoom reduzido para pegar contexto macro
+            if (res.ok) {
+                const data = await res.json();
+                const addr = data.address;
+                
+                // MUDANÇA: Ignora bairro (suburb/neighbourhood) para focar na CIDADE inteira
+                const city = addr.city || addr.town || addr.municipality || addr.village || '';
+                const state = addr.state_district || addr.state || '';
+                
+                let readable = '';
+                if (city) readable = city;
+                // Removido a concatenação de distrito/bairro para não restringir a busca
+                if (readable && state) readable += ` - ${state}`;
+                
+                if (readable) setUserLocationName(readable);
+            }
+          } catch (e) {
+            console.warn("Não foi possível obter o nome do endereço via GPS", e);
+          }
         },
         (err) => {
           console.warn("Geolocalização negada.", err);
@@ -96,8 +150,7 @@ const App: React.FC = () => {
   const saveSettings = () => {
     localStorage.setItem('atendo_maps_config', JSON.stringify(settingsForm));
     setConfig(settingsForm);
-    alert('Configurações salvas com sucesso!');
-    setActiveTab('search');
+    setToastMsg('Configurações salvas com sucesso!');
   };
 
   const clearHistory = () => {
@@ -116,17 +169,10 @@ const App: React.FC = () => {
     setActiveTab('search');
   };
 
-  const handleLogin = (data: { user: AppUser; tenant: AppTenant }) => {
-    setUser(data.user);
-    setIsAuthenticated(true);
-  };
-
-  if (!isAuthenticated) {
-    return <Login onLogin={handleLogin} />;
-  }
-
   return (
     <div className="flex h-screen bg-slate-50 font-sans antialiased text-slate-900 overflow-hidden">
+      {toastMsg && <Toast message={toastMsg} onClose={() => setToastMsg(null)} />}
+      
       {/* Sidebar Lateral */}
       <aside className="w-72 bg-[#0F172A] text-white flex flex-col shrink-0 shadow-2xl z-50">
         <div className="p-8 border-b border-slate-800/50">
@@ -170,11 +216,17 @@ const App: React.FC = () => {
         
         <div className="p-6 border-t border-slate-800/50 space-y-4">
           <div className="bg-slate-800/40 p-5 rounded-[1.25rem] border border-slate-700/50">
-            <p className="text-[9px] font-black text-slate-500 uppercase mb-1 tracking-widest">GPS Status</p>
-            <p className="text-[10px] font-bold text-white truncate flex items-center gap-2">
-                <span className={`w-2 h-2 rounded-full ${locStatus === 'success' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 'bg-red-500'}`}></span>
-                {locStatus === 'success' ? 'Localização Ativa' : 'GPS Inativo'}
+            <p className="text-[9px] font-black text-slate-500 uppercase mb-2 tracking-widest">GPS Status</p>
+            <p className="text-[10px] font-bold text-white truncate flex items-center gap-2 mb-2">
+                <span className={`w-2 h-2 rounded-full ${locStatus === 'success' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : locStatus === 'loading' ? 'bg-yellow-500 animate-pulse' : 'bg-red-500'}`}></span>
+                {locStatus === 'success' ? 'Localização Ativa' : locStatus === 'loading' ? 'Detectando...' : 'GPS Inativo'}
             </p>
+            {userLocationName && (
+                <div className="pt-2 border-t border-slate-700/50">
+                     <p className="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Detectado:</p>
+                     <p className="text-[10px] text-emerald-300 font-bold leading-tight">{userLocationName}</p>
+                </div>
+            )}
           </div>
         </div>
       </aside>
@@ -203,7 +255,12 @@ const App: React.FC = () => {
 
         <div className="flex-grow overflow-y-auto p-10 bg-[#F8FAFC]">
           {activeTab === 'search' ? (
-            <Prospecting config={config} initialQuery={selectedHistory} userCoords={userCoords} />
+            <Prospecting 
+                config={config} 
+                initialQuery={selectedHistory} 
+                userCoords={userCoords}
+                userLocationName={userLocationName} // Passa o nome para a busca
+            />
           ) : activeTab === 'history' ? (
             <div className="max-w-5xl mx-auto">
                 <div className="flex justify-between items-center mb-10">
