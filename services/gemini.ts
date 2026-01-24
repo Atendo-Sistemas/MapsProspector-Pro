@@ -28,7 +28,8 @@ export const searchLeadsOnMaps = async (
   location?: string, 
   excludeNames: string[] = [],
   modelName: string = "gemini-2.0-flash", // Default to stable 2.0
-  coords?: { latitude: number; longitude: number }
+  coords?: { latitude: number; longitude: number },
+  locationName?: string // Nome legível do local via GPS (ex: Centro, SP)
 ): Promise<Lead[]> => {
   const apiKey = process.env.API_KEY;
   if (!apiKey) throw new Error("Chave de API não configurada.");
@@ -37,54 +38,74 @@ export const searchLeadsOnMaps = async (
 
   // Add country context for better accuracy
   const normalizedLocation = location && !location.toLowerCase().includes('brasil') ? `${location}, Brasil` : location;
-
-  let searchInstruction = "";
-  if (coords) {
-    searchInstruction = `O usuário está nas coordenadas Lat: ${coords.latitude}, Lng: ${coords.longitude}. Use a ferramenta googleMaps para buscar "${query}" estritamente num raio próximo a estas coordenadas.`;
+  
+  // Lógica de Contexto de Localização
+  let locationContext = "";
+  if (locationName) {
+     locationContext = `em toda a cidade de ${locationName} (Brasil)`; 
+  } else if (coords) {
+     locationContext = `num raio amplo próximo às coordenadas Lat ${coords.latitude}, Long ${coords.longitude}`;
   } else {
-    searchInstruction = `O usuário quer buscar em "${normalizedLocation}". Use a ferramenta googleMaps com a query: "${query} em ${normalizedLocation}".`;
+     locationContext = `na cidade/região de ${normalizedLocation}`;
   }
 
-  const prompt = `Você é um especialista em mineração de dados B2B (Business to Business).
+  // PROMPT HÍBRIDO: SCAPING + MAPS VALIDATION
+  const prompt = `Atue como um Robô de Extração de Dados Avançado.
   
-  TAREFA: Encontrar leads comerciais reais e atualizados usando o Google Maps.
+  MISSÃO: Listar empresas do ramo "${query}" localizadas ${locationContext}.
   
-  CONTEXTO DE BUSCA:
-  ${searchInstruction}
+  FLUXO DE EXECUÇÃO OBRIGATÓRIO:
+  1. BUSCA AMPLA (Google Search): Encontre nomes de empresas em diretórios, listas ("Melhores X", "GuiaMais") e redes sociais. Tente encontrar entre 20 a 50 nomes.
+  2. ENRIQUECIMENTO DE DADOS (Google Maps):
+     - Para CADA empresa encontrada na etapa 1, se o telefone não estiver óbvio no texto, USE A FERRAMENTA GOOGLE MAPS para buscar a ficha da empresa.
+     - EXTRAIA O TELEFONE OFICIAL que consta na ficha do Maps.
+     - Se o telefone não existir nem no Maps, procure no Instagram/Facebook da empresa.
   
-  REGRAS OBRIGATÓRIAS:
-  1. Use 'googleMaps' para validar a existência da empresa.
-  2. Extraia: Nome da Empresa, Endereço Completo, Telefone (formato internacional +55...), Website e Link do Google Maps.
-  3. Se o e-mail não estiver no Maps, tente encontrar via 'googleSearch' ou deixe vazio.
-  4. Retorne apenas empresas que correspondem à busca.
-  5. Ignore estas empresas se encontradas: ${excludeNames.join(', ') || 'nenhuma'}.
+  CRITÉRIOS DE QUALIDADE:
+  - TELEFONE: É OBRIGATÓRIO tentar preencher. Se a empresa existe no Maps, o telefone provavelmetne está lá.
+  - MAPS URI: Se você usou o Maps para validar, use o link real da ficha. Se não, gere o link de busca.
   
-  FORMATO JSON ESTRITO DE RESPOSTA:
+  IGNORE (JÁ LISTADOS): ${excludeNames.join(', ') || 'nenhuma'}.
+  
+  SAÍDA (JSON ARRAY):
   [
     {
-      "name": "Nome Comercial",
-      "address": "Rua Exemplo, 123 - Bairro, Cidade - UF",
-      "phone": "+5511999999999",
-      "email": "contato@empresa.com",
-      "website": "https://...",
-      "mapsUri": "https://maps.google...",
-      "latitude": 0,
-      "longitude": 0
+      "name": "Nome",
+      "address": "Endereço Completo",
+      "phone": "Telefone (Priorize Celular/WhatsApp, mas aceite fixo se for o único)",
+      "email": "Email (opcional)",
+      "website": "Site/Instagram",
+      "mapsUri": "Link",
+      "cnpj": "CNPJ (opcional)"
     }
-  ]
-  
-  Retorne APENAS o JSON. Sem texto antes ou depois.`;
+  ]`;
 
   const executeSearch = async (model: string) => {
-     // Gemini 2.0 Flash supports googleSearch.
-     // Google Maps grounding is specifically supported in 2.0-flash and 2.5-flash series.
+     // Configuração das Ferramentas
+     const tools: any[] = [{ googleSearch: {} }];
+     
+     // Adiciona Google Maps se o modelo suportar (Gemini 2.5 ou superior geralmente, mas 2.0 aceita em alguns contextos)
+     // Para garantir, vamos adicionar. Se der erro, o catch pega.
+     tools.push({ googleMaps: {} });
+
+     const config: any = { tools };
+
+     // Se tivermos coordenadas, usamos para ancorar a busca do Maps (Retrieval Config)
+     if (coords) {
+        config.toolConfig = {
+            retrievalConfig: {
+                latLng: {
+                    latitude: coords.latitude,
+                    longitude: coords.longitude
+                }
+            }
+        };
+     }
+
      return await ai.models.generateContent({
       model: model, 
       contents: prompt,
-      config: {
-        tools: [{ googleSearch: {} }], // Fallback to search if maps tool fails specific config
-        // Note: For strict Maps grounding, we rely on the prompt instructing the model to use its internal maps capability or search grounding to find maps links.
-      },
+      config: config,
     });
   };
 
@@ -96,10 +117,16 @@ export const searchLeadsOnMaps = async (
         response = await executeSearch(modelName);
     } catch (err: any) {
         console.warn(`Erro com modelo ${modelName}:`, err.message);
-        // Fallback Strategy
-        if (err.message.includes("404") || err.message.includes("not found")) {
-            console.log("Tentando fallback para gemini-2.0-flash...");
-            response = await executeSearch('gemini-2.0-flash');
+        // Fallback: Se falhar (ex: modelo não suporta Maps), tenta sem Maps ou muda modelo
+        if (err.message.includes("404") || err.message.includes("not found") || err.message.includes("tool")) {
+            console.log("Tentando fallback (pode ser erro de ferramenta)...");
+            // Tenta gemini-2.0-flash apenas com Search se o Maps falhar
+             const fallbackAi = new GoogleGenAI({ apiKey: apiKey });
+             response = await fallbackAi.models.generateContent({
+                model: 'gemini-2.0-flash',
+                contents: prompt,
+                config: { tools: [{ googleSearch: {} }] }
+             });
         } else {
             throw err;
         }
@@ -109,30 +136,38 @@ export const searchLeadsOnMaps = async (
     const parsed = extractJson(text);
     
     if (parsed && Array.isArray(parsed) && parsed.length > 0) {
-      return parsed.map((item: any, idx: number) => ({
+      let finalResults = parsed;
+      
+      finalResults = finalResults.map((item: any, idx: number) => ({
         id: `lead-${Date.now()}-${idx}`,
         ...item,
+        phone: item.phone ? item.phone.replace(/[^\d+]/g, '').replace(/^55(\d{10,11})$/, '$1').replace(/^(\d{2})(\d{4,5})(\d{4})$/, '($1) $2-$3') : '',
+        mapsUri: item.mapsUri || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(item.name + ' ' + (locationName || location || ''))}`,
         sources: response?.candidates?.[0]?.groundingMetadata?.groundingChunks?.map(c => ({ 
-          title: c.web?.title, 
-          uri: c.web?.uri 
+          title: c.web?.title || c.maps?.title, // Suporta título de Maps
+          uri: c.web?.uri || c.maps?.uri // Suporta URI de Maps
         })).filter(s => s.uri)
       }));
+
+      return finalResults;
     }
 
-    // If no JSON, try to extract grounding chunks as a last resort
+    // Fallback para chunks crus
     const chunks = response?.candidates?.[0]?.groundingMetadata?.groundingChunks || [];
-    const webChunks = chunks.filter(c => c.web);
+    // Agora aceitamos chunks de Maps também
+    const validChunks = chunks.filter(c => c.web || c.maps);
 
-    if (webChunks.length > 0) {
-      return webChunks.map((c, idx) => ({
+    if (validChunks.length > 0) {
+      return validChunks.map((c, idx) => ({
         id: `lead-raw-${Date.now()}-${idx}`,
-        name: c.web?.title || "Lead Encontrado",
-        address: "Verificar no link",
-        mapsUri: c.web?.uri,
-        phone: "",
+        name: c.web?.title || c.maps?.title || "Resultado Encontrado",
+        address: c.maps?.address || "Verificar link", // Maps fornece endereço direto
+        mapsUri: c.maps?.uri || c.web?.uri,
+        phone: "", // Difícil extrair do chunk cru sem processamento da IA
         email: "",
-        website: c.web?.uri,
-        sources: [{ title: c.web?.title, uri: c.web?.uri || "" }]
+        cnpj: "",
+        website: c.web?.uri || c.maps?.uri,
+        sources: [{ title: c.web?.title || c.maps?.title, uri: c.web?.uri || c.maps?.uri || "" }]
       }));
     }
 
@@ -142,14 +177,10 @@ export const searchLeadsOnMaps = async (
     console.error("Erro Gemini Final:", error);
     const errorMsg = error.toString().toLowerCase();
     
-    if (errorMsg.includes("429") || errorMsg.includes("quota")) {
-      throw new Error("Limite de cota do Google API excedido (Erro 429). Aguarde 1 minuto.");
+    if (errorMsg.includes("429")) {
+      throw new Error("Muitas requisições. Aguarde 1 minuto.");
     }
     
-    if (errorMsg.includes("404")) {
-        throw new Error("Modelo de IA indisponível. Verifique a chave de API.");
-    }
-
     throw new Error("Não foi possível buscar os leads. Tente mudar o termo de busca.");
   }
 };
