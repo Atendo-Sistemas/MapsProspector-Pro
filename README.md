@@ -88,4 +88,4 @@ No menu "Configurações" dentro da aplicação, você pode definir:
 
 ## Licença
 
-Este projeto é proprietário e desenvolvido para a Atendo Tecnologia.
+Este projeto é proprietário e desenvolvido para a Atendo Sistemas. 
