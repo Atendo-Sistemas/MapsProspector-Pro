@@ -1,0 +1,17 @@
+
+version: '3.8'
+
+services:
+  atendo-maps:
+    build: .
+    container_name: atendo-maps-prospector
+    restart: always
+    ports:
+      - "3005:80"
+    environment:
+      - NODE_ENV=production
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
