@@ -1,8 +1,6 @@
 # Changelog
 
-Todos os **cambios notáveis** deste projeto serão documentados neste arquivo.
-
-Este formato segue as boas práticas do **Keep a Changelog** e **Semantic Versioning**.
+Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
