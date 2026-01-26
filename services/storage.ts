@@ -38,12 +38,10 @@ export const StorageService = {
 
       const parsed = JSON.parse(saved);
       
-      // Merge com defaults para garantir que novos campos (como selectedModel) existam
-      // mesmo em configurações antigas salvas
+      // Merge com defaults para garantir que novos campos existam
       return {
         ...DEFAULT_CONFIG,
         ...parsed,
-        // Garante booleanos
         useProxy: !!parsed.useProxy,
         wrapInBody: !!parsed.wrapInBody,
         simplifiedPayload: !!parsed.simplifiedPayload
@@ -78,20 +76,34 @@ export const StorageService = {
   },
 
   /**
-   * Adiciona um item ao histórico (limitado aos últimos 50)
+   * Retorna apenas o item mais recente do histórico
    */
-  addToHistory: (item: SearchHistoryItem): SearchHistoryItem[] => {
+  getLastSearch: (): SearchHistoryItem | null => {
+    const history = StorageService.getHistory();
+    return history.length > 0 ? history[0] : null;
+  },
+
+  /**
+   * Adiciona um item ao histórico (limitado aos últimos 20 para economizar espaço)
+   */
+  addToHistory: (item: SearchHistoryItem): void => {
     const current = StorageService.getHistory();
-    // Evita duplicatas exatas no topo
+    
+    // Evita duplicatas exatas no topo (mesma query e local)
     if (current.length > 0 && 
-        current[0].query === item.query && 
-        current[0].location === item.location) {
-        return current;
+        current[0].query.toLowerCase() === item.query.toLowerCase() && 
+        current[0].location.toLowerCase() === item.location.toLowerCase()) {
+        
+        // Se for a mesma busca, atualiza os leads e o timestamp
+        current[0] = item;
+        StorageService.saveHistory(current);
+        return;
     }
 
-    const updated = [item, ...current].slice(0, 50);
+    // Mantém apenas os últimos 20 registros para não estourar o LocalStorage
+    // já que agora salvamos o JSON completo dos leads
+    const updated = [item, ...current].slice(0, 20);
     StorageService.saveHistory(updated);
-    return updated;
   },
 
   /**
