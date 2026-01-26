@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig(({ mode }) => {
   // Carrega variáveis de ambiente baseadas no modo (ex: .env)
-  // O terceiro parâmetro '' permite carregar todas as variáveis, não apenas as com prefixo VITE_
+  // O terceiro parâmetro '' permite carregar todas as variáveis do sistema, não apenas as com prefixo VITE_
   const env = loadEnv(mode, process.cwd(), '');
 
   return {
@@ -12,7 +12,7 @@ export default defineConfig(({ mode }) => {
     base: './',
     define: {
       // INJEÇÃO CRÍTICA: Mapeia process.env.API_KEY para a variável de ambiente do sistema
-      // Isso permite que o SDK do Google GenAI funcione no navegador com a chave do servidor
+      // Isso permite que o SDK do Google GenAI funcione no navegador com a chave do servidor/docker
       'process.env.API_KEY': JSON.stringify(env.API_KEY || process.env.API_KEY),
     },
     build: {
