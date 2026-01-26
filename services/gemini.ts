@@ -49,46 +49,60 @@ export const searchLeadsOnMaps = async (
      locationContext = `na cidade/região de ${normalizedLocation}`;
   }
 
-  // PROMPT HÍBRIDO: SCAPING + MAPS VALIDATION
-  const prompt = `Atue como um Robô de Extração de Dados Avançado.
+  // PROMPT HÍBRIDO: SCAPING MASSIVO + MAPS VALIDATION + DADOS RICOS
+  const prompt = `Atue como um Robô de Extração de Dados em LARGA ESCALA (Massive Scraper).
   
-  MISSÃO: Listar empresas do ramo "${query}" localizadas ${locationContext}.
+  MISSÃO CRÍTICA: Gerar uma lista EXAUSTIVA de TODAS as empresas do ramo "${query}" localizadas ${locationContext}.
+  
+  OBJETIVO DE VOLUME:
+  - NÃO se limite a 10 ou 20 resultados.
+  - SUA META É ENCONTRAR ENTRE 50 A 100+ EMPRESAS se existirem na região.
+  - Varra diretórios, listas de "Melhores da Região", GuiaMais, Solutudo, Redes Sociais e Mapas.
+  - Liste TUDO o que encontrar.
   
   FLUXO DE EXECUÇÃO OBRIGATÓRIO:
-  1. BUSCA AMPLA (Google Search): Encontre nomes de empresas em diretórios, listas ("Melhores X", "GuiaMais") e redes sociais. Tente encontrar entre 20 a 50 nomes.
-  2. ENRIQUECIMENTO DE DADOS (Google Maps):
-     - Para CADA empresa encontrada na etapa 1, se o telefone não estiver óbvio no texto, USE A FERRAMENTA GOOGLE MAPS para buscar a ficha da empresa.
-     - EXTRAIA O TELEFONE OFICIAL que consta na ficha do Maps.
-     - Se o telefone não existir nem no Maps, procure no Instagram/Facebook da empresa.
+  1. BUSCA MASSIVA (Google Search): Encontre o maior número possível de nomes de estabelecimentos.
+  2. ENRIQUECIMENTO DE DADOS (Google Maps & Web):
+     - Para CADA empresa da lista gigante, busque os detalhes.
+     - Se o telefone não estiver na lista original, use a ferramenta Google Maps para pegar o oficial.
   
-  CRITÉRIOS DE QUALIDADE:
-  - TELEFONE: É OBRIGATÓRIO tentar preencher. Se a empresa existe no Maps, o telefone provavelmetne está lá.
-  - MAPS URI: Se você usou o Maps para validar, use o link real da ficha. Se não, gere o link de busca.
+  CRITÉRIOS DE DADOS RICOS (PREENCHA O MÁXIMO POSSÍVEL):
+  - SÓCIOS/RESPONSÁVEIS: Procure nomes de donos/sócios (LinkedIn, CNPJ.biz, Sites Institucionais).
+  - CNPJ: Tente identificar o CNPJ.
+  - EMAIL: Procure emails de contato.
+  - TELEFONE: Obrigatório (Priorize Celular/WhatsApp).
+  - MAPS URI: Link da ficha do Google.
   
   IGNORE (JÁ LISTADOS): ${excludeNames.join(', ') || 'nenhuma'}.
   
-  SAÍDA (JSON ARRAY):
+  SAÍDA OBRIGATÓRIA (JSON ARRAY ÚNICO):
   [
     {
-      "name": "Nome",
+      "name": "Nome da Empresa",
       "address": "Endereço Completo",
-      "phone": "Telefone (Priorize Celular/WhatsApp, mas aceite fixo se for o único)",
-      "email": "Email (opcional)",
+      "phone": "Telefone",
+      "email": "Email encontrado ou vazio",
+      "partners": "Nome dos Sócios/Donos ou Vazio",
+      "cnpj": "CNPJ encontrado ou Vazio",
       "website": "Site/Instagram",
-      "mapsUri": "Link",
-      "cnpj": "CNPJ (opcional)"
+      "mapsUri": "Link"
     }
-  ]`;
+  ]
+  
+  IMPORTANTE: Retorne um JSON válido contendo TODOS os resultados encontrados. Não trunque a lista.`;
 
   const executeSearch = async (model: string) => {
      // Configuração das Ferramentas
      const tools: any[] = [{ googleSearch: {} }];
      
-     // Adiciona Google Maps se o modelo suportar (Gemini 2.5 ou superior geralmente, mas 2.0 aceita em alguns contextos)
-     // Para garantir, vamos adicionar. Se der erro, o catch pega.
+     // Adiciona Google Maps se o modelo suportar
      tools.push({ googleMaps: {} });
 
-     const config: any = { tools };
+     const config: any = { 
+        tools,
+        // Aumenta o output tokens para permitir listas longas
+        maxOutputTokens: 8192 
+     };
 
      // Se tivermos coordenadas, usamos para ancorar a busca do Maps (Retrieval Config)
      if (coords) {
@@ -163,8 +177,9 @@ export const searchLeadsOnMaps = async (
         name: c.web?.title || c.maps?.title || "Resultado Encontrado",
         address: c.maps?.address || "Verificar link", // Maps fornece endereço direto
         mapsUri: c.maps?.uri || c.web?.uri,
-        phone: "", // Difícil extrair do chunk cru sem processamento da IA
+        phone: "", 
         email: "",
+        partners: "",
         cnpj: "",
         website: c.web?.uri || c.maps?.uri,
         sources: [{ title: c.web?.title || c.maps?.title, uri: c.web?.uri || c.maps?.uri || "" }]
