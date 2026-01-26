@@ -1,20 +1,21 @@
 
 import React, { useState, useEffect } from 'react';
-import { Lead, CRMConfig, CRMContact } from '../types';
+import { Lead, CRMConfig, CRMContact, SearchHistoryItem } from '../types';
 import { searchLeadsOnMaps } from '../services/gemini';
 import { sendSingleToCRM } from '../services/api';
+import { StorageService } from '../services/storage';
 
 interface ProspectingProps {
   config: CRMConfig;
-  initialQuery?: { query: string; location: string; tag: string };
+  initialHistoryItem?: SearchHistoryItem; // Mudança: Recebe o item completo do histórico
   userCoords?: { latitude: number; longitude: number };
-  userLocationName?: string; // Novo prop para nome da cidade via GPS
+  userLocationName?: string;
 }
 
-export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, userCoords, userLocationName }) => {
-  const [query, setQuery] = useState(initialQuery?.query || '');
-  const [location, setLocation] = useState(initialQuery?.location || '');
-  const [tag, setTag] = useState(initialQuery?.tag || '');
+export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistoryItem, userCoords, userLocationName }) => {
+  const [query, setQuery] = useState('');
+  const [location, setLocation] = useState('');
+  const [tag, setTag] = useState('');
   const [useGPS, setUseGPS] = useState(false);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [loading, setLoading] = useState(false);
@@ -24,13 +25,28 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
   // Controle de Paginação Local
   const [visibleCount, setVisibleCount] = useState(12);
 
+  // Efeito para carregar dados iniciais (Props ou Histórico)
   useEffect(() => {
-    if (initialQuery) {
-      setQuery(initialQuery.query);
-      setLocation(initialQuery.location);
-      setTag(initialQuery.tag);
+    if (initialHistoryItem) {
+      // Prioridade 1: Veio do clique no "Ver Novamente" do histórico
+      loadFromHistoryItem(initialHistoryItem);
+    } else {
+      // Prioridade 2: Carregar a última busca salva no navegador
+      const lastSearch = StorageService.getLastSearch();
+      if (lastSearch) {
+        loadFromHistoryItem(lastSearch);
+      }
     }
-  }, [initialQuery]);
+  }, [initialHistoryItem]);
+
+  const loadFromHistoryItem = (item: SearchHistoryItem) => {
+      setQuery(item.query);
+      setLocation(item.location);
+      setTag(item.tag);
+      if (item.leads && item.leads.length > 0) {
+          setLeads(item.leads);
+      }
+  };
 
   const performSearch = async () => {
     const cleanQuery = query.trim();
@@ -65,6 +81,18 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
         setErrorInfo(`Nenhum resultado encontrado para "${cleanQuery}" ${useGPS ? (userLocationName ? `em ${userLocationName}` : 'ao seu redor') : `em ${cleanLocation}`}. Tente um termo mais amplo.`);
       } else {
         setLeads(results);
+
+        // SALVAR NO HISTÓRICO APÓS SUCESSO (INCLUINDO OS LEADS)
+        const historyItem: SearchHistoryItem = {
+            id: Date.now().toString(),
+            query: cleanQuery,
+            location: useGPS ? (userLocationName || 'Localização GPS') : cleanLocation,
+            tag: tag,
+            timestamp: new Date().toISOString(),
+            resultsCount: results.length,
+            leads: results // Agora salvamos os dados completos
+        };
+        StorageService.addToHistory(historyItem);
       }
     } catch (err: any) {
       let cleanMsg = err.message;
