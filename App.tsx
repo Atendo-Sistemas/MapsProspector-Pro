@@ -36,7 +36,9 @@ const App: React.FC = () => {
 
   const [activeTab, setActiveTab] = useState<'search' | 'history' | 'settings'>('search');
   const [history, setHistory] = useState<SearchHistoryItem[]>([]);
-  const [selectedHistory, setSelectedHistory] = useState<{ query: string; location: string; tag: string } | undefined>();
+  
+  // Atualizado para usar o tipo completo, incluindo leads
+  const [selectedHistory, setSelectedHistory] = useState<SearchHistoryItem | undefined>();
   const [hasApiKey, setHasApiKey] = useState<boolean>(false);
   
   // GPS States
@@ -119,11 +121,8 @@ const App: React.FC = () => {
   };
 
   const useHistoryItem = (item: SearchHistoryItem) => {
-    setSelectedHistory({
-        query: item.query,
-        location: item.location,
-        tag: item.tag
-    });
+    // Passa o objeto completo, agora contendo os leads
+    setSelectedHistory(item);
     setActiveTab('search');
   };
 
@@ -215,9 +214,9 @@ const App: React.FC = () => {
           {activeTab === 'search' ? (
             <Prospecting 
                 config={config} 
-                initialQuery={selectedHistory} 
+                initialHistoryItem={selectedHistory} // Passa o item completo
                 userCoords={userCoords}
-                userLocationName={userLocationName} // Passa o nome para a busca
+                userLocationName={userLocationName} 
             />
           ) : activeTab === 'history' ? (
             <div className="max-w-5xl mx-auto">
@@ -237,7 +236,7 @@ const App: React.FC = () => {
                                     <div className="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-xl">🔎</div>
                                     <div>
                                         <h4 className="font-extrabold text-slate-900 text-lg capitalize">{item.query}</h4>
-                                        <p className="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">📍 {item.location || 'Local Automático'}</p>
+                                        <p className="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">📍 {item.location || 'Local Automático'} <span className="ml-2 text-blue-500">({item.resultsCount} leads)</span></p>
                                     </div>
                                 </div>
                                 <button onClick={() => useHistoryItem(item)} className="bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl text-xs hover:bg-blue-600 transition-colors">Ver Novamente</button>
