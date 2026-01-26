@@ -1,20 +1,192 @@
+
 <div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+  <img 
+    width="1200" 
+    height="475" 
+    alt="Atendo Maps Banner" 
+    src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifb65AmhXlG6f-JunD1EDO6b49xAsdoRvDaM58q_HTZg1k1VFEK0coVCYBQYcDn73zwaT0VE-0bEFNaZOLLT2Ofe-vYThcu9U8s2fa5m8i3RnPgRc_G6QSmUY7RkVAhzqlxqex5x5juN_urWJpslFVNX3bYuY-jn_3JbiMUBTvm_U_E0eZ-TBN-qcU90w/s1600/Atendo%20Sistemas.png"
+  />
 </div>
 
-# Run and deploy your AI Studio app
+# Atendo Maps — Ferramenta de Prospecção Inteligente
 
-This contains everything you need to run your app locally.
+O **Atendo Maps** é uma aplicação web de prospecção B2B que utiliza a inteligência artificial do **Google Gemini** para minerar dados de empresas diretamente do **Google Maps**.  
 
-View your app in AI Studio: https://ai.studio/apps/drive/1bN8B9LoIudVcpobNOFsmllDaESmC9g2x
+A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou para outras plataformas via **Webhooks** (como **n8n**), facilitando e acelerando o processo comercial.
 
-## Run Locally
+---
 
-**Prerequisites:**  Node.js
+## 🚀 Principais Funcionalidades
+
+- **Prospecção Inteligente**  
+  Busca de empresas por ramo de atividade e localização utilizando a API do Google Gemini (modelos *Flash 2.0* e *2.5*).
+
+- **Integração com Google Maps**  
+  Validação de existência e extração de dados reais:
+  - Nome
+  - Endereço
+  - Telefone
+  - Site
+  - Link do Google Maps
+
+- **Exportação para CRM**  
+  Envio direto de leads para o **Atendo CRM** ou via **Webhook** (n8n / Evolution API).
+
+- **Geolocalização**  
+  Opção de busca baseada na localização atual do usuário via GPS.
+
+- **Histórico de Buscas**  
+  Registro local das pesquisas realizadas para acesso rápido posterior.
+
+- **Configuração Flexível**  
+  Personalização de endpoints de API, tokens e modelos de IA.
+
+---
+
+## 🧠 Tecnologias Utilizadas
+
+Este projeto foi desenvolvido utilizando uma stack moderna e performática:
+
+- **Frontend:** React 19 (Hooks e Functional Components)
+- **Linguagem:** TypeScript
+- **Build Tool:** Vite
+- **Estilização:** Tailwind CSS
+- **IA:** Google GenAI SDK (Gemini)
+- **Infraestrutura:** Docker & Nginx
+
+---
+
+## 📦 Requisitos
+
+Para rodar o projeto localmente ou em produção, você precisará de:
+
+- Node.js **18 ou superior**
+- Docker & Docker Compose (para implantação em contêiner)
+- Chave de API do **Google Cloud** com acesso à **Gemini API**
+
+---
+
+## 🖥️ Instalação e Execução Local
+
+### 1️⃣ Clone o repositório
+
+```bash
+git clone https://github.com/seu-usuario/atendo-maps.git
+cd atendo-maps
+````
+
+### 2️⃣ Instale as dependências
+
+```bash
+npm install
+```
+
+### 3️⃣ Configure a chave da API
+
+Crie ou edite o arquivo `.env` e adicione:
+
+```env
+VITE_GEMINI_API_KEY=SUA_CHAVE_AQUI
+```
+
+### 4️⃣ Inicie o servidor de desenvolvimento
+
+```bash
+npm run dev
+```
+
+### 5️⃣ Acesse a aplicação
+
+```text
+http://localhost:5173
+```
+
+---
+
+## 🐳 Implantação com Docker (Recomendado para VPS)
+
+O projeto já inclui configuração com **Docker Compose**, facilitando o deploy em servidores Linux.
+
+### 1️⃣ Construa e inicie os contêineres
+
+```bash
+docker-compose up -d --build
+```
+
+### 2️⃣ Acesse a aplicação
+
+A aplicação estará disponível na porta definida no `docker-compose.yml`
+(padrão: **80** ou **3000**, conforme configuração).
+
+---
+
+## 🗂️ Estrutura do Projeto
+
+```text
+src/
+├── components/        # Componentes React (Login, Prospecção)
+├── services/          # Lógica de negócios e integrações externas
+│   ├── gemini.ts
+│   ├── crm.ts
+│   └── auth.ts
+├── types/             # Definições de tipos TypeScript
+├── config/            # Configuração do build e variáveis de ambiente
+nginx/
+├── default.conf       # Configuração do Nginx para Docker
+```
+
+---
+
+## ⚙️ Configuração do CRM
+
+No menu **Configurações** da aplicação, é possível definir:
+
+* **URL do Webhook / API**
+  Endpoint para onde os leads serão enviados.
+
+* **Token**
+  Chave de autenticação (Bearer ou ApiKey).
+
+* **Modo Estrito**
+  Remove campos conflitantes (recomendado para Evolution API).
+
+* **Proxy CORS**
+  Útil para execução local quando houver bloqueios de CORS.
+
+---
+
+## 🧪 Executar Localmente (Resumo)
+
+### Pré-requisitos
+
+* Node.js
+
+### Passos rápidos
+
+```bash
+npm install
+```
+
+Defina no `.env`:
+
+```env
+VITE_GEMINI_API_KEY=SUA_CHAVE_GEMINI
+```
+
+Execute:
+
+```bash
+npm run dev
+```
+
+---
+
+## 📄 Licença
+
+Este projeto é **proprietário** e desenvolvido exclusivamente para a **Atendo Tecnologia**.
+
+```
 
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Só dizer 🚀
+```
