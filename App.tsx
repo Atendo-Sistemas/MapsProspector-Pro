@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { CRMConfig, SearchHistoryItem, AppUser, AppTenant } from './types';
 import { Prospecting } from './components/Prospecting';
+import { StorageService } from './services/storage';
 
 // Componente Toast Interno
 const Toast = ({ message, onClose }: { message: string; onClose: () => void }) => {
@@ -45,25 +46,9 @@ const App: React.FC = () => {
   
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   
-  const [config, setConfig] = useState<CRMConfig>({
-    baseUrl: '',
-    token: '',
-    useProxy: false,
-    wrapInBody: false,
-    simplifiedPayload: false,
-    tenantName: 'Atendo CRM',
-    selectedModel: 'gemini-2.0-flash'
-  });
-
-  const [settingsForm, setSettingsForm] = useState<CRMConfig>({
-    baseUrl: '',
-    token: '',
-    useProxy: false,
-    wrapInBody: false,
-    simplifiedPayload: false,
-    tenantName: 'Atendo CRM',
-    selectedModel: 'gemini-2.0-flash'
-  });
+  // Inicializa configurações direto do StorageService (Síncrono para evitar flash)
+  const [config, setConfig] = useState<CRMConfig>(() => StorageService.getSettings());
+  const [settingsForm, setSettingsForm] = useState<CRMConfig>(() => StorageService.getSettings());
 
   const refreshLocation = () => {
     setLocStatus('loading');
@@ -89,7 +74,6 @@ const App: React.FC = () => {
                 
                 let readable = '';
                 if (city) readable = city;
-                // Removido a concatenação de distrito/bairro para não restringir a busca
                 if (readable && state) readable += ` - ${state}`;
                 
                 if (readable) setUserLocationName(readable);
@@ -117,45 +101,19 @@ const App: React.FC = () => {
       setHasApiKey(true);
     }
 
-    // Load saved settings
-    const savedConfig = localStorage.getItem('atendo_maps_config');
-    if (savedConfig) {
-      try {
-        const parsed = JSON.parse(savedConfig);
-        const finalConfig = {
-          ...parsed,
-          baseUrl: parsed.baseUrl || '',
-          token: parsed.token || '',
-          useProxy: !!parsed.useProxy,
-          wrapInBody: !!parsed.wrapInBody,
-          simplifiedPayload: !!parsed.simplifiedPayload,
-          selectedModel: parsed.selectedModel || 'gemini-2.0-flash'
-        };
-        setConfig(finalConfig);
-        setSettingsForm(finalConfig);
-      } catch (e) {
-        console.error("Erro ao carregar config salva", e);
-      }
-    }
-    loadHistory();
+    // Carrega histórico
+    setHistory(StorageService.getHistory());
   }, []);
 
-  const loadHistory = () => {
-    const savedHistory = localStorage.getItem('atendo_maps_history');
-    if (savedHistory) {
-      setHistory(JSON.parse(savedHistory));
-    }
-  };
-
   const saveSettings = () => {
-    localStorage.setItem('atendo_maps_config', JSON.stringify(settingsForm));
+    StorageService.saveSettings(settingsForm);
     setConfig(settingsForm);
-    setToastMsg('Configurações salvas com sucesso!');
+    setToastMsg('Configurações salvas no sistema!');
   };
 
   const clearHistory = () => {
     if (confirm('Deseja apagar o histórico de buscas?')) {
-        localStorage.removeItem('atendo_maps_history');
+        StorageService.clearHistory();
         setHistory([]);
     }
   };
@@ -199,7 +157,7 @@ const App: React.FC = () => {
             Prospecção
           </button>
           <button 
-            onClick={() => { loadHistory(); setActiveTab('history'); }} 
+            onClick={() => { setHistory(StorageService.getHistory()); setActiveTab('history'); }} 
             className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'history' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
           >
             <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
