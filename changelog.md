@@ -78,7 +78,3 @@ Versão base do sistema de prospecção.
 * Busca por **ramo de atividade** e **localização manual**.
 * Exportação unitária de leads via **Webhook genérico**.
 * Stack inicial: **React + Vite + TailwindCSS**.
-
----
-
-📌 **Nota:** As versões seguem o padrão `MAJOR.MINOR.PATCH` conforme o Semantic Versioning.
