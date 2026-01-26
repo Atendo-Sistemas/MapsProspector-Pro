@@ -1,1 +1,44 @@
+# Changelog
 
+Todas as alterações notáveis neste projeto serão documentadas neste arquivo.
+
+## [1.3.0] - 2024-03-26 (Versão Atual)
+### Persistência de Dados e Otimização de Cache
+Esta atualização foca na experiência do usuário, garantindo que os dados pesquisados não sejam perdidos ao recarregar a página ou navegar pelo histórico.
+
+- **[Adicionado] Persistência Completa de Resultados:** Agora, ao realizar uma busca, não apenas o termo é salvo, mas a lista completa de empresas (leads) é armazenada no navegador.
+- **[Adicionado] Restauração Inteligente:** Ao clicar em "Ver Novamente" no histórico, os resultados carregam instantaneamente sem consumir novos créditos da API.
+- **[Melhoria] Recuperação de Sessão:** Ao abrir a aplicação, a última pesquisa realizada é carregada automaticamente na tela inicial.
+- **[Otimização] Gestão de Storage:** O histórico agora mantém apenas os últimos 20 registros completos para otimizar o uso de memória do navegador (LocalStorage).
+- **[Fix]** Correção na tipagem do `SearchHistoryItem` para suportar o array de `leads` opcional.
+
+## [1.2.0] - 2024-03-07
+### Integração CRM Avançada e Configurações de API
+Melhorias significativas na estabilidade da conexão com CRMs externos (Evolution API, Atendo, n8n) e ajustes finos no motor de busca da IA.
+
+- **[Adicionado] Painel de Configurações:** Nova aba lateral para gestão de chaves e URLs.
+- **[Adicionado] Modo Estrito (Strict Mode):** Filtro automático para payloads JSON, removendo campos como `ticketId` e `contactId` que causam Erro 400 na Evolution API/Atendo.
+- **[Adicionado] Suporte a Proxy (CORS):** Opção nativa para contornar bloqueios de CORS em requisições diretas ao navegador via `corsproxy.io`.
+- **[Adicionado] Wrap in Body:** Opção para encapsular o JSON dentro de um objeto `{ body: ... }`, necessário para alguns fluxos do n8n.
+- **[Melhoria] Prompt Gemini V2:** Atualização do prompt para "Massive Scraper", instruindo a IA a buscar entre 50 a 100 resultados e validar telefones.
+- **[Adicionado] Seletor de Modelo:** Suporte para alternar entre `gemini-2.0-flash` (Estável) e `gemini-2.5-flash` (Experimental Maps).
+
+## [1.1.0] - 2024-02-05
+### Geolocalização e Interface Rica
+Implementação de recursos visuais e detecção automática de localização para facilitar a prospecção em campo.
+
+- **[Adicionado] Integração GPS:** Detecção de coordenadas do usuário via `navigator.geolocation`.
+- **[Adicionado] Reverse Geocoding:** Conversão automática de coordenadas em nomes de cidades legíveis (via OpenStreetMap Nominatim) para contexto da IA.
+- **[UI] Nova Interface:** Layout responsivo com Sidebar escura e Grid de cards.
+- **[UI] Paginação Local:** Botão "Carregar Mais" para gerenciar a exibição de grandes listas de leads sem travar a interface.
+- **[Visual] Badges de Dados:** Indicadores visuais para leads que possuem "Dados Ricos" (Sócios, CNPJ identificados).
+- **[Feature] Links Deep Linking:** Botão para abrir o endereço da empresa diretamente no aplicativo do Google Maps.
+
+## [1.0.0] - 2024-01-01
+### Lançamento Inicial
+Versão base do sistema de prospecção.
+
+- **[Core]** Integração com Google Gemini API (`@google/genai`).
+- **[Core]** Busca básica por Ramo de Atividade e Localização manual.
+- **[Core]** Exportação unitária de leads para Webhook genérico.
+- **[Core]** Estrutura React + Vite + TailwindCSS.
