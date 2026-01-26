@@ -1,0 +1,13 @@
+feat: Migração completa para PHP/XAMPP - Versão 2.0.0
+
+- Migração total de React/TypeScript para PHP puro
+- Implementação de API RESTful completa (auth, search, history, settings, export)
+- Banco de dados MySQL com estrutura completa (users, settings, search_history, leads, sessions)
+- Frontend JavaScript vanilla mantendo design original
+- Sistema de autenticação com sessões PHP
+- Persistência de dados em banco MySQL (substituindo localStorage)
+- Script de verificação (check.php) para diagnóstico
+- Documentação completa (INSTALACAO.md, README-PHP.md)
+- Correções de compatibilidade PHP e tratamento de erros
+- Output buffer para prevenir HTML em respostas JSON
+- Changelog atualizado para versão 2.0.0
