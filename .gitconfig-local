@@ -1,0 +1,12 @@
+# Configurações Git para MapsProspector Pro
+# Para aplicar estas configurações, execute:
+# git config --local core.quotepath false
+# git config --local i18n.commitEncoding utf-8
+# git config --local i18n.logOutputEncoding utf-8
+
+[core]
+    quotepath = false
+
+[i18n]
+    commitEncoding = utf-8
+    logOutputEncoding = utf-8
