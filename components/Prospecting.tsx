@@ -22,7 +22,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
   const [errorInfo, setErrorInfo] = useState<string | null>(null);
   
   // Controle de Paginação Local
-  const [visibleCount, setVisibleCount] = useState(10);
+  const [visibleCount, setVisibleCount] = useState(12);
 
   useEffect(() => {
     if (initialQuery) {
@@ -48,17 +48,17 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
     setLoading(true);
     setErrorInfo(null);
     setLeads([]);
-    setVisibleCount(10); // Reseta para mostrar os primeiros 10
+    setVisibleCount(12); // Reseta paginação
 
     try {
-      // O serviço já busca ~30-50 leads. Aqui apenas exibimos.
+      // O serviço agora tenta buscar 50-100+ leads
       const results = await searchLeadsOnMaps(
         cleanQuery, 
         useGPS ? undefined : cleanLocation, 
         [], 
         config.selectedModel || 'gemini-2.5-flash',
         useGPS ? userCoords : undefined,
-        useGPS ? userLocationName : undefined // Passa o nome da cidade obtido pelo GPS
+        useGPS ? userLocationName : undefined
       );
       
       if (!results || results.length === 0) {
@@ -97,6 +97,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
         extraInfo: [
             { name: 'Endereço', value: lead.address },
             { name: 'CNPJ', value: lead.cnpj || 'Não identificado' },
+            { name: 'Sócios', value: lead.partners || 'Não identificado' },
             { name: 'Maps', value: lead.mapsUri || '' },
             { name: 'Site', value: lead.website || '' }
         ]
@@ -111,8 +112,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
   };
 
   const handleLoadMore = () => {
-    // Aumenta o limite de exibição
-    setVisibleCount(prev => prev + 10);
+    setVisibleCount(prev => prev + 12);
   };
 
   // Fatia o array total para mostrar apenas o count atual
@@ -174,7 +174,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
             >
               {loading ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              ) : 'Buscar Leads'}
+              ) : 'Buscar Tudo'}
             </button>
           </div>
         </div>
@@ -189,6 +189,18 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
         </div>
       )}
 
+      {/* Contador de Resultados */}
+      {leads.length > 0 && (
+         <div className="mb-6 flex justify-between items-end px-2">
+            <div>
+                <h3 className="text-xl font-black text-slate-900 tracking-tight">Resultados da Busca</h3>
+                <p className="text-xs text-slate-500 font-medium">
+                   Exibindo <span className="font-bold text-slate-900">{Math.min(visibleCount, leads.length)}</span> de <span className="font-bold text-slate-900">{leads.length}</span> empresas encontradas
+                </p>
+            </div>
+         </div>
+      )}
+
       {/* Grid de Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8 mb-12">
         {visibleLeads.map((lead) => (
@@ -198,41 +210,49 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
           >
             {/* Badge Flutuante */}
             <div className="absolute -top-3 left-6 bg-blue-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-blue-200 z-10">
-              Inteligência Local
+              {lead.partners ? 'Dados Ricos' : 'Lead'}
             </div>
 
             {/* Conteúdo */}
             <div>
                 {/* Nome / Razão Social */}
-                <h3 className="font-extrabold text-slate-900 text-sm uppercase leading-snug mb-5 min-h-[2.5rem]">
+                <h3 className="font-extrabold text-slate-900 text-sm uppercase leading-snug mb-4 min-h-[2.5rem]">
                     {lead.name}
                 </h3>
 
                 {/* Dados de Contato */}
-                <div className="space-y-4 mb-6">
-                    {/* Telefone (Verde) */}
-                    <div className="flex items-center gap-3">
+                <div className="space-y-3 mb-6">
+                    {/* Telefone (Destaque Verde) */}
+                    <div className="flex items-center gap-3 bg-emerald-50/50 p-2 rounded-lg -mx-2">
                         <span className="text-emerald-500 text-xs">📞</span>
-                        <span className="text-emerald-600 font-bold text-xs">
+                        <span className="text-emerald-700 font-bold text-xs">
                             {lead.phone || 'Sem telefone'}
                         </span>
                     </div>
 
-                    {/* Endereço */}
-                    <div className="flex items-start gap-3">
-                        <span className="text-rose-400 text-xs mt-0.5">📍</span>
-                        <p className="text-slate-500 font-semibold text-[10px] leading-relaxed line-clamp-3">
-                            {lead.address}
-                        </p>
-                    </div>
-                    
-                    {/* CNPJ */}
+                    {/* Sócios (Novo) */}
+                    {lead.partners && (
+                        <div className="flex items-start gap-3">
+                            <span className="text-purple-400 text-xs mt-0.5">👥</span>
+                            <div className="flex flex-col">
+                                <span className="text-[9px] font-black text-slate-400 uppercase">Sócios/Resp.</span>
+                                <p className="text-slate-700 font-bold text-[10px] leading-tight">
+                                    {lead.partners}
+                                </p>
+                            </div>
+                        </div>
+                    )}
+
+                    {/* CNPJ (Novo Layout) */}
                     {lead.cnpj && (
-                        <div className="flex items-center gap-3 bg-slate-50 p-2 rounded-lg border border-slate-100">
-                            <span className="text-slate-400 text-[10px] font-black">CNPJ</span>
-                            <span className="text-slate-700 font-mono font-bold text-[10px]">
-                                {lead.cnpj}
-                            </span>
+                        <div className="flex items-center gap-3">
+                            <span className="text-amber-400 text-xs">🏢</span>
+                            <div className="flex flex-col">
+                                <span className="text-[9px] font-black text-slate-400 uppercase">CNPJ</span>
+                                <span className="text-slate-700 font-mono font-bold text-[10px]">
+                                    {lead.cnpj}
+                                </span>
+                            </div>
                         </div>
                     )}
 
@@ -240,11 +260,22 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialQuery, 
                     {lead.email && (
                         <div className="flex items-center gap-3">
                             <span className="text-blue-400 text-xs">✉️</span>
-                            <a href={`mailto:${lead.email}`} className="text-blue-600 font-bold text-[10px] hover:underline truncate">
-                                {lead.email}
-                            </a>
+                             <div className="flex flex-col overflow-hidden">
+                                <span className="text-[9px] font-black text-slate-400 uppercase">Email</span>
+                                <a href={`mailto:${lead.email}`} className="text-blue-600 font-bold text-[10px] hover:underline truncate w-full block">
+                                    {lead.email}
+                                </a>
+                            </div>
                         </div>
                     )}
+
+                    {/* Endereço */}
+                    <div className="flex items-start gap-3 pt-2 border-t border-slate-100">
+                        <span className="text-rose-400 text-xs mt-0.5">📍</span>
+                        <p className="text-slate-500 font-semibold text-[10px] leading-relaxed line-clamp-2">
+                            {lead.address}
+                        </p>
+                    </div>
                 </div>
 
                 {/* Fontes (Opcional visual) */}
