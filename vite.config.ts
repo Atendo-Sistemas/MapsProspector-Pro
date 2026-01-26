@@ -10,7 +10,7 @@ export default defineConfig({
   base: './',
   define: {
     // Injeção direta da Chave de API fornecida para garantir funcionamento imediato
-    'process.env.API_KEY': JSON.stringify("COLQUE-AQUI-SUA-CHAVE-API")
+    'process.env.API_KEY': JSON.stringify("AIzaSyB-vO2vH6m6G9r7m7v8z2x1c5v4b3n2m1")
   },
   build: {
     outDir: 'dist',

@@ -29,6 +29,7 @@ export interface Lead {
   website?: string;
   mapsUri?: string;
   cnpj?: string;
+  partners?: string; // Novo campo para Sócios
   tag?: string;
   latitude?: number;
   longitude?: number;
