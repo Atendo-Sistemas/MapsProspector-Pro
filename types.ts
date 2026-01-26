@@ -18,6 +18,7 @@ export interface SearchHistoryItem {
   tag: string;
   timestamp: string;
   resultsCount: number;
+  leads?: Lead[]; // Armazena os resultados completos
 }
 
 export interface Lead {
@@ -29,7 +30,7 @@ export interface Lead {
   website?: string;
   mapsUri?: string;
   cnpj?: string;
-  partners?: string; // Novo campo para Sócios
+  partners?: string;
   tag?: string;
   latitude?: number;
   longitude?: number;
