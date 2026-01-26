@@ -4,7 +4,7 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
-## [1.3.0] - 2024-03-26 — **Versão Atual**
+## [1.3.0] - 2026-03-26 — **Versão Atual**
 
 ### Persistência de Dados e Otimização de Cache
 
@@ -26,7 +26,7 @@ Esta atualização foca na experiência do usuário, garantindo que os dados pes
 
 ---
 
-## [1.2.0] - 2024-03-07
+## [1.2.0] - 2026-03-07
 
 ### Integração CRM Avançada e Configurações de API
 
@@ -46,7 +46,7 @@ Melhorias significativas na estabilidade da conexão com CRMs externos e ajustes
 
 ---
 
-## [1.1.0] - 2024-02-05
+## [1.1.0] - 2026-02-05
 
 ### Geolocalização e Interface Rica
 
@@ -66,7 +66,7 @@ Implementação de recursos visuais e detecção automática de localização pa
 
 ---
 
-## [1.0.0] - 2024-01-01
+## [1.0.0] - 2026-01-01
 
 ### Lançamento Inicial
 
