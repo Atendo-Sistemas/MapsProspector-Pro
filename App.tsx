@@ -43,7 +43,7 @@ const App: React.FC = () => {
   // GPS States
   const [userCoords, setUserCoords] = useState<{ latitude: number; longitude: number } | undefined>();
   const [userLocationName, setUserLocationName] = useState<string>(''); // Nome legível do local
-  const [locStatus, setLocStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [locStatus, setLocStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'https_error'>('idle');
   
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   
@@ -52,6 +52,13 @@ const App: React.FC = () => {
   const [settingsForm, setSettingsForm] = useState<CRMConfig>(() => StorageService.getSettings());
 
   const refreshLocation = () => {
+    // Verificação de segurança do navegador
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        setLocStatus('https_error');
+        alert("⚠️ ERRO DE SEGURANÇA:\n\nOs navegadores bloqueiam GPS em sites sem HTTPS (cadeado).\n\nPara testar o GPS, acesse via localhost ou configure um domínio com SSL.");
+        return;
+    }
+
     setLocStatus('loading');
     setUserLocationName('');
     
@@ -84,7 +91,7 @@ const App: React.FC = () => {
           }
         },
         (err) => {
-          console.warn("Geolocalização negada.", err);
+          console.warn("Geolocalização negada ou erro.", err);
           setLocStatus('error');
         },
         { enableHighAccuracy: true, timeout: 10000 }
@@ -96,6 +103,15 @@ const App: React.FC = () => {
 
   useEffect(() => {
     refreshLocation();
+
+    // Check for provided API Key
+    const key = process.env.API_KEY;
+    if (key && key.length > 5 && !key.includes("YOUR_API_KEY")) {
+      setHasApiKey(true);
+      console.log("System Status: API Key Loaded");
+    } else {
+      console.warn("System Status: API Key Missing or Invalid");
+    }
 
     // Carrega histórico
     setHistory(StorageService.getHistory());
@@ -209,13 +225,26 @@ const App: React.FC = () => {
           <div className="bg-slate-800/40 p-5 rounded-[1.25rem] border border-slate-700/50">
             <p className="text-[9px] font-black text-slate-500 uppercase mb-2 tracking-widest">GPS Status</p>
             <p className="text-[10px] font-bold text-white truncate flex items-center gap-2 mb-2">
-                <span className={`w-2 h-2 rounded-full ${locStatus === 'success' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : locStatus === 'loading' ? 'bg-yellow-500 animate-pulse' : 'bg-red-500'}`}></span>
-                {locStatus === 'success' ? 'Localização Ativa' : locStatus === 'loading' ? 'Detectando...' : 'GPS Inativo'}
+                <span className={`w-2 h-2 rounded-full ${
+                    locStatus === 'success' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 
+                    locStatus === 'loading' ? 'bg-yellow-500 animate-pulse' : 
+                    locStatus === 'https_error' ? 'bg-orange-500' : 'bg-red-500'
+                }`}></span>
+                {
+                    locStatus === 'success' ? 'Localização Ativa' : 
+                    locStatus === 'loading' ? 'Detectando...' : 
+                    locStatus === 'https_error' ? 'Requer HTTPS' : 'Inativo / Bloqueado'
+                }
             </p>
             {userLocationName && (
                 <div className="pt-2 border-t border-slate-700/50">
                      <p className="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Detectado:</p>
                      <p className="text-[10px] text-emerald-300 font-bold leading-tight">{userLocationName}</p>
+                </div>
+            )}
+            {locStatus === 'https_error' && (
+                <div className="pt-2 border-t border-slate-700/50">
+                     <p className="text-[9px] text-orange-400 font-bold leading-tight">Instale SSL/HTTPS para usar o GPS.</p>
                 </div>
             )}
           </div>
@@ -291,6 +320,19 @@ const App: React.FC = () => {
                         <h4 className="font-black text-xl mb-4 flex items-center gap-2">API Thordata (ScraperAPI)</h4>
                         <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps via Thordata</div>
                         <p className="text-[10px] text-slate-400 mt-4 text-center italic">API configurada no servidor.</p>
+                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">Google Cloud API</h4>
+                        {!hasApiKey ? (
+                          <div className="p-5 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-400 text-center font-bold">
+                            ⚠️ API Key não detectada<br/>
+                            <span className="text-[10px] font-normal opacity-80 mt-2 block">
+                                Se você está rodando via Docker, certifique-se de ter rodado: <br/>
+                                <code className="bg-black/30 px-2 py-1 rounded mt-1 inline-block">export API_KEY="sua_chave"</code> antes do build.
+                            </span>
+                          </div>
+                        ) : (
+                          <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps (Gemini)</div>
+                        )}
+                        <p className="text-[10px] text-slate-400 mt-4 text-center italic">API Key injetada via sistema.</p>
                     </div>
 
                     {/* Botões de Opção Rápida */}
