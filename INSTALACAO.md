@@ -224,5 +224,5 @@ Para problemas ou dúvidas:
 
 ---
 
-**Desenvolvido para Atendo Tecnologia**  
+**Desenvolvido para Atendo Tecnologia em parceria com GFSISTEMA**  
 Versão PHP - 2024
