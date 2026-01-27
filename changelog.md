@@ -4,6 +4,32 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+# 📢 Changelog – MapsProspector Pro v2.0 (PHP/XAMPP)
+
+## 🚀 Novidades Principais
+- Migração completa do **React/TypeScript** para **PHP nativo**, rodando diretamente no **XAMPP**  
+- Estrutura reorganizada com **API RESTful** e endpoints dedicados (`auth`, `search`, `history`, `settings`, `export`)  
+- Persistência de dados agora em **MySQL/MariaDB**, substituindo o uso de `localStorage`  
+- **Autenticação real via sessões PHP**, garantindo maior segurança  
+- **Histórico de buscas, configurações e leads** armazenados no banco de dados  
+- **Exportação de leads para CRM/Webhook** integrada  
+- **Integração com Google Gemini API** para busca avançada de leads  
+- Interface moderna e responsiva preservada, sem dependência de frameworks pesados  
+
+## 🔐 Melhorias de Segurança
+- Uso de **Prepared Statements** contra SQL Injection  
+- **Sanitização de inputs** e validação de sessões  
+- Configuração de **headers de segurança** (CORS, XSS Protection)  
+- Proteção de arquivos sensíveis via `.htaccess`  
+
+## 📦 Tecnologias
+- **Backend:** PHP 7.4+  
+- **Banco:** MySQL/MariaDB  
+- **Frontend:** HTML5, CSS3 (Tailwind), JavaScript ES6+  
+- **Servidor:** Apache (XAMPP)  
+
+---
+
 ## [1.3.0] - 2026-03-26 — **Versão Atual**
 
 ### Persistência de Dados e Otimização de Cache
