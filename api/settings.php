@@ -34,7 +34,7 @@ if ($method === 'GET') {
             'useProxy' => 0,
             'wrapInBody' => 0,
             'simplifiedPayload' => 0,
-            'selectedModel' => 'gemini-2.0-flash'
+            'scraperApiKey' => ''
         ];
         jsonSuccess($defaultSettings);
     } else {
@@ -45,7 +45,7 @@ if ($method === 'GET') {
             'useProxy' => (bool)($settings['use_proxy'] ?? 0),
             'wrapInBody' => (bool)($settings['wrap_in_body'] ?? 0),
             'simplifiedPayload' => (bool)($settings['simplified_payload'] ?? 0),
-            'selectedModel' => $settings['selected_model'] ?? 'gemini-2.0-flash'
+            'scraperApiKey' => $settings['scraper_api_key'] ?? ''
         ]);
     }
     
@@ -59,7 +59,7 @@ if ($method === 'GET') {
     $useProxy = isset($input['useProxy']) && $input['useProxy'] ? 1 : 0;
     $wrapInBody = isset($input['wrapInBody']) && $input['wrapInBody'] ? 1 : 0;
     $simplifiedPayload = isset($input['simplifiedPayload']) && $input['simplifiedPayload'] ? 1 : 0;
-    $selectedModel = sanitizeInput($input['selectedModel'] ?? 'gemini-2.0-flash');
+    $scraperApiKey = sanitizeInput($input['scraperApiKey'] ?? '');
     
     // Verifica se já existe
     $stmt = $db->prepare("SELECT id FROM settings WHERE user_id = ?");
@@ -67,7 +67,7 @@ if ($method === 'GET') {
     $exists = $stmt->fetch();
     
     if ($exists) {
-        // Atualiza
+        // Atualiza (mantém selected_model se existir, mas não atualiza)
         $stmt = $db->prepare("
             UPDATE settings SET
                 base_url = ?,
@@ -76,24 +76,24 @@ if ($method === 'GET') {
                 use_proxy = ?,
                 wrap_in_body = ?,
                 simplified_payload = ?,
-                selected_model = ?,
+                scraper_api_key = ?,
                 updated_at = NOW()
             WHERE user_id = ?
         ");
         $stmt->execute([
             $baseUrl, $token, $tenantName, $useProxy, $wrapInBody, 
-            $simplifiedPayload, $selectedModel, $userId
+            $simplifiedPayload, $scraperApiKey, $userId
         ]);
     } else {
-        // Insere
+        // Insere (não inclui selected_model)
         $stmt = $db->prepare("
             INSERT INTO settings 
-            (user_id, base_url, token, tenant_name, use_proxy, wrap_in_body, simplified_payload, selected_model)
+            (user_id, base_url, token, tenant_name, use_proxy, wrap_in_body, simplified_payload, scraper_api_key)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
         $stmt->execute([
             $userId, $baseUrl, $token, $tenantName, $useProxy, 
-            $wrapInBody, $simplifiedPayload, $selectedModel
+            $wrapInBody, $simplifiedPayload, $scraperApiKey
         ]);
     }
     

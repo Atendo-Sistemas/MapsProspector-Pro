@@ -4,7 +4,62 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
-## [2.0.0] - 2026-01-26 — **Versão Atual**
+## [2.1.0] - 2026-01-27 — **Versão Atual**
+
+### Integração com ScraperAPI (Thordata)
+
+Migração do sistema de busca de leads do Google Gemini API para ScraperAPI (Thordata), permitindo busca direta no Google Maps com maior controle e performance.
+
+### ✨ Adicionado
+
+* **ScraperService PHP:** Novo serviço `services/scraperService.php` para integração com ScraperAPI (Thordata).
+* **SearchService TypeScript:** Novo serviço `services/searchService.ts` para comunicação frontend-backend.
+* **Campo scraper_api_key:** Suporte para configuração de chave da API Thordata por usuário no banco de dados.
+* **Script de migração:** `database_migration_scraper_api.sql` para adicionar campo `scraper_api_key` na tabela `settings`.
+* **Paginação automática:** Sistema de paginação automática para buscar até 100 resultados por pesquisa.
+* **Validação robusta:** Validação avançada de dados retornados pela API com logs detalhados.
+
+### 🚀 Melhorias
+
+* **Busca direta no Google Maps:** Substituição do Gemini API por busca direta via ScraperAPI, resultando em resultados mais precisos e rápidos.
+* **Configuração centralizada:** Chave da API configurável no painel de configurações, com fallback para `config.php`.
+* **Tratamento de erros:** Melhor tratamento de erros com mensagens claras e logs detalhados para debug.
+* **Sincronização de configurações:** Configurações agora são carregadas e salvas no servidor, mantendo sincronização entre frontend e backend.
+* **Performance:** Busca otimizada com suporte a até 100 resultados por pesquisa com paginação automática.
+
+### 🔄 Mudanças Arquiteturais
+
+* **Substituição de API:** Migração de Google Gemini API para ScraperAPI (Thordata) como motor de busca principal.
+* **Remoção de seleção de modelo:** Removido campo de seleção de modelo de IA, já que ScraperAPI não utiliza modelos de IA.
+* **Interface de configurações:** Atualizada interface para exibir status da conexão com ScraperAPI em vez de Google Cloud API.
+
+### 🐛 Correções
+
+* Correção no tratamento de respostas JSON aninhadas da API.
+* Melhor validação de dados retornados para evitar leads inválidos.
+* Correção no carregamento de configurações do servidor no frontend.
+
+### 📝 Arquivos Modificados
+
+* `App.tsx` - Integração com API de configurações e campo ScraperAPI
+* `api/search.php` - Migração para ScraperService com melhor tratamento de erros
+* `api/settings.php` - Suporte para campo `scraper_api_key`
+* `assets/js/app.js` - Ajustes de integração
+* `components/Prospecting.tsx` - Ajustes de interface
+* `config/config.php` - Suporte para constante `SCRAPER_API_KEY`
+* `index.php` - Ajustes menores
+* `services/storage.ts` - Ajustes de tipos
+* `types.ts` - Atualização de tipos
+
+### 📝 Arquivos Criados
+
+* `services/scraperService.php` - Serviço de integração com ScraperAPI
+* `services/searchService.ts` - Serviço TypeScript para busca
+* `database_migration_scraper_api.sql` - Script de migração do banco de dados
+
+---
+
+## [2.0.0] - 2026-01-26
 
 ### Migração Completa para PHP/XAMPP
 

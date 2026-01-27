@@ -355,12 +355,40 @@ async function performSearch() {
                 tag,
                 useGPS,
                 coords: useGPS ? AppState.userCoords : null,
-                locationName: useGPS ? AppState.userLocationName : null,
-                model: AppState.config?.selectedModel || 'gemini-2.0-flash'
+                locationName: useGPS ? AppState.userLocationName : null
             })
         });
         
-        const data = await res.json();
+        // Verifica se a resposta está OK
+        if (!res.ok) {
+            const text = await res.text();
+            let errorMsg = `Erro ${res.status}: Erro interno do servidor`;
+            try {
+                if (text) {
+                    const errorData = JSON.parse(text);
+                    errorMsg = errorData.error || errorData.message || errorMsg;
+                }
+            } catch (e) {
+                // Se não conseguir parsear, usa a mensagem padrão
+            }
+            showError(errorMsg);
+            return;
+        }
+        
+        // Verifica se há conteúdo antes de parsear
+        const text = await res.text();
+        if (!text || text.trim() === '') {
+            showError('Erro: Resposta vazia do servidor. Verifique os logs do servidor.');
+            return;
+        }
+        
+        let data;
+        try {
+            data = JSON.parse(text);
+        } catch (e) {
+            showError('Erro ao processar resposta do servidor: ' + e.message);
+            return;
+        }
         
         if (data.success) {
             AppState.leads = data.data.leads;
@@ -624,9 +652,9 @@ function getSettingsHTML() {
                 <div class="space-y-8">
                     <div class="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
-                        <h4 class="font-black text-xl mb-4 flex items-center gap-2">Google Cloud API</h4>
-                        <div id="api-status" class="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps (Gemini)</div>
-                        <p class="text-[10px] text-slate-400 mt-4 text-center italic">API Key configurada em config/config.php</p>
+                        <h4 class="font-black text-xl mb-4 flex items-center gap-2">API Thordata (ScraperAPI)</h4>
+                        <div id="api-status" class="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps via Thordata</div>
+                        <p class="text-[10px] text-slate-400 mt-4 text-center italic">API configurada no servidor</p>
                     </div>
                     
                     <div class="grid grid-cols-1 gap-4">
@@ -667,14 +695,6 @@ function getSettingsHTML() {
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Modelo de IA Inteligente</label>
-                            <select id="setting-model" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold appearance-none">
-                                <option value="gemini-2.0-flash">Gemini 2.0 Flash (Estável - Padrão)</option>
-                                <option value="gemini-2.5-flash">Gemini 2.5 Flash (Experimental Maps)</option>
-                                <option value="gemini-2.0-flash-lite-preview-02-05">Gemini 2.0 Flash Lite (Rápido)</option>
-                            </select>
-                        </div>
-                        <div>
                             <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Nome da Instância</label>
                             <input id="setting-tenant" type="text" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Atendo CRM">
                         </div>
@@ -690,7 +710,19 @@ function getSettingsHTML() {
                         <input id="setting-token" type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Insira o Token do CRM">
                     </div>
                     
-                    <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
+                    <div class="mt-6 bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
+                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">🔑 ScraperAPI Thordata</h4>
+                        <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps</p>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Thordata</label>
+                            <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Thordata">
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
+                    </div>
                 </div>
             </div>
         </div>
@@ -744,7 +776,11 @@ async function loadSettingsForm() {
             document.getElementById('setting-url').value = AppState.config.baseUrl || '';
             document.getElementById('setting-token').value = AppState.config.token || '';
             document.getElementById('setting-tenant').value = AppState.config.tenantName || 'Atendo CRM';
-            document.getElementById('setting-model').value = AppState.config.selectedModel || 'gemini-2.0-flash';
+            // Carrega a chave da API Thordata se o elemento existir
+            const scraperApiInput = document.getElementById('setting-scraper-api');
+            if (scraperApiInput) {
+                scraperApiInput.value = AppState.config.scraperApiKey || '';
+            }
             
             updateSwitch('toggle-simplified', AppState.config.simplifiedPayload);
             updateSwitch('toggle-proxy', AppState.config.useProxy);
@@ -787,7 +823,7 @@ async function saveSettings() {
                 baseUrl: document.getElementById('setting-url').value,
                 token: document.getElementById('setting-token').value,
                 tenantName: document.getElementById('setting-tenant').value,
-                selectedModel: document.getElementById('setting-model').value,
+                scraperApiKey: document.getElementById('setting-scraper-api') ? document.getElementById('setting-scraper-api').value : '',
                 simplifiedPayload: AppState.config.simplifiedPayload || false,
                 useProxy: AppState.config.useProxy || false,
                 wrapInBody: AppState.config.wrapInBody || false
