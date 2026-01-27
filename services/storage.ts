@@ -13,7 +13,7 @@ const DEFAULT_CONFIG: CRMConfig = {
   wrapInBody: false,
   simplifiedPayload: false,
   tenantName: 'Atendo CRM',
-  selectedModel: 'gemini-2.0-flash'
+  scraperApiKey: ''
 };
 
 export const StorageService = {

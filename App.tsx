@@ -39,7 +39,6 @@ const App: React.FC = () => {
   
   // Atualizado para usar o tipo completo, incluindo leads
   const [selectedHistory, setSelectedHistory] = useState<SearchHistoryItem | undefined>();
-  const [hasApiKey, setHasApiKey] = useState<boolean>(false);
   
   // GPS States
   const [userCoords, setUserCoords] = useState<{ latitude: number; longitude: number } | undefined>();
@@ -116,12 +115,52 @@ const App: React.FC = () => {
 
     // Carrega histórico
     setHistory(StorageService.getHistory());
+    
+    // Carrega configurações do servidor
+    const loadServerSettings = async () => {
+      try {
+        const response = await fetch('/api/settings.php');
+        const data = await response.json();
+        if (data.success && data.data) {
+          const serverConfig = {
+            ...settingsForm,
+            ...data.data
+          };
+          setSettingsForm(serverConfig);
+          setConfig(serverConfig);
+          StorageService.saveSettings(serverConfig);
+        }
+      } catch (error) {
+        console.error('Erro ao carregar configurações do servidor:', error);
+      }
+    };
+    
+    loadServerSettings();
   }, []);
 
-  const saveSettings = () => {
-    StorageService.saveSettings(settingsForm);
-    setConfig(settingsForm);
-    setToastMsg('Configurações salvas no sistema!');
+  const saveSettings = async () => {
+    try {
+      // Salva no backend
+      const response = await fetch('/api/settings.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(settingsForm)
+      });
+      
+      const data = await response.json();
+      
+      if (data.success) {
+        // Salva também no localStorage
+        StorageService.saveSettings(settingsForm);
+        setConfig(settingsForm);
+        setToastMsg('Configurações salvas com sucesso!');
+      } else {
+        setToastMsg('Erro ao salvar: ' + (data.error || 'Erro desconhecido'));
+      }
+    } catch (error: any) {
+      console.error('Erro ao salvar configurações:', error);
+      setToastMsg('Erro de conexão ao salvar configurações');
+    }
   };
 
   const clearHistory = () => {
@@ -275,9 +314,12 @@ const App: React.FC = () => {
                   <h3 className="text-2xl font-black text-slate-900 mb-8 tracking-tight">Configurações de Conexão</h3>
                   
                   <div className="space-y-8">
-                    {/* Google API Section */}
+                    {/* API Thordata Section */}
                     <div className="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
+                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">API Thordata (ScraperAPI)</h4>
+                        <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps via Thordata</div>
+                        <p className="text-[10px] text-slate-400 mt-4 text-center italic">API configurada no servidor.</p>
                         <h4 className="font-black text-xl mb-4 flex items-center gap-2">Google Cloud API</h4>
                         {!hasApiKey ? (
                           <div className="p-5 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-400 text-center font-bold">
@@ -343,14 +385,6 @@ const App: React.FC = () => {
 
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                       <div>
-                        <label className="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Modelo de IA Inteligente</label>
-                        <select className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold appearance-none" value={settingsForm.selectedModel} onChange={(e) => setSettingsForm(prev => ({ ...prev, selectedModel: e.target.value as any }))}>
-                            <option value="gemini-2.0-flash">Gemini 2.0 Flash (Estável - Padrão)</option>
-                            <option value="gemini-2.5-flash">Gemini 2.5 Flash (Experimental Maps)</option>
-                            <option value="gemini-2.0-flash-lite-preview-02-05">Gemini 2.0 Flash Lite (Rápido)</option>
-                        </select>
-                      </div>
-                      <div>
                         <label className="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Nome da Instância</label>
                         <input type="text" className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" value={settingsForm.tenantName || ''} onChange={(e) => setSettingsForm(prev => ({ ...prev, tenantName: e.target.value }))} />
                       </div>
@@ -364,6 +398,16 @@ const App: React.FC = () => {
                     <div>
                       <label className="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Token de Acesso / API Key CRM</label>
                       <input type="password" className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Insira o Token do CRM" value={settingsForm.token} onChange={(e) => setSettingsForm(prev => ({ ...prev, token: e.target.value }))} />
+                    </div>
+
+                    <div className="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
+                      <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
+                      <h4 className="font-black text-lg mb-3 flex items-center gap-2">ScraperAPI Thordata</h4>
+                      <p className="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps</p>
+                      <div>
+                        <label className="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Thordata</label>
+                        <input type="password" className="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Thordata" value={settingsForm.scraperApiKey || ''} onChange={(e) => setSettingsForm(prev => ({ ...prev, scraperApiKey: e.target.value }))} />
+                      </div>
                     </div>
 
                     <button onClick={saveSettings} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>

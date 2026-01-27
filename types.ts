@@ -6,9 +6,7 @@ export interface CRMConfig {
   useProxy?: boolean;
   wrapInBody?: boolean;
   simplifiedPayload?: boolean;
-  // Gemini 2.0 Flash is generally available and stable.
-  // Gemini 2.5 series is required for advanced Google Maps grounding if available.
-  selectedModel?: 'gemini-2.0-flash' | 'gemini-2.5-flash' | 'gemini-2.0-flash-lite-preview-02-05';
+  scraperApiKey?: string;
 }
 
 export interface SearchHistoryItem {

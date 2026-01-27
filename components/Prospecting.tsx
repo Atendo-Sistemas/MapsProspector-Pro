@@ -1,7 +1,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { Lead, CRMConfig, CRMContact, SearchHistoryItem } from '../types';
-import { searchLeadsOnMaps } from '../services/gemini';
+import { searchLeadsOnMaps } from '../services/searchService';
 import { sendSingleToCRM } from '../services/api';
 import { StorageService } from '../services/storage';
 
@@ -67,12 +67,11 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
     setVisibleCount(12); // Reseta paginação
 
     try {
-      // O serviço agora tenta buscar 50-100+ leads
+      // Busca leads usando API Thordata (ScraperAPI)
       const results = await searchLeadsOnMaps(
         cleanQuery, 
         useGPS ? undefined : cleanLocation, 
-        [], 
-        config.selectedModel || 'gemini-2.5-flash',
+        [],
         useGPS ? userCoords : undefined,
         useGPS ? userLocationName : undefined
       );
