@@ -1,11 +1,11 @@
 /**
- * MapsProspector Pro - JavaScript Principal
- * Substitui a funcionalidade React original
+ * MapsProspector Pro - JavaScript Principal (interface única PHP/XAMPP)
+ * Histórico de pesquisas: gravado e listado via banco de dados (api/search.php e api/history.php).
  */
 
 const API_BASE = 'api/';
 
-// Estado da aplicação
+// Estado da aplicação (histórico vem do banco via history.php)
 const AppState = {
     user: null,
     config: null,
@@ -14,8 +14,9 @@ const AppState = {
     userLocationName: '',
     locStatus: 'idle', // idle | loading | success | error
     leads: [],
-    history: [],
-    visibleCount: 12
+    history: [],      // preenchido por loadHistory() -> api/history.php (banco)
+    visibleCount: 12,
+    currentSearch: { query: '', location: '', tag: '' }  // contexto da pesquisa atual (para exportar)
 };
 
 // Inicialização
@@ -266,12 +267,22 @@ function getProspectingHTML() {
             
             <div id="error-info" class="hidden mb-8 p-5 bg-amber-50 border-l-4 border-amber-400 text-amber-900 rounded-r-2xl shadow-sm"></div>
             
-            <div id="results-header" class="hidden mb-6 flex justify-between items-end px-2">
+            <div id="results-header" class="hidden mb-6 flex flex-wrap justify-between items-end gap-4 px-2">
                 <div>
                     <h3 class="text-xl font-black text-slate-900 tracking-tight">Resultados da Busca</h3>
                     <p class="text-xs text-slate-500 font-medium">
                         Exibindo <span id="visible-count" class="font-bold text-slate-900">0</span> de <span id="total-count" class="font-bold text-slate-900">0</span> empresas encontradas
                     </p>
+                </div>
+                <div id="results-header-buttons" class="flex items-center gap-3">
+                    <button id="btn-export-excel" type="button" class="flex items-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg shadow-emerald-900/20" title="Exportar pesquisa atual para Excel">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                        Exportar para Excel
+                    </button>
+                    <button id="btn-export-webhook" type="button" class="hidden flex items-center gap-2 px-5 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg shadow-blue-900/20" title="Enviar pesquisa atual para o Webhook">
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                        Exportar para Webhook
+                    </button>
                 </div>
             </div>
             
@@ -318,9 +329,119 @@ function setupProspectingEvents() {
     document.getElementById('search-query').addEventListener('keypress', (e) => {
         if (e.key === 'Enter') performSearch();
     });
+
+    const btnExportExcel = document.getElementById('btn-export-excel');
+    if (btnExportExcel) {
+        btnExportExcel.addEventListener('click', exportCurrentSearchToExcel);
+    }
+    const btnExportWebhook = document.getElementById('btn-export-webhook');
+    if (btnExportWebhook) {
+        btnExportWebhook.addEventListener('click', exportCurrentSearchToWebhook);
+    }
 }
 
-// Realiza busca
+// Escapa valor para célula CSV (vírgula, aspas, quebra de linha)
+function escapeCsv(val) {
+    if (val == null || val === undefined) return '';
+    const s = String(val).trim();
+    if (s.includes(',') || s.includes('"') || s.includes('\n') || s.includes('\r')) {
+        return '"' + s.replace(/"/g, '""') + '"';
+    }
+    return s;
+}
+
+// Exporta apenas a pesquisa atual (leads listados) para CSV (abre no Excel)
+function exportCurrentSearchToExcel() {
+    const leads = AppState.leads || [];
+    if (leads.length === 0) {
+        alert('Nenhum dado na pesquisa atual para exportar.');
+        return;
+    }
+    const ctx = AppState.currentSearch || {};
+    const queryEl = document.getElementById('search-query');
+    const locationEl = document.getElementById('search-location');
+    const tagEl = document.getElementById('search-tag');
+    const query = (ctx.query !== undefined && ctx.query !== '') ? ctx.query : (queryEl ? queryEl.value.trim() : '');
+    const location = (ctx.location !== undefined && ctx.location !== '') ? ctx.location : ((locationEl && locationEl.value !== undefined) ? String(locationEl.value || '').trim() : '');
+    const tag = (ctx.tag !== undefined && ctx.tag !== '') ? ctx.tag : (tagEl ? tagEl.value.trim() : '');
+    const dateStr = new Date().toLocaleString('pt-BR');
+
+    const rows = [];
+    const headers = ['Pesquisa', 'Local', 'Tag', 'Data da Pesquisa', 'Nome', 'Telefone', 'Email', 'Endereço', 'CNPJ', 'Sócios', 'Site', 'Maps'];
+    rows.push(headers);
+
+    for (const lead of leads) {
+        rows.push([
+            escapeCsv(query),
+            escapeCsv(location),
+            escapeCsv(tag),
+            escapeCsv(dateStr),
+            escapeCsv(lead.name),
+            escapeCsv(lead.phone || ''),
+            escapeCsv(lead.email || ''),
+            escapeCsv(lead.address || ''),
+            escapeCsv(lead.cnpj || ''),
+            escapeCsv(lead.partners || ''),
+            escapeCsv(lead.website || ''),
+            escapeCsv(lead.mapsUri || '')
+        ]);
+    }
+
+    const csvContent = rows.map(row => row.join(';')).join('\r\n');
+    const BOM = '\uFEFF';
+    const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'pesquisa_atual_' + new Date().toISOString().slice(0, 10) + '.csv';
+    a.click();
+    URL.revokeObjectURL(url);
+}
+
+// Envia todos os leads da pesquisa atual para o Webhook em um único request (api/export-bulk.php)
+async function exportCurrentSearchToWebhook() {
+    const leads = AppState.leads || [];
+    if (leads.length === 0) {
+        alert('Nenhum lead na pesquisa atual para enviar.');
+        return;
+    }
+    if (!AppState.config || !AppState.config.baseUrl || String(AppState.config.baseUrl).trim() === '') {
+        alert('Configure a URL do Webhook em Configurações para usar esta função.');
+        return;
+    }
+    const btn = document.getElementById('btn-export-webhook');
+    if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<span class="animate-pulse">Enviando...</span>';
+    }
+    try {
+        const res = await fetch(API_BASE + 'export-bulk.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                leadIds: leads.map(l => l.id)
+            })
+        });
+        const data = await res.json();
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg> Exportar para Webhook';
+        }
+        if (data.success) {
+            showToast(data.message || 'Enviado para o Webhook.');
+        } else {
+            alert('❌ Erro: ' + (data.error || 'Erro desconhecido'));
+        }
+    } catch (e) {
+        if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg> Exportar para Webhook';
+        }
+        alert('❌ Erro de conexão: ' + e.message);
+    }
+}
+
+// Realiza busca (api/search.php grava pesquisa e leads no banco; listagem vem de api/history.php)
 async function performSearch() {
     const query = document.getElementById('search-query').value.trim();
     const location = document.getElementById('search-location')?.value.trim() || '';
@@ -421,6 +542,12 @@ function displayLeads() {
     
     emptyState.classList.add('hidden');
     resultsHeader.classList.remove('hidden');
+
+    const btnExportWebhook = document.getElementById('btn-export-webhook');
+    if (btnExportWebhook) {
+        const hasWebhookUrl = AppState.config && AppState.config.baseUrl && String(AppState.config.baseUrl).trim() !== '';
+        btnExportWebhook.classList.toggle('hidden', !hasWebhookUrl);
+    }
     
     const visible = AppState.leads.slice(0, AppState.visibleCount);
     document.getElementById('visible-count').textContent = visible.length;
@@ -509,7 +636,7 @@ function getLeadCardHTML(lead) {
             </div>
             <div class="flex items-center gap-3 pt-4 border-t border-slate-100 mt-auto">
                 <button class="btn-export flex-grow bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-black text-[10px] py-3 rounded-xl uppercase tracking-wide transition-all shadow-sm active:scale-95 disabled:opacity-50 flex justify-center items-center gap-2" data-lead-id="${lead.id}">
-                    Exportar para CRM
+                    Exportar WEBHOOK
                 </button>
                 ${lead.mapsUri ? `
                     <a href="${lead.mapsUri}" target="_blank" rel="noopener noreferrer" class="w-12 h-[38px] flex-shrink-0 bg-white border border-slate-200 text-blue-500 hover:bg-blue-50 hover:border-blue-200 rounded-xl flex items-center justify-center transition-all shadow-sm" title="Ver no Google Maps">
@@ -633,6 +760,11 @@ function displayHistory() {
             const item = AppState.history.find(h => h.id == historyId);
             if (item && item.leads) {
                 AppState.leads = item.leads;
+                AppState.currentSearch = {
+                    query: item.query || '',
+                    location: item.location || '',
+                    tag: item.tag || ''
+                };
                 setActiveTab('search');
                 // Recarrega a tab de busca
                 setTimeout(() => {
@@ -701,13 +833,14 @@ function getSettingsHTML() {
                     </div>
                     
                     <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">URL do Webhook n8n ou CRM Atendo</label>
-                        <input id="setting-url" type="url" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="https://seu-n8n.com/webhook/...">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">URL do Webhook</label>
+                        <input id="setting-url" type="url" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="https://seu-webhook.com/...">
                     </div>
                     
                     <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Token de Acesso / API Key CRM</label>
-                        <input id="setting-token" type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Insira o Token do CRM">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Authentication Header: apikey</label>
+                        <p class="text-[10px] text-slate-500 mb-1 ml-1">Nome do header fixo: <code class="bg-slate-100 px-1 rounded">apikey</code>. Valor (preenchido abaixo) é salvo criptografado no banco.</p>
+                        <input id="setting-token" type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Valor do header apikey (deixe em branco para manter o atual)">
                     </div>
                     
                     <div class="mt-6 bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">

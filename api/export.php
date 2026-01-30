@@ -74,60 +74,14 @@ if (!$config || empty($config['base_url'])) {
     jsonError('URL do CRM não configurada. Configure nas Configurações.', 400);
 }
 
-// Prepara dados do contato
-$phone = formatPhoneNumber($lead['phone'] ?? '');
-if (empty($phone)) {
+// Prepara dados do contato (reutiliza helper usado no bulk)
+$contactData = buildContactDataFromLead($lead, (bool)($config['simplified_payload'] ?? 0));
+if ($contactData === null) {
     jsonError('O contato não possui um número de telefone válido.');
 }
 
-$contactData = [
-    'name' => $lead['name'],
-    'number' => $phone
-];
-
-if (!$config['simplified_payload']) {
-    $contactData['email'] = $lead['email'] ?? '';
-    $contactData['tag'] = $lead['tag'] ?? 'prospect_maps';
-    
-    $extraInfo = [];
-    if (!empty($lead['address'])) {
-        $extraInfo[] = ['name' => 'Endereço', 'value' => $lead['address']];
-    }
-    if (!empty($lead['cnpj'])) {
-        $extraInfo[] = ['name' => 'CNPJ', 'value' => $lead['cnpj']];
-    }
-    if (!empty($lead['partners'])) {
-        $extraInfo[] = ['name' => 'Sócios', 'value' => $lead['partners']];
-    }
-    if (!empty($lead['maps_uri'])) {
-        $extraInfo[] = ['name' => 'Maps', 'value' => $lead['maps_uri']];
-    }
-    if (!empty($lead['website'])) {
-        $extraInfo[] = ['name' => 'Site', 'value' => $lead['website']];
-    }
-    
-    if (!empty($extraInfo)) {
-        $contactData['extraInfo'] = $extraInfo;
-    }
-    
-    $contactData['commentary'] = "Lead capturado via Maps. Endereço: " . ($lead['address'] ?? '');
-}
-
-// Limpa dados
-$contactData = deepClean($contactData);
-
-// Remove campos que causam erro 400
-unset($contactData['ticketId'], $contactData['contactId'], $contactData['id'], $contactData['messageId']);
-
-// Prepara URL
-$targetUrl = $config['base_url'];
-$isDirectWebhook = strpos($targetUrl, '/external/') !== false || 
-                   strpos($targetUrl, '/webhook/') !== false || 
-                   strpos($targetUrl, 'n8n') !== false;
-
-if (!$isDirectWebhook) {
-    $targetUrl = rtrim($targetUrl, '/') . '/createcontact';
-}
+// URL do Webhook: usada exatamente como configurada (n8n, Atendo etc. — não acrescentar /createcontact)
+$targetUrl = rtrim($config['base_url'], '/');
 
 if ($config['use_proxy']) {
     $targetUrl = 'https://corsproxy.io/?' . urlencode($targetUrl);
@@ -136,16 +90,11 @@ if ($config['use_proxy']) {
 // Prepara payload
 $payload = $config['wrap_in_body'] ? ['body' => $contactData] : $contactData;
 
-// Headers
+// Headers (Authentication Header: nome fixo "apikey", valor descriptografado)
 $headers = ['Content-Type: application/json'];
-if (!empty($config['token'])) {
-    $token = trim($config['token']);
-    if (strpos($token, 'Bearer ') === 0) {
-        $headers[] = "Authorization: $token";
-    } else {
-        $headers[] = "Authorization: Bearer $token";
-    }
-    $headers[] = "apikey: $token";
+$apikeyValue = decryptApikey($config['token'] ?? '');
+if ($apikeyValue !== '') {
+    $headers[] = 'apikey: ' . trim($apikeyValue);
 }
 
 // Envia para CRM

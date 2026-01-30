@@ -1,5 +1,7 @@
 # MapsProspector Pro - Configuração Apache/XAMPP
-# Habilita mod_rewrite e configurações de segurança
+# Interface única: PHP (index.php + assets/js/app.js). Histórico no banco de dados.
+
+DirectoryIndex index.php
 
 RewriteEngine On
 RewriteBase /MapsProspector-Pro/
