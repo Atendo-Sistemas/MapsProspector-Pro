@@ -22,3 +22,6 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Controle de versão local (não versionar no remoto)
+Version.md

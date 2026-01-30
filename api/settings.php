@@ -26,10 +26,9 @@ if ($method === 'GET') {
     $settings = $stmt->fetch();
     
     if (!$settings) {
-        // Cria configuração padrão
         $defaultSettings = [
             'baseUrl' => '',
-            'token' => '',
+            'token' => '',  // nunca enviado em texto; front usa campo para valor do header apikey
             'tenantName' => 'Atendo CRM',
             'useProxy' => 0,
             'wrapInBody' => 0,
@@ -38,9 +37,10 @@ if ($method === 'GET') {
         ];
         jsonSuccess($defaultSettings);
     } else {
+        // token (apikey) não é devolvido por segurança; front recebe vazio
         jsonSuccess([
             'baseUrl' => $settings['base_url'] ?? '',
-            'token' => $settings['token'] ?? '',
+            'token' => '',
             'tenantName' => $settings['tenant_name'] ?? 'Atendo CRM',
             'useProxy' => (bool)($settings['use_proxy'] ?? 0),
             'wrapInBody' => (bool)($settings['wrap_in_body'] ?? 0),
@@ -54,20 +54,23 @@ if ($method === 'GET') {
     $input = json_decode(file_get_contents('php://input'), true);
     
     $baseUrl = sanitizeInput($input['baseUrl'] ?? '');
-    $token = sanitizeInput($input['token'] ?? '');
+    $apikeyPlain = trim($input['token'] ?? '');
     $tenantName = sanitizeInput($input['tenantName'] ?? 'Atendo CRM');
     $useProxy = isset($input['useProxy']) && $input['useProxy'] ? 1 : 0;
     $wrapInBody = isset($input['wrapInBody']) && $input['wrapInBody'] ? 1 : 0;
     $simplifiedPayload = isset($input['simplifiedPayload']) && $input['simplifiedPayload'] ? 1 : 0;
     $scraperApiKey = sanitizeInput($input['scraperApiKey'] ?? '');
-    
-    // Verifica se já existe
-    $stmt = $db->prepare("SELECT id FROM settings WHERE user_id = ?");
+
+    $stmt = $db->prepare("SELECT id, token FROM settings WHERE user_id = ?");
     $stmt->execute([$userId]);
     $exists = $stmt->fetch();
-    
+
     if ($exists) {
-        // Atualiza (mantém selected_model se existir, mas não atualiza)
+        // Mantém token atual se o usuário não preencheu novo valor
+        $tokenToSave = $exists['token'];
+        if ($apikeyPlain !== '') {
+            $tokenToSave = encryptApikey($apikeyPlain);
+        }
         $stmt = $db->prepare("
             UPDATE settings SET
                 base_url = ?,
@@ -81,18 +84,18 @@ if ($method === 'GET') {
             WHERE user_id = ?
         ");
         $stmt->execute([
-            $baseUrl, $token, $tenantName, $useProxy, $wrapInBody, 
+            $baseUrl, $tokenToSave, $tenantName, $useProxy, $wrapInBody,
             $simplifiedPayload, $scraperApiKey, $userId
         ]);
     } else {
-        // Insere (não inclui selected_model)
+        $tokenToSave = $apikeyPlain !== '' ? encryptApikey($apikeyPlain) : '';
         $stmt = $db->prepare("
             INSERT INTO settings 
             (user_id, base_url, token, tenant_name, use_proxy, wrap_in_body, simplified_payload, scraper_api_key)
             VALUES (?, ?, ?, ?, ?, ?, ?, ?)
         ");
         $stmt->execute([
-            $userId, $baseUrl, $token, $tenantName, $useProxy, 
+            $userId, $baseUrl, $tokenToSave, $tenantName, $useProxy,
             $wrapInBody, $simplifiedPayload, $scraperApiKey
         ]);
     }

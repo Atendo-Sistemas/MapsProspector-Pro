@@ -33,6 +33,10 @@ define('GEMINI_API_KEY', getenv('GEMINI_API_KEY') ?: 'AIzaSyB-vO2vH6m6G9r7m7v8z2
 // IMPORTANTE: Configure sua chave aqui ou via variável de ambiente
 define('SCRAPER_API_KEY', getenv('SCRAPER_API_KEY') ?: '0e510c30f65a8b3abfbfad5090d47f79');
 
+// Chave para criptografia do apikey do Webhook (32 bytes para AES-256)
+// IMPORTANTE: Em produção use variável de ambiente e valor forte
+define('ENCRYPTION_KEY', getenv('ENCRYPTION_KEY') ?: hash('sha256', 'MapsProspector-Pro-Webhook-Key-2025', true));
+
 // Configurações de CORS (se necessário)
 header('Access-Control-Allow-Origin: *');
 header('Access-Control-Allow-Methods: GET, POST, PUT, DELETE, OPTIONS');

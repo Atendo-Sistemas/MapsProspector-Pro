@@ -7,12 +7,13 @@ import { StorageService } from '../services/storage';
 
 interface ProspectingProps {
   config: CRMConfig;
-  initialHistoryItem?: SearchHistoryItem; // Mudança: Recebe o item completo do histórico
+  initialHistoryItem?: SearchHistoryItem;
   userCoords?: { latitude: number; longitude: number };
   userLocationName?: string;
+  onExportToExcel?: () => void;
 }
 
-export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistoryItem, userCoords, userLocationName }) => {
+export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistoryItem, userCoords, userLocationName, onExportToExcel }) => {
   const [query, setQuery] = useState('');
   const [location, setLocation] = useState('');
   const [tag, setTag] = useState('');
@@ -216,15 +217,25 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
         </div>
       )}
 
-      {/* Contador de Resultados */}
+      {/* Contador de Resultados + Exportar para Excel */}
       {leads.length > 0 && (
-         <div className="mb-6 flex justify-between items-end px-2">
+         <div className="mb-6 flex flex-wrap justify-between items-end gap-4 px-2">
             <div>
                 <h3 className="text-xl font-black text-slate-900 tracking-tight">Resultados da Busca</h3>
                 <p className="text-xs text-slate-500 font-medium">
                    Exibindo <span className="font-bold text-slate-900">{Math.min(visibleCount, leads.length)}</span> de <span className="font-bold text-slate-900">{leads.length}</span> empresas encontradas
                 </p>
             </div>
+            {onExportToExcel && (
+              <button
+                onClick={onExportToExcel}
+                className="flex items-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg shadow-emerald-900/20"
+                title="Exportar todas as pesquisas para Excel"
+              >
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                Exportar para Excel
+              </button>
+            )}
          </div>
       )}
 
@@ -321,7 +332,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
                     disabled={sendingIndividual === lead.id}
                     className="flex-grow bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-black text-[10px] py-3 rounded-xl uppercase tracking-wide transition-all shadow-sm active:scale-95 disabled:opacity-50 flex justify-center items-center gap-2"
                 >
-                    {sendingIndividual === lead.id ? 'Enviando...' : 'Exportar para CRM'}
+                    {sendingIndividual === lead.id ? 'Enviando...' : 'Exportando'}
                 </button>
                 
                 {lead.mapsUri && (

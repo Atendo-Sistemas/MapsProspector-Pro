@@ -4,6 +4,58 @@ import { CRMConfig, SearchHistoryItem, AppUser, AppTenant } from './types';
 import { Prospecting } from './components/Prospecting';
 import { StorageService } from './services/storage';
 
+/** Escapa um valor para célula CSV (vírgula, aspas, quebra de linha). */
+function escapeCsv(val: string): string {
+  if (val == null) return '';
+  const s = String(val).trim();
+  if (s.includes(',') || s.includes('"') || s.includes('\n') || s.includes('\r')) {
+    return '"' + s.replace(/"/g, '""') + '"';
+  }
+  return s;
+}
+
+/** Exporta todas as pesquisas do histórico para um arquivo CSV (abre no Excel). */
+function exportAllToExcel(): void {
+  const history = StorageService.getHistory();
+  const rows: string[][] = [];
+  const headers = ['Pesquisa', 'Local', 'Tag', 'Data da Pesquisa', 'Nome', 'Telefone', 'Email', 'Endereço', 'CNPJ', 'Sócios', 'Site', 'Maps'];
+  rows.push(headers);
+
+  for (const item of history) {
+    const leads = item.leads ?? [];
+    const dateStr = item.timestamp ? new Date(item.timestamp).toLocaleString('pt-BR') : '';
+    for (const lead of leads) {
+      rows.push([
+      escapeCsv(item.query),
+      escapeCsv(item.location),
+      escapeCsv(item.tag),
+      escapeCsv(dateStr),
+      escapeCsv(lead.name),
+      escapeCsv(lead.phone ?? ''),
+      escapeCsv(lead.email ?? ''),
+      escapeCsv(lead.address),
+      escapeCsv(lead.cnpj ?? ''),
+      escapeCsv(lead.partners ?? ''),
+      escapeCsv(lead.website ?? ''),
+      escapeCsv(lead.mapsUri ?? '')
+      ]);
+    }
+    if (leads.length === 0) {
+      rows.push([escapeCsv(item.query), escapeCsv(item.location), escapeCsv(item.tag), escapeCsv(dateStr), '', '', '', '', '', '', '', '']);
+    }
+  }
+
+  const csvContent = rows.map(row => row.join(';')).join('\r\n');
+  const BOM = '\uFEFF';
+  const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8' });
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+  a.href = url;
+  a.download = `pesquisas_export_${new Date().toISOString().slice(0, 10)}.csv`;
+  a.click();
+  URL.revokeObjectURL(url);
+}
+
 // Componente Toast Interno
 const Toast = ({ message, onClose }: { message: string; onClose: () => void }) => {
   useEffect(() => {
@@ -248,9 +300,10 @@ const App: React.FC = () => {
           {activeTab === 'search' ? (
             <Prospecting 
                 config={config} 
-                initialHistoryItem={selectedHistory} // Passa o item completo
+                initialHistoryItem={selectedHistory}
                 userCoords={userCoords}
-                userLocationName={userLocationName} 
+                userLocationName={userLocationName}
+                onExportToExcel={() => { setHistory(StorageService.getHistory()); exportAllToExcel(); }}
             />
           ) : activeTab === 'history' ? (
             <div className="max-w-5xl mx-auto">

@@ -36,23 +36,21 @@ A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou
   Opção de busca baseada na localização atual do usuário via GPS.
 
 - **Histórico de Buscas**  
-  Registro local das pesquisas realizadas para acesso rápido posterior.
+  Histórico de pesquisas armazenado no banco de dados (MySQL), listado via API para acesso rápido posterior.
 
 - **Configuração Flexível**  
   Personalização de endpoints de API, tokens e modelos de IA.
 
 ---
 
-## 🧠 Tecnologias Utilizadas
+## 🧠 Tecnologias e Interface
 
-Este projeto foi desenvolvido utilizando uma stack moderna e performática:
+O projeto utiliza **uma única interface**: PHP/XAMPP (index.php + assets/js/app.js). O histórico de pesquisas é gravado e listado no banco de dados (api/search.php e api/history.php).
 
-- **Frontend:** React 19 (Hooks e Functional Components)
-- **Linguagem:** TypeScript
-- **Build Tool:** Vite
+- **Frontend:** HTML, Tailwind CSS, JavaScript (assets/js/app.js)
+- **Backend:** PHP (APIs em /api/), MySQL (tabelas search_history e leads)
 - **Estilização:** Tailwind CSS
-- **IA:** Google GenAI SDK (Gemini)
-- **Infraestrutura:** Docker & Nginx
+- **Scraper:** API Thordata (Google Maps); IA opcional via Gemini
 
 ---
 
