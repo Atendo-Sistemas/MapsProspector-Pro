@@ -23,363 +23,163 @@ class ScraperService {
     }
     
     /**
-     * Busca leads no Google Maps usando ScraperAPI
-     * 
+     * Faz uma única requisição à API com os parâmetros dados (incluindo "start").
+     * Retorna o array decodificado da resposta ou null em caso de falha/erro HTTP.
+     */
+    private function fetchOnePage(array $requestParams) {
+        $curl = curl_init();
+        curl_setopt_array($curl, array(
+            CURLOPT_URL => $this->baseUrl,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_ENCODING => '',
+            CURLOPT_MAXREDIRS => 10,
+            CURLOPT_TIMEOUT => 0,
+            CURLOPT_FOLLOWLOCATION => true,
+            CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+            CURLOPT_CUSTOMREQUEST => 'POST',
+            CURLOPT_POSTFIELDS => http_build_query($requestParams),
+            CURLOPT_HTTPHEADER => array(
+                'Authorization: Bearer ' . $this->apiKey,
+                'Content-Type: application/x-www-form-urlencoded'
+            ),
+        ));
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $error = curl_error($curl);
+        curl_close($curl);
+        if ($error) {
+            throw new Exception("Erro na requisição: $error");
+        }
+        if ($httpCode !== 200) {
+            $errorData = json_decode($response, true);
+            $errorMsg = $errorData['error']['message'] ?? $errorData['message'] ?? "Erro HTTP $httpCode";
+            if ($httpCode === 429) throw new Exception("Muitas requisições. Aguarde 1 minuto.");
+            if ($httpCode === 401) throw new Exception("Chave de API inválida. Verifique a configuração.");
+            throw new Exception("Erro na API: $errorMsg");
+        }
+        $trimmedResponse = trim($response);
+        if (empty($trimmedResponse)) {
+            throw new Exception("Resposta vazia da API");
+        }
+        if (stripos($trimmedResponse, '<html') !== false || stripos($trimmedResponse, '<!DOCTYPE') !== false) {
+            throw new Exception("A API retornou HTML em vez de JSON.");
+        }
+        $cleanResponse = $response;
+        if (strpos($cleanResponse, ")]}'\n") === 0) {
+            $cleanResponse = substr($cleanResponse, 5);
+        }
+        $data = json_decode($cleanResponse, true);
+        if (json_last_error() !== JSON_ERROR_NONE) {
+            throw new Exception("Resposta inválida da API (não é JSON válido): " . json_last_error_msg());
+        }
+        if (is_string($data)) {
+            $cleanData = $data;
+            if (strpos($cleanData, ")]}'\n") === 0) $cleanData = substr($cleanData, 5);
+            $decodedAgain = json_decode($cleanData, true);
+            if (json_last_error() === JSON_ERROR_NONE && (is_array($decodedAgain) || is_object($decodedAgain))) {
+                $data = is_array($decodedAgain) ? $decodedAgain : (array) $decodedAgain;
+            } else {
+                return null;
+            }
+        }
+        if (!is_array($data) && !is_object($data)) {
+            return null;
+        }
+        return is_object($data) ? (array) $data : $data;
+    }
+
+    /**
+     * Busca leads no Google Maps usando ScraperAPI (Thordata).
+     * A API retorna 20 resultados por página; 1 token = 1 página (20 resultados).
+     * Pagina automaticamente (start=0, 20, 40, ...) até acabar os dados ou o limite de tokens.
+     *
      * @param string $query Termo de busca
      * @param string|null $location Localização (cidade)
      * @param array $excludeNames Nomes a excluir
-     * @param string|null $modelName Não usado, mantido para compatibilidade
-     * @param array|null $coords Coordenadas GPS ['latitude' => x, 'longitude' => y]
+     * @param string|null $modelName Não usado
+     * @param array|null $coords Coordenadas GPS
      * @param string|null $locationName Nome da localização GPS
      * @param int $maxResults Número máximo de resultados desejados (padrão: 100)
-     * @return array Array de leads encontrados
+     * @param int|null $maxTokensAvailable Máximo de tokens (páginas) que podem ser consumidos; null = ilimitado (até 50 páginas)
+     * @return array ['leads' => array, 'pages_used' => int] Leads e quantidade de páginas (tokens) usadas
      */
     public function searchLeadsOnMaps(
         $query,
         $location = null,
         $excludeNames = [],
-        $modelName = null, // Não usado nesta API, mantido para compatibilidade
+        $modelName = null,
         $coords = null,
         $locationName = null,
-        $maxResults = 100
+        $maxResults = 100,
+        $maxTokensAvailable = null
     ) {
         try {
-            // Monta a query de busca (formato simples: "query location" sem "em")
             $searchQuery = trim($query);
-            
-            // Adiciona localização se disponível (formato: "query location" ou "query location, Brasil")
             if ($locationName) {
                 $searchQuery .= " " . trim($locationName);
             } elseif ($location) {
                 $normalizedLocation = trim($location);
-                // Adiciona ", Brasil" apenas se não tiver já
                 if (!stripos($normalizedLocation, 'brasil') && !stripos($normalizedLocation, 'brazil')) {
                     $normalizedLocation .= ", Brasil";
                 }
                 $searchQuery .= " " . $normalizedLocation;
             }
-            
-            // Prepara os dados da requisição
-            // Usa "json" => "1" conforme exemplo fornecido
-            // Adiciona "num" => 100 para obter até 100 resultados (padrão é 20)
-            $requestParams = [
+            // Parâmetros base (API retorna 20 por página; paginação com "start")
+            $baseParams = [
                 "engine" => "google_maps",
-                "q" => trim($searchQuery), // Remove espaços extras
+                "q" => trim($searchQuery),
                 "json" => "1",
                 "type" => "search",
-                "num" => 100 // Número máximo de resultados por página (padrão: 20, máximo: 100)
+                "gl" => "br",
+                "hl" => "pt-br",
+                "location" => "Brazil",
             ];
-            
-            // Nota: Se ainda retornar apenas 20, pode ser limitação da API ou plano
-            // Nesse caso, seria necessário usar paginação com o parâmetro "start"
-            
-            // Adiciona coordenadas se disponíveis (formato ll="@lat,lng,zoom")
             if ($coords && isset($coords['latitude']) && isset($coords['longitude'])) {
-                $requestParams['ll'] = "@{$coords['latitude']},{$coords['longitude']},14z";
+                $baseParams['ll'] = "@{$coords['latitude']},{$coords['longitude']},14z";
             }
-            
-            // Log da query montada para debug
-            error_log("=== REQUISIÇÃO SCRAPER API ===");
-            error_log("Query montada: " . $requestParams['q']);
-            error_log("Parâmetro 'num': " . $requestParams['num'] . " (tipo: " . gettype($requestParams['num']) . ")");
-            error_log("Dados completos: " . json_encode($requestParams, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES));
-            error_log("=== FIM REQUISIÇÃO ===");
-            
-            // Faz a requisição
-            $curl = curl_init();
-            
-            curl_setopt_array($curl, array(
-                CURLOPT_URL => $this->baseUrl,
-                CURLOPT_RETURNTRANSFER => true,
-                CURLOPT_ENCODING => '',
-                CURLOPT_MAXREDIRS => 10,
-                CURLOPT_TIMEOUT => 0, // Usa 0 como no exemplo (sem timeout)
-                CURLOPT_FOLLOWLOCATION => true,
-                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                CURLOPT_CUSTOMREQUEST => 'POST',
-                CURLOPT_POSTFIELDS => http_build_query($requestParams),
-                CURLOPT_HTTPHEADER => array(
-                    'Authorization: Bearer ' . $this->apiKey,
-                    'Content-Type: application/x-www-form-urlencoded'
-                ),
-            ));
-            
-            $response = curl_exec($curl);
-            $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-            $error = curl_error($curl);
-            curl_close($curl);
-            
-            if ($error) {
-                throw new Exception("Erro na requisição: $error");
-            }
-            
-            if ($httpCode !== 200) {
-                $errorData = json_decode($response, true);
-                $errorMsg = $errorData['error']['message'] ?? $errorData['message'] ?? "Erro HTTP $httpCode";
-                
-                if ($httpCode === 429) {
-                    throw new Exception("Muitas requisições. Aguarde 1 minuto.");
+            $allLeads = [];
+            $pagesUsed = 0;
+            $start = 0;
+            $locForParse = $locationName ?: $location;
+            $maxPages = $maxTokensAvailable !== null ? (int) $maxTokensAvailable : 50;
+            error_log("ScraperAPI: paginação com até " . $maxPages . " páginas (1 token = 20 resultados)");
+            while (true) {
+                if ($pagesUsed >= $maxPages) {
+                    error_log("ScraperAPI: limite de tokens (páginas) atingido. pages_used=$pagesUsed");
+                    break;
                 }
-                
-                if ($httpCode === 401) {
-                    throw new Exception("Chave de API inválida. Verifique a configuração.");
-                }
-                
-                throw new Exception("Erro na API: $errorMsg");
-            }
-            
-            // Log da resposta bruta para debug (primeiros caracteres)
-            error_log("Resposta bruta ScraperAPI (primeiros 1000 chars): " . substr($response, 0, 1000));
-            error_log("Tipo da resposta: " . gettype($response) . ", Tamanho: " . strlen($response));
-            
-            // Verifica se a resposta parece ser HTML ou outro formato não-JSON
-            $trimmedResponse = trim($response);
-            if (empty($trimmedResponse)) {
-                throw new Exception("Resposta vazia da API");
-            }
-            
-            // Tenta detectar se é HTML
-            if (stripos($trimmedResponse, '<html') !== false || stripos($trimmedResponse, '<!DOCTYPE') !== false) {
-                error_log("Resposta parece ser HTML. Primeiros 500 chars: " . substr($trimmedResponse, 0, 500));
-                throw new Exception("A API retornou HTML em vez de JSON. Verifique a URL e os parâmetros da requisição.");
-            }
-            
-            // Remove o prefixo ")]}'\n" se existir (formato de segurança do Google)
-            $cleanResponse = $response;
-            if (strpos($cleanResponse, ")]}'\n") === 0) {
-                $cleanResponse = substr($cleanResponse, 5);
-            }
-            
-            // Decodifica a resposta JSON
-            $data = json_decode($cleanResponse, true);
-            
-            if (json_last_error() !== JSON_ERROR_NONE) {
-                // Log da resposta bruta para debug
-                error_log("Erro ao decodificar JSON: " . json_last_error_msg());
-                error_log("Resposta da ScraperAPI (primeiros 1000 chars): " . substr($cleanResponse, 0, 1000));
-                throw new Exception("Resposta inválida da API (não é JSON válido): " . json_last_error_msg());
-            }
-            
-            // Se a resposta decodificada for uma string, tenta decodificar novamente
-            // Isso pode acontecer se a API retornar uma string JSON dentro de outra string JSON
-            if (is_string($data)) {
-                error_log("Resposta decodificada é uma string. Tamanho: " . strlen($data));
-                error_log("Primeiros 200 chars da string: " . substr($data, 0, 200));
-                
-                // Remove o prefixo ")]}'\n" se existir
-                $cleanData = $data;
-                if (strpos($cleanData, ")]}'\n") === 0) {
-                    $cleanData = substr($cleanData, 5);
-                }
-                
-                // Tenta decodificar como JSON novamente
-                $decodedAgain = json_decode($cleanData, true);
-                
-                if (json_last_error() === JSON_ERROR_NONE && (is_array($decodedAgain) || is_object($decodedAgain))) {
-                    // Se conseguiu decodificar e é array/objeto, usa esse resultado
-                    $data = $decodedAgain;
-                    error_log("String JSON decodificada com sucesso. Tipo resultante: " . gettype($data));
-                    
-                    // Verifica se tem local_results no resultado decodificado
-                    if (is_array($data) && isset($data['local_results'])) {
-                        error_log("✓ local_results encontrado após decodificar string JSON!");
-                    } else {
-                        error_log("✗ local_results NÃO encontrado após decodificar string JSON.");
+                $requestParams = $baseParams;
+                $requestParams['start'] = $start;
+                $data = $this->fetchOnePage($requestParams);
+                if ($data === null || !isset($data['local_results']) || !is_array($data['local_results'])) {
+                    if ($pagesUsed === 0) {
+                        error_log("ScraperAPI: primeira página sem local_results.");
                     }
-                } else {
-                    // Se não conseguiu decodificar, NÃO tenta processar dados brutos
-                    // Retorna vazio em vez de lançar exceção - deixa o search.php tratar
-                    error_log("⚠️ Erro ao decodificar string JSON: " . json_last_error_msg());
-                    error_log("Primeiros 500 chars da string: " . substr($cleanData, 0, 500));
-                    error_log("NÃO processando dados brutos para evitar dados incorretos. Retornando array vazio.");
-                    // Retorna vazio em vez de lançar exceção
-                    return [];
+                    break;
                 }
-            }
-            
-            // Verifica se a resposta é um array ou objeto
-            if (!is_array($data) && !is_object($data)) {
-                error_log("Resposta da ScraperAPI não é array/objeto. Tipo: " . gettype($data) . ". Valor: " . var_export($data, true));
-                throw new Exception("Resposta da API em formato inválido. Esperado array/objeto, recebido: " . gettype($data));
-            }
-            
-            // Converte objeto para array se necessário
-            if (is_object($data)) {
-                $data = (array) $data;
-            }
-            
-            // Log da estrutura para debug (sempre ativo)
-            error_log("=== ESTRUTURA DA RESPOSTA SCRAPERAPI ===");
-            error_log("Tipo: " . gettype($data));
-            if (is_array($data)) {
-                error_log("Chaves principais: " . json_encode(array_keys($data)));
-                if (isset($data['local_results'])) {
-                    error_log("local_results encontrado! Tipo: " . gettype($data['local_results']) . ", Count: " . (is_array($data['local_results']) ? count($data['local_results']) : 'N/A'));
-                } else {
-                    error_log("local_results NÃO encontrado!");
+                $rawCount = count($data['local_results']);
+                $leadsPage = $this->parseResponse($data, $locForParse);
+                $allLeads = array_merge($allLeads, $leadsPage);
+                $pagesUsed++;
+                error_log("ScraperAPI: página start=$start retornou $rawCount resultados. Total acumulado: " . count($allLeads) . ", pages_used=$pagesUsed");
+                if ($rawCount < 20) {
+                    break;
                 }
-                // Log de uma amostra da estrutura (primeiros 2000 chars)
-                error_log("Amostra da estrutura (primeiros 2000 chars): " . substr(json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES), 0, 2000));
-            }
-            error_log("=== FIM ESTRUTURA ===");
-            
-            // Converte a resposta para o formato esperado
-            $leads = $this->parseResponse($data, $locationName ?: $location);
-            
-            // Verifica quantos resultados brutos a API retornou (antes do processamento)
-            $rawResultsCount = isset($data['local_results']) && is_array($data['local_results']) ? count($data['local_results']) : 0;
-            error_log("Resultados brutos da API: $rawResultsCount | Leads processados: " . count($leads));
-            
-            // Se retornou exatamente 20 resultados brutos e queremos mais, tenta paginação
-            if ($rawResultsCount === 20 && $maxResults > 20 && count($leads) < $maxResults) {
-                error_log("⚠️ API retornou exatamente 20 resultados brutos. Iniciando paginação automática...");
-                
-                try {
-                    // Segunda requisição com start=20 para pegar os próximos resultados
-                    $dataPage2 = $requestParams;
-                    $dataPage2['start'] = 20;
-                    
-                    $curl2 = curl_init();
-                    curl_setopt_array($curl2, array(
-                        CURLOPT_URL => $this->baseUrl,
-                        CURLOPT_RETURNTRANSFER => true,
-                        CURLOPT_ENCODING => '',
-                        CURLOPT_MAXREDIRS => 10,
-                        CURLOPT_TIMEOUT => 0,
-                        CURLOPT_FOLLOWLOCATION => true,
-                        CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                        CURLOPT_CUSTOMREQUEST => 'POST',
-                        CURLOPT_POSTFIELDS => http_build_query($dataPage2),
-                        CURLOPT_HTTPHEADER => array(
-                            'Authorization: Bearer ' . $this->apiKey,
-                            'Content-Type: application/x-www-form-urlencoded'
-                        ),
-                    ));
-                    
-                    $response2 = curl_exec($curl2);
-                    $httpCode2 = curl_getinfo($curl2, CURLINFO_HTTP_CODE);
-                    curl_close($curl2);
-                    
-                    if ($httpCode2 === 200) {
-                        $cleanResponse2 = $response2;
-                        if (strpos($cleanResponse2, ")]}'\n") === 0) {
-                            $cleanResponse2 = substr($cleanResponse2, 5);
-                        }
-                        
-                        $data2 = json_decode($cleanResponse2, true);
-                        if (json_last_error() === JSON_ERROR_NONE && isset($data2['local_results'])) {
-                            $leadsPage2 = $this->parseResponse($data2, $locationName ?: $location);
-                            $leads = array_merge($leads, $leadsPage2);
-                            error_log("Segunda página retornou " . count($leadsPage2) . " resultados. Total: " . count($leads));
-                            
-                            // Se ainda precisar de mais, tenta uma terceira página
-                            $rawResultsCount2 = isset($data2['local_results']) && is_array($data2['local_results']) ? count($data2['local_results']) : 0;
-                            if (count($leads) < $maxResults && $rawResultsCount2 === 20) {
-                                error_log("Segunda página também retornou 20 resultados. Buscando terceira página...");
-                                $dataPage3 = $requestParams;
-                                $dataPage3['start'] = 40;
-                                
-                                $curl3 = curl_init();
-                                curl_setopt_array($curl3, array(
-                                    CURLOPT_URL => $this->baseUrl,
-                                    CURLOPT_RETURNTRANSFER => true,
-                                    CURLOPT_ENCODING => '',
-                                    CURLOPT_MAXREDIRS => 10,
-                                    CURLOPT_TIMEOUT => 0,
-                                    CURLOPT_FOLLOWLOCATION => true,
-                                    CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                    CURLOPT_CUSTOMREQUEST => 'POST',
-                                    CURLOPT_POSTFIELDS => http_build_query($dataPage3),
-                                    CURLOPT_HTTPHEADER => array(
-                                        'Authorization: Bearer ' . $this->apiKey,
-                                        'Content-Type: application/x-www-form-urlencoded'
-                                    ),
-                                ));
-                                
-                                $response3 = curl_exec($curl3);
-                                $httpCode3 = curl_getinfo($curl3, CURLINFO_HTTP_CODE);
-                                curl_close($curl3);
-                                
-                                if ($httpCode3 === 200) {
-                                    $cleanResponse3 = $response3;
-                                    if (strpos($cleanResponse3, ")]}'\n") === 0) {
-                                        $cleanResponse3 = substr($cleanResponse3, 5);
-                                    }
-                                    
-                                    $data3 = json_decode($cleanResponse3, true);
-                                    if (json_last_error() === JSON_ERROR_NONE && isset($data3['local_results'])) {
-                                        $leadsPage3 = $this->parseResponse($data3, $locationName ?: $location);
-                                        $leads = array_merge($leads, $leadsPage3);
-                                        $rawResultsCount3 = count($data3['local_results']);
-                                        error_log("Terceira página retornou $rawResultsCount3 resultados brutos, " . count($leadsPage3) . " processados. Total acumulado: " . count($leads));
-                                        
-                                        // Pode continuar buscando mais páginas se necessário
-                                        if (count($leads) < $maxResults && $rawResultsCount3 === 20) {
-                                            error_log("Terceira página também retornou 20. Buscando quarta página...");
-                                            $dataPage4 = $requestParams;
-                                            $dataPage4['start'] = 60;
-                                            
-                                            $curl4 = curl_init();
-                                            curl_setopt_array($curl4, array(
-                                                CURLOPT_URL => $this->baseUrl,
-                                                CURLOPT_RETURNTRANSFER => true,
-                                                CURLOPT_ENCODING => '',
-                                                CURLOPT_MAXREDIRS => 10,
-                                                CURLOPT_TIMEOUT => 0,
-                                                CURLOPT_FOLLOWLOCATION => true,
-                                                CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-                                                CURLOPT_CUSTOMREQUEST => 'POST',
-                                                CURLOPT_POSTFIELDS => http_build_query($dataPage4),
-                                                CURLOPT_HTTPHEADER => array(
-                                                    'Authorization: Bearer ' . $this->apiKey,
-                                                    'Content-Type: application/x-www-form-urlencoded'
-                                                ),
-                                            ));
-                                            
-                                            $response4 = curl_exec($curl4);
-                                            $httpCode4 = curl_getinfo($curl4, CURLINFO_HTTP_CODE);
-                                            curl_close($curl4);
-                                            
-                                            if ($httpCode4 === 200) {
-                                                $cleanResponse4 = $response4;
-                                                if (strpos($cleanResponse4, ")]}'\n") === 0) {
-                                                    $cleanResponse4 = substr($cleanResponse4, 5);
-                                                }
-                                                
-                                                $data4 = json_decode($cleanResponse4, true);
-                                                if (json_last_error() === JSON_ERROR_NONE && isset($data4['local_results'])) {
-                                                    $leadsPage4 = $this->parseResponse($data4, $locationName ?: $location);
-                                                    $leads = array_merge($leads, $leadsPage4);
-                                                    $rawResultsCount4 = count($data4['local_results']);
-                                                    error_log("Quarta página retornou $rawResultsCount4 resultados brutos, " . count($leadsPage4) . " processados. Total acumulado: " . count($leads));
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                } catch (Exception $e) {
-                    error_log("Erro ao buscar página adicional: " . $e->getMessage());
-                    // Continua com os resultados da primeira página
+                if (count($allLeads) >= $maxResults) {
+                    $allLeads = array_slice($allLeads, 0, $maxResults);
+                    break;
                 }
+                $start += 20;
             }
-            
-            // Limita ao máximo desejado
-            if (count($leads) > $maxResults) {
-                $leads = array_slice($leads, 0, $maxResults);
+            if (count($allLeads) > $maxResults) {
+                $allLeads = array_slice($allLeads, 0, $maxResults);
             }
-            
-            // Filtra nomes excluídos
             if (!empty($excludeNames)) {
-                $leads = array_filter($leads, function($lead) use ($excludeNames) {
+                $allLeads = array_values(array_filter($allLeads, function($lead) use ($excludeNames) {
                     return !in_array(strtolower($lead['name']), array_map('strtolower', $excludeNames));
-                });
+                }));
             }
-            
-            return array_values($leads);
-            
+            return ['leads' => $allLeads, 'pages_used' => $pagesUsed];
         } catch (Exception $e) {
             error_log("Erro ScraperAPI: " . $e->getMessage());
             throw $e;

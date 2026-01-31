@@ -13,7 +13,8 @@ const DEFAULT_CONFIG: CRMConfig = {
   wrapInBody: false,
   simplifiedPayload: false,
   tenantName: 'Atendo CRM',
-  scraperApiKey: ''
+  scraperApiKey: '',
+  scraperApiKeyConfigured: false
 };
 
 export const StorageService = {

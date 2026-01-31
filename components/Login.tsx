@@ -1,36 +1,100 @@
 
 import React, { useState } from 'react';
-import { AppUser, AppTenant } from '../types';
+import { AppUser, AppTenant, TokenUsage } from '../types';
+
+const API_BASE = '';
 
 interface LoginProps {
-  onLogin: (data: { user: AppUser; tenant: AppTenant }) => void;
+  onLogin: (data: { user: AppUser; tenant: AppTenant; tokenUsage?: TokenUsage }) => void;
 }
 
 export const Login: React.FC<LoginProps> = ({ onLogin }) => {
+  const [email, setEmail] = useState('');
   const [loading, setLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const [showRegister, setShowRegister] = useState(false);
+  const [registerSuccess, setRegisterSuccess] = useState<string | null>(null);
 
-  const handleEnter = async () => {
+  const [regCompany, setRegCompany] = useState('');
+  const [regEmail, setRegEmail] = useState('');
+  const [regName, setRegName] = useState('');
+  const [regLoading, setRegLoading] = useState(false);
+  const [regError, setRegError] = useState<string | null>(null);
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setError(null);
+    setRegisterSuccess(null);
+    const trimmed = email.trim().toLowerCase();
+    if (!trimmed || !trimmed.includes('@')) {
+      setError('Por favor, insira um e-mail válido.');
+      return;
+    }
     setLoading(true);
-    
-    // Simula um pequeno delay para feedback visual
-    await new Promise(resolve => setTimeout(resolve, 600));
-
-    // Define um usuário padrão para a sessão
-    onLogin({
-      user: {
-        id: 'admin',
-        name: 'Administrador',
-        email: 'admin@atendo.maps',
-        tenantId: "1",
-        profile: 'admin'
-      },
-      tenant: {
-        id: "1",
-        name: 'Atendo Maps'
+    try {
+      const res = await fetch(`${API_BASE}/api/auth.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'login', email: trimmed }),
+        credentials: 'include',
+      });
+      const data = await res.json();
+      if (data.success && data.data?.user && data.data?.tenant) {
+        onLogin({
+          user: data.data.user as AppUser,
+          tenant: data.data.tenant as AppTenant,
+          tokenUsage: data.data.tokenUsage,
+        });
+      } else {
+        setError(data.error || 'Falha no login. Tente novamente.');
       }
-    });
-    
-    setLoading(false);
+    } catch (err) {
+      setError('Erro de conexão. Verifique o servidor.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleRegister = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setRegError(null);
+    const company = regCompany.trim();
+    const mail = regEmail.trim().toLowerCase();
+    if (!company) {
+      setRegError('Nome da empresa é obrigatório.');
+      return;
+    }
+    if (!mail || !mail.includes('@')) {
+      setRegError('E-mail do administrador é obrigatório e deve ser válido.');
+      return;
+    }
+    setRegLoading(true);
+    try {
+      const res = await fetch(`${API_BASE}/api/register.php`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          companyName: company,
+          adminEmail: mail,
+          adminName: regName.trim() || undefined,
+        }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        setRegisterSuccess(data.message || 'Empresa cadastrada. Faça login com seu e-mail.');
+        setEmail(mail);
+        setShowRegister(false);
+        setRegCompany('');
+        setRegEmail('');
+        setRegName('');
+      } else {
+        setRegError(data.error || 'Erro ao cadastrar. Tente novamente.');
+      }
+    } catch {
+      setRegError('Erro de conexão. Verifique o servidor.');
+    } finally {
+      setRegLoading(false);
+    }
   };
 
   return (
@@ -53,32 +117,121 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
             <p className="text-slate-500 font-medium text-sm">Ferramenta de Prospecção Inteligente</p>
           </div>
 
-          <div className="space-y-6">
-            <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100">
-                <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
-                    Bem-vindo ao painel. Para configurar sua integração com CRM ou n8n, acesse o menu <span className="font-bold text-slate-700">Configurações</span> após entrar.
-                </p>
+          {registerSuccess && (
+            <div className="mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-700 text-sm font-medium">
+              {registerSuccess}
             </div>
+          )}
 
-            <button
-              onClick={handleEnter}
-              disabled={loading}
-              className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl shadow-xl shadow-blue-100 transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-3 text-sm tracking-wide uppercase"
-            >
-              {loading ? (
-                <>
-                    <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
-                    Carregando...
-                </>
-              ) : (
-                <>
-                    Acessar Plataforma
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
-                </>
-              )}
-            </button>
-          </div>
-          
+          {!showRegister ? (
+            <>
+              <form onSubmit={handleSubmit} className="space-y-6">
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-left">
+                  <label className="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">E-mail</label>
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="seu@email.com"
+                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                    autoComplete="email"
+                    disabled={loading}
+                  />
+                  {error && (
+                    <p className="mt-2 text-xs font-bold text-red-500">{error}</p>
+                  )}
+                  <p className="text-[11px] text-slate-500 font-medium leading-relaxed mt-3">
+                    Use o e-mail cadastrado na plataforma. Após entrar, configure a integração em <span className="font-bold text-slate-700">Configurações</span>.
+                  </p>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={loading}
+                  className="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl shadow-xl shadow-blue-100 transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-3 text-sm tracking-wide uppercase"
+                >
+                  {loading ? (
+                    <>
+                      <span className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span>
+                      Entrando...
+                    </>
+                  ) : (
+                    <>
+                      Entrar
+                      <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                    </>
+                  )}
+                </button>
+              </form>
+
+              <div className="mt-8 pt-6 border-t border-slate-100">
+                <p className="text-[11px] text-slate-500 font-medium mb-2">Ainda não tem empresa cadastrada?</p>
+                <button
+                  type="button"
+                  onClick={() => { setShowRegister(true); setError(null); setRegisterSuccess(null); }}
+                  className="text-blue-600 font-bold text-sm hover:underline"
+                >
+                  Cadastrar minha empresa
+                </button>
+              </div>
+            </>
+          ) : (
+            <>
+              <form onSubmit={handleRegister} className="space-y-4 text-left">
+                <h3 className="text-lg font-black text-slate-900 mb-4 text-center">Nova empresa</h3>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome da empresa</label>
+                  <input
+                    type="text"
+                    value={regCompany}
+                    onChange={(e) => setRegCompany(e.target.value)}
+                    placeholder="Razão social ou nome fantasia"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-500 uppercase mb-1">E-mail do administrador</label>
+                  <input
+                    type="email"
+                    value={regEmail}
+                    onChange={(e) => setRegEmail(e.target.value)}
+                    placeholder="admin@empresa.com"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                    required
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-500 uppercase mb-1">Seu nome (opcional)</label>
+                  <input
+                    type="text"
+                    value={regName}
+                    onChange={(e) => setRegName(e.target.value)}
+                    placeholder="Nome do responsável"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                  />
+                </div>
+                {regError && <p className="text-xs font-bold text-red-500">{regError}</p>}
+                <div className="flex gap-3 pt-2">
+                  <button
+                    type="button"
+                    onClick={() => { setShowRegister(false); setRegError(null); setRegCompany(''); setRegEmail(''); setRegName(''); }}
+                    className="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50 text-sm"
+                  >
+                    Voltar
+                  </button>
+                  <button
+                    type="submit"
+                    disabled={regLoading}
+                    className="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 disabled:opacity-70 text-sm"
+                  >
+                    {regLoading ? 'Cadastrando...' : 'Cadastrar'}
+                  </button>
+                </div>
+              </form>
+            </>
+          )}
+
           <div className="mt-10 pt-6 border-t border-slate-100">
             <p className="text-center text-[10px] text-slate-400 font-semibold tracking-wider uppercase">
               Atendo Tecnologia © 2024

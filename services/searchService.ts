@@ -1,4 +1,4 @@
-import { Lead } from '../types';
+import { Lead, TokenUsage } from '../types';
 
 /**
  * Serviço de Busca de Leads usando API Thordata (ScraperAPI)
@@ -7,13 +7,19 @@ import { Lead } from '../types';
 
 const API_BASE = '/MapsProspector-Pro/api/';
 
+export interface SearchResult {
+  leads: Lead[];
+  tokenUsage?: TokenUsage;
+  searchId?: string;
+}
+
 export const searchLeadsOnMaps = async (
   query: string,
   location?: string,
   excludeNames: string[] = [],
   coords?: { latitude: number; longitude: number },
   locationName?: string
-): Promise<Lead[]> => {
+): Promise<SearchResult> => {
   try {
     const response = await fetch(API_BASE + 'search.php', {
       method: 'POST',
@@ -58,30 +64,43 @@ export const searchLeadsOnMaps = async (
       throw new Error(data.error || 'Erro ao buscar leads');
     }
 
-    // Retorna os leads do formato da API
-    const leads: Lead[] = (data.data?.leads || []).map((lead: any) => ({
+    // Retorna os leads do formato da API (podem vir bloqueados: locked + encrypted_data)
+    let leads: Lead[] = (data.data?.leads || []).map((lead: any) => ({
       id: lead.id || `lead-${Date.now()}-${Math.random()}`,
       name: lead.name || '',
-      address: lead.address || '',
-      phone: lead.phone || '',
-      email: lead.email || '',
-      website: lead.website || '',
-      mapsUri: lead.mapsUri || lead.maps_uri || '',
-      cnpj: lead.cnpj || '',
-      partners: lead.partners || '',
+      address: lead.locked ? undefined : (lead.address || ''),
+      phone: lead.locked ? undefined : (lead.phone || ''),
+      email: lead.locked ? undefined : (lead.email || ''),
+      website: lead.locked ? undefined : (lead.website || ''),
+      mapsUri: lead.locked ? undefined : (lead.mapsUri || lead.maps_uri || ''),
+      cnpj: lead.locked ? undefined : (lead.cnpj || ''),
+      partners: lead.locked ? undefined : (lead.partners || ''),
       latitude: lead.latitude,
       longitude: lead.longitude,
       sources: lead.sources || [],
+      locked: !!lead.locked,
+      encrypted_data: lead.encrypted_data,
+      dbId: lead.dbId,
     }));
 
     // Filtra nomes excluídos
     if (excludeNames.length > 0) {
-      return leads.filter(
+      leads = leads.filter(
         (lead) => !excludeNames.some((name) => lead.name.toLowerCase().includes(name.toLowerCase()))
       );
     }
 
-    return leads;
+    const tokenUsage: TokenUsage | undefined = data.data?.tokenUsage
+      ? {
+          used: data.data.tokenUsage.used,
+          limit: data.data.tokenUsage.limit,
+          limitReached: !!data.data.tokenUsage.limitReached,
+        }
+      : undefined;
+
+    const searchId: string | undefined = data.data?.searchId;
+
+    return { leads, tokenUsage, searchId };
   } catch (error: any) {
     console.error('Erro ao buscar leads:', error);
     throw error;

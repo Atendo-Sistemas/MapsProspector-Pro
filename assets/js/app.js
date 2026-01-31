@@ -3,18 +3,21 @@
  * Histórico de pesquisas: gravado e listado via banco de dados (api/search.php e api/history.php).
  */
 
-const API_BASE = 'api/';
+var API_BASE = (typeof window.API_BASE_URL !== 'undefined' ? window.API_BASE_URL : 'api/');
 
 // Estado da aplicação (histórico vem do banco via history.php)
 const AppState = {
     user: null,
+    tenant: null,
+    tokenUsage: null,  // { used, limit, limitReached } para aviso de limite de tokens
     config: null,
-    activeTab: 'search',
+    activeTab: 'dashboard',
     userCoords: null,
     userLocationName: '',
     locStatus: 'idle', // idle | loading | success | error
     leads: [],
-    history: [],      // preenchido por loadHistory() -> api/history.php (banco)
+    searchId: null,  // ID da pesquisa atual (para desbloqueio; dados vêm bloqueados)
+    history: [],     // preenchido por loadHistory() -> api/history.php (banco)
     visibleCount: 12,
     currentSearch: { query: '', location: '', tag: '' }  // contexto da pesquisa atual (para exportar)
 };
@@ -39,6 +42,8 @@ async function checkAuth() {
             const data = await res.json();
             if (data.success) {
                 AppState.user = data.data.user;
+                AppState.tenant = data.data.tenant || null;
+                AppState.tokenUsage = data.data.tokenUsage || null;
                 showDashboard();
                 loadConfig();
             } else {
@@ -54,34 +59,56 @@ async function checkAuth() {
 }
 
 // Login
-async function handleLogin() {
+async function handleLogin(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const emailInput = document.getElementById('login-email');
+    const errorEl = document.getElementById('login-error');
     const btn = document.getElementById('btn-login');
+    const email = (emailInput && emailInput.value ? emailInput.value.trim().toLowerCase() : '') || '';
+    if (errorEl) {
+        errorEl.classList.add('hidden');
+        errorEl.textContent = '';
+    }
+    if (!email || !email.includes('@')) {
+        if (errorEl) {
+            errorEl.textContent = 'Por favor, insira um e-mail válido.';
+            errorEl.classList.remove('hidden');
+        }
+        return;
+    }
     btn.disabled = true;
-    btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> Carregando...';
-    
+    btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> Entrando...';
     try {
         const res = await fetch(API_BASE + 'auth.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                action: 'login',
-                email: 'admin@atendo.maps'
-            })
+            body: JSON.stringify({ action: 'login', email: email })
         });
-        
         const data = await res.json();
         if (data.success) {
             AppState.user = data.data.user;
+            AppState.tenant = data.data.tenant || null;
+            AppState.tokenUsage = data.data.tokenUsage || null;
             showDashboard();
             loadConfig();
         } else {
-            alert('Erro ao fazer login: ' + data.error);
+            if (errorEl) {
+                errorEl.textContent = data.error || 'Falha no login. Tente novamente.';
+                errorEl.classList.remove('hidden');
+            } else {
+                alert('Erro ao fazer login: ' + (data.error || 'Tente novamente.'));
+            }
         }
-    } catch (e) {
-        alert('Erro de conexão: ' + e.message);
+    } catch (err) {
+        if (errorEl) {
+            errorEl.textContent = 'Erro de conexão. Verifique o servidor.';
+            errorEl.classList.remove('hidden');
+        } else {
+            alert('Erro de conexão: ' + (err && err.message ? err.message : 'Verifique o servidor.'));
+        }
     } finally {
         btn.disabled = false;
-        btn.innerHTML = 'Acessar Plataforma <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>';
+        btn.innerHTML = 'Entrar <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>';
     }
 }
 
@@ -91,19 +118,137 @@ function showLogin() {
     document.getElementById('dashboard').classList.add('hidden');
 }
 
+function renderHeaderTokenWarning() {
+    var tokenBanner = document.getElementById('header-token-warning');
+    if (!tokenBanner) return;
+    var showTokenWarning = AppState.tokenUsage && AppState.tokenUsage.limitReached || AppState.tenant && AppState.tenant.status === 'suspended';
+    if (showTokenWarning) {
+        tokenBanner.classList.remove('hidden');
+        tokenBanner.classList.add('flex');
+    } else {
+        tokenBanner.classList.add('hidden');
+        tokenBanner.classList.remove('flex');
+    }
+}
+
 function showDashboard() {
     document.getElementById('login-screen').classList.add('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
+    renderHeaderTokenWarning();
     if (AppState.user) {
         document.getElementById('user-name').textContent = AppState.user.name;
+        var roleEl = document.getElementById('user-role');
+        if (roleEl) {
+            var roleLabels = { super_admin: 'Super Admin', admin: 'Admin', user: 'Usuário' };
+            roleEl.textContent = roleLabels[AppState.user.profile] || AppState.user.profile || 'Usuário';
+        }
+        var isSuperAdmin = String(AppState.user.profile).toLowerCase() === 'super_admin';
+        var blockAdmin = document.getElementById('nav-block-administracao');
+        var dividerNormal = document.getElementById('nav-divider-normal');
+        if (blockAdmin) {
+            if (isSuperAdmin) {
+                blockAdmin.classList.remove('hidden');
+            } else {
+                blockAdmin.classList.add('hidden');
+            }
+        }
+        if (dividerNormal) {
+            if (isSuperAdmin) {
+                dividerNormal.classList.add('hidden');
+            } else {
+                dividerNormal.classList.remove('hidden');
+            }
+        }
     }
-    loadTab(AppState.activeTab);
+    setActiveTab(AppState.activeTab);
+}
+
+function logout() {
+    fetch(API_BASE + 'auth.php', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ action: 'logout' }),
+        credentials: 'same-origin'
+    }).then(function() {
+        AppState.user = null;
+        AppState.tenant = null;
+        AppState.tokenUsage = null;
+        var tokenBanner = document.getElementById('header-token-warning');
+        if (tokenBanner) tokenBanner.classList.add('hidden');
+        document.getElementById('user-dropdown').classList.add('hidden');
+        showLogin();
+    }).catch(function() {
+        AppState.user = null;
+        AppState.tenant = null;
+        AppState.tokenUsage = null;
+        showLogin();
+    });
+}
+
+// Cadastro de empresa (toggle + submit)
+function showCadastro() {
+    const box = document.getElementById('cadastro-box');
+    const success = document.getElementById('cadastro-success');
+    if (box) box.classList.remove('hidden');
+    if (success) { success.classList.add('hidden'); success.textContent = ''; }
+}
+function hideCadastro() {
+    const box = document.getElementById('cadastro-box');
+    if (box) box.classList.add('hidden');
+}
+async function handleCadastroSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    const company = (document.getElementById('reg-company') && document.getElementById('reg-company').value || '').trim();
+    const email = (document.getElementById('reg-email') && document.getElementById('reg-email').value || '').trim().toLowerCase();
+    const name = (document.getElementById('reg-name') && document.getElementById('reg-name').value || '').trim();
+    const errorEl = document.getElementById('reg-error');
+    const btn = document.getElementById('btn-cadastro');
+    if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
+    if (!company) { if (errorEl) { errorEl.textContent = 'Nome da empresa é obrigatório.'; errorEl.classList.remove('hidden'); } return; }
+    if (!email || !email.includes('@')) { if (errorEl) { errorEl.textContent = 'E-mail do administrador é obrigatório e deve ser válido.'; errorEl.classList.remove('hidden'); } return; }
+    if (btn) btn.disabled = true;
+    try {
+        const res = await fetch(API_BASE + 'register.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ companyName: company, adminEmail: email, adminName: name || undefined })
+        });
+        const data = await res.json();
+        if (data.success) {
+            hideCadastro();
+            const successEl = document.getElementById('cadastro-success');
+            const loginEmail = document.getElementById('login-email');
+            if (successEl) { successEl.textContent = data.message || 'Empresa cadastrada. Faça login com seu e-mail.'; successEl.classList.remove('hidden'); }
+            if (loginEmail) loginEmail.value = email;
+            if (document.getElementById('reg-company')) document.getElementById('reg-company').value = '';
+            if (document.getElementById('reg-email')) document.getElementById('reg-email').value = '';
+            if (document.getElementById('reg-name')) document.getElementById('reg-name').value = '';
+        } else {
+            if (errorEl) { errorEl.textContent = data.error || 'Erro ao cadastrar.'; errorEl.classList.remove('hidden'); }
+        }
+    } catch (err) {
+        if (errorEl) { errorEl.textContent = 'Erro de conexão. Verifique o servidor.'; errorEl.classList.remove('hidden'); }
+    } finally {
+        if (btn) btn.disabled = false;
+    }
 }
 
 // Event Listeners
 function setupEventListeners() {
-    document.getElementById('btn-login').addEventListener('click', handleLogin);
-    
+    const loginForm = document.getElementById('login-form');
+    if (loginForm) {
+        loginForm.addEventListener('submit', handleLogin);
+    } else {
+        const btn = document.getElementById('btn-login');
+        if (btn) btn.addEventListener('click', (e) => { e.preventDefault(); handleLogin(); });
+    }
+    const linkCadastro = document.getElementById('link-cadastro');
+    if (linkCadastro) linkCadastro.addEventListener('click', showCadastro);
+    const btnCadastroVoltar = document.getElementById('btn-cadastro-voltar');
+    if (btnCadastroVoltar) btnCadastroVoltar.addEventListener('click', hideCadastro);
+    const formCadastro = document.getElementById('form-cadastro');
+    if (formCadastro) formCadastro.addEventListener('submit', handleCadastroSubmit);
+
     // Tabs
     document.querySelectorAll('.tab-btn').forEach(btn => {
         btn.addEventListener('click', () => {
@@ -114,6 +259,231 @@ function setupEventListeners() {
     
     // GPS
     document.getElementById('btn-refresh-gps').addEventListener('click', refreshLocation);
+
+    // Menu do usuário (dropdown + Sair)
+    var headerUserArea = document.getElementById('header-user-area');
+    var userDropdown = document.getElementById('user-dropdown');
+    var btnLogout = document.getElementById('btn-logout');
+    if (headerUserArea && userDropdown) {
+        headerUserArea.addEventListener('click', function(e) {
+            e.stopPropagation();
+            userDropdown.classList.toggle('hidden');
+        });
+    }
+    if (btnLogout) {
+        btnLogout.addEventListener('click', function(e) {
+            e.stopPropagation();
+            userDropdown.classList.add('hidden');
+            logout();
+        });
+    }
+    document.addEventListener('click', function() {
+        if (userDropdown && !userDropdown.classList.contains('hidden')) {
+            userDropdown.classList.add('hidden');
+        }
+    });
+}
+
+// Dashboard: estatísticas da conta (tokens utilizados / permitidos)
+function renderDashboardTab(contentArea) {
+    var u = AppState.tokenUsage || { used: 0, limit: 0, limitReached: false };
+    var used = u.used || 0;
+    var limit = u.limit != null ? u.limit : 0;
+    var limitLabel = limit === 0 ? 'Ilimitado' : limit;
+    var available = limit === 0 ? 'Ilimitado' : Math.max(0, limit - used);
+    var tenantName = (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : '—';
+    var hasTenant = AppState.tenant && AppState.tenant.id;
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto">' +
+        '<h3 class="text-2xl font-black text-slate-900 mb-8">Estatísticas da conta</h3>' +
+        '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">' +
+        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">' +
+        '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">' +
+        '<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg></div>' +
+        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens utilizados</p><p class="text-3xl font-black text-slate-900">' + used + '</p></div></div>' +
+        '<p class="text-xs text-slate-500">Tokens usados no período (cada página de 20 resultados = 1 token)</p></div>' +
+        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">' +
+        '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center">' +
+        '<svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div>' +
+        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens permitidos (plano)</p><p class="text-3xl font-black text-slate-900">' + limitLabel + '</p></div></div>' +
+        '<p class="text-xs text-slate-500">Limite do plano vinculado à sua empresa neste período</p></div>' +
+        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm sm:col-span-2 lg:col-span-1">' +
+        '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center">' +
+        '<svg class="w-7 h-7 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></div>' +
+        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Disponível</p><p class="text-3xl font-black text-slate-900">' + available + '</p></div></div>' +
+        '<p class="text-xs text-slate-500">Tokens restantes para novas buscas neste período</p></div>' +
+        '</div>' +
+        '<div class="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-200">' +
+        '<p class="text-sm font-bold text-slate-700"><span class="text-slate-500">Empresa:</span> ' + tenantName + '</p>' +
+        (!hasTenant ? '<p class="text-xs text-slate-500 mt-2">Conta plataforma (Super Admin) — não há limite de tokens por empresa.</p>' : '') +
+        '</div></div>';
+}
+
+// Solicitar Créditos (Normal): usuário solicita X créditos
+function renderRequestCreditsTab(contentArea) {
+    contentArea.innerHTML = '<div class="max-w-2xl mx-auto">' +
+        '<h3 class="text-2xl font-black text-slate-900 mb-6">Solicitar créditos</h3>' +
+        '<p class="text-sm text-slate-500 mb-8">Solicite créditos (tokens) adicionais para sua empresa. O administrador da plataforma analisará e poderá aprovar ou recusar.</p>' +
+        '<div id="request-credits-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
+        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm mb-10">' +
+        '<form id="request-credits-form" class="space-y-4">' +
+        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Quantidade de créditos (tokens)</label>' +
+        '<input id="request-credits-amount" type="number" min="1" max="100000" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: 50" required />' +
+        '<p class="text-[10px] text-slate-400 mt-1">Cada crédito = 1 busca no período atual.</p></div>' +
+        '<button type="submit" id="request-credits-submit" class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Enviar solicitação</button>' +
+        '</form></div>' +
+        '<h4 class="text-lg font-black text-slate-900 mb-4">Minhas solicitações</h4>' +
+        '<div id="request-credits-list"></div></div>';
+    setupRequestCreditsEvents();
+    loadRequestCreditsList();
+}
+
+function setupRequestCreditsEvents() {
+    var form = document.getElementById('request-credits-form');
+    if (!form) return;
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        var amountEl = document.getElementById('request-credits-amount');
+        var num = parseInt(amountEl.value, 10);
+        if (isNaN(num) || num < 1 || num > 100000) {
+            var err = document.getElementById('request-credits-error');
+            err.textContent = 'Informe uma quantidade entre 1 e 100.000.';
+            err.classList.remove('hidden');
+            return;
+        }
+        document.getElementById('request-credits-error').classList.add('hidden');
+        var btn = document.getElementById('request-credits-submit');
+        btn.disabled = true;
+        btn.textContent = 'Enviando...';
+        fetch(API_BASE + 'credit-requests.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ tokensRequested: num })
+        }).then(function(r) { return r.json(); }).then(function(data) {
+            if (data.success) {
+                amountEl.value = '';
+                loadRequestCreditsList();
+            } else {
+                var err = document.getElementById('request-credits-error');
+                err.textContent = data.error || 'Erro ao enviar solicitação.';
+                err.classList.remove('hidden');
+            }
+        }).catch(function() {
+            var err = document.getElementById('request-credits-error');
+            err.textContent = 'Erro de conexão.';
+            err.classList.remove('hidden');
+        }).finally(function() {
+            btn.disabled = false;
+            btn.textContent = 'Enviar solicitação';
+        });
+    };
+}
+
+function loadRequestCreditsList() {
+    var listEl = document.getElementById('request-credits-list');
+    if (!listEl) return;
+    fetch(API_BASE + 'credit-requests.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
+        if (!data.success || !data.data || !data.data.items) {
+            listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação</p></div>';
+            return;
+        }
+        var items = data.data.items;
+        if (items.length === 0) {
+            listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação</p></div>';
+            return;
+        }
+        var html = '<div class="space-y-4">';
+        items.forEach(function(r) {
+            var statusLabel = r.status === 'pending' ? 'Pendente' : r.status === 'approved' ? 'Aprovado' : 'Recusado';
+            var statusClass = r.status === 'pending' ? 'text-amber-600' : r.status === 'approved' ? 'text-emerald-600' : 'text-red-600';
+            var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
+            html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between">';
+            html += '<div><p class="font-extrabold text-slate-900">' + r.tokensRequested + ' créditos</p>';
+            html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + dateStr + ' · <span class="' + statusClass + '">' + statusLabel + '</span></p></div>';
+            if (r.status === 'pending') html += '<span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold">Aguardando</span>';
+            html += '</div>';
+        });
+        html += '</div>';
+        listEl.innerHTML = html;
+    }).catch(function() {
+        listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Erro ao carregar</p></div>';
+    });
+}
+
+// Créditos (Administração): lista solicitações, Aceitar / Recusar
+function renderCreditsAdminTab(contentArea) {
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto">' +
+        '<div class="flex justify-between items-center mb-10">' +
+        '<h3 class="text-2xl font-black text-slate-900">Solicitações de créditos</h3>' +
+        '<button type="button" id="credits-admin-refresh" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar</button></div>' +
+        '<div id="credits-admin-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
+        '<div id="credits-admin-list"></div></div>';
+    document.getElementById('credits-admin-refresh').onclick = function() { loadCreditsAdminList(); };
+    loadCreditsAdminList();
+}
+
+function loadCreditsAdminList() {
+    var listEl = document.getElementById('credits-admin-list');
+    var errEl = document.getElementById('credits-admin-error');
+    if (!listEl) return;
+    listEl.innerHTML = '<div class="py-12 text-center"><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block"></span></div>';
+    if (errEl) errEl.classList.add('hidden');
+    fetch(API_BASE + 'credit-requests.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
+        if (!data.success || !data.data || !data.data.items) {
+            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
+            return;
+        }
+        var items = data.data.items;
+        if (items.length === 0) {
+            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
+            return;
+        }
+        var html = '<div class="space-y-4">';
+        items.forEach(function(r) {
+            var statusLabel = r.status === 'pending' ? 'Pendente' : r.status === 'approved' ? 'Aprovado' : 'Recusado';
+            var statusClass = r.status === 'pending' ? 'text-amber-600' : r.status === 'approved' ? 'text-emerald-600' : 'text-red-600';
+            var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
+            var reviewedStr = r.reviewedAt ? ' · ' + new Date(r.reviewedAt).toLocaleString('pt-BR') : '';
+            var who = (r.requestedByName || r.requestedByEmail || '—');
+            html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex flex-wrap items-center justify-between gap-4">';
+            html += '<div class="flex items-center gap-6">';
+            html += '<div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (r.tenantName ? r.tenantName.charAt(0).toUpperCase() : 'E') + '</div>';
+            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (r.tenantName || 'Empresa') + '</h4>';
+            html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + who + ' · ' + r.tokensRequested + ' créditos · ' + dateStr + '</p>';
+            html += '<p class="text-xs font-bold mt-1 ' + statusClass + '">' + statusLabel + reviewedStr + '</p></div></div>';
+            if (r.status === 'pending') {
+                html += '<div class="flex items-center gap-2"><button type="button" class="btn-credit-approve bg-emerald-100 text-emerald-700 hover:bg-emerald-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Aceitar</button>';
+                html += '<button type="button" class="btn-credit-reject bg-red-100 text-red-700 hover:bg-red-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Recusar</button></div>';
+            }
+            html += '</div>';
+        });
+        html += '</div>';
+        listEl.innerHTML = html;
+        listEl.querySelectorAll('.btn-credit-approve').forEach(function(btn) {
+            btn.onclick = function() { reviewCreditRequest(btn.dataset.id, 'approved'); };
+        });
+        listEl.querySelectorAll('.btn-credit-reject').forEach(function(btn) {
+            btn.onclick = function() { reviewCreditRequest(btn.dataset.id, 'rejected'); };
+        });
+    }).catch(function() {
+        listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Erro ao carregar</p></div>';
+    });
+}
+
+function reviewCreditRequest(id, status) {
+    var errEl = document.getElementById('credits-admin-error');
+    if (errEl) errEl.classList.add('hidden');
+    fetch(API_BASE + 'credit-requests.php', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ id: id, status: status })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.success) loadCreditsAdminList();
+        else if (errEl) { errEl.textContent = data.error || 'Erro ao processar.'; errEl.classList.remove('hidden'); }
+    }).catch(function() {
+        if (errEl) { errEl.textContent = 'Erro de conexão.'; errEl.classList.remove('hidden'); }
+    });
 }
 
 // Tabs
@@ -131,8 +501,13 @@ function setActiveTab(tab) {
     
     // Atualiza título
     const titles = {
+        dashboard: 'Dashboard',
         search: 'Prospecção Inteligente',
         history: 'Arquivo de Buscas',
+        'request-credits': 'Solicitar Créditos',
+        plans: 'Planos',
+        companies: 'Empresas',
+        credits: 'Créditos',
         settings: 'Integração CRM'
     };
     document.getElementById('page-title').textContent = titles[tab] || 'Dashboard';
@@ -144,16 +519,330 @@ function setActiveTab(tab) {
 function loadTab(tab) {
     const contentArea = document.getElementById('content-area');
     
-    if (tab === 'search') {
+    if (tab === 'dashboard') {
+        renderDashboardTab(contentArea);
+    } else if (tab === 'request-credits') {
+        renderRequestCreditsTab(contentArea);
+    } else if (tab === 'credits') {
+        var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+        if (isSuperAdmin) renderCreditsAdminTab(contentArea);
+        else contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-24 text-center text-slate-500 font-bold">Acesso restrito ao administrador da plataforma.</div>';
+    } else if (tab === 'search') {
         contentArea.innerHTML = getProspectingHTML();
         setupProspectingEvents();
     } else if (tab === 'history') {
         loadHistory();
+    } else if (tab === 'plans') {
+        loadPlansTab(contentArea);
+    } else if (tab === 'companies') {
+        loadCompaniesTab(contentArea);
     } else if (tab === 'settings') {
         contentArea.innerHTML = getSettingsHTML();
+        var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+        var blockScraper = document.getElementById('block-scraper-api-key-admin');
+        if (blockScraper && !isSuperAdmin) blockScraper.style.display = 'none';
         setupSettingsEvents();
         loadSettingsForm();
     }
+}
+
+// Planos (super_admin): listar planos, criar plano (Nome, Tokens, Valor mensal)
+function loadPlansTab(contentArea) {
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10"><div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900">Planos e limite de tokens <span id="plans-total" class="text-slate-500 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="plans-refresh-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><button type="button" id="plans-create-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2">Criar plano</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="plans-spinner"></span></div></div><div id="plans-list"></div></div>';
+    var listEl = document.getElementById('plans-list');
+    var spinnerEl = document.getElementById('plans-spinner');
+    var refreshBtn = document.getElementById('plans-refresh-btn');
+    if (refreshBtn) {
+        refreshBtn.onclick = function() {
+            loadPlansTab(document.getElementById('content-area'));
+        };
+    }
+    var createBtn = document.getElementById('plans-create-btn');
+    if (createBtn) {
+        createBtn.onclick = function() {
+            showPlansCreateModal(contentArea);
+        };
+    }
+    fetch(API_BASE + 'plans.php', { method: 'GET', credentials: 'include', cache: 'no-store' })
+        .then(function(r) {
+            if (spinnerEl) spinnerEl.remove();
+            return r.json().catch(function() { return { success: false, error: 'Resposta inválida do servidor.' }; });
+        })
+        .then(function(data) {
+            if (!listEl) return;
+            if (!data.success) {
+                listEl.innerHTML = '<div class="py-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium">' + (data.error || 'Erro ao carregar planos. Execute database_migration_plans.sql no banco.') + '</div>';
+                return;
+            }
+            var items = (data.data && data.data.items) ? data.data.items : (Array.isArray(data.data) ? data.data : []);
+            var total = (data.data && typeof data.data.total === 'number') ? data.data.total : items.length;
+            if (!Array.isArray(items) || items.length === 0) {
+                listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum plano cadastrado</p></div>';
+                var totalEl = document.getElementById('plans-total');
+                if (totalEl) totalEl.textContent = '0 plano(s)';
+                return;
+            }
+            var html = '<div class="space-y-4">';
+            items.forEach(function(p) {
+                var tokenText = (p.tokenLimit === 0 || p.tokenLimit === '0') ? 'Ilimitado' : (p.tokenLimit + ' tokens/' + (p.period === 'yearly' ? 'ano' : 'mês'));
+                var priceText = (p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? (' · R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',') + '/mês') : '';
+                var statusLabel = p.status === 'active' ? 'Ativo' : 'Inativo';
+                var statusClass = p.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600';
+                html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
+                html += '<div class="flex items-center gap-6">';
+                html += '<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + ((p.tokenLimit === 0 || p.tokenLimit === '0') ? '∞' : p.tokenLimit) + '</div>';
+                html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4>';
+                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (p.slug || '') + ' · ' + tokenText + priceText + ' · ' + (p.tenantsCount || 0) + ' empresa(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
+                html += '</div>';
+            });
+            html += '</div>';
+            listEl.innerHTML = html;
+            var totalEl = document.getElementById('plans-total');
+            if (totalEl) totalEl.textContent = total + ' plano(s)';
+        })
+        .catch(function() {
+            if (document.getElementById('plans-spinner')) document.getElementById('plans-spinner').remove();
+            var list = document.getElementById('plans-list');
+            if (list) list.innerHTML = '<div class="py-8 p-5 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium">Erro ao carregar planos. Verifique a conexão e se você está logado como Super Admin.</div>';
+        });
+}
+
+function showPlansCreateModal(contentArea) {
+    var overlay = document.createElement('div');
+    overlay.id = 'plans-create-overlay';
+    overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
+    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+        '<h4 class="text-xl font-black text-slate-900 mb-6">Criar plano</h4>' +
+        '<form id="plans-create-form" class="space-y-4">' +
+        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome</label>' +
+        '<input type="text" id="plan-name" required placeholder="Ex: Básico, Pro" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Quantos tokens</label>' +
+        '<input type="number" id="plan-tokens" min="0" value="100" placeholder="100" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />' +
+        '<p class="text-[10px] text-slate-400 mt-1">0 = ilimitado. Cada página de 20 resultados consome 1 token.</p></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Valor mensal (R$)</label>' +
+        '<input type="number" id="plan-price" min="0" step="0.01" value="0" placeholder="0,00" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
+        '<p id="plans-create-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+        '<div class="flex gap-3 pt-4">' +
+        '<button type="button" id="plans-create-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+        '<button type="submit" id="plans-create-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Criar plano</button>' +
+        '</div></form></div>';
+    overlay.onclick = function(e) {
+        if (e.target === overlay) {
+            overlay.remove();
+        }
+    };
+    document.body.appendChild(overlay);
+    var form = document.getElementById('plans-create-form');
+    var cancelBtn = document.getElementById('plans-create-cancel');
+    var errorEl = document.getElementById('plans-create-error');
+    cancelBtn.onclick = function() { overlay.remove(); };
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        var name = (document.getElementById('plan-name').value || '').trim();
+        var tokenLimit = parseInt(document.getElementById('plan-tokens').value, 10) || 0;
+        if (tokenLimit < 0) tokenLimit = 0;
+        var priceMonthly = parseFloat((document.getElementById('plan-price').value || '0').toString().replace(',', '.')) || 0;
+        if (!name) {
+            errorEl.textContent = 'Nome é obrigatório.';
+            errorEl.classList.remove('hidden');
+            return;
+        }
+        var slug = name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'plano';
+        errorEl.classList.add('hidden');
+        var submitBtn = document.getElementById('plans-create-submit');
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Salvando...';
+        fetch(API_BASE + 'plans.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ name: name, slug: slug, tokenLimit: tokenLimit, priceMonthly: priceMonthly, period: 'monthly', status: 'active' })
+        })
+            .then(function(r) { return r.json(); })
+            .then(function(data) {
+                if (data.success) {
+                    overlay.remove();
+                    if (contentArea) loadPlansTab(contentArea);
+                    if (document.getElementById('toast') && document.getElementById('toast-message')) {
+                        document.getElementById('toast-message').textContent = 'Plano criado com sucesso.';
+                        document.getElementById('toast').classList.remove('hidden');
+                        setTimeout(function() { document.getElementById('toast').classList.add('hidden'); }, 3000);
+                    }
+                } else {
+                    errorEl.textContent = data.error || 'Erro ao criar plano.';
+                    errorEl.classList.remove('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.textContent = 'Criar plano';
+                }
+            })
+            .catch(function() {
+                errorEl.textContent = 'Erro de conexão. Tente novamente.';
+                errorEl.classList.remove('hidden');
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Criar plano';
+            });
+    };
+}
+
+// Empresas (super_admin): listar e ativar/desativar
+function loadCompaniesTab(contentArea) {
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10"><div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900">Empresas cadastradas <span id="companies-total" class="text-slate-500 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="companies-refresh-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="companies-spinner"></span></div></div><div id="companies-list"></div></div>';
+    var listEl = document.getElementById('companies-list');
+    var spinnerEl = document.getElementById('companies-spinner');
+    var refreshBtn = document.getElementById('companies-refresh-btn');
+    if (refreshBtn) {
+        refreshBtn.onclick = function() {
+            loadCompaniesTab(document.getElementById('content-area'));
+        };
+    }
+    var apiUrl = API_BASE + 'tenants.php';
+    var plansUrl = API_BASE + 'plans.php';
+    Promise.all([
+        fetch(apiUrl, { method: 'GET', credentials: 'include', cache: 'no-store' }).then(function(r) { return r.json().catch(function() { return { success: false, error: 'Resposta inválida do servidor.' }; }); }),
+        fetch(plansUrl, { method: 'GET', credentials: 'include', cache: 'no-store' }).then(function(r) { return r.json().catch(function() { return { success: false, data: { items: [] } }; }); })
+    ]).then(function(results) {
+            var data = results[0];
+            var plansData = results[1];
+            if (spinnerEl) spinnerEl.remove();
+            if (!listEl) return;
+            if (!data.success) {
+                listEl.innerHTML = '<div class="py-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium">' + (data.error || 'Erro ao carregar empresas.') + '</div>';
+                return;
+            }
+            var items = (data.data && data.data.items) ? data.data.items : (Array.isArray(data.data) ? data.data : []);
+            var total = (data.data && typeof data.data.total === 'number') ? data.data.total : items.length;
+            var plans = (plansData.success && plansData.data && plansData.data.items) ? plansData.data.items : (Array.isArray(plansData.data) ? plansData.data : []);
+            var activePlans = plans.filter(function(p) { return p.status === 'active'; });
+            if (!Array.isArray(items) || items.length === 0) {
+                listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma empresa cadastrada</p></div>';
+                return;
+            }
+            var html = '<div class="space-y-4">';
+            items.forEach(function(t) {
+                var statusLabel = t.status === 'active' ? 'Ativa' : 'Suspensa';
+                var statusClass = t.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700';
+                var toggleLabel = t.status === 'active' ? 'Desativar' : 'Ativar';
+                var isDefault = String(t.id) === '1';
+                var planInfo = (t.plan || '') + (t.planTokenLimit != null ? (t.planTokenLimit === 0 ? ' (ilimitado)' : ' (' + t.planTokenLimit + ' tokens)') : '');
+                html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
+                html += '<div class="flex items-center gap-6">';
+                html += '<div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
+                html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (t.name || '') + '</h4>';
+                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + ' · Plano: ' + planInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
+                html += '<div class="flex items-center gap-2">';
+                if (!isDefault) {
+                    html += '<button type="button" class="btn-toggle-tenant px-4 py-2 rounded-xl text-xs font-bold ' + (t.status === 'active' ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200') + '" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-status="' + (t.status === 'active' ? 'suspended' : 'active') + '">' + toggleLabel + '</button>';
+                    html += '<button type="button" class="btn-link-plan px-4 py-2 rounded-xl text-xs font-bold bg-blue-100 text-blue-700 hover:bg-blue-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-plan-id="' + (t.planId || '1') + '">Vincular plano</button>';
+                } else {
+                    html += '<span class="text-[10px] text-slate-400 font-bold uppercase">Empresa padrão</span>';
+                }
+                html += '</div></div>';
+            });
+            html += '</div>';
+            listEl.innerHTML = html;
+            var totalEl = document.getElementById('companies-total');
+            if (totalEl) totalEl.textContent = total + ' empresa(s)';
+            listEl.querySelectorAll('.btn-toggle-tenant').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var id = btn.dataset.id;
+                    var name = btn.dataset.name;
+                    var newStatus = btn.dataset.status;
+                    var action = newStatus === 'active' ? 'ativar' : 'desativar';
+                    if (!confirm('Deseja ' + action + ' a empresa "' + name + '"?')) return;
+                    btn.disabled = true;
+                    fetch(API_BASE + 'tenants.php', {
+                        method: 'PUT',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'same-origin',
+                        body: JSON.stringify({ id: id, status: newStatus })
+                    })
+                        .then(function(r) { return r.json(); })
+                        .then(function(res) {
+                            if (res.success) {
+                                setActiveTab('companies');
+                            } else {
+                                alert(res.error || 'Erro ao atualizar.');
+                            }
+                        })
+                        .catch(function() { alert('Erro de conexão.'); })
+                        .finally(function() { btn.disabled = false; });
+                });
+            });
+
+            listEl.querySelectorAll('.btn-link-plan').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var tenantId = btn.dataset.id;
+                    var tenantName = btn.dataset.name;
+                    var currentPlanId = btn.dataset.planId || '1';
+                    var optionsHtml = activePlans.map(function(p) {
+                        var label = p.name + (p.tokenLimit === 0 ? ' (ilimitado)' : ' (' + p.tokenLimit + ' tokens)');
+                        return '<option value="' + p.id + '"' + (String(p.id) === String(currentPlanId) ? ' selected' : '') + '>' + label + '</option>';
+                    }).join('');
+                    if (!optionsHtml) optionsHtml = '<option value="1">Básico</option>';
+                    var overlay = document.getElementById('companies-link-plan-overlay');
+                    if (overlay) overlay.remove();
+                    overlay = document.createElement('div');
+                    overlay.id = 'companies-link-plan-overlay';
+                    overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
+                    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+                        '<h4 class="text-xl font-black text-slate-900 mb-2">Vincular empresa ao plano</h4>' +
+                        '<p class="text-sm text-slate-500 mb-4">' + (tenantName ? 'Empresa: ' + tenantName : '') + '</p>' +
+                        '<form id="companies-link-plan-form" class="space-y-4">' +
+                        '<label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Plano</label>' +
+                        '<select id="companies-link-plan-select" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' + optionsHtml + '</select>' +
+                        '<p id="companies-link-plan-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+                        '<div class="flex gap-3 pt-4">' +
+                        '<button type="button" id="companies-link-plan-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+                        '<button type="submit" id="companies-link-plan-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Vincular</button>' +
+                        '</div></form></div>';
+                    overlay.onclick = function(ev) { if (ev.target === overlay) overlay.remove(); };
+                    document.body.appendChild(overlay);
+                    var form = document.getElementById('companies-link-plan-form');
+                    var cancelBtn = document.getElementById('companies-link-plan-cancel');
+                    var errorEl = document.getElementById('companies-link-plan-error');
+                    var submitBtn = document.getElementById('companies-link-plan-submit');
+                    form.onsubmit = function(e) {
+                        e.preventDefault();
+                        var planId = document.getElementById('companies-link-plan-select').value;
+                        if (!planId) return;
+                        errorEl.classList.add('hidden');
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Salvando...';
+                        fetch(API_BASE + 'tenants.php', {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            credentials: 'same-origin',
+                            body: JSON.stringify({ id: tenantId, planId: parseInt(planId, 10) })
+                        })
+                            .then(function(r) { return r.json(); })
+                            .then(function(res) {
+                                if (res.success) {
+                                    overlay.remove();
+                                    loadCompaniesTab(document.getElementById('content-area'));
+                                } else {
+                                    errorEl.textContent = res.error || 'Erro ao vincular plano.';
+                                    errorEl.classList.remove('hidden');
+                                }
+                            })
+                            .catch(function() {
+                                errorEl.textContent = 'Erro de conexão.';
+                                errorEl.classList.remove('hidden');
+                            })
+                            .finally(function() {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Vincular';
+                            });
+                    };
+                    cancelBtn.onclick = function() { overlay.remove(); };
+                });
+            });
+        })
+        .catch(function(err) {
+            var s = document.getElementById('companies-spinner');
+            if (s) s.remove();
+            var list = document.getElementById('companies-list');
+            if (list) list.innerHTML = '<div class="py-8 p-5 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium">Erro ao carregar empresas. Verifique a conexão e se você está logado como Super Admin.</div>';
+        });
 }
 
 // GPS
@@ -238,6 +927,10 @@ function updateGPSUI() {
 function getProspectingHTML() {
     return `
         <div class="max-w-[1400px] mx-auto">
+            <div id="search-token-limit-banner" class="hidden mb-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium flex items-center gap-2">
+                <span class="text-lg">⚠️</span>
+                <span>Você atingiu o limite de tokens do seu plano para este período. Cada resultado retornado consome 1 token. Solicite mais créditos em <strong>Solicitar Créditos</strong> no menu ou aguarde o próximo período.</span>
+            </div>
             <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 mb-10">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div class="md:col-span-4">
@@ -273,8 +966,12 @@ function getProspectingHTML() {
                     <p class="text-xs text-slate-500 font-medium">
                         Exibindo <span id="visible-count" class="font-bold text-slate-900">0</span> de <span id="total-count" class="font-bold text-slate-900">0</span> empresas encontradas
                     </p>
+                    <p class="text-xs text-slate-500 font-medium mt-1">
+                        Tokens disponíveis na conta: <span id="available-tokens" class="font-bold text-slate-900">—</span>
+                    </p>
                 </div>
                 <div id="results-header-buttons" class="flex items-center gap-3">
+                    <div id="results-unlock-page-wrap" class="hidden"></div>
                     <button id="btn-export-excel" type="button" class="flex items-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg shadow-emerald-900/20" title="Exportar pesquisa atual para Excel">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
                         Exportar para Excel
@@ -330,6 +1027,14 @@ function setupProspectingEvents() {
         if (e.key === 'Enter') performSearch();
     });
 
+    var limitReached = (AppState.tokenUsage && AppState.tokenUsage.limitReached) || (AppState.tenant && AppState.tenant.status === 'suspended');
+    if (limitReached) {
+        var btnSearch = document.getElementById('btn-search');
+        var banner = document.getElementById('search-token-limit-banner');
+        if (btnSearch) { btnSearch.disabled = true; btnSearch.textContent = 'Sem créditos disponíveis'; }
+        if (banner) banner.classList.remove('hidden');
+    }
+
     const btnExportExcel = document.getElementById('btn-export-excel');
     if (btnExportExcel) {
         btnExportExcel.addEventListener('click', exportCurrentSearchToExcel);
@@ -352,9 +1057,14 @@ function escapeCsv(val) {
 
 // Exporta apenas a pesquisa atual (leads listados) para CSV (abre no Excel)
 function exportCurrentSearchToExcel() {
-    const leads = AppState.leads || [];
+    if (!AppState.searchId) {
+        showError('Sessão da pesquisa expirada. Faça uma nova busca.');
+        updateExportExcelButtonState();
+        return;
+    }
+    const leads = (AppState.leads || []).filter(function(l) { return l.locked === false; });
     if (leads.length === 0) {
-        alert('Nenhum dado na pesquisa atual para exportar.');
+        alert('Nenhum lead desbloqueado na pesquisa atual para exportar. Desbloqueie leads para incluí-los no Excel.');
         return;
     }
     const ctx = AppState.currentSearch || {};
@@ -441,8 +1151,14 @@ async function exportCurrentSearchToWebhook() {
     }
 }
 
-// Realiza busca (api/search.php grava pesquisa e leads no banco; listagem vem de api/history.php)
+// Realiza busca (api/search.php grava pesquisa e leads no banco; respeita limite de tokens do usuário)
 async function performSearch() {
+    var limitReached = (AppState.tokenUsage && AppState.tokenUsage.limitReached) || (AppState.tenant && AppState.tenant.status === 'suspended');
+    if (limitReached) {
+        showError('Você atingiu o limite de tokens do seu plano para este período. Solicite mais créditos em "Solicitar Créditos" ou aguarde o próximo período.');
+        return;
+    }
+
     const query = document.getElementById('search-query').value.trim();
     const location = document.getElementById('search-location')?.value.trim() || '';
     const tag = document.getElementById('search-tag').value.trim();
@@ -513,6 +1229,13 @@ async function performSearch() {
         
         if (data.success) {
             AppState.leads = data.data.leads;
+            AppState.searchId = data.data.searchId || null;
+            if (data.data.tokenUsage) AppState.tokenUsage = data.data.tokenUsage;
+            var locationText = useGPS ? (AppState.userLocationName || 'Localização GPS') : location;
+            AppState.currentSearch = { query: query, location: locationText, tag: tag };
+            // Incluir pesquisa atual no histórico local para "Ver novamente" manter desbloqueados após unlock
+            var newItem = { id: String(Date.now()), query: query, location: locationText, tag: tag, timestamp: new Date().toISOString(), resultsCount: AppState.leads.length, leads: AppState.leads.slice() };
+            AppState.history = [newItem].concat(AppState.history.filter(function(h) { return h.query !== query || h.location !== locationText; })).slice(0, 50);
             displayLeads();
         } else {
             showError(data.error || 'Erro ao buscar leads');
@@ -548,10 +1271,18 @@ function displayLeads() {
         const hasWebhookUrl = AppState.config && AppState.config.baseUrl && String(AppState.config.baseUrl).trim() !== '';
         btnExportWebhook.classList.toggle('hidden', !hasWebhookUrl);
     }
-    
+    updateExportExcelButtonState();
+
     const visible = AppState.leads.slice(0, AppState.visibleCount);
     document.getElementById('visible-count').textContent = visible.length;
     document.getElementById('total-count').textContent = AppState.leads.length;
+    var u = AppState.tokenUsage;
+    var availableEl = document.getElementById('available-tokens');
+    if (availableEl) {
+        if (u == null) availableEl.textContent = '—';
+        else if (u.limit === 0) availableEl.textContent = 'Ilimitado';
+        else availableEl.textContent = Math.max(0, u.limit - u.used);
+    }
     
     grid.innerHTML = visible.map(lead => getLeadCardHTML(lead)).join('');
     
@@ -562,6 +1293,31 @@ function displayLeads() {
             exportLead(leadId);
         });
     });
+    
+    // Botões Desbloquear (1 token por lead)
+    document.querySelectorAll('.btn-unlock').forEach(btn => {
+        btn.addEventListener('click', function() {
+            var leadId = this.dataset.leadId;
+            if (leadId) doUnlockLeads([leadId]);
+        });
+    });
+    
+    // Botão Desbloquear página (visível quando há leads bloqueados)
+    var unlockPageWrap = document.getElementById('results-unlock-page-wrap');
+    var lockedVisible = visible.filter(function(l) { return l.locked; });
+    if (unlockPageWrap) {
+        if (lockedVisible.length > 0 && AppState.searchId) {
+            unlockPageWrap.innerHTML = '<button type="button" id="btn-unlock-page" class="flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg disabled:opacity-50">Desbloquear página (' + lockedVisible.length + ' token' + (lockedVisible.length !== 1 ? 's' : '') + ')</button>';
+            unlockPageWrap.classList.remove('hidden');
+            var bp = document.getElementById('btn-unlock-page');
+            if (bp) bp.addEventListener('click', function() {
+                doUnlockLeads(lockedVisible.map(function(l) { return l.id; }));
+            });
+        } else {
+            unlockPageWrap.innerHTML = '';
+            unlockPageWrap.classList.add('hidden');
+        }
+    }
     
     // Load more
     if (AppState.leads.length > AppState.visibleCount) {
@@ -587,8 +1343,25 @@ function displayLeads() {
     }
 }
 
-// HTML do card de lead
+// HTML do card de lead (bloqueado: só nome + botão Desbloquear; desbloqueado: dados completos)
 function getLeadCardHTML(lead) {
+    if (lead.locked) {
+        return `
+        <div class="relative mt-4 pt-10 pb-6 px-6 bg-white border border-slate-200 rounded-[1.5rem] hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between group">
+            <div class="absolute -top-3 left-6 bg-amber-500 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg z-10">Bloqueado</div>
+            <div>
+                <h3 class="font-extrabold text-slate-900 text-sm uppercase leading-snug mb-4 min-h-[2.5rem]">${lead.name || ''}</h3>
+                <div class="space-y-4 mb-6">
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
+                        <span class="text-slate-400 text-xs">🔒</span>
+                        <span class="text-slate-500 font-bold text-xs">Telefone, email e endereço bloqueados. Desbloqueie para visualizar (1 token por lead).</span>
+                    </div>
+                    <button type="button" class="btn-unlock w-full py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-[10px] uppercase tracking-wide transition-all disabled:opacity-50 flex justify-center items-center gap-2" data-lead-id="${lead.id}" title="1 token">Desbloquear (1 token)</button>
+                </div>
+            </div>
+        </div>
+        `;
+    }
     return `
         <div class="relative mt-4 pt-10 pb-6 px-6 bg-white border border-slate-200 rounded-[1.5rem] hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between group">
             <div class="absolute -top-3 left-6 bg-blue-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-blue-200 z-10">
@@ -646,6 +1419,63 @@ function getLeadCardHTML(lead) {
             </div>
         </div>
     `;
+}
+
+// Atualiza estado do botão Exportar Excel (desabilitado quando sessão expirada)
+function updateExportExcelButtonState() {
+    var btn = document.getElementById('btn-export-excel');
+    if (btn) btn.disabled = !AppState.searchId;
+}
+
+// Desbloqueia um ou mais leads (1 token por lead); retorna dados sensíveis e atualiza tokenUsage
+async function doUnlockLeads(leadIds) {
+    if (!AppState.searchId) {
+        showError('Sessão da pesquisa expirada. Faça uma nova busca.');
+        updateExportExcelButtonState();
+        return;
+    }
+    if (!leadIds || leadIds.length === 0) return;
+    var u = AppState.tokenUsage;
+    if (u && u.limit > 0 && u.used >= u.limit) {
+        showError('Sem tokens disponíveis para desbloquear.');
+        return;
+    }
+    try {
+        var res = await fetch(API_BASE + 'unlock.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ searchId: AppState.searchId, leadIds: leadIds })
+        });
+        var text = await res.text();
+        var data = JSON.parse(text || '{}');
+        if (!data.success) {
+            showError(data.error || 'Erro ao desbloquear');
+            return;
+        }
+        var unlocked = data.data && data.data.unlocked ? data.data.unlocked : {};
+        leadIds.forEach(function(leadId) {
+            var lead = AppState.leads.find(function(l) { return l.id === leadId; });
+            if (lead && unlocked[leadId]) {
+                Object.keys(unlocked[leadId]).forEach(function(k) {
+                    lead[k] = unlocked[leadId][k];
+                });
+                lead.locked = false;
+            }
+        });
+        if (data.data && data.data.tokenUsage) AppState.tokenUsage = data.data.tokenUsage;
+        displayLeads();
+        renderHeaderTokenWarning();
+        // Atualizar o item da pesquisa atual no histórico para "Ver novamente" manter os desbloqueados
+        if (AppState.currentSearch && AppState.currentSearch.query) {
+            var match = AppState.history.find(function(h) { return h.query === AppState.currentSearch.query && h.location === AppState.currentSearch.location; });
+            if (match) {
+                match.leads = AppState.leads.slice();
+            }
+        }
+    } catch (e) {
+        showError('Erro: ' + (e.message || 'ao desbloquear'));
+    }
 }
 
 // Exporta lead
@@ -759,14 +1589,17 @@ function displayHistory() {
             const historyId = btn.dataset.historyId;
             const item = AppState.history.find(h => h.id == historyId);
             if (item && item.leads) {
-                AppState.leads = item.leads;
+                AppState.searchId = String(item.id);
+                AppState.leads = item.leads.map(function(l) {
+                    if (l.locked === false) return l;
+                    return { id: l.id, name: l.name || '', locked: true, dbId: l.dbId };
+                });
                 AppState.currentSearch = {
                     query: item.query || '',
                     location: item.location || '',
                     tag: item.tag || ''
                 };
                 setActiveTab('search');
-                // Recarrega a tab de busca
                 setTimeout(() => {
                     displayLeads();
                 }, 100);
@@ -784,9 +1617,9 @@ function getSettingsHTML() {
                 <div class="space-y-8">
                     <div class="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
-                        <h4 class="font-black text-xl mb-4 flex items-center gap-2">API Thordata (ScraperAPI)</h4>
-                        <div id="api-status" class="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps via Thordata</div>
-                        <p class="text-[10px] text-slate-400 mt-4 text-center italic">API configurada no servidor</p>
+                        <h4 id="api-section-title" class="font-black text-xl mb-4 flex items-center gap-2">API de Busca (Google Maps)</h4>
+                        <div id="api-status" class="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">Nenhuma API de busca configurada</div>
+                        <p id="api-status-subtitle" class="text-[10px] text-slate-400 mt-4 text-center italic">Configure a chave abaixo para buscar leads no Google Maps.</p>
                     </div>
                     
                     <div class="grid grid-cols-1 gap-4">
@@ -843,10 +1676,10 @@ function getSettingsHTML() {
                         <input id="setting-token" type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Valor do header apikey (deixe em branco para manter o atual)">
                     </div>
                     
-                    <div class="mt-6 bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
+                    <div id="block-scraper-api-key-admin" class="mt-6 bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
                         <h4 class="font-black text-lg mb-3 flex items-center gap-2">🔑 ScraperAPI Thordata</h4>
-                        <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps</p>
+                        <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
                         <div>
                             <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Thordata</label>
                             <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Thordata">
@@ -874,6 +1707,11 @@ function setupSettingsEvents() {
     });
     
     document.getElementById('btn-save-settings').addEventListener('click', saveSettings);
+
+    const scraperApiInput = document.getElementById('setting-scraper-api');
+    if (scraperApiInput) {
+        scraperApiInput.addEventListener('input', () => updateApiStatusDisplay(scraperApiInput.value));
+    }
 }
 
 function toggleSwitch(btnId, configKey) {
@@ -915,12 +1753,34 @@ async function loadSettingsForm() {
                 scraperApiInput.value = AppState.config.scraperApiKey || '';
             }
             
+            updateApiStatusDisplay();
             updateSwitch('toggle-simplified', AppState.config.simplifiedPayload);
             updateSwitch('toggle-proxy', AppState.config.useProxy);
             updateSwitch('toggle-wrap', AppState.config.wrapInBody);
         }
     } catch (e) {
         console.error('Erro ao carregar configurações:', e);
+    }
+}
+
+function updateApiStatusDisplay(overrideKey) {
+    const titleEl = document.getElementById('api-section-title');
+    const statusEl = document.getElementById('api-status');
+    const subtitleEl = document.getElementById('api-status-subtitle');
+    if (!statusEl || !subtitleEl) return;
+    var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+    if (titleEl) titleEl.textContent = isSuperAdmin ? 'API Thordata (ScraperAPI)' : 'API de Busca (Google Maps)';
+    var configured = isSuperAdmin
+        ? (overrideKey !== undefined ? String(overrideKey || '').trim() : (AppState.config && AppState.config.scraperApiKey) ? String(AppState.config.scraperApiKey).trim() : '')
+        : (AppState.config && AppState.config.scraperApiKeyConfigured);
+    if (configured) {
+        statusEl.textContent = isSuperAdmin ? '✓ Conectado ao Google Maps via Thordata' : '✓ Conectado ao Google Maps';
+        statusEl.className = 'p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold';
+        subtitleEl.textContent = isSuperAdmin ? 'API configurada no servidor. Todas as empresas utilizam esta chave.' : 'API configurada no servidor pelo administrador da plataforma.';
+    } else {
+        statusEl.textContent = isSuperAdmin ? 'Nenhuma API Thordata configurada' : 'Nenhuma API de busca configurada';
+        statusEl.className = 'p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold';
+        subtitleEl.textContent = isSuperAdmin ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave nas Configurações.';
     }
 }
 
@@ -948,19 +1808,23 @@ async function saveSettings() {
     btn.disabled = true;
     btn.textContent = 'Salvando...';
     
+    var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+    var payload = {
+        baseUrl: document.getElementById('setting-url').value,
+        token: document.getElementById('setting-token').value,
+        tenantName: document.getElementById('setting-tenant').value,
+        simplifiedPayload: AppState.config.simplifiedPayload || false,
+        useProxy: AppState.config.useProxy || false,
+        wrapInBody: AppState.config.wrapInBody || false
+    };
+    if (isSuperAdmin) {
+        payload.scraperApiKey = document.getElementById('setting-scraper-api') ? document.getElementById('setting-scraper-api').value : '';
+    }
     try {
         const res = await fetch(API_BASE + 'settings.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-                baseUrl: document.getElementById('setting-url').value,
-                token: document.getElementById('setting-token').value,
-                tenantName: document.getElementById('setting-tenant').value,
-                scraperApiKey: document.getElementById('setting-scraper-api') ? document.getElementById('setting-scraper-api').value : '',
-                simplifiedPayload: AppState.config.simplifiedPayload || false,
-                useProxy: AppState.config.useProxy || false,
-                wrapInBody: AppState.config.wrapInBody || false
-            })
+            body: JSON.stringify(payload)
         });
         
         const data = await res.json();
