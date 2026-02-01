@@ -84,6 +84,9 @@ if ($method === 'GET') {
         jsonError('Erro ao listar solicitações de plano. Execute database_migration_plan_requests.sql no banco.', 500);
     }
 } elseif ($method === 'POST') {
+    if ($isSuperAdmin) {
+        jsonError('Super Admin não pode solicitar mudança de plano; a conta é ilimitada.', 403);
+    }
     if ($tenantId === null) {
         jsonError('Apenas usuários vinculados a uma empresa podem solicitar plano.', 403);
     }

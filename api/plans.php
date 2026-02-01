@@ -2,7 +2,7 @@
 /**
  * API de Planos - SaaS
  * Endpoint: /api/plans.php
- * Apenas super_admin pode listar, criar, editar e desativar planos.
+ * Apenas super_admin pode listar, criar, editar, desativar e excluir planos.
  * Planos definem limite de tokens (ex.: buscas) por período; empresas são vinculadas a um plano.
  */
 

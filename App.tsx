@@ -7,7 +7,7 @@ import { Plans } from './components/Plans';
 import { ChoosePlan } from './components/ChoosePlan';
 import { RequestCredits } from './components/RequestCredits';
 import { CreditsAdmin } from './components/CreditsAdmin';
-import { ChoosePlan } from './components/ChoosePlan';
+import { SaasConfig } from './components/SaasConfig';
 import { StorageService } from './services/storage';
 
 const API_BASE = '';
@@ -95,7 +95,7 @@ const Toast = ({ message, onClose }: { message: string; onClose: () => void }) =
 };
 
 const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUsageUpdate }) => {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'search' | 'history' | 'request-credits' | 'choose-plan' | 'settings' | 'companies' | 'plans' | 'credits'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'search' | 'history' | 'request-credits' | 'choose-plan' | 'settings' | 'companies' | 'plans' | 'credits' | 'saas-config'>('dashboard');
   const [history, setHistory] = useState<SearchHistoryItem[]>([]);
   
   // Atualizado para usar o tipo completo, incluindo leads
@@ -314,7 +314,7 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               Solicitar Créditos
             </button>
-            {tenant?.id && (
+            {tenant?.id && String(user.profile).toLowerCase() !== 'super_admin' && (
             <button 
               onClick={() => setActiveTab('choose-plan')} 
               className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'choose-plan' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
@@ -332,6 +332,13 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           {String(user.profile).toLowerCase() === 'super_admin' && (
             <div className="space-y-2 pt-2 pb-4">
               <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-5 mb-3">Administração</p>
+              <button 
+                onClick={() => setActiveTab('saas-config')} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'saas-config' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                Empresa SaaS
+              </button>
               <button 
                 onClick={() => { setActiveTab('plans'); setPlansRefreshKey((k) => k + 1); }} 
                 className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'plans' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
@@ -406,7 +413,7 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           <header className="bg-white border-b border-slate-200 h-20 flex items-center px-10 justify-between backdrop-blur-md bg-white/80">
           <div className="flex flex-col">
             <h2 className="text-slate-900 font-extrabold text-xl tracking-tight">
-              {activeTab === 'dashboard' ? 'Dashboard' : activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : activeTab === 'request-credits' ? 'Solicitar Créditos' : activeTab === 'choose-plan' ? 'Meu plano' : activeTab === 'companies' ? 'Empresas' : activeTab === 'plans' ? 'Planos' : activeTab === 'credits' ? 'Créditos' : 'Integração CRM'}
+              {activeTab === 'dashboard' ? 'Dashboard' : activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : activeTab === 'request-credits' ? 'Solicitar Créditos' : activeTab === 'choose-plan' ? 'Meu plano' : activeTab === 'companies' ? 'Empresas' : activeTab === 'plans' ? 'Planos' : activeTab === 'credits' ? 'Créditos' : activeTab === 'saas-config' ? 'Empresa SaaS' : 'Integração CRM'}
             </h2>
             <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard Atendo</p>
           </div>
@@ -489,10 +496,17 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           ) : activeTab === 'request-credits' ? (
             <RequestCredits />
           ) : activeTab === 'choose-plan' ? (
-            <ChoosePlan
-              currentPlanName={tenant?.planName}
-              currentPlanId={tenant?.planId}
-            />
+            String(user.profile).toLowerCase() === 'super_admin' ? (
+              <div className="max-w-4xl mx-auto py-24 text-center">
+                <p className="text-slate-600 font-bold mb-2">Conta Super Admin — ilimitada</p>
+                <p className="text-sm text-slate-500">Não é possível alterar plano; sua conta não possui limite de tokens. Cuidado, pois API de Scrapy será contabilizada.</p>
+              </div>
+            ) : (
+              <ChoosePlan
+                currentPlanName={tenant?.planName}
+                currentPlanId={tenant?.planId}
+              />
+            )
           ) : activeTab === 'credits' ? (
             String(user.profile).toLowerCase() === 'super_admin' ? (
               <CreditsAdmin refreshKey={creditsRefreshKey} />
@@ -505,9 +519,11 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
             ) : (
               <div className="max-w-4xl mx-auto py-24 text-center text-slate-500 font-bold">Acesso restrito ao administrador da plataforma.</div>
             )
+          ) : activeTab === 'saas-config' ? (
+            <SaasConfig />
           ) : activeTab === 'plans' ? (
             String(user.profile).toLowerCase() === 'super_admin' ? (
-              <Plans refreshKey={plansRefreshKey} />
+              <Plans refreshKey={plansRefreshKey} isSuperAdmin={String(user.profile).toLowerCase() === 'super_admin'} />
             ) : (
               <div className="max-w-4xl mx-auto py-24 text-center text-slate-500 font-bold">Acesso restrito ao administrador da plataforma.</div>
             )

@@ -40,7 +40,9 @@ if ($method === 'GET') {
             ");
         } else {
             if (!$tenantId) {
-                jsonSuccess(['items' => [], 'total' => 0]);
+                $priceAvulso = getPlatformSetting($db, 'credit_price_avulso');
+                $pricePerCredit = ($priceAvulso !== null && $priceAvulso !== '') ? (float) str_replace(',', '.', trim($priceAvulso)) : 0;
+                jsonSuccess(['items' => [], 'total' => 0, 'pricePerCredit' => $pricePerCredit]);
                 exit;
             }
             $stmt = $db->prepare("
@@ -67,10 +69,14 @@ if ($method === 'GET') {
                 'reviewedAt' => $r['reviewed_at'],
             ];
         }
-        jsonSuccess(['items' => $items, 'total' => count($items)]);
+        $priceAvulso = getPlatformSetting($db, 'credit_price_avulso');
+        $pricePerCredit = ($priceAvulso !== null && $priceAvulso !== '') ? (float) str_replace(',', '.', trim($priceAvulso)) : 0;
+        jsonSuccess(['items' => $items, 'total' => count($items), 'pricePerCredit' => $pricePerCredit]);
     } catch (PDOException $e) {
         if (strpos($e->getMessage(), 'exist') !== false || strpos($e->getMessage(), '1146') !== false) {
-            jsonSuccess(['items' => [], 'total' => 0]);
+            $priceAvulso = getPlatformSetting($db, 'credit_price_avulso');
+            $pricePerCredit = ($priceAvulso !== null && $priceAvulso !== '') ? (float) str_replace(',', '.', trim($priceAvulso)) : 0;
+            jsonSuccess(['items' => [], 'total' => 0, 'pricePerCredit' => $pricePerCredit]);
             exit;
         }
         error_log("credit-requests GET: " . $e->getMessage());
@@ -82,8 +88,8 @@ if ($method === 'GET') {
     }
     $input = json_decode(file_get_contents('php://input'), true) ?? [];
     $tokensRequested = isset($input['tokensRequested']) ? (int) $input['tokensRequested'] : 0;
-    if ($tokensRequested < 1 || $tokensRequested > 100000) {
-        jsonError('Informe uma quantidade entre 1 e 100.000 tokens.', 400);
+    if ($tokensRequested < 100 || $tokensRequested > 10000) {
+        jsonError('Informe uma quantidade entre 100 e 10.000 tokens.', 400);
     }
     try {
         $stmt = $db->prepare("INSERT INTO credit_requests (tenant_id, requested_by_user_id, tokens_requested, status) VALUES (?, ?, ?, 'pending')");

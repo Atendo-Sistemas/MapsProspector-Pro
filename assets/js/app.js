@@ -162,7 +162,7 @@ function showDashboard() {
         var hasTenant = AppState.tenant && AppState.tenant.id;
         var btnMeuPlano = document.getElementById('nav-btn-choose-plan');
         if (btnMeuPlano) {
-            if (hasTenant) {
+            if (hasTenant && !isSuperAdmin) {
                 btnMeuPlano.classList.remove('hidden');
             } else {
                 btnMeuPlano.classList.add('hidden');
@@ -335,9 +335,16 @@ function renderRequestCreditsTab(contentArea) {
         '<div id="request-credits-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
         '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm mb-10">' +
         '<form id="request-credits-form" class="space-y-4">' +
-        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Quantidade de créditos (tokens)</label>' +
-        '<input id="request-credits-amount" type="number" min="1" max="100000" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: 50" required />' +
-        '<p class="text-[10px] text-slate-400 mt-1">Cada crédito = 1 busca no período atual.</p></div>' +
+        '<div><div class="flex flex-wrap items-end gap-4">' +
+        '<div class="flex-1 min-w-[140px]"><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Quantidade de créditos (tokens)</label>' +
+        '<input id="request-credits-amount" type="number" min="100" max="10000" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: 100" required /></div>' +
+        '<div id="request-credits-total-wrap" class="flex-1 min-w-[140px] pb-1 hidden"><p class="text-[10px] font-black text-slate-500 uppercase mb-1">Valor a pagar</p>' +
+        '<p id="request-credits-total-line" class="text-lg font-bold text-blue-600"><span id="request-credits-total-value">—</span></p></div></div>' +
+        '<div class="mt-3"><label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Ou arraste até 10.000</label>' +
+        '<input id="request-credits-slider" type="range" min="100" max="10000" step="1" value="100" class="w-full h-3 rounded-full appearance-none bg-slate-200 accent-blue-600 cursor-pointer" />' +
+        '<p id="request-credits-slider-label" class="text-[10px] text-slate-400 mt-1 text-right">100 créditos</p></div>' +
+        '<p class="text-[10px] text-slate-400 mt-1">Cada crédito = 1 busca no período atual.</p>' +
+        '<p id="request-credits-price-line" class="text-sm font-medium text-slate-600 mt-2 hidden">Valor avulso: <span class="font-bold text-slate-800"></span> por crédito</p></div>' +
         '<button type="submit" id="request-credits-submit" class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Enviar solicitação</button>' +
         '</form></div>' +
         '<h4 class="text-lg font-black text-slate-900 mb-4">Minhas solicitações</h4>' +
@@ -349,13 +356,61 @@ function renderRequestCreditsTab(contentArea) {
 function setupRequestCreditsEvents() {
     var form = document.getElementById('request-credits-form');
     if (!form) return;
+    var amountEl = document.getElementById('request-credits-amount');
+    var sliderEl = document.getElementById('request-credits-slider');
+    var sliderLabel = document.getElementById('request-credits-slider-label');
+    var totalWrap = document.getElementById('request-credits-total-wrap');
+    var totalValue = document.getElementById('request-credits-total-value');
+
+    function getAmountNum() {
+        var n = parseInt(amountEl.value, 10);
+        if (isNaN(n) || n < 100) return 100;
+        if (n > 10000) return 10000;
+        return n;
+    }
+    function getPricePerCredit() {
+        return parseFloat(form.dataset.pricePerCredit || '0', 10);
+    }
+    function syncFromInput() {
+        var num = getAmountNum();
+        var pricePerCredit = getPricePerCredit();
+        if (sliderEl) sliderEl.value = num;
+        if (sliderLabel) sliderLabel.textContent = num.toLocaleString('pt-BR') + ' créditos';
+        if (totalWrap && totalValue) {
+            if (pricePerCredit > 0 && num >= 100) {
+                totalValue.textContent = 'R$ ' + (num * pricePerCredit).toFixed(2).replace('.', ',');
+                totalWrap.classList.remove('hidden');
+            } else {
+                totalValue.textContent = '—';
+            }
+        }
+    }
+    function syncFromSlider() {
+        var num = parseInt(sliderEl.value, 10);
+        var pricePerCredit = getPricePerCredit();
+        amountEl.value = num;
+        if (sliderLabel) sliderLabel.textContent = num.toLocaleString('pt-BR') + ' créditos';
+        if (totalWrap && totalValue) {
+            if (pricePerCredit > 0 && num >= 100) {
+                totalValue.textContent = 'R$ ' + (num * pricePerCredit).toFixed(2).replace('.', ',');
+                totalWrap.classList.remove('hidden');
+            } else {
+                totalValue.textContent = '—';
+            }
+        }
+    }
+    if (amountEl) {
+        amountEl.addEventListener('input', syncFromInput);
+        amountEl.addEventListener('change', syncFromInput);
+    }
+    if (sliderEl) sliderEl.addEventListener('input', syncFromSlider);
+
     form.onsubmit = function(e) {
         e.preventDefault();
-        var amountEl = document.getElementById('request-credits-amount');
-        var num = parseInt(amountEl.value, 10);
-        if (isNaN(num) || num < 1 || num > 100000) {
+        var num = getAmountNum();
+        if (num < 100 || num > 10000) {
             var err = document.getElementById('request-credits-error');
-            err.textContent = 'Informe uma quantidade entre 1 e 100.000.';
+            err.textContent = 'Informe uma quantidade entre 100 e 10.000.';
             err.classList.remove('hidden');
             return;
         }
@@ -371,6 +426,10 @@ function setupRequestCreditsEvents() {
         }).then(function(r) { return r.json(); }).then(function(data) {
             if (data.success) {
                 amountEl.value = '';
+                if (sliderEl) sliderEl.value = 100;
+                if (sliderLabel) sliderLabel.textContent = '100 créditos';
+                if (totalValue) totalValue.textContent = '—';
+                if (totalWrap) totalWrap.classList.add('hidden');
                 loadRequestCreditsList();
             } else {
                 var err = document.getElementById('request-credits-error');
@@ -390,8 +449,22 @@ function setupRequestCreditsEvents() {
 
 function loadRequestCreditsList() {
     var listEl = document.getElementById('request-credits-list');
+    var form = document.getElementById('request-credits-form');
+    var priceLine = document.getElementById('request-credits-price-line');
     if (!listEl) return;
     fetch(API_BASE + 'credit-requests.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
+        var pricePerCredit = (data.success && data.data && data.data.hasOwnProperty('pricePerCredit')) ? parseFloat(data.data.pricePerCredit, 10) : 0;
+        if (isNaN(pricePerCredit)) pricePerCredit = 0;
+        if (form) form.dataset.pricePerCredit = String(pricePerCredit);
+        if (priceLine) {
+            if (pricePerCredit > 0) {
+                var priceStr = 'R$ ' + pricePerCredit.toFixed(2).replace('.', ',');
+                priceLine.querySelector('span').textContent = priceStr + ' por crédito';
+                priceLine.classList.remove('hidden');
+            } else {
+                priceLine.classList.add('hidden');
+            }
+        }
         if (!data.success || !data.data || !data.data.items) {
             listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação</p></div>';
             return;
@@ -407,13 +480,22 @@ function loadRequestCreditsList() {
             var statusClass = r.status === 'pending' ? 'text-amber-600' : r.status === 'approved' ? 'text-emerald-600' : 'text-red-600';
             var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
             html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between">';
-            html += '<div><p class="font-extrabold text-slate-900">' + r.tokensRequested + ' créditos</p>';
+            var valueStr = pricePerCredit > 0 ? ' · <span class="text-blue-600 font-bold">R$ ' + (r.tokensRequested * pricePerCredit).toFixed(2).replace('.', ',') + '</span>' : '';
+            html += '<div><p class="font-extrabold text-slate-900">' + r.tokensRequested + ' créditos' + valueStr + '</p>';
             html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + dateStr + ' · <span class="' + statusClass + '">' + statusLabel + '</span></p></div>';
             if (r.status === 'pending') html += '<span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold">Aguardando</span>';
             html += '</div>';
         });
         html += '</div>';
         listEl.innerHTML = html;
+        var amountEl = document.getElementById('request-credits-amount');
+        var totalWrap = document.getElementById('request-credits-total-wrap');
+        var totalValue = document.getElementById('request-credits-total-value');
+        if (pricePerCredit > 0 && totalWrap && totalValue) {
+            totalWrap.classList.remove('hidden');
+            var num = parseInt(amountEl ? amountEl.value : '', 10);
+            totalValue.textContent = (!isNaN(num) && num >= 100) ? 'R$ ' + (num * pricePerCredit).toFixed(2).replace('.', ',') : '—';
+        }
     }).catch(function() {
         listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Erro ao carregar</p></div>';
     });
@@ -627,6 +709,7 @@ function setActiveTab(tab) {
         history: 'Arquivo de Buscas',
         'request-credits': 'Solicitar Créditos',
         'choose-plan': 'Meu plano',
+        'saas-config': 'Empresa SaaS',
         plans: 'Planos',
         companies: 'Empresas',
         credits: 'Créditos',
@@ -655,7 +738,14 @@ function loadTab(tab) {
     } else if (tab === 'history') {
         loadHistory();
     } else if (tab === 'choose-plan') {
-        renderChoosePlanTab(contentArea);
+        var isSuperAdminChoose = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+        if (isSuperAdminChoose) {
+            contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-24 text-center"><p class="text-slate-600 font-bold mb-2">Conta Super Admin — ilimitada</p><p class="text-sm text-slate-500">Não é possível alterar plano; sua conta não possui limite de tokens. Cuidado, pois API de Scrapy será contabilizada.</p></div>';
+        } else {
+            renderChoosePlanTab(contentArea);
+        }
+    } else if (tab === 'saas-config') {
+        renderSaasConfigTab(contentArea);
     } else if (tab === 'plans') {
         loadPlansTab(contentArea);
     } else if (tab === 'companies') {
@@ -668,6 +758,79 @@ function loadTab(tab) {
         setupSettingsEvents();
         loadSettingsForm();
     }
+}
+
+// Empresa SaaS (super_admin): nome da empresa, valor plano mensal, valor plano avulso
+function renderSaasConfigTab(contentArea) {
+    contentArea.innerHTML = '<div class="max-w-2xl mx-auto">' +
+        '<h3 class="text-2xl font-black text-slate-900 mb-2">Configuração da empresa SaaS</h3>' +
+        '<p class="text-sm text-slate-500 mb-8">Configure o nome da empresa e o valor por crédito avulso (usado em Solicitar créditos).</p>' +
+        '<div id="saas-config-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
+        '<div id="saas-config-success" class="hidden mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-700 text-sm font-medium"></div>' +
+        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">' +
+        '<form id="saas-config-form" class="space-y-6">' +
+        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome da empresa SaaS</label>' +
+        '<input id="saas-config-company" type="text" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: MapsProspector Pro" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Valor avulso por crédito (R$)</label>' +
+        '<input id="saas-config-avulso" type="text" inputmode="decimal" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: 2,00" />' +
+        '<p class="text-[10px] text-slate-400 mt-1">Este valor é usado em Solicitar créditos para calcular o total a pagar (quantidade × valor por crédito).</p></div>' +
+        '<button type="submit" id="saas-config-submit" class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar configurações</button>' +
+        '</form></div></div>';
+    loadSaasConfigForm();
+    setupSaasConfigEvents();
+}
+
+function loadSaasConfigForm() {
+    fetch(API_BASE + 'platform-config.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
+        if (!data.success || !data.data) return;
+        var d = data.data;
+        var companyEl = document.getElementById('saas-config-company');
+        var avulsoEl = document.getElementById('saas-config-avulso');
+        if (companyEl) companyEl.value = d.saasCompanyName || '';
+        if (avulsoEl) avulsoEl.value = (d.creditPriceAvulso != null && d.creditPriceAvulso > 0) ? String(d.creditPriceAvulso) : '';
+    }).catch(function() {});
+}
+
+function setupSaasConfigEvents() {
+    var form = document.getElementById('saas-config-form');
+    if (!form) return;
+    form.onsubmit = function(e) {
+        e.preventDefault();
+        var companyEl = document.getElementById('saas-config-company');
+        var avulsoEl = document.getElementById('saas-config-avulso');
+        var avulso = avulsoEl && avulsoEl.value ? parseFloat(String(avulsoEl.value).replace(',', '.')) : 0;
+        if (avulso < 0) {
+            var err = document.getElementById('saas-config-error');
+            if (err) { err.textContent = 'O valor avulso não pode ser negativo.'; err.classList.remove('hidden'); }
+            return;
+        }
+        document.getElementById('saas-config-error').classList.add('hidden');
+        document.getElementById('saas-config-success').classList.add('hidden');
+        var btn = document.getElementById('saas-config-submit');
+        if (btn) { btn.disabled = true; btn.textContent = 'Salvando...'; }
+        fetch(API_BASE + 'platform-config.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({
+                saasCompanyName: companyEl ? companyEl.value.trim() : '',
+                creditPriceAvulso: avulso
+            })
+        }).then(function(r) { return r.json(); }).then(function(data) {
+            if (data.success) {
+                var successEl = document.getElementById('saas-config-success');
+                if (successEl) { successEl.textContent = data.message || 'Configurações salvas.'; successEl.classList.remove('hidden'); }
+            } else {
+                var err = document.getElementById('saas-config-error');
+                if (err) { err.textContent = data.error || 'Erro ao salvar.'; err.classList.remove('hidden'); }
+            }
+        }).catch(function() {
+            var err = document.getElementById('saas-config-error');
+            if (err) { err.textContent = 'Erro de conexão.'; err.classList.remove('hidden'); }
+        }).finally(function() {
+            if (btn) { btn.disabled = false; btn.textContent = 'Salvar configurações'; }
+        });
+    };
 }
 
 // Planos (super_admin): solicitações de plano pendentes (Confirmar/Recusar) + listar planos, criar plano
@@ -731,6 +894,7 @@ function loadPlansTab(contentArea) {
         }
         var items = (data.data && data.data.items) ? data.data.items : (Array.isArray(data.data) ? data.data : []);
         var total = (data.data && typeof data.data.total === 'number') ? data.data.total : items.length;
+        var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
         if (!Array.isArray(items) || items.length === 0) {
             listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum plano cadastrado</p></div>';
             var totalEl = document.getElementById('plans-total');
@@ -743,15 +907,36 @@ function loadPlansTab(contentArea) {
             var priceText = (p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? (' · R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',') + '/mês') : '';
             var statusLabel = p.status === 'active' ? 'Ativo' : 'Inativo';
             var statusClass = p.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600';
+            var planId = String(p.id);
+            var planName = (p.name || '').replace(/"/g, '&quot;');
             html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
             html += '<div class="flex items-center gap-6">';
             html += '<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + ((p.tokenLimit === 0 || p.tokenLimit === '0') ? '∞' : p.tokenLimit) + '</div>';
             html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4>';
             html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (p.slug || '') + ' · ' + tokenText + priceText + ' · ' + (p.tenantsCount || 0) + ' empresa(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
-            html += '</div>';
+            html += '<div class="flex items-center gap-2">';
+            html += '<button type="button" class="btn-plan-edit bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + planId + '" data-name="' + planName + '">Editar</button>';
+            if (isSuperAdmin && planId !== '1') {
+                html += '<button type="button" class="btn-plan-delete text-red-500 hover:bg-red-50 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + planId + '" data-name="' + planName + '" title="Apenas Super Admin pode excluir planos">Excluir</button>';
+            }
+            html += '</div></div>';
         });
         html += '</div>';
         listEl.innerHTML = html;
+        listEl.querySelectorAll('.btn-plan-delete').forEach(function(btn) {
+            btn.onclick = function() {
+                var id = btn.getAttribute('data-id');
+                var name = btn.getAttribute('data-name') || 'este plano';
+                if (id === '1') { alert('Não é permitido excluir o plano padrão (Básico).'); return; }
+                showPlansDeleteModal(contentArea, id, name);
+            };
+        });
+        listEl.querySelectorAll('.btn-plan-edit').forEach(function(btn) {
+            btn.onclick = function() {
+                var id = btn.getAttribute('data-id');
+                showPlansEditModal(contentArea, id);
+            };
+        });
         var totalEl = document.getElementById('plans-total');
         if (totalEl) totalEl.textContent = total + ' plano(s)';
     }).catch(function() {
@@ -772,6 +957,58 @@ function reviewPlanRequest(id, status, contentArea) {
             loadPlansTab(contentArea);
         }
     });
+}
+
+function showPlansDeleteModal(contentArea, planId, planName) {
+    var overlay = document.createElement('div');
+    overlay.id = 'plans-delete-overlay';
+    overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
+    var safeName = (planName || 'este plano').replace(/"/g, '&quot;');
+    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+        '<h4 class="text-xl font-black text-slate-900 mb-2">Excluir plano</h4>' +
+        '<p class="text-slate-600 text-sm mb-6">Excluir o plano <strong>"' + safeName + '"</strong>? Nenhuma empresa pode estar vinculada a ele.</p>' +
+        '<p id="plans-delete-error" class="text-red-600 text-sm font-medium mb-4 hidden"></p>' +
+        '<div class="flex gap-3">' +
+        '<button type="button" id="plans-delete-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+        '<button type="button" id="plans-delete-confirm" class="flex-1 py-3 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700 disabled:opacity-70">Excluir</button>' +
+        '</div></div>';
+    overlay.onclick = function(e) {
+        if (e.target === overlay) overlay.remove();
+    };
+    document.body.appendChild(overlay);
+    var cancelBtn = document.getElementById('plans-delete-cancel');
+    var confirmBtn = document.getElementById('plans-delete-confirm');
+    var errorEl = document.getElementById('plans-delete-error');
+    cancelBtn.onclick = function() { overlay.remove(); };
+    confirmBtn.onclick = function() {
+        errorEl.classList.add('hidden');
+        confirmBtn.disabled = true;
+        confirmBtn.textContent = 'Excluindo...';
+        fetch(API_BASE + 'plans.php?id=' + encodeURIComponent(planId), { method: 'DELETE', credentials: 'include' })
+            .then(function(r) { return r.json(); })
+            .then(function(res) {
+                if (res.success) {
+                    overlay.remove();
+                    if (contentArea) loadPlansTab(contentArea);
+                    if (document.getElementById('toast') && document.getElementById('toast-message')) {
+                        document.getElementById('toast-message').textContent = res.message || 'Plano removido com sucesso.';
+                        document.getElementById('toast').classList.remove('hidden');
+                        setTimeout(function() { document.getElementById('toast').classList.add('hidden'); }, 3000);
+                    }
+                } else {
+                    errorEl.textContent = res.error || 'Erro ao excluir.';
+                    errorEl.classList.remove('hidden');
+                    confirmBtn.disabled = false;
+                    confirmBtn.textContent = 'Excluir';
+                }
+            })
+            .catch(function() {
+                errorEl.textContent = 'Erro de conexão.';
+                errorEl.classList.remove('hidden');
+                confirmBtn.disabled = false;
+                confirmBtn.textContent = 'Excluir';
+            });
+    };
 }
 
 function showPlansCreateModal(contentArea) {
@@ -849,6 +1086,96 @@ function showPlansCreateModal(contentArea) {
                 submitBtn.textContent = 'Criar plano';
             });
     };
+}
+
+function showPlansEditModal(contentArea, planId) {
+    fetch(API_BASE + 'plans.php?id=' + encodeURIComponent(planId), { credentials: 'include' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!data.success || !data.data) {
+                alert(data.error || 'Plano não encontrado.');
+                return;
+            }
+            var p = data.data;
+            var overlay = document.createElement('div');
+            overlay.id = 'plans-edit-overlay';
+            overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
+            overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+                '<h4 class="text-xl font-black text-slate-900 mb-6">Editar plano</h4>' +
+                '<form id="plans-edit-form" class="space-y-4">' +
+                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome</label>' +
+                '<input type="text" id="plan-edit-name" required placeholder="Ex: Básico, Pro" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.name || '').replace(/"/g, '&quot;') + '" /></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Identificador (slug)</label>' +
+                '<input type="text" id="plan-edit-slug" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.slug || '').replace(/"/g, '&quot;') + '" /></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Limite de tokens</label>' +
+                '<input type="number" id="plan-edit-tokens" min="0" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.tokenLimit != null ? p.tokenLimit : 100) + '" />' +
+                '<p class="text-[10px] text-slate-400 mt-1">0 = ilimitado.</p></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Valor mensal (R$)</label>' +
+                '<input type="number" id="plan-edit-price" min="0" step="0.01" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.priceMonthly != null ? p.priceMonthly : 0) + '" /></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Período</label>' +
+                '<select id="plan-edit-period" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' +
+                '<option value="monthly"' + (p.period === 'yearly' ? '' : ' selected') + '>Mensal</option><option value="yearly"' + (p.period === 'yearly' ? ' selected' : '') + '>Anual</option></select></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Status</label>' +
+                '<select id="plan-edit-status" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' +
+                '<option value="active"' + (p.status === 'inactive' ? '' : ' selected') + '>Ativo</option><option value="inactive"' + (p.status === 'inactive' ? ' selected' : '') + '>Inativo</option></select></div>' +
+                '<p id="plans-edit-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+                '<div class="flex gap-3 pt-4">' +
+                '<button type="button" id="plans-edit-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+                '<button type="submit" id="plans-edit-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar</button>' +
+                '</div></form></div>';
+            overlay.onclick = function(e) { if (e.target === overlay) overlay.remove(); };
+            document.body.appendChild(overlay);
+            var form = document.getElementById('plans-edit-form');
+            var cancelBtn = document.getElementById('plans-edit-cancel');
+            var errorEl = document.getElementById('plans-edit-error');
+            cancelBtn.onclick = function() { overlay.remove(); };
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                var name = (document.getElementById('plan-edit-name').value || '').trim();
+                var slug = (document.getElementById('plan-edit-slug').value || '').trim();
+                var tokenLimit = parseInt(document.getElementById('plan-edit-tokens').value, 10) || 0;
+                if (tokenLimit < 0) tokenLimit = 0;
+                var priceMonthly = parseFloat((document.getElementById('plan-edit-price').value || '0').toString().replace(',', '.')) || 0;
+                var period = document.getElementById('plan-edit-period').value || 'monthly';
+                var status = document.getElementById('plan-edit-status').value || 'active';
+                if (!name) { errorEl.textContent = 'Nome é obrigatório.'; errorEl.classList.remove('hidden'); return; }
+                if (!slug) slug = name.toLowerCase().normalize('NFD').replace(/\p{Diacritic}/gu, '').replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '') || 'plano';
+                errorEl.classList.add('hidden');
+                var submitBtn = document.getElementById('plans-edit-submit');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Salvando...';
+                fetch(API_BASE + 'plans.php', {
+                    method: 'PUT',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ id: planId, name: name, slug: slug, tokenLimit: tokenLimit, priceMonthly: priceMonthly, period: period, status: status })
+                })
+                    .then(function(r) { return r.json(); })
+                    .then(function(res) {
+                        if (res.success) {
+                            overlay.remove();
+                            if (contentArea) loadPlansTab(contentArea);
+                            if (document.getElementById('toast') && document.getElementById('toast-message')) {
+                                document.getElementById('toast-message').textContent = 'Plano atualizado com sucesso.';
+                                document.getElementById('toast').classList.remove('hidden');
+                                setTimeout(function() { document.getElementById('toast').classList.add('hidden'); }, 3000);
+                            }
+                        } else {
+                            errorEl.textContent = res.error || 'Erro ao atualizar.';
+                            errorEl.classList.remove('hidden');
+                            submitBtn.disabled = false;
+                            submitBtn.textContent = 'Salvar';
+                        }
+                    })
+                    .catch(function() {
+                        errorEl.textContent = 'Erro de conexão.';
+                        errorEl.classList.remove('hidden');
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Salvar';
+                    });
+            };
+        })
+        .catch(function() { alert('Erro ao carregar plano.'); });
 }
 
 // Empresas (super_admin): listar e ativar/desativar

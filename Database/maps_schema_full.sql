@@ -1,17 +1,35 @@
 -- =============================================================================
--- MapsProspector Pro - Schema completo para importação em outro sistema
--- Gerado a partir da análise do banco e das migrações do projeto.
+-- MapsProspector Pro - Schema completo para nova instalação limpa
 -- Banco: maps | Charset: utf8mb4_unicode_ci
+-- Execute este arquivo em um banco vazio para criar todas as tabelas e dados iniciais.
 -- =============================================================================
 
 SET NAMES utf8mb4;
 SET FOREIGN_KEY_CHECKS = 0;
 
 -- -----------------------------------------------------------------------------
--- Criar banco (opcional: altere o nome se importar em outro contexto)
+-- Criar banco
 -- -----------------------------------------------------------------------------
 CREATE DATABASE IF NOT EXISTS `maps` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
 USE `maps`;
+
+-- -----------------------------------------------------------------------------
+-- Tabela: plans (planos e limites de tokens) — deve existir antes de tenants
+-- -----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `plans` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `slug` varchar(50) NOT NULL,
+  `token_limit` int(11) NOT NULL DEFAULT 100 COMMENT 'Limite de tokens por período',
+  `price_monthly` decimal(10,2) DEFAULT 0.00 COMMENT 'Valor mensal (R$)',
+  `period` varchar(20) NOT NULL DEFAULT 'monthly' COMMENT 'monthly | yearly',
+  `status` varchar(20) NOT NULL DEFAULT 'active' COMMENT 'active | inactive',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `slug` (`slug`),
+  KEY `status` (`status`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
 -- Tabela: tenants (empresas / multi-tenant)
@@ -32,24 +50,6 @@ CREATE TABLE IF NOT EXISTS `tenants` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
--- Tabela: plans (planos e limites de tokens)
--- -----------------------------------------------------------------------------
-CREATE TABLE IF NOT EXISTS `plans` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(100) NOT NULL,
-  `slug` varchar(50) NOT NULL,
-  `token_limit` int(11) NOT NULL DEFAULT 100 COMMENT 'Limite de tokens por período',
-  `price_monthly` decimal(10,2) DEFAULT 0.00 COMMENT 'Valor mensal (R$)',
-  `period` varchar(20) NOT NULL DEFAULT 'monthly' COMMENT 'monthly | yearly',
-  `status` varchar(20) NOT NULL DEFAULT 'active' COMMENT 'active | inactive',
-  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `slug` (`slug`),
-  KEY `status` (`status`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
-
--- -----------------------------------------------------------------------------
 -- Tabela: users (usuários)
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `users` (
@@ -66,7 +66,7 @@ CREATE TABLE IF NOT EXISTS `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
--- Tabela: settings (configurações por usuário)
+-- Tabela: settings (configurações por usuário — webhook, CRM, etc.)
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `settings` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -78,7 +78,6 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `wrap_in_body` tinyint(1) DEFAULT 0,
   `simplified_payload` tinyint(1) DEFAULT 0,
   `selected_model` varchar(100) DEFAULT 'gemini-2.0-flash',
-  `scraper_api_key` text DEFAULT NULL,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
@@ -172,6 +171,25 @@ CREATE TABLE IF NOT EXISTS `credit_requests` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
+-- Tabela: plan_requests (solicitações de plano por empresa)
+-- -----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `plan_requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `tenant_id` int(11) NOT NULL,
+  `requested_by_user_id` int(11) NOT NULL,
+  `plan_id` int(11) NOT NULL,
+  `status` varchar(20) NOT NULL DEFAULT 'pending' COMMENT 'pending | approved | rejected',
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `reviewed_at` timestamp NULL DEFAULT NULL,
+  `reviewed_by_user_id` int(11) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `tenant_id` (`tenant_id`),
+  KEY `plan_id` (`plan_id`),
+  KEY `status` (`status`),
+  KEY `created_at` (`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- -----------------------------------------------------------------------------
 -- Tabela: lead_unlocks (leads desbloqueados por usuário)
 -- -----------------------------------------------------------------------------
 CREATE TABLE IF NOT EXISTS `lead_unlocks` (
@@ -198,8 +216,11 @@ CREATE TABLE IF NOT EXISTS `platform_settings` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
--- Chaves estrangeiras (após criação de todas as tabelas)
+-- Chaves estrangeiras (ordem: plans já existe; tenants referencia plans; users referencia tenants)
 -- -----------------------------------------------------------------------------
+ALTER TABLE `tenants`
+  ADD CONSTRAINT `fk_tenants_plan` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE RESTRICT;
+
 ALTER TABLE `users`
   ADD CONSTRAINT `fk_users_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`id`) ON DELETE SET NULL;
 
@@ -215,15 +236,17 @@ ALTER TABLE `leads`
 ALTER TABLE `sessions`
   ADD CONSTRAINT `fk_sessions_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
-ALTER TABLE `tenants`
-  ADD CONSTRAINT `fk_tenants_plan` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE RESTRICT;
-
 ALTER TABLE `tenant_usage`
   ADD CONSTRAINT `fk_tenant_usage_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`id`) ON DELETE CASCADE;
 
 ALTER TABLE `credit_requests`
   ADD CONSTRAINT `fk_credit_requests_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_credit_requests_user` FOREIGN KEY (`requested_by_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+ALTER TABLE `plan_requests`
+  ADD CONSTRAINT `fk_plan_requests_tenant` FOREIGN KEY (`tenant_id`) REFERENCES `tenants` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_plan_requests_user` FOREIGN KEY (`requested_by_user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `fk_plan_requests_plan` FOREIGN KEY (`plan_id`) REFERENCES `plans` (`id`) ON DELETE RESTRICT;
 
 ALTER TABLE `lead_unlocks`
   ADD CONSTRAINT `fk_lead_unlocks_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE,
@@ -235,11 +258,11 @@ ALTER TABLE `lead_unlocks`
 -- -----------------------------------------------------------------------------
 INSERT INTO `plans` (`id`, `name`, `slug`, `token_limit`, `price_monthly`, `period`, `status`) VALUES
 (1, 'Básico', 'basic', 100, 0.00, 'monthly', 'active')
-ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `token_limit` = VALUES(`token_limit`);
+ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `token_limit` = VALUES(`token_limit`), `price_monthly` = VALUES(`price_monthly`), `period` = VALUES(`period`), `status` = VALUES(`status`);
 
 INSERT INTO `tenants` (`id`, `name`, `slug`, `plan_id`, `plan`, `status`) VALUES
 (1, 'Atendo Maps', 'atendo-maps', 1, 'basic', 'active')
-ON DUPLICATE KEY UPDATE `name` = VALUES(`name`);
+ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `plan_id` = VALUES(`plan_id`);
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `tenant_id`, `profile`) VALUES
 (1, 'Administrador', 'admin@atendo.maps', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, 'super_admin')
@@ -247,10 +270,13 @@ ON DUPLICATE KEY UPDATE `profile` = 'super_admin', `tenant_id` = NULL;
 -- Senha do admin: admin123 (bcrypt)
 
 INSERT IGNORE INTO `platform_settings` (`setting_key`, `setting_value`) VALUES
-('scraper_api_key', NULL);
+('scraper_api_key', NULL),
+('credit_price_avulso', '2.00'),
+('saas_company_name', '');
 
 SET FOREIGN_KEY_CHECKS = 1;
 
 -- =============================================================================
 -- Fim do schema - MapsProspector Pro
+-- Planos adicionais: execute database_seed_plans.sql se desejar mais planos.
 -- =============================================================================
