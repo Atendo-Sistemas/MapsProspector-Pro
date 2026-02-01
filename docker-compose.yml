@@ -1,9 +1,12 @@
-
 version: '3.8'
 
 services:
   atendo-maps:
-    build: .
+    build:
+      context: .
+      args:
+        # Passa a chave da VPS para o Docker durante o build
+        - API_KEY=${API_KEY}
     container_name: atendo-maps-prospector
     restart: always
     ports:

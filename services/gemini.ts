@@ -32,7 +32,7 @@ export const searchLeadsOnMaps = async (
   locationName?: string // Nome legível do local via GPS (ex: Centro, SP)
 ): Promise<Lead[]> => {
   const apiKey = process.env.API_KEY;
-  if (!apiKey) throw new Error("Chave de API não configurada.");
+  if (!apiKey) throw new Error("Chave de API não configurada. Verifique as variáveis de ambiente.");
 
   const ai = new GoogleGenAI({ apiKey: apiKey });
 
@@ -95,8 +95,11 @@ export const searchLeadsOnMaps = async (
      // Configuração das Ferramentas
      const tools: any[] = [{ googleSearch: {} }];
      
-     // Adiciona Google Maps se o modelo suportar
-     tools.push({ googleMaps: {} });
+     // Adiciona Google Maps apenas se o modelo suportar (Família 2.0 e 2.5)
+     // Modelos mais antigos ou muito novos (sem suporte a grounding de mapas) podem falhar se essa tool for enviada
+     if (model.includes('2.5') || model.includes('2.0')) {
+        tools.push({ googleMaps: {} });
+     }
 
      const config: any = { 
         tools,
@@ -105,7 +108,7 @@ export const searchLeadsOnMaps = async (
      };
 
      // Se tivermos coordenadas, usamos para ancorar a busca do Maps (Retrieval Config)
-     if (coords) {
+     if (coords && (model.includes('2.5') || model.includes('2.0'))) {
         config.toolConfig = {
             retrievalConfig: {
                 latLng: {

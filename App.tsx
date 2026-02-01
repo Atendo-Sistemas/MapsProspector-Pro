@@ -104,7 +104,7 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
   // GPS States
   const [userCoords, setUserCoords] = useState<{ latitude: number; longitude: number } | undefined>();
   const [userLocationName, setUserLocationName] = useState<string>(''); // Nome legível do local
-  const [locStatus, setLocStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
+  const [locStatus, setLocStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'https_error'>('idle');
   
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [companiesRefreshKey, setCompaniesRefreshKey] = useState(0);
@@ -116,6 +116,13 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
   const [settingsForm, setSettingsForm] = useState<CRMConfig>(() => StorageService.getSettings());
 
   const refreshLocation = () => {
+    // Verificação de segurança do navegador
+    if (window.location.protocol !== 'https:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+        setLocStatus('https_error');
+        alert("⚠️ ERRO DE SEGURANÇA:\n\nOs navegadores bloqueiam GPS em sites sem HTTPS (cadeado).\n\nPara testar o GPS, acesse via localhost ou configure um domínio com SSL.");
+        return;
+    }
+
     setLocStatus('loading');
     setUserLocationName('');
     
@@ -148,7 +155,7 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           }
         },
         (err) => {
-          console.warn("Geolocalização negada.", err);
+          console.warn("Geolocalização negada ou erro.", err);
           setLocStatus('error');
         },
         { enableHighAccuracy: true, timeout: 10000 }
@@ -388,13 +395,26 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           <div className="bg-slate-800/40 p-5 rounded-[1.25rem] border border-slate-700/50">
             <p className="text-[9px] font-black text-slate-500 uppercase mb-2 tracking-widest">GPS Status</p>
             <p className="text-[10px] font-bold text-white truncate flex items-center gap-2 mb-2">
-                <span className={`w-2 h-2 rounded-full ${locStatus === 'success' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : locStatus === 'loading' ? 'bg-yellow-500 animate-pulse' : 'bg-red-500'}`}></span>
-                {locStatus === 'success' ? 'Localização Ativa' : locStatus === 'loading' ? 'Detectando...' : 'GPS Inativo'}
+                <span className={`w-2 h-2 rounded-full ${
+                    locStatus === 'success' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 
+                    locStatus === 'loading' ? 'bg-yellow-500 animate-pulse' : 
+                    locStatus === 'https_error' ? 'bg-orange-500' : 'bg-red-500'
+                }`}></span>
+                {
+                    locStatus === 'success' ? 'Localização Ativa' : 
+                    locStatus === 'loading' ? 'Detectando...' : 
+                    locStatus === 'https_error' ? 'Requer HTTPS' : 'Inativo / Bloqueado'
+                }
             </p>
             {userLocationName && (
                 <div className="pt-2 border-t border-slate-700/50">
                      <p className="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Detectado:</p>
                      <p className="text-[10px] text-emerald-300 font-bold leading-tight">{userLocationName}</p>
+                </div>
+            )}
+            {locStatus === 'https_error' && (
+                <div className="pt-2 border-t border-slate-700/50">
+                     <p className="text-[9px] text-orange-400 font-bold leading-tight">Instale SSL/HTTPS para usar o GPS.</p>
                 </div>
             )}
           </div>
