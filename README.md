@@ -181,7 +181,7 @@ npm run dev
 
 ## 📄 Licença
 
-Este projeto é **proprietário** e desenvolvido exclusivamente para a **Atendo Tecnologia**.
+Este projeto é **proprietário** e desenvolvido exclusivamente para a **Atendo Sistemas em parceria com GF Sistemas**.
 
 ```
 
