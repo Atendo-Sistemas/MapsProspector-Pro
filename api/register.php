@@ -87,10 +87,25 @@ try {
         }
     } while (true);
 
+    // Plano de período de teste: 10 créditos grátis para novos usuários
+    $planId = 1;
+    $planSlug = 'basic';
+    try {
+        $stmt = $db->prepare("SELECT id, slug FROM plans WHERE slug = 'trial' AND status = 'active' LIMIT 1");
+        $stmt->execute();
+        $trial = $stmt->fetch();
+        if ($trial) {
+            $planId = (int) $trial['id'];
+            $planSlug = 'trial';
+        }
+    } catch (PDOException $e) {
+        // Fallback: usa plano básico se tabela plans não existir
+    }
+
     $db->beginTransaction();
 
-    $stmt = $db->prepare("INSERT INTO tenants (name, slug, plan, status) VALUES (?, ?, 'basic', 'active')");
-    $stmt->execute([$companyName, $slug]);
+    $stmt = $db->prepare("INSERT INTO tenants (name, slug, plan_id, plan, status) VALUES (?, ?, ?, ?, 'active')");
+    $stmt->execute([$companyName, $slug, $planId, $planSlug]);
     $tenantId = (int) $db->lastInsertId();
 
     $stmt = $db->prepare("INSERT INTO users (name, email, tenant_id, profile) VALUES (?, ?, ?, 'admin')");

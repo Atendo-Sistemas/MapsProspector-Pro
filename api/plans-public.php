@@ -23,6 +23,7 @@ if ($method !== 'GET') {
 }
 
 try {
+    // Inclui todos os planos ativos (incluindo trial) para exibir em "Meu plano" com créditos/tokens
     $stmt = $db->query("
         SELECT p.id, p.name, p.slug, p.token_limit, p.price_monthly, p.period
         FROM plans p

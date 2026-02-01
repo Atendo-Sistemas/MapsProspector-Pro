@@ -546,12 +546,13 @@ function loadChoosePlanData(currentPlanId) {
         plans.forEach(function(p) {
             var isCurrent = currentPlanId === String(p.id);
             var canRequest = !hasPending && !isCurrent;
-            var priceText = (p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? ('R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',')) : '—';
-            var tokenText = (p.tokenLimit || 0).toLocaleString('pt-BR') + ' tokens';
+            var isTrial = p.slug === 'trial';
+            var priceText = isTrial ? 'Grátis' : ((p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? ('R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',')) : '—');
+            var tokenText = isTrial ? ((p.tokenLimit || 0).toLocaleString('pt-BR') + ' créditos grátis') : ((p.tokenLimit || 0).toLocaleString('pt-BR') + ' tokens · ' + (p.period === 'yearly' ? 'ano' : 'mês'));
             html += '<div class="bg-white p-6 rounded-[2rem] border-2 ' + (isCurrent ? 'border-blue-400 bg-blue-50/50' : 'border-slate-200') + '">';
             html += '<div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + (p.tokenLimit >= 1000 ? (p.tokenLimit / 1000) + 'K' : p.tokenLimit) + '</div>';
-            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + tokenText + ' · ' + (p.period === 'yearly' ? 'ano' : 'mês') + '</p></div></div>';
-            html += '<p class="text-2xl font-black text-slate-900 mb-4">' + priceText + '<span class="text-sm font-bold text-slate-400">/mês</span></p>';
+            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + tokenText + '</p></div></div>';
+            html += '<p class="text-2xl font-black mb-4">' + (isTrial ? '<span class="text-emerald-600">' + priceText + '</span>' : priceText) + '<span class="text-sm font-bold text-slate-400">/mês</span></p>';
             if (isCurrent) {
                 html += '<p class="text-sm font-bold text-blue-600">Plano atual</p>';
             } else if (canRequest) {

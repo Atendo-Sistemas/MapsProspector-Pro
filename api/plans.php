@@ -2,7 +2,7 @@
 /**
  * API de Planos - SaaS
  * Endpoint: /api/plans.php
- * Apenas super_admin pode listar, criar, editar, desativar e excluir planos.
+ * Apenas super_admin pode listar, criar, editar e desativar planos.
  * Planos definem limite de tokens (ex.: buscas) por período; empresas são vinculadas a um plano.
  */
 
@@ -201,6 +201,7 @@ if ($method === 'GET') {
     jsonSuccess($plan, 'Plano atualizado com sucesso');
 
 } elseif ($method === 'DELETE') {
+    // Excluir plano: somente super_admin (já garantido por requireSuperAdmin() no topo do arquivo).
     $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
     if (!$id) {
         jsonError('ID do plano é obrigatório', 400);
@@ -209,10 +210,14 @@ if ($method === 'GET') {
         jsonError('Não é permitido excluir o plano padrão (Básico).', 400);
     }
 
-    $stmt = $db->prepare("SELECT id FROM plans WHERE id = ?");
+    $stmt = $db->prepare("SELECT id, slug FROM plans WHERE id = ?");
     $stmt->execute([$id]);
-    if (!$stmt->fetch()) {
+    $planRow = $stmt->fetch();
+    if (!$planRow) {
         jsonError('Plano não encontrado', 404);
+    }
+    if (isset($planRow['slug']) && $planRow['slug'] === 'trial') {
+        jsonError('Não é permitido excluir o plano Período de teste (trial).', 400);
     }
 
     $stmt = $db->prepare("SELECT COUNT(*) FROM tenants WHERE plan_id = ?");

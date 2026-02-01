@@ -39,11 +39,17 @@ Scripts SQL para importação do schema em outro ambiente (MySQL/MariaDB).
 - MySQL 5.7+ ou MariaDB 10.2+
 - Charset: `utf8mb4`, collation: `utf8mb4_unicode_ci`
 
+## Migrações opcionais
+
+| Arquivo | Descrição |
+|--------|-----------|
+| `database_migration_plan_trial.sql` | Insere o plano **Período de teste** (10 créditos grátis). Novos usuários passam a começar nesse plano. Execute uma vez no banco `maps` se usar registro público de empresas. |
+
 ## Dados iniciais
 
 Após a importação existem:
 
-- Plano **Básico** (id 1)
+- Planos **Básico** (id 1) e **Período de teste** (id 2, 10 créditos)
 - Tenant **Atendo Maps** (id 1)
 - Usuário **admin** (`admin@atendo.maps` / senha: `admin123`)
 - Registro em `platform_settings` para `scraper_api_key`
