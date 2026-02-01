@@ -257,7 +257,8 @@ ALTER TABLE `lead_unlocks`
 -- Dados iniciais (seed)
 -- -----------------------------------------------------------------------------
 INSERT INTO `plans` (`id`, `name`, `slug`, `token_limit`, `price_monthly`, `period`, `status`) VALUES
-(1, 'Básico', 'basic', 100, 0.00, 'monthly', 'active')
+(1, 'Básico', 'basic', 100, 0.00, 'monthly', 'active'),
+(2, 'Período de teste', 'trial', 10, 0.00, 'monthly', 'active')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `token_limit` = VALUES(`token_limit`), `price_monthly` = VALUES(`price_monthly`), `period` = VALUES(`period`), `status` = VALUES(`status`);
 
 INSERT INTO `tenants` (`id`, `name`, `slug`, `plan_id`, `plan`, `status`) VALUES

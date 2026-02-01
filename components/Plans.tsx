@@ -6,19 +6,17 @@ const API_BASE = '';
 
 interface PlansProps {
   refreshKey?: number;
-  /** Exibir botão Excluir apenas para super_admin; exclusão de planos é restrita ao administrador da plataforma. */
+  /** Exibir botão Excluir plano apenas para Super Admin */
   isSuperAdmin?: boolean;
 }
 
-export const Plans: React.FC<PlansProps> = ({ refreshKey = 0, isSuperAdmin = false }) => {
+export const Plans: React.FC<PlansProps> = ({ refreshKey = 0 }) => {
   const [list, setList] = useState<PlanRow[]>([]);
   const [planRequests, setPlanRequests] = useState<PlanRequestRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [actingRequestId, setActingRequestId] = useState<string | null>(null);
   const [modal, setModal] = useState<'none' | 'create' | 'edit'>('none');
-  const [deleteModal, setDeleteModal] = useState<{ id: string; name: string } | null>(null);
-  const [deleting, setDeleting] = useState(false);
   const [form, setForm] = useState({
     id: '',
     name: '',
@@ -172,35 +170,25 @@ export const Plans: React.FC<PlansProps> = ({ refreshKey = 0, isSuperAdmin = fal
     }
   };
 
-  const openDeleteModal = (id: string, name: string) => {
+  const handleDelete = async (id: string, name: string) => {
     if (id === '1') {
       alert('Não é permitido excluir o plano padrão (Básico).');
       return;
     }
-    setDeleteModal({ id, name });
-    setError(null);
-  };
-
-  const confirmDelete = async () => {
-    if (!deleteModal) return;
-    setDeleting(true);
-    setError(null);
+    if (!confirm(`Excluir o plano "${name}"? Nenhuma empresa pode estar vinculada a ele.`)) return;
     try {
-      const res = await fetch(`${API_BASE}/api/plans.php?id=${deleteModal.id}`, {
+      const res = await fetch(`${API_BASE}/api/plans.php?id=${id}`, {
         method: 'DELETE',
         credentials: 'include',
       });
       const data = await res.json();
       if (data.success) {
-        setDeleteModal(null);
         loadList();
       } else {
-        setError(data.error || 'Erro ao excluir.');
+        alert(data.error || 'Erro ao excluir.');
       }
     } catch {
-      setError('Erro de conexão.');
-    } finally {
-      setDeleting(false);
+      alert('Erro de conexão.');
     }
   };
 
@@ -331,9 +319,8 @@ export const Plans: React.FC<PlansProps> = ({ refreshKey = 0, isSuperAdmin = fal
                 </button>
                 {p.id !== '1' && (
                   <button
-                    onClick={() => openDeleteModal(p.id, p.name)}
+                    onClick={() => handleDelete(p.id, p.name)}
                     className="text-red-500 hover:bg-red-50 font-bold px-4 py-2 rounded-xl text-xs"
-                    title="Apenas Super Admin pode excluir planos"
                   >
                     Excluir
                   </button>
@@ -341,40 +328,6 @@ export const Plans: React.FC<PlansProps> = ({ refreshKey = 0, isSuperAdmin = fal
               </div>
             </div>
           ))}
-        </div>
-      )}
-
-      {/* Modal de confirmação de exclusão */}
-      {deleteModal && (
-        <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4" onClick={() => !deleting && setDeleteModal(null)}>
-          <div
-            className="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <h4 className="text-xl font-black text-slate-900 mb-2">Excluir plano</h4>
-            <p className="text-slate-600 text-sm mb-6">
-              Excluir o plano <strong>"{deleteModal.name}"</strong>? Nenhuma empresa pode estar vinculada a ele.
-            </p>
-            {error && <p className="text-red-600 text-sm font-medium mb-4">{error}</p>}
-            <div className="flex gap-3">
-              <button
-                type="button"
-                onClick={() => !deleting && setDeleteModal(null)}
-                className="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50 disabled:opacity-70"
-                disabled={deleting}
-              >
-                Cancelar
-              </button>
-              <button
-                type="button"
-                onClick={confirmDelete}
-                disabled={deleting}
-                className="flex-1 py-3 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700 disabled:opacity-70"
-              >
-                {deleting ? 'Excluindo...' : 'Excluir'}
-              </button>
-            </div>
-          </div>
         </div>
       )}
 

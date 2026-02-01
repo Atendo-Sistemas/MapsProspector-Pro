@@ -11,9 +11,10 @@ param(
 $OutputEncoding = [System.Text.Encoding]::UTF8
 chcp 65001 | Out-Null
 
-# Cria arquivo temporário com a mensagem
+# Cria arquivo temporário com a mensagem em UTF-8 SEM BOM (evita ﻿ e corrupção da mensagem no Git)
 $tempFile = Join-Path $PSScriptRoot "..\.commit-msg-temp"
-$Message | Out-File -FilePath $tempFile -Encoding UTF8 -NoNewline
+$utf8NoBom = New-Object System.Text.UTF8Encoding $false
+[System.IO.File]::WriteAllText($tempFile, $Message, $utf8NoBom)
 
 # Faz o commit usando o arquivo
 git commit -F $tempFile

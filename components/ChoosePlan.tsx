@@ -132,11 +132,20 @@ export const ChoosePlan: React.FC<ChoosePlanProps> = ({
                 <div>
                   <h4 className="font-extrabold text-slate-900 text-lg">{p.name}</h4>
                   <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
-                    {p.tokenLimit.toLocaleString('pt-BR')} tokens · {p.period === 'yearly' ? 'ano' : 'mês'}
+                    {p.slug === 'trial'
+                      ? `${p.tokenLimit.toLocaleString('pt-BR')} créditos grátis`
+                      : `${p.tokenLimit.toLocaleString('pt-BR')} tokens · ${p.period === 'yearly' ? 'ano' : 'mês'}`}
                   </p>
                 </div>
               </div>
-              <p className="text-2xl font-black text-slate-900 mb-4">{formatPrice(p.priceMonthly)}<span className="text-sm font-bold text-slate-400">/mês</span></p>
+              <p className="text-2xl font-black text-slate-900 mb-4">
+                {p.slug === 'trial' ? (
+                  <span className="text-emerald-600">Grátis</span>
+                ) : (
+                  formatPrice(p.priceMonthly)
+                )}
+                <span className="text-sm font-bold text-slate-400">/mês</span>
+              </p>
               {isCurrent ? (
                 <p className="text-sm font-bold text-blue-600">Plano atual</p>
               ) : canRequest ? (
