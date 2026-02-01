@@ -21,7 +21,7 @@ if ($method === 'POST') {
     $action = $input['action'] ?? 'login';
     
     if ($action === 'login') {
-        // Login simplificado (sem senha por enquanto, apenas valida email)
+        // Login: apenas e-mails já cadastrados (usuários criados via registro de empresa)
         $email = sanitizeInput($input['email'] ?? '');
         
         if (empty($email) || !validateEmail($email)) {
@@ -34,55 +34,71 @@ if ($method === 'POST') {
             jsonError($e->getMessage(), 500);
         }
         
-        // Busca ou cria usuário
+        // Busca usuário (apenas e-mails já cadastrados podem acessar)
         try {
             $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
             $stmt->execute([$email]);
             $user = $stmt->fetch();
         } catch (PDOException $e) {
-            error_log("Erro ao buscar/criar usuário: " . $e->getMessage());
+            error_log("Erro ao buscar usuário: " . $e->getMessage());
             jsonError("Erro ao processar login. Verifique se o banco de dados foi criado corretamente.", 500);
         }
         
         if (!$user) {
-            // Cria usuário padrão
-            try {
-                $name = ucfirst(explode('@', $email)[0]);
-                $stmt = $db->prepare("INSERT INTO users (name, email, tenant_id, profile) VALUES (?, ?, 1, 'admin')");
-                $stmt->execute([$name, $email]);
-                $userId = $db->lastInsertId();
-                
-                $user = [
-                    'id' => $userId,
-                    'name' => $name,
-                    'email' => $email,
-                    'tenant_id' => 1,
-                    'profile' => 'admin'
+            jsonError('E-mail não cadastrado. Cadastre sua empresa primeiro ou use o e-mail já vinculado à plataforma.');
+        }
+
+        $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;
+        $tenantName = 'Atendo Maps';
+        $tenantStatus = 'active';
+        $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+        $tenantPlanId = '';
+        $tenantPlanName = '';
+        if ($tenantId) {
+            $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+            $stmtT->execute([$tenantId]);
+            $row = $stmtT->fetch();
+            if ($row) {
+                $tenantName = $row['name'];
+                $tenantStatus = $row['status'] ?? 'active';
+                $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
+                $tenantPlanName = $row['plan_name'] ?? '';
+                $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+                $bonus = getTenantTokenBonus($db, $tenantId, null);
+                $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
+                $used = getTenantTokensUsed($db, $tenantId, null);
+                $tokenUsage = [
+                    'used' => $used,
+                    'limit' => $effectiveLimit,
+                    'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
                 ];
-            } catch (PDOException $e) {
-                error_log("Erro ao criar usuário: " . $e->getMessage());
-                jsonError("Erro ao criar usuário. Verifique se o banco de dados foi criado corretamente.", 500);
             }
+        } else {
+            $tenantName = 'Plataforma (Super Admin)';
         }
         
-        // Cria sessão
         $_SESSION['user_id'] = $user['id'];
         $_SESSION['user_name'] = $user['name'];
         $_SESSION['user_email'] = $user['email'];
-        $_SESSION['tenant_id'] = $user['tenant_id'];
+        $_SESSION['tenant_id'] = $tenantId;
+        $_SESSION['profile'] = $user['profile'];
         
         jsonSuccess([
             'user' => [
                 'id' => (string)$user['id'],
                 'name' => $user['name'],
                 'email' => $user['email'],
-                'tenantId' => (string)$user['tenant_id'],
+                'tenantId' => $tenantId !== null ? (string)$tenantId : '',
                 'profile' => $user['profile']
             ],
             'tenant' => [
-                'id' => (string)$user['tenant_id'],
-                'name' => 'Atendo Maps'
-            ]
+                'id' => $tenantId !== null ? (string)$tenantId : '',
+                'name' => $tenantName,
+                'status' => $tenantStatus,
+                'planId' => $tenantPlanId,
+                'planName' => $tenantPlanName
+            ],
+            'tokenUsage' => $tokenUsage
         ]);
         
     } elseif ($action === 'check') {
@@ -99,18 +115,50 @@ if ($method === 'POST') {
             }
             
             if ($user) {
+                $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;
+                $tenantName = 'Atendo Maps';
+                $tenantStatus = 'active';
+                $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+                $tenantPlanId = '';
+                $tenantPlanName = '';
+                if ($tenantId) {
+                    $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+                    $stmtT->execute([$tenantId]);
+                    $row = $stmtT->fetch();
+                    if ($row) {
+                        $tenantName = $row['name'];
+                        $tenantStatus = $row['status'] ?? 'active';
+                        $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
+                        $tenantPlanName = $row['plan_name'] ?? '';
+                        $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+                        $bonus = getTenantTokenBonus($db, $tenantId, null);
+                        $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
+                        $used = getTenantTokensUsed($db, $tenantId, null);
+                        $tokenUsage = [
+                            'used' => $used,
+                            'limit' => $effectiveLimit,
+                            'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
+                        ];
+                    }
+                } else {
+                    $tenantName = 'Plataforma (Super Admin)';
+                }
                 jsonSuccess([
                     'user' => [
                         'id' => (string)$user['id'],
                         'name' => $user['name'],
                         'email' => $user['email'],
-                        'tenantId' => (string)$user['tenant_id'],
+                        'tenantId' => $tenantId !== null ? (string)$tenantId : '',
                         'profile' => $user['profile']
                     ],
                     'tenant' => [
-                        'id' => (string)$user['tenant_id'],
-                        'name' => 'Atendo Maps'
-                    ]
+                        'id' => $tenantId !== null ? (string)$tenantId : '',
+                        'name' => $tenantName,
+                        'status' => $tenantStatus,
+                        'planId' => $tenantPlanId,
+                        'planName' => $tenantPlanName
+                    ],
+                    'tokenUsage' => $tokenUsage
                 ]);
             }
         }

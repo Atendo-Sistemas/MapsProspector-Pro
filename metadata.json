@@ -1,7 +1,0 @@
-{
-  "name": "MapsProspector Pro",
-  "description": "Uma ferramenta avançada de prospecção de leads integrada ao Google Maps e ao CRM Atendo, permitindo busca Inteligente via Gemini API e exportação direta de contatos.",
-  "requestFramePermissions": [
-    "geolocation"
-  ]
-}

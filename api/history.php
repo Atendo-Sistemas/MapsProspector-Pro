@@ -2,16 +2,15 @@
 /**
  * API de Histórico de Buscas
  * Endpoint: /api/history.php
+ * GET: retorna pesquisas do banco; leads bloqueados (só id/nome) ou desbloqueados (dados completos conforme lead_unlocks).
  */
 
-// Previne qualquer output antes do JSON
 ob_start();
 
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 
-// Limpa qualquer output buffer
 ob_clean();
 
 $userId = requireAuth();
@@ -20,7 +19,6 @@ $db = Database::getInstance()->getConnection();
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
-    // Lista histórico
     $stmt = $db->prepare("
         SELECT 
             sh.id,
@@ -39,37 +37,89 @@ if ($method === 'GET') {
     ");
     $stmt->execute([$userId]);
     $history = $stmt->fetchAll();
-    
-    // Para cada item, busca os leads
+
+    $hasLeadUnlocks = false;
+    try {
+        $db->query("SELECT 1 FROM lead_unlocks LIMIT 1");
+        $hasLeadUnlocks = true;
+    } catch (PDOException $e) {
+        // Tabela lead_unlocks pode não existir ainda
+    }
+
     foreach ($history as &$item) {
+        $searchHistoryId = (int) $item['id'];
+
         $stmtLeads = $db->prepare("
-            SELECT 
-                id, name, address, phone, email, website, maps_uri as mapsUri, 
-                cnpj, partners, tag, latitude, longitude
+            SELECT id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude
             FROM leads
             WHERE search_history_id = ?
+            ORDER BY id ASC
         ");
-        $stmtLeads->execute([$item['id']]);
-        $leads = $stmtLeads->fetchAll();
-        
-        // Adiciona IDs formatados
-        foreach ($leads as &$lead) {
-            $lead['id'] = 'lead-' . $lead['id'];
+        $stmtLeads->execute([$searchHistoryId]);
+        $rawLeads = $stmtLeads->fetchAll(PDO::FETCH_ASSOC);
+
+        $unlockedIds = [];
+        if ($hasLeadUnlocks) {
+            $stmtUnlocks = $db->prepare("
+                SELECT lead_id FROM lead_unlocks
+                WHERE user_id = ? AND search_history_id = ?
+            ");
+            $stmtUnlocks->execute([$userId, $searchHistoryId]);
+            $unlockedIds = array_column($stmtUnlocks->fetchAll(PDO::FETCH_ASSOC), 'lead_id');
+            $unlockedIds = array_flip($unlockedIds);
         }
-        
+
+        $leads = [];
+        foreach ($rawLeads as $row) {
+            $leadDbId = (int) $row['id'];
+            $isUnlocked = isset($unlockedIds[$leadDbId]);
+
+            if ($isUnlocked) {
+                $leads[] = [
+                    'id' => 'lead-' . $leadDbId,
+                    'name' => $row['name'] ?? '',
+                    'locked' => false,
+                    'dbId' => $leadDbId,
+                    'phone' => $row['phone'] ?? '',
+                    'email' => $row['email'] ?? '',
+                    'address' => $row['address'] ?? '',
+                    'website' => $row['website'] ?? '',
+                    'mapsUri' => $row['maps_uri'] ?? '',
+                    'cnpj' => $row['cnpj'] ?? '',
+                    'partners' => $row['partners'] ?? '',
+                    'tag' => $row['tag'] ?? '',
+                    'latitude' => $row['latitude'] ?? null,
+                    'longitude' => $row['longitude'] ?? null,
+                ];
+            } else {
+                $leads[] = [
+                    'id' => 'lead-' . $leadDbId,
+                    'name' => $row['name'] ?? '',
+                    'locked' => true,
+                    'dbId' => $leadDbId,
+                ];
+            }
+        }
+
         $item['leads'] = $leads;
-        $item['id'] = (string)$item['id'];
+        $item['id'] = (string) $item['id'];
     }
-    
+
     jsonSuccess($history);
-    
+
 } elseif ($method === 'DELETE') {
-    // Limpa histórico
     $stmt = $db->prepare("DELETE FROM search_history WHERE user_id = ?");
     $stmt->execute([$userId]);
-    
+
+    try {
+        $stmtU = $db->prepare("DELETE FROM lead_unlocks WHERE user_id = ?");
+        $stmtU->execute([$userId]);
+    } catch (PDOException $e) {
+        // Tabela lead_unlocks pode não existir
+    }
+
     jsonSuccess(null, 'Histórico limpo com sucesso');
-    
+
 } else {
     jsonError('Método não permitido', 405);
 }

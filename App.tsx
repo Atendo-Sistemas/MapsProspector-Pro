@@ -1,8 +1,25 @@
 
-import React, { useState, useEffect } from 'react';
-import { CRMConfig, SearchHistoryItem, AppUser, AppTenant } from './types';
+import React, { useState, useEffect, useCallback } from 'react';
+import { CRMConfig, SearchHistoryItem, Lead, AppUser, AppTenant, TokenUsage } from './types';
 import { Prospecting } from './components/Prospecting';
+import { Companies } from './components/Companies';
+import { Plans } from './components/Plans';
+import { ChoosePlan } from './components/ChoosePlan';
+import { RequestCredits } from './components/RequestCredits';
+import { CreditsAdmin } from './components/CreditsAdmin';
+import { SaasConfig } from './components/SaasConfig';
 import { StorageService } from './services/storage';
+
+const API_BASE = '';
+
+interface AppProps {
+  user: AppUser;
+  tenant: AppTenant;
+  tokenUsage?: TokenUsage;
+  onLogout: () => void;
+  /** Chamado quando a API de busca retorna tokenUsage atualizado (após cada busca) */
+  onTokenUsageUpdate?: (tokenUsage: TokenUsage) => void;
+}
 
 /** Escapa um valor para célula CSV (vírgula, aspas, quebra de linha). */
 function escapeCsv(val: string): string {
@@ -14,15 +31,14 @@ function escapeCsv(val: string): string {
   return s;
 }
 
-/** Exporta todas as pesquisas do histórico para um arquivo CSV (abre no Excel). */
-function exportAllToExcel(): void {
-  const history = StorageService.getHistory();
+/** Exporta todas as pesquisas do histórico para um arquivo CSV (abre no Excel). Apenas leads desbloqueados. */
+function exportAllToExcel(history: SearchHistoryItem[], onNoUnlocked?: () => void): void {
   const rows: string[][] = [];
   const headers = ['Pesquisa', 'Local', 'Tag', 'Data da Pesquisa', 'Nome', 'Telefone', 'Email', 'Endereço', 'CNPJ', 'Sócios', 'Site', 'Maps'];
   rows.push(headers);
 
   for (const item of history) {
-    const leads = item.leads ?? [];
+    const leads = (item.leads ?? []).filter((l) => l.locked === false);
     const dateStr = item.timestamp ? new Date(item.timestamp).toLocaleString('pt-BR') : '';
     for (const lead of leads) {
       rows.push([
@@ -40,9 +56,11 @@ function exportAllToExcel(): void {
       escapeCsv(lead.mapsUri ?? '')
       ]);
     }
-    if (leads.length === 0) {
-      rows.push([escapeCsv(item.query), escapeCsv(item.location), escapeCsv(item.tag), escapeCsv(dateStr), '', '', '', '', '', '', '', '']);
-    }
+  }
+
+  if (rows.length <= 1) {
+    onNoUnlocked?.();
+    return;
   }
 
   const csvContent = rows.map(row => row.join(';')).join('\r\n');
@@ -76,17 +94,8 @@ const Toast = ({ message, onClose }: { message: string; onClose: () => void }) =
   );
 };
 
-const App: React.FC = () => {
-  // Estado de Usuário (Mockado para acesso direto)
-  const [user, setUser] = useState<AppUser>({
-    id: 'admin',
-    name: 'Administrador',
-    email: 'admin@atendo.maps',
-    tenantId: "1",
-    profile: 'admin'
-  });
-
-  const [activeTab, setActiveTab] = useState<'search' | 'history' | 'settings'>('search');
+const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUsageUpdate }) => {
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'search' | 'history' | 'request-credits' | 'choose-plan' | 'settings' | 'companies' | 'plans' | 'credits' | 'saas-config'>('dashboard');
   const [history, setHistory] = useState<SearchHistoryItem[]>([]);
   
   // Atualizado para usar o tipo completo, incluindo leads
@@ -98,6 +107,9 @@ const App: React.FC = () => {
   const [locStatus, setLocStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'https_error'>('idle');
   
   const [toastMsg, setToastMsg] = useState<string | null>(null);
+  const [companiesRefreshKey, setCompaniesRefreshKey] = useState(0);
+  const [plansRefreshKey, setPlansRefreshKey] = useState(0);
+  const [creditsRefreshKey, setCreditsRefreshKey] = useState(0);
   
   // Inicializa configurações direto do StorageService (Síncrono para evitar flash)
   const [config, setConfig] = useState<CRMConfig>(() => StorageService.getSettings());
@@ -153,22 +165,40 @@ const App: React.FC = () => {
     }
   };
 
+  const loadHistory = useCallback(async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/history.php`, { credentials: 'include' });
+      const data = await res.json();
+      if (data.success && Array.isArray(data.data)) {
+        const normalized = data.data.map((item: Record<string, unknown>) => {
+          const apiItem = {
+            ...item,
+            id: String(item.id),
+            resultsCount: (item.results_count ?? item.resultsCount) as number,
+          } as SearchHistoryItem;
+          if (apiItem.leads && Array.isArray(apiItem.leads)) {
+            apiItem.leads = apiItem.leads.map((l: Lead) => ({
+              id: l.id,
+              name: l.name ?? '',
+              locked: l.locked === false ? false : true,
+              dbId: l.dbId,
+              ...(l.locked === false ? { phone: l.phone, email: l.email, address: l.address, website: l.website, mapsUri: l.mapsUri, cnpj: l.cnpj, partners: l.partners } : {}),
+            }));
+          }
+          return apiItem;
+        }) as SearchHistoryItem[];
+        setHistory(normalized);
+        StorageService.saveHistory(normalized);
+      }
+    } catch {
+      setHistory(StorageService.getHistory());
+    }
+  }, []);
+
   useEffect(() => {
     refreshLocation();
+    loadHistory();
 
-    // Check for provided API Key
-    const key = process.env.API_KEY;
-    if (key && key.length > 5 && !key.includes("YOUR_API_KEY")) {
-      setHasApiKey(true);
-      console.log("System Status: API Key Loaded");
-    } else {
-      console.warn("System Status: API Key Missing or Invalid");
-    }
-
-    // Carrega histórico
-    setHistory(StorageService.getHistory());
-    
-    // Carrega configurações do servidor
     const loadServerSettings = async () => {
       try {
         const response = await fetch('/api/settings.php');
@@ -188,7 +218,7 @@ const App: React.FC = () => {
     };
     
     loadServerSettings();
-  }, []);
+  }, [loadHistory]);
 
   const saveSettings = async () => {
     try {
@@ -215,10 +245,20 @@ const App: React.FC = () => {
     }
   };
 
-  const clearHistory = () => {
-    if (confirm('Deseja apagar o histórico de buscas?')) {
+  const clearHistory = async () => {
+    if (!confirm('Deseja apagar o histórico de buscas?')) return;
+    try {
+      const res = await fetch(`${API_BASE}/api/history.php`, { method: 'DELETE', credentials: 'include' });
+      const data = await res.json();
+      if (data.success) {
         StorageService.clearHistory();
         setHistory([]);
+        setToastMsg('Histórico limpo com sucesso.');
+      } else {
+        setToastMsg(data.error || 'Erro ao limpar histórico.');
+      }
+    } catch {
+      setToastMsg('Erro de conexão ao limpar histórico.');
     }
   };
 
@@ -249,28 +289,106 @@ const App: React.FC = () => {
           </div>
         </div>
 
-        <nav className="flex-grow p-6 space-y-2">
-          <button 
-            onClick={() => setActiveTab('search')} 
-            className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'search' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
-            Prospecção
-          </button>
-          <button 
-            onClick={() => { setHistory(StorageService.getHistory()); setActiveTab('history'); }} 
-            className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'history' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
-            Histórico
-          </button>
-          <button 
-            onClick={() => setActiveTab('settings')} 
-            className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'settings' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
-          >
-            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
-            Configurações
-          </button>
+        <nav className="flex-grow p-6 flex flex-col gap-0">
+          {/* Normal: para todos */}
+          <div className="space-y-2 pb-4">
+            <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-5 mb-3">Normal</p>
+            <button 
+              onClick={() => setActiveTab('dashboard')} 
+              className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'dashboard' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
+              Dashboard
+            </button>
+            <button 
+              onClick={() => setActiveTab('search')} 
+              className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'search' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+              Prospecção
+            </button>
+            <button 
+              onClick={() => { loadHistory(); setActiveTab('history'); }} 
+              className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'history' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              Histórico
+            </button>
+            <button 
+              onClick={() => setActiveTab('request-credits')} 
+              className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'request-credits' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+              Solicitar Créditos
+            </button>
+            {tenant?.id && String(user.profile).toLowerCase() !== 'super_admin' && (
+            <button 
+              onClick={() => setActiveTab('choose-plan')} 
+              className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'choose-plan' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              Meu plano
+            </button>
+            )}
+          </div>
+
+          {/* Linha divisória visível */}
+          <div className="h-px w-full bg-slate-600/80 my-2" aria-hidden="true" />
+
+          {/* Administração: apenas super_admin */}
+          {String(user.profile).toLowerCase() === 'super_admin' && (
+            <div className="space-y-2 pt-2 pb-4">
+              <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-5 mb-3">Administração</p>
+              <button 
+                onClick={() => setActiveTab('saas-config')} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'saas-config' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                Empresa SaaS
+              </button>
+              <button 
+                onClick={() => { setActiveTab('plans'); setPlansRefreshKey((k) => k + 1); }} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'plans' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                Planos
+              </button>
+              <button 
+                onClick={() => { setActiveTab('companies'); setCompaniesRefreshKey((k) => k + 1); }} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'companies' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                Empresas
+              </button>
+              <button 
+                onClick={() => { setActiveTab('credits'); setCreditsRefreshKey((k) => k + 1); }} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'credits' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                Créditos
+              </button>
+              <button 
+                onClick={() => setActiveTab('settings')} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'settings' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
+                Configurações (API)
+              </button>
+            </div>
+          )}
+
+          {/* Linha divisória antes de Configurações */}
+          <div className="h-px w-full bg-slate-600/80 my-2" aria-hidden="true" />
+
+          <div className="space-y-2 pt-2">
+            <button 
+              onClick={() => setActiveTab('settings')} 
+              className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'settings' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
+              Configurações
+            </button>
+          </div>
         </nav>
         
         <div className="p-6 border-t border-slate-800/50 space-y-4">
@@ -305,10 +423,17 @@ const App: React.FC = () => {
 
       {/* Área Principal */}
       <main className="flex-grow flex flex-col min-w-0">
-        <header className="bg-white border-b border-slate-200 h-20 flex items-center px-10 justify-between sticky top-0 z-40 backdrop-blur-md bg-white/80">
+        <div className="sticky top-0 z-50 bg-white shadow-sm">
+          {(tokenUsage?.limitReached || tenant?.status === 'suspended') && (
+            <div className="bg-amber-500 text-amber-950 px-10 py-3 flex items-center justify-center gap-2 text-sm font-bold">
+              <svg className="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+              <span>Sua empresa atingiu o limite de tokens do plano. Entre em contato para aquisição de mais tokens.</span>
+            </div>
+          )}
+          <header className="bg-white border-b border-slate-200 h-20 flex items-center px-10 justify-between backdrop-blur-md bg-white/80">
           <div className="flex flex-col">
             <h2 className="text-slate-900 font-extrabold text-xl tracking-tight">
-              {activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : 'Integração CRM'}
+              {activeTab === 'dashboard' ? 'Dashboard' : activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : activeTab === 'request-credits' ? 'Solicitar Créditos' : activeTab === 'choose-plan' ? 'Meu plano' : activeTab === 'companies' ? 'Empresas' : activeTab === 'plans' ? 'Planos' : activeTab === 'credits' ? 'Créditos' : activeTab === 'saas-config' ? 'Empresa SaaS' : 'Integração CRM'}
             </h2>
             <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard Atendo</p>
           </div>
@@ -318,21 +443,120 @@ const App: React.FC = () => {
                 <svg className={`w-4 h-4 ${locStatus === 'loading' ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
                 {locStatus === 'loading' ? 'Localizando...' : 'Recarregar GPS'}
              </button>
-             <div className="flex flex-col items-end border-l border-slate-200 pl-6">
-                <span className="text-xs font-bold text-slate-900">{user?.name}</span>
-                <span className="text-[10px] font-bold text-slate-400 uppercase">Admin</span>
+             <div className="flex items-center gap-4 border-l border-slate-200 pl-6">
+                <div className="flex flex-col items-end">
+                  <span className="text-xs font-bold text-slate-900">{user.name}</span>
+                  <span className="text-[10px] font-bold text-slate-400 uppercase">{tenant.name}</span>
+                </div>
+                <button onClick={onLogout} className="text-[10px] font-bold text-slate-500 hover:text-red-600 uppercase" title="Sair">Sair</button>
              </div>
           </div>
         </header>
+        </div>
 
         <div className="flex-grow overflow-y-auto p-10 bg-[#F8FAFC]">
-          {activeTab === 'search' ? (
+          {activeTab === 'dashboard' ? (
+            <div className="max-w-4xl mx-auto">
+              <h3 className="text-2xl font-black text-slate-900 mb-8">Estatísticas da conta</h3>
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">
+                      <svg className="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens utilizados</p>
+                      <p className="text-3xl font-black text-slate-900">{tokenUsage?.used ?? 0}</p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-500">Tokens usados no período: 1 token = 1 página de resultados (até 20 itens por página)</p>
+                </div>
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center">
+                      <svg className="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens permitidos (plano)</p>
+                      <p className="text-3xl font-black text-slate-900">
+                        {tokenUsage != null && tokenUsage.limit === 0 ? 'Ilimitado' : (tokenUsage?.limit ?? '—')}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-500">Limite do plano vinculado à sua empresa neste período</p>
+                </div>
+                <div className="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm sm:col-span-2 lg:col-span-1">
+                  <div className="flex items-center gap-4 mb-4">
+                    <div className={`w-14 h-14 rounded-2xl flex items-center justify-center ${(tokenUsage?.limitReached || tenant?.status === 'suspended') ? 'bg-amber-100' : 'bg-slate-100'}`}>
+                      <svg className={`w-7 h-7 ${(tokenUsage?.limitReached || tenant?.status === 'suspended') ? 'text-amber-600' : 'text-slate-600'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>
+                    </div>
+                    <div>
+                      <p className="text-[10px] font-black text-slate-400 uppercase tracking-wider">Disponível</p>
+                      <p className="text-3xl font-black text-slate-900">
+                        {tokenUsage != null && tokenUsage.limit === 0
+                          ? 'Ilimitado'
+                          : tokenUsage != null
+                            ? Math.max(0, tokenUsage.limit - tokenUsage.used)
+                            : '—'}
+                      </p>
+                    </div>
+                  </div>
+                  <p className="text-xs text-slate-500">Tokens restantes para novas buscas neste período</p>
+                </div>
+              </div>
+              <div className="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-200">
+                <p className="text-sm font-bold text-slate-700">
+                  <span className="text-slate-500">Empresa:</span> {tenant?.name ?? '—'}
+                </p>
+                {!tenant?.id && (
+                  <p className="text-xs text-slate-500 mt-2">Conta plataforma (Super Admin) — não há limite de tokens por empresa.</p>
+                )}
+              </div>
+            </div>
+          ) : activeTab === 'request-credits' ? (
+            <RequestCredits />
+          ) : activeTab === 'choose-plan' ? (
+            String(user.profile).toLowerCase() === 'super_admin' ? (
+              <div className="max-w-4xl mx-auto py-24 text-center">
+                <p className="text-slate-600 font-bold mb-2">Conta Super Admin — ilimitada</p>
+                <p className="text-sm text-slate-500">Não é possível alterar plano; sua conta não possui limite de tokens. Cuidado, pois API de Scrapy será contabilizada.</p>
+              </div>
+            ) : (
+              <ChoosePlan
+                currentPlanName={tenant?.planName}
+                currentPlanId={tenant?.planId}
+              />
+            )
+          ) : activeTab === 'credits' ? (
+            String(user.profile).toLowerCase() === 'super_admin' ? (
+              <CreditsAdmin refreshKey={creditsRefreshKey} />
+            ) : (
+              <div className="max-w-4xl mx-auto py-24 text-center text-slate-500 font-bold">Acesso restrito ao administrador da plataforma.</div>
+            )
+          ) : activeTab === 'companies' ? (
+            String(user.profile).toLowerCase() === 'super_admin' ? (
+              <Companies refreshKey={companiesRefreshKey} />
+            ) : (
+              <div className="max-w-4xl mx-auto py-24 text-center text-slate-500 font-bold">Acesso restrito ao administrador da plataforma.</div>
+            )
+          ) : activeTab === 'saas-config' ? (
+            <SaasConfig />
+          ) : activeTab === 'plans' ? (
+            String(user.profile).toLowerCase() === 'super_admin' ? (
+              <Plans refreshKey={plansRefreshKey} isSuperAdmin={String(user.profile).toLowerCase() === 'super_admin'} />
+            ) : (
+              <div className="max-w-4xl mx-auto py-24 text-center text-slate-500 font-bold">Acesso restrito ao administrador da plataforma.</div>
+            )
+          ) : activeTab === 'search' ? (
             <Prospecting 
                 config={config} 
                 initialHistoryItem={selectedHistory}
                 userCoords={userCoords}
                 userLocationName={userLocationName}
-                onExportToExcel={() => { setHistory(StorageService.getHistory()); exportAllToExcel(); }}
+                onExportToExcel={() => { loadHistory(); exportAllToExcel(history, () => setToastMsg('Nenhum lead desbloqueado para exportar. Desbloqueie leads nas pesquisas para incluí-los no Excel.')); }}
+                tokenUsage={tokenUsage}
+                tenantStatus={tenant?.status}
+                onTokenUsageUpdate={onTokenUsageUpdate}
             />
           ) : activeTab === 'history' ? (
             <div className="max-w-5xl mx-auto">
@@ -361,31 +585,27 @@ const App: React.FC = () => {
                     )}
                 </div>
             </div>
-          ) : (
+          ) : activeTab === 'settings' ? (
             <div className="max-w-3xl mx-auto space-y-8 pb-20">
                 <div className="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
                   <h3 className="text-2xl font-black text-slate-900 mb-8 tracking-tight">Configurações de Conexão</h3>
                   
                   <div className="space-y-8">
-                    {/* API Thordata Section */}
+                    {/* API de Busca: status para todos; chave apenas super_admin. Nome Thordata só para super_admin. */}
                     <div className="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
-                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">API Thordata (ScraperAPI)</h4>
-                        <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps via Thordata</div>
-                        <p className="text-[10px] text-slate-400 mt-4 text-center italic">API configurada no servidor.</p>
-                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">Google Cloud API</h4>
-                        {!hasApiKey ? (
-                          <div className="p-5 bg-red-500/20 border border-red-500/50 rounded-2xl text-red-400 text-center font-bold">
-                            ⚠️ API Key não detectada<br/>
-                            <span className="text-[10px] font-normal opacity-80 mt-2 block">
-                                Se você está rodando via Docker, certifique-se de ter rodado: <br/>
-                                <code className="bg-black/30 px-2 py-1 rounded mt-1 inline-block">export API_KEY="sua_chave"</code> antes do build.
-                            </span>
-                          </div>
+                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">{String(user.profile).toLowerCase() === 'super_admin' ? 'API Apify (Google Places)' : 'API de Busca (Google Maps)'}</h4>
+                        {(String(user.profile).toLowerCase() === 'super_admin' ? settingsForm.scraperApiKey?.trim() : settingsForm.scraperApiKeyConfigured) ? (
+                          <>
+                            <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? '✓ Conectado ao Google Maps via Apify' : '✓ Conectado ao Google Maps'}</div>
+                            <p className="text-[10px] text-slate-400 mt-4 text-center italic">{String(user.profile).toLowerCase() === 'super_admin' ? 'API configurada no servidor. Todas as empresas utilizam esta chave.' : 'API configurada no servidor pelo administrador da plataforma.'}</p>
+                          </>
                         ) : (
-                          <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps (Gemini)</div>
+                          <>
+                            <div className="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? 'Nenhuma API Apify configurada' : 'Nenhuma API de busca configurada'}</div>
+                            <p className="text-[10px] text-slate-400 mt-4 text-center italic">{String(user.profile).toLowerCase() === 'super_admin' ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave nas Configurações.'}</p>
+                          </>
                         )}
-                        <p className="text-[10px] text-slate-400 mt-4 text-center italic">API Key injetada via sistema.</p>
                     </div>
 
                     {/* Botões de Opção Rápida */}
@@ -453,21 +673,23 @@ const App: React.FC = () => {
                       <input type="password" className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Insira o Token do CRM" value={settingsForm.token} onChange={(e) => setSettingsForm(prev => ({ ...prev, token: e.target.value }))} />
                     </div>
 
+                    {String(user.profile).toLowerCase() === 'super_admin' && (
                     <div className="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
-                      <h4 className="font-black text-lg mb-3 flex items-center gap-2">ScraperAPI Thordata</h4>
-                      <p className="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps</p>
+                      <h4 className="font-black text-lg mb-3 flex items-center gap-2">API Apify (Google Places)</h4>
+                      <p className="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
                       <div>
-                        <label className="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Thordata</label>
-                        <input type="password" className="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Thordata" value={settingsForm.scraperApiKey || ''} onChange={(e) => setSettingsForm(prev => ({ ...prev, scraperApiKey: e.target.value }))} />
+                        <label className="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Apify</label>
+                        <input type="password" className="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Apify" value={settingsForm.scraperApiKey || ''} onChange={(e) => setSettingsForm(prev => ({ ...prev, scraperApiKey: e.target.value }))} />
                       </div>
                     </div>
+                    )}
 
                     <button onClick={saveSettings} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
                   </div>
                 </div>
             </div>
-          )}
+          ) : null}
         </div>
       </main>
     </div>

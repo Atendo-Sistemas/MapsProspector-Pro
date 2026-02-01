@@ -61,6 +61,7 @@ try {
     $useGPS = isset($input['useGPS']) && $input['useGPS'];
     $coords = $input['coords'] ?? null;
     $locationName = sanitizeInput($input['locationName'] ?? '');
+    $maxCrawledPlacesPerSearch = isset($input['maxCrawledPlacesPerSearch']) ? max(1, min(1000, (int) $input['maxCrawledPlacesPerSearch'])) : null;
     
     // Validações
     if (empty($query)) {
@@ -71,28 +72,41 @@ try {
         jsonError('Digite a cidade ou ative o GPS.', 400);
     }
     
-    // Chama o serviço ScraperAPI (Thordata)
-    require_once __DIR__ . '/../services/scraperService.php';
-    
-    // Busca a chave da API nas configurações do usuário
-    $scraperApiKey = null;
-    try {
-        // Verifica se a coluna scraper_api_key existe
-        $stmtSettings = $db->prepare("SELECT scraper_api_key FROM settings WHERE user_id = ?");
-        $stmtSettings->execute([$userId]);
-        $userSettings = $stmtSettings->fetch();
-        if ($userSettings && isset($userSettings['scraper_api_key'])) {
-            $scraperApiKey = $userSettings['scraper_api_key'];
+    // Limite de tokens do plano (empresa): 1 token = 1 página (até 20 resultados); débito só após a busca
+    $authUser = getAuthUser();
+    $tenantId = $authUser['tenant_id'] ?? null;
+    if ($tenantId !== null) {
+        // Bloqueia se a empresa estiver suspensa (ex.: por limite de tokens)
+        $stmtTenant = $db->prepare("SELECT status FROM tenants WHERE id = ?");
+        $stmtTenant->execute([$tenantId]);
+        $tenantRow = $stmtTenant->fetch();
+        if ($tenantRow && isset($tenantRow['status']) && $tenantRow['status'] === 'suspended') {
+            jsonError('Sua empresa está suspensa (limite de tokens atingido). Entre em contato com o administrador para aquisição de mais tokens.', 403);
         }
-    } catch (PDOException $e) {
-        // Se a tabela ou coluna não existir, usa a chave padrão do config
-        error_log("Erro ao buscar settings (pode ser coluna não existente): " . $e->getMessage());
-        // Tenta usar a chave padrão do config.php
-        $scraperApiKey = defined('SCRAPER_API_KEY') ? SCRAPER_API_KEY : null;
+        $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+        $bonus = getTenantTokenBonus($db, $tenantId, null);
+        $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
+        if ($effectiveLimit > 0) {
+            $used = getTenantTokensUsed($db, $tenantId, null);
+            if ($used >= $effectiveLimit) {
+                try {
+                    $stmt = $db->prepare("UPDATE tenants SET status = 'suspended' WHERE id = ? AND status = 'active'");
+                    $stmt->execute([$tenantId]);
+                } catch (PDOException $e) {
+                    error_log("search.php: erro ao suspender tenant por limite de tokens: " . $e->getMessage());
+                }
+                jsonError('Limite de tokens do seu plano foi atingido para este período. Entre em contato com o administrador para alterar o plano.', 403);
+            }
+            // Não debita aqui: débito será feito após a busca, na quantidade exata de resultados
+        }
     }
     
-    // Se não encontrou chave, usa a do config
-    if (empty($scraperApiKey) && defined('SCRAPER_API_KEY')) {
+    // Chama o serviço Apify (Compass Google Places)
+    require_once __DIR__ . '/../services/scraperService.php';
+    
+    // Chave Apify: única para toda a plataforma (configurada apenas pelo super_admin)
+    $scraperApiKey = getPlatformSetting($db, 'scraper_api_key');
+    if (empty(trim((string)$scraperApiKey)) && defined('SCRAPER_API_KEY')) {
         $scraperApiKey = SCRAPER_API_KEY;
     }
     
@@ -104,16 +118,35 @@ try {
         jsonError('Erro na configuração da API: ' . $e->getMessage(), 500);
     }
     
-    // Busca os leads com tratamento de erro
+    // Tokens disponíveis para paginação: 1 token = 1 página (20 resultados). Enquanto houver crédito, aumenta "start" até retornar todos os dados ou acabar o crédito.
+    $maxTokensAvailable = null;
+    if ($tenantId !== null) {
+        $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+        $bonus = getTenantTokenBonus($db, $tenantId, null);
+        $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
+        if ($effectiveLimit > 0) {
+            $used = getTenantTokensUsed($db, $tenantId, null);
+            $maxTokensAvailable = max(0, $effectiveLimit - $used);
+            if ($maxTokensAvailable < 1) {
+                jsonError('Você não tem tokens disponíveis para esta busca. Cada página (20 resultados) consome 1 token.', 403);
+            }
+        }
+    }
+    
+    // Busca os leads; maxCrawledPlacesPerSearch vem do frontend (campo Limite) ou padrão 1000
     try {
-        $leads = $scraperService->searchLeadsOnMaps(
+        $searchResult = $scraperService->searchLeadsOnMaps(
             $query,
             $useGPS ? null : $location,
             [],
-            null, // modelName não é usado no ScraperService
+            null,
             $coords,
-            $useGPS ? $locationName : null
+            $useGPS ? $locationName : null,
+            $maxCrawledPlacesPerSearch ?? 1000,
+            $maxTokensAvailable
         );
+        $leads = $searchResult['leads'];
+        $pagesUsed = isset($searchResult['pages_used']) ? (int) $searchResult['pages_used'] : (int) ceil(count($leads) / 20);
     } catch (Exception $e) {
         error_log("Erro ao buscar leads: " . $e->getMessage());
         error_log("Stack trace: " . $e->getTraceAsString());
@@ -128,7 +161,7 @@ try {
     
     // Salva no histórico
     $locationText = $useGPS ? ($locationName ?: 'Localização GPS') : $location;
-    
+    $searchHistoryId = null;
     try {
         $stmt = $db->prepare("
             INSERT INTO search_history (user_id, query, location, tag, results_count) 
@@ -179,10 +212,41 @@ try {
         // Continua mesmo se não conseguir salvar no banco, retorna os leads mesmo assim
     }
     
+    // Debita tokens: 1 token = 1 página (20 resultados). Debita apenas as páginas efetivamente consumidas.
+    if ($tenantId !== null && isset($pagesUsed) && $pagesUsed > 0) {
+        incrementTenantUsage($db, $tenantId, $pagesUsed);
+    }
+    
+    // Dados sensíveis só são liberados no desbloqueio (1 token por lead); estado persiste em lead_unlocks no banco
+    $searchIdKey = (string) ($searchHistoryId ?? 0);
+    $leadsForFrontend = [];
+    foreach ($leads as $lead) {
+        $leadsForFrontend[] = [
+            'id' => $lead['id'],
+            'name' => $lead['name'] ?? '',
+            'locked' => true,
+            'dbId' => $lead['dbId'] ?? null,
+        ];
+    }
+
+    // Retorna tokenUsage atualizado para o frontend
+    $tokenUsage = null;
+    if ($tenantId !== null) {
+        $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+        $bonus = getTenantTokenBonus($db, $tenantId, null);
+        $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
+        $used = getTenantTokensUsed($db, $tenantId, null);
+        $tokenUsage = [
+            'used' => $used,
+            'limit' => $effectiveLimit,
+            'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
+        ];
+    }
     jsonSuccess([
-        'leads' => $leads,
-        'searchId' => $searchHistoryId ?? null,
-        'count' => count($leads)
+        'leads' => $leadsForFrontend,
+        'searchId' => $searchIdKey,
+        'count' => count($leadsForFrontend),
+        'tokenUsage' => $tokenUsage
     ]);
     
 } catch (Exception $e) {

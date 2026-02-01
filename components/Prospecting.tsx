@@ -1,7 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
-import { Lead, CRMConfig, CRMContact, SearchHistoryItem } from '../types';
+import { Lead, CRMConfig, CRMContact, SearchHistoryItem, TokenUsage } from '../types';
 import { searchLeadsOnMaps } from '../services/searchService';
+import { unlockLeads } from '../services/unlockService';
 import { sendSingleToCRM } from '../services/api';
 import { StorageService } from '../services/storage';
 
@@ -11,16 +12,26 @@ interface ProspectingProps {
   userCoords?: { latitude: number; longitude: number };
   userLocationName?: string;
   onExportToExcel?: () => void;
+  /** Limite de tokens: quando limitReached ou conta suspensa, a busca é bloqueada no frontend */
+  tokenUsage?: TokenUsage;
+  tenantStatus?: string;
+  /** Chamado quando a API de busca retorna tokenUsage atualizado (após cada busca) */
+  onTokenUsageUpdate?: (tokenUsage: TokenUsage) => void;
 }
 
-export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistoryItem, userCoords, userLocationName, onExportToExcel }) => {
+export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistoryItem, userCoords, userLocationName, onExportToExcel, tokenUsage, tenantStatus, onTokenUsageUpdate }) => {
+  const canSearch = !tokenUsage?.limitReached && tenantStatus !== 'suspended';
   const [query, setQuery] = useState('');
   const [location, setLocation] = useState('');
   const [tag, setTag] = useState('');
+  /** Limite enviado à API como maxCrawledPlacesPerSearch (máx. lugares por busca). */
+  const [maxPlaces, setMaxPlaces] = useState(20);
   const [useGPS, setUseGPS] = useState(false);
   const [leads, setLeads] = useState<Lead[]>([]);
+  const [searchId, setSearchId] = useState<string | null>(null);
   const [loading, setLoading] = useState(false);
   const [sendingIndividual, setSendingIndividual] = useState<string | null>(null);
+  const [unlockingIds, setUnlockingIds] = useState<string[]>([]);
   const [errorInfo, setErrorInfo] = useState<string | null>(null);
   
   // Controle de Paginação Local
@@ -29,27 +40,61 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
   // Efeito para carregar dados iniciais (Props ou Histórico)
   useEffect(() => {
     if (initialHistoryItem) {
-      // Prioridade 1: Veio do clique no "Ver Novamente" do histórico
-      loadFromHistoryItem(initialHistoryItem);
+      // Prioridade 1: Veio do clique no "Ver Novamente" do histórico — preservar estado (desbloqueados mantidos)
+      loadFromHistoryItem(initialHistoryItem, true);
     } else {
-      // Prioridade 2: Carregar a última busca salva no navegador
+      // Prioridade 2: Carregar a última busca ao abrir/atualizar — exibir como bloqueado (sem sessão de desbloqueio)
       const lastSearch = StorageService.getLastSearch();
       if (lastSearch) {
-        loadFromHistoryItem(lastSearch);
+        loadFromHistoryItem(lastSearch, false);
       }
     }
   }, [initialHistoryItem]);
 
-  const loadFromHistoryItem = (item: SearchHistoryItem) => {
+  const loadFromHistoryItem = (item: SearchHistoryItem, _preserveUnlocked: boolean) => {
       setQuery(item.query);
       setLocation(item.location);
       setTag(item.tag);
+      setSearchId(item.id ?? null); // ID da pesquisa no banco — desbloqueio funciona pelo histórico
       if (item.leads && item.leads.length > 0) {
-          setLeads(item.leads);
+        // Leads vêm do banco (history.php): já vêm com locked true/false e dados quando desbloqueados
+        const leadsToShow: Lead[] = item.leads.map((l) => ({
+          id: l.id,
+          name: l.name ?? '',
+          locked: l.locked !== false,
+          dbId: l.dbId,
+          ...(l.locked === false ? {
+            phone: l.phone,
+            email: l.email,
+            address: l.address,
+            website: l.website,
+            mapsUri: l.mapsUri,
+            cnpj: l.cnpj,
+            partners: l.partners,
+          } : {}),
+        }));
+        setLeads(leadsToShow);
+      } else {
+        setLeads([]);
       }
   };
 
+  // Atualizar o histórico quando os leads mudam (ex.: após desbloqueio), para "Ver novamente" manter desbloqueados
+  useEffect(() => {
+    if (leads.length === 0 || !query.trim()) return;
+    const history = StorageService.getHistory();
+    const match = history.find((h) => h.query === query && h.location === location);
+    if (match) {
+      const updated = history.map((h) => (h.id === match.id ? { ...h, leads } : h));
+      StorageService.saveHistory(updated);
+    }
+  }, [leads, query, location]);
+
   const performSearch = async () => {
+    if (!canSearch) {
+      setErrorInfo('Você atingiu o limite de tokens do seu plano para este período. Solicite mais créditos em "Solicitar Créditos" ou aguarde o próximo período.');
+      return;
+    }
     const cleanQuery = query.trim();
     const cleanLocation = location.trim();
 
@@ -68,21 +113,30 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
     setVisibleCount(12); // Reseta paginação
 
     try {
-      // Busca leads usando API Thordata (ScraperAPI)
-      const results = await searchLeadsOnMaps(
+      // Busca leads usando API Apify (Compass Google Places); resultados vêm bloqueados (dados sensíveis criptografados)
+      const { leads: results, tokenUsage: newTokenUsage, searchId: newSearchId } = await searchLeadsOnMaps(
         cleanQuery, 
         useGPS ? undefined : cleanLocation, 
         [],
         useGPS ? userCoords : undefined,
-        useGPS ? userLocationName : undefined
+        useGPS ? userLocationName : undefined,
+        Math.max(1, Math.min(1000, maxPlaces))
       );
-      
+      if (newTokenUsage != null && onTokenUsageUpdate) onTokenUsageUpdate(newTokenUsage);
+      setSearchId(newSearchId ?? null);
+
       if (!results || results.length === 0) {
         setErrorInfo(`Nenhum resultado encontrado para "${cleanQuery}" ${useGPS ? (userLocationName ? `em ${userLocationName}` : 'ao seu redor') : `em ${cleanLocation}`}. Tente um termo mais amplo.`);
       } else {
         setLeads(results);
 
-        // SALVAR NO HISTÓRICO APÓS SUCESSO (INCLUINDO OS LEADS)
+        // Histórico vem do banco (history.php); aqui só atualizamos o cache local com representação bloqueada da busca atual
+        const leadsForHistory: Lead[] = results.map((l) => ({
+          id: l.id,
+          name: l.name ?? '',
+          locked: true,
+          dbId: l.dbId,
+        }));
         const historyItem: SearchHistoryItem = {
             id: Date.now().toString(),
             query: cleanQuery,
@@ -90,7 +144,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
             tag: tag,
             timestamp: new Date().toISOString(),
             resultsCount: results.length,
-            leads: results // Agora salvamos os dados completos
+            leads: leadsForHistory,
         };
         StorageService.addToHistory(historyItem);
       }
@@ -103,6 +157,54 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
       setErrorInfo(cleanMsg);
     } finally {
       setLoading(false);
+    }
+  };
+
+  const handleUnlockOne = async (leadId: string) => {
+    if (!searchId) {
+      setErrorInfo('Sessão da pesquisa expirada. Faça uma nova busca.');
+      return;
+    }
+    setUnlockingIds(prev => [...prev, leadId]);
+    setErrorInfo(null);
+    try {
+      const { unlocked, tokenUsage: newTokenUsage } = await unlockLeads(searchId, [leadId]);
+      if (newTokenUsage != null && onTokenUsageUpdate) onTokenUsageUpdate(newTokenUsage);
+      setLeads(prev => prev.map(l => {
+        if (l.id === leadId && unlocked[leadId]) {
+          return { ...l, ...unlocked[leadId], locked: false };
+        }
+        return l;
+      }));
+    } catch (err: any) {
+      setErrorInfo(err.message || 'Erro ao desbloquear');
+    } finally {
+      setUnlockingIds(prev => prev.filter(id => id !== leadId));
+    }
+  };
+
+  const handleUnlockPage = async () => {
+    const lockedVisible = visibleLeads.filter(l => l.locked).map(l => l.id);
+    if (lockedVisible.length === 0) return;
+    if (!searchId) {
+      setErrorInfo('Sessão da pesquisa expirada. Faça uma nova busca.');
+      return;
+    }
+    setUnlockingIds(lockedVisible);
+    setErrorInfo(null);
+    try {
+      const { unlocked, tokenUsage: newTokenUsage } = await unlockLeads(searchId, lockedVisible);
+      if (newTokenUsage != null && onTokenUsageUpdate) onTokenUsageUpdate(newTokenUsage);
+      setLeads(prev => prev.map(l => {
+        if (l.id in unlocked) {
+          return { ...l, ...unlocked[l.id], locked: false };
+        }
+        return l;
+      }));
+    } catch (err: any) {
+      setErrorInfo(err.message || 'Erro ao desbloquear');
+    } finally {
+      setUnlockingIds([]);
     }
   };
 
@@ -161,7 +263,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
               onKeyPress={(e) => e.key === 'Enter' && performSearch()}
             />
           </div>
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <div className="flex justify-between items-center mb-1">
               <label className="block text-[10px] font-black text-slate-400 uppercase ml-1 tracking-widest">Onde?</label>
               <button onClick={() => setUseGPS(!useGPS)} className={`text-[9px] font-black px-2 py-0.5 rounded-full transition-all ${useGPS ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}>
@@ -194,19 +296,38 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
               onChange={(e) => setTag(e.target.value)}
             />
           </div>
+          <div className="md:col-span-1">
+            <label className="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest" title="Enviado à API como maxCrawledPlacesPerSearch">Limite (lugares)</label>
+            <input
+              type="number"
+              min={1}
+              max={1000}
+              className="w-full px-3 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm transition-all"
+              placeholder="20"
+              value={maxPlaces}
+              onChange={(e) => setMaxPlaces(Math.max(1, Math.min(1000, parseInt(String(e.target.value), 10) || 20)))}
+            />
+          </div>
           <div className="md:col-span-2 flex items-end">
             <button
               onClick={performSearch}
-              disabled={loading}
+              disabled={loading || !canSearch}
               className="w-full py-3 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-xl shadow-slate-100 disabled:opacity-50 flex items-center justify-center uppercase tracking-wider text-xs"
             >
               {loading ? (
                 <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
-              ) : 'Buscar Tudo'}
+              ) : !canSearch ? 'Sem créditos disponíveis' : 'Buscar Tudo'}
             </button>
           </div>
         </div>
       </div>
+
+      {!canSearch && (
+        <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium flex items-center gap-2">
+          <span className="text-lg">⚠️</span>
+          <span>Você atingiu o limite de tokens do seu plano para este período. Cada página de resultados (até 20 itens) consome 1 token. Solicite mais créditos em <strong>Solicitar Créditos</strong> no menu ou aguarde o próximo período.</span>
+        </div>
+      )}
 
       {errorInfo && (
         <div className="mb-8 p-5 bg-amber-50 border-l-4 border-amber-400 text-amber-900 rounded-r-2xl shadow-sm animate-fade-in">
@@ -217,7 +338,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
         </div>
       )}
 
-      {/* Contador de Resultados + Exportar para Excel */}
+      {/* Contador de Resultados + Tokens disponíveis + Exportar para Excel */}
       {leads.length > 0 && (
          <div className="mb-6 flex flex-wrap justify-between items-end gap-4 px-2">
             <div>
@@ -225,17 +346,36 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
                 <p className="text-xs text-slate-500 font-medium">
                    Exibindo <span className="font-bold text-slate-900">{Math.min(visibleCount, leads.length)}</span> de <span className="font-bold text-slate-900">{leads.length}</span> empresas encontradas
                 </p>
+                <p className="text-xs text-slate-500 font-medium mt-1">
+                   Tokens disponíveis na conta: <span className="font-bold text-slate-900">
+                     {tokenUsage == null ? '—' : tokenUsage.limit === 0 ? 'Ilimitado' : Math.max(0, tokenUsage.limit - tokenUsage.used)}
+                   </span>
+                </p>
             </div>
-            {onExportToExcel && (
-              <button
-                onClick={onExportToExcel}
-                className="flex items-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg shadow-emerald-900/20"
-                title="Exportar todas as pesquisas para Excel"
-              >
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
-                Exportar para Excel
-              </button>
-            )}
+            <div className="flex items-center gap-3">
+              {visibleLeads.some(l => l.locked) && searchId && (
+                <button
+                  type="button"
+                  onClick={handleUnlockPage}
+                  disabled={unlockingIds.length > 0}
+                  className="flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg disabled:opacity-50"
+                  title="Desbloquear todos os resultados visíveis desta página"
+                >
+                  {unlockingIds.length > 0 ? 'Desbloqueando...' : `Desbloquear página (${visibleLeads.filter(l => l.locked).length})`}
+                </button>
+              )}
+              {onExportToExcel && (
+                <button
+                  onClick={onExportToExcel}
+                  disabled={!searchId || (errorInfo != null && errorInfo.includes('Sessão da pesquisa expirada'))}
+                  className="flex items-center gap-2 px-5 py-3 bg-emerald-600 hover:bg-emerald-700 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg shadow-emerald-900/20 disabled:opacity-50 disabled:cursor-not-allowed"
+                  title={searchId ? 'Exportar todas as pesquisas para Excel' : 'Sessão expirada. Faça uma nova busca para exportar.'}
+                >
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" /></svg>
+                  Exportar para Excel
+                </button>
+              )}
+            </div>
          </div>
       )}
 
@@ -248,7 +388,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
           >
             {/* Badge Flutuante */}
             <div className="absolute -top-3 left-6 bg-blue-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-blue-200 z-10">
-              {lead.partners ? 'Dados Ricos' : 'Lead'}
+              {lead.locked ? 'Bloqueado' : (lead.partners ? 'Dados Ricos' : 'Lead')}
             </div>
 
             {/* Conteúdo */}
@@ -258,93 +398,119 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
                     {lead.name}
                 </h3>
 
-                {/* Dados de Contato */}
-                <div className="space-y-3 mb-6">
-                    {/* Telefone (Destaque Verde) */}
-                    <div className="flex items-center gap-3 bg-emerald-50/50 p-2 rounded-lg -mx-2">
-                        <span className="text-emerald-500 text-xs">📞</span>
-                        <span className="text-emerald-700 font-bold text-xs">
-                            {lead.phone || 'Sem telefone'}
-                        </span>
+                {lead.locked ? (
+                  /* Dados bloqueados: liberar um a um ou pela página (sem débito de token) */
+                  <div className="space-y-4 mb-6">
+                    <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
+                      <span className="text-slate-400 text-xs">🔒</span>
+                      <span className="text-slate-500 font-bold text-xs">Telefone, email e endereço bloqueados</span>
+                    </div>
+                    <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
+                      <span className="text-slate-400 text-xs">📧</span>
+                      <span className="text-slate-500 font-bold text-xs">Desbloqueie para visualizar</span>
+                    </div>
+                    <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
+                      <span className="text-slate-400 text-xs">📍</span>
+                      <span className="text-slate-500 font-bold text-xs">Desbloqueie para ver dados</span>
+                    </div>
+                    <button
+                      type="button"
+                      onClick={() => handleUnlockOne(lead.id)}
+                      disabled={unlockingIds.includes(lead.id)}
+                      className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-[10px] uppercase tracking-wide transition-all disabled:opacity-50 flex justify-center items-center gap-2"
+                    >
+                      {unlockingIds.includes(lead.id) ? 'Desbloqueando...' : 'Desbloquear para ver dados'}
+                    </button>
+                  </div>
+                ) : (
+                  <>
+                    {/* Dados de Contato (desbloqueados) */}
+                    <div className="space-y-3 mb-6">
+                        <div className="flex items-center gap-3 bg-emerald-50/50 p-2 rounded-lg -mx-2">
+                            <span className="text-emerald-500 text-xs">📞</span>
+                            <span className="text-emerald-700 font-bold text-xs">
+                                {lead.phone || 'Sem telefone'}
+                            </span>
+                        </div>
+
+                        {lead.partners && (
+                            <div className="flex items-start gap-3">
+                                <span className="text-purple-400 text-xs mt-0.5">👥</span>
+                                <div className="flex flex-col">
+                                    <span className="text-[9px] font-black text-slate-400 uppercase">Sócios/Resp.</span>
+                                    <p className="text-slate-700 font-bold text-[10px] leading-tight">
+                                        {lead.partners}
+                                    </p>
+                                </div>
+                            </div>
+                        )}
+
+                        {lead.cnpj && (
+                            <div className="flex items-center gap-3">
+                                <span className="text-amber-400 text-xs">🏢</span>
+                                <div className="flex flex-col">
+                                    <span className="text-[9px] font-black text-slate-400 uppercase">CNPJ</span>
+                                    <span className="text-slate-700 font-mono font-bold text-[10px]">
+                                        {lead.cnpj}
+                                    </span>
+                                </div>
+                            </div>
+                        )}
+
+                        {lead.email && (
+                            <div className="flex items-center gap-3">
+                                <span className="text-blue-400 text-xs">✉️</span>
+                                <div className="flex flex-col overflow-hidden">
+                                    <span className="text-[9px] font-black text-slate-400 uppercase">Email</span>
+                                    <a href={`mailto:${lead.email}`} className="text-blue-600 font-bold text-[10px] hover:underline truncate w-full block">
+                                        {lead.email}
+                                    </a>
+                                </div>
+                            </div>
+                        )}
+
+                        <div className="flex items-start gap-3 pt-2 border-t border-slate-100">
+                            <span className="text-rose-400 text-xs mt-0.5">📍</span>
+                            <p className="text-slate-500 font-semibold text-[10px] leading-relaxed line-clamp-2">
+                                {lead.address || '—'}
+                            </p>
+                        </div>
                     </div>
 
-                    {/* Sócios (Novo) */}
-                    {lead.partners && (
-                        <div className="flex items-start gap-3">
-                            <span className="text-purple-400 text-xs mt-0.5">👥</span>
-                            <div className="flex flex-col">
-                                <span className="text-[9px] font-black text-slate-400 uppercase">Sócios/Resp.</span>
-                                <p className="text-slate-700 font-bold text-[10px] leading-tight">
-                                    {lead.partners}
-                                </p>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* CNPJ (Novo Layout) */}
-                    {lead.cnpj && (
-                        <div className="flex items-center gap-3">
-                            <span className="text-amber-400 text-xs">🏢</span>
-                            <div className="flex flex-col">
-                                <span className="text-[9px] font-black text-slate-400 uppercase">CNPJ</span>
-                                <span className="text-slate-700 font-mono font-bold text-[10px]">
-                                    {lead.cnpj}
-                                </span>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Email */}
-                    {lead.email && (
-                        <div className="flex items-center gap-3">
-                            <span className="text-blue-400 text-xs">✉️</span>
-                             <div className="flex flex-col overflow-hidden">
-                                <span className="text-[9px] font-black text-slate-400 uppercase">Email</span>
-                                <a href={`mailto:${lead.email}`} className="text-blue-600 font-bold text-[10px] hover:underline truncate w-full block">
-                                    {lead.email}
-                                </a>
-                            </div>
-                        </div>
-                    )}
-
-                    {/* Endereço */}
-                    <div className="flex items-start gap-3 pt-2 border-t border-slate-100">
-                        <span className="text-rose-400 text-xs mt-0.5">📍</span>
-                        <p className="text-slate-500 font-semibold text-[10px] leading-relaxed line-clamp-2">
-                            {lead.address}
-                        </p>
+                    <div className="flex gap-2 mb-6 opacity-60">
+                        <span className="bg-slate-100 text-slate-400 text-[8px] font-bold px-2 py-1 rounded uppercase">Fonte 1</span>
+                        {lead.sources && lead.sources.length > 1 && (
+                            <span className="bg-slate-100 text-slate-400 text-[8px] font-bold px-2 py-1 rounded uppercase">Fonte 2</span>
+                        )}
                     </div>
-                </div>
-
-                {/* Fontes (Opcional visual) */}
-                <div className="flex gap-2 mb-6 opacity-60">
-                     <span className="bg-slate-100 text-slate-400 text-[8px] font-bold px-2 py-1 rounded uppercase">Fonte 1</span>
-                     {lead.sources && lead.sources.length > 1 && (
-                        <span className="bg-slate-100 text-slate-400 text-[8px] font-bold px-2 py-1 rounded uppercase">Fonte 2</span>
-                     )}
-                </div>
+                  </>
+                )}
             </div>
 
-            {/* Footer com Botões */}
+            {/* Footer com Botões (só quando desbloqueado para exportar) */}
             <div className="flex items-center gap-3 pt-4 border-t border-slate-100 mt-auto">
-                <button 
-                    onClick={() => handleSendSingle(lead)}
-                    disabled={sendingIndividual === lead.id}
-                    className="flex-grow bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-black text-[10px] py-3 rounded-xl uppercase tracking-wide transition-all shadow-sm active:scale-95 disabled:opacity-50 flex justify-center items-center gap-2"
-                >
-                    {sendingIndividual === lead.id ? 'Enviando...' : 'Exportando'}
-                </button>
-                
-                {lead.mapsUri && (
-                    <a 
-                        href={lead.mapsUri}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="w-12 h-[38px] flex-shrink-0 bg-white border border-slate-200 text-blue-500 hover:bg-blue-50 hover:border-blue-200 rounded-xl flex items-center justify-center transition-all shadow-sm"
-                        title="Ver no Google Maps"
+                {!lead.locked && (
+                  <>
+                    <button 
+                        onClick={() => handleSendSingle(lead)}
+                        disabled={sendingIndividual === lead.id}
+                        className="flex-grow bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-black text-[10px] py-3 rounded-xl uppercase tracking-wide transition-all shadow-sm active:scale-95 disabled:opacity-50 flex justify-center items-center gap-2"
                     >
-                         <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.7 3.8C15 .1 9 .1 5.3 3.8c-3.7 3.7-3.7 9.8 0 13.5L12 24l6.7-6.7c3.7-3.7 3.7-9.8 0-13.5zm-6.7 10c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>
-                    </a>
+                        {sendingIndividual === lead.id ? 'Enviando...' : 'Exportando'}
+                    </button>
+                    
+                    {lead.mapsUri && (
+                      <a 
+                          href={lead.mapsUri}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-12 h-[38px] flex-shrink-0 bg-white border border-slate-200 text-blue-500 hover:bg-blue-50 hover:border-blue-200 rounded-xl flex items-center justify-center transition-all shadow-sm"
+                          title="Ver no Google Maps"
+                      >
+                        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.7 3.8C15 .1 9 .1 5.3 3.8c-3.7 3.7-3.7 9.8 0 13.5L12 24l6.7-6.7c3.7-3.7 3.7-9.8 0-13.5zm-6.7 10c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>
+                      </a>
+                    )}
+                  </>
                 )}
             </div>
           </div>

@@ -69,8 +69,8 @@ Para rodar o projeto localmente ou em produção, você precisará de:
 ### 1️⃣ Clone o repositório
 
 ```bash
-git clone https://github.com/seu-usuario/atendo-maps.git
-cd atendo-maps
+git clone https://github.com/seu-usuario/MapsProspector-Pro.git
+cd MapsProspector-Pro
 ````
 
 ### 2️⃣ Instale as dependências
