@@ -24,6 +24,8 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
   const [query, setQuery] = useState('');
   const [location, setLocation] = useState('');
   const [tag, setTag] = useState('');
+  /** Limite enviado à API como maxCrawledPlacesPerSearch (máx. lugares por busca). */
+  const [maxPlaces, setMaxPlaces] = useState(20);
   const [useGPS, setUseGPS] = useState(false);
   const [leads, setLeads] = useState<Lead[]>([]);
   const [searchId, setSearchId] = useState<string | null>(null);
@@ -111,13 +113,14 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
     setVisibleCount(12); // Reseta paginação
 
     try {
-      // Busca leads usando API Thordata (ScraperAPI); resultados vêm bloqueados (dados sensíveis criptografados)
+      // Busca leads usando API Apify (Compass Google Places); resultados vêm bloqueados (dados sensíveis criptografados)
       const { leads: results, tokenUsage: newTokenUsage, searchId: newSearchId } = await searchLeadsOnMaps(
         cleanQuery, 
         useGPS ? undefined : cleanLocation, 
         [],
         useGPS ? userCoords : undefined,
-        useGPS ? userLocationName : undefined
+        useGPS ? userLocationName : undefined,
+        Math.max(1, Math.min(1000, maxPlaces))
       );
       if (newTokenUsage != null && onTokenUsageUpdate) onTokenUsageUpdate(newTokenUsage);
       setSearchId(newSearchId ?? null);
@@ -162,10 +165,6 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
       setErrorInfo('Sessão da pesquisa expirada. Faça uma nova busca.');
       return;
     }
-    if (tokenUsage?.limitReached) {
-      setErrorInfo('Sem tokens disponíveis para desbloquear. Solicite mais créditos.');
-      return;
-    }
     setUnlockingIds(prev => [...prev, leadId]);
     setErrorInfo(null);
     try {
@@ -189,13 +188,6 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
     if (lockedVisible.length === 0) return;
     if (!searchId) {
       setErrorInfo('Sessão da pesquisa expirada. Faça uma nova busca.');
-      return;
-    }
-    const available = tokenUsage != null && tokenUsage.limit > 0
-      ? Math.max(0, tokenUsage.limit - tokenUsage.used)
-      : 999;
-    if (available < lockedVisible.length) {
-      setErrorInfo(`Tokens insuficientes. Necessário: ${lockedVisible.length}, disponível: ${available}.`);
       return;
     }
     setUnlockingIds(lockedVisible);
@@ -271,7 +263,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
               onKeyPress={(e) => e.key === 'Enter' && performSearch()}
             />
           </div>
-          <div className="md:col-span-4">
+          <div className="md:col-span-3">
             <div className="flex justify-between items-center mb-1">
               <label className="block text-[10px] font-black text-slate-400 uppercase ml-1 tracking-widest">Onde?</label>
               <button onClick={() => setUseGPS(!useGPS)} className={`text-[9px] font-black px-2 py-0.5 rounded-full transition-all ${useGPS ? 'bg-blue-600 text-white shadow-lg shadow-blue-200' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}`}>
@@ -302,6 +294,18 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
               placeholder="Ex: leads_novos"
               value={tag}
               onChange={(e) => setTag(e.target.value)}
+            />
+          </div>
+          <div className="md:col-span-1">
+            <label className="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest" title="Enviado à API como maxCrawledPlacesPerSearch">Limite (lugares)</label>
+            <input
+              type="number"
+              min={1}
+              max={1000}
+              className="w-full px-3 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm transition-all"
+              placeholder="20"
+              value={maxPlaces}
+              onChange={(e) => setMaxPlaces(Math.max(1, Math.min(1000, parseInt(String(e.target.value), 10) || 20)))}
             />
           </div>
           <div className="md:col-span-2 flex items-end">
@@ -353,11 +357,11 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
                 <button
                   type="button"
                   onClick={handleUnlockPage}
-                  disabled={unlockingIds.length > 0 || (tokenUsage != null && tokenUsage.limit > 0 && tokenUsage.used >= tokenUsage.limit)}
+                  disabled={unlockingIds.length > 0}
                   className="flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg disabled:opacity-50"
-                  title="Desbloquear todos os resultados visíveis desta página (1 token por lead)"
+                  title="Desbloquear todos os resultados visíveis desta página"
                 >
-                  {unlockingIds.length > 0 ? 'Desbloqueando...' : `Desbloquear página (${visibleLeads.filter(l => l.locked).length} token${visibleLeads.filter(l => l.locked).length !== 1 ? 's' : ''})`}
+                  {unlockingIds.length > 0 ? 'Desbloqueando...' : `Desbloquear página (${visibleLeads.filter(l => l.locked).length})`}
                 </button>
               )}
               {onExportToExcel && (
@@ -395,7 +399,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
                 </h3>
 
                 {lead.locked ? (
-                  /* Dados bloqueados: liberar um a um ou pela página (1 token por lead) */
+                  /* Dados bloqueados: liberar um a um ou pela página (sem débito de token) */
                   <div className="space-y-4 mb-6">
                     <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
                       <span className="text-slate-400 text-xs">🔒</span>
@@ -407,15 +411,15 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
                     </div>
                     <div className="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
                       <span className="text-slate-400 text-xs">📍</span>
-                      <span className="text-slate-500 font-bold text-xs">1 token por lead</span>
+                      <span className="text-slate-500 font-bold text-xs">Desbloqueie para ver dados</span>
                     </div>
                     <button
                       type="button"
                       onClick={() => handleUnlockOne(lead.id)}
-                      disabled={unlockingIds.includes(lead.id) || (tokenUsage != null && tokenUsage.limit > 0 && tokenUsage.used >= tokenUsage.limit)}
+                      disabled={unlockingIds.includes(lead.id)}
                       className="w-full py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-[10px] uppercase tracking-wide transition-all disabled:opacity-50 flex justify-center items-center gap-2"
                     >
-                      {unlockingIds.includes(lead.id) ? 'Desbloqueando...' : 'Desbloquear para ver dados (1 token)'}
+                      {unlockingIds.includes(lead.id) ? 'Desbloqueando...' : 'Desbloquear para ver dados'}
                     </button>
                   </div>
                 ) : (

@@ -342,6 +342,13 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                 Créditos
               </button>
+              <button 
+                onClick={() => setActiveTab('settings')} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'settings' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+              >
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
+                Configurações (API)
+              </button>
             </div>
           )}
 
@@ -535,15 +542,15 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
                     {/* API de Busca: status para todos; chave apenas super_admin. Nome Thordata só para super_admin. */}
                     <div className="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
-                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">{String(user.profile).toLowerCase() === 'super_admin' ? 'API Thordata (ScraperAPI)' : 'API de Busca (Google Maps)'}</h4>
+                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">{String(user.profile).toLowerCase() === 'super_admin' ? 'API Apify (Google Places)' : 'API de Busca (Google Maps)'}</h4>
                         {(String(user.profile).toLowerCase() === 'super_admin' ? settingsForm.scraperApiKey?.trim() : settingsForm.scraperApiKeyConfigured) ? (
                           <>
-                            <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? '✓ Conectado ao Google Maps via Thordata' : '✓ Conectado ao Google Maps'}</div>
+                            <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? '✓ Conectado ao Google Maps via Apify' : '✓ Conectado ao Google Maps'}</div>
                             <p className="text-[10px] text-slate-400 mt-4 text-center italic">{String(user.profile).toLowerCase() === 'super_admin' ? 'API configurada no servidor. Todas as empresas utilizam esta chave.' : 'API configurada no servidor pelo administrador da plataforma.'}</p>
                           </>
                         ) : (
                           <>
-                            <div className="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? 'Nenhuma API Thordata configurada' : 'Nenhuma API de busca configurada'}</div>
+                            <div className="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? 'Nenhuma API Apify configurada' : 'Nenhuma API de busca configurada'}</div>
                             <p className="text-[10px] text-slate-400 mt-4 text-center italic">{String(user.profile).toLowerCase() === 'super_admin' ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave nas Configurações.'}</p>
                           </>
                         )}
@@ -617,11 +624,11 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
                     {String(user.profile).toLowerCase() === 'super_admin' && (
                     <div className="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                       <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
-                      <h4 className="font-black text-lg mb-3 flex items-center gap-2">ScraperAPI Thordata</h4>
+                      <h4 className="font-black text-lg mb-3 flex items-center gap-2">API Apify (Google Places)</h4>
                       <p className="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
                       <div>
-                        <label className="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Thordata</label>
-                        <input type="password" className="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Thordata" value={settingsForm.scraperApiKey || ''} onChange={(e) => setSettingsForm(prev => ({ ...prev, scraperApiKey: e.target.value }))} />
+                        <label className="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Apify</label>
+                        <input type="password" className="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Apify" value={settingsForm.scraperApiKey || ''} onChange={(e) => setSettingsForm(prev => ({ ...prev, scraperApiKey: e.target.value }))} />
                       </div>
                     </div>
                     )}

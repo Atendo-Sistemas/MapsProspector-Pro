@@ -4,7 +4,7 @@
  * Endpoint: /api/unlock.php
  * POST: { searchId, leadIds: ["lead-1", "lead-2"] }
  * searchId = id da pesquisa no banco (search_history.id).
- * Desbloqueia dados sensíveis (1 token por lead); estado persiste em lead_unlocks.
+ * Desbloqueia dados sensíveis; estado persiste em lead_unlocks. Não debita tokens.
  */
 
 ob_start();
@@ -179,13 +179,7 @@ $planLimit = getTenantPlanTokenLimit($db, $tenantId);
 $bonus = getTenantTokenBonus($db, $tenantId, null);
 $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
 $used = getTenantTokensUsed($db, $tenantId, null);
-$available = $effectiveLimit > 0 ? max(0, $effectiveLimit - $used) : PHP_INT_MAX;
-
-if ($effectiveLimit > 0 && $available < $countToUnlock) {
-    jsonError('Tokens insuficientes para desbloquear ' . $countToUnlock . ' lead(s). Disponível: ' . $available . '. Cada lead desbloqueado consome 1 token.', 403);
-}
-
-incrementTenantUsage($db, $tenantId, $countToUnlock);
+// Desbloqueio não debita tokens: apenas libera os dados; mantém lead_unlocks para persistência.
 
 try {
     $stmtIns = $db->prepare("INSERT IGNORE INTO lead_unlocks (user_id, search_history_id, lead_id) VALUES (?, ?, ?)");

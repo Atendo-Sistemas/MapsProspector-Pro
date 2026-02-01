@@ -1,7 +1,7 @@
 import { Lead, TokenUsage } from '../types';
 
 /**
- * Serviço de Busca de Leads usando API Thordata (ScraperAPI)
+ * Serviço de Busca de Leads usando API Apify (Compass Google Places)
  * Chama o endpoint PHP que utiliza o ScraperService
  */
 
@@ -18,7 +18,8 @@ export const searchLeadsOnMaps = async (
   location?: string,
   excludeNames: string[] = [],
   coords?: { latitude: number; longitude: number },
-  locationName?: string
+  locationName?: string,
+  maxCrawledPlacesPerSearch?: number
 ): Promise<SearchResult> => {
   try {
     const response = await fetch(API_BASE + 'search.php', {
@@ -34,6 +35,7 @@ export const searchLeadsOnMaps = async (
         useGPS: !!coords,
         coords: coords || null,
         locationName: locationName || null,
+        maxCrawledPlacesPerSearch: maxCrawledPlacesPerSearch != null ? Math.max(1, Math.min(1000, maxCrawledPlacesPerSearch)) : undefined,
       }),
     });
 

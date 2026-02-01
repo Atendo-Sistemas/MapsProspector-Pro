@@ -937,7 +937,7 @@ function getProspectingHTML() {
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">O que busca?</label>
                         <input id="search-query" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Ex: Petshop, Clínica, Padaria...">
                     </div>
-                    <div class="md:col-span-4">
+                    <div class="md:col-span-3">
                         <div class="flex justify-between items-center mb-1">
                             <label class="block text-[10px] font-black text-slate-400 uppercase ml-1 tracking-widest">Onde?</label>
                             <button id="toggle-gps" class="text-[9px] font-black px-2 py-0.5 rounded-full transition-all bg-slate-100 text-slate-500 hover:bg-slate-200">USAR MEU GPS</button>
@@ -949,6 +949,10 @@ function getProspectingHTML() {
                     <div class="md:col-span-2">
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Tag CRM</label>
                         <input id="search-tag" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: leads_novos">
+                    </div>
+                    <div class="md:col-span-1">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest" title="Enviado à API como maxCrawledPlacesPerSearch">Limite (lugares)</label>
+                        <input id="search-max-places" type="number" min="1" max="1000" class="w-full px-3 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm" placeholder="20" value="20">
                     </div>
                     <div class="md:col-span-2 flex items-end">
                         <button id="btn-search" class="w-full py-3 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-xl shadow-slate-100 disabled:opacity-50 flex items-center justify-center uppercase tracking-wider text-xs">
@@ -1183,6 +1187,12 @@ async function performSearch() {
     AppState.visibleCount = 12;
     
     try {
+        var maxPlacesEl = document.getElementById('search-max-places');
+        var maxPlaces = 20;
+        if (maxPlacesEl && maxPlacesEl.value) {
+            var v = parseInt(maxPlacesEl.value, 10);
+            if (!isNaN(v)) maxPlaces = Math.max(1, Math.min(1000, v));
+        }
         const res = await fetch(API_BASE + 'search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -1192,7 +1202,8 @@ async function performSearch() {
                 tag,
                 useGPS,
                 coords: useGPS ? AppState.userCoords : null,
-                locationName: useGPS ? AppState.userLocationName : null
+                locationName: useGPS ? AppState.userLocationName : null,
+                maxCrawledPlacesPerSearch: maxPlaces
             })
         });
         
@@ -1294,7 +1305,7 @@ function displayLeads() {
         });
     });
     
-    // Botões Desbloquear (1 token por lead)
+    // Botões Desbloquear (não debita tokens)
     document.querySelectorAll('.btn-unlock').forEach(btn => {
         btn.addEventListener('click', function() {
             var leadId = this.dataset.leadId;
@@ -1307,7 +1318,7 @@ function displayLeads() {
     var lockedVisible = visible.filter(function(l) { return l.locked; });
     if (unlockPageWrap) {
         if (lockedVisible.length > 0 && AppState.searchId) {
-            unlockPageWrap.innerHTML = '<button type="button" id="btn-unlock-page" class="flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg disabled:opacity-50">Desbloquear página (' + lockedVisible.length + ' token' + (lockedVisible.length !== 1 ? 's' : '') + ')</button>';
+            unlockPageWrap.innerHTML = '<button type="button" id="btn-unlock-page" class="flex items-center gap-2 px-5 py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl transition-all text-xs font-black uppercase shadow-lg disabled:opacity-50">Desbloquear página (' + lockedVisible.length + ')</button>';
             unlockPageWrap.classList.remove('hidden');
             var bp = document.getElementById('btn-unlock-page');
             if (bp) bp.addEventListener('click', function() {
@@ -1354,9 +1365,9 @@ function getLeadCardHTML(lead) {
                 <div class="space-y-4 mb-6">
                     <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
                         <span class="text-slate-400 text-xs">🔒</span>
-                        <span class="text-slate-500 font-bold text-xs">Telefone, email e endereço bloqueados. Desbloqueie para visualizar (1 token por lead).</span>
+                        <span class="text-slate-500 font-bold text-xs">Telefone, email e endereço bloqueados. Desbloqueie para visualizar.</span>
                     </div>
-                    <button type="button" class="btn-unlock w-full py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-[10px] uppercase tracking-wide transition-all disabled:opacity-50 flex justify-center items-center gap-2" data-lead-id="${lead.id}" title="1 token">Desbloquear (1 token)</button>
+                    <button type="button" class="btn-unlock w-full py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-[10px] uppercase tracking-wide transition-all disabled:opacity-50 flex justify-center items-center gap-2" data-lead-id="${lead.id}" title="Desbloquear">Desbloquear para ver dados</button>
                 </div>
             </div>
         </div>
@@ -1427,7 +1438,7 @@ function updateExportExcelButtonState() {
     if (btn) btn.disabled = !AppState.searchId;
 }
 
-// Desbloqueia um ou mais leads (1 token por lead); retorna dados sensíveis e atualiza tokenUsage
+// Desbloqueia um ou mais leads; retorna dados sensíveis (não debita tokens)
 async function doUnlockLeads(leadIds) {
     if (!AppState.searchId) {
         showError('Sessão da pesquisa expirada. Faça uma nova busca.');
@@ -1435,11 +1446,6 @@ async function doUnlockLeads(leadIds) {
         return;
     }
     if (!leadIds || leadIds.length === 0) return;
-    var u = AppState.tokenUsage;
-    if (u && u.limit > 0 && u.used >= u.limit) {
-        showError('Sem tokens disponíveis para desbloquear.');
-        return;
-    }
     try {
         var res = await fetch(API_BASE + 'unlock.php', {
             method: 'POST',
@@ -1678,11 +1684,11 @@ function getSettingsHTML() {
                     
                     <div id="block-scraper-api-key-admin" class="mt-6 bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
-                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">🔑 ScraperAPI Thordata</h4>
+                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">🔑 API Apify (Google Places)</h4>
                         <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
                         <div>
-                            <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Thordata</label>
-                            <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Thordata">
+                            <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Apify</label>
+                            <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Apify">
                         </div>
                     </div>
                     
@@ -1747,7 +1753,7 @@ async function loadSettingsForm() {
             document.getElementById('setting-url').value = AppState.config.baseUrl || '';
             document.getElementById('setting-token').value = AppState.config.token || '';
             document.getElementById('setting-tenant').value = AppState.config.tenantName || 'Atendo CRM';
-            // Carrega a chave da API Thordata se o elemento existir
+            // Carrega a chave da API Apify se o elemento existir
             const scraperApiInput = document.getElementById('setting-scraper-api');
             if (scraperApiInput) {
                 scraperApiInput.value = AppState.config.scraperApiKey || '';
@@ -1769,16 +1775,16 @@ function updateApiStatusDisplay(overrideKey) {
     const subtitleEl = document.getElementById('api-status-subtitle');
     if (!statusEl || !subtitleEl) return;
     var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
-    if (titleEl) titleEl.textContent = isSuperAdmin ? 'API Thordata (ScraperAPI)' : 'API de Busca (Google Maps)';
+    if (titleEl) titleEl.textContent = isSuperAdmin ? 'API Apify (Google Places)' : 'API de Busca (Google Maps)';
     var configured = isSuperAdmin
         ? (overrideKey !== undefined ? String(overrideKey || '').trim() : (AppState.config && AppState.config.scraperApiKey) ? String(AppState.config.scraperApiKey).trim() : '')
         : (AppState.config && AppState.config.scraperApiKeyConfigured);
     if (configured) {
-        statusEl.textContent = isSuperAdmin ? '✓ Conectado ao Google Maps via Thordata' : '✓ Conectado ao Google Maps';
+        statusEl.textContent = isSuperAdmin ? '✓ Conectado ao Google Maps via Apify' : '✓ Conectado ao Google Maps';
         statusEl.className = 'p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold';
         subtitleEl.textContent = isSuperAdmin ? 'API configurada no servidor. Todas as empresas utilizam esta chave.' : 'API configurada no servidor pelo administrador da plataforma.';
     } else {
-        statusEl.textContent = isSuperAdmin ? 'Nenhuma API Thordata configurada' : 'Nenhuma API de busca configurada';
+        statusEl.textContent = isSuperAdmin ? 'Nenhuma API Apify configurada' : 'Nenhuma API de busca configurada';
         statusEl.className = 'p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold';
         subtitleEl.textContent = isSuperAdmin ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave nas Configurações.';
     }

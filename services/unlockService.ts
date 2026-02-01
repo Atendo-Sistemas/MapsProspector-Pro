@@ -18,7 +18,7 @@ export interface UnlockResult {
 }
 
 /**
- * Desbloqueia um ou mais leads (1 token por lead). Retorna os dados sensíveis descriptografados.
+ * Desbloqueia um ou mais leads; retorna os dados sensíveis. Não debita tokens.
  */
 export const unlockLeads = async (
   searchId: string,

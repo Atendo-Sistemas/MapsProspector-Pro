@@ -61,6 +61,7 @@ try {
     $useGPS = isset($input['useGPS']) && $input['useGPS'];
     $coords = $input['coords'] ?? null;
     $locationName = sanitizeInput($input['locationName'] ?? '');
+    $maxCrawledPlacesPerSearch = isset($input['maxCrawledPlacesPerSearch']) ? max(1, min(1000, (int) $input['maxCrawledPlacesPerSearch'])) : null;
     
     // Validações
     if (empty($query)) {
@@ -100,10 +101,10 @@ try {
         }
     }
     
-    // Chama o serviço ScraperAPI (Thordata)
+    // Chama o serviço Apify (Compass Google Places)
     require_once __DIR__ . '/../services/scraperService.php';
     
-    // Chave Thordata: única para toda a plataforma (configurada apenas pelo super_admin)
+    // Chave Apify: única para toda a plataforma (configurada apenas pelo super_admin)
     $scraperApiKey = getPlatformSetting($db, 'scraper_api_key');
     if (empty(trim((string)$scraperApiKey)) && defined('SCRAPER_API_KEY')) {
         $scraperApiKey = SCRAPER_API_KEY;
@@ -132,7 +133,7 @@ try {
         }
     }
     
-    // Busca os leads com paginação (start=0, 20, 40, ...); cada página = 1 token
+    // Busca os leads; maxCrawledPlacesPerSearch vem do frontend (campo Limite) ou padrão 1000
     try {
         $searchResult = $scraperService->searchLeadsOnMaps(
             $query,
@@ -141,7 +142,7 @@ try {
             null,
             $coords,
             $useGPS ? $locationName : null,
-            1000, // maxResults
+            $maxCrawledPlacesPerSearch ?? 1000,
             $maxTokensAvailable
         );
         $leads = $searchResult['leads'];
