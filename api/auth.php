@@ -52,13 +52,17 @@ if ($method === 'POST') {
         $tenantName = 'Atendo Maps';
         $tenantStatus = 'active';
         $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+        $tenantPlanId = '';
+        $tenantPlanName = '';
         if ($tenantId) {
-            $stmtT = $db->prepare("SELECT name, status FROM tenants WHERE id = ?");
+            $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
             $stmtT->execute([$tenantId]);
             $row = $stmtT->fetch();
             if ($row) {
                 $tenantName = $row['name'];
                 $tenantStatus = $row['status'] ?? 'active';
+                $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
+                $tenantPlanName = $row['plan_name'] ?? '';
                 $planLimit = getTenantPlanTokenLimit($db, $tenantId);
                 $bonus = getTenantTokenBonus($db, $tenantId, null);
                 $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
@@ -90,7 +94,9 @@ if ($method === 'POST') {
             'tenant' => [
                 'id' => $tenantId !== null ? (string)$tenantId : '',
                 'name' => $tenantName,
-                'status' => $tenantStatus
+                'status' => $tenantStatus,
+                'planId' => $tenantPlanId,
+                'planName' => $tenantPlanName
             ],
             'tokenUsage' => $tokenUsage
         ]);
@@ -113,13 +119,17 @@ if ($method === 'POST') {
                 $tenantName = 'Atendo Maps';
                 $tenantStatus = 'active';
                 $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+                $tenantPlanId = '';
+                $tenantPlanName = '';
                 if ($tenantId) {
-                    $stmtT = $db->prepare("SELECT name, status FROM tenants WHERE id = ?");
+                    $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
                     $stmtT->execute([$tenantId]);
                     $row = $stmtT->fetch();
                     if ($row) {
                         $tenantName = $row['name'];
                         $tenantStatus = $row['status'] ?? 'active';
+                        $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
+                        $tenantPlanName = $row['plan_name'] ?? '';
                         $planLimit = getTenantPlanTokenLimit($db, $tenantId);
                         $bonus = getTenantTokenBonus($db, $tenantId, null);
                         $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
@@ -144,7 +154,9 @@ if ($method === 'POST') {
                     'tenant' => [
                         'id' => $tenantId !== null ? (string)$tenantId : '',
                         'name' => $tenantName,
-                        'status' => $tenantStatus
+                        'status' => $tenantStatus,
+                        'planId' => $tenantPlanId,
+                        'planName' => $tenantPlanName
                     ],
                     'tokenUsage' => $tokenUsage
                 ]);

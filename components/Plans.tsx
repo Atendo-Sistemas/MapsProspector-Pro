@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { PlanRow } from '../types';
+import { PlanRow, PlanRequestRow } from '../types';
 
 const API_BASE = '';
 
@@ -10,8 +10,10 @@ interface PlansProps {
 
 export const Plans: React.FC<PlansProps> = ({ refreshKey = 0 }) => {
   const [list, setList] = useState<PlanRow[]>([]);
+  const [planRequests, setPlanRequests] = useState<PlanRequestRow[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
+  const [actingRequestId, setActingRequestId] = useState<string | null>(null);
   const [modal, setModal] = useState<'none' | 'create' | 'edit'>('none');
   const [form, setForm] = useState({
     id: '',
@@ -43,8 +45,45 @@ export const Plans: React.FC<PlansProps> = ({ refreshKey = 0 }) => {
     }
   };
 
+  const loadPlanRequests = async () => {
+    try {
+      const res = await fetch(`${API_BASE}/api/plan-requests.php`, { credentials: 'include' });
+      const data = await res.json();
+      if (data.success && data.data?.items) {
+        setPlanRequests(data.data.items as PlanRequestRow[]);
+      }
+    } catch {
+      // Ignora
+    }
+  };
+
+  const handleReviewPlanRequest = async (id: string, status: 'approved' | 'rejected') => {
+    setActingRequestId(id);
+    setError(null);
+    try {
+      const res = await fetch(`${API_BASE}/api/plan-requests.php`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ id, status }),
+      });
+      const data = await res.json();
+      if (data.success) {
+        loadPlanRequests();
+        loadList();
+      } else {
+        setError(data.error || 'Erro ao processar solicitação.');
+      }
+    } catch {
+      setError('Erro de conexão.');
+    } finally {
+      setActingRequestId(null);
+    }
+  };
+
   useEffect(() => {
     loadList();
+    loadPlanRequests();
   }, [refreshKey]);
 
   const openCreate = () => {
@@ -190,6 +229,56 @@ export const Plans: React.FC<PlansProps> = ({ refreshKey = 0 }) => {
         </div>
       )}
 
+      {/* Solicitações de plano (super_admin confirma ou recusa) */}
+      {planRequests.filter((r) => r.status === 'pending').length > 0 && (
+        <div className="mb-10">
+          <h4 className="text-lg font-black text-slate-900 mb-4">Solicitações de plano (pendentes)</h4>
+          <div className="space-y-4">
+            {planRequests
+              .filter((r) => r.status === 'pending')
+              .map((r) => (
+                <div
+                  key={r.id}
+                  className="bg-white p-6 rounded-[2rem] border border-slate-200 flex flex-wrap items-center justify-between gap-4"
+                >
+                  <div className="flex items-center gap-6">
+                    <div className="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">
+                      {(r.tenantName || 'E').charAt(0).toUpperCase()}
+                    </div>
+                    <div>
+                      <h4 className="font-extrabold text-slate-900 text-lg">{r.tenantName || 'Empresa'}</h4>
+                      <p className="text-[11px] font-bold text-slate-400 uppercase tracking-wider">
+                        {r.requestedByName || r.requestedByEmail || '—'} · Plano: {r.planName ?? '—'} ({r.planTokenLimit?.toLocaleString('pt-BR')} tokens · R$ {(r.planPrice ?? 0).toFixed(2).replace('.', ',')}/mês)
+                      </p>
+                      <p className="text-xs text-amber-600 font-bold mt-1">
+                        {r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : ''} · Pendente
+                      </p>
+                    </div>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <button
+                      type="button"
+                      onClick={() => handleReviewPlanRequest(r.id, 'approved')}
+                      disabled={actingRequestId !== null}
+                      className="bg-emerald-100 text-emerald-700 hover:bg-emerald-200 font-bold px-4 py-2 rounded-xl text-xs disabled:opacity-70"
+                    >
+                      {actingRequestId === r.id ? '...' : 'Confirmar'}
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => handleReviewPlanRequest(r.id, 'rejected')}
+                      disabled={actingRequestId !== null}
+                      className="bg-red-100 text-red-700 hover:bg-red-200 font-bold px-4 py-2 rounded-xl text-xs disabled:opacity-70"
+                    >
+                      {actingRequestId === r.id ? '...' : 'Recusar'}
+                    </button>
+                  </div>
+                </div>
+              ))}
+          </div>
+        </div>
+      )}
+
       {loading ? (
         <div className="py-24 text-center">
           <span className="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" />
@@ -287,7 +376,7 @@ export const Plans: React.FC<PlansProps> = ({ refreshKey = 0 }) => {
                   className="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
                   placeholder="100"
                 />
-                <p className="text-[10px] text-slate-400 mt-1">0 = ilimitado. Cada página de 20 resultados consome 1 token.</p>
+                <p className="text-[10px] text-slate-400 mt-1">0 = ilimitado. 1 token = 1 página de resultados (até 20 itens por página).</p>
               </div>
               <div className="grid grid-cols-2 gap-4">
                 <div>

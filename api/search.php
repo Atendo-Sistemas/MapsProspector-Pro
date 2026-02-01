@@ -72,7 +72,7 @@ try {
         jsonError('Digite a cidade ou ative o GPS.', 400);
     }
     
-    // Limite de tokens do plano (empresa): 1 token = 1 resultado retornado; débito só após a busca
+    // Limite de tokens do plano (empresa): 1 token = 1 página (até 20 resultados); débito só após a busca
     $authUser = getAuthUser();
     $tenantId = $authUser['tenant_id'] ?? null;
     if ($tenantId !== null) {

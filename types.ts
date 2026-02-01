@@ -67,6 +67,35 @@ export interface AppTenant {
   id: string | number;
   name: string;
   status?: string;
+  planId?: string;
+  planName?: string;
+}
+
+/** Plano listado para cliente escolher (plans-public) */
+export interface PlanPublicRow {
+  id: string;
+  name: string;
+  slug: string;
+  tokenLimit: number;
+  priceMonthly: number;
+  period: string;
+}
+
+/** Solicitação de plano (cliente solicita; super_admin confirma) */
+export interface PlanRequestRow {
+  id: string;
+  tenantId: string;
+  tenantName?: string | null;
+  requestedByUserId?: string;
+  requestedByName?: string | null;
+  requestedByEmail?: string | null;
+  planId: string;
+  planName?: string | null;
+  planTokenLimit?: number;
+  planPrice?: number;
+  status: string;
+  createdAt: string;
+  reviewedAt?: string | null;
 }
 
 export interface TokenUsage {

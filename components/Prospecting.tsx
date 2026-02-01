@@ -325,7 +325,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
       {!canSearch && (
         <div className="mb-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium flex items-center gap-2">
           <span className="text-lg">⚠️</span>
-          <span>Você atingiu o limite de tokens do seu plano para este período. Cada página de 20 resultados consome 1 token. Solicite mais créditos em <strong>Solicitar Créditos</strong> no menu ou aguarde o próximo período.</span>
+          <span>Você atingiu o limite de tokens do seu plano para este período. Cada página de resultados (até 20 itens) consome 1 token. Solicite mais créditos em <strong>Solicitar Créditos</strong> no menu ou aguarde o próximo período.</span>
         </div>
       )}
 

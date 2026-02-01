@@ -159,6 +159,15 @@ function showDashboard() {
                 dividerNormal.classList.remove('hidden');
             }
         }
+        var hasTenant = AppState.tenant && AppState.tenant.id;
+        var btnMeuPlano = document.getElementById('nav-btn-choose-plan');
+        if (btnMeuPlano) {
+            if (hasTenant) {
+                btnMeuPlano.classList.remove('hidden');
+            } else {
+                btnMeuPlano.classList.add('hidden');
+            }
+        }
     }
     setActiveTab(AppState.activeTab);
 }
@@ -300,7 +309,7 @@ function renderDashboardTab(contentArea) {
         '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">' +
         '<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg></div>' +
         '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens utilizados</p><p class="text-3xl font-black text-slate-900">' + used + '</p></div></div>' +
-        '<p class="text-xs text-slate-500">Tokens usados no período (cada página de 20 resultados = 1 token)</p></div>' +
+        '<p class="text-xs text-slate-500">Tokens usados no período: 1 token = 1 página de resultados (até 20 itens por página)</p></div>' +
         '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">' +
         '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center">' +
         '<svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div>' +
@@ -410,6 +419,118 @@ function loadRequestCreditsList() {
     });
 }
 
+// Meu plano: usuário escolhe plano e solicita; fica pendente até Super Admin liberar
+function renderChoosePlanTab(contentArea) {
+    var currentPlanName = (AppState.tenant && AppState.tenant.planName) ? AppState.tenant.planName : '';
+    var currentPlanId = (AppState.tenant && AppState.tenant.planId) ? String(AppState.tenant.planId) : '';
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto">' +
+        '<h3 class="text-2xl font-black text-slate-900 mb-2">Meu plano</h3>' +
+        '<p class="text-sm text-slate-500 mb-8">Escolha um plano para sua empresa. Após solicitar, o administrador confirmará e seu plano será atualizado.</p>' +
+        (currentPlanName ? '<div class="mb-8 p-6 bg-slate-50 rounded-2xl border border-slate-200"><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider mb-1">Plano atual</p><p class="text-lg font-bold text-slate-900">' + currentPlanName + '</p></div>' : '') +
+        '<div id="choose-plan-pending" class="hidden mb-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium"></div>' +
+        '<div id="choose-plan-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
+        '<div id="choose-plan-spinner" class="py-24 text-center"><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block"></span></div>' +
+        '<div id="choose-plan-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 hidden"></div>' +
+        '<div id="choose-plan-history" class="hidden mt-10"><h4 class="text-lg font-black text-slate-900 mb-4">Histórico de solicitações</h4><div id="choose-plan-history-list"></div></div></div>';
+    loadChoosePlanData(currentPlanId);
+}
+
+function loadChoosePlanData(currentPlanId) {
+    var spinnerEl = document.getElementById('choose-plan-spinner');
+    var gridEl = document.getElementById('choose-plan-grid');
+    var errorEl = document.getElementById('choose-plan-error');
+    var pendingEl = document.getElementById('choose-plan-pending');
+    var historyWrap = document.getElementById('choose-plan-history');
+    var historyList = document.getElementById('choose-plan-history-list');
+    if (!gridEl) return;
+    Promise.all([
+        fetch(API_BASE + 'plans-public.php', { credentials: 'include' }).then(function(r) { return r.json(); }),
+        fetch(API_BASE + 'plan-requests.php', { credentials: 'include' }).then(function(r) { return r.json(); })
+    ]).then(function(results) {
+        if (spinnerEl) spinnerEl.classList.add('hidden');
+        var plansData = results[0];
+        var requestsData = results[1];
+        var plans = (plansData.success && plansData.data && plansData.data.items) ? plansData.data.items : [];
+        var requests = (requestsData.success && requestsData.data && requestsData.data.items) ? requestsData.data.items : [];
+        var pendingReq = requests.filter(function(r) { return r.status === 'pending'; })[0];
+        if (pendingReq) {
+            pendingEl.textContent = 'Solicitação pendente: ' + (pendingReq.planName || 'Plano') + ' — aguardando confirmação do administrador.';
+            pendingEl.classList.remove('hidden');
+        } else {
+            pendingEl.classList.add('hidden');
+        }
+        var hasPending = !!pendingReq;
+        var html = '';
+        plans.forEach(function(p) {
+            var isCurrent = currentPlanId === String(p.id);
+            var canRequest = !hasPending && !isCurrent;
+            var priceText = (p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? ('R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',')) : '—';
+            var tokenText = (p.tokenLimit || 0).toLocaleString('pt-BR') + ' tokens';
+            html += '<div class="bg-white p-6 rounded-[2rem] border-2 ' + (isCurrent ? 'border-blue-400 bg-blue-50/50' : 'border-slate-200') + '">';
+            html += '<div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + (p.tokenLimit >= 1000 ? (p.tokenLimit / 1000) + 'K' : p.tokenLimit) + '</div>';
+            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + tokenText + ' · ' + (p.period === 'yearly' ? 'ano' : 'mês') + '</p></div></div>';
+            html += '<p class="text-2xl font-black text-slate-900 mb-4">' + priceText + '<span class="text-sm font-bold text-slate-400">/mês</span></p>';
+            if (isCurrent) {
+                html += '<p class="text-sm font-bold text-blue-600">Plano atual</p>';
+            } else if (canRequest) {
+                html += '<button type="button" class="btn-request-plan w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700" data-plan-id="' + p.id + '">Solicitar este plano</button>';
+            } else {
+                html += '<p class="text-sm text-slate-400">Aguarde a confirmação da solicitação em andamento.</p>';
+            }
+            html += '</div>';
+        });
+        gridEl.innerHTML = html;
+        gridEl.classList.remove('hidden');
+        gridEl.querySelectorAll('.btn-request-plan').forEach(function(btn) {
+            btn.onclick = function() {
+                var planId = btn.getAttribute('data-plan-id');
+                if (!planId) return;
+                btn.disabled = true;
+                btn.textContent = 'Enviando...';
+                if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
+                fetch(API_BASE + 'plan-requests.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'include',
+                    body: JSON.stringify({ planId: parseInt(planId, 10) })
+                }).then(function(r) { return r.json(); }).then(function(data) {
+                    if (data.success) {
+                        loadChoosePlanData(currentPlanId);
+                        var toast = document.getElementById('toast');
+                        if (toast) {
+                            var msg = document.getElementById('toast-message');
+                            if (msg) msg.textContent = data.message || 'Solicitação enviada.';
+                            toast.classList.remove('hidden');
+                            setTimeout(function() { toast.classList.add('hidden'); }, 3000);
+                        }
+                    } else {
+                        if (errorEl) { errorEl.textContent = data.error || 'Erro ao enviar.'; errorEl.classList.remove('hidden'); }
+                    }
+                }).catch(function() {
+                    if (errorEl) { errorEl.textContent = 'Erro de conexão.'; errorEl.classList.remove('hidden'); }
+                }).finally(function() { btn.disabled = false; btn.textContent = 'Solicitar este plano'; });
+            };
+        });
+        if (requests.length > 0) {
+            historyWrap.classList.remove('hidden');
+            var hHtml = '<div class="space-y-3">';
+            requests.forEach(function(r) {
+                var statusLabel = r.status === 'pending' ? 'Pendente' : r.status === 'approved' ? 'Confirmado' : 'Recusado';
+                var statusClass = r.status === 'pending' ? 'text-amber-600' : r.status === 'approved' ? 'text-emerald-600' : 'text-red-600';
+                var dateStr = r.reviewedAt ? new Date(r.reviewedAt).toLocaleString('pt-BR') : (r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '');
+                hHtml += '<div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between"><span class="font-bold text-slate-800">' + (r.planName || 'Plano') + '</span><span class="text-xs font-bold ' + statusClass + '">' + statusLabel + (dateStr ? ' · ' + dateStr : '') + '</span></div>';
+            });
+            hHtml += '</div>';
+            historyList.innerHTML = hHtml;
+        } else {
+            if (historyWrap) historyWrap.classList.add('hidden');
+        }
+    }).catch(function() {
+        if (spinnerEl) spinnerEl.classList.add('hidden');
+        if (errorEl) { errorEl.textContent = 'Erro ao carregar planos.'; errorEl.classList.remove('hidden'); }
+    });
+}
+
 // Créditos (Administração): lista solicitações, Aceitar / Recusar
 function renderCreditsAdminTab(contentArea) {
     contentArea.innerHTML = '<div class="max-w-4xl mx-auto">' +
@@ -505,6 +626,7 @@ function setActiveTab(tab) {
         search: 'Prospecção Inteligente',
         history: 'Arquivo de Buscas',
         'request-credits': 'Solicitar Créditos',
+        'choose-plan': 'Meu plano',
         plans: 'Planos',
         companies: 'Empresas',
         credits: 'Créditos',
@@ -532,6 +654,8 @@ function loadTab(tab) {
         setupProspectingEvents();
     } else if (tab === 'history') {
         loadHistory();
+    } else if (tab === 'choose-plan') {
+        renderChoosePlanTab(contentArea);
     } else if (tab === 'plans') {
         loadPlansTab(contentArea);
     } else if (tab === 'companies') {
@@ -546,11 +670,15 @@ function loadTab(tab) {
     }
 }
 
-// Planos (super_admin): listar planos, criar plano (Nome, Tokens, Valor mensal)
+// Planos (super_admin): solicitações de plano pendentes (Confirmar/Recusar) + listar planos, criar plano
 function loadPlansTab(contentArea) {
-    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10"><div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900">Planos e limite de tokens <span id="plans-total" class="text-slate-500 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="plans-refresh-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><button type="button" id="plans-create-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2">Criar plano</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="plans-spinner"></span></div></div><div id="plans-list"></div></div>';
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10">' +
+        '<div id="plans-requests-section" class="mb-10 hidden"></div>' +
+        '<div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900">Planos e limite de tokens <span id="plans-total" class="text-slate-500 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="plans-refresh-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><button type="button" id="plans-create-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2">Criar plano</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="plans-spinner"></span></div></div>' +
+        '<div id="plans-list"></div></div>';
     var listEl = document.getElementById('plans-list');
     var spinnerEl = document.getElementById('plans-spinner');
+    var requestsSection = document.getElementById('plans-requests-section');
     var refreshBtn = document.getElementById('plans-refresh-btn');
     if (refreshBtn) {
         refreshBtn.onclick = function() {
@@ -563,48 +691,87 @@ function loadPlansTab(contentArea) {
             showPlansCreateModal(contentArea);
         };
     }
-    fetch(API_BASE + 'plans.php', { method: 'GET', credentials: 'include', cache: 'no-store' })
-        .then(function(r) {
+    Promise.all([
+        fetch(API_BASE + 'plan-requests.php', { credentials: 'include' }).then(function(r) { return r.json(); }),
+        fetch(API_BASE + 'plans.php', { method: 'GET', credentials: 'include', cache: 'no-store' }).then(function(r) {
             if (spinnerEl) spinnerEl.remove();
             return r.json().catch(function() { return { success: false, error: 'Resposta inválida do servidor.' }; });
         })
-        .then(function(data) {
-            if (!listEl) return;
-            if (!data.success) {
-                listEl.innerHTML = '<div class="py-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium">' + (data.error || 'Erro ao carregar planos. Execute database_migration_plans.sql no banco.') + '</div>';
-                return;
-            }
-            var items = (data.data && data.data.items) ? data.data.items : (Array.isArray(data.data) ? data.data : []);
-            var total = (data.data && typeof data.data.total === 'number') ? data.data.total : items.length;
-            if (!Array.isArray(items) || items.length === 0) {
-                listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum plano cadastrado</p></div>';
-                var totalEl = document.getElementById('plans-total');
-                if (totalEl) totalEl.textContent = '0 plano(s)';
-                return;
-            }
-            var html = '<div class="space-y-4">';
-            items.forEach(function(p) {
-                var tokenText = (p.tokenLimit === 0 || p.tokenLimit === '0') ? 'Ilimitado' : (p.tokenLimit + ' tokens/' + (p.period === 'yearly' ? 'ano' : 'mês'));
-                var priceText = (p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? (' · R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',') + '/mês') : '';
-                var statusLabel = p.status === 'active' ? 'Ativo' : 'Inativo';
-                var statusClass = p.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600';
-                html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
-                html += '<div class="flex items-center gap-6">';
-                html += '<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + ((p.tokenLimit === 0 || p.tokenLimit === '0') ? '∞' : p.tokenLimit) + '</div>';
-                html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4>';
-                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (p.slug || '') + ' · ' + tokenText + priceText + ' · ' + (p.tenantsCount || 0) + ' empresa(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
-                html += '</div>';
+    ]).then(function(results) {
+        var requestsData = results[0];
+        var data = results[1];
+        var planRequests = (requestsData.success && requestsData.data && requestsData.data.items) ? requestsData.data.items : [];
+        var pendingRequests = planRequests.filter(function(r) { return r.status === 'pending'; });
+        if (requestsSection && pendingRequests.length > 0) {
+            requestsSection.classList.remove('hidden');
+            var rHtml = '<h4 class="text-lg font-black text-slate-900 mb-4">Solicitações de plano (pendentes)</h4><div class="space-y-4">';
+            pendingRequests.forEach(function(r) {
+                var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
+                var planInfo = (r.planName || '—') + ' (' + (r.planTokenLimit ? r.planTokenLimit.toLocaleString('pt-BR') : '') + ' tokens · R$ ' + (r.planPrice != null ? Number(r.planPrice).toFixed(2).replace('.', ',') : '0,00') + '/mês)';
+                rHtml += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex flex-wrap items-center justify-between gap-4">';
+                rHtml += '<div class="flex items-center gap-6"><div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (r.tenantName ? r.tenantName.charAt(0).toUpperCase() : 'E') + '</div>';
+                rHtml += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (r.tenantName || 'Empresa') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (r.requestedByName || r.requestedByEmail || '—') + ' · Plano: ' + planInfo + '</p><p class="text-xs text-amber-600 font-bold mt-1">' + dateStr + ' · Pendente</p></div></div>';
+                rHtml += '<div class="flex items-center gap-2"><button type="button" class="btn-plan-request-approve bg-emerald-100 text-emerald-700 hover:bg-emerald-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Confirmar</button><button type="button" class="btn-plan-request-reject bg-red-100 text-red-700 hover:bg-red-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Recusar</button></div></div>';
             });
-            html += '</div>';
-            listEl.innerHTML = html;
+            rHtml += '</div>';
+            requestsSection.innerHTML = rHtml;
+            requestsSection.querySelectorAll('.btn-plan-request-approve').forEach(function(btn) {
+                btn.onclick = function() { reviewPlanRequest(btn.getAttribute('data-id'), 'approved', contentArea); };
+            });
+            requestsSection.querySelectorAll('.btn-plan-request-reject').forEach(function(btn) {
+                btn.onclick = function() { reviewPlanRequest(btn.getAttribute('data-id'), 'rejected', contentArea); };
+            });
+        } else {
+            if (requestsSection) requestsSection.classList.add('hidden');
+        }
+        if (!listEl) return;
+        if (!data.success) {
+            listEl.innerHTML = '<div class="py-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium">' + (data.error || 'Erro ao carregar planos. Execute database_migration_plans.sql no banco.') + '</div>';
+            return;
+        }
+        var items = (data.data && data.data.items) ? data.data.items : (Array.isArray(data.data) ? data.data : []);
+        var total = (data.data && typeof data.data.total === 'number') ? data.data.total : items.length;
+        if (!Array.isArray(items) || items.length === 0) {
+            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum plano cadastrado</p></div>';
             var totalEl = document.getElementById('plans-total');
-            if (totalEl) totalEl.textContent = total + ' plano(s)';
-        })
-        .catch(function() {
-            if (document.getElementById('plans-spinner')) document.getElementById('plans-spinner').remove();
-            var list = document.getElementById('plans-list');
-            if (list) list.innerHTML = '<div class="py-8 p-5 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium">Erro ao carregar planos. Verifique a conexão e se você está logado como Super Admin.</div>';
+            if (totalEl) totalEl.textContent = '0 plano(s)';
+            return;
+        }
+        var html = '<div class="space-y-4">';
+        items.forEach(function(p) {
+            var tokenText = (p.tokenLimit === 0 || p.tokenLimit === '0') ? 'Ilimitado' : (p.tokenLimit + ' tokens/' + (p.period === 'yearly' ? 'ano' : 'mês'));
+            var priceText = (p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? (' · R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',') + '/mês') : '';
+            var statusLabel = p.status === 'active' ? 'Ativo' : 'Inativo';
+            var statusClass = p.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600';
+            html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
+            html += '<div class="flex items-center gap-6">';
+            html += '<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + ((p.tokenLimit === 0 || p.tokenLimit === '0') ? '∞' : p.tokenLimit) + '</div>';
+            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4>';
+            html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (p.slug || '') + ' · ' + tokenText + priceText + ' · ' + (p.tenantsCount || 0) + ' empresa(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
+            html += '</div>';
         });
+        html += '</div>';
+        listEl.innerHTML = html;
+        var totalEl = document.getElementById('plans-total');
+        if (totalEl) totalEl.textContent = total + ' plano(s)';
+    }).catch(function() {
+        if (document.getElementById('plans-spinner')) document.getElementById('plans-spinner').remove();
+        var list = document.getElementById('plans-list');
+        if (list) list.innerHTML = '<div class="py-8 p-5 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium">Erro ao carregar planos. Verifique a conexão e se você está logado como Super Admin.</div>';
+    });
+}
+
+function reviewPlanRequest(id, status, contentArea) {
+    fetch(API_BASE + 'plan-requests.php', {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ id: parseInt(id, 10), status: status })
+    }).then(function(r) { return r.json(); }).then(function(data) {
+        if (data.success) {
+            loadPlansTab(contentArea);
+        }
+    });
 }
 
 function showPlansCreateModal(contentArea) {
@@ -618,7 +785,7 @@ function showPlansCreateModal(contentArea) {
         '<input type="text" id="plan-name" required placeholder="Ex: Básico, Pro" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
         '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Quantos tokens</label>' +
         '<input type="number" id="plan-tokens" min="0" value="100" placeholder="100" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />' +
-        '<p class="text-[10px] text-slate-400 mt-1">0 = ilimitado. Cada página de 20 resultados consome 1 token.</p></div>' +
+        '<p class="text-[10px] text-slate-400 mt-1">0 = ilimitado. 1 token = 1 página de resultados (até 20 itens por página).</p></div>' +
         '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Valor mensal (R$)</label>' +
         '<input type="number" id="plan-price" min="0" step="0.01" value="0" placeholder="0,00" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
         '<p id="plans-create-error" class="text-red-600 text-sm font-medium hidden"></p>' +
@@ -929,7 +1096,7 @@ function getProspectingHTML() {
         <div class="max-w-[1400px] mx-auto">
             <div id="search-token-limit-banner" class="hidden mb-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium flex items-center gap-2">
                 <span class="text-lg">⚠️</span>
-                <span>Você atingiu o limite de tokens do seu plano para este período. Cada resultado retornado consome 1 token. Solicite mais créditos em <strong>Solicitar Créditos</strong> no menu ou aguarde o próximo período.</span>
+                <span>Você atingiu o limite de tokens do seu plano para este período. Cada página de resultados (até 20 itens) consome 1 token. Solicite mais créditos em <strong>Solicitar Créditos</strong> no menu ou aguarde o próximo período.</span>
             </div>
             <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 mb-10">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">

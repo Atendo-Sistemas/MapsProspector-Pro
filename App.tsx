@@ -4,8 +4,10 @@ import { CRMConfig, SearchHistoryItem, Lead, AppUser, AppTenant, TokenUsage } fr
 import { Prospecting } from './components/Prospecting';
 import { Companies } from './components/Companies';
 import { Plans } from './components/Plans';
+import { ChoosePlan } from './components/ChoosePlan';
 import { RequestCredits } from './components/RequestCredits';
 import { CreditsAdmin } from './components/CreditsAdmin';
+import { ChoosePlan } from './components/ChoosePlan';
 import { StorageService } from './services/storage';
 
 const API_BASE = '';
@@ -93,7 +95,7 @@ const Toast = ({ message, onClose }: { message: string; onClose: () => void }) =
 };
 
 const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUsageUpdate }) => {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'search' | 'history' | 'request-credits' | 'settings' | 'companies' | 'plans' | 'credits'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'search' | 'history' | 'request-credits' | 'choose-plan' | 'settings' | 'companies' | 'plans' | 'credits'>('dashboard');
   const [history, setHistory] = useState<SearchHistoryItem[]>([]);
   
   // Atualizado para usar o tipo completo, incluindo leads
@@ -312,6 +314,15 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
               Solicitar Créditos
             </button>
+            {tenant?.id && (
+            <button 
+              onClick={() => setActiveTab('choose-plan')} 
+              className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'choose-plan' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+            >
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+              Meu plano
+            </button>
+            )}
           </div>
 
           {/* Linha divisória visível */}
@@ -395,7 +406,7 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           <header className="bg-white border-b border-slate-200 h-20 flex items-center px-10 justify-between backdrop-blur-md bg-white/80">
           <div className="flex flex-col">
             <h2 className="text-slate-900 font-extrabold text-xl tracking-tight">
-              {activeTab === 'dashboard' ? 'Dashboard' : activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : activeTab === 'request-credits' ? 'Solicitar Créditos' : activeTab === 'companies' ? 'Empresas' : activeTab === 'plans' ? 'Planos' : activeTab === 'credits' ? 'Créditos' : 'Integração CRM'}
+              {activeTab === 'dashboard' ? 'Dashboard' : activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : activeTab === 'request-credits' ? 'Solicitar Créditos' : activeTab === 'choose-plan' ? 'Meu plano' : activeTab === 'companies' ? 'Empresas' : activeTab === 'plans' ? 'Planos' : activeTab === 'credits' ? 'Créditos' : 'Integração CRM'}
             </h2>
             <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard Atendo</p>
           </div>
@@ -431,7 +442,7 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
                       <p className="text-3xl font-black text-slate-900">{tokenUsage?.used ?? 0}</p>
                     </div>
                   </div>
-                  <p className="text-xs text-slate-500">Tokens usados no período (cada página de 20 resultados = 1 token)</p>
+                  <p className="text-xs text-slate-500">Tokens usados no período: 1 token = 1 página de resultados (até 20 itens por página)</p>
                 </div>
                 <div className="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">
                   <div className="flex items-center gap-4 mb-4">
@@ -477,6 +488,11 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
             </div>
           ) : activeTab === 'request-credits' ? (
             <RequestCredits />
+          ) : activeTab === 'choose-plan' ? (
+            <ChoosePlan
+              currentPlanName={tenant?.planName}
+              currentPlanId={tenant?.planId}
+            />
           ) : activeTab === 'credits' ? (
             String(user.profile).toLowerCase() === 'super_admin' ? (
               <CreditsAdmin refreshKey={creditsRefreshKey} />
