@@ -17,10 +17,9 @@ RewriteRule ^(.*)$ index.php [QSA,L]
     Deny from all
 </FilesMatch>
 
-# Configurações de segurança
+# Configurações de segurança (X-Frame-Options controlado em config/config.php via ALLOW_IFRAME)
 <IfModule mod_headers.c>
     Header set X-Content-Type-Options "nosniff"
-    Header set X-Frame-Options "SAMEORIGIN"
     Header set X-XSS-Protection "1; mode=block"
 </IfModule>
 
