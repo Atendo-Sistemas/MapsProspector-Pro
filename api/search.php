@@ -226,6 +226,7 @@ try {
             'name' => $lead['name'] ?? '',
             'locked' => true,
             'dbId' => $lead['dbId'] ?? null,
+            'website' => !empty($lead['website']) ? (string) $lead['website'] : '',
         ];
     }
 

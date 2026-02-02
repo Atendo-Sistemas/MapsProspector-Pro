@@ -85,7 +85,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `user_id` int(11) NOT NULL,
   `base_url` text DEFAULT NULL,
   `token` text DEFAULT NULL,
-  `tenant_name` varchar(255) DEFAULT 'Atendo CRM',
+  `tenant_name` varchar(255) DEFAULT 'Nome da empresa SaaS',
   `use_proxy` tinyint(1) DEFAULT 0,
   `wrap_in_body` tinyint(1) DEFAULT 0,
   `simplified_payload` tinyint(1) DEFAULT 0,
@@ -274,7 +274,7 @@ INSERT INTO `plans` (`id`, `name`, `slug`, `token_limit`, `price_monthly`, `peri
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `token_limit` = VALUES(`token_limit`), `price_monthly` = VALUES(`price_monthly`), `period` = VALUES(`period`), `status` = VALUES(`status`);
 
 INSERT INTO `tenants` (`id`, `name`, `slug`, `plan_id`, `plan`, `status`) VALUES
-(1, 'Atendo Maps', 'atendo-maps', 1, 'basic', 'active')
+(1, 'Nome da empresa SaaS', 'nome-da-empresa-saas', 1, 'basic', 'active')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `plan_id` = VALUES(`plan_id`);
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `tenant_id`, `profile`) VALUES
@@ -285,7 +285,7 @@ ON DUPLICATE KEY UPDATE `profile` = 'super_admin', `tenant_id` = NULL;
 INSERT IGNORE INTO `platform_settings` (`setting_key`, `setting_value`) VALUES
 ('scraper_api_key', NULL),
 ('credit_price_avulso', '2.00'),
-('saas_company_name', '');
+('saas_company_name', 'Nome da empresa SaaS');
 
 SET FOREIGN_KEY_CHECKS = 1;
 

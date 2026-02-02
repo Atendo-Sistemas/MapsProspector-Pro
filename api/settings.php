@@ -36,7 +36,7 @@ if ($method === 'GET') {
     $base = [
         'baseUrl' => $settings['base_url'] ?? '',
         'token' => '',  // nunca enviado em texto; front usa campo para valor do header apikey
-        'tenantName' => $settings['tenant_name'] ?? 'Atendo CRM',
+        'tenantName' => $settings['tenant_name'] ?? 'Nome da empresa SaaS',
         'scraperApiKeyConfigured' => $scraperApiKeyConfigured
     ];
     if ($isSuperAdmin) {
@@ -55,7 +55,7 @@ if ($method === 'GET') {
 
     $baseUrl = sanitizeInput($input['baseUrl'] ?? '');
     $apikeyPlain = trim($input['token'] ?? '');
-    $tenantName = sanitizeInput($input['tenantName'] ?? 'Atendo CRM');
+    $tenantName = sanitizeInput($input['tenantName'] ?? 'Nome da empresa SaaS');
 
     // Chave da API de busca: apenas super_admin pode alterar; salva em platform_settings (toda a plataforma usa)
     if ($isSuperAdmin && array_key_exists('scraperApiKey', $input)) {

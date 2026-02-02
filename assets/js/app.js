@@ -25,8 +25,35 @@ const AppState = {
     currentSearch: { query: '', location: '', tag: '' }  // contexto da pesquisa atual (para exportar)
 };
 
+// Tema (claro/escuro) — persistido em localStorage
+const THEME_STORAGE_KEY = 'mapsprospector-theme';
+
+function getStoredTheme() {
+    try {
+        var stored = localStorage.getItem(THEME_STORAGE_KEY);
+        return stored === 'dark' ? 'dark' : 'light';
+    } catch (e) { return 'light'; }
+}
+
+function applyTheme(theme) {
+    var root = document.documentElement;
+    if (theme === 'dark') {
+        root.classList.add('dark');
+    } else {
+        root.classList.remove('dark');
+    }
+    try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch (e) {}
+}
+
+function toggleTheme() {
+    var current = getStoredTheme();
+    var next = current === 'dark' ? 'light' : 'dark';
+    applyTheme(next);
+}
+
 // Inicialização
 document.addEventListener('DOMContentLoaded', () => {
+    applyTheme(getStoredTheme());
     checkAuth();
     setupEventListeners();
 });
@@ -151,7 +178,7 @@ function updateDocumentTitle() {
     var companyName = isSuperAdmin
         ? (AppState.platformCompanyName && String(AppState.platformCompanyName).trim() ? AppState.platformCompanyName.trim() : 'MapsProspector Pro')
         : (AppState.tenant && AppState.tenant.name ? String(AppState.tenant.name).trim() : 'Empresa');
-    var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : 'CRM';
+    var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : 'Nome da empresa SaaS';
     document.title = companyName + ' | ' + instanceName;
 }
 
@@ -159,16 +186,18 @@ function loadSidebarCompanyName() {
     var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
     fetch(API_BASE + 'platform-config.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
         var d = data.data || data;
-        var name = (d && d.saasCompanyName && String(d.saasCompanyName).trim()) ? String(d.saasCompanyName).trim() : 'ATENDO';
+        var name = (d && d.saasCompanyName && String(d.saasCompanyName).trim()) ? String(d.saasCompanyName).trim() : 'Nome da empresa SaaS';
         AppState.platformCompanyName = name;
         var el = document.getElementById('sidebar-company-name');
         if (el) el.textContent = name;
+        var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : (isSuperAdmin ? 'Nome da empresa SaaS' : 'Empresa');
+        var instanceEl = document.getElementById('sidebar-instance-name');
+        if (instanceEl) instanceEl.textContent = instanceName;
         var subtitleEl = document.getElementById('header-dashboard-subtitle');
         if (subtitleEl) {
             if (isSuperAdmin) {
                 subtitleEl.textContent = 'Dashboard ' + name.toUpperCase();
             } else {
-                var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
                 subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
             }
         }
@@ -313,6 +342,66 @@ async function handleCadastroSubmit(e) {
     }
 }
 
+// Modal Perfil (alterar senha)
+function showModalPerfil() {
+    var overlay = document.getElementById('modal-perfil-overlay');
+    var errorEl = document.getElementById('perfil-error');
+    var successEl = document.getElementById('perfil-success');
+    if (overlay) overlay.classList.remove('hidden');
+    if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
+    if (successEl) { successEl.classList.add('hidden'); successEl.textContent = ''; }
+    var current = document.getElementById('perfil-senha-atual');
+    var nova = document.getElementById('perfil-senha-nova');
+    var confirm = document.getElementById('perfil-senha-confirm');
+    if (current) current.value = '';
+    if (nova) nova.value = '';
+    if (confirm) confirm.value = '';
+    document.body.style.overflow = 'hidden';
+}
+function hideModalPerfil() {
+    var overlay = document.getElementById('modal-perfil-overlay');
+    if (overlay) overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+}
+async function handlePerfilSenhaSubmit(e) {
+    if (e && e.preventDefault) e.preventDefault();
+    var currentPassword = (document.getElementById('perfil-senha-atual') && document.getElementById('perfil-senha-atual').value) || '';
+    var newPassword = (document.getElementById('perfil-senha-nova') && document.getElementById('perfil-senha-nova').value) || '';
+    var newPasswordConfirm = (document.getElementById('perfil-senha-confirm') && document.getElementById('perfil-senha-confirm').value) || '';
+    var errorEl = document.getElementById('perfil-error');
+    var successEl = document.getElementById('perfil-success');
+    var btn = document.getElementById('btn-perfil-salvar');
+    if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
+    if (successEl) { successEl.classList.add('hidden'); successEl.textContent = ''; }
+    if (!currentPassword) { if (errorEl) { errorEl.textContent = 'Informe a senha atual.'; errorEl.classList.remove('hidden'); } return; }
+    if (newPassword.length < 6) { if (errorEl) { errorEl.textContent = 'A nova senha deve ter no mínimo 6 caracteres.'; errorEl.classList.remove('hidden'); } return; }
+    if (newPassword !== newPasswordConfirm) { if (errorEl) { errorEl.textContent = 'As senhas não coincidem.'; errorEl.classList.remove('hidden'); } return; }
+    if (btn) btn.disabled = true;
+    try {
+        var res = await fetch(API_BASE + 'auth.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify({ action: 'change_password', currentPassword: currentPassword, newPassword: newPassword })
+        });
+        var data = await res.json();
+        if (data.success) {
+            if (successEl) { successEl.textContent = data.message || 'Senha alterada com sucesso.'; successEl.classList.remove('hidden'); }
+            if (errorEl) errorEl.classList.add('hidden');
+            document.getElementById('perfil-senha-atual').value = '';
+            document.getElementById('perfil-senha-nova').value = '';
+            document.getElementById('perfil-senha-confirm').value = '';
+            setTimeout(hideModalPerfil, 1500);
+        } else {
+            if (errorEl) { errorEl.textContent = data.error || 'Erro ao alterar senha.'; errorEl.classList.remove('hidden'); }
+        }
+    } catch (err) {
+        if (errorEl) { errorEl.textContent = 'Erro de conexão. Tente novamente.'; errorEl.classList.remove('hidden'); }
+    } finally {
+        if (btn) btn.disabled = false;
+    }
+}
+
 // Event Listeners
 function setupEventListeners() {
     const loginForm = document.getElementById('login-form');
@@ -337,11 +426,26 @@ function setupEventListeners() {
     document.addEventListener('keydown', function(e) {
         if (e.key === 'Escape') {
             const overlay = document.getElementById('modal-cadastro-overlay');
+            const perfilOverlay = document.getElementById('modal-perfil-overlay');
             if (overlay && !overlay.classList.contains('hidden')) hideCadastro();
+            else if (perfilOverlay && !perfilOverlay.classList.contains('hidden')) hideModalPerfil();
         }
     });
     const formCadastro = document.getElementById('form-cadastro');
     if (formCadastro) formCadastro.addEventListener('submit', handleCadastroSubmit);
+
+    var modalPerfilFechar = document.getElementById('modal-perfil-fechar');
+    if (modalPerfilFechar) modalPerfilFechar.addEventListener('click', hideModalPerfil);
+    var btnPerfilFechar = document.getElementById('btn-perfil-fechar');
+    if (btnPerfilFechar) btnPerfilFechar.addEventListener('click', hideModalPerfil);
+    var modalPerfilOverlay = document.getElementById('modal-perfil-overlay');
+    if (modalPerfilOverlay) {
+        modalPerfilOverlay.addEventListener('click', function(e) {
+            if (e.target === modalPerfilOverlay) hideModalPerfil();
+        });
+    }
+    var formPerfilSenha = document.getElementById('form-perfil-senha');
+    if (formPerfilSenha) formPerfilSenha.addEventListener('submit', handlePerfilSenhaSubmit);
 
     // Tabs
     document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -351,6 +455,15 @@ function setupEventListeners() {
         });
     });
     
+    // Botão de alternar tema (claro/escuro)
+    var btnThemeToggle = document.getElementById('btn-theme-toggle');
+    if (btnThemeToggle) {
+        btnThemeToggle.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleTheme();
+        });
+    }
+
     // Menu do usuário (dropdown + Sair)
     var headerUserArea = document.getElementById('header-user-area');
     var userDropdown = document.getElementById('user-dropdown');
@@ -359,6 +472,14 @@ function setupEventListeners() {
         headerUserArea.addEventListener('click', function(e) {
             e.stopPropagation();
             userDropdown.classList.toggle('hidden');
+        });
+    }
+    var btnPerfil = document.getElementById('btn-perfil');
+    if (btnPerfil) {
+        btnPerfil.addEventListener('click', function(e) {
+            e.stopPropagation();
+            if (userDropdown) userDropdown.classList.add('hidden');
+            showModalPerfil();
         });
     }
     if (btnLogout) {
@@ -404,51 +525,85 @@ function renderDashboardTab(contentArea) {
     var tenantName = (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : '—';
     var hasTenant = AppState.tenant && AppState.tenant.id;
     contentArea.innerHTML = '<div class="max-w-4xl mx-auto">' +
-        '<h3 class="text-2xl font-black text-slate-900 mb-8">Estatísticas da conta</h3>' +
+        '<h3 class="text-2xl font-black text-slate-900 dark:text-slate-100 mb-8">Estatísticas da conta</h3>' +
         '<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">' +
-        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">' +
+        '<div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm">' +
         '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-blue-100 rounded-2xl flex items-center justify-center">' +
         '<svg class="w-7 h-7 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg></div>' +
-        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens utilizados</p><p class="text-3xl font-black text-slate-900">' + used + '</p></div></div>' +
-        '<p class="text-xs text-slate-500">Tokens usados no período: 1 token = 1 página de resultados (até 20 itens por página)</p></div>' +
-        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">' +
+        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens utilizados</p><p class="text-3xl font-black text-slate-900 dark:text-slate-100">' + used + '</p></div></div>' +
+        '<p class="text-xs text-slate-500 dark:text-slate-400">Tokens usados no período: 1 token = 1 página de resultados (até 20 itens por página)</p></div>' +
+        '<div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm">' +
         '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-emerald-100 rounded-2xl flex items-center justify-center">' +
         '<svg class="w-7 h-7 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg></div>' +
-        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens permitidos (plano)</p><p class="text-3xl font-black text-slate-900">' + limitLabel + '</p></div></div>' +
-        '<p class="text-xs text-slate-500">Limite do plano vinculado à sua empresa neste período</p></div>' +
-        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm sm:col-span-2 lg:col-span-1">' +
-        '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-slate-100 rounded-2xl flex items-center justify-center">' +
-        '<svg class="w-7 h-7 text-slate-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></div>' +
-        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Disponível</p><p class="text-3xl font-black text-slate-900">' + available + '</p></div></div>' +
-        '<p class="text-xs text-slate-500">Tokens restantes para novas buscas neste período</p></div>' +
+        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Tokens permitidos (plano)</p><p class="text-3xl font-black text-slate-900 dark:text-slate-100">' + limitLabel + '</p></div></div>' +
+        '<p class="text-xs text-slate-500 dark:text-slate-400">Limite do plano vinculado à sua empresa neste período</p></div>' +
+        '<div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm sm:col-span-2 lg:col-span-1">' +
+        '<div class="flex items-center gap-4 mb-4"><div class="w-14 h-14 bg-slate-100 dark:bg-slate-700 rounded-2xl flex items-center justify-center">' +
+        '<svg class="w-7 h-7 text-slate-600 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg></div>' +
+        '<div><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider">Disponível</p><p class="text-3xl font-black text-slate-900 dark:text-slate-100">' + available + '</p></div></div>' +
+        '<p class="text-xs text-slate-500 dark:text-slate-400">Tokens restantes para novas buscas neste período</p></div>' +
         '</div>' +
-        '<div class="mt-8 p-6 bg-slate-50 rounded-2xl border border-slate-200">' +
-        '<p class="text-sm font-bold text-slate-700"><span class="text-slate-500">Empresa:</span> ' + tenantName + '</p>' +
-        (!hasTenant ? '<p class="text-xs text-slate-500 mt-2">Conta plataforma (Super Admin) — não há limite de tokens por empresa.</p>' : '') +
-        '</div></div>';
+        '<div class="mt-8 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-600">' +
+        '<p class="text-sm font-bold text-slate-700 dark:text-slate-300"><span class="text-slate-500 dark:text-slate-400">Empresa:</span> ' + tenantName + '</p>' +
+        (!hasTenant ? '<p class="text-xs text-slate-500 dark:text-slate-400 mt-2">Conta plataforma (Super Admin) — não há limite de tokens por empresa.</p>' : '') +
+        '</div>' +
+        (!hasTenant ? '<div class="mt-10"><h3 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-6">Uso de tokens por empresa</h3><div id="dashboard-tenants-usage" class="bg-white dark:bg-slate-800 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm overflow-hidden"><div class="p-8 text-center text-slate-500 dark:text-slate-400"><span class="inline-block w-8 h-8 border-2 border-slate-300 border-t-blue-600 rounded-full animate-spin"></span><p class="mt-3 text-sm font-bold">Carregando empresas…</p></div></div></div>' : '') +
+        '</div>';
+    if (!hasTenant) {
+        setTimeout(function() { loadDashboardTenantsUsage(); }, 0);
+    }
+}
+
+function loadDashboardTenantsUsage() {
+    var container = document.getElementById('dashboard-tenants-usage');
+    if (!container) return;
+    fetch(API_BASE + 'tenants.php', { method: 'GET', credentials: 'include', cache: 'no-store' })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+            if (!res.success || !res.data) {
+                container.innerHTML = '<div class="p-8 text-center text-amber-600 font-bold text-sm">Erro ao carregar empresas.</div>';
+                return;
+            }
+            var items = (res.data.items && res.data.items.length) ? res.data.items : (Array.isArray(res.data) ? res.data : []);
+            if (items.length === 0) {
+                container.innerHTML = '<div class="p-8 text-center text-slate-500 dark:text-slate-400 text-sm font-bold">Nenhuma empresa cadastrada.</div>';
+                return;
+            }
+            var html = '<div class="overflow-x-auto"><table class="w-full text-left"><thead><tr class="border-b border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-800/50"><th class="px-6 py-4 text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider">Empresa</th><th class="px-6 py-4 text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider text-right">Tokens válidos (limite)</th><th class="px-6 py-4 text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase tracking-wider text-right">Tokens utilizados</th></tr></thead><tbody>';
+            items.forEach(function(t) {
+                var limitLabel = (t.tokensLimit != null && t.tokensLimit === 0) ? 'Ilimitado' : (t.tokensLimit != null ? t.tokensLimit : '—');
+                var used = t.tokensUsed != null ? t.tokensUsed : 0;
+                html += '<tr class="border-b border-slate-100 dark:border-slate-600 hover:bg-slate-50/50 dark:hover:bg-slate-700/50"><td class="px-6 py-4"><span class="font-bold text-slate-900 dark:text-slate-100">' + (t.name || '—') + '</span>' + (t.plan ? '<span class="block text-[11px] font-bold text-slate-400 uppercase">' + t.plan + '</span>' : '') + '</td><td class="px-6 py-4 text-right font-bold text-slate-700 dark:text-slate-300">' + limitLabel + '</td><td class="px-6 py-4 text-right font-bold text-slate-900 dark:text-slate-100">' + used + '</td></tr>';
+            });
+            html += '</tbody></table></div>';
+            container.innerHTML = html;
+        })
+        .catch(function() {
+            if (container) container.innerHTML = '<div class="p-8 text-center text-amber-600 font-bold text-sm">Erro de conexão ao carregar empresas.</div>';
+        });
 }
 
 // Solicitar Créditos (Normal): usuário solicita X créditos
 function renderRequestCreditsTab(contentArea) {
     contentArea.innerHTML = '<div class="max-w-2xl mx-auto">' +
-        '<h3 class="text-2xl font-black text-slate-900 mb-6">Solicitar créditos</h3>' +
-        '<p class="text-sm text-slate-500 mb-8">Solicite créditos (tokens) adicionais para sua empresa. O administrador da plataforma analisará e poderá aprovar ou recusar.</p>' +
+        '<h3 class="text-2xl font-black text-slate-900 dark:text-slate-100 mb-6">Solicitar créditos</h3>' +
+        '<p class="text-sm text-slate-500 dark:text-slate-400 mb-8">Solicite créditos (tokens) adicionais para sua empresa. O administrador da plataforma analisará e poderá aprovar ou recusar.</p>' +
         '<div id="request-credits-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
-        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm mb-10">' +
+        '<div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm mb-10">' +
         '<form id="request-credits-form" class="space-y-4">' +
         '<div><div class="flex flex-wrap items-end gap-4">' +
-        '<div class="flex-1 min-w-[140px]"><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Quantidade de créditos (tokens)</label>' +
-        '<input id="request-credits-amount" type="number" min="100" max="10000" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: 100" required /></div>' +
-        '<div id="request-credits-total-wrap" class="flex-1 min-w-[140px] pb-1 hidden"><p class="text-[10px] font-black text-slate-500 uppercase mb-1">Valor a pagar</p>' +
+        '<div class="flex-1 min-w-[140px]"><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Quantidade de créditos (tokens)</label>' +
+        '<input id="request-credits-amount" type="number" min="100" max="10000" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: 100" required /></div>' +
+        '<div id="request-credits-total-wrap" class="flex-1 min-w-[140px] pb-1 hidden"><p class="text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Valor a pagar</p>' +
         '<p id="request-credits-total-line" class="text-lg font-bold text-blue-600"><span id="request-credits-total-value">—</span></p></div></div>' +
-        '<div class="mt-3"><label class="block text-[10px] font-bold text-slate-500 uppercase mb-2">Ou arraste até 10.000</label>' +
+        '<div class="mt-3"><label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-2">Ou arraste até 10.000</label>' +
         '<input id="request-credits-slider" type="range" min="100" max="10000" step="1" value="100" class="w-full h-3 rounded-full appearance-none bg-slate-200 accent-blue-600 cursor-pointer" />' +
         '<p id="request-credits-slider-label" class="text-[10px] text-slate-400 mt-1 text-right">100 créditos</p></div>' +
         '<p class="text-[10px] text-slate-400 mt-1">Cada crédito = 1 busca no período atual.</p>' +
-        '<p id="request-credits-price-line" class="text-sm font-medium text-slate-600 mt-2 hidden">Valor avulso: <span class="font-bold text-slate-800"></span> por crédito</p></div>' +
+        '<p id="request-credits-price-line" class="text-sm font-medium text-slate-600 dark:text-slate-400 mt-2 hidden">Valor avulso: <span class="font-bold text-slate-800 dark:text-slate-200"></span> por crédito</p></div>' +
         '<button type="submit" id="request-credits-submit" class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Enviar solicitação</button>' +
         '</form></div>' +
-        '<h4 class="text-lg font-black text-slate-900 mb-4">Minhas solicitações</h4>' +
+        '<h4 class="text-lg font-black text-slate-900 dark:text-slate-100 mb-4">Minhas solicitações</h4>' +
         '<div id="request-credits-list"></div></div>';
     setupRequestCreditsEvents();
     loadRequestCreditsList();
@@ -567,12 +722,12 @@ function loadRequestCreditsList() {
             }
         }
         if (!data.success || !data.data || !data.data.items) {
-            listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação</p></div>';
+            listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação</p></div>';
             return;
         }
         var items = data.data.items;
         if (items.length === 0) {
-            listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação</p></div>';
+            listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação</p></div>';
             return;
         }
         var html = '<div class="space-y-4">';
@@ -580,9 +735,9 @@ function loadRequestCreditsList() {
             var statusLabel = r.status === 'pending' ? 'Pendente' : r.status === 'approved' ? 'Aprovado' : 'Recusado';
             var statusClass = r.status === 'pending' ? 'text-amber-600' : r.status === 'approved' ? 'text-emerald-600' : 'text-red-600';
             var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
-            html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between">';
+            html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between">';
             var valueStr = pricePerCredit > 0 ? ' · <span class="text-blue-600 font-bold">R$ ' + (r.tokensRequested * pricePerCredit).toFixed(2).replace('.', ',') + '</span>' : '';
-            html += '<div><p class="font-extrabold text-slate-900">' + r.tokensRequested + ' créditos' + valueStr + '</p>';
+            html += '<div><p class="font-extrabold text-slate-900 dark:text-slate-100">' + r.tokensRequested + ' créditos' + valueStr + '</p>';
             html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + dateStr + ' · <span class="' + statusClass + '">' + statusLabel + '</span></p></div>';
             if (r.status === 'pending') html += '<span class="bg-amber-100 text-amber-700 px-3 py-1 rounded-full text-xs font-bold">Aguardando</span>';
             html += '</div>';
@@ -598,7 +753,7 @@ function loadRequestCreditsList() {
             totalValue.textContent = (!isNaN(num) && num >= 100) ? 'R$ ' + (num * pricePerCredit).toFixed(2).replace('.', ',') : '—';
         }
     }).catch(function() {
-        listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Erro ao carregar</p></div>';
+        listEl.innerHTML = '<div class="py-12 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Erro ao carregar</p></div>';
     });
 }
 
@@ -607,14 +762,14 @@ function renderChoosePlanTab(contentArea) {
     var currentPlanName = (AppState.tenant && AppState.tenant.planName) ? AppState.tenant.planName : '';
     var currentPlanId = (AppState.tenant && AppState.tenant.planId) ? String(AppState.tenant.planId) : '';
     contentArea.innerHTML = '<div class="max-w-4xl mx-auto">' +
-        '<h3 class="text-2xl font-black text-slate-900 mb-2">Meu plano</h3>' +
-        '<p class="text-sm text-slate-500 mb-8">Escolha um plano para sua empresa. Após solicitar, o administrador confirmará e seu plano será atualizado.</p>' +
-        (currentPlanName ? '<div class="mb-8 p-6 bg-slate-50 rounded-2xl border border-slate-200"><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider mb-1">Plano atual</p><p class="text-lg font-bold text-slate-900">' + currentPlanName + '</p></div>' : '') +
+        '<h3 class="text-2xl font-black text-slate-900 dark:text-slate-100 mb-2">Meu plano</h3>' +
+        '<p class="text-sm text-slate-500 dark:text-slate-400 mb-8">Escolha um plano para sua empresa. Após solicitar, o administrador confirmará e seu plano será atualizado.</p>' +
+        (currentPlanName ? '<div class="mb-8 p-6 bg-slate-50 dark:bg-slate-800/50 rounded-2xl border border-slate-200 dark:border-slate-600"><p class="text-[10px] font-black text-slate-400 uppercase tracking-wider mb-1">Plano atual</p><p class="text-lg font-bold text-slate-900 dark:text-slate-100">' + currentPlanName + '</p></div>' : '') +
         '<div id="choose-plan-pending" class="hidden mb-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium"></div>' +
         '<div id="choose-plan-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
         '<div id="choose-plan-spinner" class="py-24 text-center"><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block"></span></div>' +
         '<div id="choose-plan-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-10 hidden"></div>' +
-        '<div id="choose-plan-history" class="hidden mt-10"><h4 class="text-lg font-black text-slate-900 mb-4">Histórico de solicitações</h4><div id="choose-plan-history-list"></div></div></div>';
+        '<div id="choose-plan-history" class="hidden mt-10"><h4 class="text-lg font-black text-slate-900 dark:text-slate-100 mb-4">Histórico de solicitações</h4><div id="choose-plan-history-list"></div></div></div>';
     loadChoosePlanData(currentPlanId);
 }
 
@@ -650,9 +805,9 @@ function loadChoosePlanData(currentPlanId) {
             var isTrial = p.slug === 'trial';
             var priceText = isTrial ? 'Grátis' : ((p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? ('R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',')) : '—');
             var tokenText = isTrial ? ((p.tokenLimit || 0).toLocaleString('pt-BR') + ' créditos grátis') : ((p.tokenLimit || 0).toLocaleString('pt-BR') + ' tokens · ' + (p.period === 'yearly' ? 'ano' : 'mês'));
-            html += '<div class="bg-white p-6 rounded-[2rem] border-2 ' + (isCurrent ? 'border-blue-400 bg-blue-50/50' : 'border-slate-200') + '">';
+            html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border-2 ' + (isCurrent ? 'border-blue-400 bg-blue-50/50 dark:bg-blue-900/30' : 'border-slate-200 dark:border-slate-600') + '">';
             html += '<div class="flex items-center gap-4 mb-4"><div class="w-12 h-12 bg-blue-100 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + (p.tokenLimit >= 1000 ? (p.tokenLimit / 1000) + 'K' : p.tokenLimit) + '</div>';
-            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + tokenText + '</p></div></div>';
+            html += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (p.name || '') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + tokenText + '</p></div></div>';
             html += '<p class="text-2xl font-black mb-4">' + (isTrial ? '<span class="text-emerald-600">' + priceText + '</span>' : priceText) + '<span class="text-sm font-bold text-slate-400">/mês</span></p>';
             if (isCurrent) {
                 html += '<p class="text-sm font-bold text-blue-600">Plano atual</p>';
@@ -702,7 +857,7 @@ function loadChoosePlanData(currentPlanId) {
                 var statusLabel = r.status === 'pending' ? 'Pendente' : r.status === 'approved' ? 'Confirmado' : 'Recusado';
                 var statusClass = r.status === 'pending' ? 'text-amber-600' : r.status === 'approved' ? 'text-emerald-600' : 'text-red-600';
                 var dateStr = r.reviewedAt ? new Date(r.reviewedAt).toLocaleString('pt-BR') : (r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '');
-                hHtml += '<div class="bg-white p-4 rounded-xl border border-slate-200 flex items-center justify-between"><span class="font-bold text-slate-800">' + (r.planName || 'Plano') + '</span><span class="text-xs font-bold ' + statusClass + '">' + statusLabel + (dateStr ? ' · ' + dateStr : '') + '</span></div>';
+                hHtml += '<div class="bg-white dark:bg-slate-800 p-4 rounded-xl border border-slate-200 dark:border-slate-600 flex items-center justify-between"><span class="font-bold text-slate-800 dark:text-slate-200">' + (r.planName || 'Plano') + '</span><span class="text-xs font-bold ' + statusClass + '">' + statusLabel + (dateStr ? ' · ' + dateStr : '') + '</span></div>';
             });
             hHtml += '</div>';
             historyList.innerHTML = hHtml;
@@ -719,8 +874,8 @@ function loadChoosePlanData(currentPlanId) {
 function renderCreditsAdminTab(contentArea) {
     contentArea.innerHTML = '<div class="max-w-4xl mx-auto">' +
         '<div class="flex justify-between items-center mb-10">' +
-        '<h3 class="text-2xl font-black text-slate-900">Solicitações de créditos</h3>' +
-        '<button type="button" id="credits-admin-refresh" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar</button></div>' +
+        '<h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Solicitações de créditos</h3>' +
+        '<button type="button" id="credits-admin-refresh" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar</button></div>' +
         '<div id="credits-admin-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
         '<div id="credits-admin-list"></div></div>';
     document.getElementById('credits-admin-refresh').onclick = function() { loadCreditsAdminList(); };
@@ -735,12 +890,12 @@ function loadCreditsAdminList() {
     if (errEl) errEl.classList.add('hidden');
     fetch(API_BASE + 'credit-requests.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
         if (!data.success || !data.data || !data.data.items) {
-            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
+            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
             return;
         }
         var items = data.data.items;
         if (items.length === 0) {
-            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
+            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
             return;
         }
         var html = '<div class="space-y-4">';
@@ -750,10 +905,10 @@ function loadCreditsAdminList() {
             var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
             var reviewedStr = r.reviewedAt ? ' · ' + new Date(r.reviewedAt).toLocaleString('pt-BR') : '';
             var who = (r.requestedByName || r.requestedByEmail || '—');
-            html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex flex-wrap items-center justify-between gap-4">';
+            html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex flex-wrap items-center justify-between gap-4">';
             html += '<div class="flex items-center gap-6">';
-            html += '<div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (r.tenantName ? r.tenantName.charAt(0).toUpperCase() : 'E') + '</div>';
-            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (r.tenantName || 'Empresa') + '</h4>';
+            html += '<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (r.tenantName ? r.tenantName.charAt(0).toUpperCase() : 'E') + '</div>';
+            html += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (r.tenantName || 'Empresa') + '</h4>';
             html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + who + ' · ' + r.tokensRequested + ' créditos · ' + dateStr + '</p>';
             html += '<p class="text-xs font-bold mt-1 ' + statusClass + '">' + statusLabel + reviewedStr + '</p></div></div>';
             if (r.status === 'pending') {
@@ -771,7 +926,7 @@ function loadCreditsAdminList() {
             btn.onclick = function() { reviewCreditRequest(btn.dataset.id, 'rejected'); };
         });
     }).catch(function() {
-        listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Erro ao carregar</p></div>';
+        listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Erro ao carregar</p></div>';
     });
 }
 
@@ -800,7 +955,7 @@ function setActiveTab(tab) {
         if (btn.dataset.tab === tab) {
             btn.className = 'tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm bg-blue-600 text-white shadow-xl shadow-blue-900/30';
         } else {
-            btn.className = 'tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-800/50 text-slate-400';
+            btn.className = 'tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300';
         }
     });
     
@@ -834,7 +989,7 @@ function loadTab(tab) {
     } else if (tab === 'credits') {
         var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
         if (isSuperAdmin) renderCreditsAdminTab(contentArea);
-        else contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-24 text-center text-slate-500 font-bold">Acesso restrito ao administrador da plataforma.</div>';
+        else contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-24 text-center text-slate-500 dark:text-slate-400 font-bold">Acesso restrito ao administrador da plataforma.</div>';
     } else if (tab === 'search') {
         contentArea.innerHTML = getProspectingHTML();
         setupProspectingEvents();
@@ -843,7 +998,7 @@ function loadTab(tab) {
     } else if (tab === 'choose-plan') {
         var isSuperAdminChoose = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
         if (isSuperAdminChoose) {
-            contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-24 text-center"><p class="text-slate-600 font-bold mb-2">Conta Super Admin — ilimitada</p><p class="text-sm text-slate-500">Não é possível alterar plano; sua conta não possui limite de tokens. Cuidado, pois API de Scrapy será contabilizada.</p></div>';
+            contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-24 text-center"><p class="text-slate-600 dark:text-slate-400 font-bold mb-2">Conta Super Admin — ilimitada</p><p class="text-sm text-slate-500 dark:text-slate-400">Não é possível alterar plano; sua conta não possui limite de tokens. Cuidado, pois API de Scrapy será contabilizada.</p></div>';
         } else {
             renderChoosePlanTab(contentArea);
         }
@@ -870,16 +1025,16 @@ function loadTab(tab) {
 // Empresa SaaS (super_admin): nome da empresa, valor plano mensal, valor plano avulso
 function renderSaasConfigTab(contentArea) {
     contentArea.innerHTML = '<div class="max-w-2xl mx-auto">' +
-        '<h3 class="text-2xl font-black text-slate-900 mb-2">Configuração da empresa SaaS</h3>' +
-        '<p class="text-sm text-slate-500 mb-8">Configure o nome da empresa e o valor por crédito avulso (usado em Solicitar créditos).</p>' +
+        '<h3 class="text-2xl font-black text-slate-900 dark:text-slate-100 mb-2">Configuração da empresa SaaS</h3>' +
+        '<p class="text-sm text-slate-500 dark:text-slate-400 mb-8">Configure o nome da empresa e o valor por crédito avulso (usado em Solicitar créditos).</p>' +
         '<div id="saas-config-error" class="hidden mb-6 p-4 bg-red-50 border border-red-200 rounded-2xl text-red-700 text-sm font-medium"></div>' +
         '<div id="saas-config-success" class="hidden mb-6 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-700 text-sm font-medium"></div>' +
-        '<div class="bg-white p-8 rounded-[2rem] border border-slate-200 shadow-sm">' +
+        '<div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm">' +
         '<form id="saas-config-form" class="space-y-6">' +
-        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome da empresa SaaS</label>' +
-        '<input id="saas-config-company" type="text" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: MapsProspector Pro" /></div>' +
-        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Valor avulso por crédito (R$)</label>' +
-        '<input id="saas-config-avulso" type="text" inputmode="decimal" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Ex: 2,00" />' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Nome da empresa SaaS</label>' +
+        '<input id="saas-config-company" type="text" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: MapsProspector Pro" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Valor avulso por crédito (R$)</label>' +
+        '<input id="saas-config-avulso" type="text" inputmode="decimal" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: 2,00" />' +
         '<p class="text-[10px] text-slate-400 mt-1">Este valor é usado em Solicitar créditos para calcular o total a pagar (quantidade × valor por crédito).</p></div>' +
         '<button type="submit" id="saas-config-submit" class="w-full py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar configurações</button>' +
         '</form></div></div>';
@@ -944,7 +1099,7 @@ function setupSaasConfigEvents() {
 function loadPlansTab(contentArea) {
     contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10">' +
         '<div id="plans-requests-section" class="mb-10 hidden"></div>' +
-        '<div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900">Planos e limite de tokens <span id="plans-total" class="text-slate-500 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="plans-refresh-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><button type="button" id="plans-create-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2">Criar plano</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="plans-spinner"></span></div></div>' +
+        '<div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Planos e limite de tokens <span id="plans-total" class="text-slate-500 dark:text-slate-400 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="plans-refresh-btn" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><button type="button" id="plans-create-btn" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2">Criar plano</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="plans-spinner"></span></div></div>' +
         '<div id="plans-list"></div></div>';
     var listEl = document.getElementById('plans-list');
     var spinnerEl = document.getElementById('plans-spinner');
@@ -974,13 +1129,13 @@ function loadPlansTab(contentArea) {
         var pendingRequests = planRequests.filter(function(r) { return r.status === 'pending'; });
         if (requestsSection && pendingRequests.length > 0) {
             requestsSection.classList.remove('hidden');
-            var rHtml = '<h4 class="text-lg font-black text-slate-900 mb-4">Solicitações de plano (pendentes)</h4><div class="space-y-4">';
+            var rHtml = '<h4 class="text-lg font-black text-slate-900 dark:text-slate-100 mb-4">Solicitações de plano (pendentes)</h4><div class="space-y-4">';
             pendingRequests.forEach(function(r) {
                 var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
                 var planInfo = (r.planName || '—') + ' (' + (r.planTokenLimit ? r.planTokenLimit.toLocaleString('pt-BR') : '') + ' tokens · R$ ' + (r.planPrice != null ? Number(r.planPrice).toFixed(2).replace('.', ',') : '0,00') + '/mês)';
-                rHtml += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex flex-wrap items-center justify-between gap-4">';
-                rHtml += '<div class="flex items-center gap-6"><div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (r.tenantName ? r.tenantName.charAt(0).toUpperCase() : 'E') + '</div>';
-                rHtml += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (r.tenantName || 'Empresa') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (r.requestedByName || r.requestedByEmail || '—') + ' · Plano: ' + planInfo + '</p><p class="text-xs text-amber-600 font-bold mt-1">' + dateStr + ' · Pendente</p></div></div>';
+                rHtml += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex flex-wrap items-center justify-between gap-4">';
+                rHtml += '<div class="flex items-center gap-6"><div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (r.tenantName ? r.tenantName.charAt(0).toUpperCase() : 'E') + '</div>';
+                rHtml += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (r.tenantName || 'Empresa') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (r.requestedByName || r.requestedByEmail || '—') + ' · Plano: ' + planInfo + '</p><p class="text-xs text-amber-600 font-bold mt-1">' + dateStr + ' · Pendente</p></div></div>';
                 rHtml += '<div class="flex items-center gap-2"><button type="button" class="btn-plan-request-approve bg-emerald-100 text-emerald-700 hover:bg-emerald-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Confirmar</button><button type="button" class="btn-plan-request-reject bg-red-100 text-red-700 hover:bg-red-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Recusar</button></div></div>';
             });
             rHtml += '</div>';
@@ -1003,7 +1158,7 @@ function loadPlansTab(contentArea) {
         var total = (data.data && typeof data.data.total === 'number') ? data.data.total : items.length;
         var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
         if (!Array.isArray(items) || items.length === 0) {
-            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum plano cadastrado</p></div>';
+            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum plano cadastrado</p></div>';
             var totalEl = document.getElementById('plans-total');
             if (totalEl) totalEl.textContent = '0 plano(s)';
             return;
@@ -1013,16 +1168,16 @@ function loadPlansTab(contentArea) {
             var tokenText = (p.tokenLimit === 0 || p.tokenLimit === '0') ? 'Ilimitado' : (p.tokenLimit + ' tokens/' + (p.period === 'yearly' ? 'ano' : 'mês'));
             var priceText = (p.priceMonthly != null && parseFloat(p.priceMonthly) > 0) ? (' · R$ ' + parseFloat(p.priceMonthly).toFixed(2).replace('.', ',') + '/mês') : '';
             var statusLabel = p.status === 'active' ? 'Ativo' : 'Inativo';
-            var statusClass = p.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 text-slate-600';
+            var statusClass = p.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-400';
             var planId = String(p.id);
             var planName = (p.name || '').replace(/"/g, '&quot;');
-            html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
+            html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between flex-wrap gap-4">';
             html += '<div class="flex items-center gap-6">';
             html += '<div class="w-12 h-12 bg-blue-50 rounded-xl flex items-center justify-center text-lg font-black text-blue-600">' + ((p.tokenLimit === 0 || p.tokenLimit === '0') ? '∞' : p.tokenLimit) + '</div>';
-            html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (p.name || '') + '</h4>';
+            html += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (p.name || '') + '</h4>';
             html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (p.slug || '') + ' · ' + tokenText + priceText + ' · ' + (p.tenantsCount || 0) + ' empresa(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
             html += '<div class="flex items-center gap-2">';
-            html += '<button type="button" class="btn-plan-edit bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + planId + '" data-name="' + planName + '">Editar</button>';
+            html += '<button type="button" class="btn-plan-edit bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + planId + '" data-name="' + planName + '">Editar</button>';
             if (isSuperAdmin && planId !== '1') {
                 html += '<button type="button" class="btn-plan-delete text-red-500 hover:bg-red-50 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + planId + '" data-name="' + planName + '" title="Apenas Super Admin pode excluir planos">Excluir</button>';
             }
@@ -1071,12 +1226,12 @@ function showPlansDeleteModal(contentArea, planId, planName) {
     overlay.id = 'plans-delete-overlay';
     overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
     var safeName = (planName || 'este plano').replace(/"/g, '&quot;');
-    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
-        '<h4 class="text-xl font-black text-slate-900 mb-2">Excluir plano</h4>' +
-        '<p class="text-slate-600 text-sm mb-6">Excluir o plano <strong>"' + safeName + '"</strong>? Nenhuma empresa pode estar vinculada a ele.</p>' +
+    overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+        '<h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-2">Excluir plano</h4>' +
+        '<p class="text-slate-600 dark:text-slate-400 text-sm mb-6">Excluir o plano <strong>"' + safeName + '"</strong>? Nenhuma empresa pode estar vinculada a ele.</p>' +
         '<p id="plans-delete-error" class="text-red-600 text-sm font-medium mb-4 hidden"></p>' +
         '<div class="flex gap-3">' +
-        '<button type="button" id="plans-delete-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+        '<button type="button" id="plans-delete-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
         '<button type="button" id="plans-delete-confirm" class="flex-1 py-3 rounded-xl bg-red-600 text-white font-bold hover:bg-red-700 disabled:opacity-70">Excluir</button>' +
         '</div></div>';
     overlay.onclick = function(e) {
@@ -1122,19 +1277,19 @@ function showPlansCreateModal(contentArea) {
     var overlay = document.createElement('div');
     overlay.id = 'plans-create-overlay';
     overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
-    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
-        '<h4 class="text-xl font-black text-slate-900 mb-6">Criar plano</h4>' +
+    overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+        '<h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-6">Criar plano</h4>' +
         '<form id="plans-create-form" class="space-y-4">' +
-        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome</label>' +
-        '<input type="text" id="plan-name" required placeholder="Ex: Básico, Pro" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
-        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Quantos tokens</label>' +
-        '<input type="number" id="plan-tokens" min="0" value="100" placeholder="100" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Nome</label>' +
+        '<input type="text" id="plan-name" required placeholder="Ex: Básico, Pro" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Quantos tokens</label>' +
+        '<input type="number" id="plan-tokens" min="0" value="100" placeholder="100" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" />' +
         '<p class="text-[10px] text-slate-400 mt-1">0 = ilimitado. 1 token = 1 página de resultados (até 20 itens por página).</p></div>' +
-        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Valor mensal (R$)</label>' +
-        '<input type="number" id="plan-price" min="0" step="0.01" value="0" placeholder="0,00" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Valor mensal (R$)</label>' +
+        '<input type="number" id="plan-price" min="0" step="0.01" value="0" placeholder="0,00" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" /></div>' +
         '<p id="plans-create-error" class="text-red-600 text-sm font-medium hidden"></p>' +
         '<div class="flex gap-3 pt-4">' +
-        '<button type="button" id="plans-create-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+        '<button type="button" id="plans-create-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
         '<button type="submit" id="plans-create-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Criar plano</button>' +
         '</div></form></div>';
     overlay.onclick = function(e) {
@@ -1207,27 +1362,27 @@ function showPlansEditModal(contentArea, planId) {
             var overlay = document.createElement('div');
             overlay.id = 'plans-edit-overlay';
             overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
-            overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
-                '<h4 class="text-xl font-black text-slate-900 mb-6">Editar plano</h4>' +
+            overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+                '<h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-6">Editar plano</h4>' +
                 '<form id="plans-edit-form" class="space-y-4">' +
-                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome</label>' +
-                '<input type="text" id="plan-edit-name" required placeholder="Ex: Básico, Pro" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.name || '').replace(/"/g, '&quot;') + '" /></div>' +
-                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Identificador (slug)</label>' +
-                '<input type="text" id="plan-edit-slug" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.slug || '').replace(/"/g, '&quot;') + '" /></div>' +
-                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Limite de tokens</label>' +
-                '<input type="number" id="plan-edit-tokens" min="0" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.tokenLimit != null ? p.tokenLimit : 100) + '" />' +
+                '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Nome</label>' +
+                '<input type="text" id="plan-edit-name" required placeholder="Ex: Básico, Pro" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" value="' + (p.name || '').replace(/"/g, '&quot;') + '" /></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Identificador (slug)</label>' +
+                '<input type="text" id="plan-edit-slug" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" value="' + (p.slug || '').replace(/"/g, '&quot;') + '" /></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Limite de tokens</label>' +
+                '<input type="number" id="plan-edit-tokens" min="0" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" value="' + (p.tokenLimit != null ? p.tokenLimit : 100) + '" />' +
                 '<p class="text-[10px] text-slate-400 mt-1">0 = ilimitado.</p></div>' +
-                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Valor mensal (R$)</label>' +
-                '<input type="number" id="plan-edit-price" min="0" step="0.01" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" value="' + (p.priceMonthly != null ? p.priceMonthly : 0) + '" /></div>' +
-                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Período</label>' +
-                '<select id="plan-edit-period" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' +
+                '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Valor mensal (R$)</label>' +
+                '<input type="number" id="plan-edit-price" min="0" step="0.01" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" value="' + (p.priceMonthly != null ? p.priceMonthly : 0) + '" /></div>' +
+                '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Período</label>' +
+                '<select id="plan-edit-period" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500">' +
                 '<option value="monthly"' + (p.period === 'yearly' ? '' : ' selected') + '>Mensal</option><option value="yearly"' + (p.period === 'yearly' ? ' selected' : '') + '>Anual</option></select></div>' +
-                '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Status</label>' +
-                '<select id="plan-edit-status" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' +
+                '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Status</label>' +
+                '<select id="plan-edit-status" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500">' +
                 '<option value="active"' + (p.status === 'inactive' ? '' : ' selected') + '>Ativo</option><option value="inactive"' + (p.status === 'inactive' ? ' selected' : '') + '>Inativo</option></select></div>' +
                 '<p id="plans-edit-error" class="text-red-600 text-sm font-medium hidden"></p>' +
                 '<div class="flex gap-3 pt-4">' +
-                '<button type="button" id="plans-edit-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+                '<button type="button" id="plans-edit-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
                 '<button type="submit" id="plans-edit-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar</button>' +
                 '</div></form></div>';
             overlay.onclick = function(e) { if (e.target === overlay) overlay.remove(); };
@@ -1287,7 +1442,7 @@ function showPlansEditModal(contentArea, planId) {
 
 // Empresas (super_admin): listar e ativar/desativar
 function loadCompaniesTab(contentArea) {
-    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10"><div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900">Empresas cadastradas <span id="companies-total" class="text-slate-500 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="companies-refresh-btn" class="bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="companies-spinner"></span></div></div><div id="companies-list"></div></div>';
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10"><div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Empresas cadastradas <span id="companies-total" class="text-slate-500 dark:text-slate-400 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="companies-refresh-btn" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="companies-spinner"></span></div></div><div id="companies-list"></div></div>';
     var listEl = document.getElementById('companies-list');
     var spinnerEl = document.getElementById('companies-spinner');
     var refreshBtn = document.getElementById('companies-refresh-btn');
@@ -1315,7 +1470,7 @@ function loadCompaniesTab(contentArea) {
             var plans = (plansData.success && plansData.data && plansData.data.items) ? plansData.data.items : (Array.isArray(plansData.data) ? plansData.data : []);
             var activePlans = plans.filter(function(p) { return p.status === 'active'; });
             if (!Array.isArray(items) || items.length === 0) {
-                listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma empresa cadastrada</p></div>';
+                listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma empresa cadastrada</p></div>';
                 return;
             }
             var html = '<div class="space-y-4">';
@@ -1324,14 +1479,14 @@ function loadCompaniesTab(contentArea) {
                 var statusClass = t.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700';
                 var toggleLabel = t.status === 'active' ? 'Desativar' : 'Ativar';
                 var planInfo = (t.plan || '') + (t.planTokenLimit != null ? (t.planTokenLimit === 0 ? ' (ilimitado)' : ' (' + t.planTokenLimit + ' tokens)') : '');
-                html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
+                html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between flex-wrap gap-4">';
                 html += '<div class="flex items-center gap-6">';
-                html += '<div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
-                html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (t.name || '') + '</h4>';
+                html += '<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
+                html += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (t.name || '') + '</h4>';
                 html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
                 html += '<div class="flex items-center gap-2">';
                 html += '<button type="button" class="btn-access-tenant px-4 py-2 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-700 hover:bg-emerald-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Acessar</button>';
-                html += '<button type="button" class="btn-edit-tenant px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-email="' + (t.email || '').replace(/"/g, '&quot;') + '">Editar</button>';
+                html += '<button type="button" class="btn-edit-tenant px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-email="' + (t.email || '').replace(/"/g, '&quot;') + '">Editar</button>';
                 html += '<button type="button" class="btn-toggle-tenant px-4 py-2 rounded-xl text-xs font-bold ' + (t.status === 'active' ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200') + '" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-status="' + (t.status === 'active' ? 'suspended' : 'active') + '">' + toggleLabel + '</button>';
                 html += '<button type="button" class="btn-link-plan px-4 py-2 rounded-xl text-xs font-bold bg-blue-100 text-blue-700 hover:bg-blue-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-plan-id="' + (t.planId || '1') + '">Vincular plano</button>';
                 if (t.status === 'suspended') {
@@ -1385,15 +1540,15 @@ function loadCompaniesTab(contentArea) {
                     overlay = document.createElement('div');
                     overlay.id = 'companies-link-plan-overlay';
                     overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
-                    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
-                        '<h4 class="text-xl font-black text-slate-900 mb-2">Vincular empresa ao plano</h4>' +
-                        '<p class="text-sm text-slate-500 mb-4">' + (tenantName ? 'Empresa: ' + tenantName : '') + '</p>' +
+                    overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+                        '<h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-2">Vincular empresa ao plano</h4>' +
+                        '<p class="text-sm text-slate-500 dark:text-slate-400 mb-4">' + (tenantName ? 'Empresa: ' + tenantName : '') + '</p>' +
                         '<form id="companies-link-plan-form" class="space-y-4">' +
-                        '<label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Plano</label>' +
-                        '<select id="companies-link-plan-select" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' + optionsHtml + '</select>' +
+                        '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Plano</label>' +
+                        '<select id="companies-link-plan-select" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500">' + optionsHtml + '</select>' +
                         '<p id="companies-link-plan-error" class="text-red-600 text-sm font-medium hidden"></p>' +
                         '<div class="flex gap-3 pt-4">' +
-                        '<button type="button" id="companies-link-plan-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+                        '<button type="button" id="companies-link-plan-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
                         '<button type="submit" id="companies-link-plan-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Vincular</button>' +
                         '</div></form></div>';
                     overlay.onclick = function(ev) { if (ev.target === overlay) overlay.remove(); };
@@ -1480,17 +1635,17 @@ function loadCompaniesTab(contentArea) {
                     overlay = document.createElement('div');
                     overlay.id = 'companies-edit-tenant-overlay';
                     overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
-                    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
-                        '<h4 class="text-xl font-black text-slate-900 mb-2">Editar empresa</h4>' +
-                        '<p class="text-sm text-slate-500 mb-4">Altere o nome e o e-mail do administrador da empresa.</p>' +
+                    overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+                        '<h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-2">Editar empresa</h4>' +
+                        '<p class="text-sm text-slate-500 dark:text-slate-400 mb-4">Altere o nome e o e-mail do administrador da empresa.</p>' +
                         '<form id="companies-edit-tenant-form" class="space-y-4">' +
-                        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome</label>' +
-                        '<input type="text" id="companies-edit-tenant-name" value="' + tenantName.replace(/"/g, '&quot;') + '" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Nome da empresa"></div>' +
-                        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">E-mail</label>' +
-                        '<input type="email" id="companies-edit-tenant-email" value="' + tenantEmail.replace(/"/g, '&quot;') + '" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="admin@empresa.com"></div>' +
+                        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Nome</label>' +
+                        '<input type="text" id="companies-edit-tenant-name" value="' + tenantName.replace(/"/g, '&quot;') + '" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" placeholder="Nome da empresa"></div>' +
+                        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">E-mail</label>' +
+                        '<input type="email" id="companies-edit-tenant-email" value="' + tenantEmail.replace(/"/g, '&quot;') + '" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" placeholder="admin@empresa.com"></div>' +
                         '<p id="companies-edit-tenant-error" class="text-red-600 text-sm font-medium hidden"></p>' +
                         '<div class="flex gap-3 pt-4">' +
-                        '<button type="button" id="companies-edit-tenant-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+                        '<button type="button" id="companies-edit-tenant-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
                         '<button type="submit" id="companies-edit-tenant-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar</button>' +
                         '</div></form></div>';
                     overlay.onclick = function(ev) { if (ev.target === overlay) overlay.remove(); };
@@ -1652,28 +1807,28 @@ function getProspectingHTML() {
                 <span class="text-lg">⚠️</span>
                 <span>Você atingiu o limite de tokens do seu plano para este período. Cada página de resultados (até 20 itens) consome 1 token. Solicite mais créditos em <strong>Solicitar Créditos</strong> no menu ou aguarde o próximo período.</span>
             </div>
-            <div class="bg-white p-6 rounded-[2rem] shadow-sm border border-slate-200 mb-10">
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] shadow-sm border border-slate-200 dark:border-slate-600 mb-10">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
                     <div class="md:col-span-4">
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">O que busca?</label>
-                        <input id="search-query" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Ex: Petshop, Clínica, Padaria...">
+                        <input id="search-query" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Ex: Petshop, Clínica, Padaria...">
                     </div>
                     <div class="md:col-span-3">
                         <div class="flex justify-between items-center mb-1">
                             <label class="block text-[10px] font-black text-slate-400 uppercase ml-1 tracking-widest">Onde?</label>
-                            <button id="toggle-gps" class="text-[9px] font-black px-2 py-0.5 rounded-full transition-all bg-slate-100 text-slate-500 hover:bg-slate-200">USAR MEU GPS</button>
+                            <button id="toggle-gps" class="text-[9px] font-black px-2 py-0.5 rounded-full transition-all bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600">USAR MEU GPS</button>
                         </div>
                         <div id="location-input-container">
-                            <input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Cidade ou Região">
+                            <input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Cidade ou Região">
                         </div>
                     </div>
                     <div class="md:col-span-2">
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Tag CRM</label>
-                        <input id="search-tag" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: leads_novos">
+                        <input id="search-tag" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: leads_novos">
                     </div>
                     <div class="md:col-span-1">
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest" title="Enviado à API como maxCrawledPlacesPerSearch">Limite (lugares)</label>
-                        <input id="search-max-places" type="number" min="1" max="1000" class="w-full px-3 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm" placeholder="20" value="20">
+                        <input id="search-max-places" type="number" min="1" max="1000" class="w-full px-3 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="20" value="20">
                     </div>
                     <div class="md:col-span-2 flex items-end">
                         <button id="btn-search" class="w-full py-3 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-xl shadow-slate-100 disabled:opacity-50 flex items-center justify-center uppercase tracking-wider text-xs">
@@ -1687,12 +1842,12 @@ function getProspectingHTML() {
             
             <div id="results-header" class="hidden mb-6 flex flex-wrap justify-between items-end gap-4 px-2">
                 <div>
-                    <h3 class="text-xl font-black text-slate-900 tracking-tight">Resultados da Busca</h3>
-                    <p class="text-xs text-slate-500 font-medium">
-                        Exibindo <span id="visible-count" class="font-bold text-slate-900">0</span> de <span id="total-count" class="font-bold text-slate-900">0</span> empresas encontradas
+                    <h3 class="text-xl font-black text-slate-900 dark:text-slate-100 tracking-tight">Resultados da Busca</h3>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">
+                        Exibindo <span id="visible-count" class="font-bold text-slate-900 dark:text-slate-100">0</span> de <span id="total-count" class="font-bold text-slate-900 dark:text-slate-100">0</span> empresas encontradas
                     </p>
-                    <p class="text-xs text-slate-500 font-medium mt-1">
-                        Tokens disponíveis na conta: <span id="available-tokens" class="font-bold text-slate-900">—</span>
+                    <p class="text-xs text-slate-500 dark:text-slate-400 font-medium mt-1">
+                        Tokens disponíveis na conta: <span id="available-tokens" class="font-bold text-slate-900 dark:text-slate-100">—</span>
                     </p>
                 </div>
                 <div id="results-header-buttons" class="flex items-center gap-3">
@@ -1716,7 +1871,7 @@ function getProspectingHTML() {
                 <div class="w-24 h-24 bg-slate-200 rounded-full flex items-center justify-center mx-auto mb-4">
                     <span class="text-4xl grayscale">🗺️</span>
                 </div>
-                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500">Aguardando pesquisa</p>
+                <p class="text-[10px] font-black uppercase tracking-[0.3em] text-slate-500 dark:text-slate-400">Aguardando pesquisa</p>
             </div>
         </div>
     `;
@@ -1741,9 +1896,9 @@ function setupProspectingEvents() {
                 </div>
             `;
         } else {
-            btn.className = 'text-[9px] font-black px-2 py-0.5 rounded-full transition-all bg-slate-100 text-slate-500 hover:bg-slate-200';
+            btn.className = 'text-[9px] font-black px-2 py-0.5 rounded-full transition-all bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600';
             btn.textContent = 'USAR MEU GPS';
-            container.innerHTML = '<input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Cidade ou Região">';
+            container.innerHTML = '<input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Cidade ou Região">';
         }
     });
     
@@ -2055,12 +2210,12 @@ function displayLeads() {
     if (AppState.leads.length > AppState.visibleCount) {
         loadMoreContainer.classList.remove('hidden');
         loadMoreContainer.innerHTML = `
-            <button id="btn-load-more" class="group relative px-8 py-4 bg-white border-2 border-slate-200 rounded-full shadow-lg hover:shadow-xl hover:border-blue-500 transition-all active:scale-95">
+            <button id="btn-load-more" class="group relative px-8 py-4 bg-white border-2 border-slate-200 dark:border-slate-600 rounded-full shadow-lg hover:shadow-xl hover:border-blue-500 transition-all active:scale-95">
                 <div class="flex items-center gap-3">
-                    <div class="bg-slate-100 rounded-full p-2 group-hover:bg-blue-100 transition-colors">
-                        <svg class="w-4 h-4 text-slate-600 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" /></svg>
+                    <div class="bg-slate-100 dark:bg-slate-700 rounded-full p-2 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
+                        <svg class="w-4 h-4 text-slate-600 dark:text-slate-400 group-hover:text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M19 13l-7 7-7-7m14-8l-7 7-7-7" /></svg>
                     </div>
-                    <span class="text-xs font-black text-slate-700 uppercase tracking-widest group-hover:text-blue-700">
+                    <span class="text-xs font-black text-slate-700 dark:text-slate-300 uppercase tracking-widest group-hover:text-blue-700">
                         Carregar Mais Resultados (${AppState.leads.length - AppState.visibleCount} restantes)
                     </span>
                 </div>
@@ -2079,14 +2234,20 @@ function displayLeads() {
 function getLeadCardHTML(lead) {
     if (lead.locked) {
         return `
-        <div class="relative mt-4 pt-10 pb-6 px-6 bg-white border border-slate-200 rounded-[1.5rem] hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between group">
+        <div class="relative mt-4 pt-10 pb-6 px-6 bg-white border border-slate-200 dark:border-slate-600 rounded-[1.5rem] hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between group">
             <div class="absolute -top-3 left-6 bg-amber-500 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg z-10">Bloqueado</div>
             <div>
-                <h3 class="font-extrabold text-slate-900 text-sm uppercase leading-snug mb-4 min-h-[2.5rem]">${lead.name || ''}</h3>
+                <h3 class="font-extrabold text-slate-900 dark:text-slate-100 text-sm uppercase leading-snug mb-4 min-h-[2.5rem]">${lead.name || ''}</h3>
                 <div class="space-y-4 mb-6">
-                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200">
+                    ${lead.website ? `
+                    <div class="flex items-center gap-3 bg-slate-50 p-2 rounded-lg -mx-2 border border-slate-200 dark:border-slate-600">
+                        <span class="text-slate-500 dark:text-slate-400 text-xs">🌐</span>
+                        <a href="${lead.website}" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold text-xs hover:underline truncate">Site</a>
+                    </div>
+                    ` : ''}
+                    <div class="flex items-center gap-3 bg-slate-50 p-3 rounded-lg -mx-2 border border-slate-200 dark:border-slate-600">
                         <span class="text-slate-400 text-xs">🔒</span>
-                        <span class="text-slate-500 font-bold text-xs">Telefone, email e endereço bloqueados. Desbloqueie para visualizar.</span>
+                        <span class="text-slate-500 dark:text-slate-400 font-bold text-xs">Telefone, email e endereço bloqueados. Desbloqueie para visualizar.</span>
                     </div>
                     <button type="button" class="btn-unlock w-full py-3 bg-amber-500 hover:bg-amber-600 text-white rounded-xl font-black text-[10px] uppercase tracking-wide transition-all disabled:opacity-50 flex justify-center items-center gap-2" data-lead-id="${lead.id}" title="Desbloquear">Desbloquear para ver dados</button>
                 </div>
@@ -2095,12 +2256,12 @@ function getLeadCardHTML(lead) {
         `;
     }
     return `
-        <div class="relative mt-4 pt-10 pb-6 px-6 bg-white border border-slate-200 rounded-[1.5rem] hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between group">
+        <div class="relative mt-4 pt-10 pb-6 px-6 bg-white border border-slate-200 dark:border-slate-600 rounded-[1.5rem] hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between group">
             <div class="absolute -top-3 left-6 bg-blue-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-blue-200 z-10">
                 ${lead.partners ? 'Dados Ricos' : 'Lead'}
             </div>
             <div>
-                <h3 class="font-extrabold text-slate-900 text-sm uppercase leading-snug mb-4 min-h-[2.5rem]">${lead.name || ''}</h3>
+                <h3 class="font-extrabold text-slate-900 dark:text-slate-100 text-sm uppercase leading-snug mb-4 min-h-[2.5rem]">${lead.name || ''}</h3>
                 <div class="space-y-3 mb-6">
                     <div class="flex items-center gap-3 bg-emerald-50/50 p-2 rounded-lg -mx-2">
                         <span class="text-emerald-500 text-xs">📞</span>
@@ -2111,7 +2272,7 @@ function getLeadCardHTML(lead) {
                             <span class="text-purple-400 text-xs mt-0.5">👥</span>
                             <div class="flex flex-col">
                                 <span class="text-[9px] font-black text-slate-400 uppercase">Sócios/Resp.</span>
-                                <p class="text-slate-700 font-bold text-[10px] leading-tight">${lead.partners}</p>
+                                <p class="text-slate-700 dark:text-slate-300 font-bold text-[10px] leading-tight">${lead.partners}</p>
                             </div>
                         </div>
                     ` : ''}
@@ -2120,7 +2281,7 @@ function getLeadCardHTML(lead) {
                             <span class="text-amber-400 text-xs">🏢</span>
                             <div class="flex flex-col">
                                 <span class="text-[9px] font-black text-slate-400 uppercase">CNPJ</span>
-                                <span class="text-slate-700 font-mono font-bold text-[10px]">${lead.cnpj}</span>
+                                <span class="text-slate-700 dark:text-slate-300 font-mono font-bold text-[10px]">${lead.cnpj}</span>
                             </div>
                         </div>
                     ` : ''}
@@ -2133,18 +2294,27 @@ function getLeadCardHTML(lead) {
                             </div>
                         </div>
                     ` : ''}
+                    ${lead.website ? `
+                        <div class="flex items-center gap-3">
+                            <span class="text-slate-500 dark:text-slate-400 text-xs">🌐</span>
+                            <div class="flex flex-col overflow-hidden">
+                                <span class="text-[9px] font-black text-slate-400 uppercase">Site</span>
+                                <a href="${lead.website}" target="_blank" rel="noopener noreferrer" class="text-blue-600 font-bold text-[10px] hover:underline truncate w-full block">${lead.website}</a>
+                            </div>
+                        </div>
+                    ` : ''}
                     <div class="flex items-start gap-3 pt-2 border-t border-slate-100">
                         <span class="text-rose-400 text-xs mt-0.5">📍</span>
-                        <p class="text-slate-500 font-semibold text-[10px] leading-relaxed line-clamp-2">${lead.address || ''}</p>
+                        <p class="text-slate-500 dark:text-slate-400 font-semibold text-[10px] leading-relaxed line-clamp-2">${lead.address || ''}</p>
                     </div>
                 </div>
             </div>
             <div class="flex items-center gap-3 pt-4 border-t border-slate-100 mt-auto">
-                <button class="btn-export flex-grow bg-white border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 font-black text-[10px] py-3 rounded-xl uppercase tracking-wide transition-all shadow-sm active:scale-95 disabled:opacity-50 flex justify-center items-center gap-2" data-lead-id="${lead.id}">
+                <button class="btn-export flex-grow bg-white border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-slate-100 hover:bg-slate-50 hover:border-slate-300 font-black text-[10px] py-3 rounded-xl uppercase tracking-wide transition-all shadow-sm active:scale-95 disabled:opacity-50 flex justify-center items-center gap-2" data-lead-id="${lead.id}">
                     Exportar WEBHOOK
                 </button>
                 ${lead.mapsUri ? `
-                    <a href="${lead.mapsUri}" target="_blank" rel="noopener noreferrer" class="w-12 h-[38px] flex-shrink-0 bg-white border border-slate-200 text-blue-500 hover:bg-blue-50 hover:border-blue-200 rounded-xl flex items-center justify-center transition-all shadow-sm" title="Ver no Google Maps">
+                    <a href="${lead.mapsUri}" target="_blank" rel="noopener noreferrer" class="w-12 h-[38px] flex-shrink-0 bg-white border border-slate-200 dark:border-slate-600 text-blue-500 hover:bg-blue-50 hover:border-blue-200 rounded-xl flex items-center justify-center transition-all shadow-sm" title="Ver no Google Maps">
                         <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M18.7 3.8C15 .1 9 .1 5.3 3.8c-3.7 3.7-3.7 9.8 0 13.5L12 24l6.7-6.7c3.7-3.7 3.7-9.8 0-13.5zm-6.7 10c-1.9 0-3.5-1.6-3.5-3.5s1.6-3.5 3.5-3.5 3.5 1.6 3.5 3.5-1.6 3.5-3.5 3.5z"/></svg>
                     </a>
                 ` : ''}
@@ -2264,7 +2434,7 @@ function displayHistory() {
     if (AppState.history.length === 0) {
         contentArea.innerHTML = `
             <div class="max-w-5xl mx-auto">
-                <div class="py-24 text-center border-2 border-dashed border-slate-200 rounded-[2rem]">
+                <div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]">
                     <p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum registro encontrado</p>
                 </div>
             </div>
@@ -2275,7 +2445,7 @@ function displayHistory() {
     contentArea.innerHTML = `
         <div class="max-w-5xl mx-auto">
             <div class="flex justify-between items-center mb-10">
-                <div><h3 class="text-2xl font-black text-slate-900">Histórico Recente</h3></div>
+                <div><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Histórico Recente</h3></div>
                 <button id="btn-clear-history" class="text-xs font-extrabold text-red-500 hover:bg-red-50 px-5 py-2 rounded-xl">Limpar Tudo</button>
             </div>
             <div class="space-y-4" id="history-list"></div>
@@ -2284,11 +2454,11 @@ function displayHistory() {
     
     const list = document.getElementById('history-list');
     list.innerHTML = AppState.history.map(item => `
-        <div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between group hover:border-blue-300 transition-all hover:shadow-md">
+        <div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between group hover:border-blue-300 transition-all hover:shadow-md">
             <div class="flex items-center gap-6">
-                <div class="w-12 h-12 bg-slate-50 rounded-xl flex items-center justify-center text-xl">🔎</div>
+                <div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-xl">🔎</div>
                 <div>
-                    <h4 class="font-extrabold text-slate-900 text-lg capitalize">${item.query}</h4>
+                    <h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg capitalize">${item.query}</h4>
                     <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">📍 ${item.location || 'Local Automático'} <span class="ml-2 text-blue-500">(${item.resultsCount} leads)</span></p>
                 </div>
             </div>
@@ -2339,8 +2509,8 @@ function displayHistory() {
 function getApiBuscaHTML() {
     return `
         <div class="max-w-3xl mx-auto space-y-8 pb-20">
-            <div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
-                <h3 class="text-2xl font-black text-slate-900 mb-8 tracking-tight">API de Busca (Google Maps)</h3>
+            <div class="bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-600 shadow-sm">
+                <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100 mb-8 tracking-tight">API de Busca (Google Maps)</h3>
                 <div class="space-y-8">
                     <div class="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
@@ -2354,10 +2524,10 @@ function getApiBuscaHTML() {
                         <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
                         <div>
                             <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API de Busca</label>
-                            <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API de busca">
+                            <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500 dark:text-slate-400" placeholder="Insira a chave da API de busca">
                         </div>
                     </div>
-                    <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
+                    <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 dark:shadow-blue-900/30 transition-all active:scale-[0.98]">Salvar Alterações</button>
                 </div>
             </div>
         </div>
@@ -2374,28 +2544,28 @@ function setupApiBuscaEvents() {
 function getSettingsHTML() {
     return `
         <div class="max-w-3xl mx-auto space-y-8 pb-20">
-            <div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
-                <h3 class="text-2xl font-black text-slate-900 mb-8 tracking-tight">Configurações de Conexão</h3>
+            <div class="bg-white dark:bg-slate-800 p-10 rounded-[2.5rem] border border-slate-200 dark:border-slate-600 shadow-sm">
+                <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100 mb-8 tracking-tight">Configurações de Conexão</h3>
                 <div class="space-y-8">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Nome da Instância</label>
-                            <input id="setting-tenant" type="text" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Atendo CRM">
+                            <label class="block text-[10px] font-black text-slate-400 dark:text-slate-300 uppercase mb-2 ml-1">Nome da Instância</label>
+                            <input id="setting-tenant" type="text" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="Nome da empresa SaaS">
                         </div>
                     </div>
                     
                     <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">URL do Webhook</label>
-                        <input id="setting-url" type="url" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="https://seu-webhook.com/...">
+                        <label class="block text-[10px] font-black text-slate-400 dark:text-slate-300 uppercase mb-2 ml-1">URL do Webhook</label>
+                        <input id="setting-url" type="url" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="https://seu-webhook.com/...">
                     </div>
                     
                     <div>
-                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Authentication Header: apikey</label>
-                        <p class="text-[10px] text-slate-500 mb-1 ml-1">Nome do header fixo: <code class="bg-slate-100 px-1 rounded">apikey</code>. Valor (preenchido abaixo) é salvo criptografado no banco.</p>
-                        <input id="setting-token" type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Valor do header apikey (deixe em branco para manter o atual)">
+                        <label class="block text-[10px] font-black text-slate-400 dark:text-slate-300 uppercase mb-2 ml-1">Authentication Header: apikey</label>
+                        <p class="text-[10px] text-slate-500 dark:text-slate-400 mb-1 ml-1">Nome do header fixo: <code class="bg-slate-100 dark:bg-slate-700 px-1 rounded">apikey</code>. Valor (preenchido abaixo) é salvo criptografado no banco.</p>
+                        <input id="setting-token" type="password" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="Valor do header apikey (deixe em branco para manter o atual)">
                     </div>
                     <div class="mt-6">
-                        <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
+                        <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 dark:shadow-blue-900/30 transition-all active:scale-[0.98]">Salvar Alterações</button>
                     </div>
                 </div>
             </div>
@@ -2424,7 +2594,7 @@ async function loadSettingsForm() {
             var tokenEl = document.getElementById('setting-token');
             if (tokenEl) tokenEl.value = AppState.config.token || '';
             var tenantEl = document.getElementById('setting-tenant');
-            if (tenantEl) tenantEl.value = AppState.config.tenantName || 'Atendo CRM';
+            if (tenantEl) tenantEl.value = AppState.config.tenantName || 'Nome da empresa SaaS';
             var scraperApiInput = document.getElementById('setting-scraper-api');
             if (scraperApiInput) scraperApiInput.value = AppState.config.scraperApiKey || '';
             updateApiStatusDisplay();
@@ -2467,7 +2637,7 @@ async function saveSettings() {
     var payload = {
         baseUrl: urlEl ? urlEl.value : (AppState.config.baseUrl || ''),
         token: tokenEl ? tokenEl.value : (AppState.config.token || ''),
-        tenantName: tenantEl ? tenantEl.value : (AppState.config.tenantName || 'Atendo CRM')
+        tenantName: tenantEl ? tenantEl.value : (AppState.config.tenantName || 'Nome da empresa SaaS')
     };
     if (isSuperAdmin) {
         var scraperEl = document.getElementById('setting-scraper-api');
@@ -2514,12 +2684,12 @@ async function loadConfig() {
             AppState.config = data.data;
             updateSearchApiUI();
             var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+            var instanceName = (AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Nome da empresa SaaS';
+            var instanceEl = document.getElementById('sidebar-instance-name');
+            if (instanceEl) instanceEl.textContent = instanceName;
             if (!isSuperAdmin) {
                 var subtitleEl = document.getElementById('header-dashboard-subtitle');
-                if (subtitleEl) {
-                    var instanceName = (AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
-                    subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
-                }
+                if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
             }
             updateDocumentTitle();
         }
