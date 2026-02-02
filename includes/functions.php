@@ -251,39 +251,37 @@ function decryptLeadPayload($encrypted) {
  * Monta o array de contato para envio ao webhook a partir de um lead (linha do banco).
  * Retorna null se o lead não tiver telefone válido.
  */
-function buildContactDataFromLead(array $lead, $simplifiedPayload = false) {
+function buildContactDataFromLead(array $lead) {
     $phone = formatPhoneNumber($lead['phone'] ?? '');
     if (empty($phone)) {
         return null;
     }
     $contactData = [
         'name' => $lead['name'],
-        'number' => $phone
+        'number' => $phone,
+        'email' => $lead['email'] ?? '',
+        'tag' => $lead['tag'] ?? 'prospect_maps'
     ];
-    if (!$simplifiedPayload) {
-        $contactData['email'] = $lead['email'] ?? '';
-        $contactData['tag'] = $lead['tag'] ?? 'prospect_maps';
-        $extraInfo = [];
-        if (!empty($lead['address'])) {
-            $extraInfo[] = ['name' => 'Endereço', 'value' => $lead['address']];
-        }
-        if (!empty($lead['cnpj'])) {
-            $extraInfo[] = ['name' => 'CNPJ', 'value' => $lead['cnpj']];
-        }
-        if (!empty($lead['partners'])) {
-            $extraInfo[] = ['name' => 'Sócios', 'value' => $lead['partners']];
-        }
-        if (!empty($lead['maps_uri'])) {
-            $extraInfo[] = ['name' => 'Maps', 'value' => $lead['maps_uri']];
-        }
-        if (!empty($lead['website'])) {
-            $extraInfo[] = ['name' => 'Site', 'value' => $lead['website']];
-        }
-        if (!empty($extraInfo)) {
-            $contactData['extraInfo'] = $extraInfo;
-        }
-        $contactData['commentary'] = 'Lead capturado via Maps. Endereço: ' . ($lead['address'] ?? '');
+    $extraInfo = [];
+    if (!empty($lead['address'])) {
+        $extraInfo[] = ['name' => 'Endereço', 'value' => $lead['address']];
     }
+    if (!empty($lead['cnpj'])) {
+        $extraInfo[] = ['name' => 'CNPJ', 'value' => $lead['cnpj']];
+    }
+    if (!empty($lead['partners'])) {
+        $extraInfo[] = ['name' => 'Sócios', 'value' => $lead['partners']];
+    }
+    if (!empty($lead['maps_uri'])) {
+        $extraInfo[] = ['name' => 'Maps', 'value' => $lead['maps_uri']];
+    }
+    if (!empty($lead['website'])) {
+        $extraInfo[] = ['name' => 'Site', 'value' => $lead['website']];
+    }
+    if (!empty($extraInfo)) {
+        $contactData['extraInfo'] = $extraInfo;
+    }
+    $contactData['commentary'] = 'Lead capturado via Maps. Endereço: ' . ($lead['address'] ?? '');
     $contactData = deepClean($contactData);
     unset($contactData['ticketId'], $contactData['contactId'], $contactData['id'], $contactData['messageId']);
     return $contactData;

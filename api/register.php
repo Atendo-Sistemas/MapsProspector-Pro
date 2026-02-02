@@ -118,6 +118,15 @@ try {
     $stmt->execute([$adminName, $adminEmail, $passwordHash, $tenantId]);
     $userId = (int) $db->lastInsertId();
 
+    // Nome da Instância (Configurações) = exatamente o Nome da Empresa cadastrado
+    try {
+        $stmt = $db->prepare("INSERT INTO settings (user_id, tenant_name) VALUES (?, ?)");
+        $stmt->execute([$userId, $companyName]);
+    } catch (PDOException $e) {
+        // Tabela settings pode não existir em instalações antigas; não falha o registro
+        error_log("register.php: não foi possível criar settings iniciais: " . $e->getMessage());
+    }
+
     $db->commit();
 
     jsonSuccess([

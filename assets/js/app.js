@@ -12,6 +12,7 @@ const AppState = {
     tokenUsage: null,  // { used, limit, limitReached } para aviso de limite de tokens
     impersonating: false,
     impersonatingTenantName: '',
+    platformCompanyName: null,  // Nome da empresa SaaS (Configuração SaaS) para título da aba
     config: null,
     activeTab: 'dashboard',
     userCoords: null,
@@ -144,14 +145,34 @@ function renderHeaderTokenWarning() {
     }
 }
 
+function updateDocumentTitle() {
+    if (!AppState.user) return;
+    var isSuperAdmin = String(AppState.user.profile).toLowerCase() === 'super_admin';
+    var companyName = isSuperAdmin
+        ? (AppState.platformCompanyName && String(AppState.platformCompanyName).trim() ? AppState.platformCompanyName.trim() : 'MapsProspector Pro')
+        : (AppState.tenant && AppState.tenant.name ? String(AppState.tenant.name).trim() : 'Empresa');
+    var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : 'CRM';
+    document.title = companyName + ' | ' + instanceName;
+}
+
 function loadSidebarCompanyName() {
+    var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
     fetch(API_BASE + 'platform-config.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
         var d = data.data || data;
         var name = (d && d.saasCompanyName && String(d.saasCompanyName).trim()) ? String(d.saasCompanyName).trim() : 'ATENDO';
+        AppState.platformCompanyName = name;
         var el = document.getElementById('sidebar-company-name');
         if (el) el.textContent = name;
         var subtitleEl = document.getElementById('header-dashboard-subtitle');
-        if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + name.toUpperCase();
+        if (subtitleEl) {
+            if (isSuperAdmin) {
+                subtitleEl.textContent = 'Dashboard ' + name.toUpperCase();
+            } else {
+                var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
+                subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
+            }
+        }
+        updateDocumentTitle();
     }).catch(function() {});
 }
 
@@ -218,6 +239,8 @@ function logout() {
         AppState.user = null;
         AppState.tenant = null;
         AppState.tokenUsage = null;
+        AppState.platformCompanyName = null;
+        document.title = 'MapsProspector Pro | CRM Integration';
         var tokenBanner = document.getElementById('header-token-warning');
         if (tokenBanner) tokenBanner.classList.add('hidden');
         document.getElementById('user-dropdown').classList.add('hidden');
@@ -226,20 +249,24 @@ function logout() {
         AppState.user = null;
         AppState.tenant = null;
         AppState.tokenUsage = null;
+        AppState.platformCompanyName = null;
+        document.title = 'MapsProspector Pro | CRM Integration';
         showLogin();
     });
 }
 
 // Cadastro de empresa (toggle + submit)
 function showCadastro() {
-    const box = document.getElementById('cadastro-box');
+    const overlay = document.getElementById('modal-cadastro-overlay');
     const success = document.getElementById('cadastro-success');
-    if (box) box.classList.remove('hidden');
+    if (overlay) overlay.classList.remove('hidden');
     if (success) { success.classList.add('hidden'); success.textContent = ''; }
+    document.body.style.overflow = 'hidden';
 }
 function hideCadastro() {
-    const box = document.getElementById('cadastro-box');
-    if (box) box.classList.add('hidden');
+    const overlay = document.getElementById('modal-cadastro-overlay');
+    if (overlay) overlay.classList.add('hidden');
+    document.body.style.overflow = '';
 }
 async function handleCadastroSubmit(e) {
     if (e && e.preventDefault) e.preventDefault();
@@ -269,6 +296,8 @@ async function handleCadastroSubmit(e) {
             const loginEmail = document.getElementById('login-email');
             if (successEl) { successEl.textContent = data.message || 'Empresa cadastrada. Faça login com seu e-mail e senha.'; successEl.classList.remove('hidden'); }
             if (loginEmail) loginEmail.value = email;
+            const regCnpj = document.getElementById('reg-cnpj');
+            if (regCnpj) regCnpj.value = '';
             if (document.getElementById('reg-company')) document.getElementById('reg-company').value = '';
             if (document.getElementById('reg-email')) document.getElementById('reg-email').value = '';
             if (document.getElementById('reg-name')) document.getElementById('reg-name').value = '';
@@ -297,6 +326,20 @@ function setupEventListeners() {
     if (linkCadastro) linkCadastro.addEventListener('click', showCadastro);
     const btnCadastroVoltar = document.getElementById('btn-cadastro-voltar');
     if (btnCadastroVoltar) btnCadastroVoltar.addEventListener('click', hideCadastro);
+    const modalCadastroFechar = document.getElementById('modal-cadastro-fechar');
+    if (modalCadastroFechar) modalCadastroFechar.addEventListener('click', hideCadastro);
+    const modalCadastroOverlay = document.getElementById('modal-cadastro-overlay');
+    if (modalCadastroOverlay) {
+        modalCadastroOverlay.addEventListener('click', function(e) {
+            if (e.target === modalCadastroOverlay) hideCadastro();
+        });
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const overlay = document.getElementById('modal-cadastro-overlay');
+            if (overlay && !overlay.classList.contains('hidden')) hideCadastro();
+        }
+    });
     const formCadastro = document.getElementById('form-cadastro');
     if (formCadastro) formCadastro.addEventListener('submit', handleCadastroSubmit);
 
@@ -2334,42 +2377,6 @@ function getSettingsHTML() {
             <div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
                 <h3 class="text-2xl font-black text-slate-900 mb-8 tracking-tight">Configurações de Conexão</h3>
                 <div class="space-y-8">
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h5 class="font-black text-slate-900 text-sm">Modo Estrito (Fix 400: number/ticketId)</h5>
-                                    <p class="text-[10px] text-slate-500 font-medium">Obrigatório para Atendo/Evolution API. Envia apenas o essencial.</p>
-                                </div>
-                                <button id="toggle-simplified" class="w-12 h-6 rounded-full transition-all relative bg-slate-300">
-                                    <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all left-1"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h5 class="font-black text-slate-900 text-sm">Contornar CORS (Modo Proxy)</h5>
-                                    <p class="text-[10px] text-slate-500 font-medium">Ative se houver erro ao conectar com seu n8n/webhook.</p>
-                                </div>
-                                <button id="toggle-proxy" class="w-12 h-6 rounded-full transition-all relative bg-slate-300">
-                                    <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all left-1"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h5 class="font-black text-slate-900 text-sm">Encapsular Dados (Wrap em 'body')</h5>
-                                    <p class="text-[10px] text-slate-500 font-medium">Necessário para alguns Webhooks do n8n.</p>
-                                </div>
-                                <button id="toggle-wrap" class="w-12 h-6 rounded-full transition-all relative bg-slate-300">
-                                    <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all left-1"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Nome da Instância</label>
@@ -2397,43 +2404,11 @@ function getSettingsHTML() {
 }
 
 function setupSettingsEvents() {
-    document.getElementById('toggle-simplified').addEventListener('click', () => {
-        toggleSwitch('toggle-simplified', 'simplifiedPayload');
-    });
-    document.getElementById('toggle-proxy').addEventListener('click', () => {
-        toggleSwitch('toggle-proxy', 'useProxy');
-    });
-    document.getElementById('toggle-wrap').addEventListener('click', () => {
-        toggleSwitch('toggle-wrap', 'wrapInBody');
-    });
-    
     document.getElementById('btn-save-settings').addEventListener('click', saveSettings);
 
     const scraperApiInput = document.getElementById('setting-scraper-api');
     if (scraperApiInput) {
         scraperApiInput.addEventListener('input', () => updateApiStatusDisplay(scraperApiInput.value));
-    }
-}
-
-function toggleSwitch(btnId, configKey) {
-    const btn = document.getElementById(btnId);
-    const toggle = btn.querySelector('div');
-    const isActive = toggle.classList.contains('left-7');
-    
-    if (isActive) {
-        toggle.classList.remove('left-7');
-        toggle.classList.add('left-1');
-        btn.classList.remove('bg-emerald-600', 'bg-amber-600', 'bg-blue-600');
-        btn.classList.add('bg-slate-300');
-        AppState.config[configKey] = false;
-    } else {
-        toggle.classList.remove('left-1');
-        toggle.classList.add('left-7');
-        if (btnId.includes('simplified')) btn.classList.add('bg-emerald-600');
-        else if (btnId.includes('proxy')) btn.classList.add('bg-amber-600');
-        else btn.classList.add('bg-blue-600');
-        btn.classList.remove('bg-slate-300');
-        AppState.config[configKey] = true;
     }
 }
 
@@ -2453,12 +2428,6 @@ async function loadSettingsForm() {
             var scraperApiInput = document.getElementById('setting-scraper-api');
             if (scraperApiInput) scraperApiInput.value = AppState.config.scraperApiKey || '';
             updateApiStatusDisplay();
-            var toggleSimplified = document.getElementById('toggle-simplified');
-            if (toggleSimplified) updateSwitch('toggle-simplified', AppState.config.simplifiedPayload);
-            var toggleProxy = document.getElementById('toggle-proxy');
-            if (toggleProxy) updateSwitch('toggle-proxy', AppState.config.useProxy);
-            var toggleWrap = document.getElementById('toggle-wrap');
-            if (toggleWrap) updateSwitch('toggle-wrap', AppState.config.wrapInBody);
         }
     } catch (e) {
         console.error('Erro ao carregar configurações:', e);
@@ -2486,25 +2455,6 @@ function updateApiStatusDisplay(overrideKey) {
     }
 }
 
-function updateSwitch(btnId, isActive) {
-    const btn = document.getElementById(btnId);
-    const toggle = btn.querySelector('div');
-    
-    if (isActive) {
-        toggle.classList.remove('left-1');
-        toggle.classList.add('left-7');
-        if (btnId.includes('simplified')) btn.classList.add('bg-emerald-600');
-        else if (btnId.includes('proxy')) btn.classList.add('bg-amber-600');
-        else btn.classList.add('bg-blue-600');
-        btn.classList.remove('bg-slate-300');
-    } else {
-        toggle.classList.remove('left-7');
-        toggle.classList.add('left-1');
-        btn.classList.remove('bg-emerald-600', 'bg-amber-600', 'bg-blue-600');
-        btn.classList.add('bg-slate-300');
-    }
-}
-
 async function saveSettings() {
     const btn = document.getElementById('btn-save-settings');
     btn.disabled = true;
@@ -2517,10 +2467,7 @@ async function saveSettings() {
     var payload = {
         baseUrl: urlEl ? urlEl.value : (AppState.config.baseUrl || ''),
         token: tokenEl ? tokenEl.value : (AppState.config.token || ''),
-        tenantName: tenantEl ? tenantEl.value : (AppState.config.tenantName || 'Atendo CRM'),
-        simplifiedPayload: AppState.config.simplifiedPayload || false,
-        useProxy: AppState.config.useProxy || false,
-        wrapInBody: AppState.config.wrapInBody || false
+        tenantName: tenantEl ? tenantEl.value : (AppState.config.tenantName || 'Atendo CRM')
     };
     if (isSuperAdmin) {
         var scraperEl = document.getElementById('setting-scraper-api');
@@ -2536,6 +2483,16 @@ async function saveSettings() {
         const data = await res.json();
         
         if (data.success) {
+            if (AppState.config) AppState.config.tenantName = payload.tenantName;
+            var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+            if (!isSuperAdmin) {
+                var subtitleEl = document.getElementById('header-dashboard-subtitle');
+                if (subtitleEl) {
+                    var instanceName = (payload.tenantName && String(payload.tenantName).trim()) ? String(payload.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
+                    subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
+                }
+            }
+            updateDocumentTitle();
             showToast('Configurações salvas no sistema!');
             loadConfig();
         } else {
@@ -2556,6 +2513,15 @@ async function loadConfig() {
         if (data.success) {
             AppState.config = data.data;
             updateSearchApiUI();
+            var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+            if (!isSuperAdmin) {
+                var subtitleEl = document.getElementById('header-dashboard-subtitle');
+                if (subtitleEl) {
+                    var instanceName = (AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
+                    subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
+                }
+            }
+            updateDocumentTitle();
         }
     } catch (e) {
         console.error('Erro ao carregar config:', e);

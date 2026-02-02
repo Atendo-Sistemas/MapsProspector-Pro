@@ -32,8 +32,6 @@ if (!$config || empty($config['base_url'])) {
     jsonError('URL do Webhook não configurada. Configure nas Configurações.', 400);
 }
 
-$simplifiedPayload = (bool)($config['simplified_payload'] ?? 0);
-$wrapInBody = (bool)($config['wrap_in_body'] ?? 0);
 
 // Extrai IDs numéricos
 $numericIds = [];
@@ -62,7 +60,7 @@ $leads = $stmt->fetchAll();
 $contacts = [];
 $skipped = 0;
 foreach ($leads as $lead) {
-    $contact = buildContactDataFromLead($lead, $simplifiedPayload);
+    $contact = buildContactDataFromLead($lead);
     if ($contact !== null) {
         $contacts[] = $contact;
     } else {
@@ -75,14 +73,8 @@ if (empty($contacts)) {
 }
 
 $targetUrl = rtrim($config['base_url'], '/');
-if ($config['use_proxy']) {
-    $targetUrl = 'https://corsproxy.io/?' . urlencode($targetUrl);
-}
 
 $payload = ['leads' => $contacts];
-if ($wrapInBody) {
-    $payload = ['body' => $payload];
-}
 
 $headers = ['Content-Type: application/json'];
 $apikeyValue = decryptApikey($config['token'] ?? '');

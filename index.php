@@ -81,44 +81,57 @@ require_once __DIR__ . '/config/config.php';
                         <p class="text-[11px] text-slate-500 font-medium mb-2">Ainda não tem empresa cadastrada?</p>
                         <button type="button" id="link-cadastro" class="text-blue-600 font-bold text-sm hover:underline">Cadastrar minha empresa</button>
                     </div>
-                    <div id="cadastro-box" class="hidden mt-8 p-6 rounded-2xl border border-slate-200 bg-slate-50 text-left">
-                        <h3 class="text-lg font-black text-slate-900 mb-4">Nova empresa</h3>
-                        <form id="form-cadastro">
-                            <div class="space-y-4">
-                                <div>
-                                    <label for="reg-company" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome da empresa</label>
-                                    <input type="text" id="reg-company" placeholder="Razão social ou nome fantasia" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                                </div>
-                                <div>
-                                    <label for="reg-email" class="block text-[10px] font-black text-slate-500 uppercase mb-1">E-mail do administrador</label>
-                                    <input type="email" id="reg-email" placeholder="admin@empresa.com" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                                </div>
-                                <div>
-                                    <label for="reg-name" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Seu nome (opcional)</label>
-                                    <input type="text" id="reg-name" placeholder="Nome do responsável" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                                </div>
-                                <div>
-                                    <label for="reg-password" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Senha (mín. 6 caracteres)</label>
-                                    <input type="password" id="reg-password" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                                </div>
-                                <div>
-                                    <label for="reg-password-confirm" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Confirmar senha</label>
-                                    <input type="password" id="reg-password-confirm" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                                </div>
-                                <p id="reg-error" class="text-xs font-bold text-red-500 hidden"></p>
-                                <div class="flex gap-3">
-                                    <button type="button" id="btn-cadastro-voltar" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-100 text-sm">Voltar</button>
-                                    <button type="submit" id="btn-cadastro" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 disabled:opacity-70 text-sm">Cadastrar</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
                     <p id="cadastro-success" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-700 text-sm font-medium"></p>
                     <div class="mt-10 pt-6 border-t border-slate-100">
                         <p class="text-center text-[10px] text-slate-400 font-semibold tracking-wider uppercase">
                             Atendo Tecnologia © 2024
                         </p>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal Nova Empresa -->
+        <div id="modal-cadastro-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4" aria-hidden="true">
+            <div id="modal-cadastro" class="bg-white rounded-[2rem] shadow-2xl border border-slate-200 w-full max-w-md max-h-[90vh] overflow-y-auto" role="dialog" aria-labelledby="modal-cadastro-title" aria-modal="true">
+                <div class="p-8">
+                    <div class="flex items-center justify-between mb-6">
+                        <h2 id="modal-cadastro-title" class="text-xl font-black text-slate-900">Nova Empresa</h2>
+                        <button type="button" id="modal-cadastro-fechar" class="p-2 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors" aria-label="Fechar">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                        </button>
+                    </div>
+                    <form id="form-cadastro" class="space-y-4">
+                        <div>
+                            <label for="reg-cnpj" class="block text-[10px] font-black text-slate-500 uppercase mb-1">CNPJ / CPF</label>
+                            <input type="text" id="reg-cnpj" name="cnpj_cpf" placeholder="00.000.000/0001-00 ou 000.000.000-00" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                        </div>
+                        <div>
+                            <label for="reg-company" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome da Empresa</label>
+                            <input type="text" id="reg-company" name="company" placeholder="Razão social ou nome fantasia" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                        </div>
+                        <div>
+                            <label for="reg-name" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Seu nome</label>
+                            <input type="text" id="reg-name" name="name" placeholder="Nome do responsável" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                        </div>
+                        <div>
+                            <label for="reg-email" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Email para acessar</label>
+                            <input type="email" id="reg-email" name="email" placeholder="seu@email.com" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                        </div>
+                        <div>
+                            <label for="reg-password" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Senha (mín. 6 caracteres)</label>
+                            <input type="password" id="reg-password" name="password" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                        </div>
+                        <div>
+                            <label for="reg-password-confirm" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Confirmar senha</label>
+                            <input type="password" id="reg-password-confirm" name="password_confirm" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                        </div>
+                        <p id="reg-error" class="text-xs font-bold text-red-500 hidden"></p>
+                        <div class="flex gap-3 pt-2">
+                            <button type="button" id="btn-cadastro-voltar" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-100 text-sm">Fechar</button>
+                            <button type="submit" id="btn-cadastro" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 disabled:opacity-70 text-sm">Cadastrar</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
