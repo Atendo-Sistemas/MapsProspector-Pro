@@ -21,11 +21,16 @@ if ($method === 'POST') {
     $action = $input['action'] ?? 'login';
     
     if ($action === 'login') {
-        // Login: apenas e-mails já cadastrados (usuários criados via registro de empresa)
+        // Login: e-mail + senha (usuários criados via registro de empresa)
         $email = sanitizeInput($input['email'] ?? '');
+        $password = $input['password'] ?? '';
         
         if (empty($email) || !validateEmail($email)) {
             jsonError('Por favor, insira um e-mail válido.');
+        }
+        
+        if (empty($password)) {
+            jsonError('Por favor, insira sua senha.');
         }
         
         try {
@@ -34,7 +39,6 @@ if ($method === 'POST') {
             jsonError($e->getMessage(), 500);
         }
         
-        // Busca usuário (apenas e-mails já cadastrados podem acessar)
         try {
             $stmt = $db->prepare("SELECT * FROM users WHERE email = ?");
             $stmt->execute([$email]);
@@ -45,7 +49,12 @@ if ($method === 'POST') {
         }
         
         if (!$user) {
-            jsonError('E-mail não cadastrado. Cadastre sua empresa primeiro ou use o e-mail já vinculado à plataforma.');
+            jsonError('E-mail ou senha incorretos.');
+        }
+        
+        $storedHash = $user['password'] ?? null;
+        if (empty($storedHash) || !password_verify($password, $storedHash)) {
+            jsonError('E-mail ou senha incorretos.');
         }
 
         $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;

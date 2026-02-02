@@ -61,9 +61,11 @@ async function checkAuth() {
 async function handleLogin(e) {
     if (e && e.preventDefault) e.preventDefault();
     const emailInput = document.getElementById('login-email');
+    const passwordInput = document.getElementById('login-password');
     const errorEl = document.getElementById('login-error');
     const btn = document.getElementById('btn-login');
     const email = (emailInput && emailInput.value ? emailInput.value.trim().toLowerCase() : '') || '';
+    const password = (passwordInput && passwordInput.value ? passwordInput.value : '') || '';
     if (errorEl) {
         errorEl.classList.add('hidden');
         errorEl.textContent = '';
@@ -75,13 +77,21 @@ async function handleLogin(e) {
         }
         return;
     }
+    if (!password) {
+        if (errorEl) {
+            errorEl.textContent = 'Por favor, insira sua senha.';
+            errorEl.classList.remove('hidden');
+        }
+        return;
+    }
     btn.disabled = true;
     btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> Entrando...';
     try {
         const res = await fetch(API_BASE + 'auth.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'login', email: email })
+            body: JSON.stringify({ action: 'login', email: email, password: password }),
+            credentials: 'include'
         });
         const data = await res.json();
         if (data.success) {
@@ -136,6 +146,8 @@ function loadSidebarCompanyName() {
         var name = (d && d.saasCompanyName && String(d.saasCompanyName).trim()) ? String(d.saasCompanyName).trim() : 'ATENDO';
         var el = document.getElementById('sidebar-company-name');
         if (el) el.textContent = name;
+        var subtitleEl = document.getElementById('header-dashboard-subtitle');
+        if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + name.toUpperCase();
     }).catch(function() {});
 }
 
@@ -220,28 +232,34 @@ async function handleCadastroSubmit(e) {
     const company = (document.getElementById('reg-company') && document.getElementById('reg-company').value || '').trim();
     const email = (document.getElementById('reg-email') && document.getElementById('reg-email').value || '').trim().toLowerCase();
     const name = (document.getElementById('reg-name') && document.getElementById('reg-name').value || '').trim();
+    const regPassword = (document.getElementById('reg-password') && document.getElementById('reg-password').value) || '';
+    const regPasswordConfirm = (document.getElementById('reg-password-confirm') && document.getElementById('reg-password-confirm').value) || '';
     const errorEl = document.getElementById('reg-error');
     const btn = document.getElementById('btn-cadastro');
     if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
     if (!company) { if (errorEl) { errorEl.textContent = 'Nome da empresa é obrigatório.'; errorEl.classList.remove('hidden'); } return; }
     if (!email || !email.includes('@')) { if (errorEl) { errorEl.textContent = 'E-mail do administrador é obrigatório e deve ser válido.'; errorEl.classList.remove('hidden'); } return; }
+    if (regPassword.length < 6) { if (errorEl) { errorEl.textContent = 'A senha deve ter no mínimo 6 caracteres.'; errorEl.classList.remove('hidden'); } return; }
+    if (regPassword !== regPasswordConfirm) { if (errorEl) { errorEl.textContent = 'As senhas não coincidem.'; errorEl.classList.remove('hidden'); } return; }
     if (btn) btn.disabled = true;
     try {
         const res = await fetch(API_BASE + 'register.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ companyName: company, adminEmail: email, adminName: name || undefined })
+            body: JSON.stringify({ companyName: company, adminEmail: email, adminName: name || undefined, adminPassword: regPassword })
         });
         const data = await res.json();
         if (data.success) {
             hideCadastro();
             const successEl = document.getElementById('cadastro-success');
             const loginEmail = document.getElementById('login-email');
-            if (successEl) { successEl.textContent = data.message || 'Empresa cadastrada. Faça login com seu e-mail.'; successEl.classList.remove('hidden'); }
+            if (successEl) { successEl.textContent = data.message || 'Empresa cadastrada. Faça login com seu e-mail e senha.'; successEl.classList.remove('hidden'); }
             if (loginEmail) loginEmail.value = email;
             if (document.getElementById('reg-company')) document.getElementById('reg-company').value = '';
             if (document.getElementById('reg-email')) document.getElementById('reg-email').value = '';
             if (document.getElementById('reg-name')) document.getElementById('reg-name').value = '';
+            if (document.getElementById('reg-password')) document.getElementById('reg-password').value = '';
+            if (document.getElementById('reg-password-confirm')) document.getElementById('reg-password-confirm').value = '';
         } else {
             if (errorEl) { errorEl.textContent = data.error || 'Erro ao cadastrar.'; errorEl.classList.remove('hidden'); }
         }
@@ -721,6 +739,7 @@ function setActiveTab(tab) {
         plans: 'Planos',
         companies: 'Empresas',
         credits: 'Créditos',
+        'api-busca': 'API de Busca',
         settings: 'Integração CRM'
     };
     document.getElementById('page-title').textContent = titles[tab] || 'Dashboard';
@@ -758,11 +777,15 @@ function loadTab(tab) {
         loadPlansTab(contentArea);
     } else if (tab === 'companies') {
         loadCompaniesTab(contentArea);
-    } else if (tab === 'settings') {
-        contentArea.innerHTML = getSettingsHTML();
+    } else if (tab === 'api-busca') {
+        contentArea.innerHTML = getApiBuscaHTML();
         var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
         var blockScraper = document.getElementById('block-scraper-api-key-admin');
         if (blockScraper && !isSuperAdmin) blockScraper.style.display = 'none';
+        setupApiBuscaEvents();
+        loadSettingsForm();
+    } else if (tab === 'settings') {
+        contentArea.innerHTML = getSettingsHTML();
         setupSettingsEvents();
         loadSettingsForm();
     }
@@ -2116,20 +2139,48 @@ function displayHistory() {
     });
 }
 
-// Configurações
+// API de Busca (apenas status + chave para super_admin)
+function getApiBuscaHTML() {
+    return `
+        <div class="max-w-3xl mx-auto space-y-8 pb-20">
+            <div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
+                <h3 class="text-2xl font-black text-slate-900 mb-8 tracking-tight">API de Busca (Google Maps)</h3>
+                <div class="space-y-8">
+                    <div class="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
+                        <h4 id="api-section-title" class="font-black text-xl mb-4 flex items-center gap-2">Status da API de Busca</h4>
+                        <div id="api-status" class="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">Nenhuma API de busca configurada</div>
+                        <p id="api-status-subtitle" class="text-[10px] text-slate-400 mt-4 text-center italic">Configure a chave abaixo para buscar leads no Google Maps.</p>
+                    </div>
+                    <div id="block-scraper-api-key-admin" class="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
+                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">Chave da API de Busca</h4>
+                        <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API de Busca</label>
+                            <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API de busca">
+                        </div>
+                    </div>
+                    <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
+                </div>
+            </div>
+        </div>
+    `;
+}
+
+function setupApiBuscaEvents() {
+    document.getElementById('btn-save-settings').addEventListener('click', saveSettings);
+    var scraperApiInput = document.getElementById('setting-scraper-api');
+    if (scraperApiInput) scraperApiInput.addEventListener('input', function() { updateApiStatusDisplay(scraperApiInput.value); });
+}
+
+// Configurações (Integração CRM: webhook, token, opções — sem bloco API de Busca)
 function getSettingsHTML() {
     return `
         <div class="max-w-3xl mx-auto space-y-8 pb-20">
             <div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
                 <h3 class="text-2xl font-black text-slate-900 mb-8 tracking-tight">Configurações de Conexão</h3>
                 <div class="space-y-8">
-                    <div class="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
-                        <h4 id="api-section-title" class="font-black text-xl mb-4 flex items-center gap-2">API de Busca (Google Maps)</h4>
-                        <div id="api-status" class="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">Nenhuma API de busca configurada</div>
-                        <p id="api-status-subtitle" class="text-[10px] text-slate-400 mt-4 text-center italic">Configure a chave abaixo para buscar leads no Google Maps.</p>
-                    </div>
-                    
                     <div class="grid grid-cols-1 gap-4">
                         <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
                             <div class="flex items-center justify-between">
@@ -2183,17 +2234,6 @@ function getSettingsHTML() {
                         <p class="text-[10px] text-slate-500 mb-1 ml-1">Nome do header fixo: <code class="bg-slate-100 px-1 rounded">apikey</code>. Valor (preenchido abaixo) é salvo criptografado no banco.</p>
                         <input id="setting-token" type="password" class="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Valor do header apikey (deixe em branco para manter o atual)">
                     </div>
-                    
-                    <div id="block-scraper-api-key-admin" class="mt-6 bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
-                        <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
-                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">🔑 API Apify (Google Places)</h4>
-                        <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Apify</label>
-                            <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Apify">
-                        </div>
-                    </div>
-                    
                     <div class="mt-6">
                         <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
                     </div>
@@ -2251,20 +2291,21 @@ async function loadSettingsForm() {
         
         if (data.success) {
             AppState.config = data.data;
-            
-            document.getElementById('setting-url').value = AppState.config.baseUrl || '';
-            document.getElementById('setting-token').value = AppState.config.token || '';
-            document.getElementById('setting-tenant').value = AppState.config.tenantName || 'Atendo CRM';
-            // Carrega a chave da API Apify se o elemento existir
-            const scraperApiInput = document.getElementById('setting-scraper-api');
-            if (scraperApiInput) {
-                scraperApiInput.value = AppState.config.scraperApiKey || '';
-            }
-            
+            var urlEl = document.getElementById('setting-url');
+            if (urlEl) urlEl.value = AppState.config.baseUrl || '';
+            var tokenEl = document.getElementById('setting-token');
+            if (tokenEl) tokenEl.value = AppState.config.token || '';
+            var tenantEl = document.getElementById('setting-tenant');
+            if (tenantEl) tenantEl.value = AppState.config.tenantName || 'Atendo CRM';
+            var scraperApiInput = document.getElementById('setting-scraper-api');
+            if (scraperApiInput) scraperApiInput.value = AppState.config.scraperApiKey || '';
             updateApiStatusDisplay();
-            updateSwitch('toggle-simplified', AppState.config.simplifiedPayload);
-            updateSwitch('toggle-proxy', AppState.config.useProxy);
-            updateSwitch('toggle-wrap', AppState.config.wrapInBody);
+            var toggleSimplified = document.getElementById('toggle-simplified');
+            if (toggleSimplified) updateSwitch('toggle-simplified', AppState.config.simplifiedPayload);
+            var toggleProxy = document.getElementById('toggle-proxy');
+            if (toggleProxy) updateSwitch('toggle-proxy', AppState.config.useProxy);
+            var toggleWrap = document.getElementById('toggle-wrap');
+            if (toggleWrap) updateSwitch('toggle-wrap', AppState.config.wrapInBody);
         }
     } catch (e) {
         console.error('Erro ao carregar configurações:', e);
@@ -2277,18 +2318,18 @@ function updateApiStatusDisplay(overrideKey) {
     const subtitleEl = document.getElementById('api-status-subtitle');
     if (!statusEl || !subtitleEl) return;
     var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
-    if (titleEl) titleEl.textContent = isSuperAdmin ? 'API Apify (Google Places)' : 'API de Busca (Google Maps)';
+    if (titleEl) titleEl.textContent = 'API de Busca (Google Maps)';
     var configured = isSuperAdmin
         ? (overrideKey !== undefined ? String(overrideKey || '').trim() : (AppState.config && AppState.config.scraperApiKey) ? String(AppState.config.scraperApiKey).trim() : '')
         : (AppState.config && AppState.config.scraperApiKeyConfigured);
     if (configured) {
-        statusEl.textContent = isSuperAdmin ? '✓ Conectado ao Google Maps via Apify' : '✓ Conectado ao Google Maps';
+        statusEl.textContent = '✓ Conectado ao Google Maps';
         statusEl.className = 'p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold';
         subtitleEl.textContent = isSuperAdmin ? 'API configurada no servidor. Todas as empresas utilizam esta chave.' : 'API configurada no servidor pelo administrador da plataforma.';
     } else {
-        statusEl.textContent = isSuperAdmin ? 'Nenhuma API Apify configurada' : 'Nenhuma API de busca configurada';
+        statusEl.textContent = 'Nenhuma API de busca configurada';
         statusEl.className = 'p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold';
-        subtitleEl.textContent = isSuperAdmin ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave nas Configurações.';
+        subtitleEl.textContent = isSuperAdmin ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave em API de Busca.';
     }
 }
 
@@ -2317,16 +2358,20 @@ async function saveSettings() {
     btn.textContent = 'Salvando...';
     
     var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+    var urlEl = document.getElementById('setting-url');
+    var tokenEl = document.getElementById('setting-token');
+    var tenantEl = document.getElementById('setting-tenant');
     var payload = {
-        baseUrl: document.getElementById('setting-url').value,
-        token: document.getElementById('setting-token').value,
-        tenantName: document.getElementById('setting-tenant').value,
+        baseUrl: urlEl ? urlEl.value : (AppState.config.baseUrl || ''),
+        token: tokenEl ? tokenEl.value : (AppState.config.token || ''),
+        tenantName: tenantEl ? tenantEl.value : (AppState.config.tenantName || 'Atendo CRM'),
         simplifiedPayload: AppState.config.simplifiedPayload || false,
         useProxy: AppState.config.useProxy || false,
         wrapInBody: AppState.config.wrapInBody || false
     };
     if (isSuperAdmin) {
-        payload.scraperApiKey = document.getElementById('setting-scraper-api') ? document.getElementById('setting-scraper-api').value : '';
+        var scraperEl = document.getElementById('setting-scraper-api');
+        payload.scraperApiKey = scraperEl ? scraperEl.value : (AppState.config.scraperApiKey || '');
     }
     try {
         const res = await fetch(API_BASE + 'settings.php', {

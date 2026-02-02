@@ -1,8 +1,7 @@
 <?php
 /**
- * Serviço de Integração com API Apify (Compass Google Places Crawler)
+ * Serviço de Integração com API de Busca (Google Maps)
  * MapsProspector Pro
- * Endpoint: run-sync-get-dataset-items
  */
 
 class ScraperService {
@@ -17,12 +16,12 @@ class ScraperService {
         }
 
         if (empty($this->apiKey) || $this->apiKey === 'SUA_CHAVE_AQUI') {
-            throw new Exception("Chave de API do Scraper (Apify) não configurada. Configure nas Configurações ou em config/config.php");
+            throw new Exception("Chave de API de Busca não configurada. Configure nas Configurações ou em config/config.php");
         }
     }
 
     /**
-     * Faz uma única requisição POST à API Apify com body JSON.
+     * Faz uma única requisição POST à API de busca com body JSON.
      * Retorna o array decodificado da resposta ou null em caso de falha.
      */
     private function fetchApify(array $body) {
@@ -55,7 +54,7 @@ class ScraperService {
             $errorData = json_decode($response, true);
             $errorMsg = $errorData['error']['message'] ?? $errorData['message'] ?? "Erro HTTP $httpCode";
             if ($httpCode === 429) throw new Exception("Muitas requisições. Aguarde 1 minuto.");
-            if ($httpCode === 401) throw new Exception("Chave de API Apify inválida. Verifique a configuração.");
+            if ($httpCode === 401) throw new Exception("Chave de API de busca inválida. Verifique a configuração.");
             throw new Exception("Erro na API: $errorMsg");
         }
         $trimmed = trim($response);
@@ -70,7 +69,7 @@ class ScraperService {
     }
 
     /**
-     * Busca leads no Google Maps usando Apify Compass Google Places Crawler.
+     * Busca leads no Google Maps.
      * Uma única chamada retorna até maxCrawledPlacesPerSearch resultados.
      * Para compatibilidade com o sistema de tokens: 1 token = 20 resultados; pages_used = ceil(count/20).
      *
@@ -142,14 +141,13 @@ class ScraperService {
             $pagesUsed = (int) ceil(count($leads) / 20);
             return ['leads' => $leads, 'pages_used' => $pagesUsed];
         } catch (Exception $e) {
-            error_log("Erro Apify: " . $e->getMessage());
+            error_log("Erro API de busca: " . $e->getMessage());
             throw $e;
         }
     }
 
     /**
-     * Converte a resposta do Apify (dataset items) para o formato de leads do sistema.
-     * Apify retorna array de itens com: title, address, phone, website, placeId, url, location{lat,lng}, totalScore, reviewsCount.
+     * Converte a resposta da API de busca (dataset items) para o formato de leads do sistema.
      */
     private function parseApifyResponse($data, $location) {
         $leads = [];
@@ -162,7 +160,7 @@ class ScraperService {
         } elseif (is_array($data) && isset($data[0]) && is_array($data[0])) {
             $results = $data;
         } else {
-            error_log("Apify: estrutura de resposta não reconhecida. Chaves: " . (is_array($data) ? json_encode(array_keys($data)) : gettype($data)));
+            error_log("API de busca: estrutura de resposta não reconhecida. Chaves: " . (is_array($data) ? json_encode(array_keys($data)) : gettype($data)));
             return [];
         }
 
