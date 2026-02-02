@@ -18,7 +18,7 @@ CREATE TABLE IF NOT EXISTS `tenants` (
 
 -- Inserir tenant padrão (id=1) para compatibilidade com dados existentes
 INSERT INTO `tenants` (`id`, `name`, `slug`, `plan`, `status`) VALUES
-(1, 'Atendo Maps', 'atendo-maps', 'basic', 'active')
+(1, 'Nome da empresa SaaS', 'nome-da-empresa-saas', 'basic', 'active')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`);
 
 -- Ajustar users: FK para tenants e perfil super_admin | admin | user

@@ -10,8 +10,12 @@
 -- 3. Se usar outro nome de banco: altere CREATE DATABASE e USE abaixo.
 -- 4. Após a primeira entrada, altere a senha do usuário admin (admin@atendo.maps).
 --
--- Este arquivo já inclui: tabelas, FKs, planos (Básico + Período de teste),
--- tenant padrão, usuário super_admin (senha: admin123), platform_settings.
+-- Este arquivo já inclui o estado final após todas as migrações:
+--   plans, tenants (plan_id, plan), users (password), settings (tenant_name, scraper_api_key),
+--   search_history, leads, sessions, tenant_usage (token_bonus), credit_requests,
+--   plan_requests, lead_unlocks, platform_settings (scraper_api_key, credit_price_avulso, saas_company_name).
+-- Planos: Básico + Período de teste. Tenant padrão: Nome da empresa SaaS.
+-- Usuário super_admin: admin@atendo.maps (senha: admin123).
 -- Nenhuma migração adicional é necessária para instalação nova.
 --
 -- =============================================================================
@@ -85,11 +89,12 @@ CREATE TABLE IF NOT EXISTS `settings` (
   `user_id` int(11) NOT NULL,
   `base_url` text DEFAULT NULL,
   `token` text DEFAULT NULL,
-  `tenant_name` varchar(255) DEFAULT 'Atendo CRM',
+  `tenant_name` varchar(255) DEFAULT 'Nome da empresa SaaS',
   `use_proxy` tinyint(1) DEFAULT 0,
   `wrap_in_body` tinyint(1) DEFAULT 0,
   `simplified_payload` tinyint(1) DEFAULT 0,
   `selected_model` varchar(100) DEFAULT 'gemini-2.0-flash',
+  `scraper_api_key` text DEFAULT NULL COMMENT 'Chave API de busca (Google Maps)',
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `user_id` (`user_id`)
@@ -274,7 +279,7 @@ INSERT INTO `plans` (`id`, `name`, `slug`, `token_limit`, `price_monthly`, `peri
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `token_limit` = VALUES(`token_limit`), `price_monthly` = VALUES(`price_monthly`), `period` = VALUES(`period`), `status` = VALUES(`status`);
 
 INSERT INTO `tenants` (`id`, `name`, `slug`, `plan_id`, `plan`, `status`) VALUES
-(1, 'Atendo Maps', 'atendo-maps', 1, 'basic', 'active')
+(1, 'Nome da empresa SaaS', 'nome-da-empresa-saas', 1, 'basic', 'active')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `plan_id` = VALUES(`plan_id`);
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `tenant_id`, `profile`) VALUES
@@ -285,7 +290,7 @@ ON DUPLICATE KEY UPDATE `profile` = 'super_admin', `tenant_id` = NULL;
 INSERT IGNORE INTO `platform_settings` (`setting_key`, `setting_value`) VALUES
 ('scraper_api_key', NULL),
 ('credit_price_avulso', '2.00'),
-('saas_company_name', '');
+('saas_company_name', 'Nome da empresa SaaS');
 
 SET FOREIGN_KEY_CHECKS = 1;
 

@@ -58,7 +58,7 @@ Use estas migrações **somente** se você já tinha o banco criado por uma vers
 Após a importação existem:
 
 - Planos **Básico** (id 1) e **Período de teste** (id 2, 10 créditos)
-- Tenant **Atendo Maps** (id 1)
+- Tenant **Nome da empresa SaaS** (id 1)
 - Usuário **admin** (`admin@atendo.maps` / senha: `admin123`)
 - Registro em `platform_settings` para `scraper_api_key`
 

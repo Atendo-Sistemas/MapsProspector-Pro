@@ -58,7 +58,7 @@ if ($method === 'POST') {
         }
 
         $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;
-        $tenantName = 'Atendo Maps';
+        $tenantName = 'Nome da empresa SaaS';
         $tenantStatus = 'active';
         $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
         $tenantPlanId = '';
@@ -125,7 +125,7 @@ if ($method === 'POST') {
             
             if ($user) {
                 $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;
-                $tenantName = 'Atendo Maps';
+                $tenantName = 'Nome da empresa SaaS';
                 $tenantStatus = 'active';
                 $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
                 $tenantPlanId = '';
@@ -221,7 +221,7 @@ if ($method === 'POST') {
         $_SESSION['impersonating'] = true;
 
         $tenantId = (int) $targetUser['tenant_id'];
-        $tenantName = 'Atendo Maps';
+        $tenantName = 'Nome da empresa SaaS';
         $tenantStatus = 'active';
         $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
         $tenantPlanId = '';
@@ -278,6 +278,39 @@ if ($method === 'POST') {
     } elseif ($action === 'logout') {
         session_destroy();
         jsonSuccess(null, 'Logout realizado com sucesso');
+
+    } elseif ($action === 'change_password') {
+        // Alterar senha do usuário logado (requer senha atual)
+        if (empty($_SESSION['user_id'])) {
+            jsonError('Faça login para alterar a senha.', 401);
+        }
+        $currentPassword = $input['currentPassword'] ?? '';
+        $newPassword = $input['newPassword'] ?? '';
+        if (empty($currentPassword)) {
+            jsonError('Informe a senha atual.');
+        }
+        if (strlen($newPassword) < 6) {
+            jsonError('A nova senha deve ter no mínimo 6 caracteres.');
+        }
+        try {
+            $db = Database::getInstance()->getConnection();
+        } catch (Exception $e) {
+            jsonError($e->getMessage(), 500);
+        }
+        $stmt = $db->prepare("SELECT id, password FROM users WHERE id = ?");
+        $stmt->execute([$_SESSION['user_id']]);
+        $user = $stmt->fetch();
+        if (!$user) {
+            jsonError('Usuário não encontrado.', 404);
+        }
+        $storedHash = $user['password'] ?? null;
+        if (empty($storedHash) || !password_verify($currentPassword, $storedHash)) {
+            jsonError('Senha atual incorreta.');
+        }
+        $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
+        $stmt = $db->prepare("UPDATE users SET password = ? WHERE id = ?");
+        $stmt->execute([$newHash, $_SESSION['user_id']]);
+        jsonSuccess(null, 'Senha alterada com sucesso.');
         
     } else {
         jsonError('Ação inválida', 400);

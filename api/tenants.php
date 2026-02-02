@@ -65,6 +65,7 @@ if ($method === 'GET') {
         $tenants = $stmt->fetchAll(PDO::FETCH_ASSOC);
         $totalCount = count($tenants);
         foreach ($tenants as &$row) {
+            $tenantId = (int) $row['id'];
             $row['id'] = (string) $row['id'];
             $row['planId'] = isset($row['plan_id']) ? (string) $row['plan_id'] : '1';
             $row['plan'] = $row['plan_name'] ?? 'Básico';
@@ -72,6 +73,10 @@ if ($method === 'GET') {
             $row['usersCount'] = (int) ($row['users_count'] ?? 0);
             $row['email'] = isset($row['admin_email']) ? trim($row['admin_email']) : '';
             $row['createdAt'] = isset($row['created_at']) ? (string) $row['created_at'] : '';
+            $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+            $bonus = getTenantTokenBonus($db, $tenantId, null);
+            $row['tokensUsed'] = getTenantTokensUsed($db, $tenantId, null);
+            $row['tokensLimit'] = $planLimit > 0 ? $planLimit + $bonus : 0;
             unset($row['plan_id'], $row['plan_name'], $row['plan_token_limit'], $row['users_count'], $row['admin_email'], $row['created_at']);
         }
         unset($row);
