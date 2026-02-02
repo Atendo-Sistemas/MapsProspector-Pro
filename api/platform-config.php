@@ -17,9 +17,6 @@ try {
     $userId = requireAuth();
     $authUser = getAuthUser();
     $isSuperAdmin = ($authUser && strtolower((string)($authUser['profile'] ?? '')) === 'super_admin');
-    if (!$isSuperAdmin) {
-        jsonError('Apenas o administrador da plataforma pode acessar esta configuração.', 403);
-    }
     $db = Database::getInstance()->getConnection();
 } catch (Exception $e) {
     jsonError('Não autenticado.', 401);
@@ -27,17 +24,21 @@ try {
 
 if ($method === 'GET') {
     $saasCompanyName = getPlatformSetting($db, 'saas_company_name');
-    $creditPriceAvulso = getPlatformSetting($db, 'credit_price_avulso');
-
     $data = [
         'saasCompanyName' => $saasCompanyName !== null && $saasCompanyName !== '' ? trim((string) $saasCompanyName) : '',
-        'creditPriceAvulso' => ($creditPriceAvulso !== null && $creditPriceAvulso !== '') ? (float) str_replace(',', '.', trim($creditPriceAvulso)) : 0,
     ];
+    if ($isSuperAdmin) {
+        $creditPriceAvulso = getPlatformSetting($db, 'credit_price_avulso');
+        $data['creditPriceAvulso'] = ($creditPriceAvulso !== null && $creditPriceAvulso !== '') ? (float) str_replace(',', '.', trim($creditPriceAvulso)) : 0;
+    }
     jsonSuccess($data);
     exit;
 }
 
 if ($method === 'POST' || $method === 'PUT') {
+    if (!$isSuperAdmin) {
+        jsonError('Apenas o administrador da plataforma pode alterar esta configuração.', 403);
+    }
     $input = json_decode(file_get_contents('php://input'), true);
     if (!is_array($input)) {
         $input = [];
