@@ -225,6 +225,10 @@ require_once __DIR__ . '/config/config.php';
                     <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
                     <span>Sua empresa atingiu o limite de tokens do plano. Entre em contato para aquisição de mais tokens.</span>
                 </div>
+                <div id="impersonation-banner" class="hidden bg-blue-600 text-white px-10 py-3 flex items-center justify-center gap-4 text-sm font-bold">
+                    <span>Acessando como <strong id="impersonation-tenant-name"></strong></span>
+                    <button type="button" id="btn-stop-impersonate" class="px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 font-bold text-xs uppercase">Sair do acesso</button>
+                </div>
                 <header class="bg-white border-b border-slate-200 h-20 flex items-center px-10 justify-between backdrop-blur-md bg-white/80">
                     <div class="flex flex-col">
                         <h2 id="page-title" class="text-slate-900 font-extrabold text-xl tracking-tight">Dashboard</h2>

@@ -10,6 +10,8 @@ const AppState = {
     user: null,
     tenant: null,
     tokenUsage: null,  // { used, limit, limitReached } para aviso de limite de tokens
+    impersonating: false,
+    impersonatingTenantName: '',
     config: null,
     activeTab: 'dashboard',
     userCoords: null,
@@ -98,6 +100,8 @@ async function handleLogin(e) {
             AppState.user = data.data.user;
             AppState.tenant = data.data.tenant || null;
             AppState.tokenUsage = data.data.tokenUsage || null;
+            AppState.impersonating = !!(data.data && data.data.impersonating);
+            AppState.impersonatingTenantName = (data.data && data.data.impersonatingTenantName) || '';
             showDashboard();
             loadConfig();
         } else {
@@ -189,6 +193,16 @@ function showDashboard() {
             } else {
                 btnMeuPlano.classList.add('hidden');
             }
+        }
+    }
+    var impersonationBanner = document.getElementById('impersonation-banner');
+    var impersonationTenantName = document.getElementById('impersonation-tenant-name');
+    if (impersonationBanner) {
+        if (AppState.impersonating && AppState.impersonatingTenantName) {
+            if (impersonationTenantName) impersonationTenantName.textContent = AppState.impersonatingTenantName;
+            impersonationBanner.classList.remove('hidden');
+        } else {
+            impersonationBanner.classList.add('hidden');
         }
     }
     setActiveTab(AppState.activeTab);
@@ -309,6 +323,25 @@ function setupEventListeners() {
             e.stopPropagation();
             userDropdown.classList.add('hidden');
             logout();
+        });
+    }
+    var btnStopImpersonate = document.getElementById('btn-stop-impersonate');
+    if (btnStopImpersonate) {
+        btnStopImpersonate.addEventListener('click', function() {
+            fetch(API_BASE + 'auth.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ action: 'stop_impersonate' })
+            }).then(function(r) { return r.json(); }).then(function(res) {
+                if (res.success) {
+                    AppState.impersonating = false;
+                    AppState.impersonatingTenantName = '';
+                    checkAuth();
+                } else {
+                    alert(res.error || 'Erro ao sair do acesso.');
+                }
+            }).catch(function() { alert('Erro de conexão.'); });
         });
     }
     document.addEventListener('click', function() {
@@ -1247,19 +1280,19 @@ function loadCompaniesTab(contentArea) {
                 var statusLabel = t.status === 'active' ? 'Ativa' : 'Suspensa';
                 var statusClass = t.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700';
                 var toggleLabel = t.status === 'active' ? 'Desativar' : 'Ativar';
-                var isDefault = String(t.id) === '1';
                 var planInfo = (t.plan || '') + (t.planTokenLimit != null ? (t.planTokenLimit === 0 ? ' (ilimitado)' : ' (' + t.planTokenLimit + ' tokens)') : '');
                 html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
                 html += '<div class="flex items-center gap-6">';
                 html += '<div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
                 html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (t.name || '') + '</h4>';
-                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + ' · Plano: ' + planInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
+                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
                 html += '<div class="flex items-center gap-2">';
-                if (!isDefault) {
-                    html += '<button type="button" class="btn-toggle-tenant px-4 py-2 rounded-xl text-xs font-bold ' + (t.status === 'active' ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200') + '" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-status="' + (t.status === 'active' ? 'suspended' : 'active') + '">' + toggleLabel + '</button>';
-                    html += '<button type="button" class="btn-link-plan px-4 py-2 rounded-xl text-xs font-bold bg-blue-100 text-blue-700 hover:bg-blue-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-plan-id="' + (t.planId || '1') + '">Vincular plano</button>';
-                } else {
-                    html += '<span class="text-[10px] text-slate-400 font-bold uppercase">Empresa padrão</span>';
+                html += '<button type="button" class="btn-access-tenant px-4 py-2 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-700 hover:bg-emerald-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Acessar</button>';
+                html += '<button type="button" class="btn-edit-tenant px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-email="' + (t.email || '').replace(/"/g, '&quot;') + '">Editar</button>';
+                html += '<button type="button" class="btn-toggle-tenant px-4 py-2 rounded-xl text-xs font-bold ' + (t.status === 'active' ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200') + '" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-status="' + (t.status === 'active' ? 'suspended' : 'active') + '">' + toggleLabel + '</button>';
+                html += '<button type="button" class="btn-link-plan px-4 py-2 rounded-xl text-xs font-bold bg-blue-100 text-blue-700 hover:bg-blue-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-plan-id="' + (t.planId || '1') + '">Vincular plano</button>';
+                if (t.status === 'suspended') {
+                    html += '<button type="button" class="btn-delete-tenant px-4 py-2 rounded-xl text-xs font-bold bg-red-100 text-red-700 hover:bg-red-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Excluir</button>';
                 }
                 html += '</div></div>';
             });
@@ -1359,6 +1392,126 @@ function loadCompaniesTab(contentArea) {
                             });
                     };
                     cancelBtn.onclick = function() { overlay.remove(); };
+                });
+            });
+
+            listEl.querySelectorAll('.btn-access-tenant').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var tenantId = btn.dataset.id;
+                    var name = btn.dataset.name;
+                    if (!tenantId) return;
+                    btn.disabled = true;
+                    fetch(API_BASE + 'auth.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify({ action: 'impersonate', tenantId: tenantId })
+                    })
+                        .then(function(r) { return r.json(); })
+                        .then(function(res) {
+                            if (res.success) {
+                                AppState.user = res.data.user;
+                                AppState.tenant = res.data.tenant || null;
+                                AppState.tokenUsage = res.data.tokenUsage || null;
+                                AppState.impersonating = !!(res.data.impersonating);
+                                AppState.impersonatingTenantName = res.data.impersonatingTenantName || '';
+                                AppState.activeTab = 'dashboard';
+                                showDashboard();
+                                loadConfig();
+                            } else {
+                                alert(res.error || 'Erro ao acessar empresa.');
+                            }
+                        })
+                        .catch(function() { alert('Erro de conexão.'); })
+                        .finally(function() { btn.disabled = false; });
+                });
+            });
+
+            listEl.querySelectorAll('.btn-edit-tenant').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var tenantId = btn.dataset.id;
+                    var tenantName = btn.dataset.name || '';
+                    var tenantEmail = btn.dataset.email || '';
+                    var overlay = document.getElementById('companies-edit-tenant-overlay');
+                    if (overlay) overlay.remove();
+                    overlay = document.createElement('div');
+                    overlay.id = 'companies-edit-tenant-overlay';
+                    overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
+                    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+                        '<h4 class="text-xl font-black text-slate-900 mb-2">Editar empresa</h4>' +
+                        '<p class="text-sm text-slate-500 mb-4">Altere o nome e o e-mail do administrador da empresa.</p>' +
+                        '<form id="companies-edit-tenant-form" class="space-y-4">' +
+                        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome</label>' +
+                        '<input type="text" id="companies-edit-tenant-name" value="' + tenantName.replace(/"/g, '&quot;') + '" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Nome da empresa"></div>' +
+                        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">E-mail</label>' +
+                        '<input type="email" id="companies-edit-tenant-email" value="' + tenantEmail.replace(/"/g, '&quot;') + '" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="admin@empresa.com"></div>' +
+                        '<p id="companies-edit-tenant-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+                        '<div class="flex gap-3 pt-4">' +
+                        '<button type="button" id="companies-edit-tenant-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+                        '<button type="submit" id="companies-edit-tenant-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar</button>' +
+                        '</div></form></div>';
+                    overlay.onclick = function(ev) { if (ev.target === overlay) overlay.remove(); };
+                    document.body.appendChild(overlay);
+                    var form = document.getElementById('companies-edit-tenant-form');
+                    var cancelBtn = document.getElementById('companies-edit-tenant-cancel');
+                    var errorEl = document.getElementById('companies-edit-tenant-error');
+                    var submitBtn = document.getElementById('companies-edit-tenant-submit');
+                    form.onsubmit = function(e) {
+                        e.preventDefault();
+                        var name = document.getElementById('companies-edit-tenant-name').value.trim();
+                        var email = document.getElementById('companies-edit-tenant-email').value.trim().toLowerCase();
+                        if (!name) { errorEl.textContent = 'Nome é obrigatório.'; errorEl.classList.remove('hidden'); return; }
+                        errorEl.classList.add('hidden');
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Salvando...';
+                        var body = { id: tenantId, name: name };
+                        if (email) body.email = email;
+                        fetch(API_BASE + 'tenants.php', {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            credentials: 'same-origin',
+                            body: JSON.stringify(body)
+                        })
+                            .then(function(r) { return r.json(); })
+                            .then(function(res) {
+                                if (res.success) {
+                                    overlay.remove();
+                                    loadCompaniesTab(document.getElementById('content-area'));
+                                } else {
+                                    errorEl.textContent = res.error || 'Erro ao salvar.';
+                                    errorEl.classList.remove('hidden');
+                                }
+                            })
+                            .catch(function() {
+                                errorEl.textContent = 'Erro de conexão.';
+                                errorEl.classList.remove('hidden');
+                            })
+                            .finally(function() {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Salvar';
+                            });
+                    };
+                    cancelBtn.onclick = function() { overlay.remove(); };
+                });
+            });
+
+            listEl.querySelectorAll('.btn-delete-tenant').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var id = btn.dataset.id;
+                    var name = btn.dataset.name;
+                    if (!confirm('Excluir a empresa "' + name + '"? Os usuários serão vinculados à empresa padrão.')) return;
+                    btn.disabled = true;
+                    fetch(API_BASE + 'tenants.php?id=' + encodeURIComponent(id), { method: 'DELETE', credentials: 'same-origin' })
+                        .then(function(r) { return r.json(); })
+                        .then(function(res) {
+                            if (res.success) {
+                                setActiveTab('companies');
+                            } else {
+                                alert(res.error || 'Erro ao excluir.');
+                            }
+                        })
+                        .catch(function() { alert('Erro de conexão.'); })
+                        .finally(function() { btn.disabled = false; });
                 });
             });
         })
