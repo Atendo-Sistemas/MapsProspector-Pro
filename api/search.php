@@ -101,10 +101,10 @@ try {
         }
     }
     
-    // Chama o serviço Apify (Compass Google Places)
+    // Chama o serviço de busca (Google Maps)
     require_once __DIR__ . '/../services/scraperService.php';
     
-    // Chave Apify: única para toda a plataforma (configurada apenas pelo super_admin)
+    // Chave da API de busca: única para toda a plataforma (configurada apenas pelo super_admin)
     $scraperApiKey = getPlatformSetting($db, 'scraper_api_key');
     if (empty(trim((string)$scraperApiKey)) && defined('SCRAPER_API_KEY')) {
         $scraperApiKey = SCRAPER_API_KEY;

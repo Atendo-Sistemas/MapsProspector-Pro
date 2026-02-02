@@ -22,6 +22,7 @@ $companyName = sanitizeInput(trim($input['companyName'] ?? $input['name'] ?? '')
 $slug = isset($input['slug']) ? sanitizeInput(trim($input['slug'])) : '';
 $adminEmail = trim(strtolower($input['adminEmail'] ?? $input['email'] ?? ''));
 $adminName = sanitizeInput(trim($input['adminName'] ?? ''));
+$adminPassword = $input['adminPassword'] ?? $input['password'] ?? '';
 
 if (empty($companyName)) {
     jsonError('Nome da empresa é obrigatório', 400);
@@ -29,6 +30,10 @@ if (empty($companyName)) {
 
 if (empty($adminEmail) || !validateEmail($adminEmail)) {
     jsonError('E-mail do administrador é obrigatório e deve ser válido', 400);
+}
+
+if (strlen($adminPassword) < 6) {
+    jsonError('A senha deve ter no mínimo 6 caracteres', 400);
 }
 
 try {
@@ -108,8 +113,9 @@ try {
     $stmt->execute([$companyName, $slug, $planId, $planSlug]);
     $tenantId = (int) $db->lastInsertId();
 
-    $stmt = $db->prepare("INSERT INTO users (name, email, tenant_id, profile) VALUES (?, ?, ?, 'admin')");
-    $stmt->execute([$adminName, $adminEmail, $tenantId]);
+    $passwordHash = password_hash($adminPassword, PASSWORD_DEFAULT);
+    $stmt = $db->prepare("INSERT INTO users (name, email, password, tenant_id, profile) VALUES (?, ?, ?, ?, 'admin')");
+    $stmt->execute([$adminName, $adminEmail, $passwordHash, $tenantId]);
     $userId = (int) $db->lastInsertId();
 
     $db->commit();

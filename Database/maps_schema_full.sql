@@ -1,7 +1,19 @@
 -- =============================================================================
 -- MapsProspector Pro - Schema completo para nova instalação limpa
 -- Banco: maps | Charset: utf8mb4_unicode_ci
--- Execute este arquivo em um banco vazio para criar todas as tabelas e dados iniciais.
+-- =============================================================================
+--
+-- QUANDO INSTALAR EM OUTRO LUGAR:
+-- 1. Crie um banco MySQL/MariaDB (ou use o nome padrão 'maps').
+-- 2. Execute este arquivo inteiro (phpMyAdmin, linha de comando ou cliente).
+--    Ex.: mysql -u usuario -p nome_do_banco < maps_schema_full.sql
+-- 3. Se usar outro nome de banco: altere CREATE DATABASE e USE abaixo.
+-- 4. Após a primeira entrada, altere a senha do usuário admin (admin@atendo.maps).
+--
+-- Este arquivo já inclui: tabelas, FKs, planos (Básico + Período de teste),
+-- tenant padrão, usuário super_admin (senha: admin123), platform_settings.
+-- Nenhuma migração adicional é necessária para instalação nova.
+--
 -- =============================================================================
 
 SET NAMES utf8mb4;
@@ -266,9 +278,9 @@ INSERT INTO `tenants` (`id`, `name`, `slug`, `plan_id`, `plan`, `status`) VALUES
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `plan_id` = VALUES(`plan_id`);
 
 INSERT INTO `users` (`id`, `name`, `email`, `password`, `tenant_id`, `profile`) VALUES
-(1, 'Administrador', 'admin@atendo.maps', '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', NULL, 'super_admin')
+(1, 'Administrador', 'admin@atendo.maps', '$2y$10$Cn/9BTVZhe2u21oncyPFROwXd0gFbn01BSzqGeqRbOD1no9WpHqfm', NULL, 'super_admin')
 ON DUPLICATE KEY UPDATE `profile` = 'super_admin', `tenant_id` = NULL;
--- Senha do admin: admin123 (bcrypt)
+-- Senha do admin: admin123 (bcrypt). Altere após o primeiro acesso em produção.
 
 INSERT IGNORE INTO `platform_settings` (`setting_key`, `setting_value`) VALUES
 ('scraper_api_key', NULL),
@@ -279,5 +291,6 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 -- =============================================================================
 -- Fim do schema - MapsProspector Pro
+-- Instalação nova: este arquivo é suficiente. Nenhuma migração é obrigatória.
 -- Planos adicionais: execute database_seed_plans.sql se desejar mais planos.
 -- =============================================================================

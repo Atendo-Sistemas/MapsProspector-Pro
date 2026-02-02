@@ -22,7 +22,7 @@ $isSuperAdmin = ($authUser && strtolower((string)($authUser['profile'] ?? '')) =
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
-    // Chave Apify: apenas super_admin vê o valor; demais recebem apenas se está configurada
+    // Chave da API de busca: apenas super_admin vê o valor; demais recebem apenas se está configurada
     $platformScraperKey = getPlatformSetting($db, 'scraper_api_key');
     $platformScraperKey = $platformScraperKey === null ? '' : (string) $platformScraperKey;
     $scraperApiKeyConfigured = trim($platformScraperKey) !== '';
@@ -63,14 +63,14 @@ if ($method === 'GET') {
     $wrapInBody = isset($input['wrapInBody']) && $input['wrapInBody'] ? 1 : 0;
     $simplifiedPayload = isset($input['simplifiedPayload']) && $input['simplifiedPayload'] ? 1 : 0;
 
-    // Chave Apify: apenas super_admin pode alterar; salva em platform_settings (toda a plataforma usa)
+    // Chave da API de busca: apenas super_admin pode alterar; salva em platform_settings (toda a plataforma usa)
     if ($isSuperAdmin && array_key_exists('scraperApiKey', $input)) {
         $scraperApiKey = sanitizeInput($input['scraperApiKey'] ?? '');
         try {
             setPlatformSetting($db, 'scraper_api_key', $scraperApiKey);
         } catch (PDOException $e) {
             error_log("settings.php setPlatformSetting: " . $e->getMessage());
-            jsonError('Não foi possível salvar a chave Apify. Execute o script database_migration_platform_settings.sql no banco de dados.', 500);
+            jsonError('Não foi possível salvar a chave da API de busca. Execute o script database_migration_platform_settings.sql no banco de dados.', 500);
         }
     }
 

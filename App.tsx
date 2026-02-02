@@ -95,7 +95,7 @@ const Toast = ({ message, onClose }: { message: string; onClose: () => void }) =
 };
 
 const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUsageUpdate }) => {
-  const [activeTab, setActiveTab] = useState<'dashboard' | 'search' | 'history' | 'request-credits' | 'choose-plan' | 'settings' | 'companies' | 'plans' | 'credits'>('dashboard');
+  const [activeTab, setActiveTab] = useState<'dashboard' | 'search' | 'history' | 'request-credits' | 'choose-plan' | 'settings' | 'api-busca' | 'companies' | 'plans' | 'credits'>('dashboard');
   const [history, setHistory] = useState<SearchHistoryItem[]>([]);
   
   // Atualizado para usar o tipo completo, incluindo leads
@@ -398,11 +398,11 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
                 Créditos
               </button>
               <button 
-                onClick={() => setActiveTab('settings')} 
-                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'settings' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
+                onClick={() => setActiveTab('api-busca')} 
+                className={`w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm ${activeTab === 'api-busca' ? 'bg-blue-600 text-white shadow-xl shadow-blue-900/30' : 'hover:bg-slate-800/50 text-slate-400'}`}
               >
-                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
-                Configurações (API)
+                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                API de Busca
               </button>
             </div>
           )}
@@ -448,9 +448,9 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           <header className="bg-white border-b border-slate-200 h-20 flex items-center px-10 justify-between backdrop-blur-md bg-white/80">
           <div className="flex flex-col">
             <h2 className="text-slate-900 font-extrabold text-xl tracking-tight">
-              {activeTab === 'dashboard' ? 'Dashboard' : activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : activeTab === 'request-credits' ? 'Solicitar Créditos' : activeTab === 'choose-plan' ? 'Meu plano' : activeTab === 'companies' ? 'Empresas' : activeTab === 'plans' ? 'Planos' : activeTab === 'credits' ? 'Créditos' : 'Integração CRM'}
+              {activeTab === 'dashboard' ? 'Dashboard' : activeTab === 'search' ? 'Prospecção Inteligente' : activeTab === 'history' ? 'Arquivo de Buscas' : activeTab === 'request-credits' ? 'Solicitar Créditos' : activeTab === 'choose-plan' ? 'Meu plano' : activeTab === 'companies' ? 'Empresas' : activeTab === 'plans' ? 'Planos' : activeTab === 'credits' ? 'Créditos' : activeTab === 'api-busca' ? 'API de Busca' : 'Integração CRM'}
             </h2>
-            <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard Atendo</p>
+            <p className="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard {saasCompanyName || 'ATENDO'}</p>
           </div>
           
           <div className="flex items-center gap-6">
@@ -596,15 +596,15 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
                     {/* API de Busca: status para todos; chave apenas super_admin. Nome Thordata só para super_admin. */}
                     <div className="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div className="absolute top-0 right-0 w-32 h-32 bg-blue-600/10 rounded-full blur-3xl"></div>
-                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">{String(user.profile).toLowerCase() === 'super_admin' ? 'API Apify (Google Places)' : 'API de Busca (Google Maps)'}</h4>
+                        <h4 className="font-black text-xl mb-4 flex items-center gap-2">API de Busca (Google Maps)</h4>
                         {(String(user.profile).toLowerCase() === 'super_admin' ? settingsForm.scraperApiKey?.trim() : settingsForm.scraperApiKeyConfigured) ? (
                           <>
-                            <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? '✓ Conectado ao Google Maps via Apify' : '✓ Conectado ao Google Maps'}</div>
+                            <div className="p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold">✓ Conectado ao Google Maps</div>
                             <p className="text-[10px] text-slate-400 mt-4 text-center italic">{String(user.profile).toLowerCase() === 'super_admin' ? 'API configurada no servidor. Todas as empresas utilizam esta chave.' : 'API configurada no servidor pelo administrador da plataforma.'}</p>
                           </>
                         ) : (
                           <>
-                            <div className="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">{String(user.profile).toLowerCase() === 'super_admin' ? 'Nenhuma API Apify configurada' : 'Nenhuma API de busca configurada'}</div>
+                            <div className="p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold">Nenhuma API de busca configurada</div>
                             <p className="text-[10px] text-slate-400 mt-4 text-center italic">{String(user.profile).toLowerCase() === 'super_admin' ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave nas Configurações.'}</p>
                           </>
                         )}
@@ -674,18 +674,6 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
                       <label className="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Token de Acesso / API Key CRM</label>
                       <input type="password" className="w-full bg-slate-50 border border-slate-200 rounded-2xl px-6 py-4 outline-none focus:border-blue-500 font-bold" placeholder="Insira o Token do CRM" value={settingsForm.token} onChange={(e) => setSettingsForm(prev => ({ ...prev, token: e.target.value }))} />
                     </div>
-
-                    {String(user.profile).toLowerCase() === 'super_admin' && (
-                    <div className="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
-                      <div className="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
-                      <h4 className="font-black text-lg mb-3 flex items-center gap-2">API Apify (Google Places)</h4>
-                      <p className="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
-                      <div>
-                        <label className="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API Apify</label>
-                        <input type="password" className="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500" placeholder="Insira a chave da API Apify" value={settingsForm.scraperApiKey || ''} onChange={(e) => setSettingsForm(prev => ({ ...prev, scraperApiKey: e.target.value }))} />
-                      </div>
-                    </div>
-                    )}
 
                     <button onClick={saveSettings} className="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 transition-all active:scale-[0.98]">Salvar Alterações</button>
                   </div>

@@ -54,14 +54,22 @@ require_once __DIR__ . '/config/config.php';
                         <p class="text-slate-500 font-medium text-sm">Ferramenta de Prospecção Inteligente</p>
                     </div>
                     <form id="login-form" class="space-y-6">
-                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-left">
-                            <label for="login-email" class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">E-mail</label>
-                            <input type="email" id="login-email" name="email" placeholder="seu@email.com" required
-                                class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
-                                autocomplete="email" />
+                        <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-left space-y-4">
+                            <div>
+                                <label for="login-email" class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">E-mail</label>
+                                <input type="email" id="login-email" name="email" placeholder="seu@email.com" required
+                                    class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                                    autocomplete="email" />
+                            </div>
+                            <div>
+                                <label for="login-password" class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">Senha</label>
+                                <input type="password" id="login-password" name="password" placeholder="••••••••" required
+                                    class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                                    autocomplete="current-password" />
+                            </div>
                             <p id="login-error" class="mt-2 text-xs font-bold text-red-500 hidden"></p>
                             <p class="text-[11px] text-slate-500 font-medium leading-relaxed mt-3">
-                                Use o e-mail cadastrado na plataforma. Após entrar, configure a integração em <span class="font-bold text-slate-700">Configurações</span>.
+                                Use o e-mail e a senha cadastrados na plataforma. Após entrar, configure a integração em <span class="font-bold text-slate-700">Configurações</span>.
                             </p>
                         </div>
                         <button type="submit" id="btn-login" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl shadow-xl shadow-blue-100 transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-3 text-sm tracking-wide uppercase">
@@ -88,6 +96,14 @@ require_once __DIR__ . '/config/config.php';
                                 <div>
                                     <label for="reg-name" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Seu nome (opcional)</label>
                                     <input type="text" id="reg-name" placeholder="Nome do responsável" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                                </div>
+                                <div>
+                                    <label for="reg-password" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Senha (mín. 6 caracteres)</label>
+                                    <input type="password" id="reg-password" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                                </div>
+                                <div>
+                                    <label for="reg-password-confirm" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Confirmar senha</label>
+                                    <input type="password" id="reg-password-confirm" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
                                 </div>
                                 <p id="reg-error" class="text-xs font-bold text-red-500 hidden"></p>
                                 <div class="flex gap-3">
@@ -176,9 +192,9 @@ require_once __DIR__ . '/config/config.php';
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
                                     Créditos
                                 </button>
-                                <button data-tab="settings" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-800/50 text-slate-400">
-                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
-                                    Configurações (API)
+                                <button data-tab="api-busca" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-800/50 text-slate-400">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                    API de Busca
                                 </button>
                             </div>
                         </div>
@@ -212,7 +228,7 @@ require_once __DIR__ . '/config/config.php';
                 <header class="bg-white border-b border-slate-200 h-20 flex items-center px-10 justify-between backdrop-blur-md bg-white/80">
                     <div class="flex flex-col">
                         <h2 id="page-title" class="text-slate-900 font-extrabold text-xl tracking-tight">Dashboard</h2>
-                        <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard Atendo</p>
+                        <p id="header-dashboard-subtitle" class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard ATENDO</p>
                     </div>
                     <div class="flex items-center gap-6">
                         <div id="header-user-area" class="relative flex flex-col items-end border-l border-slate-200 pl-6 cursor-pointer group" title="Clique para abrir menu">

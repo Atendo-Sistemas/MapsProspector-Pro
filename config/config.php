@@ -29,7 +29,7 @@ ini_set('error_log', __DIR__ . '/../logs/php_errors.log'); // Define arquivo de 
 // IMPORTANTE: Configure sua chave aqui ou via variável de ambiente
 define('GEMINI_API_KEY', getenv('GEMINI_API_KEY') ?: 'AIzaSyB-vO2vH6m6G9r7m7v8z2x1c5v4b3n2m1');
 
-// Chave da API Apify (Compass Google Places)
+// Chave da API de Busca (Google Maps)
 // IMPORTANTE: Configure sua chave aqui ou via variável de ambiente
 define('SCRAPER_API_KEY', getenv('SCRAPER_API_KEY') ?: '0e510c30f65a8b3abfbfad5090d47f79');
 

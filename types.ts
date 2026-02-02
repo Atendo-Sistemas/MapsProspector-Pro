@@ -6,9 +6,9 @@ export interface CRMConfig {
   useProxy?: boolean;
   wrapInBody?: boolean;
   simplifiedPayload?: boolean;
-  /** Chave Apify: só super_admin vê e edita; demais usam a da plataforma */
+  /** Chave da API de busca: só super_admin vê e edita; demais usam a da plataforma */
   scraperApiKey?: string;
-  /** Indica se a chave Apify está configurada na plataforma (para usuários não super_admin) */
+  /** Indica se a chave da API de busca está configurada na plataforma (para usuários não super_admin) */
   scraperApiKeyConfigured?: boolean;
 }
 

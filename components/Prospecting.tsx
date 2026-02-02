@@ -113,7 +113,7 @@ export const Prospecting: React.FC<ProspectingProps> = ({ config, initialHistory
     setVisibleCount(12); // Reseta paginação
 
     try {
-      // Busca leads usando API Apify (Compass Google Places); resultados vêm bloqueados (dados sensíveis criptografados)
+      // Busca leads usando API de busca (Google Maps); resultados vêm bloqueados (dados sensíveis criptografados)
       const { leads: results, tokenUsage: newTokenUsage, searchId: newSearchId } = await searchLeadsOnMaps(
         cleanQuery, 
         useGPS ? undefined : cleanLocation, 

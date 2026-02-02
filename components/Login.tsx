@@ -10,6 +10,7 @@ interface LoginProps {
 
 export const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [showRegister, setShowRegister] = useState(false);
@@ -18,6 +19,8 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
   const [regCompany, setRegCompany] = useState('');
   const [regEmail, setRegEmail] = useState('');
   const [regName, setRegName] = useState('');
+  const [regPassword, setRegPassword] = useState('');
+  const [regPasswordConfirm, setRegPasswordConfirm] = useState('');
   const [regLoading, setRegLoading] = useState(false);
   const [regError, setRegError] = useState<string | null>(null);
 
@@ -30,12 +33,16 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
       setError('Por favor, insira um e-mail válido.');
       return;
     }
+    if (!password) {
+      setError('Por favor, insira sua senha.');
+      return;
+    }
     setLoading(true);
     try {
       const res = await fetch(`${API_BASE}/api/auth.php`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ action: 'login', email: trimmed }),
+        body: JSON.stringify({ action: 'login', email: trimmed, password }),
         credentials: 'include',
       });
       const data = await res.json();
@@ -68,6 +75,14 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
       setRegError('E-mail do administrador é obrigatório e deve ser válido.');
       return;
     }
+    if (regPassword.length < 6) {
+      setRegError('A senha deve ter no mínimo 6 caracteres.');
+      return;
+    }
+    if (regPassword !== regPasswordConfirm) {
+      setRegError('As senhas não coincidem.');
+      return;
+    }
     setRegLoading(true);
     try {
       const res = await fetch(`${API_BASE}/api/register.php`, {
@@ -77,16 +92,19 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
           companyName: company,
           adminEmail: mail,
           adminName: regName.trim() || undefined,
+          adminPassword: regPassword,
         }),
       });
       const data = await res.json();
       if (data.success) {
-        setRegisterSuccess(data.message || 'Empresa cadastrada. Faça login com seu e-mail.');
+        setRegisterSuccess(data.message || 'Empresa cadastrada. Faça login com seu e-mail e senha.');
         setEmail(mail);
         setShowRegister(false);
         setRegCompany('');
         setRegEmail('');
         setRegName('');
+        setRegPassword('');
+        setRegPasswordConfirm('');
       } else {
         setRegError(data.error || 'Erro ao cadastrar. Tente novamente.');
       }
@@ -126,22 +144,36 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
           {!showRegister ? (
             <>
               <form onSubmit={handleSubmit} className="space-y-6">
-                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-left">
-                  <label className="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">E-mail</label>
-                  <input
-                    type="email"
-                    value={email}
-                    onChange={(e) => setEmail(e.target.value)}
-                    placeholder="seu@email.com"
-                    className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
-                    autoComplete="email"
-                    disabled={loading}
-                  />
+                <div className="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-left space-y-4">
+                  <div>
+                    <label className="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">E-mail</label>
+                    <input
+                      type="email"
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                      placeholder="seu@email.com"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                      autoComplete="email"
+                      disabled={loading}
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">Senha</label>
+                    <input
+                      type="password"
+                      value={password}
+                      onChange={(e) => setPassword(e.target.value)}
+                      placeholder="••••••••"
+                      className="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                      autoComplete="current-password"
+                      disabled={loading}
+                    />
+                  </div>
                   {error && (
                     <p className="mt-2 text-xs font-bold text-red-500">{error}</p>
                   )}
                   <p className="text-[11px] text-slate-500 font-medium leading-relaxed mt-3">
-                    Use o e-mail cadastrado na plataforma. Após entrar, configure a integração em <span className="font-bold text-slate-700">Configurações</span>.
+                    Use o e-mail e a senha cadastrados na plataforma. Após entrar, configure a integração em <span className="font-bold text-slate-700">Configurações</span>.
                   </p>
                 </div>
 
@@ -211,11 +243,35 @@ export const Login: React.FC<LoginProps> = ({ onLogin }) => {
                     className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
                   />
                 </div>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-500 uppercase mb-1">Senha (mín. 6 caracteres)</label>
+                  <input
+                    type="password"
+                    value={regPassword}
+                    onChange={(e) => setRegPassword(e.target.value)}
+                    placeholder="••••••••"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                    autoComplete="new-password"
+                    minLength={6}
+                  />
+                </div>
+                <div>
+                  <label className="block text-[10px] font-black text-slate-500 uppercase mb-1">Confirmar senha</label>
+                  <input
+                    type="password"
+                    value={regPasswordConfirm}
+                    onChange={(e) => setRegPasswordConfirm(e.target.value)}
+                    placeholder="••••••••"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium"
+                    autoComplete="new-password"
+                    minLength={6}
+                  />
+                </div>
                 {regError && <p className="text-xs font-bold text-red-500">{regError}</p>}
                 <div className="flex gap-3 pt-2">
                   <button
                     type="button"
-                    onClick={() => { setShowRegister(false); setRegError(null); setRegCompany(''); setRegEmail(''); setRegName(''); }}
+                    onClick={() => { setShowRegister(false); setRegError(null); setRegCompany(''); setRegEmail(''); setRegName(''); setRegPassword(''); setRegPasswordConfirm(''); }}
                     className="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50 text-sm"
                   >
                     Voltar

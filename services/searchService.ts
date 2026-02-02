@@ -1,7 +1,7 @@
 import { Lead, TokenUsage } from '../types';
 
 /**
- * Serviço de Busca de Leads usando API Apify (Compass Google Places)
+ * Serviço de Busca de Leads (Google Maps)
  * Chama o endpoint PHP que utiliza o ScraperService
  */
 
