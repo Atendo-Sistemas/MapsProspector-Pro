@@ -74,14 +74,16 @@ if (!$config || empty($config['base_url'])) {
     jsonError('URL do CRM não configurada. Configure nas Configurações.', 400);
 }
 
+$targetUrl = validateWebhookUrl(trim($config['base_url']));
+if ($targetUrl === null) {
+    jsonError('URL do CRM configurada é inválida ou não permitida por segurança. Configure uma URL HTTPS válida nas Configurações.', 400);
+}
+
 // Prepara dados do contato (reutiliza helper usado no bulk)
 $contactData = buildContactDataFromLead($lead);
 if ($contactData === null) {
     jsonError('O contato não possui um número de telefone válido.');
 }
-
-// URL do Webhook: usada exatamente como configurada (n8n, Atendo etc. — não acrescentar /createcontact)
-$targetUrl = rtrim($config['base_url'], '/');
 
 // Payload enviado diretamente (sem encapsulamento em body)
 $payload = $contactData;

@@ -14,9 +14,11 @@ register_shutdown_function(function() {
         ob_clean();
         http_response_code(500);
         header('Content-Type: application/json; charset=utf-8');
+        $showDetail = (defined('ENVIRONMENT') && ENVIRONMENT === 'development' && ini_get('display_errors'));
+        $msg = $showDetail ? ('Erro interno do servidor: ' . $error['message']) : 'Erro interno do servidor. Tente novamente.';
         echo json_encode([
             'success' => false,
-            'error' => 'Erro interno do servidor: ' . $error['message']
+            'error' => $msg
         ], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
         exit;
     }

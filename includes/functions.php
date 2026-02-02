@@ -160,6 +160,51 @@ function setPlatformSetting($db, $key, $value) {
 }
 
 /**
+ * Valida URL do webhook/CRM para evitar SSRF (apenas https, sem IPs privados/metadados).
+ * Retorna a URL normalizada se válida; caso contrário retorna null.
+ *
+ * @param string $url URL informada pelo usuário
+ * @return string|null URL válida ou null
+ */
+function validateWebhookUrl($url) {
+    $url = trim($url);
+    if ($url === '') {
+        return null;
+    }
+    $parsed = @parse_url($url);
+    if ($parsed === false || !isset($parsed['scheme'], $parsed['host'])) {
+        return null;
+    }
+    $scheme = strtolower($parsed['scheme']);
+    if ($scheme !== 'https' && $scheme !== 'http') {
+        return null;
+    }
+    $host = $parsed['host'];
+    if (preg_match('/^\d+\.\d+\.\d+\.\d+$/', $host)) {
+        $ip = $host;
+        if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+            return null;
+        }
+        if (strpos($ip, '169.254.') === 0 || $ip === '0.0.0.0') {
+            return null;
+        }
+    } else {
+        $resolved = @gethostbynamel($host);
+        if ($resolved) {
+            foreach ($resolved as $ip) {
+                if (filter_var($ip, FILTER_VALIDATE_IP, FILTER_FLAG_NO_PRIV_RANGE | FILTER_FLAG_NO_RES_RANGE) === false) {
+                    return null;
+                }
+                if (strpos($ip, '169.254.') === 0) {
+                    return null;
+                }
+            }
+        }
+    }
+    return rtrim($url, '/');
+}
+
+/**
  * Formata número de telefone brasileiro
  */
 function formatPhoneNumber($phone) {

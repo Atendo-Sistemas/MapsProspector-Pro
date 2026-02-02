@@ -53,7 +53,12 @@ if ($method === 'GET') {
         $input = [];
     }
 
-    $baseUrl = sanitizeInput($input['baseUrl'] ?? '');
+    $baseUrlRaw = trim($input['baseUrl'] ?? '');
+    $baseUrl = $baseUrlRaw !== '' ? validateWebhookUrl($baseUrlRaw) : '';
+    if ($baseUrlRaw !== '' && $baseUrl === null) {
+        jsonError('URL do Webhook/CRM inválida. Use apenas HTTPS (ou HTTP em ambiente controlado) e evite IPs internos.', 400);
+    }
+    $baseUrl = $baseUrl ?? '';
     $apikeyPlain = trim($input['token'] ?? '');
     $tenantName = sanitizeInput($input['tenantName'] ?? 'Nome da empresa SaaS');
 

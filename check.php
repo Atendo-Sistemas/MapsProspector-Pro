@@ -5,7 +5,7 @@
  */
 
 error_reporting(E_ALL);
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 
 echo "<h1>Verificação do Sistema - MapsProspector Pro</h1>";
 echo "<style>body{font-family:Arial;padding:20px;} .ok{color:green;} .erro{color:red;} .info{color:blue;}</style>";
@@ -30,9 +30,10 @@ foreach ($extensoes as $ext) {
     }
 }
 
-// 3. Verificar banco de dados
+// 3. Verificar banco de dados (.env deve ser carregado antes para DB_*)
 echo "<h2>3. Conexão com Banco de Dados</h2>";
 try {
+    require_once __DIR__ . '/config/config.php';
     require_once __DIR__ . '/config/database.php';
     $db = Database::getInstance()->getConnection();
     echo "<p class='ok'>✓ Conexão com banco de dados estabelecida</p>";
@@ -52,14 +53,12 @@ try {
     echo "<p class='info'>💡 Solução: Execute o script database.sql no phpMyAdmin</p>";
 }
 
-// 4. Verificar chave da API
-echo "<h2>4. Configuração da API</h2>";
-require_once __DIR__ . '/config/config.php';
-if (defined('GEMINI_API_KEY') && GEMINI_API_KEY !== 'SUA_CHAVE_AQUI' && !empty(GEMINI_API_KEY)) {
-    $keyPreview = substr(GEMINI_API_KEY, 0, 10) . '...';
-    echo "<p class='ok'>✓ Chave da API configurada ($keyPreview)</p>";
+// 4. Verificar chave da API de Busca (config já carregado no passo 3)
+echo "<h2>4. Configuração da API de Busca</h2>";
+if (defined('SCRAPER_API_KEY') && !empty(trim((string)SCRAPER_API_KEY))) {
+    echo "<p class='ok'>✓ Chave da API de Busca (Scraper) configurada</p>";
 } else {
-    echo "<p class='erro'>✗ Chave da API não configurada</p>";
+    echo "<p class='erro'>✗ Chave da API de Busca não configurada (SCRAPER_API_KEY no .env ou Configurações)</p>";
 }
 
 // 5. Verificar permissões
@@ -90,7 +89,7 @@ $arquivos = [
     'api/settings.php',
     'api/history.php',
     'api/export.php',
-    'services/gemini.php',
+    'services/scraperService.php',
     'assets/js/app.js'
 ];
 
