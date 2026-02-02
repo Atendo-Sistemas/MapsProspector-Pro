@@ -32,6 +32,10 @@ if (!$config || empty($config['base_url'])) {
     jsonError('URL do Webhook não configurada. Configure nas Configurações.', 400);
 }
 
+$targetUrl = validateWebhookUrl(trim($config['base_url']));
+if ($targetUrl === null) {
+    jsonError('URL do Webhook configurada é inválida ou não permitida por segurança. Configure uma URL HTTPS válida nas Configurações.', 400);
+}
 
 // Extrai IDs numéricos
 $numericIds = [];
@@ -71,8 +75,6 @@ foreach ($leads as $lead) {
 if (empty($contacts)) {
     jsonError('Nenhum lead com telefone válido para enviar.', 400);
 }
-
-$targetUrl = rtrim($config['base_url'], '/');
 
 $payload = ['leads' => $contacts];
 

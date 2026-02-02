@@ -57,6 +57,8 @@ if ($method === 'POST') {
             jsonError('E-mail ou senha incorretos.');
         }
 
+        session_regenerate_id(true);
+
         $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;
         $tenantName = 'Nome da empresa SaaS';
         $tenantStatus = 'active';
