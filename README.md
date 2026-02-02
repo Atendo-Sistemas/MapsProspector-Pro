@@ -1,4 +1,3 @@
-
 <div align="center">
   <img 
     width="1200" 
@@ -43,24 +42,24 @@ A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou
 
 ---
 
-## 🧠 Tecnologias e Interface
+## 🧠 Tecnologias
 
-O projeto utiliza **uma única interface**: PHP/XAMPP (index.php + assets/js/app.js). O histórico de pesquisas é gravado e listado no banco de dados (api/search.php e api/history.php).
+O projeto é **100% PHP + JavaScript** (sem React/Node no frontend).
 
-- **Frontend:** HTML, Tailwind CSS, JavaScript (assets/js/app.js)
-- **Backend:** PHP (APIs em /api/), MySQL (tabelas search_history e leads)
-- **Estilização:** Tailwind CSS
-- **Scraper:** API Thordata (Google Maps); IA opcional via Gemini
+- **Backend:** PHP (APIs em `/api/`), MySQL/MariaDB
+- **Frontend:** HTML servido por PHP (`index.php`) + JavaScript vanilla (`assets/js/app.js`)
+- **Estilização:** Tailwind CSS (via CDN)
+- **API de Busca:** Integração com serviço de busca (Google Maps); IA opcional via Gemini
 
 ---
 
 ## 📦 Requisitos
 
-Para rodar o projeto localmente ou em produção, você precisará de:
-
-- Node.js **18 ou superior**
-- Docker & Docker Compose (para implantação em contêiner)
-- Chave de API do **Google Cloud** com acesso à **Gemini API**
+- **PHP 7.4+** (recomendado 8.x) com extensões: pdo, pdo_mysql, curl, json, mbstring
+- **MySQL 5.7+** ou **MariaDB 10.2+**
+- Servidor web (Apache com mod_rewrite ou Nginx com PHP-FPM)
+- Opcional: Docker & Docker Compose para implantação em contêiner
+- Chave de API do **Google Cloud** com acesso à **Gemini API** (se usar IA)
 
 ---
 
@@ -71,120 +70,102 @@ Para rodar o projeto localmente ou em produção, você precisará de:
 ```bash
 git clone https://github.com/seu-usuario/MapsProspector-Pro.git
 cd MapsProspector-Pro
-````
+```
 
-### 2️⃣ Instale as dependências
+### 2️⃣ Configure o banco de dados
+
+Crie o banco `maps` e execute o schema:
 
 ```bash
-npm install
+mysql -u usuario -p maps < Database/maps_schema_full.sql
 ```
 
-### 3️⃣ Configure a chave da API
+Ou importe `Database/maps_schema_full.sql` pelo phpMyAdmin. Veja `Database/README.md` para detalhes.
 
-Crie ou edite o arquivo `.env` e adicione:
+### 3️⃣ Configure o PHP
 
-```env
-VITE_GEMINI_API_KEY=SUA_CHAVE_AQUI
-```
+Edite `config/config.php` (ou use variáveis de ambiente) e defina:
 
-### 4️⃣ Inicie o servidor de desenvolvimento
+- Conexão com o banco em `config/database.php`
+- Chave da API de Busca (Google Maps)
+- Opcional: `GEMINI_API_KEY` para uso de IA
+
+### 4️⃣ Sirva o projeto
+
+**XAMPP / Apache:** Coloque o projeto em `htdocs` e acesse `http://localhost/MapsProspector-Pro/` (ou o caminho configurado).
+
+**Servidor PHP embutido:**
 
 ```bash
-npm run dev
+php -S localhost:8000
 ```
 
-### 5️⃣ Acesse a aplicação
+Acesse `http://localhost:8000/index.php`
 
-```text
-http://localhost:5173
-```
+### 5️⃣ Primeiro acesso
+
+- **Login:** `admin@atendo.maps` / senha: `admin123`
+- Altere a senha do admin após o primeiro acesso em produção.
 
 ---
 
-## 🐳 Implantação com Docker (Recomendado para VPS)
+## 🐳 Implantação com Docker
 
-O projeto já inclui configuração com **Docker Compose**, facilitando o deploy em servidores Linux.
-
-### 1️⃣ Construa e inicie os contêineres
+O projeto inclui **Dockerfile** com PHP + Apache (sem Node).
 
 ```bash
 docker-compose up -d --build
 ```
 
-### 2️⃣ Acesse a aplicação
+A aplicação estará disponível na porta **3005** (ou a definida no `docker-compose.yml`). Configure as variáveis de ambiente (banco de dados, chaves de API) no `docker-compose.yml` ou em um arquivo `.env`.
 
-A aplicação estará disponível na porta definida no `docker-compose.yml`
-(padrão: **80** ou **3000**, conforme configuração).
+Para uso em produção com banco externo, defina no ambiente do container as variáveis esperadas por `config/config.php` e `config/database.php`.
 
 ---
 
 ## 🗂️ Estrutura do Projeto
 
-```text
-src/
-├── components/        # Componentes React (Login, Prospecção)
-├── services/          # Lógica de negócios e integrações externas
-│   ├── gemini.ts
-│   ├── crm.ts
-│   └── auth.ts
-├── types/             # Definições de tipos TypeScript
-├── config/            # Configuração do build e variáveis de ambiente
-nginx/
-├── default.conf       # Configuração do Nginx para Docker
+```
+MapsProspector-Pro/
+├── api/                  # Endpoints da API REST (PHP)
+│   ├── auth.php         # Autenticação (login, logout, check)
+│   ├── search.php       # Busca de leads
+│   ├── history.php      # Histórico de buscas
+│   ├── settings.php     # Configurações (webhook, API de busca)
+│   ├── register.php     # Cadastro de empresa
+│   ├── export.php       # Exportação para CRM
+│   └── ...
+├── config/              # Configurações PHP
+│   ├── config.php       # Chaves e constantes
+│   └── database.php     # Conexão com banco
+├── includes/
+│   └── functions.php   # Funções auxiliares
+├── services/            # Serviços no servidor (PHP)
+│   ├── scraperService.php  # API de busca (Google Maps)
+│   └── gemini.php       # Integração Google Gemini
+├── assets/
+│   └── js/
+│       └── app.js      # Interface (JavaScript vanilla)
+├── Database/            # Scripts SQL (schema e migrações)
+├── index.php            # Página principal (HTML + carrega app.js)
+├── index.html           # Redireciona para index.php
+└── .htaccess            # Regras Apache
 ```
 
 ---
 
 ## ⚙️ Configuração do CRM
 
-No menu **Configurações** da aplicação, é possível definir:
+No menu **Configurações** da aplicação é possível definir:
 
-* **URL do Webhook / API**
-  Endpoint para onde os leads serão enviados.
-
-* **Token**
-  Chave de autenticação (Bearer ou ApiKey).
-
-* **Modo Estrito**
-  Remove campos conflitantes (recomendado para Evolution API).
-
-* **Proxy CORS**
-  Útil para execução local quando houver bloqueios de CORS.
-
----
-
-## 🧪 Executar Localmente (Resumo)
-
-### Pré-requisitos
-
-* Node.js
-
-### Passos rápidos
-
-```bash
-npm install
-```
-
-Defina no `.env`:
-
-```env
-VITE_GEMINI_API_KEY=SUA_CHAVE_GEMINI
-```
-
-Execute:
-
-```bash
-npm run dev
-```
+* **URL do Webhook / API** — Endpoint para onde os leads serão enviados.
+* **Token** — Chave de autenticação (header apikey).
+* **Modo Estrito** — Remove campos conflitantes (recomendado para Evolution API).
+* **Proxy CORS** — Útil quando houver bloqueios de CORS.
+* **API de Busca** — Chave da API de Busca (apenas Super Admin; em **API de Busca** no menu).
 
 ---
 
 ## 📄 Licença
 
 Este projeto é **proprietário** e desenvolvido exclusivamente para a **Atendo Sistemas em parceria com GF Sistemas**.
-
-```
-
-
-Só dizer 🚀
-```

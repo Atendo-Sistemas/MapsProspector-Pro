@@ -4,15 +4,13 @@ services:
   atendo-maps:
     build:
       context: .
-      args:
-        # Passa a chave da VPS para o Docker durante o build
-        - API_KEY=${API_KEY}
     container_name: atendo-maps-prospector
     restart: always
     ports:
       - "3005:80"
     environment:
-      - NODE_ENV=production
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - SCRAPER_API_KEY=${SCRAPER_API_KEY:-}
     logging:
       driver: "json-file"
       options:

@@ -1,12 +1,17 @@
-FROM node:20-alpine as builder
-WORKDIR /app
-COPY package.json package-lock.json* ./
-RUN npm install
-COPY . .
-RUN npm run build
-FROM nginx:alpine
-RUN rm -rf /etc/nginx/conf.d/*
-COPY nginx.conf /etc/nginx/conf.d/default.conf
-COPY --from=builder /app/dist /usr/share/nginx/html
+# MapsProspector Pro - 100% PHP + JavaScript
+# Servido com Apache (sem Node/React)
+
+FROM php:8.2-apache
+
+RUN a2enmod rewrite headers
+
+# Extensões PHP necessárias
+RUN docker-php-ext-install pdo pdo_mysql
+
+COPY . /var/www/html/
+
+# .htaccess e permissões
+RUN chown -R www-data:www-data /var/www/html
+
 EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+CMD ["apache2-foreground"]

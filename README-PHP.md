@@ -1,6 +1,6 @@
 # MapsProspector Pro - Versão PHP/XAMPP
 
-Versão PHP completa do MapsProspector Pro, migrada do React/TypeScript original para rodar nativamente no XAMPP.
+O projeto é **100% PHP + JavaScript** (sem React/Node). Esta página descreve a estrutura e instalação da versão PHP/XAMPP. Para visão geral e requisitos, veja o [README.md](README.md).
 
 ## 🎯 Características
 
