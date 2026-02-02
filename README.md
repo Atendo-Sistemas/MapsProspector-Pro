@@ -9,7 +9,7 @@
 
 # Atendo Maps — Ferramenta de Prospecção Inteligente
 
-O **Atendo Maps** é uma aplicação web de prospecção B2B que utiliza a inteligência artificial do **Google Gemini** para minerar dados de empresas diretamente do **Google Maps**.  
+O **Atendo Maps** é uma aplicação web de prospecção B2B que minerar dados de empresas diretamente do **Google Maps** via API de busca (Scraper).  
 
 A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou para outras plataformas via **Webhooks** (como **n8n**), facilitando e acelerando o processo comercial.
 
@@ -18,7 +18,7 @@ A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou
 ## 🚀 Principais Funcionalidades
 
 - **Prospecção Inteligente**  
-  Busca de empresas por ramo de atividade e localização utilizando a API do Google Gemini (modelos *Flash 2.0* e *2.5*).
+  Busca de empresas por ramo de atividade e localização utilizando a API de busca (Google Maps / Scraper).
 
 - **Integração com Google Maps**  
   Validação de existência e extração de dados reais:
@@ -49,7 +49,7 @@ O projeto é **100% PHP + JavaScript** (sem React/Node no frontend).
 - **Backend:** PHP (APIs em `/api/`), MySQL/MariaDB
 - **Frontend:** HTML servido por PHP (`index.php`) + JavaScript vanilla (`assets/js/app.js`)
 - **Estilização:** Tailwind CSS (via CDN)
-- **API de Busca:** Integração com serviço de busca (Google Maps); IA opcional via Gemini
+- **API de Busca:** Integração com serviço de busca (Google Maps / Scraper)
 
 ---
 
@@ -59,7 +59,7 @@ O projeto é **100% PHP + JavaScript** (sem React/Node no frontend).
 - **MySQL 5.7+** ou **MariaDB 10.2+**
 - Servidor web (Apache com mod_rewrite ou Nginx com PHP-FPM)
 - Opcional: Docker & Docker Compose para implantação em contêiner
-- Chave de API do **Google Cloud** com acesso à **Gemini API** (se usar IA)
+- Chave da API de Busca (Scraper / Google Maps)
 
 ---
 
@@ -87,8 +87,7 @@ Ou importe `Database/maps_schema_full.sql` pelo phpMyAdmin. Veja `Database/READM
 Edite `config/config.php` (ou use variáveis de ambiente) e defina:
 
 - Conexão com o banco em `config/database.php`
-- Chave da API de Busca (Google Maps)
-- Opcional: `GEMINI_API_KEY` para uso de IA
+- Chave da API de Busca (Google Maps): `SCRAPER_API_KEY` no .env ou Configurações
 
 ### 4️⃣ Sirva o projeto
 
@@ -141,8 +140,7 @@ MapsProspector-Pro/
 ├── includes/
 │   └── functions.php   # Funções auxiliares
 ├── services/            # Serviços no servidor (PHP)
-│   ├── scraperService.php  # API de busca (Google Maps)
-│   └── gemini.php       # Integração Google Gemini
+│   └── scraperService.php  # API de busca (Google Maps)
 ├── assets/
 │   └── js/
 │       └── app.js      # Interface (JavaScript vanilla)

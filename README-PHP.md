@@ -27,7 +27,7 @@ MapsProspector-Pro/
 ├── includes/            # Funções auxiliares
 │   └── functions.php    # Utilitários
 ├── services/            # Serviços externos
-│   └── gemini.php       # Integração Google Gemini
+│   └── scraperService.php  # API de busca (Google Maps)
 ├── assets/              # Arquivos estáticos
 │   └── js/
 │       └── app.js       # JavaScript principal
@@ -45,11 +45,8 @@ MapsProspector-Pro/
    ```
    Ou via phpMyAdmin: execute o conteúdo de `database.sql`
 
-2. **Configure a chave da API:**
-   Edite `config/config.php` e defina:
-   ```php
-   define('GEMINI_API_KEY', 'sua-chave-aqui');
-   ```
+2. **Configure a chave da API de Busca:**
+   Defina `SCRAPER_API_KEY` no `.env` ou na tela Configurações (super admin).
 
 3. **Acesse:**
    ```
@@ -63,14 +60,14 @@ Para instruções detalhadas, consulte [INSTALACAO.md](INSTALACAO.md).
 - **Backend:** PHP 7.4+
 - **Banco de Dados:** MySQL/MariaDB
 - **Frontend:** HTML5, CSS3 (Tailwind CSS), JavaScript ES6+
-- **API Externa:** Google Gemini API
+- **API Externa:** API de Busca (Scraper / Google Maps)
 - **Servidor:** Apache (XAMPP)
 
 ## 📋 Funcionalidades
 
 ### ✅ Implementadas
 
-- [x] Busca de leads via Google Gemini
+- [x] Busca de leads via API de Busca (Google Maps)
 - [x] Integração com Google Maps
 - [x] Histórico de buscas (banco de dados)
 - [x] Configurações de CRM (salvas no banco)
@@ -140,7 +137,7 @@ Este projeto foi completamente migrado do React/TypeScript original:
 Para problemas:
 1. Verifique os logs do Apache: `C:\xampp\apache\logs\error.log`
 2. Consulte [INSTALACAO.md](INSTALACAO.md) para troubleshooting
-3. Verifique se a chave do Gemini está correta
+3. Verifique se a chave da API de Busca (SCRAPER_API_KEY) está correta
 
 ## 📄 Licença
 

@@ -8,20 +8,13 @@ Este guia explica como instalar e configurar o MapsProspector Pro para rodar no 
 - **PHP** 7.4 ou superior (extensões: `pdo`, `pdo_mysql`, `curl`, `json`, `mbstring`, `openssl`)
 - **MySQL/MariaDB** (incluído no XAMPP)
 - **Chave de API de Busca (Google Maps)** — Apify ou similar (obtenha conforme documentação do serviço)
-- **Chave de API do Google Gemini** (opcional; obtenha em [Google AI Studio](https://makersuite.google.com/app/apikey))
 
 ---
 
 ## 🌍 Ambiente: Desenvolvimento vs Produção
 
 - **Desenvolvimento:** `config/config.php` usa `ENVIRONMENT = 'development'`. Chaves e banco podem usar valores padrão ou arquivo `.env`.
-- **Produção:** Altere em `config/config.php` para `ENVIRONMENT = 'production'`. **Todas** as chaves e credenciais **devem** ser definidas por variáveis de ambiente (sem fallback no código). O sistema exige:
-  - `GEMINI_API_KEY` (se usar Gemini)
-  - `SCRAPER_API_KEY`
-  - `ENCRYPTION_KEY` (chave para criptografia do token do webhook; use 32 bytes em base64 ou gere com `openssl rand -base64 32`)
-  - `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`
-  - Opcional: `ALLOWED_ORIGIN` (ex.: `https://seudominio.com`) para CORS
-  - Opcional: `ALLOW_IFRAME` — `1` ou `true` para permitir que a aplicação seja exibida dentro de iframe (outro domínio); `0` para bloquear (padrão de segurança)
+- **Produção:** Altere para `ENVIRONMENT = 'production'` no `.env`. **Obrigatório no arranque:** apenas o **banco de dados** (`DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`). A **chave da API de Busca** é cadastrada pelo **super admin** no painel (Configurações). A **ENCRYPTION_KEY** é gerada automaticamente na pasta `storage/` se não for definida no `.env`. Opcionais: `ALLOWED_ORIGIN`, `ALLOW_IFRAME`.
 
 Em produção, configure também:
 - `session.cookie_secure = 1` em `config/config.php` (quando estiver em HTTPS)
@@ -59,33 +52,32 @@ O sistema lê credenciais e chaves de **variáveis de ambiente**. A forma mais p
 Crie na raiz do projeto o arquivo `.env` (ou `.env.local`) com o conteúdo abaixo e ajuste os valores:
 
 ```env
-# Banco de dados (padrão XAMPP)
+# Produção (Hostinger etc.): defina ENVIRONMENT e BASE_URL
+ENVIRONMENT=production
+BASE_URL=https://seudominio.com/
+
+# Banco de dados (Hostinger: use os dados do painel MySQL)
 DB_HOST=localhost
-DB_NAME=maps
-DB_USER=root
-DB_PASS=
+DB_NAME=u123456_maps
+DB_USER=u123456_user
+DB_PASS=sua_senha_mysql
 
 # Chave da API de Busca (Google Maps / Apify)
 SCRAPER_API_KEY=sua-chave-aqui
 
-# Chave da API do Google Gemini (opcional)
-GEMINI_API_KEY=sua-chave-gemini-aqui
-
 # Chave para criptografia do token do webhook (produção: use valor forte, ex. openssl rand -base64 32)
-# ENCRYPTION_KEY=base64-ou-hex-32-bytes
+ENCRYPTION_KEY=base64-ou-hex-32-bytes
 ```
 
-**Importante:** O PHP não carrega `.env` automaticamente. Você precisa:
+**Importante:** O sistema **carrega o arquivo `.env` automaticamente** na raiz do projeto (Hostinger, hospedagem compartilhada, XAMPP etc.). Basta criar o `.env` com as chaves abaixo — não é necessário configurar variáveis no painel do servidor nem no Apache.
 
-- **XAMPP/Apache:** Definir as variáveis no `httpd.conf` ou em um script que o Apache execute (ex.: `SetEnv DB_HOST localhost` em `.htaccess` com `AllowOverride` adequado), **ou**
-- **Servidor:** Configurar no painel (ex.: Variáveis de Ambiente) ou em `php.ini` (ex.: `env[DB_HOST] = "localhost"`), **ou**
-- **Linha de comando:** Exportar antes de rodar PHP (`export DB_HOST=localhost` no Linux/Mac; `set DB_HOST=localhost` no Windows).
+Se preferir **não** usar `.env`: em XAMPP/Apache pode usar `SetEnv` no `.htaccess`; em servidor, variáveis no painel ou em `php.ini`. Variáveis já definidas pelo servidor têm prioridade sobre o `.env`.
 
-Se **não** usar `.env` nem variáveis de ambiente em **desenvolvimento**, o código usa valores padrão para o banco (`localhost`, `maps`, `root`, senha vazia) e para as chaves (em desenvolvimento pode ficar vazio até configurar na tela Configurações pelo super admin).
+Em **desenvolvimento**, sem `.env` nem variáveis de ambiente, o código usa valores padrão para o banco (`localhost`, `maps`, `root`, senha vazia) e para as chaves (pode ficar vazio até configurar na tela Configurações).
 
-**Opção B — Produção (obrigatório):**
+**Opção B — Produção (Hostinger e outros):**
 
-Defina todas as variáveis no ambiente do servidor (painel de hospedagem, systemd, Docker, etc.). Não use fallback no código: em produção o sistema exige `GEMINI_API_KEY`, `SCRAPER_API_KEY`, `ENCRYPTION_KEY` e `DB_*` definidos, caso contrário retorna erro ao iniciar.
+Coloque o `.env` na **raiz do projeto** (mesmo nível que `index.php`). **Obrigatório:** apenas `DB_HOST`, `DB_NAME`, `DB_USER`, `DB_PASS`. A chave da API de Busca é cadastrada pelo super admin no painel; a ENCRYPTION_KEY é gerada automaticamente em `storage/encryption_key` se não for definida.
 
 ### 3. Configurar a Conexão com Banco de Dados (alternativa sem .env)
 
@@ -98,17 +90,15 @@ Se não usar variáveis de ambiente, o sistema usa estes padrões (apenas em des
 
 Para alterar em ambiente que não suporte `.env`, edite `config/database.php` e ajuste os valores dentro do `__construct()` (onde está `getenv('DB_HOST') ?: 'localhost'`, etc.). **Em produção, prefira sempre variáveis de ambiente.**
 
-### 4. Configurar Chaves de API
+### 4. Configurar Chave da API de Busca
 
-- **API de Busca (Scraper):** Configure `SCRAPER_API_KEY` (variável de ambiente ou, em desenvolvimento, na tela **Configurações** como super admin — campo "Chave da API de Busca").
-- **Gemini:** Configure `GEMINI_API_KEY` se for usar o serviço Gemini. Em produção deve estar definida em variável de ambiente.
-
-Não coloque chaves diretamente em `config/config.php`; use variáveis de ambiente (ou a interface de Configurações para a chave de busca, em dev).
+- **Obrigatório apenas o banco de dados** no arranque. Após acessar a aplicação, o **super admin** deve entrar em **Configurações** e cadastrar a **Chave da API de Busca** (Scraper / Google Maps). Opcionalmente, pode definir `SCRAPER_API_KEY` no `.env`.
+- **ENCRYPTION_KEY:** se não for definida no `.env`, o sistema gera uma chave automaticamente e salva em `storage/encryption_key` (a pasta `storage/` deve ser gravável pelo PHP).
 
 ### 5. Verificar Permissões e Diretórios
 
 - O servidor web precisa ler todos os arquivos do projeto.
-- O diretório `logs/` (se existir) deve ser gravável pelo PHP para registro de erros.
+- Os diretórios `logs/` (se existir) e `storage/` devem ser graváveis pelo PHP (erros e chave de criptografia gerada automaticamente).
 - Certifique-se de que `config/`, `api/` e `includes/` não são acessíveis diretamente para download (apenas execução pelo servidor).
 
 No Windows/XAMPP, normalmente não é necessário alterar permissões.
@@ -214,8 +204,8 @@ MapsProspector-Pro/
 ├── includes/
 │   └── functions.php
 ├── services/
-│   ├── gemini.php
 │   └── scraperService.php
+├── storage/              # Chave de criptografia (gerada automaticamente se não houver ENCRYPTION_KEY no .env)
 ├── assets/js/
 │   └── app.js
 ├── Database/             # Schema e migrações
@@ -233,13 +223,8 @@ MapsProspector-Pro/
 
 ## 🐛 Solução de Problemas
 
-### Erro: "GEMINI_API_KEY deve ser definida em variável de ambiente em produção"
-- Em produção, defina a variável `GEMINI_API_KEY` (e as demais) no ambiente do servidor.
-- Se não usar Gemini, ainda assim defina uma string vazia ou remova a checagem apenas para essa chave (não recomendado); o ideal é definir todas as variáveis.
-
 ### Erro: "Chave de API não configurada" ou "Chave de API de Busca inválida"
-- Verifique `SCRAPER_API_KEY` (variável de ambiente ou Configurações como super admin).
-- Verifique `GEMINI_API_KEY` se usar Gemini. Não deixe espaços extras.
+- Verifique `SCRAPER_API_KEY` (variável de ambiente ou Configurações como super admin). Não deixe espaços extras.
 
 ### Erro: "Erro ao conectar com o banco de dados" / "DB_HOST e DB_NAME devem estar definidos"
 - Confirme que o MySQL está rodando.
@@ -255,6 +240,9 @@ MapsProspector-Pro/
 
 ### Não abre dentro de iframe
 - Por padrão o sistema permite ser exibido em iframe (qualquer origem). Se estiver bloqueando, verifique se não há outro servidor (ex.: nginx) enviando `X-Frame-Options: SAMEORIGIN`. No Apache, o header é controlado por `config/config.php` conforme a variável de ambiente `ALLOW_IFRAME` (`1`/`true` = permitir; `0` = só mesma origem).
+
+### Hostinger (ou outro) não reconhece o .env
+- O sistema carrega o `.env` automaticamente na **raiz do projeto** (pasta onde está o `index.php`). Confirme que o arquivo se chama exatamente `.env` (com ponto no início), está na raiz e tem permissão de leitura. Não use `.env.local` nem subpasta — apenas `.env` na raiz. Variáveis no painel da Hostinger têm prioridade sobre o `.env`.
 
 ### URL do Webhook/CRM rejeitada
 - O sistema valida a URL (apenas http/https; bloqueio de IPs privados e de metadados). Use uma URL pública HTTPS válida nas Configurações.

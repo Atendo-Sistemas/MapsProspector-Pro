@@ -25,3 +25,11 @@ dist-ssr
 
 # Controle de versão local (não versionar no remoto)
 Version.md
+
+# Variáveis de ambiente (nunca versionar segredos)
+.env
+.env.*
+!.env.example
+
+# Chave de criptografia gerada automaticamente (não versionar)
+storage/

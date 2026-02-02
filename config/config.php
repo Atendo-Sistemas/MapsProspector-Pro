@@ -4,9 +4,30 @@
  * MapsProspector Pro - XAMPP
  */
 
-// Configurações de ambiente
-define('ENVIRONMENT', 'development'); // development | production
-define('BASE_URL', 'http://localhost/MapsProspector-Pro/');
+// Carrega variáveis do arquivo .env (Hostinger e hospedagens que não injetam env pelo servidor)
+$envFile = __DIR__ . '/../.env';
+if (is_file($envFile) && is_readable($envFile)) {
+    $lines = @file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
+    foreach ($lines as $line) {
+        $line = trim($line);
+        if ($line === '' || strpos($line, '#') === 0) continue;
+        if (strpos($line, '=') === false) continue;
+        $key = trim(substr($line, 0, strpos($line, '=')));
+        $value = trim(substr($line, strpos($line, '=') + 1));
+        if ($key === '') continue;
+        if (preg_match('/^["\'](.+)["\']\s*$/', $value, $m)) {
+            $value = $m[1];
+        }
+        if (getenv($key) === false) {
+            putenv("$key=$value");
+            $_ENV[$key] = $value;
+        }
+    }
+}
+
+// Configurações de ambiente (podem vir do .env)
+define('ENVIRONMENT', getenv('ENVIRONMENT') ?: 'development'); // development | production
+define('BASE_URL', rtrim(getenv('BASE_URL') ?: 'http://localhost/MapsProspector-Pro/', '/') . '/');
 
 // Configurações de sessão
 ini_set('session.cookie_httponly', 1);
@@ -25,26 +46,39 @@ ini_set('display_errors', 0); // Desabilita exibição de erros na tela
 ini_set('log_errors', 1); // Habilita log de erros
 ini_set('error_log', __DIR__ . '/../logs/php_errors.log'); // Define arquivo de log
 
-// Chave da API do Google Gemini — use variável de ambiente; em produção não use fallback
-$geminiKey = getenv('GEMINI_API_KEY');
-if (ENVIRONMENT === 'production' && (empty($geminiKey) || $geminiKey === 'SUA_CHAVE_AQUI')) {
-    throw new RuntimeException('GEMINI_API_KEY deve ser definida em variável de ambiente em produção.');
-}
-define('GEMINI_API_KEY', $geminiKey ?: (ENVIRONMENT === 'development' ? '' : ''));
-
-// Chave da API de Busca (Google Maps) — use variável de ambiente; em produção não use fallback
+// Chave da API de Busca — opcional no arranque; super admin cadastra no painel (Configurações)
 $scraperKey = getenv('SCRAPER_API_KEY');
-if (ENVIRONMENT === 'production' && empty(trim((string)$scraperKey))) {
-    throw new RuntimeException('SCRAPER_API_KEY deve ser definida em variável de ambiente em produção.');
-}
-define('SCRAPER_API_KEY', $scraperKey ?: (ENVIRONMENT === 'development' ? '' : ''));
+define('SCRAPER_API_KEY', $scraperKey !== false ? trim((string)$scraperKey) : '');
 
-// Chave para criptografia do apikey do Webhook (32 bytes para AES-256) — em produção use env
-$encKey = getenv('ENCRYPTION_KEY');
-if (ENVIRONMENT === 'production' && empty($encKey)) {
-    throw new RuntimeException('ENCRYPTION_KEY deve ser definida em variável de ambiente em produção.');
+// Chave para criptografia do apikey do Webhook (32 bytes AES-256). Se não estiver no .env, gera e persiste em storage/
+$encKeyRaw = getenv('ENCRYPTION_KEY');
+$encKeyBinary = '';
+if ($encKeyRaw !== false && trim((string)$encKeyRaw) !== '') {
+    $encKeyRaw = trim((string)$encKeyRaw);
+    $decoded = base64_decode($encKeyRaw, true) ?: @hex2bin($encKeyRaw);
+    $encKeyBinary = ($decoded !== false && strlen($decoded) >= 32) ? substr($decoded, 0, 32) : hash('sha256', $encKeyRaw, true);
 }
-define('ENCRYPTION_KEY', $encKey ?: (ENVIRONMENT === 'development' ? hash('sha256', 'MapsProspector-Pro-Webhook-Key-2025', true) : ''));
+if ($encKeyBinary === '') {
+    $storageDir = __DIR__ . '/../storage';
+    $encFile = $storageDir . '/encryption_key';
+    if (is_file($encFile) && is_readable($encFile)) {
+        $stored = trim((string)file_get_contents($encFile));
+        $decoded = base64_decode($stored, true);
+        $encKeyBinary = ($decoded !== false && strlen($decoded) >= 32) ? substr($decoded, 0, 32) : '';
+    }
+    if ($encKeyBinary === '' && (!is_dir($storageDir) || is_writable($storageDir))) {
+        if (!is_dir($storageDir)) {
+            @mkdir($storageDir, 0750, true);
+        }
+        if (is_dir($storageDir) && is_writable($storageDir)) {
+            $generated = random_bytes(32);
+            if (@file_put_contents($encFile, base64_encode($generated), LOCK_EX) !== false) {
+                $encKeyBinary = $generated;
+            }
+        }
+    }
+}
+define('ENCRYPTION_KEY', $encKeyBinary ?: hash('sha256', 'MapsProspector-Pro-Webhook-Key-2025', true));
 
 // Permitir exibição em iframe (outro domínio). Desative em produção se não precisar.
 // Env ALLOW_IFRAME: '1' ou 'true' = qualquer site; lista de URLs = só esses domínios; '0' ou vazio = SAMEORIGIN
