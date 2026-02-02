@@ -75,7 +75,7 @@ if (!$config || empty($config['base_url'])) {
 }
 
 // Prepara dados do contato (reutiliza helper usado no bulk)
-$contactData = buildContactDataFromLead($lead, (bool)($config['simplified_payload'] ?? 0));
+$contactData = buildContactDataFromLead($lead);
 if ($contactData === null) {
     jsonError('O contato não possui um número de telefone válido.');
 }
@@ -83,12 +83,8 @@ if ($contactData === null) {
 // URL do Webhook: usada exatamente como configurada (n8n, Atendo etc. — não acrescentar /createcontact)
 $targetUrl = rtrim($config['base_url'], '/');
 
-if ($config['use_proxy']) {
-    $targetUrl = 'https://corsproxy.io/?' . urlencode($targetUrl);
-}
-
-// Prepara payload
-$payload = $config['wrap_in_body'] ? ['body' => $contactData] : $contactData;
+// Payload enviado diretamente (sem encapsulamento em body)
+$payload = $contactData;
 
 // Headers (Authentication Header: nome fixo "apikey", valor descriptografado)
 $headers = ['Content-Type: application/json'];
@@ -121,7 +117,7 @@ if ($httpCode !== 200 && $httpCode !== 201) {
     $errorMsg = $errorData['message'] ?? $errorData['error'] ?? $response;
     
     if ($httpCode === 400) {
-        jsonError("Erro 400 (Dados Inválidos): $errorMsg. Tente ativar o 'Modo Estrito' nas configurações.", 400);
+        jsonError("Erro 400 (Dados Inválidos): $errorMsg", 400);
     }
     
     jsonError("CRM ($httpCode): $errorMsg", $httpCode);

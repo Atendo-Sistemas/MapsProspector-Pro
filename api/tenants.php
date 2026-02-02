@@ -25,7 +25,8 @@ if ($method === 'GET') {
         try {
             $stmt = $db->prepare("
                 SELECT t.id, t.name, t.slug, t.plan_id, t.status, t.created_at, t.updated_at,
-                       p.name as plan_name, p.token_limit as plan_token_limit
+                       p.name as plan_name, p.token_limit as plan_token_limit,
+                       (SELECT u.email FROM users u WHERE u.tenant_id = t.id ORDER BY (u.profile = 'admin') DESC, u.id ASC LIMIT 1) as admin_email
                 FROM tenants t
                 LEFT JOIN plans p ON p.id = t.plan_id
                 WHERE t.id = ?
@@ -43,9 +44,10 @@ if ($method === 'GET') {
         $tenant['planId'] = isset($tenant['plan_id']) ? (string) $tenant['plan_id'] : '1';
         $tenant['plan'] = $tenant['plan_name'] ?? 'Básico';
         $tenant['planTokenLimit'] = isset($tenant['plan_token_limit']) ? (int) $tenant['plan_token_limit'] : 100;
+        $tenant['email'] = isset($tenant['admin_email']) ? trim($tenant['admin_email']) : '';
         $tenant['createdAt'] = $tenant['created_at'];
         $tenant['updatedAt'] = $tenant['updated_at'];
-        unset($tenant['plan_id'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['created_at'], $tenant['updated_at']);
+        unset($tenant['plan_id'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['admin_email'], $tenant['created_at'], $tenant['updated_at']);
         jsonSuccess($tenant);
     }
 
@@ -53,9 +55,11 @@ if ($method === 'GET') {
         $stmt = $db->query("
             SELECT t.id, t.name, t.slug, t.plan_id, t.status, t.created_at,
                    p.name as plan_name, p.token_limit as plan_token_limit,
-                   (SELECT COUNT(*) FROM users u WHERE u.tenant_id = t.id) as users_count
+                   (SELECT COUNT(*) FROM users u WHERE u.tenant_id = t.id) as users_count,
+                   (SELECT u.email FROM users u WHERE u.tenant_id = t.id ORDER BY (u.profile = 'admin') DESC, u.id ASC LIMIT 1) as admin_email
             FROM tenants t
             LEFT JOIN plans p ON p.id = t.plan_id
+            WHERE t.id != 1
             ORDER BY t.created_at DESC, t.name ASC
         ");
         $tenants = $stmt->fetchAll(PDO::FETCH_ASSOC);
@@ -66,8 +70,9 @@ if ($method === 'GET') {
             $row['plan'] = $row['plan_name'] ?? 'Básico';
             $row['planTokenLimit'] = isset($row['plan_token_limit']) ? (int) $row['plan_token_limit'] : 100;
             $row['usersCount'] = (int) ($row['users_count'] ?? 0);
+            $row['email'] = isset($row['admin_email']) ? trim($row['admin_email']) : '';
             $row['createdAt'] = isset($row['created_at']) ? (string) $row['created_at'] : '';
-            unset($row['plan_id'], $row['plan_name'], $row['plan_token_limit'], $row['users_count'], $row['created_at']);
+            unset($row['plan_id'], $row['plan_name'], $row['plan_token_limit'], $row['users_count'], $row['admin_email'], $row['created_at']);
         }
         unset($row);
         jsonSuccess(['items' => $tenants, 'total' => $totalCount]);
@@ -150,6 +155,7 @@ if ($method === 'GET') {
     $slug = sanitizeInput($input['slug'] ?? '');
     $planId = isset($input['planId']) ? (int) $input['planId'] : null;
     $status = isset($input['status']) ? sanitizeInput($input['status']) : null;
+    $emailRaw = isset($input['email']) ? trim(strtolower($input['email'])) : '';
 
     $stmt = $db->prepare("SELECT id FROM tenants WHERE id = ?");
     $stmt->execute([$id]);
@@ -186,16 +192,39 @@ if ($method === 'GET') {
         $params[] = $status;
     }
 
-    if (empty($updates)) {
-        jsonError('Nenhum campo para atualizar', 400);
+    if ($emailRaw !== '') {
+        if (!validateEmail($emailRaw)) {
+            jsonError('E-mail inválido.', 400);
+        }
+        $stmt = $db->prepare("SELECT id FROM users WHERE email = ? AND tenant_id = ?");
+        $stmt->execute([$emailRaw, $id]);
+        $currentUser = $stmt->fetch();
+        $stmt = $db->prepare("SELECT id FROM users WHERE email = ? AND (tenant_id IS NULL OR tenant_id != ?)");
+        $stmt->execute([$emailRaw, $id]);
+        if ($stmt->fetch()) {
+            jsonError('Este e-mail já está em uso por outra conta.', 400);
+        }
+        $adminUser = $db->prepare("SELECT id FROM users WHERE tenant_id = ? ORDER BY (profile = 'admin') DESC, id ASC LIMIT 1");
+        $adminUser->execute([$id]);
+        $adminRow = $adminUser->fetch();
+        if ($adminRow) {
+            $db->prepare("UPDATE users SET email = ? WHERE id = ?")->execute([$emailRaw, $adminRow['id']]);
+        }
     }
 
-    $params[] = $id;
-    $sql = "UPDATE tenants SET " . implode(', ', $updates) . " WHERE id = ?";
-    $db->prepare($sql)->execute($params);
+    if (empty($updates)) {
+        if ($emailRaw === '') {
+            jsonError('Nenhum campo para atualizar', 400);
+        }
+    } else {
+        $params[] = $id;
+        $sql = "UPDATE tenants SET " . implode(', ', $updates) . " WHERE id = ?";
+        $db->prepare($sql)->execute($params);
+    }
 
     $stmt = $db->prepare("
-        SELECT t.id, t.name, t.slug, t.plan_id, t.status, t.created_at, t.updated_at, p.name as plan_name, p.token_limit as plan_token_limit
+        SELECT t.id, t.name, t.slug, t.plan_id, t.status, t.created_at, t.updated_at, p.name as plan_name, p.token_limit as plan_token_limit,
+               (SELECT u.email FROM users u WHERE u.tenant_id = t.id ORDER BY (u.profile = 'admin') DESC, u.id ASC LIMIT 1) as admin_email
         FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?
     ");
     $stmt->execute([$id]);
@@ -204,9 +233,10 @@ if ($method === 'GET') {
     $tenant['planId'] = isset($tenant['plan_id']) ? (string) $tenant['plan_id'] : '1';
     $tenant['plan'] = $tenant['plan_name'] ?? 'Básico';
     $tenant['planTokenLimit'] = isset($tenant['plan_token_limit']) ? (int) $tenant['plan_token_limit'] : 100;
+    $tenant['email'] = isset($tenant['admin_email']) ? trim($tenant['admin_email']) : '';
     $tenant['createdAt'] = $tenant['created_at'];
     $tenant['updatedAt'] = $tenant['updated_at'];
-    unset($tenant['plan_id'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['created_at'], $tenant['updated_at']);
+    unset($tenant['plan_id'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['admin_email'], $tenant['created_at'], $tenant['updated_at']);
     jsonSuccess($tenant, 'Empresa atualizada com sucesso');
 
 } elseif ($method === 'DELETE') {
@@ -218,10 +248,14 @@ if ($method === 'GET') {
         jsonError('Não é permitido excluir a empresa padrão.', 400);
     }
 
-    $stmt = $db->prepare("SELECT id FROM tenants WHERE id = ?");
+    $stmt = $db->prepare("SELECT id, status FROM tenants WHERE id = ?");
     $stmt->execute([$id]);
-    if (!$stmt->fetch()) {
+    $tenant = $stmt->fetch();
+    if (!$tenant) {
         jsonError('Empresa não encontrada', 404);
+    }
+    if (($tenant['status'] ?? '') !== 'suspended') {
+        jsonError('Só é possível excluir uma empresa que esteja desativada. Desative-a antes de excluir.', 400);
     }
 
     $db->prepare("UPDATE users SET tenant_id = 1 WHERE tenant_id = ?")->execute([$id]);

@@ -17,14 +17,14 @@ Este guia explica como instalar e configurar o MapsProspector Pro para rodar no 
 
 1. Abra o **phpMyAdmin** (acesse `http://localhost/phpmyadmin`)
 2. Execute o script SQL fornecido:
-   - Abra o arquivo `database.sql` no editor de texto
+   - Abra o arquivo `Database/maps_schema_full.sql` no editor de texto
    - Copie todo o conteúdo
    - No phpMyAdmin, vá em "SQL" e cole o conteúdo
    - Clique em "Executar"
    
    Ou via linha de comando:
    ```bash
-   mysql -u root -p < database.sql
+   mysql -u root -p maps < Database/maps_schema_full.sql
    ```
 
 3. Verifique se o banco `maps` foi criado com as tabelas:

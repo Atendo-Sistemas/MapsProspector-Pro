@@ -10,6 +10,9 @@ const AppState = {
     user: null,
     tenant: null,
     tokenUsage: null,  // { used, limit, limitReached } para aviso de limite de tokens
+    impersonating: false,
+    impersonatingTenantName: '',
+    platformCompanyName: null,  // Nome da empresa SaaS (Configuração SaaS) para título da aba
     config: null,
     activeTab: 'dashboard',
     userCoords: null,
@@ -98,6 +101,8 @@ async function handleLogin(e) {
             AppState.user = data.data.user;
             AppState.tenant = data.data.tenant || null;
             AppState.tokenUsage = data.data.tokenUsage || null;
+            AppState.impersonating = !!(data.data && data.data.impersonating);
+            AppState.impersonatingTenantName = (data.data && data.data.impersonatingTenantName) || '';
             showDashboard();
             loadConfig();
         } else {
@@ -140,14 +145,34 @@ function renderHeaderTokenWarning() {
     }
 }
 
+function updateDocumentTitle() {
+    if (!AppState.user) return;
+    var isSuperAdmin = String(AppState.user.profile).toLowerCase() === 'super_admin';
+    var companyName = isSuperAdmin
+        ? (AppState.platformCompanyName && String(AppState.platformCompanyName).trim() ? AppState.platformCompanyName.trim() : 'MapsProspector Pro')
+        : (AppState.tenant && AppState.tenant.name ? String(AppState.tenant.name).trim() : 'Empresa');
+    var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : 'CRM';
+    document.title = companyName + ' | ' + instanceName;
+}
+
 function loadSidebarCompanyName() {
+    var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
     fetch(API_BASE + 'platform-config.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
         var d = data.data || data;
         var name = (d && d.saasCompanyName && String(d.saasCompanyName).trim()) ? String(d.saasCompanyName).trim() : 'ATENDO';
+        AppState.platformCompanyName = name;
         var el = document.getElementById('sidebar-company-name');
         if (el) el.textContent = name;
         var subtitleEl = document.getElementById('header-dashboard-subtitle');
-        if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + name.toUpperCase();
+        if (subtitleEl) {
+            if (isSuperAdmin) {
+                subtitleEl.textContent = 'Dashboard ' + name.toUpperCase();
+            } else {
+                var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
+                subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
+            }
+        }
+        updateDocumentTitle();
     }).catch(function() {});
 }
 
@@ -191,6 +216,16 @@ function showDashboard() {
             }
         }
     }
+    var impersonationBanner = document.getElementById('impersonation-banner');
+    var impersonationTenantName = document.getElementById('impersonation-tenant-name');
+    if (impersonationBanner) {
+        if (AppState.impersonating && AppState.impersonatingTenantName) {
+            if (impersonationTenantName) impersonationTenantName.textContent = AppState.impersonatingTenantName;
+            impersonationBanner.classList.remove('hidden');
+        } else {
+            impersonationBanner.classList.add('hidden');
+        }
+    }
     setActiveTab(AppState.activeTab);
 }
 
@@ -204,6 +239,8 @@ function logout() {
         AppState.user = null;
         AppState.tenant = null;
         AppState.tokenUsage = null;
+        AppState.platformCompanyName = null;
+        document.title = 'MapsProspector Pro | CRM Integration';
         var tokenBanner = document.getElementById('header-token-warning');
         if (tokenBanner) tokenBanner.classList.add('hidden');
         document.getElementById('user-dropdown').classList.add('hidden');
@@ -212,20 +249,24 @@ function logout() {
         AppState.user = null;
         AppState.tenant = null;
         AppState.tokenUsage = null;
+        AppState.platformCompanyName = null;
+        document.title = 'MapsProspector Pro | CRM Integration';
         showLogin();
     });
 }
 
 // Cadastro de empresa (toggle + submit)
 function showCadastro() {
-    const box = document.getElementById('cadastro-box');
+    const overlay = document.getElementById('modal-cadastro-overlay');
     const success = document.getElementById('cadastro-success');
-    if (box) box.classList.remove('hidden');
+    if (overlay) overlay.classList.remove('hidden');
     if (success) { success.classList.add('hidden'); success.textContent = ''; }
+    document.body.style.overflow = 'hidden';
 }
 function hideCadastro() {
-    const box = document.getElementById('cadastro-box');
-    if (box) box.classList.add('hidden');
+    const overlay = document.getElementById('modal-cadastro-overlay');
+    if (overlay) overlay.classList.add('hidden');
+    document.body.style.overflow = '';
 }
 async function handleCadastroSubmit(e) {
     if (e && e.preventDefault) e.preventDefault();
@@ -255,6 +296,8 @@ async function handleCadastroSubmit(e) {
             const loginEmail = document.getElementById('login-email');
             if (successEl) { successEl.textContent = data.message || 'Empresa cadastrada. Faça login com seu e-mail e senha.'; successEl.classList.remove('hidden'); }
             if (loginEmail) loginEmail.value = email;
+            const regCnpj = document.getElementById('reg-cnpj');
+            if (regCnpj) regCnpj.value = '';
             if (document.getElementById('reg-company')) document.getElementById('reg-company').value = '';
             if (document.getElementById('reg-email')) document.getElementById('reg-email').value = '';
             if (document.getElementById('reg-name')) document.getElementById('reg-name').value = '';
@@ -283,6 +326,20 @@ function setupEventListeners() {
     if (linkCadastro) linkCadastro.addEventListener('click', showCadastro);
     const btnCadastroVoltar = document.getElementById('btn-cadastro-voltar');
     if (btnCadastroVoltar) btnCadastroVoltar.addEventListener('click', hideCadastro);
+    const modalCadastroFechar = document.getElementById('modal-cadastro-fechar');
+    if (modalCadastroFechar) modalCadastroFechar.addEventListener('click', hideCadastro);
+    const modalCadastroOverlay = document.getElementById('modal-cadastro-overlay');
+    if (modalCadastroOverlay) {
+        modalCadastroOverlay.addEventListener('click', function(e) {
+            if (e.target === modalCadastroOverlay) hideCadastro();
+        });
+    }
+    document.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+            const overlay = document.getElementById('modal-cadastro-overlay');
+            if (overlay && !overlay.classList.contains('hidden')) hideCadastro();
+        }
+    });
     const formCadastro = document.getElementById('form-cadastro');
     if (formCadastro) formCadastro.addEventListener('submit', handleCadastroSubmit);
 
@@ -309,6 +366,25 @@ function setupEventListeners() {
             e.stopPropagation();
             userDropdown.classList.add('hidden');
             logout();
+        });
+    }
+    var btnStopImpersonate = document.getElementById('btn-stop-impersonate');
+    if (btnStopImpersonate) {
+        btnStopImpersonate.addEventListener('click', function() {
+            fetch(API_BASE + 'auth.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify({ action: 'stop_impersonate' })
+            }).then(function(r) { return r.json(); }).then(function(res) {
+                if (res.success) {
+                    AppState.impersonating = false;
+                    AppState.impersonatingTenantName = '';
+                    checkAuth();
+                } else {
+                    alert(res.error || 'Erro ao sair do acesso.');
+                }
+            }).catch(function() { alert('Erro de conexão.'); });
         });
     }
     document.addEventListener('click', function() {
@@ -1247,19 +1323,19 @@ function loadCompaniesTab(contentArea) {
                 var statusLabel = t.status === 'active' ? 'Ativa' : 'Suspensa';
                 var statusClass = t.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700';
                 var toggleLabel = t.status === 'active' ? 'Desativar' : 'Ativar';
-                var isDefault = String(t.id) === '1';
                 var planInfo = (t.plan || '') + (t.planTokenLimit != null ? (t.planTokenLimit === 0 ? ' (ilimitado)' : ' (' + t.planTokenLimit + ' tokens)') : '');
                 html += '<div class="bg-white p-6 rounded-[2rem] border border-slate-200 flex items-center justify-between flex-wrap gap-4">';
                 html += '<div class="flex items-center gap-6">';
                 html += '<div class="w-12 h-12 bg-slate-100 rounded-xl flex items-center justify-center text-xl font-black text-slate-600">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
                 html += '<div><h4 class="font-extrabold text-slate-900 text-lg">' + (t.name || '') + '</h4>';
-                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + ' · Plano: ' + planInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
+                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
                 html += '<div class="flex items-center gap-2">';
-                if (!isDefault) {
-                    html += '<button type="button" class="btn-toggle-tenant px-4 py-2 rounded-xl text-xs font-bold ' + (t.status === 'active' ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200') + '" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-status="' + (t.status === 'active' ? 'suspended' : 'active') + '">' + toggleLabel + '</button>';
-                    html += '<button type="button" class="btn-link-plan px-4 py-2 rounded-xl text-xs font-bold bg-blue-100 text-blue-700 hover:bg-blue-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-plan-id="' + (t.planId || '1') + '">Vincular plano</button>';
-                } else {
-                    html += '<span class="text-[10px] text-slate-400 font-bold uppercase">Empresa padrão</span>';
+                html += '<button type="button" class="btn-access-tenant px-4 py-2 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-700 hover:bg-emerald-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Acessar</button>';
+                html += '<button type="button" class="btn-edit-tenant px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 text-slate-700 hover:bg-slate-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-email="' + (t.email || '').replace(/"/g, '&quot;') + '">Editar</button>';
+                html += '<button type="button" class="btn-toggle-tenant px-4 py-2 rounded-xl text-xs font-bold ' + (t.status === 'active' ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200') + '" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-status="' + (t.status === 'active' ? 'suspended' : 'active') + '">' + toggleLabel + '</button>';
+                html += '<button type="button" class="btn-link-plan px-4 py-2 rounded-xl text-xs font-bold bg-blue-100 text-blue-700 hover:bg-blue-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-plan-id="' + (t.planId || '1') + '">Vincular plano</button>';
+                if (t.status === 'suspended') {
+                    html += '<button type="button" class="btn-delete-tenant px-4 py-2 rounded-xl text-xs font-bold bg-red-100 text-red-700 hover:bg-red-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Excluir</button>';
                 }
                 html += '</div></div>';
             });
@@ -1359,6 +1435,126 @@ function loadCompaniesTab(contentArea) {
                             });
                     };
                     cancelBtn.onclick = function() { overlay.remove(); };
+                });
+            });
+
+            listEl.querySelectorAll('.btn-access-tenant').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var tenantId = btn.dataset.id;
+                    var name = btn.dataset.name;
+                    if (!tenantId) return;
+                    btn.disabled = true;
+                    fetch(API_BASE + 'auth.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        credentials: 'include',
+                        body: JSON.stringify({ action: 'impersonate', tenantId: tenantId })
+                    })
+                        .then(function(r) { return r.json(); })
+                        .then(function(res) {
+                            if (res.success) {
+                                AppState.user = res.data.user;
+                                AppState.tenant = res.data.tenant || null;
+                                AppState.tokenUsage = res.data.tokenUsage || null;
+                                AppState.impersonating = !!(res.data.impersonating);
+                                AppState.impersonatingTenantName = res.data.impersonatingTenantName || '';
+                                AppState.activeTab = 'dashboard';
+                                showDashboard();
+                                loadConfig();
+                            } else {
+                                alert(res.error || 'Erro ao acessar empresa.');
+                            }
+                        })
+                        .catch(function() { alert('Erro de conexão.'); })
+                        .finally(function() { btn.disabled = false; });
+                });
+            });
+
+            listEl.querySelectorAll('.btn-edit-tenant').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var tenantId = btn.dataset.id;
+                    var tenantName = btn.dataset.name || '';
+                    var tenantEmail = btn.dataset.email || '';
+                    var overlay = document.getElementById('companies-edit-tenant-overlay');
+                    if (overlay) overlay.remove();
+                    overlay = document.createElement('div');
+                    overlay.id = 'companies-edit-tenant-overlay';
+                    overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
+                    overlay.innerHTML = '<div class="bg-white rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+                        '<h4 class="text-xl font-black text-slate-900 mb-2">Editar empresa</h4>' +
+                        '<p class="text-sm text-slate-500 mb-4">Altere o nome e o e-mail do administrador da empresa.</p>' +
+                        '<form id="companies-edit-tenant-form" class="space-y-4">' +
+                        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome</label>' +
+                        '<input type="text" id="companies-edit-tenant-name" value="' + tenantName.replace(/"/g, '&quot;') + '" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="Nome da empresa"></div>' +
+                        '<div><label class="block text-[10px] font-black text-slate-500 uppercase mb-1">E-mail</label>' +
+                        '<input type="email" id="companies-edit-tenant-email" value="' + tenantEmail.replace(/"/g, '&quot;') + '" class="w-full border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="admin@empresa.com"></div>' +
+                        '<p id="companies-edit-tenant-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+                        '<div class="flex gap-3 pt-4">' +
+                        '<button type="button" id="companies-edit-tenant-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-50">Cancelar</button>' +
+                        '<button type="submit" id="companies-edit-tenant-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar</button>' +
+                        '</div></form></div>';
+                    overlay.onclick = function(ev) { if (ev.target === overlay) overlay.remove(); };
+                    document.body.appendChild(overlay);
+                    var form = document.getElementById('companies-edit-tenant-form');
+                    var cancelBtn = document.getElementById('companies-edit-tenant-cancel');
+                    var errorEl = document.getElementById('companies-edit-tenant-error');
+                    var submitBtn = document.getElementById('companies-edit-tenant-submit');
+                    form.onsubmit = function(e) {
+                        e.preventDefault();
+                        var name = document.getElementById('companies-edit-tenant-name').value.trim();
+                        var email = document.getElementById('companies-edit-tenant-email').value.trim().toLowerCase();
+                        if (!name) { errorEl.textContent = 'Nome é obrigatório.'; errorEl.classList.remove('hidden'); return; }
+                        errorEl.classList.add('hidden');
+                        submitBtn.disabled = true;
+                        submitBtn.textContent = 'Salvando...';
+                        var body = { id: tenantId, name: name };
+                        if (email) body.email = email;
+                        fetch(API_BASE + 'tenants.php', {
+                            method: 'PUT',
+                            headers: { 'Content-Type': 'application/json' },
+                            credentials: 'same-origin',
+                            body: JSON.stringify(body)
+                        })
+                            .then(function(r) { return r.json(); })
+                            .then(function(res) {
+                                if (res.success) {
+                                    overlay.remove();
+                                    loadCompaniesTab(document.getElementById('content-area'));
+                                } else {
+                                    errorEl.textContent = res.error || 'Erro ao salvar.';
+                                    errorEl.classList.remove('hidden');
+                                }
+                            })
+                            .catch(function() {
+                                errorEl.textContent = 'Erro de conexão.';
+                                errorEl.classList.remove('hidden');
+                            })
+                            .finally(function() {
+                                submitBtn.disabled = false;
+                                submitBtn.textContent = 'Salvar';
+                            });
+                    };
+                    cancelBtn.onclick = function() { overlay.remove(); };
+                });
+            });
+
+            listEl.querySelectorAll('.btn-delete-tenant').forEach(function(btn) {
+                btn.addEventListener('click', function() {
+                    var id = btn.dataset.id;
+                    var name = btn.dataset.name;
+                    if (!confirm('Excluir a empresa "' + name + '"? Os usuários serão vinculados à empresa padrão.')) return;
+                    btn.disabled = true;
+                    fetch(API_BASE + 'tenants.php?id=' + encodeURIComponent(id), { method: 'DELETE', credentials: 'same-origin' })
+                        .then(function(r) { return r.json(); })
+                        .then(function(res) {
+                            if (res.success) {
+                                setActiveTab('companies');
+                            } else {
+                                alert(res.error || 'Erro ao excluir.');
+                            }
+                        })
+                        .catch(function() { alert('Erro de conexão.'); })
+                        .finally(function() { btn.disabled = false; });
                 });
             });
         })
@@ -2181,42 +2377,6 @@ function getSettingsHTML() {
             <div class="bg-white p-10 rounded-[2.5rem] border border-slate-200 shadow-sm">
                 <h3 class="text-2xl font-black text-slate-900 mb-8 tracking-tight">Configurações de Conexão</h3>
                 <div class="space-y-8">
-                    <div class="grid grid-cols-1 gap-4">
-                        <div class="bg-emerald-50 p-6 rounded-2xl border border-emerald-100">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h5 class="font-black text-slate-900 text-sm">Modo Estrito (Fix 400: number/ticketId)</h5>
-                                    <p class="text-[10px] text-slate-500 font-medium">Obrigatório para Atendo/Evolution API. Envia apenas o essencial.</p>
-                                </div>
-                                <button id="toggle-simplified" class="w-12 h-6 rounded-full transition-all relative bg-slate-300">
-                                    <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all left-1"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-amber-50 p-6 rounded-2xl border border-amber-100">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h5 class="font-black text-slate-900 text-sm">Contornar CORS (Modo Proxy)</h5>
-                                    <p class="text-[10px] text-slate-500 font-medium">Ative se houver erro ao conectar com seu n8n/webhook.</p>
-                                </div>
-                                <button id="toggle-proxy" class="w-12 h-6 rounded-full transition-all relative bg-slate-300">
-                                    <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all left-1"></div>
-                                </button>
-                            </div>
-                        </div>
-                        <div class="bg-blue-50 p-6 rounded-2xl border border-blue-100">
-                            <div class="flex items-center justify-between">
-                                <div>
-                                    <h5 class="font-black text-slate-900 text-sm">Encapsular Dados (Wrap em 'body')</h5>
-                                    <p class="text-[10px] text-slate-500 font-medium">Necessário para alguns Webhooks do n8n.</p>
-                                </div>
-                                <button id="toggle-wrap" class="w-12 h-6 rounded-full transition-all relative bg-slate-300">
-                                    <div class="absolute top-1 w-4 h-4 bg-white rounded-full transition-all left-1"></div>
-                                </button>
-                            </div>
-                        </div>
-                    </div>
-                    
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
                             <label class="block text-[10px] font-black text-slate-400 uppercase mb-2 ml-1">Nome da Instância</label>
@@ -2244,43 +2404,11 @@ function getSettingsHTML() {
 }
 
 function setupSettingsEvents() {
-    document.getElementById('toggle-simplified').addEventListener('click', () => {
-        toggleSwitch('toggle-simplified', 'simplifiedPayload');
-    });
-    document.getElementById('toggle-proxy').addEventListener('click', () => {
-        toggleSwitch('toggle-proxy', 'useProxy');
-    });
-    document.getElementById('toggle-wrap').addEventListener('click', () => {
-        toggleSwitch('toggle-wrap', 'wrapInBody');
-    });
-    
     document.getElementById('btn-save-settings').addEventListener('click', saveSettings);
 
     const scraperApiInput = document.getElementById('setting-scraper-api');
     if (scraperApiInput) {
         scraperApiInput.addEventListener('input', () => updateApiStatusDisplay(scraperApiInput.value));
-    }
-}
-
-function toggleSwitch(btnId, configKey) {
-    const btn = document.getElementById(btnId);
-    const toggle = btn.querySelector('div');
-    const isActive = toggle.classList.contains('left-7');
-    
-    if (isActive) {
-        toggle.classList.remove('left-7');
-        toggle.classList.add('left-1');
-        btn.classList.remove('bg-emerald-600', 'bg-amber-600', 'bg-blue-600');
-        btn.classList.add('bg-slate-300');
-        AppState.config[configKey] = false;
-    } else {
-        toggle.classList.remove('left-1');
-        toggle.classList.add('left-7');
-        if (btnId.includes('simplified')) btn.classList.add('bg-emerald-600');
-        else if (btnId.includes('proxy')) btn.classList.add('bg-amber-600');
-        else btn.classList.add('bg-blue-600');
-        btn.classList.remove('bg-slate-300');
-        AppState.config[configKey] = true;
     }
 }
 
@@ -2300,12 +2428,6 @@ async function loadSettingsForm() {
             var scraperApiInput = document.getElementById('setting-scraper-api');
             if (scraperApiInput) scraperApiInput.value = AppState.config.scraperApiKey || '';
             updateApiStatusDisplay();
-            var toggleSimplified = document.getElementById('toggle-simplified');
-            if (toggleSimplified) updateSwitch('toggle-simplified', AppState.config.simplifiedPayload);
-            var toggleProxy = document.getElementById('toggle-proxy');
-            if (toggleProxy) updateSwitch('toggle-proxy', AppState.config.useProxy);
-            var toggleWrap = document.getElementById('toggle-wrap');
-            if (toggleWrap) updateSwitch('toggle-wrap', AppState.config.wrapInBody);
         }
     } catch (e) {
         console.error('Erro ao carregar configurações:', e);
@@ -2333,25 +2455,6 @@ function updateApiStatusDisplay(overrideKey) {
     }
 }
 
-function updateSwitch(btnId, isActive) {
-    const btn = document.getElementById(btnId);
-    const toggle = btn.querySelector('div');
-    
-    if (isActive) {
-        toggle.classList.remove('left-1');
-        toggle.classList.add('left-7');
-        if (btnId.includes('simplified')) btn.classList.add('bg-emerald-600');
-        else if (btnId.includes('proxy')) btn.classList.add('bg-amber-600');
-        else btn.classList.add('bg-blue-600');
-        btn.classList.remove('bg-slate-300');
-    } else {
-        toggle.classList.remove('left-7');
-        toggle.classList.add('left-1');
-        btn.classList.remove('bg-emerald-600', 'bg-amber-600', 'bg-blue-600');
-        btn.classList.add('bg-slate-300');
-    }
-}
-
 async function saveSettings() {
     const btn = document.getElementById('btn-save-settings');
     btn.disabled = true;
@@ -2364,10 +2467,7 @@ async function saveSettings() {
     var payload = {
         baseUrl: urlEl ? urlEl.value : (AppState.config.baseUrl || ''),
         token: tokenEl ? tokenEl.value : (AppState.config.token || ''),
-        tenantName: tenantEl ? tenantEl.value : (AppState.config.tenantName || 'Atendo CRM'),
-        simplifiedPayload: AppState.config.simplifiedPayload || false,
-        useProxy: AppState.config.useProxy || false,
-        wrapInBody: AppState.config.wrapInBody || false
+        tenantName: tenantEl ? tenantEl.value : (AppState.config.tenantName || 'Atendo CRM')
     };
     if (isSuperAdmin) {
         var scraperEl = document.getElementById('setting-scraper-api');
@@ -2383,6 +2483,16 @@ async function saveSettings() {
         const data = await res.json();
         
         if (data.success) {
+            if (AppState.config) AppState.config.tenantName = payload.tenantName;
+            var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+            if (!isSuperAdmin) {
+                var subtitleEl = document.getElementById('header-dashboard-subtitle');
+                if (subtitleEl) {
+                    var instanceName = (payload.tenantName && String(payload.tenantName).trim()) ? String(payload.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
+                    subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
+                }
+            }
+            updateDocumentTitle();
             showToast('Configurações salvas no sistema!');
             loadConfig();
         } else {
@@ -2403,6 +2513,15 @@ async function loadConfig() {
         if (data.success) {
             AppState.config = data.data;
             updateSearchApiUI();
+            var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+            if (!isSuperAdmin) {
+                var subtitleEl = document.getElementById('header-dashboard-subtitle');
+                if (subtitleEl) {
+                    var instanceName = (AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Empresa';
+                    subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
+                }
+            }
+            updateDocumentTitle();
         }
     } catch (e) {
         console.error('Erro ao carregar config:', e);

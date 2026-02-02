@@ -37,9 +37,6 @@ if ($method === 'GET') {
         'baseUrl' => $settings['base_url'] ?? '',
         'token' => '',  // nunca enviado em texto; front usa campo para valor do header apikey
         'tenantName' => $settings['tenant_name'] ?? 'Atendo CRM',
-        'useProxy' => (bool)($settings['use_proxy'] ?? 0),
-        'wrapInBody' => (bool)($settings['wrap_in_body'] ?? 0),
-        'simplifiedPayload' => (bool)($settings['simplified_payload'] ?? 0),
         'scraperApiKeyConfigured' => $scraperApiKeyConfigured
     ];
     if ($isSuperAdmin) {
@@ -59,9 +56,6 @@ if ($method === 'GET') {
     $baseUrl = sanitizeInput($input['baseUrl'] ?? '');
     $apikeyPlain = trim($input['token'] ?? '');
     $tenantName = sanitizeInput($input['tenantName'] ?? 'Atendo CRM');
-    $useProxy = isset($input['useProxy']) && $input['useProxy'] ? 1 : 0;
-    $wrapInBody = isset($input['wrapInBody']) && $input['wrapInBody'] ? 1 : 0;
-    $simplifiedPayload = isset($input['simplifiedPayload']) && $input['simplifiedPayload'] ? 1 : 0;
 
     // Chave da API de busca: apenas super_admin pode alterar; salva em platform_settings (toda a plataforma usa)
     if ($isSuperAdmin && array_key_exists('scraperApiKey', $input)) {
@@ -88,26 +82,21 @@ if ($method === 'GET') {
                 base_url = ?,
                 token = ?,
                 tenant_name = ?,
-                use_proxy = ?,
-                wrap_in_body = ?,
-                simplified_payload = ?,
                 updated_at = NOW()
             WHERE user_id = ?
         ");
         $stmt->execute([
-            $baseUrl, $tokenToSave, $tenantName, $useProxy, $wrapInBody,
-            $simplifiedPayload, $userId
+            $baseUrl, $tokenToSave, $tenantName, $userId
         ]);
     } else {
         $tokenToSave = $apikeyPlain !== '' ? encryptApikey($apikeyPlain) : '';
         $stmt = $db->prepare("
             INSERT INTO settings 
-            (user_id, base_url, token, tenant_name, use_proxy, wrap_in_body, simplified_payload)
-            VALUES (?, ?, ?, ?, ?, ?, ?)
+            (user_id, base_url, token, tenant_name)
+            VALUES (?, ?, ?, ?)
         ");
         $stmt->execute([
-            $userId, $baseUrl, $tokenToSave, $tenantName, $useProxy,
-            $wrapInBody, $simplifiedPayload
+            $userId, $baseUrl, $tokenToSave, $tenantName
         ]);
     }
     

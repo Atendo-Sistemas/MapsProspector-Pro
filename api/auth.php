@@ -152,7 +152,7 @@ if ($method === 'POST') {
                 } else {
                     $tenantName = 'Plataforma (Super Admin)';
                 }
-                jsonSuccess([
+                $payload = [
                     'user' => [
                         'id' => (string)$user['id'],
                         'name' => $user['name'],
@@ -168,12 +168,113 @@ if ($method === 'POST') {
                         'planName' => $tenantPlanName
                     ],
                     'tokenUsage' => $tokenUsage
-                ]);
+                ];
+                if (!empty($_SESSION['impersonating']) && $tenantId !== null) {
+                    $payload['impersonating'] = true;
+                    $payload['impersonatingTenantName'] = $tenantName;
+                }
+                jsonSuccess($payload);
             }
         }
         
         jsonError('Não autenticado', 401);
         
+    } elseif ($action === 'impersonate') {
+        // Apenas super_admin pode acessar outra empresa como se fosse o cliente (sem senha)
+        $profile = $_SESSION['profile'] ?? '';
+        if ($profile !== 'super_admin') {
+            jsonError('Acesso negado. Apenas o administrador da plataforma pode acessar outras empresas.', 403);
+        }
+        $tenantId = isset($input['tenantId']) ? (int) $input['tenantId'] : 0;
+        if (!$tenantId) {
+            jsonError('ID da empresa é obrigatório', 400);
+        }
+        if ($tenantId === 1) {
+            jsonError('Não é permitido acessar a empresa padrão.', 400);
+        }
+        try {
+            $db = Database::getInstance()->getConnection();
+        } catch (Exception $e) {
+            jsonError($e->getMessage(), 500);
+        }
+        $stmt = $db->prepare("SELECT id FROM tenants WHERE id = ?");
+        $stmt->execute([$tenantId]);
+        if (!$stmt->fetch()) {
+            jsonError('Empresa não encontrada', 404);
+        }
+        $stmt = $db->prepare("SELECT id, name, email, tenant_id, profile FROM users WHERE tenant_id = ? ORDER BY (profile = 'admin') DESC, id ASC LIMIT 1");
+        $stmt->execute([$tenantId]);
+        $targetUser = $stmt->fetch();
+        if (!$targetUser) {
+            jsonError('Nenhum usuário encontrado nesta empresa.', 404);
+        }
+        $_SESSION['impersonate_original_user_id'] = $_SESSION['user_id'];
+        $_SESSION['impersonate_original_user_name'] = $_SESSION['user_name'] ?? '';
+        $_SESSION['impersonate_original_user_email'] = $_SESSION['user_email'] ?? '';
+        $_SESSION['impersonate_original_tenant_id'] = isset($_SESSION['tenant_id']) ? $_SESSION['tenant_id'] : null;
+        $_SESSION['impersonate_original_profile'] = $_SESSION['profile'] ?? '';
+        $_SESSION['user_id'] = $targetUser['id'];
+        $_SESSION['user_name'] = $targetUser['name'];
+        $_SESSION['user_email'] = $targetUser['email'];
+        $_SESSION['tenant_id'] = (int) $targetUser['tenant_id'];
+        $_SESSION['profile'] = $targetUser['profile'];
+        $_SESSION['impersonating'] = true;
+
+        $tenantId = (int) $targetUser['tenant_id'];
+        $tenantName = 'Atendo Maps';
+        $tenantStatus = 'active';
+        $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+        $tenantPlanId = '';
+        $tenantPlanName = '';
+        $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+        $stmtT->execute([$tenantId]);
+        $row = $stmtT->fetch();
+        if ($row) {
+            $tenantName = $row['name'];
+            $tenantStatus = $row['status'] ?? 'active';
+            $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
+            $tenantPlanName = $row['plan_name'] ?? '';
+            $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+            $bonus = getTenantTokenBonus($db, $tenantId, null);
+            $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
+            $used = getTenantTokensUsed($db, $tenantId, null);
+            $tokenUsage = [
+                'used' => $used,
+                'limit' => $effectiveLimit,
+                'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
+            ];
+        }
+        jsonSuccess([
+            'user' => [
+                'id' => (string) $targetUser['id'],
+                'name' => $targetUser['name'],
+                'email' => $targetUser['email'],
+                'tenantId' => (string) $tenantId,
+                'profile' => $targetUser['profile']
+            ],
+            'tenant' => [
+                'id' => (string) $tenantId,
+                'name' => $tenantName,
+                'status' => $tenantStatus,
+                'planId' => $tenantPlanId,
+                'planName' => $tenantPlanName
+            ],
+            'tokenUsage' => $tokenUsage,
+            'impersonating' => true,
+            'impersonatingTenantName' => $tenantName
+        ]);
+    } elseif ($action === 'stop_impersonate') {
+        if (empty($_SESSION['impersonating'])) {
+            jsonError('Você não está acessando outra empresa.', 400);
+        }
+        $_SESSION['user_id'] = $_SESSION['impersonate_original_user_id'];
+        $_SESSION['user_name'] = $_SESSION['impersonate_original_user_name'] ?? '';
+        $_SESSION['user_email'] = $_SESSION['impersonate_original_user_email'] ?? '';
+        $_SESSION['tenant_id'] = $_SESSION['impersonate_original_tenant_id'] ?? null;
+        $_SESSION['profile'] = $_SESSION['impersonate_original_profile'] ?? 'super_admin';
+        unset($_SESSION['impersonating'], $_SESSION['impersonate_original_user_id'], $_SESSION['impersonate_original_user_name'],
+              $_SESSION['impersonate_original_user_email'], $_SESSION['impersonate_original_tenant_id'], $_SESSION['impersonate_original_profile']);
+        jsonSuccess(['restored' => true], 'Voltou à sua conta');
     } elseif ($action === 'logout') {
         session_destroy();
         jsonSuccess(null, 'Logout realizado com sucesso');
