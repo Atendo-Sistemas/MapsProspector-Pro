@@ -105,6 +105,9 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
   const [userCoords, setUserCoords] = useState<{ latitude: number; longitude: number } | undefined>();
   const [userLocationName, setUserLocationName] = useState<string>(''); // Nome legível do local
   const [locStatus, setLocStatus] = useState<'idle' | 'loading' | 'success' | 'error' | 'https_error'>('idle');
+
+  // API de Busca (Google Maps) – status de conexão
+  const [apiSearchStatus, setApiSearchStatus] = useState<'loading' | 'connected' | 'disconnected'>('loading');
   
   const [toastMsg, setToastMsg] = useState<string | null>(null);
   const [companiesRefreshKey, setCompaniesRefreshKey] = useState(0);
@@ -114,6 +117,9 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
   // Inicializa configurações direto do StorageService (Síncrono para evitar flash)
   const [config, setConfig] = useState<CRMConfig>(() => StorageService.getSettings());
   const [settingsForm, setSettingsForm] = useState<CRMConfig>(() => StorageService.getSettings());
+
+  // Nome da empresa SaaS (Configuração da empresa SaaS > Nome da empresa SaaS)
+  const [saasCompanyName, setSaasCompanyName] = useState<string>('');
 
   const refreshLocation = () => {
     // Verificação de segurança do navegador
@@ -211,13 +217,34 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           setSettingsForm(serverConfig);
           setConfig(serverConfig);
           StorageService.saveSettings(serverConfig);
+          const isSuperAdmin = String(user?.profile ?? '').toLowerCase() === 'super_admin';
+          const configured = isSuperAdmin
+            ? !!(serverConfig.scraperApiKey && String(serverConfig.scraperApiKey).trim())
+            : !!serverConfig.scraperApiKeyConfigured;
+          setApiSearchStatus(configured ? 'connected' : 'disconnected');
+        } else {
+          setApiSearchStatus('disconnected');
         }
       } catch (error) {
         console.error('Erro ao carregar configurações do servidor:', error);
+        setApiSearchStatus('disconnected');
       }
     };
-    
+
+    const loadPlatformBranding = async () => {
+      try {
+        const res = await fetch(`${API_BASE}/api/platform-config.php`, { credentials: 'include' });
+        const data = await res.json();
+        if (data.success && data.data?.saasCompanyName !== undefined) {
+          setSaasCompanyName(String(data.data.saasCompanyName).trim());
+        }
+      } catch (e) {
+        console.warn('Não foi possível carregar nome da empresa SaaS.', e);
+      }
+    };
+
     loadServerSettings();
+    loadPlatformBranding();
   }, [loadHistory]);
 
   const saveSettings = async () => {
@@ -236,6 +263,16 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
         StorageService.saveSettings(settingsForm);
         setConfig(settingsForm);
         setToastMsg('Configurações salvas com sucesso!');
+        // Atualiza status da API de Busca na sidebar (refetch para obter scraperApiKeyConfigured)
+        fetch('/api/settings.php').then(r => r.json()).then(d => {
+          if (d.success && d.data) {
+            const isSA = String(user?.profile ?? '').toLowerCase() === 'super_admin';
+            const configured = isSA
+              ? !!(d.data.scraperApiKey && String(d.data.scraperApiKey).trim())
+              : !!d.data.scraperApiKeyConfigured;
+            setApiSearchStatus(configured ? 'connected' : 'disconnected');
+          }
+        }).catch(() => {});
       } else {
         setToastMsg('Erro ao salvar: ' + (data.error || 'Erro desconhecido'));
       }
@@ -283,13 +320,13 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
               </svg>
             </div>
             <div>
-              <span className="font-black text-lg block leading-none tracking-tight italic">ATENDO</span>
+              <span className="font-black text-lg block leading-none tracking-tight italic">{saasCompanyName || 'ATENDO'}</span>
               <span className="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Maps Prospector</span>
             </div>
           </div>
         </div>
 
-        <nav className="flex-grow p-6 flex flex-col gap-0">
+        <nav className="flex-grow min-h-0 overflow-y-auto p-6 flex flex-col gap-0 [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
           {/* Normal: para todos */}
           <div className="space-y-2 pb-4">
             <p className="text-[11px] font-black text-slate-400 uppercase tracking-widest px-5 mb-3">Normal</p>
@@ -386,30 +423,15 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
         
         <div className="p-6 border-t border-slate-800/50 space-y-4">
           <div className="bg-slate-800/40 p-5 rounded-[1.25rem] border border-slate-700/50">
-            <p className="text-[9px] font-black text-slate-500 uppercase mb-2 tracking-widest">GPS Status</p>
+            <p className="text-[9px] font-black text-slate-500 uppercase mb-2 tracking-widest">API de Busca (Google Maps)</p>
             <p className="text-[10px] font-bold text-white truncate flex items-center gap-2 mb-2">
                 <span className={`w-2 h-2 rounded-full ${
-                    locStatus === 'success' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' : 
-                    locStatus === 'loading' ? 'bg-yellow-500 animate-pulse' : 
-                    locStatus === 'https_error' ? 'bg-orange-500' : 'bg-red-500'
+                    apiSearchStatus === 'connected' ? 'bg-emerald-500 shadow-[0_0_8px_#10b981]' :
+                    apiSearchStatus === 'loading' ? 'bg-yellow-500 animate-pulse' : 'bg-red-500'
                 }`}></span>
-                {
-                    locStatus === 'success' ? 'Localização Ativa' : 
-                    locStatus === 'loading' ? 'Detectando...' : 
-                    locStatus === 'https_error' ? 'Requer HTTPS' : 'Inativo / Bloqueado'
-                }
+                {apiSearchStatus === 'connected' ? 'Conectado ao Google Maps' :
+                 apiSearchStatus === 'loading' ? 'Verificando...' : 'API não configurada'}
             </p>
-            {userLocationName && (
-                <div className="pt-2 border-t border-slate-700/50">
-                     <p className="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Detectado:</p>
-                     <p className="text-[10px] text-emerald-300 font-bold leading-tight">{userLocationName}</p>
-                </div>
-            )}
-            {locStatus === 'https_error' && (
-                <div className="pt-2 border-t border-slate-700/50">
-                     <p className="text-[9px] text-orange-400 font-bold leading-tight">Instale SSL/HTTPS para usar o GPS.</p>
-                </div>
-            )}
           </div>
         </div>
       </aside>
@@ -432,10 +454,6 @@ const App: React.FC<AppProps> = ({ user, tenant, tokenUsage, onLogout, onTokenUs
           </div>
           
           <div className="flex items-center gap-6">
-             <button onClick={refreshLocation} className="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all text-[10px] font-black uppercase text-slate-600">
-                <svg className={`w-4 h-4 ${locStatus === 'loading' ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                {locStatus === 'loading' ? 'Localizando...' : 'Recarregar GPS'}
-             </button>
              <div className="flex items-center gap-4 border-l border-slate-200 pl-6">
                 <div className="flex flex-col items-end">
                   <span className="text-xs font-bold text-slate-900">{user.name}</span>

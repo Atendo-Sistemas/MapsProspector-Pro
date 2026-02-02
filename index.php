@@ -18,6 +18,14 @@ require_once __DIR__ . '/config/config.php';
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <style>
         body { font-family: 'Inter', sans-serif; }
+        /* Menu lateral: rolagem sem barra visível */
+        .sidebar-nav-scroll {
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+        .sidebar-nav-scroll::-webkit-scrollbar {
+            display: none;
+        }
         @keyframes slideIn {
             from { transform: translateX(100%); opacity: 0; }
             to { transform: translateX(0); opacity: 1; }
@@ -112,12 +120,12 @@ require_once __DIR__ . '/config/config.php';
                             </svg>
                         </div>
                         <div>
-                            <span class="font-black text-lg block leading-none tracking-tight italic">ATENDO</span>
+                            <span id="sidebar-company-name" class="font-black text-lg block leading-none tracking-tight italic">ATENDO</span>
                             <span class="text-[10px] font-bold text-slate-500 uppercase tracking-[0.2em]">Maps Prospector</span>
                         </div>
                     </div>
                 </div>
-                <nav class="flex-grow p-6 flex flex-col gap-0">
+                <nav class="sidebar-nav-scroll flex-grow min-h-0 overflow-y-auto p-6 flex flex-col gap-0">
                     <!-- Normal: para todos -->
                     <div class="pb-4">
                         <p class="text-[11px] font-black text-slate-400 uppercase tracking-widest px-5 mb-3">Normal</p>
@@ -185,15 +193,11 @@ require_once __DIR__ . '/config/config.php';
                 </nav>
                 <div class="p-6 border-t border-slate-800/50 space-y-4">
                     <div class="bg-slate-800/40 p-5 rounded-[1.25rem] border border-slate-700/50">
-                        <p class="text-[9px] font-black text-slate-500 uppercase mb-2 tracking-widest">GPS Status</p>
+                        <p class="text-[9px] font-black text-slate-500 uppercase mb-2 tracking-widest">API de Busca (Google Maps)</p>
                         <p class="text-[10px] font-bold text-white truncate flex items-center gap-2 mb-2">
-                            <span id="gps-indicator" class="w-2 h-2 rounded-full bg-red-500"></span>
-                            <span id="gps-status">GPS Inativo</span>
+                            <span id="search-api-indicator" class="w-2 h-2 rounded-full bg-red-500"></span>
+                            <span id="search-api-status">Verificando...</span>
                         </p>
-                        <div id="gps-location" class="hidden pt-2 border-t border-slate-700/50">
-                            <p class="text-[9px] text-slate-400 font-bold uppercase mb-0.5">Detectado:</p>
-                            <p id="gps-location-name" class="text-[10px] text-emerald-300 font-bold leading-tight"></p>
-                        </div>
                     </div>
                 </div>
             </aside>
@@ -211,10 +215,6 @@ require_once __DIR__ . '/config/config.php';
                         <p class="text-[11px] text-slate-400 font-semibold uppercase tracking-wider">Dashboard Atendo</p>
                     </div>
                     <div class="flex items-center gap-6">
-                        <button id="btn-refresh-gps" class="flex items-center gap-2 px-4 py-2 bg-slate-100 hover:bg-slate-200 rounded-xl transition-all text-[10px] font-black uppercase text-slate-600">
-                            <svg id="gps-icon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
-                            <span id="gps-btn-text">Recarregar GPS</span>
-                        </button>
                         <div id="header-user-area" class="relative flex flex-col items-end border-l border-slate-200 pl-6 cursor-pointer group" title="Clique para abrir menu">
                             <div class="flex items-center gap-2">
                                 <span id="user-name" class="text-xs font-bold text-slate-900">Administrador</span>

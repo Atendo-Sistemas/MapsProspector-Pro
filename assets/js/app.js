@@ -26,7 +26,6 @@ const AppState = {
 document.addEventListener('DOMContentLoaded', () => {
     checkAuth();
     setupEventListeners();
-    refreshLocation();
 });
 
 // Verifica autenticação
@@ -131,10 +130,21 @@ function renderHeaderTokenWarning() {
     }
 }
 
+function loadSidebarCompanyName() {
+    fetch(API_BASE + 'platform-config.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
+        var d = data.data || data;
+        var name = (d && d.saasCompanyName && String(d.saasCompanyName).trim()) ? String(d.saasCompanyName).trim() : 'ATENDO';
+        var el = document.getElementById('sidebar-company-name');
+        if (el) el.textContent = name;
+    }).catch(function() {});
+}
+
 function showDashboard() {
     document.getElementById('login-screen').classList.add('hidden');
     document.getElementById('dashboard').classList.remove('hidden');
+    loadSidebarCompanyName();
     renderHeaderTokenWarning();
+    updateSearchApiUI();
     if (AppState.user) {
         document.getElementById('user-name').textContent = AppState.user.name;
         var roleEl = document.getElementById('user-role');
@@ -266,9 +276,6 @@ function setupEventListeners() {
         });
     });
     
-    // GPS
-    document.getElementById('btn-refresh-gps').addEventListener('click', refreshLocation);
-
     // Menu do usuário (dropdown + Sair)
     var headerUserArea = document.getElementById('header-user-area');
     var userDropdown = document.getElementById('user-dropdown');
@@ -1389,32 +1396,32 @@ function refreshLocation() {
 function updateGPSUI() {
     const indicator = document.getElementById('gps-indicator');
     const status = document.getElementById('gps-status');
+    if (!indicator || !status) return;
     const locationDiv = document.getElementById('gps-location');
     const locationName = document.getElementById('gps-location-name');
     const btnText = document.getElementById('gps-btn-text');
     const icon = document.getElementById('gps-icon');
-    
     if (AppState.locStatus === 'success') {
         indicator.className = 'w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]';
         status.textContent = 'Localização Ativa';
-        if (AppState.userLocationName) {
+        if (AppState.userLocationName && locationDiv && locationName) {
             locationDiv.classList.remove('hidden');
             locationName.textContent = AppState.userLocationName;
         }
-        btnText.textContent = 'Recarregar GPS';
-        icon.classList.remove('animate-spin');
+        if (btnText) btnText.textContent = 'Recarregar GPS';
+        if (icon) icon.classList.remove('animate-spin');
     } else if (AppState.locStatus === 'loading') {
         indicator.className = 'w-2 h-2 rounded-full bg-yellow-500 animate-pulse';
         status.textContent = 'Detectando...';
-        locationDiv.classList.add('hidden');
-        btnText.textContent = 'Localizando...';
-        icon.classList.add('animate-spin');
+        if (locationDiv) locationDiv.classList.add('hidden');
+        if (btnText) btnText.textContent = 'Localizando...';
+        if (icon) icon.classList.add('animate-spin');
     } else {
         indicator.className = 'w-2 h-2 rounded-full bg-red-500';
         status.textContent = 'GPS Inativo';
-        locationDiv.classList.add('hidden');
-        btnText.textContent = 'Recarregar GPS';
-        icon.classList.remove('animate-spin');
+        if (locationDiv) locationDiv.classList.add('hidden');
+        if (btnText) btnText.textContent = 'Recarregar GPS';
+        if (icon) icon.classList.remove('animate-spin');
     }
 }
 
@@ -2346,13 +2353,38 @@ async function saveSettings() {
 
 async function loadConfig() {
     try {
-        const res = await fetch(API_BASE + 'settings.php');
+        const res = await fetch(API_BASE + 'settings.php', { credentials: 'include' });
         const data = await res.json();
         if (data.success) {
             AppState.config = data.data;
+            updateSearchApiUI();
         }
     } catch (e) {
         console.error('Erro ao carregar config:', e);
+        updateSearchApiUI();
+    }
+}
+
+function updateSearchApiUI() {
+    const indicator = document.getElementById('search-api-indicator');
+    const status = document.getElementById('search-api-status');
+    if (!indicator || !status) return;
+    var configured = false;
+    if (AppState.config) {
+        var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
+        configured = isSuperAdmin
+            ? (AppState.config.scraperApiKey && String(AppState.config.scraperApiKey).trim()) !== ''
+            : !!AppState.config.scraperApiKeyConfigured;
+    }
+    if (configured) {
+        indicator.className = 'w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_#10b981]';
+        status.textContent = 'Conectado ao Google Maps';
+    } else if (!AppState.config) {
+        indicator.className = 'w-2 h-2 rounded-full bg-yellow-500 animate-pulse';
+        status.textContent = 'Verificando...';
+    } else {
+        indicator.className = 'w-2 h-2 rounded-full bg-red-500';
+        status.textContent = 'API não configurada';
     }
 }
 
