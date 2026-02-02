@@ -2428,6 +2428,82 @@ async function loadHistory() {
     }
 }
 
+function formatHistoryTimestamp(ts) {
+    if (!ts) return '—';
+    try {
+        var d = new Date(ts);
+        if (isNaN(d.getTime())) return '—';
+        var day = String(d.getDate()).padStart(2, '0');
+        var month = String(d.getMonth() + 1).padStart(2, '0');
+        var year = d.getFullYear();
+        var h = String(d.getHours()).padStart(2, '0');
+        var m = String(d.getMinutes()).padStart(2, '0');
+        return day + '/' + month + '/' + year + ' ' + h + ':' + m;
+    } catch (e) { return '—'; }
+}
+
+function getHistoryItemCount(item) {
+    return item.resultsCount ?? item.results_count ?? (item.leads && item.leads.length) ?? 0;
+}
+
+function applyHistoryFilters(history, searchText, dateFrom, dateTo) {
+    var search = (searchText || '').trim().toLowerCase();
+    var from = (dateFrom || '').trim();
+    var to = (dateTo || '').trim();
+    return history.filter(function(item) {
+        if (search) {
+            var q = (item.query || '').toLowerCase();
+            var loc = (item.location || '').toLowerCase();
+            var tag = (item.tag || '').toLowerCase();
+            if (q.indexOf(search) === -1 && loc.indexOf(search) === -1 && tag.indexOf(search) === -1) return false;
+        }
+        var ts = item.timestamp;
+        if (ts && (from || to)) {
+            try {
+                var d = new Date(ts);
+                if (isNaN(d.getTime())) return false;
+                var dateStr = d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+                if (from && dateStr < from) return false;
+                if (to && dateStr > to) return false;
+            } catch (e) { return false; }
+        }
+        return true;
+    });
+}
+
+function renderHistoryList(listEl, filtered) {
+    listEl.innerHTML = filtered.map(function(item) {
+        var count = getHistoryItemCount(item);
+        var dateTime = formatHistoryTimestamp(item.timestamp);
+        var tagLabel = (item.tag && item.tag.trim()) ? item.tag.trim() : '—';
+        return '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between group hover:border-blue-300 transition-all hover:shadow-md">' +
+            '<div class="flex items-center gap-6">' +
+            '<div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-xl">🔎</div>' +
+            '<div>' +
+            '<h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg capitalize">' + (item.query || '') + '</h4>' +
+            '<p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">📍 ' + (item.location || 'Local Automático') + ' <span class="ml-2">🏷 ' + tagLabel + '</span> <span class="ml-2 text-slate-500">' + dateTime + '</span> <span class="ml-2 text-blue-500">(' + count + ' leads)</span></p>' +
+            '</div></div>' +
+            '<button class="btn-use-history bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl text-xs hover:bg-blue-600 transition-colors" data-history-id="' + item.id + '">Ver Novamente</button>' +
+            '</div>';
+    }).join('');
+    listEl.querySelectorAll('.btn-use-history').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var historyId = btn.dataset.historyId;
+            var item = AppState.history.find(function(h) { return h.id == historyId; });
+            if (item && item.leads) {
+                AppState.searchId = String(item.id);
+                AppState.leads = item.leads.map(function(l) {
+                    if (l.locked === false) return l;
+                    return { id: l.id, name: l.name || '', locked: true, dbId: l.dbId };
+                });
+                AppState.currentSearch = { query: item.query || '', location: item.location || '', tag: item.tag || '' };
+                setActiveTab('search');
+                setTimeout(function() { displayLeads(); }, 100);
+            }
+        });
+    });
+}
+
 function displayHistory() {
     const contentArea = document.getElementById('content-area');
     
@@ -2444,6 +2520,22 @@ function displayHistory() {
     
     contentArea.innerHTML = `
         <div class="max-w-5xl mx-auto">
+            <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-600 mb-6">
+                <label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-3">Buscar resultados</label>
+                <div class="flex flex-wrap gap-3 items-end">
+                    <div class="flex-1 min-w-[200px]">
+                        <input id="history-search" type="text" class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-slate-100 font-bold text-sm placeholder-slate-400 focus:border-blue-500 outline-none" placeholder="Termo, local ou tag">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">De</label>
+                        <input id="history-date-from" type="date" class="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-slate-100 font-bold text-sm focus:border-blue-500 outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase mb-1">Até</label>
+                        <input id="history-date-to" type="date" class="px-4 py-2.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-slate-100 font-bold text-sm focus:border-blue-500 outline-none">
+                    </div>
+                </div>
+            </div>
             <div class="flex justify-between items-center mb-10">
                 <div><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Histórico Recente</h3></div>
                 <button id="btn-clear-history" class="text-xs font-extrabold text-red-500 hover:bg-red-50 px-5 py-2 rounded-xl">Limpar Tudo</button>
@@ -2452,19 +2544,24 @@ function displayHistory() {
         </div>
     `;
     
-    const list = document.getElementById('history-list');
-    list.innerHTML = AppState.history.map(item => `
-        <div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between group hover:border-blue-300 transition-all hover:shadow-md">
-            <div class="flex items-center gap-6">
-                <div class="w-12 h-12 bg-slate-50 dark:bg-slate-800/50 rounded-xl flex items-center justify-center text-xl">🔎</div>
-                <div>
-                    <h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg capitalize">${item.query}</h4>
-                    <p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">📍 ${item.location || 'Local Automático'} <span class="ml-2 text-blue-500">(${item.resultsCount} leads)</span></p>
-                </div>
-            </div>
-            <button class="btn-use-history bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl text-xs hover:bg-blue-600 transition-colors" data-history-id="${item.id}">Ver Novamente</button>
-        </div>
-    `).join('');
+    var listEl = document.getElementById('history-list');
+    function refreshFilteredList() {
+        var searchVal = (document.getElementById('history-search') && document.getElementById('history-search').value) || '';
+        var fromVal = (document.getElementById('history-date-from') && document.getElementById('history-date-from').value) || '';
+        var toVal = (document.getElementById('history-date-to') && document.getElementById('history-date-to').value) || '';
+        var filtered = applyHistoryFilters(AppState.history, searchVal, fromVal, toVal);
+        renderHistoryList(listEl, filtered);
+    }
+    
+    refreshFilteredList();
+    
+    var searchInput = document.getElementById('history-search');
+    var dateFromInput = document.getElementById('history-date-from');
+    var dateToInput = document.getElementById('history-date-to');
+    if (searchInput) searchInput.addEventListener('input', refreshFilteredList);
+    if (searchInput) searchInput.addEventListener('change', refreshFilteredList);
+    if (dateFromInput) dateFromInput.addEventListener('change', refreshFilteredList);
+    if (dateToInput) dateToInput.addEventListener('change', refreshFilteredList);
     
     document.getElementById('btn-clear-history').addEventListener('click', async () => {
         if (confirm('Deseja apagar o histórico de buscas?')) {
@@ -2479,29 +2576,6 @@ function displayHistory() {
                 alert('Erro ao limpar histórico: ' + e.message);
             }
         }
-    });
-    
-    document.querySelectorAll('.btn-use-history').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const historyId = btn.dataset.historyId;
-            const item = AppState.history.find(h => h.id == historyId);
-            if (item && item.leads) {
-                AppState.searchId = String(item.id);
-                AppState.leads = item.leads.map(function(l) {
-                    if (l.locked === false) return l;
-                    return { id: l.id, name: l.name || '', locked: true, dbId: l.dbId };
-                });
-                AppState.currentSearch = {
-                    query: item.query || '',
-                    location: item.location || '',
-                    tag: item.tag || ''
-                };
-                setActiveTab('search');
-                setTimeout(() => {
-                    displayLeads();
-                }, 100);
-            }
-        });
     });
 }
 
