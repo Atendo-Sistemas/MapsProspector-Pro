@@ -37,8 +37,6 @@ A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou
 - **Histórico de Buscas**  
   Histórico de pesquisas armazenado no banco de dados (MySQL), listado via API para acesso rápido posterior.
 
-- **Configuração Flexível**  
-  Personalização de endpoints de API, tokens e modelos de IA.
 
 ---
 
