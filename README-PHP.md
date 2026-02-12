@@ -141,7 +141,7 @@ Para problemas:
 
 ## 📄 Licença
 
-Proprietário - Atendo Tecnologia
+Proprietário - **Atendo Sistemas** em parceria com **GFSISTEMA**
 
 ---
 
