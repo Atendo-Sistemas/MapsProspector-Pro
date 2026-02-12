@@ -2,14 +2,14 @@
   <img 
     width="1200" 
     height="475" 
-    alt="Atendo Maps Banner" 
+    alt="MapsProspector-Pro Banner" 
     src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifb65AmhXlG6f-JunD1EDO6b49xAsdoRvDaM58q_HTZg1k1VFEK0coVCYBQYcDn73zwaT0VE-0bEFNaZOLLT2Ofe-vYThcu9U8s2fa5m8i3RnPgRc_G6QSmUY7RkVAhzqlxqex5x5juN_urWJpslFVNX3bYuY-jn_3JbiMUBTvm_U_E0eZ-TBN-qcU90w/s1600/Atendo%20Sistemas.png"
   />
 </div>
 
-# Atendo Maps — Ferramenta de Prospecção Inteligente
+# MapsProspector-Pro — Ferramenta de Prospecção Inteligente
 
-O **Atendo Maps** é uma aplicação web de prospecção B2B que minerar dados de empresas diretamente do **Google Maps** via API de busca (Scraper).  
+O **MapsProspector-Pro** é uma aplicação web de prospecção B2B que minerar dados de empresas diretamente do **Google Maps** via API de busca (Scraper).  
 
 A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou para outras plataformas via **Webhooks** (como **n8n**), facilitando e acelerando o processo comercial.
 
