@@ -33,3 +33,4 @@ Version.md
 
 # Chave de criptografia gerada automaticamente (não versionar)
 storage/
+/.agent
