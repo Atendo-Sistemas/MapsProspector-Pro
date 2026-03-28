@@ -18,10 +18,9 @@ if (is_file($envFile) && is_readable($envFile)) {
         if (preg_match('/^["\'](.+)["\']\s*$/', $value, $m)) {
             $value = $m[1];
         }
-        if (getenv($key) === false) {
-            putenv("$key=$value");
-            $_ENV[$key] = $value;
-        }
+        // Sempre define as variáveis do .env (sobrescreve se já existirem)
+        $_ENV[$key] = $value;
+        $_SERVER[$key] = $value;
     }
 }
 

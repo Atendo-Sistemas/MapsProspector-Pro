@@ -19,19 +19,31 @@ $db = Database::getInstance()->getConnection();
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
+    // Verifica se a tabela search_folders existe
+    $hasSearchFolders = false;
+    try {
+        $db->query("SELECT 1 FROM search_folders LIMIT 1");
+        $hasSearchFolders = true;
+    } catch (PDOException $e) {
+        // Tabela search_folders pode não existir
+    }
+
+    // Monta a query condicionalmente
+    $folderJoin = $hasSearchFolders ? "LEFT JOIN search_folders sf ON sf.id = sh.folder_id" : "";
+    $folderSelect = $hasSearchFolders ? "sh.folder_id, sf.name as folder_name," : "sh.folder_id,";
+
     $stmt = $db->prepare("
         SELECT 
             sh.id,
             sh.query,
             sh.location,
             sh.tag,
-            sh.folder_id,
+            $folderSelect
             sh.results_count,
             sh.created_at as timestamp,
-            sf.name as folder_name,
             COUNT(l.id) as leads_count
         FROM search_history sh
-        LEFT JOIN search_folders sf ON sf.id = sh.folder_id
+        $folderJoin
         LEFT JOIN leads l ON l.search_history_id = sh.id
         WHERE sh.user_id = ?
         GROUP BY sh.id
@@ -48,6 +60,13 @@ if ($method === 'GET') {
     } catch (PDOException $e) {
         // Tabela lead_unlocks pode não existir ainda
     }
+
+    // Verifica se a API do scraper está configurada
+    $scraperApiKey = getPlatformSetting($db, 'scraper_api_key');
+    if (empty(trim((string)$scraperApiKey)) && defined('SCRAPER_API_KEY')) {
+        $scraperApiKey = SCRAPER_API_KEY;
+    }
+    $scraperConfigured = !empty(trim((string)$scraperApiKey));
 
     foreach ($history as &$item) {
         $searchHistoryId = (int) $item['id'];
@@ -77,7 +96,25 @@ if ($method === 'GET') {
             $leadDbId = (int) $row['id'];
             $isUnlocked = isset($unlockedIds[$leadDbId]);
 
-            if ($isUnlocked) {
+            // Se API não configurada, mostra todos os dados normalmente
+            if (!$scraperConfigured) {
+                $leads[] = [
+                    'id' => 'lead-' . $leadDbId,
+                    'name' => $row['name'] ?? '',
+                    'locked' => false,
+                    'dbId' => $leadDbId,
+                    'phone' => $row['phone'] ?? '',
+                    'email' => $row['email'] ?? '',
+                    'address' => $row['address'] ?? '',
+                    'website' => $row['website'] ?? '',
+                    'mapsUri' => $row['maps_uri'] ?? '',
+                    'cnpj' => $row['cnpj'] ?? '',
+                    'partners' => $row['partners'] ?? '',
+                    'tag' => $row['tag'] ?? '',
+                    'latitude' => $row['latitude'] ?? null,
+                    'longitude' => $row['longitude'] ?? null,
+                ];
+            } elseif ($isUnlocked) {
                 $leads[] = [
                     'id' => 'lead-' . $leadDbId,
                     'name' => $row['name'] ?? '',

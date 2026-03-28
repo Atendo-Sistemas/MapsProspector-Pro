@@ -75,7 +75,7 @@ try {
         jsonError('Digite a cidade ou ative o GPS.', 400);
     }
     
-    // Limite de tokens do plano (empresa): 1 token = 1 página (até 20 resultados); débito só após a busca
+    // Limite de tokens do plano (empresa): 1 token = 1 resultado único; débito só após a busca
     $authUser = getAuthUser();
     $tenantId = $authUser['tenant_id'] ?? null;
     if ($tenantId !== null) {
@@ -144,7 +144,7 @@ try {
     
     $searchService = null;
     
-    // Tokens disponíveis para paginação: 1 token = 1 página (20 resultados). Enquanto houver crédito, aumenta "start" até retornar todos os dados ou acabar o crédito.
+    // Tokens disponíveis: 1 token = 1 resultado único. Enquanto houver crédito, busca até retornar todos os dados ou acabar o crédito.
     $maxTokensAvailable = null;
     if ($tenantId !== null) {
         $planLimit = getTenantPlanTokenLimit($db, $tenantId);
@@ -154,7 +154,7 @@ try {
             $used = getTenantTokensUsed($db, $tenantId, null);
             $maxTokensAvailable = max(0, $effectiveLimit - $used);
             if ($maxTokensAvailable < 1) {
-                jsonError('Você não tem tokens disponíveis para esta busca. Cada página (20 resultados) consome 1 token.', 403);
+                jsonError('Você não tem tokens disponíveis para esta busca. Cada resultado único consome 1 token.', 403);
             }
         }
     }
@@ -189,7 +189,6 @@ try {
             );
         }
         $leads = $searchResult['leads'];
-        $pagesUsed = isset($searchResult['pages_used']) ? (int) $searchResult['pages_used'] : (int) ceil(count($leads) / 20);
     } catch (Exception $e) {
         error_log("Erro ao buscar leads: " . $e->getMessage());
         error_log("Stack trace: " . $e->getTraceAsString());
@@ -213,7 +212,7 @@ try {
         $address = trim($lead['address'] ?? '');
         
         // Normaliza para comparação
-        $nameKey = mb_strtolower($name, 'UTF-8');
+        $nameKey = function_exists('mb_strtolower') ? mb_strtolower($name, 'UTF-8') : strtolower($name);
         $phoneKey = preg_replace('/[^0-9]/', '', $phone);
         
         // Chave única: nome + telefone (sem caracteres especiais)
@@ -303,22 +302,45 @@ try {
         // Continua mesmo se não conseguir salvar no banco, retorna os leads mesmo assim
     }
     
-    // Debita tokens: 1 token = 1 página (20 resultados). Debita apenas as páginas efetivamente consumidas.
-    if ($tenantId !== null && isset($pagesUsed) && $pagesUsed > 0) {
-        incrementTenantUsage($db, $tenantId, $pagesUsed);
+    // Debita tokens: 1 token = 1 resultado único (sem duplicados). Debita apenas os resultados efetivamente salvos.
+    $tokensToDebit = count($leads);
+    if ($tenantId !== null && $tokensToDebit > 0) {
+        incrementTenantUsage($db, $tenantId, $tokensToDebit);
     }
     
-    // Dados sensíveis só são liberados no desbloqueio (1 token por lead); estado persiste em lead_unlocks no banco
+    // Se a API do scraper NÃO estiver configurada, mostra todos os dados normalmente (sem bloqueio)
+    // Se estiver configurada, usa o sistema de bloqueio (dados sensíveis só liberado no unlock)
+    $scraperConfigured = !empty(trim((string)$scraperApiKey));
+    
     $searchIdKey = (string) ($searchHistoryId ?? 0);
     $leadsForFrontend = [];
     foreach ($leads as $lead) {
-        $leadsForFrontend[] = [
-            'id' => $lead['id'],
-            'name' => $lead['name'] ?? '',
-            'locked' => true,
-            'dbId' => $lead['dbId'] ?? null,
-            'website' => !empty($lead['website']) ? (string) $lead['website'] : '',
-        ];
+        if ($scraperConfigured) {
+            // Sistema de bloqueio ativo - dados sensíveis bloqueados
+            $leadsForFrontend[] = [
+                'id' => $lead['id'],
+                'name' => $lead['name'] ?? '',
+                'locked' => true,
+                'dbId' => $lead['dbId'] ?? null,
+                'website' => !empty($lead['website']) ? (string) $lead['website'] : '',
+            ];
+        } else {
+            // API não configurada - mostra todos os dados normalmente
+            $leadsForFrontend[] = [
+                'id' => $lead['id'],
+                'name' => $lead['name'] ?? '',
+                'address' => $lead['address'] ?? '',
+                'phone' => $lead['phone'] ?? '',
+                'email' => $lead['email'] ?? '',
+                'website' => !empty($lead['website']) ? (string) $lead['website'] : '',
+                'maps_uri' => $lead['maps_uri'] ?? '',
+                'cnpj' => $lead['cnpj'] ?? '',
+                'latitude' => $lead['latitude'] ?? '',
+                'longitude' => $lead['longitude'] ?? '',
+                'locked' => false,
+                'dbId' => $lead['dbId'] ?? null,
+            ];
+        }
     }
 
     // Retorna tokenUsage atualizado para o frontend

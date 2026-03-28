@@ -71,7 +71,7 @@ class ScraperService {
     /**
      * Busca leads no Google Maps.
      * Uma única chamada retorna até maxCrawledPlacesPerSearch resultados.
-     * Para compatibilidade com o sistema de tokens: 1 token = 20 resultados; pages_used = ceil(count/20).
+     * O sistema de tokens desconta 1 token por resultado único.
      *
      * @param string $query Termo de busca
      * @param string|null $location Localização (cidade)
@@ -138,8 +138,7 @@ class ScraperService {
                 }));
             }
 
-            $pagesUsed = (int) ceil(count($leads) / 20);
-            return ['leads' => $leads, 'pages_used' => $pagesUsed];
+            return ['leads' => $leads, 'results_count' => count($leads)];
         } catch (Exception $e) {
             error_log("Erro API de busca: " . $e->getMessage());
             throw $e;
