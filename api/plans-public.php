@@ -2,28 +2,29 @@
 /**
  * API de Planos (listagem pública para cliente)
  * Endpoint: /api/plans-public.php
- * Qualquer usuário autenticado pode listar planos ativos para escolher e solicitar.
+ * Qualquer usuário pode listar planos ativos para escolher e solicitar.
  */
 
 ob_start();
 
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
-require_once __DIR__ . '/../includes/functions.php';
 
 ob_clean();
 
-$userId = requireAuth();
-$db = Database::getInstance()->getConnection();
+header('Content-Type: application/json');
 
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method !== 'GET') {
-    jsonError('Método não permitido', 405);
+    http_response_code(405);
+    echo json_encode(['success' => false, 'error' => 'Método não permitido']);
+    exit;
 }
 
 try {
-    // Inclui todos os planos ativos (incluindo trial) para exibir em "Meu plano" com créditos/tokens
+    $db = Database::getInstance()->getConnection();
+    
     $stmt = $db->query("
         SELECT p.id, p.name, p.slug, p.token_limit, p.price_monthly, p.period
         FROM plans p
@@ -31,6 +32,7 @@ try {
         ORDER BY p.token_limit ASC, p.name ASC
     ");
     $plans = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    
     $items = [];
     foreach ($plans as $row) {
         $items[] = [
@@ -42,12 +44,12 @@ try {
             'period' => $row['period'] ?? 'monthly',
         ];
     }
-    jsonSuccess(['items' => $items, 'total' => count($items)]);
+    echo json_encode(['success' => true, 'data' => ['items' => $items, 'total' => count($items)]]);
 } catch (PDOException $e) {
     if (strpos($e->getMessage(), 'exist') !== false || strpos($e->getMessage(), '1146') !== false) {
-        jsonSuccess(['items' => [], 'total' => 0]);
+        echo json_encode(['success' => true, 'data' => ['items' => [], 'total' => 0]]);
         exit;
     }
     error_log("plans-public.php GET: " . $e->getMessage());
-    jsonError('Erro ao listar planos.', 500);
+    echo json_encode(['success' => false, 'error' => 'Erro ao listar planos.']);
 }

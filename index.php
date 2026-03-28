@@ -39,7 +39,7 @@ require_once __DIR__ . '/config/config.php';
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200">
     <div id="app">
         <!-- Tela de Login -->
-        <div id="login-screen" class="min-h-screen flex items-center justify-center bg-[#0F172A] px-4 overflow-hidden relative">
+        <div id="login-screen" class="hidden min-h-screen flex items-center justify-center bg-[#0F172A] px-4 overflow-hidden relative">
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
                 <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600 rounded-full blur-[120px]"></div>
                 <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-900 rounded-full blur-[120px]"></div>
@@ -96,42 +96,42 @@ require_once __DIR__ . '/config/config.php';
 
         <!-- Modal Nova Empresa -->
         <div id="modal-cadastro-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4" aria-hidden="true">
-            <div id="modal-cadastro" class="bg-white rounded-[2rem] shadow-2xl border border-slate-200 w-full max-w-md max-h-[90vh] overflow-y-auto" role="dialog" aria-labelledby="modal-cadastro-title" aria-modal="true">
+            <div id="modal-cadastro" class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl border border-slate-200 dark:border-slate-600 w-full max-w-md max-h-[90vh] overflow-y-auto" role="dialog" aria-labelledby="modal-cadastro-title" aria-modal="true">
                 <div class="p-8">
                     <div class="flex items-center justify-between mb-6">
-                        <h2 id="modal-cadastro-title" class="text-xl font-black text-slate-900">Nova Empresa</h2>
-                        <button type="button" id="modal-cadastro-fechar" class="p-2 rounded-xl text-slate-400 hover:bg-slate-100 hover:text-slate-600 transition-colors" aria-label="Fechar">
+                        <h2 id="modal-cadastro-title" class="text-xl font-black text-slate-900 dark:text-slate-100">Nova Empresa</h2>
+                        <button type="button" id="modal-cadastro-fechar" class="p-2 rounded-xl text-slate-400 dark:text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-700 hover:text-slate-600 dark:hover:text-slate-300 transition-colors" aria-label="Fechar">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
                         </button>
                     </div>
                     <form id="form-cadastro" class="space-y-4">
                         <div>
-                            <label for="reg-cnpj" class="block text-[10px] font-black text-slate-500 uppercase mb-1">CNPJ / CPF</label>
-                            <input type="text" id="reg-cnpj" name="cnpj_cpf" placeholder="00.000.000/0001-00 ou 000.000.000-00" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                            <label for="reg-cnpj" class="block text-[10px] font-black text-slate-500 dark:text-slate-300 uppercase mb-1">CNPJ / CPF</label>
+                            <input type="text" id="reg-cnpj" name="cnpj_cpf" placeholder="00.000.000/0001-00 ou 000.000.000-00" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" />
                         </div>
                         <div>
-                            <label for="reg-company" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome da Empresa</label>
-                            <input type="text" id="reg-company" name="company" placeholder="Razão social ou nome fantasia" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                            <label for="reg-company" class="block text-[10px] font-black text-slate-500 dark:text-slate-300 uppercase mb-1">Nome da Empresa</label>
+                            <input type="text" id="reg-company" name="company" placeholder="Razão social ou nome fantasia" required class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" />
                         </div>
                         <div>
-                            <label for="reg-name" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Seu nome</label>
-                            <input type="text" id="reg-name" name="name" placeholder="Nome do responsável" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                            <label for="reg-name" class="block text-[10px] font-black text-slate-500 dark:text-slate-300 uppercase mb-1">Seu nome</label>
+                            <input type="text" id="reg-name" name="name" placeholder="Nome do responsável" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" />
                         </div>
                         <div>
-                            <label for="reg-email" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Email para acessar</label>
-                            <input type="email" id="reg-email" name="email" placeholder="seu@email.com" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                            <label for="reg-email" class="block text-[10px] font-black text-slate-500 dark:text-slate-300 uppercase mb-1">Email para acessar</label>
+                            <input type="email" id="reg-email" name="email" placeholder="seu@email.com" required class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" />
                         </div>
                         <div>
-                            <label for="reg-password" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Senha (mín. 6 caracteres)</label>
-                            <input type="password" id="reg-password" name="password" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                            <label for="reg-password" class="block text-[10px] font-black text-slate-500 dark:text-slate-300 uppercase mb-1">Senha (mín. 6 caracteres)</label>
+                            <input type="password" id="reg-password" name="password" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" />
                         </div>
                         <div>
-                            <label for="reg-password-confirm" class="block text-[10px] font-black text-slate-500 uppercase mb-1">Confirmar senha</label>
-                            <input type="password" id="reg-password-confirm" name="password_confirm" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                            <label for="reg-password-confirm" class="block text-[10px] font-black text-slate-500 dark:text-slate-300 uppercase mb-1">Confirmar senha</label>
+                            <input type="password" id="reg-password-confirm" name="password_confirm" placeholder="••••••••" minlength="6" autocomplete="new-password" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium placeholder-slate-400 dark:placeholder-slate-500" />
                         </div>
                         <p id="reg-error" class="text-xs font-bold text-red-500 hidden"></p>
                         <div class="flex gap-3 pt-2">
-                            <button type="button" id="btn-cadastro-voltar" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-100 text-sm">Fechar</button>
+                            <button type="button" id="btn-cadastro-voltar" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-700 text-sm">Fechar</button>
                             <button type="submit" id="btn-cadastro" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 disabled:opacity-70 text-sm">Cadastrar</button>
                         </div>
                     </form>
@@ -247,6 +247,10 @@ require_once __DIR__ . '/config/config.php';
                                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
                                     API de Busca
                                 </button>
+                                <button data-tab="landing-page" id="tab-btn-landing-page" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                                    Landing Page
+                                </button>
                             </div>
                         </div>
                         <div class="h-px w-full bg-slate-200 dark:bg-slate-500 my-2" style="min-height: 1px;" aria-hidden="true"></div>
@@ -328,6 +332,158 @@ require_once __DIR__ . '/config/config.php';
             <h4 class="font-bold text-sm">Sucesso</h4>
             <p id="toast-message" class="text-xs text-slate-300"></p>
         </div>
+    </div>
+
+    <!-- Landing Page -->
+    <div id="landing-page">
+        <!-- Navigation -->
+        <nav class="fixed top-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <div class="flex items-center">
+                        <span class="text-xl font-black text-blue-600">MapsProspector</span>
+                    </div>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#features" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Recursos</a>
+                        <a href="#how-it-works" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Como funciona</a>
+                        <a href="#pricing" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Planos</a>
+                        <a href="#faq" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">FAQ</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="btn-theme-toggle-landing" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-600/50 transition-colors duration-200" aria-label="Alternar tema (claro/escuro)">
+                            <svg id="theme-icon-sun-landing" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                            <svg id="theme-icon-moon-landing" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                        </button>
+                        <button type="button" onclick="openLoginModal()" class="px-4 py-2 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Entrar</button>
+                        <button type="button" onclick="openLoginModal()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl transition">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section id="hero" class="pt-32 pb-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-4xl mx-auto">
+                    <span class="inline-block px-4 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-full mb-6">🚀 A ferramenta de prospecção B2B</span>
+                    <h1 id="lp-hero-title" class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight"></h1>
+                    <p id="lp-hero-subtitle" class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8"></p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button type="button" id="lp-hero-cta" onclick="openLoginModal()" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-2xl transition shadow-lg shadow-blue-600/25"></button>
+                        <a href="#how-it-works" class="px-8 py-4 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-700 dark:text-slate-300 text-lg font-bold rounded-2xl transition">Ver como funciona</a>
+                    </div>
+                </div>
+                <div id="lp-hero-content" class="mt-12 max-w-3xl mx-auto text-center text-slate-600 dark:text-slate-400"></div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="py-20 px-4 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-features-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-features-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-features-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Features loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works -->
+        <section id="how-it-works" class="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-how-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-how-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div id="lp-how-content" class="bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-12 shadow-xl">
+                        <!-- Content loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing / Plans -->
+        <section id="pricing" class="py-20 px-4 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">Nossos Planos</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">Escolha o plano ideal para seu negócio</p>
+                </div>
+                <div id="landing-plans-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <!-- Plans loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Benefits -->
+        <section id="benefits" class="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-benefits-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-benefits-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-benefits-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Benefits loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-20 px-4 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-testimonials-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-testimonials-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-testimonials-grid" class="grid md:grid-cols-3 gap-8">
+                    <!-- Testimonials loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq" class="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="lp-faq-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-faq-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-faq-list" class="space-y-4">
+                    <!-- FAQ loaded dynamically -->
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section id="register" class="py-20 px-4 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 id="lp-cta-title" class="text-3xl md:text-4xl font-black text-white mb-4"></h2>
+                <p id="lp-cta-subtitle" class="text-lg text-blue-100 mb-8"></p>
+                <div id="lp-cta-content" class="text-blue-50 mb-8"></div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button type="button" id="lp-cta-button" onclick="openLoginModal()" class="px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-2xl transition shadow-lg hover:shadow-xl"></button>
+                    <button type="button" id="lp-cta-secondary" onclick="openLoginModal()" class="hidden px-8 py-4 bg-blue-500 hover:bg-blue-400 text-white text-lg font-bold rounded-2xl transition">Falar com Consultor</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-12 px-4 bg-slate-900 text-slate-400">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <div class="text-2xl font-black text-white">MapsProspector</div>
+                    <div id="lp-footer-content" class="text-sm"></div>
+                    <div class="flex gap-6">
+                        <a href="#" class="hover:text-white transition">Termos</a>
+                        <a href="#" class="hover:text-white transition">Privacidade</a>
+                        <a href="#" class="hover:text-white transition">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </div>
 
     <script>

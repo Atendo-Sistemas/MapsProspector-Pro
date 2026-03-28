@@ -70,14 +70,44 @@ function toggleTheme() {
     var current = getStoredTheme();
     var next = current === 'dark' ? 'light' : 'dark';
     applyTheme(next);
+    updateThemeIconsLanding();
+}
+
+function updateThemeIconsLanding() {
+    var sunIcon = document.getElementById('theme-icon-sun-landing');
+    var moonIcon = document.getElementById('theme-icon-moon-landing');
+    var currentTheme = getStoredTheme();
+    if (sunIcon && moonIcon) {
+        if (currentTheme === 'dark') {
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        } else {
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+    }
 }
 
 // Inicialização
-document.addEventListener('DOMContentLoaded', () => {
+function initApp() {
+    console.log('DOM loaded, initializing...');
     applyTheme(getStoredTheme());
+    // Mostrar landing page imediatamente enquanto verifica auth
+    console.log('Calling showLandingPage...');
+    showLandingPage();
+    console.log('Calling checkAuth...');
     checkAuth();
+    console.log('Setting up event listeners...');
     setupEventListeners();
-});
+    console.log('Initialization complete');
+}
+
+// Execute on both DOMContentLoaded and load to ensure everything is ready
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initApp);
+} else {
+    initApp();
+}
 
 // Verifica autenticação
 async function checkAuth() {
@@ -97,14 +127,14 @@ async function checkAuth() {
                 showDashboard();
                 loadConfig();
             } else {
-                showLogin();
+                showLandingPage();
             }
         } else {
-            showLogin();
+            showLandingPage();
         }
     } catch (e) {
         console.error('Erro ao verificar auth:', e);
-        showLogin();
+        showLandingPage();
     }
 }
 
@@ -205,8 +235,236 @@ async function handleLogin(e) {
 function showLogin() {
     var loginScreen = document.getElementById('login-screen');
     var dashboard = document.getElementById('dashboard');
+    var landingPage = document.getElementById('landing-page');
+    var themeToggle = document.getElementById('btn-theme-toggle');
+    if (landingPage) landingPage.style.display = 'none';
     if (loginScreen) loginScreen.style.display = 'flex';
     if (dashboard) dashboard.style.display = 'none';
+    if (themeToggle) themeToggle.classList.add('hidden');
+}
+
+function showLandingPage() {
+    console.log('showLandingPage called');
+    var loginScreen = document.getElementById('login-screen');
+    var dashboard = document.getElementById('dashboard');
+    var landingPage = document.getElementById('landing-page');
+    var themeToggle = document.getElementById('btn-theme-toggle');
+    
+    if (loginScreen) loginScreen.style.display = 'none';
+    if (dashboard) dashboard.style.display = 'none';
+    if (landingPage) {
+        landingPage.style.display = 'block';
+        console.log('Landing page shown');
+    }
+    
+    // Show theme toggle on landing page
+    if (themeToggle) {
+        themeToggle.classList.remove('hidden');
+    }
+    
+    // Update theme icons for landing page
+    updateThemeIconsLanding();
+    
+    console.log('Loading landing page content and plans...');
+    loadLandingPageContent();
+    loadLandingPagePlans();
+}
+
+function loadLandingPageContent() {
+    console.log('loadLandingPageContent called');
+    console.log('API_BASE:', API_BASE);
+    console.log('Fetching API...');
+    fetch(API_BASE + 'landing-page-public.php')
+        .then(function(r) { 
+            console.log('API response status:', r.status);
+            return r.json(); 
+        })
+        .then(function(data) {
+            console.log('API data received:', data);
+            if (data.success && data.sections) {
+                console.log('Rendering sections, count:', data.sections.length);
+                renderLandingSections(data.sections);
+            } else {
+                console.log('No sections to render or data.success is false');
+            }
+        })
+        .catch(function(err) {
+            console.error('Error loading landing content:', err);
+        });
+}
+
+function loadLandingPagePlans() {
+    fetch(API_BASE + 'plans-public.php')
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (data.success && data.data && data.data.items) {
+                renderLandingPlans(data.data.items);
+            }
+        })
+        .catch(function(err) {
+            console.error('Error loading plans:', err);
+        });
+}
+
+function renderLandingSections(sections) {
+    console.log('renderLandingSections called with', sections.length, 'sections');
+    
+    var heroTitle = document.getElementById('lp-hero-title');
+    var heroSubtitle = document.getElementById('lp-hero-subtitle');
+    var heroContent = document.getElementById('lp-hero-content');
+    var heroCta = document.getElementById('lp-hero-cta');
+    var featuresTitle = document.getElementById('lp-features-title');
+    var featuresSubtitle = document.getElementById('lp-features-subtitle');
+    var featuresGrid = document.getElementById('lp-features-grid');
+    var howTitle = document.getElementById('lp-how-title');
+    var howSubtitle = document.getElementById('lp-how-subtitle');
+    var howContent = document.getElementById('lp-how-content');
+    var benefitsTitle = document.getElementById('lp-benefits-title');
+    var benefitsSubtitle = document.getElementById('lp-benefits-subtitle');
+    var benefitsGrid = document.getElementById('lp-benefits-grid');
+    var testimonialsTitle = document.getElementById('lp-testimonials-title');
+    var testimonialsSubtitle = document.getElementById('lp-testimonials-subtitle');
+    var testimonialsGrid = document.getElementById('lp-testimonials-grid');
+    var faqTitle = document.getElementById('lp-faq-title');
+    var faqSubtitle = document.getElementById('lp-faq-subtitle');
+    var faqList = document.getElementById('lp-faq-list');
+    var ctaTitle = document.getElementById('lp-cta-title');
+    var ctaSubtitle = document.getElementById('lp-cta-subtitle');
+    var ctaContent = document.getElementById('lp-cta-content');
+    var ctaButton = document.getElementById('lp-cta-button');
+    var ctaSecondary = document.getElementById('lp-cta-secondary');
+    var footerContent = document.getElementById('lp-footer-content');
+    
+    console.log('Elements found:', {
+        heroTitle: !!heroTitle,
+        heroSubtitle: !!heroSubtitle,
+        featuresGrid: !!featuresGrid,
+        landingPage: !!document.getElementById('landing-page')
+    });
+    
+    var icons = {
+        search: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>',
+        map: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>',
+        chart: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>',
+        zap: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>',
+        shield: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" /></svg>',
+        users: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>',
+        clock: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
+        'check-circle': '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>',
+        'trending-up': '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" /></svg>',
+        headphones: '<svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 18v-6a9 9 0 0118 0v6M21 19a2 2 0 01-2 2h-1a2 2 0 01-2-2v-3a2 2 0 012-2h3zM3 19a2 2 0 002 2h1a2 2 0 002-2v-3a2 2 0 00-2-2H3z" /></svg>'
+    };
+    
+    sections.forEach(function(section) {
+        switch(section.sectionKey) {
+            case 'hero':
+                if (heroTitle) heroTitle.textContent = section.sectionTitle || '';
+                if (heroSubtitle) heroSubtitle.textContent = section.sectionSubtitle || '';
+                if (heroContent) heroContent.innerHTML = section.sectionContent || '';
+                if (heroCta && section.extraData && section.extraData.cta_text) {
+                    heroCta.textContent = section.extraData.cta_text;
+                }
+                break;
+            case 'features':
+                if (featuresTitle) featuresTitle.textContent = section.sectionTitle || '';
+                if (featuresSubtitle) featuresSubtitle.textContent = section.sectionSubtitle || '';
+                if (featuresGrid && section.extraData && section.extraData.items) {
+                    featuresGrid.innerHTML = section.extraData.items.map(function(item) {
+                        return '<div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 hover:shadow-lg transition">' +
+                            '<div class="w-14 h-14 bg-blue-100 dark:bg-blue-900/30 rounded-2xl flex items-center justify-center text-blue-600 dark:text-blue-400 mb-4">' + (icons[item.icon] || icons.search) + '</div>' +
+                            '<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">' + item.title + '</h3>' +
+                            '<p class="text-slate-600 dark:text-slate-400 text-sm">' + item.description + '</p></div>';
+                    }).join('');
+                }
+                break;
+            case 'how_it_works':
+                if (howTitle) howTitle.textContent = section.sectionTitle || '';
+                if (howSubtitle) howSubtitle.textContent = section.sectionSubtitle || '';
+                if (howContent) howContent.innerHTML = section.sectionContent || '';
+                break;
+            case 'benefits':
+                if (benefitsTitle) benefitsTitle.textContent = section.sectionTitle || '';
+                if (benefitsSubtitle) benefitsSubtitle.textContent = section.sectionSubtitle || '';
+                if (benefitsGrid && section.extraData && section.extraData.items) {
+                    benefitsGrid.innerHTML = section.extraData.items.map(function(item) {
+                        return '<div class="bg-white dark:bg-slate-800 rounded-2xl p-6 shadow-sm">' +
+                            '<div class="w-12 h-12 bg-emerald-100 dark:bg-emerald-900/30 rounded-xl flex items-center justify-center text-emerald-600 dark:text-emerald-400 mb-4">' + (icons[item.icon] || icons['check-circle']) + '</div>' +
+                            '<h3 class="text-lg font-bold text-slate-900 dark:text-white mb-2">' + item.title + '</h3>' +
+                            '<p class="text-slate-600 dark:text-slate-400 text-sm">' + item.description + '</p></div>';
+                    }).join('');
+                }
+                break;
+            case 'testimonials':
+                if (testimonialsTitle) testimonialsTitle.textContent = section.sectionTitle || '';
+                if (testimonialsSubtitle) testimonialsSubtitle.textContent = section.sectionSubtitle || '';
+                if (testimonialsGrid && section.extraData && section.extraData.items) {
+                    testimonialsGrid.innerHTML = section.extraData.items.map(function(item) {
+                        return '<div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6">' +
+                            '<p class="text-slate-700 dark:text-slate-300 mb-4">"' + item.text + '"</p>' +
+                            '<div class="flex items-center gap-3">' +
+                            '<div class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">' + item.name.charAt(0) + '</div>' +
+                            '<div><p class="font-bold text-slate-900 dark:text-white text-sm">' + item.name + '</p>' +
+                            '<p class="text-slate-500 dark:text-slate-400 text-xs">' + item.company + '</p></div></div></div>';
+                    }).join('');
+                }
+                break;
+            case 'faq':
+                if (faqTitle) faqTitle.textContent = section.sectionTitle || '';
+                if (faqSubtitle) faqSubtitle.textContent = section.sectionSubtitle || '';
+                if (faqList && section.extraData && section.extraData.items) {
+                    faqList.innerHTML = section.extraData.items.map(function(item) {
+                        return '<div class="bg-white dark:bg-slate-800 rounded-xl p-6 shadow-sm">' +
+                            '<h3 class="font-bold text-slate-900 dark:text-white mb-2">' + item.question + '</h3>' +
+                            '<p class="text-slate-600 dark:text-slate-400 text-sm">' + item.answer + '</p></div>';
+                    }).join('');
+                }
+                break;
+            case 'cta':
+                if (ctaTitle) ctaTitle.textContent = section.sectionTitle || '';
+                if (ctaSubtitle) ctaSubtitle.textContent = section.sectionSubtitle || '';
+                if (ctaContent) ctaContent.innerHTML = section.sectionContent || '';
+                if (ctaButton && section.extraData && section.extraData.cta_text) {
+                    ctaButton.textContent = section.extraData.cta_text;
+                }
+                if (ctaSecondary && section.extraData && section.extraData.secondary_cta_text) {
+                    ctaSecondary.textContent = section.extraData.secondary_cta_text;
+                    ctaSecondary.classList.remove('hidden');
+                }
+                break;
+            case 'footer':
+                if (footerContent) footerContent.innerHTML = section.sectionContent || '';
+                break;
+        }
+    });
+}
+
+function renderLandingPlans(plans) {
+    var container = document.getElementById('landing-plans-grid');
+    if (!container) return;
+    
+    if (!plans || plans.length === 0) {
+        container.innerHTML = '<p class="text-center col-span-full text-slate-500">Nenhum plano disponível no momento.</p>';
+        return;
+    }
+    
+    container.innerHTML = plans.map(function(plan) {
+        var isFree = plan.priceMonthly === 0 || plan.priceMonthly === '0.00' || !plan.priceMonthly;
+        var price = isFree ? 'Grátis' : 'R$ ' + parseFloat(plan.priceMonthly).toFixed(2).replace('.', ',');
+        
+        return '<div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 ' + (isFree ? 'ring-2 ring-blue-500' : '') + '">' +
+            '<h3 class="text-xl font-black text-slate-900 dark:text-white mb-2">' + plan.name + '</h3>' +
+            '<div class="mb-4"><span class="text-3xl font-black text-slate-900 dark:text-white">' + price + '</span>' +
+            (!isFree ? '<span class="text-slate-500 dark:text-slate-400">/mês</span>' : '') + '</div>' +
+            '<p class="text-slate-600 dark:text-slate-400 text-sm mb-6">' + (plan.tokenLimit || 0) + ' buscas por mês</p>' +
+            '<button type="button" onclick="openLoginModal()" class="block w-full py-3 text-center ' + (isFree ? 'bg-blue-600 hover:bg-blue-700' : 'bg-slate-900 hover:bg-slate-800') + ' text-white font-bold rounded-xl transition">Assinar</button></div>';
+    }).join('');
+}
+
+function openLoginModal() {
+    var landingPage = document.getElementById('landing-page');
+    var loginScreen = document.getElementById('login-screen');
+    if (landingPage) landingPage.style.display = 'none';
+    if (loginScreen) loginScreen.style.display = 'flex';
 }
 
 function renderHeaderTokenWarning() {
@@ -260,11 +518,16 @@ function showDashboard() {
     
     var loginScreen = document.getElementById('login-screen');
     var dashboard = document.getElementById('dashboard');
+    var landingPage = document.getElementById('landing-page');
+    var themeToggle = document.getElementById('btn-theme-toggle');
     
     console.log('login-screen:', loginScreen);
     console.log('dashboard:', dashboard);
     
-    // Force show dashboard, hide login
+    // Force show dashboard, hide login and landing page
+    if (landingPage) {
+        landingPage.style.display = 'none';
+    }
     if (loginScreen) {
         loginScreen.setAttribute('data-hidden', 'true');
         loginScreen.style.setProperty('display', 'none', 'important');
@@ -276,6 +539,11 @@ function showDashboard() {
         dashboard.style.setProperty('display', 'flex', 'important');
         dashboard.style.display = 'flex';
         console.log('dashboard shown');
+    }
+    
+    // Show theme toggle on dashboard
+    if (themeToggle) {
+        themeToggle.classList.remove('hidden');
     }
     
     // Also toggle classes
@@ -542,12 +810,22 @@ function setupEventListeners() {
         });
     });
     
-    // Botão de alternar tema (claro/escuro)
+    // Botão de alternar tema (claro/escuro) - Dashboard
     var btnThemeToggle = document.getElementById('btn-theme-toggle');
     if (btnThemeToggle) {
         btnThemeToggle.addEventListener('click', function(e) {
             e.stopPropagation();
             toggleTheme();
+        });
+    }
+    
+    // Botão de alternar tema (claro/escuro) - Landing Page
+    var btnThemeToggleLanding = document.getElementById('btn-theme-toggle-landing');
+    if (btnThemeToggleLanding) {
+        btnThemeToggleLanding.addEventListener('click', function(e) {
+            e.stopPropagation();
+            toggleTheme();
+            updateThemeIconsLanding();
         });
     }
 
@@ -1058,7 +1336,8 @@ function setActiveTab(tab) {
         companies: 'Empresas',
         credits: 'Créditos',
         'api-busca': 'API de Busca',
-        settings: 'Integração CRM'
+        settings: 'Integração CRM',
+        'landing-page': 'Landing Page'
     };
     document.getElementById('page-title').textContent = titles[tab] || 'Dashboard';
     
@@ -1106,6 +1385,8 @@ function loadTab(tab) {
         contentArea.innerHTML = getSettingsHTML();
         setupSettingsEvents();
         loadSettingsForm();
+    } else if (tab === 'landing-page') {
+        renderLandingPageTab(contentArea);
     }
 }
 
@@ -3293,4 +3574,193 @@ function showToast(message, type = 'success') {
     setTimeout(() => {
         toast.classList.add('hidden');
     }, 4000);
+}
+
+// Landing Page Editor Tab (SuperAdmin)
+function renderLandingPageTab(contentArea) {
+    contentArea.innerHTML = '<div class="max-w-5xl mx-auto">' +
+        '<div class="flex justify-between items-center mb-8 flex-wrap gap-4">' +
+        '<div><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Editor da Landing Page</h3>' +
+        '<p class="text-sm text-slate-500 dark:text-slate-400">Edite o conteúdo que aparece na página pública de apresentação.</p></div>' +
+        '<div class="flex items-center gap-3">' +
+        '<button type="button" id="landing-refresh-btn" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar</button>' +
+        '<a href="landing.php" target="_blank" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-6 py-3 rounded-2xl text-xs flex items-center gap-2">Ver Landing Page <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" /></svg></a>' +
+        '</div></div>' +
+        '<div id="landing-content"></div></div>';
+    
+    loadLandingPageSections();
+    
+    document.getElementById('landing-refresh-btn').addEventListener('click', loadLandingPageSections);
+}
+
+function loadLandingPageSections() {
+    const contentEl = document.getElementById('landing-content');
+    contentEl.innerHTML = '<div class="text-center py-12"><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block"></span></div>';
+    
+    fetch(API_BASE + 'landing-page.php', { method: 'GET', credentials: 'include' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!data.success) {
+                contentEl.innerHTML = '<div class="py-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium">Erro ao carregar seções. Execute a migração do banco.</div>';
+                return;
+            }
+            
+            var sections = data.data || [];
+            if (sections.length === 0) {
+                contentEl.innerHTML = '<div class="py-8 p-5 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium">Nenhuma seção encontrada. Execute a migração do banco.</div>';
+                return;
+            }
+            
+            var html = '';
+            sections.forEach(function(section, index) {
+                var title = section.sectionTitle || section.sectionKey;
+                html += '<div class="bg-white dark:bg-slate-800 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm mb-6 overflow-hidden">' +
+                    '<div class="px-6 py-4 bg-slate-50 dark:bg-slate-700/50 border-b border-slate-200 dark:border-slate-600 flex justify-between items-center">' +
+                    '<div><h4 class="font-black text-slate-900 dark:text-slate-100">' + title + '</h4>' +
+                    '<p class="text-xs text-slate-500 dark:text-slate-400">Key: ' + section.sectionKey + '</p></div>' +
+                    '<div class="flex items-center gap-2">' +
+                    '<label class="flex items-center gap-2 text-xs font-bold text-slate-500 dark:text-slate-400">' +
+                    '<input type="checkbox" class="w-4 h-4 rounded border-slate-300 dark:border-slate-600" ' + (section.isActive ? 'checked' : '') + ' data-section="' + section.sectionKey + '" data-field="isActive" onchange="toggleLandingSection(this)"> Ativo' +
+                    '</label>' +
+                    '<button type="button" onclick="editLandingSection(\'' + section.sectionKey + '\')" class="px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl text-xs font-bold">Editar</button>' +
+                    '</div></div>' +
+                    '<div class="p-6">' +
+                    (section.sectionTitle ? '<p class="text-sm font-bold text-slate-700 dark:text-slate-300 mb-1">Título: ' + section.sectionTitle + '</p>' : '') +
+                    (section.sectionSubtitle ? '<p class="text-sm text-slate-600 dark:text-slate-400 mb-2">' + section.sectionSubtitle + '</p>' : '') +
+                    (section.sectionContent ? '<div class="text-sm text-slate-600 dark:text-slate-400 bg-slate-50 dark:bg-slate-700/50 p-3 rounded-xl">' + section.sectionContent.substring(0, 200) + '...</div>' : '') +
+                    '</div></div>';
+            });
+            contentEl.innerHTML = html;
+        })
+        .catch(function(err) {
+            contentEl.innerHTML = '<div class="py-8 p-5 bg-red-50 border border-red-200 rounded-2xl text-red-800 text-sm font-medium">Erro: ' + err.message + '</div>';
+        });
+}
+
+function editLandingSection(sectionKey) {
+    fetch(API_BASE + 'landing-page.php?section=' + encodeURIComponent(sectionKey), { method: 'GET', credentials: 'include' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!data.success) {
+                showToast(data.error || 'Erro ao carregar seção', 'error');
+                return;
+            }
+            var section = data.data;
+            showLandingSectionEditor(section);
+        });
+}
+
+function showLandingSectionEditor(section) {
+    var overlay = document.createElement('div');
+    overlay.className = 'fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[200] flex items-center justify-center p-4';
+    overlay.id = 'landing-edit-overlay';
+    
+    var extraData = section.extraData ? JSON.stringify(section.extraData, null, 2) : '';
+    
+    overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl border border-slate-200 dark:border-slate-600 w-full max-w-2xl max-h-[90vh] overflow-y-auto">' +
+        '<div class="p-8">' +
+        '<div class="flex items-center justify-between mb-6">' +
+        '<h3 class="text-xl font-black text-slate-900 dark:text-slate-100">Editar: ' + (section.sectionTitle || section.sectionKey) + '</h3>' +
+        '<button type="button" onclick="document.getElementById(\'landing-edit-overlay\').remove()" class="p-2 rounded-xl text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-700" aria-label="Fechar">' +
+        '<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg></button></div>' +
+        '<form id="landing-edit-form" class="space-y-4">' +
+        '<input type="hidden" name="section_key" value="' + section.sectionKey + '">' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Título</label>' +
+        '<input type="text" name="section_title" value="' + (section.sectionTitle || '').replace(/"/g, '&quot;') + '" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Subtítulo</label>' +
+        '<input type="text" name="section_subtitle" value="' + (section.sectionSubtitle || '').replace(/"/g, '&quot;') + '" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Conteúdo (HTML)</label>' +
+        '<textarea name="section_content" rows="5" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' + (section.sectionContent || '') + '</textarea></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">URL da Imagem</label>' +
+        '<input type="url" name="section_image" value="' + (section.sectionImage || '').replace(/"/g, '&quot;') + '" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" placeholder="https://..." /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Ordem</label>' +
+        '<input type="number" name="section_order" value="' + section.sectionOrder + '" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" /></div>' +
+        '<div><label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Dados Extras (JSON)</label>' +
+        '<textarea name="extra_data" rows="4" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium font-mono text-xs">' + extraData + '</textarea></div>' +
+        '<p id="landing-edit-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+        '<div class="flex gap-3 pt-2">' +
+        '<button type="button" onclick="document.getElementById(\'landing-edit-overlay\').remove()" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
+        '<button type="submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar</button>' +
+        '</div></form></div></div>';
+    
+    document.body.appendChild(overlay);
+    
+    document.getElementById('landing-edit-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var formData = new FormData(this);
+        var data = {
+            section_key: formData.get('section_key'),
+            section_title: formData.get('section_title'),
+            section_subtitle: formData.get('section_subtitle'),
+            section_content: formData.get('section_content'),
+            section_image: formData.get('section_image'),
+            section_order: parseInt(formData.get('section_order')) || 0,
+            extra_data: null
+        };
+        
+        try {
+            if (formData.get('extra_data').trim()) {
+                data.extra_data = JSON.parse(formData.get('extra_data'));
+            }
+        } catch(err) {
+            document.getElementById('landing-edit-error').textContent = 'JSON inválido no campo Dados Extras';
+            document.getElementById('landing-edit-error').classList.remove('hidden');
+            return;
+        }
+        
+        document.getElementById('landing-edit-error').classList.add('hidden');
+        
+        fetch(API_BASE + 'landing-page.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'include',
+            body: JSON.stringify(data)
+        })
+        .then(function(r) { return r.json(); })
+        .then(function(res) {
+            if (res.success) {
+                document.getElementById('landing-edit-overlay').remove();
+                showToast('Seção salva com sucesso!');
+                loadLandingPageSections();
+            } else {
+                document.getElementById('landing-edit-error').textContent = res.error || 'Erro ao salvar';
+                document.getElementById('landing-edit-error').classList.remove('hidden');
+            }
+        });
+    });
+}
+
+function toggleLandingSection(checkbox) {
+    var sectionKey = checkbox.dataset.section;
+    var field = checkbox.dataset.field;
+    var value = checkbox.checked ? 1 : 0;
+    
+    fetch(API_BASE + 'landing-page.php?section=' + encodeURIComponent(sectionKey), { method: 'GET', credentials: 'include' })
+        .then(function(r) { return r.json(); })
+        .then(function(data) {
+            if (!data.success) {
+                showToast(data.error || 'Erro ao carregar seção', 'error');
+                checkbox.checked = !checkbox.checked;
+                return;
+            }
+            
+            var section = data.data;
+            section.is_active = value;
+            
+            fetch(API_BASE + 'landing-page.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                credentials: 'include',
+                body: JSON.stringify(section)
+            })
+            .then(function(r) { return r.json(); })
+            .then(function(res) {
+                if (res.success) {
+                    showToast('Status atualizado!');
+                } else {
+                    showToast(res.error || 'Erro ao salvar', 'error');
+                    checkbox.checked = !checkbox.checked;
+                }
+            });
+        });
 }
