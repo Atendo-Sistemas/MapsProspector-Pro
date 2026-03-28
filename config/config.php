@@ -33,6 +33,7 @@ define('BASE_URL', rtrim(getenv('BASE_URL') ?: 'http://localhost/MapsProspector-
 ini_set('session.cookie_httponly', 1);
 ini_set('session.use_only_cookies', 1);
 ini_set('session.cookie_secure', 0); // Mude para 1 em produção com HTTPS
+ini_set('session.cookie_samesite', 'Lax');
 session_start();
 
 // Timezone

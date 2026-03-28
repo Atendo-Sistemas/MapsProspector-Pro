@@ -60,6 +60,7 @@ try {
     $query = sanitizeInput($input['query'] ?? '');
     $location = sanitizeInput($input['location'] ?? '');
     $tag = sanitizeInput($input['tag'] ?? '');
+    $folderId = isset($input['folderId']) ? (int) $input['folderId'] : null;
     $useGPS = isset($input['useGPS']) && $input['useGPS'];
     $coords = $input['coords'] ?? null;
     $locationName = sanitizeInput($input['locationName'] ?? '');
@@ -105,6 +106,15 @@ try {
     
     // Chama o serviço de busca (Google Maps)
     require_once __DIR__ . '/../services/scraperService.php';
+    require_once __DIR__ . '/../services/iaSearchService.php';
+    
+    // Método de busca: 'scraper' (Apify) ou 'ia' (Gemini)
+    // Por padrão usa scraper; pode ser alterado via parâmetro ou configuração
+    $searchMethod = sanitizeInput($input['searchMethod'] ?? 'scraper');
+    $availableMethods = ['scraper', 'ia'];
+    if (!in_array($searchMethod, $availableMethods)) {
+        $searchMethod = 'scraper';
+    }
     
     // Chave da API de busca: única para toda a plataforma (configurada apenas pelo super_admin)
     $scraperApiKey = getPlatformSetting($db, 'scraper_api_key');
@@ -112,13 +122,27 @@ try {
         $scraperApiKey = SCRAPER_API_KEY;
     }
     
-    // Inicializa o serviço Scraper com tratamento de erro
-    try {
-        $scraperService = new ScraperService($scraperApiKey);
-    } catch (Exception $e) {
-        error_log("Erro ao inicializar ScraperService: " . $e->getMessage());
-        jsonError('Erro na configuração da API: ' . $e->getMessage(), 500);
+    // Chave da API de IA (OpenRouter)
+    $openrouterApiKey = getPlatformSetting($db, 'openrouter_api_key');
+    if (empty(trim((string)$openrouterApiKey)) && defined('OPENROUTER_API_KEY')) {
+        $openrouterApiKey = OPENROUTER_API_KEY;
     }
+
+    // Modelo de IA selecionado
+    $iaModel = getPlatformSetting($db, 'ia_model');
+    if (empty(trim((string)$iaModel))) {
+        $iaModel = defined('OPENROUTER_DEFAULT_MODEL') ? OPENROUTER_DEFAULT_MODEL : 'google/gemini-2.0-flash-001';
+    }
+    
+    // Modelo de IA fallback
+    $iaModelFallback = getPlatformSetting($db, 'ia_model_fallback');
+    if (empty(trim((string)$iaModelFallback))) {
+        $iaModelFallback = defined('OPENROUTER_FALLBACK_MODEL') ? OPENROUTER_FALLBACK_MODEL : '';
+    }
+    
+    $models = array_filter([$iaModel, $iaModelFallback]);
+    
+    $searchService = null;
     
     // Tokens disponíveis para paginação: 1 token = 1 página (20 resultados). Enquanto houver crédito, aumenta "start" até retornar todos os dados ou acabar o crédito.
     $maxTokensAvailable = null;
@@ -135,18 +159,35 @@ try {
         }
     }
     
-    // Busca os leads; maxCrawledPlacesPerSearch vem do frontend (campo Limite) ou padrão 1000
     try {
-        $searchResult = $scraperService->searchLeadsOnMaps(
-            $query,
-            $useGPS ? null : $location,
-            [],
-            null,
-            $coords,
-            $useGPS ? $locationName : null,
-            $maxCrawledPlacesPerSearch ?? 1000,
-            $maxTokensAvailable
-        );
+        if ($searchMethod === 'ia') {
+            // Busca por IA (OpenRouter)
+            if (empty(trim((string)$openrouterApiKey))) {
+                jsonError('Método de busca por IA não disponível. Configure a OPENROUTER_API_KEY nas configurações.', 500);
+            }
+            $searchService = new IASearchService($openrouterApiKey, $models);
+            $searchResult = $searchService->searchLeadsOnMaps(
+                $query,
+                $useGPS ? null : $location,
+                $maxCrawledPlacesPerSearch ?? 20
+            );
+        } else {
+            // Busca por Scraper (Apify) - padrão
+            if (empty(trim((string)$scraperApiKey))) {
+                jsonError('Método de busca padrão não disponível. Configure a SCRAPER_API_KEY nas configurações.', 500);
+            }
+            $searchService = new ScraperService($scraperApiKey);
+            $searchResult = $searchService->searchLeadsOnMaps(
+                $query,
+                $useGPS ? null : $location,
+                [],
+                null,
+                $coords,
+                $useGPS ? $locationName : null,
+                $maxCrawledPlacesPerSearch ?? 1000,
+                $maxTokensAvailable
+            );
+        }
         $leads = $searchResult['leads'];
         $pagesUsed = isset($searchResult['pages_used']) ? (int) $searchResult['pages_used'] : (int) ceil(count($leads) / 20);
     } catch (Exception $e) {
@@ -158,19 +199,67 @@ try {
     if (empty($leads)) {
         $locationText = $useGPS ? ($locationName ? "em $locationName" : 'ao seu redor') : "em $location";
         error_log("Nenhum lead retornado para query: '$query' em '$locationText'");
-        jsonError("Nenhum resultado encontrado para \"$query\" $locationText. Tente um termo mais amplo ou verifique se a API está retornando dados.", 404);
+        jsonError("Nenhum resultado encontrado para \"$query\" $locationText. Tente um termo mais amplo ou verifique se a API está retornando dados.", 204);
     }
     
-    // Salva no histórico
+    // Verificar e remover duplicados antes de salvar
+    $uniqueLeads = [];
+    $seenKeys = [];
+    
+    foreach ($leads as $lead) {
+        // Cria chave única baseada em nome + telefone ou nome + endereço
+        $name = trim($lead['name'] ?? '');
+        $phone = trim($lead['phone'] ?? '');
+        $address = trim($lead['address'] ?? '');
+        
+        // Normaliza para comparação
+        $nameKey = mb_strtolower($name, 'UTF-8');
+        $phoneKey = preg_replace('/[^0-9]/', '', $phone);
+        
+        // Chave única: nome + telefone (sem caracteres especiais)
+        $uniqueKey = $nameKey . '|' . $phoneKey;
+        
+        if (!isset($seenKeys[$uniqueKey])) {
+            $seenKeys[$uniqueKey] = true;
+            $uniqueLeads[] = $lead;
+        }
+    }
+    
+    $duplicatesRemoved = count($leads) - count($uniqueLeads);
+    $leads = $uniqueLeads;
+    
+    if (empty($leads)) {
+        jsonError("Todos os resultados desta pesquisa já foram capturados anteriormente.", 204);
+    }
+    
+    // Salva no histórico - verifica se já existe pesquisa com mesmos parâmetros
     $locationText = $useGPS ? ($locationName ?: 'Localização GPS') : $location;
     $searchHistoryId = null;
+    $isNewSearch = true;
+    
     try {
-        $stmt = $db->prepare("
-            INSERT INTO search_history (user_id, query, location, tag, results_count) 
-            VALUES (?, ?, ?, ?, ?)
+        // Verifica se já existe pesquisa com mesmo query + location + tag
+        $stmtCheck = $db->prepare("
+            SELECT id FROM search_history 
+            WHERE user_id = ? AND query = ? AND location = ? AND tag = ?
+            ORDER BY created_at DESC LIMIT 1
         ");
-        $stmt->execute([$userId, $query, $locationText, $tag, count($leads)]);
-        $searchHistoryId = $db->lastInsertId();
+        $stmtCheck->execute([$userId, $query, $locationText, $tag]);
+        $existingSearch = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+        
+        if ($existingSearch) {
+            // Pesquisa existente - continua adicionando leads
+            $searchHistoryId = $existingSearch['id'];
+            $isNewSearch = false;
+        } else {
+            // Nova pesquisa
+            $stmt = $db->prepare("
+                INSERT INTO search_history (user_id, query, location, tag, results_count) 
+                VALUES (?, ?, ?, ?, ?)
+            ");
+            $stmt->execute([$userId, $query, $locationText, $tag, count($leads)]);
+            $searchHistoryId = $db->lastInsertId();
+        }
         
         // Salva os leads
         $stmtLead = $db->prepare("
@@ -249,6 +338,8 @@ try {
         'leads' => $leadsForFrontend,
         'searchId' => $searchIdKey,
         'count' => count($leadsForFrontend),
+        'duplicatesRemoved' => $duplicatesRemoved,
+        'isNewSearch' => $isNewSearch,
         'tokenUsage' => $tokenUsage
     ]);
     

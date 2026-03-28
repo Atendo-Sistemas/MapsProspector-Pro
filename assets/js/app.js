@@ -21,8 +21,9 @@ const AppState = {
     leads: [],
     searchId: null,  // ID da pesquisa atual (para desbloqueio; dados vêm bloqueados)
     history: [],     // preenchido por loadHistory() -> api/history.php (banco)
+    folders: [],    // pastas para organizar pesquisas
     visibleCount: 12,
-    currentSearch: { query: '', location: '', tag: '' }  // contexto da pesquisa atual (para exportar)
+    currentSearch: { query: '', location: '', tag: '', folderId: null, folderName: '' }  // contexto da pesquisa atual (para exportar)
 };
 
 // Tema (claro/escuro) — persistido em localStorage
@@ -31,7 +32,15 @@ const THEME_STORAGE_KEY = 'mapsprospector-theme';
 function getStoredTheme() {
     try {
         var stored = localStorage.getItem(THEME_STORAGE_KEY);
-        return stored === 'dark' ? 'dark' : 'light';
+        if (stored === 'dark' || stored === 'light') {
+            return stored;
+        }
+        if (stored === null) {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+                return 'dark';
+            }
+        }
+        return 'light';
     } catch (e) { return 'light'; }
 }
 
@@ -43,6 +52,18 @@ function applyTheme(theme) {
         root.classList.remove('dark');
     }
     try { localStorage.setItem(THEME_STORAGE_KEY, theme); } catch (e) {}
+    
+    var sunIcon = document.getElementById('theme-icon-sun');
+    var moonIcon = document.getElementById('theme-icon-moon');
+    if (sunIcon && moonIcon) {
+        if (theme === 'dark') {
+            sunIcon.classList.remove('hidden');
+            moonIcon.classList.add('hidden');
+        } else {
+            sunIcon.classList.add('hidden');
+            moonIcon.classList.remove('hidden');
+        }
+    }
 }
 
 function toggleTheme() {
@@ -89,13 +110,23 @@ async function checkAuth() {
 
 // Login
 async function handleLogin(e) {
-    if (e && e.preventDefault) e.preventDefault();
+    console.log('handleLogin called');
+    if (e && e.preventDefault) {
+        e.preventDefault();
+        console.log('preventDefault called');
+    }
     const emailInput = document.getElementById('login-email');
     const passwordInput = document.getElementById('login-password');
     const errorEl = document.getElementById('login-error');
     const btn = document.getElementById('btn-login');
+    
+    console.log('Elements found:', { emailInput: !!emailInput, passwordInput: !!passwordInput, btn: !!btn });
+    
     const email = (emailInput && emailInput.value ? emailInput.value.trim().toLowerCase() : '') || '';
     const password = (passwordInput && passwordInput.value ? passwordInput.value : '') || '';
+    
+    console.log('Email:', email, 'Password length:', password.length);
+    
     if (errorEl) {
         errorEl.classList.add('hidden');
         errorEl.textContent = '';
@@ -117,22 +148,38 @@ async function handleLogin(e) {
     btn.disabled = true;
     btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block"></span> Entrando...';
     try {
+        console.log('Sending login request...');
         const res = await fetch(API_BASE + 'auth.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ action: 'login', email: email, password: password }),
-            credentials: 'include'
+            body: JSON.stringify({ action: 'login', email: email, password: password })
         });
-        const data = await res.json();
+        console.log('Response status:', res.status);
+        const text = await res.text();
+        console.log('Auth response:', text.substring(0, 200));
+        
+        if (!text || text.trim() === '') {
+            throw new Error('Resposta vazia do servidor');
+        }
+        
+        const data = JSON.parse(text);
+        console.log('Parsed data, success:', data.success);
+        
         if (data.success) {
+            console.log('Login successful!');
+            
             AppState.user = data.data.user;
             AppState.tenant = data.data.tenant || null;
             AppState.tokenUsage = data.data.tokenUsage || null;
             AppState.impersonating = !!(data.data && data.data.impersonating);
             AppState.impersonatingTenantName = (data.data && data.data.impersonatingTenantName) || '';
-            showDashboard();
-            loadConfig();
+            
+            // Reload page to show dashboard - session is already set
+            console.log('Reloading page...');
+            window.location.reload();
         } else {
+            console.log('Login failed:', data.error);
+            alert('Login failed: ' + (data.error || 'unknown error'));
             if (errorEl) {
                 errorEl.textContent = data.error || 'Falha no login. Tente novamente.';
                 errorEl.classList.remove('hidden');
@@ -141,11 +188,12 @@ async function handleLogin(e) {
             }
         }
     } catch (err) {
+        console.error('Login error:', err);
         if (errorEl) {
-            errorEl.textContent = 'Erro de conexão. Verifique o servidor.';
+            errorEl.textContent = 'Erro de conexão: ' + (err.message || 'Verifique o servidor');
             errorEl.classList.remove('hidden');
         } else {
-            alert('Erro de conexão: ' + (err && err.message ? err.message : 'Verifique o servidor.'));
+            alert('Erro de conexão: ' + (err.message || 'Verifique o servidor'));
         }
     } finally {
         btn.disabled = false;
@@ -155,8 +203,10 @@ async function handleLogin(e) {
 
 // Mostra/Oculta telas
 function showLogin() {
-    document.getElementById('login-screen').classList.remove('hidden');
-    document.getElementById('dashboard').classList.add('hidden');
+    var loginScreen = document.getElementById('login-screen');
+    var dashboard = document.getElementById('dashboard');
+    if (loginScreen) loginScreen.style.display = 'flex';
+    if (dashboard) dashboard.style.display = 'none';
 }
 
 function renderHeaderTokenWarning() {
@@ -206,13 +256,40 @@ function loadSidebarCompanyName() {
 }
 
 function showDashboard() {
-    document.getElementById('login-screen').classList.add('hidden');
-    document.getElementById('dashboard').classList.remove('hidden');
+    console.log('=== showDashboard() START ===');
+    
+    var loginScreen = document.getElementById('login-screen');
+    var dashboard = document.getElementById('dashboard');
+    
+    console.log('login-screen:', loginScreen);
+    console.log('dashboard:', dashboard);
+    
+    // Force show dashboard, hide login
+    if (loginScreen) {
+        loginScreen.setAttribute('data-hidden', 'true');
+        loginScreen.style.setProperty('display', 'none', 'important');
+        loginScreen.style.display = 'none';
+        console.log('login-screen hidden');
+    }
+    if (dashboard) {
+        dashboard.removeAttribute('data-hidden');
+        dashboard.style.setProperty('display', 'flex', 'important');
+        dashboard.style.display = 'flex';
+        console.log('dashboard shown');
+    }
+    
+    // Also toggle classes
+    if (loginScreen) loginScreen.classList.add('hidden');
+    if (dashboard) dashboard.classList.remove('hidden');
+    
+    console.log('=== showDashboard() END ===');
+    
     loadSidebarCompanyName();
     renderHeaderTokenWarning();
     updateSearchApiUI();
     if (AppState.user) {
-        document.getElementById('user-name').textContent = AppState.user.name;
+        var userNameEl = document.getElementById('user-name');
+        if (userNameEl) userNameEl.textContent = AppState.user.name;
         var roleEl = document.getElementById('user-role');
         if (roleEl) {
             var roleLabels = { super_admin: 'Super Admin', admin: 'Admin', user: 'Usuário' };
@@ -404,12 +481,22 @@ async function handlePerfilSenhaSubmit(e) {
 
 // Event Listeners
 function setupEventListeners() {
+    console.log('Setting up event listeners');
     const loginForm = document.getElementById('login-form');
+    console.log('Login form element:', loginForm);
     if (loginForm) {
-        loginForm.addEventListener('submit', handleLogin);
-    } else {
-        const btn = document.getElementById('btn-login');
-        if (btn) btn.addEventListener('click', (e) => { e.preventDefault(); handleLogin(); });
+        loginForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            handleLogin(e);
+        });
+        console.log('Login form submit listener added');
+    }
+    const btn = document.getElementById('btn-login');
+    if (btn) {
+        btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            handleLogin(e);
+        });
     }
     const linkCadastro = document.getElementById('link-cadastro');
     if (linkCadastro) linkCadastro.addEventListener('click', showCadastro);
@@ -1440,15 +1527,160 @@ function showPlansEditModal(contentArea, planId) {
         .catch(function() { alert('Erro ao carregar plano.'); });
 }
 
+// Modal para adicionar nova empresa
+function showAddCompanyModal() {
+    fetch(API_BASE + 'plans.php', { method: 'GET', credentials: 'include', cache: 'no-store' })
+        .then(function(r) { return r.json().catch(function() { return { success: false, data: { items: [] } }; }); })
+        .then(function(data) {
+            var plans = (data.success && data.data && data.data.items) ? data.data.items : (Array.isArray(data.data) ? data.data : []);
+            var activePlans = plans.filter(function(p) { return p.status === 'active'; });
+            var optionsHtml = activePlans.map(function(p) {
+                var label = p.name + (p.tokenLimit === 0 ? ' (ilimitado)' : ' (' + p.tokenLimit + ' tokens)');
+                return '<option value="' + p.id + '">' + label + '</option>';
+            }).join('');
+            if (!optionsHtml) optionsHtml = '<option value="1">Básico (100 tokens)</option>';
+            
+            var overlay = document.createElement('div');
+            overlay.id = 'add-company-overlay';
+            overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4 overflow-y-auto';
+            overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl p-8 max-w-md w-full my-8" onclick="event.stopPropagation()">' +
+                '<h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-6">Nova Empresa</h4>' +
+                '<form id="add-company-form" class="space-y-4">' +
+                '<div>' +
+                '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Nome da Empresa</label>' +
+                '<input type="text" id="add-company-name" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: Minha Empresa Ltda" required>' +
+                '</div>' +
+                '<div>' +
+                '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Identificador (slug)</label>' +
+                '<input type="text" id="add-company-slug" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: minha-empresa (opcional - gera automático)">' +
+                '<p class="text-[10px] text-slate-400 mt-1">Se vazio, será gerado automaticamente a partir do nome.</p>' +
+                '</div>' +
+                '<div>' +
+                '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Plano</label>' +
+                '<select id="add-company-plan" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-bold">' + optionsHtml + '</select>' +
+                '</div>' +
+                '<hr class="border-slate-200 dark:border-slate-600 my-4">' +
+                '<p class="text-sm font-bold text-slate-700 dark:text-slate-300 mb-3">Dados do Administrador</p>' +
+                '<div>' +
+                '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Nome do Administrador</label>' +
+                '<input type="text" id="add-company-admin-name" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: João Silva">' +
+                '</div>' +
+                '<div>' +
+                '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">E-mail do Administrador</label>' +
+                '<input type="email" id="add-company-admin-email" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: joao@empresa.com" required>' +
+                '</div>' +
+                '<div>' +
+                '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">Senha</label>' +
+                '<input type="password" id="add-company-admin-password" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-bold placeholder-slate-400 dark:placeholder-slate-500" placeholder="Mínimo 6 caracteres" required minlength="6">' +
+                '</div>' +
+                '<p id="add-company-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+                '<div class="flex gap-3 pt-4">' +
+                '<button type="button" id="add-company-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
+                '<button type="submit" id="add-company-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Criar Empresa</button>' +
+                '</div></form></div>';
+            overlay.onclick = function(ev) { if (ev.target === overlay) overlay.remove(); };
+            document.body.appendChild(overlay);
+            var form = document.getElementById('add-company-form');
+            var cancelBtn = document.getElementById('add-company-cancel');
+            var errorEl = document.getElementById('add-company-error');
+            var submitBtn = document.getElementById('add-company-submit');
+            var nameInput = document.getElementById('add-company-name');
+            var slugInput = document.getElementById('add-company-slug');
+            var adminNameInput = document.getElementById('add-company-admin-name');
+            var adminEmailInput = document.getElementById('add-company-admin-email');
+            var adminPasswordInput = document.getElementById('add-company-admin-password');
+            if (nameInput && slugInput) {
+                nameInput.addEventListener('input', function() {
+                    var name = nameInput.value.trim();
+                    if (!slugInput.value.trim()) {
+                        var slug = name.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+                        slugInput.value = slug;
+                    }
+                    if (!adminNameInput.value.trim()) {
+                        adminNameInput.value = name;
+                    }
+                });
+            }
+            form.onsubmit = function(e) {
+                e.preventDefault();
+                var name = nameInput.value.trim();
+                var slug = slugInput.value.trim();
+                var planId = document.getElementById('add-company-plan').value;
+                var adminName = adminNameInput.value.trim();
+                var adminEmail = adminEmailInput.value.trim();
+                var adminPassword = adminPasswordInput.value;
+                if (!name) {
+                    errorEl.textContent = 'Nome da empresa é obrigatório.';
+                    errorEl.classList.remove('hidden');
+                    return;
+                }
+                if (!adminEmail) {
+                    errorEl.textContent = 'E-mail do administrador é obrigatório.';
+                    errorEl.classList.remove('hidden');
+                    return;
+                }
+                if (!adminPassword || adminPassword.length < 6) {
+                    errorEl.textContent = 'Senha deve ter pelo menos 6 caracteres.';
+                    errorEl.classList.remove('hidden');
+                    return;
+                }
+                errorEl.classList.add('hidden');
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Criando...';
+                fetch(API_BASE + 'tenants.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    credentials: 'same-origin',
+                    body: JSON.stringify({ 
+                        name: name, 
+                        slug: slug, 
+                        planId: parseInt(planId, 10), 
+                        status: 'active',
+                        adminName: adminName,
+                        adminEmail: adminEmail,
+                        adminPassword: adminPassword
+                    })
+                })
+                    .then(function(r) { return r.json(); })
+                    .then(function(res) {
+                        if (res.success) {
+                            overlay.remove();
+                            showToast('Empresa "' + name + '" criada com sucesso!');
+                            loadCompaniesTab(document.getElementById('content-area'));
+                        } else {
+                            errorEl.textContent = res.error || 'Erro ao criar empresa.';
+                            errorEl.classList.remove('hidden');
+                        }
+                    })
+                    .catch(function() {
+                        errorEl.textContent = 'Erro de conexão.';
+                        errorEl.classList.remove('hidden');
+                    })
+                    .finally(function() {
+                        submitBtn.disabled = false;
+                        submitBtn.textContent = 'Criar Empresa';
+                    });
+            };
+            cancelBtn.onclick = function() { overlay.remove(); };
+        })
+        .catch(function() { alert('Erro ao carregar planos.'); });
+}
+
 // Empresas (super_admin): listar e ativar/desativar
 function loadCompaniesTab(contentArea) {
-    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10"><div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Empresas cadastradas <span id="companies-total" class="text-slate-500 dark:text-slate-400 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="companies-refresh-btn" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="companies-spinner"></span></div></div><div id="companies-list"></div></div>';
+    contentArea.innerHTML = '<div class="max-w-4xl mx-auto py-10"><div class="flex justify-between items-center mb-10 flex-wrap gap-4"><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Empresas cadastradas <span id="companies-total" class="text-slate-500 dark:text-slate-400 font-normal text-lg"></span></h3><div class="flex items-center gap-3"><button type="button" id="btn-add-company" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-3 rounded-2xl text-xs flex items-center gap-2 shadow-lg shadow-blue-100 dark:shadow-blue-900/30"><svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 4v16m8-8H4" /></svg>Nova Empresa</button><button type="button" id="companies-refresh-btn" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-300 font-bold px-4 py-3 rounded-2xl text-xs flex items-center gap-2">Atualizar lista</button><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block" id="companies-spinner"></span></div></div><div id="companies-list"></div></div>';
     var listEl = document.getElementById('companies-list');
     var spinnerEl = document.getElementById('companies-spinner');
     var refreshBtn = document.getElementById('companies-refresh-btn');
+    var addBtn = document.getElementById('btn-add-company');
     if (refreshBtn) {
         refreshBtn.onclick = function() {
             loadCompaniesTab(document.getElementById('content-area'));
+        };
+    }
+    if (addBtn) {
+        addBtn.onclick = function() {
+            showAddCompanyModal();
         };
     }
     var apiUrl = API_BASE + 'tenants.php';
@@ -1479,11 +1711,14 @@ function loadCompaniesTab(contentArea) {
                 var statusClass = t.status === 'active' ? 'bg-emerald-100 text-emerald-700' : 'bg-amber-100 text-amber-700';
                 var toggleLabel = t.status === 'active' ? 'Desativar' : 'Ativar';
                 var planInfo = (t.plan || '') + (t.planTokenLimit != null ? (t.planTokenLimit === 0 ? ' (ilimitado)' : ' (' + t.planTokenLimit + ' tokens)') : '');
+                var tokensUsed = t.tokensUsed != null ? t.tokensUsed : 0;
+                var tokensLimit = t.tokensLimit != null ? t.tokensLimit : 0;
+                var tokensInfo = tokensLimit > 0 ? ' · Tokens: ' + tokensUsed + '/' + tokensLimit : ' · Tokens: ' + tokensUsed + ' (ilimitado)';
                 html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between flex-wrap gap-4">';
                 html += '<div class="flex items-center gap-6">';
                 html += '<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
                 html += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (t.name || '') + '</h4>';
-                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
+                html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + tokensInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
                 html += '<div class="flex items-center gap-2">';
                 html += '<button type="button" class="btn-access-tenant px-4 py-2 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-700 hover:bg-emerald-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Acessar</button>';
                 html += '<button type="button" class="btn-edit-tenant px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-email="' + (t.email || '').replace(/"/g, '&quot;') + '">Editar</button>';
@@ -1801,6 +2036,36 @@ function updateGPSUI() {
 
 // Prospecção HTML
 function getProspectingHTML() {
+    const scraperConfigured = AppState.config && (
+        (AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin' && AppState.config.scraperApiKey && String(AppState.config.scraperApiKey).trim() !== '') ||
+        AppState.config.scraperApiKeyConfigured
+    );
+    const openrouterConfigured = AppState.config && (
+        (AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin' && AppState.config.openrouterApiKey && String(AppState.config.openrouterApiKey).trim() !== '') ||
+        AppState.config.openrouterApiKeyConfigured
+    );
+    
+    const tokenUsage = AppState.tokenUsage;
+    const maxTokens = (tokenUsage && tokenUsage.limit > 0) ? Math.max(1, tokenUsage.limit - tokenUsage.used) : 1000;
+    const availableTokens = (tokenUsage && tokenUsage.limit > 0) ? Math.max(0, tokenUsage.limit - tokenUsage.used) : 'Ilimitado';
+    const defaultLimit = (tokenUsage && tokenUsage.limit > 0) ? Math.min(20, maxTokens) : 20;
+    
+    let methodSelectHTML = '';
+    if (scraperConfigured) {
+        methodSelectHTML = `
+            <div class="md:col-span-2">
+                <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Método</label>
+                <select id="search-method" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm">
+                    ${openrouterConfigured ? '<option value="scraper">Servidor1</option><option value="ia">Servidor2</option>' : '<option value="scraper">Servidor1</option>'}
+                </select>
+            </div>
+        `;
+    } else if (openrouterConfigured) {
+        methodSelectHTML = `<input type="hidden" id="search-method" value="ia">`;
+    } else {
+        methodSelectHTML = `<input type="hidden" id="search-method" value="ia">`;
+    }
+    
     return `
         <div class="max-w-[1400px] mx-auto">
             <div id="search-token-limit-banner" class="hidden mb-6 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium flex items-center gap-2">
@@ -1809,9 +2074,9 @@ function getProspectingHTML() {
             </div>
             <div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] shadow-sm border border-slate-200 dark:border-slate-600 mb-10">
                 <div class="grid grid-cols-1 md:grid-cols-12 gap-4">
-                    <div class="md:col-span-4">
+                    <div class="md:col-span-3">
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">O que busca?</label>
-                        <input id="search-query" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Ex: Petshop, Clínica, Padaria...">
+                        <input id="search-query" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: Petshop, Clínica, Padaria...">
                     </div>
                     <div class="md:col-span-3">
                         <div class="flex justify-between items-center mb-1">
@@ -1819,19 +2084,20 @@ function getProspectingHTML() {
                             <button id="toggle-gps" class="text-[9px] font-black px-2 py-0.5 rounded-full transition-all bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600">USAR MEU GPS</button>
                         </div>
                         <div id="location-input-container">
-                            <input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Cidade ou Região">
+                            <input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all placeholder-slate-400 dark:placeholder-slate-500" placeholder="Cidade ou Região">
                         </div>
                     </div>
                     <div class="md:col-span-2">
                         <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Tag CRM</label>
-                        <input id="search-tag" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: leads_novos">
+                        <input id="search-tag" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm placeholder-slate-400 dark:placeholder-slate-500" placeholder="Ex: leads_novos">
                     </div>
+                    ${methodSelectHTML}
                     <div class="md:col-span-1">
-                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest" title="Enviado à API como maxCrawledPlacesPerSearch">Limite (lugares)</label>
-                        <input id="search-max-places" type="number" min="1" max="1000" class="w-full px-3 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="20" value="20">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest" title="Enviado à API como maxCrawledPlacesPerSearch">Limite (Tokens: ${availableTokens})</label>
+                        <input id="search-max-places" type="number" min="1" max="${maxTokens}" class="w-full px-3 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm placeholder-slate-400 dark:placeholder-slate-500" placeholder="20" value="${defaultLimit}">
                     </div>
-                    <div class="md:col-span-2 flex items-end">
-                        <button id="btn-search" class="w-full py-3 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-xl shadow-slate-100 disabled:opacity-50 flex items-center justify-center uppercase tracking-wider text-xs">
+                    <div class="md:col-span-1 flex items-end">
+                        <button id="btn-search" class="w-full py-3 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-lg shadow-slate-900/30 dark:shadow-lg dark:shadow-black/20 disabled:opacity-50 flex items-center justify-center uppercase tracking-wider text-xs">
                             Buscar Tudo
                         </button>
                     </div>
@@ -1898,7 +2164,7 @@ function setupProspectingEvents() {
         } else {
             btn.className = 'text-[9px] font-black px-2 py-0.5 rounded-full transition-all bg-slate-100 dark:bg-slate-700 text-slate-500 dark:text-slate-400 hover:bg-slate-200 dark:hover:bg-slate-600';
             btn.textContent = 'USAR MEU GPS';
-            container.innerHTML = '<input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all" placeholder="Cidade ou Região">';
+            container.innerHTML = '<input id="search-location" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm transition-all placeholder-slate-400 dark:placeholder-slate-500" placeholder="Cidade ou Região">';
         }
     });
     
@@ -1922,6 +2188,16 @@ function setupProspectingEvents() {
     const btnExportWebhook = document.getElementById('btn-export-webhook');
     if (btnExportWebhook) {
         btnExportWebhook.addEventListener('click', exportCurrentSearchToWebhook);
+    }
+    
+    const btnNewFolder = document.getElementById('btn-new-folder');
+    if (btnNewFolder) {
+        btnNewFolder.addEventListener('click', async function() {
+            const name = prompt('Digite o nome da nova pasta:');
+            if (name && name.trim()) {
+                await createFolder(name.trim());
+            }
+        });
     }
 }
 
@@ -2065,10 +2341,15 @@ async function performSearch() {
     try {
         var maxPlacesEl = document.getElementById('search-max-places');
         var maxPlaces = 20;
+        var tokenUsage = AppState.tokenUsage;
+        var maxTokens = (tokenUsage && tokenUsage.limit > 0) ? Math.max(1, tokenUsage.limit - tokenUsage.used) : 1000;
+        
         if (maxPlacesEl && maxPlacesEl.value) {
             var v = parseInt(maxPlacesEl.value, 10);
-            if (!isNaN(v)) maxPlaces = Math.max(1, Math.min(1000, v));
+            if (!isNaN(v)) maxPlaces = Math.max(1, Math.min(maxTokens, v));
         }
+        var methodEl = document.getElementById('search-method');
+        var searchMethod = methodEl && methodEl.value ? methodEl.value : 'scraper';
         const res = await fetch(API_BASE + 'search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -2079,7 +2360,8 @@ async function performSearch() {
                 useGPS,
                 coords: useGPS ? AppState.userCoords : null,
                 locationName: useGPS ? AppState.userLocationName : null,
-                maxCrawledPlacesPerSearch: maxPlaces
+                maxCrawledPlacesPerSearch: maxPlaces,
+                searchMethod: searchMethod
             })
         });
         
@@ -2120,9 +2402,18 @@ async function performSearch() {
             if (data.data.tokenUsage) AppState.tokenUsage = data.data.tokenUsage;
             var locationText = useGPS ? (AppState.userLocationName || 'Localização GPS') : location;
             AppState.currentSearch = { query: query, location: locationText, tag: tag };
-            // Incluir pesquisa atual no histórico local para "Ver novamente" manter desbloqueados após unlock
-            var newItem = { id: String(Date.now()), query: query, location: locationText, tag: tag, timestamp: new Date().toISOString(), resultsCount: AppState.leads.length, leads: AppState.leads.slice() };
-            AppState.history = [newItem].concat(AppState.history.filter(function(h) { return h.query !== query || h.location !== locationText; })).slice(0, 50);
+            
+            if (data.data.duplicatesRemoved > 0) {
+                showToast(data.data.duplicatesRemoved + ' resultado(s) duplicado(s) foram removidos desta pesquisa.', 'warning');
+            }
+            
+            if (data.data.isNewSearch) {
+                var newItem = { id: String(Date.now()), query: query, location: locationText, tag: tag, timestamp: new Date().toISOString(), resultsCount: AppState.leads.length, leads: AppState.leads.slice() };
+                AppState.history = [newItem].concat(AppState.history.filter(function(h) { return h.query !== query || h.location !== locationText; })).slice(0, 50);
+            } else {
+                showToast('Pesquisa continuada - novos resultados adicionados.', 'success');
+            }
+            
             displayLeads();
         } else {
             showError(data.error || 'Erro ao buscar leads');
@@ -2417,13 +2708,26 @@ async function loadHistory() {
     
     try {
         const res = await fetch(API_BASE + 'history.php');
-        const data = await res.json();
+        const text = await res.text();
+        
+        if (!text || text.trim() === '') {
+            throw new Error('Resposta vazia do servidor');
+        }
+        
+        const data = JSON.parse(text);
         
         if (data.success) {
-            AppState.history = data.data;
+            AppState.history = data.data || [];
+            console.log('History loaded:', AppState.history.length, 'items');
+            if (AppState.history.length > 0) {
+                console.log('First item leads:', AppState.history[0].leads);
+            }
             displayHistory();
+        } else {
+            throw new Error(data.error || 'Erro desconhecido');
         }
     } catch (e) {
+        console.error('History error:', e);
         contentArea.innerHTML = `<div class="max-w-5xl mx-auto"><div class="bg-red-50 p-5 rounded-2xl text-red-700">Erro ao carregar histórico: ${e.message}</div></div>`;
     }
 }
@@ -2483,23 +2787,86 @@ function renderHistoryList(listEl, filtered) {
             '<h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg capitalize">' + (item.query || '') + '</h4>' +
             '<p class="text-[11px] font-bold text-slate-400 mt-1 uppercase tracking-wider">📍 ' + (item.location || 'Local Automático') + ' <span class="ml-2">🏷 ' + tagLabel + '</span> <span class="ml-2 text-slate-500">' + dateTime + '</span> <span class="ml-2 text-blue-500">(' + count + ' leads)</span></p>' +
             '</div></div>' +
+            '<div class="flex items-center gap-2">' +
+            '<button class="btn-continue-search bg-blue-600 text-white font-bold px-4 py-3 rounded-2xl text-xs hover:bg-blue-700 transition-colors" data-history-id="' + item.id + '" data-query="' + encodeURIComponent(item.query || '') + '" data-location="' + encodeURIComponent(item.location || '') + '" data-tag="' + encodeURIComponent(item.tag || '') + '">🔄 Continuar Pesquisa</button>' +
             '<button class="btn-use-history bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl text-xs hover:bg-blue-600 transition-colors" data-history-id="' + item.id + '">Ver Novamente</button>' +
+            '</div>' +
             '</div>';
     }).join('');
+    
     listEl.querySelectorAll('.btn-use-history').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var historyId = btn.dataset.historyId;
             var item = AppState.history.find(function(h) { return h.id == historyId; });
-            if (item && item.leads) {
+            if (item) {
                 AppState.searchId = String(item.id);
-                AppState.leads = item.leads.map(function(l) {
-                    if (l.locked === false) return l;
-                    return { id: l.id, name: l.name || '', locked: true, dbId: l.dbId };
+                AppState.leads = (item.leads || []).map(function(l) {
+                    return { 
+                        id: l.id, 
+                        name: l.name || '', 
+                        locked: l.locked, 
+                        dbId: l.dbId,
+                        phone: l.phone || '',
+                        email: l.email || '',
+                        address: l.address || '',
+                        website: l.website || '',
+                        mapsUri: l.mapsUri || '',
+                        cnpj: l.cnpj || '',
+                        partners: l.partners || '',
+                        tag: l.tag || '',
+                        latitude: l.latitude,
+                        longitude: l.longitude
+                    };
                 });
                 AppState.currentSearch = { query: item.query || '', location: item.location || '', tag: item.tag || '' };
                 setActiveTab('search');
                 setTimeout(function() { displayLeads(); }, 100);
             }
+        });
+    });
+    listEl.querySelectorAll('.btn-continue-search').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var historyId = btn.dataset.historyId;
+            var query = decodeURIComponent(btn.dataset.query || '');
+            var location = decodeURIComponent(btn.dataset.location || '');
+            var tag = decodeURIComponent(btn.dataset.tag || '');
+            
+            var item = AppState.history.find(function(h) { return h.id == historyId; });
+            
+            AppState.currentSearch = { query: query, location: location, tag: tag };
+            setActiveTab('search');
+            setTimeout(function() {
+                var queryInput = document.getElementById('search-query');
+                var locationInput = document.getElementById('search-location');
+                var tagInput = document.getElementById('search-tag');
+                
+                if (queryInput) queryInput.value = query;
+                if (locationInput) locationInput.value = location;
+                if (tagInput) tagInput.value = tag;
+                
+                if (item && item.leads) {
+                    AppState.searchId = String(item.id);
+                    AppState.leads = item.leads.map(function(l) {
+                        return { 
+                            id: l.id, 
+                            name: l.name || '', 
+                            locked: l.locked, 
+                            dbId: l.dbId,
+                            phone: l.phone || '',
+                            email: l.email || '',
+                            address: l.address || '',
+                            website: l.website || '',
+                            mapsUri: l.mapsUri || '',
+                            cnpj: l.cnpj || '',
+                            partners: l.partners || '',
+                            tag: l.tag || '',
+                            latitude: l.latitude,
+                            longitude: l.longitude
+                        };
+                    });
+                    displayLeads();
+                }
+            }, 200);
         });
     });
 }
@@ -2579,6 +2946,51 @@ function displayHistory() {
     });
 }
 
+// Carregar pastas do usuário
+async function loadFolders() {
+    try {
+        const res = await fetch(API_BASE + 'folders.php');
+        const data = await res.json();
+        if (data.success) {
+            AppState.folders = data.data || [];
+            updateFolderSelect();
+        }
+    } catch (e) {
+        console.error('Erro ao carregar pastas:', e);
+    }
+}
+
+function updateFolderSelect() {
+    const folderSelect = document.getElementById('search-folder');
+    if (!folderSelect) return;
+    
+    const folderOptions = AppState.folders.map(f => `<option value="${f.id}">${f.name}</option>`).join('');
+    folderSelect.innerHTML = '<option value="">Sem pasta</option>' + folderOptions;
+    
+    if (AppState.currentSearch && AppState.currentSearch.folderId) {
+        folderSelect.value = AppState.currentSearch.folderId;
+    }
+}
+
+// Criar nova pasta
+async function createFolder(name) {
+    try {
+        const res = await fetch(API_BASE + 'folders.php', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ name })
+        });
+        const data = await res.json();
+        if (data.success) {
+            await loadFolders();
+            return data.data;
+        }
+    } catch (e) {
+        console.error('Erro ao criar pasta:', e);
+    }
+    return null;
+}
+
 // API de Busca (apenas status + chave para super_admin)
 function getApiBuscaHTML() {
     return `
@@ -2594,11 +3006,32 @@ function getApiBuscaHTML() {
                     </div>
                     <div id="block-scraper-api-key-admin" class="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
                         <div class="absolute top-0 right-0 w-32 h-32 bg-purple-600/10 rounded-full blur-3xl"></div>
-                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">Chave da API de Busca</h4>
-                        <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
+                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">Chave da API de Busca (Scraper)</h4>
+                        <p class="text-xs text-slate-400 mb-4">Chave de API para busca direta no Google Maps via Apify. Apenas o Super Admin pode alterar; todas as empresas utilizam esta chave.</p>
                         <div>
-                            <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API de Busca</label>
+                            <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API de Busca (Apify)</label>
                             <input id="setting-scraper-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-purple-500 font-bold text-white placeholder:text-slate-500 dark:text-slate-400" placeholder="Insira a chave da API de busca">
+                        </div>
+                    </div>
+                    <div id="block-openrouter-api-key-admin" class="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white relative overflow-hidden">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-cyan-600/10 rounded-full blur-3xl"></div>
+                        <h4 class="font-black text-lg mb-3 flex items-center gap-2">API de IA (OpenRouter)</h4>
+                        <p class="text-xs text-slate-400 mb-4">Chave de API do OpenRouter.ai para busca alternativa por Inteligência Artificial. O super admin escolhe o modelo.</p>
+                        <div class="space-y-4">
+                            <div>
+                                <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Chave da API OpenRouter</label>
+                                <input id="setting-openrouter-api" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-cyan-500 font-bold text-white placeholder:text-slate-500 dark:text-slate-400" placeholder="sk-or-v1-...">
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Modelo de IA (OpenRouter)</label>
+                                <input id="setting-ia-model" type="text" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-cyan-500 font-bold text-white placeholder:text-slate-500 dark:text-slate-400" placeholder="google/gemini-2.0-flash-001">
+                                <p class="text-[10px] text-slate-500 mt-1 ml-1">Ex: google/gemini-2.0-flash-001, openai/gpt-4o, anthropic/claude-3.5-sonnet</p>
+                            </div>
+                            <div>
+                                <label class="block text-[10px] font-black text-slate-300 uppercase mb-2 ml-1">Modelo de IA Fallback (opcional)</label>
+                                <input id="setting-ia-model-fallback" type="text" class="w-full bg-slate-900/50 border border-slate-700 rounded-2xl px-6 py-4 outline-none focus:border-cyan-500 font-bold text-white placeholder:text-slate-500 dark:text-slate-400" placeholder="qwen/qwen3-coder:free">
+                                <p class="text-[10px] text-slate-500 mt-1 ml-1">Usado automaticamente se o modelo principal falhar</p>
+                            </div>
                         </div>
                     </div>
                     <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 dark:shadow-blue-900/30 transition-all active:scale-[0.98]">Salvar Alterações</button>
@@ -2671,6 +3104,12 @@ async function loadSettingsForm() {
             if (tenantEl) tenantEl.value = AppState.config.tenantName || 'Nome da empresa SaaS';
             var scraperApiInput = document.getElementById('setting-scraper-api');
             if (scraperApiInput) scraperApiInput.value = AppState.config.scraperApiKey || '';
+            var openrouterApiInput = document.getElementById('setting-openrouter-api');
+            if (openrouterApiInput) openrouterApiInput.value = AppState.config.openrouterApiKey || '';
+            var iaModelInput = document.getElementById('setting-ia-model');
+            if (iaModelInput) iaModelInput.value = AppState.config.iaModel || 'google/gemini-2.0-flash-001';
+            var iaModelFallbackInput = document.getElementById('setting-ia-model-fallback');
+            if (iaModelFallbackInput) iaModelFallbackInput.value = AppState.config.iaModelFallback || '';
             updateApiStatusDisplay();
         }
     } catch (e) {
@@ -2684,18 +3123,29 @@ function updateApiStatusDisplay(overrideKey) {
     const subtitleEl = document.getElementById('api-status-subtitle');
     if (!statusEl || !subtitleEl) return;
     var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
-    if (titleEl) titleEl.textContent = 'API de Busca (Google Maps)';
+    if (titleEl) titleEl.textContent = 'Status das APIs de Busca';
     var configured = isSuperAdmin
         ? (overrideKey !== undefined ? String(overrideKey || '').trim() : (AppState.config && AppState.config.scraperApiKey) ? String(AppState.config.scraperApiKey).trim() : '')
         : (AppState.config && AppState.config.scraperApiKeyConfigured);
-    if (configured) {
-        statusEl.textContent = '✓ Conectado ao Google Maps';
+    var geminiConfigured = isSuperAdmin
+        ? (AppState.config && AppState.config.openrouterApiKey) ? String(AppState.config.openrouterApiKey).trim() : ''
+        : (AppState.config && AppState.config.openrouterApiKeyConfigured);
+    if (configured || geminiConfigured) {
+        var statusText = '';
+        if (configured && geminiConfigured) {
+            statusText = '✓ Scraper (Apify) + IA (OpenRouter) conectado';
+        } else if (configured) {
+            statusText = '✓ Scraper (Apify) conectado';
+        } else {
+            statusText = '✓ IA (OpenRouter) conectado';
+        }
+        statusEl.textContent = statusText;
         statusEl.className = 'p-5 bg-emerald-500/20 border border-emerald-500/50 rounded-2xl text-emerald-400 text-center font-bold';
-        subtitleEl.textContent = isSuperAdmin ? 'API configurada no servidor. Todas as empresas utilizam esta chave.' : 'API configurada no servidor pelo administrador da plataforma.';
+        subtitleEl.textContent = 'Método padrão: Scraper. Na busca, você pode selecionar "IA (OpenRouter)".';
     } else {
-        statusEl.textContent = 'Nenhuma API de busca configurada';
+        statusEl.textContent = 'Nenhuma API configurada';
         statusEl.className = 'p-5 bg-amber-500/20 border border-amber-500/50 rounded-2xl text-amber-400 text-center font-bold';
-        subtitleEl.textContent = isSuperAdmin ? 'Configure a chave abaixo para que todas as empresas possam buscar leads no Google Maps.' : 'O administrador da plataforma deve configurar a chave em API de Busca.';
+        subtitleEl.textContent = isSuperAdmin ? 'Configure as chaves abaixo para ativar os métodos de busca.' : 'O administrador da plataforma deve configurar as chaves em API de Busca.';
     }
 }
 
@@ -2715,7 +3165,13 @@ async function saveSettings() {
     };
     if (isSuperAdmin) {
         var scraperEl = document.getElementById('setting-scraper-api');
+        var openrouterEl = document.getElementById('setting-openrouter-api');
+        var iaModelEl = document.getElementById('setting-ia-model');
+        var iaModelFallbackEl = document.getElementById('setting-ia-model-fallback');
         payload.scraperApiKey = scraperEl ? scraperEl.value : (AppState.config.scraperApiKey || '');
+        payload.openrouterApiKey = openrouterEl ? openrouterEl.value : (AppState.config.openrouterApiKey || '');
+        payload.iaModel = iaModelEl ? iaModelEl.value : (AppState.config.iaModel || 'google/gemini-2.0-flash-001');
+        payload.iaModelFallback = iaModelFallbackEl ? iaModelFallbackEl.value : (AppState.config.iaModelFallback || '');
     }
     try {
         const res = await fetch(API_BASE + 'settings.php', {
@@ -2817,13 +3273,24 @@ function hideError() {
     }
 }
 
-function showToast(message) {
+function showToast(message, type = 'success') {
     const toast = document.getElementById('toast');
     const toastMsg = document.getElementById('toast-message');
     toastMsg.textContent = message;
     toast.classList.remove('hidden');
     
+    if (type === 'warning') {
+        toast.classList.remove('bg-green-600');
+        toast.classList.add('bg-amber-500');
+    } else if (type === 'error') {
+        toast.classList.remove('bg-green-600');
+        toast.classList.add('bg-red-600');
+    } else {
+        toast.classList.remove('bg-amber-500', 'bg-red-600');
+        toast.classList.add('bg-green-600');
+    }
+    
     setTimeout(() => {
         toast.classList.add('hidden');
-    }, 3000);
+    }, 4000);
 }

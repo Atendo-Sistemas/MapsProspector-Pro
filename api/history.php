@@ -25,10 +25,13 @@ if ($method === 'GET') {
             sh.query,
             sh.location,
             sh.tag,
+            sh.folder_id,
             sh.results_count,
             sh.created_at as timestamp,
+            sf.name as folder_name,
             COUNT(l.id) as leads_count
         FROM search_history sh
+        LEFT JOIN search_folders sf ON sf.id = sh.folder_id
         LEFT JOIN leads l ON l.search_history_id = sh.id
         WHERE sh.user_id = ?
         GROUP BY sh.id
@@ -103,6 +106,8 @@ if ($method === 'GET') {
 
         $item['leads'] = $leads;
         $item['id'] = (string) $item['id'];
+        $item['folderId'] = $item['folder_id'] ? (string) $item['folder_id'] : null;
+        $item['folderName'] = $item['folder_name'] ?? null;
     }
 
     jsonSuccess($history);

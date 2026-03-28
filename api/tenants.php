@@ -96,6 +96,10 @@ if ($method === 'GET') {
     $slug = sanitizeInput($input['slug'] ?? '');
     $planId = isset($input['planId']) ? (int) $input['planId'] : 1;
     $status = isset($input['status']) ? sanitizeInput($input['status']) : 'active';
+    
+    $adminName = sanitizeInput($input['adminName'] ?? '');
+    $adminEmail = isset($input['adminEmail']) ? trim(strtolower($input['adminEmail'])) : '';
+    $adminPassword = $input['adminPassword'] ?? '';
 
     if (empty($name)) {
         jsonError('Nome da empresa é obrigatório', 400);
@@ -114,6 +118,19 @@ if ($method === 'GET') {
         $status = 'active';
     }
 
+    if (empty($adminEmail)) {
+        jsonError('E-mail do administrador é obrigatório', 400);
+    }
+    if (!filter_var($adminEmail, FILTER_VALIDATE_EMAIL)) {
+        jsonError('E-mail inválido', 400);
+    }
+    if (empty($adminPassword) || strlen($adminPassword) < 6) {
+        jsonError('Senha do administrador deve ter pelo menos 6 caracteres', 400);
+    }
+    if (empty($adminName)) {
+        $adminName = $name;
+    }
+
     try {
         $stmt = $db->prepare("SELECT id FROM plans WHERE id = ? AND status = 'active'");
         $stmt->execute([$planId]);
@@ -127,9 +144,24 @@ if ($method === 'GET') {
             jsonError('Já existe uma empresa com este identificador (slug). Escolha outro.', 400);
         }
 
+        $stmt = $db->prepare("SELECT id FROM users WHERE email = ?");
+        $stmt->execute([$adminEmail]);
+        if ($stmt->fetch()) {
+            jsonError('Já existe um usuário com este e-mail. Escolha outro.', 400);
+        }
+
+        $db->beginTransaction();
+
         $stmt = $db->prepare("INSERT INTO tenants (name, slug, plan_id, status) VALUES (?, ?, ?, ?)");
         $stmt->execute([$name, $slug, $planId, $status]);
         $newId = (int) $db->lastInsertId();
+
+        $hashedPassword = password_hash($adminPassword, PASSWORD_DEFAULT);
+        $stmt = $db->prepare("INSERT INTO users (name, email, password, tenant_id, profile) VALUES (?, ?, ?, ?, 'admin')");
+        $stmt->execute([$adminName, $adminEmail, $hashedPassword, $newId]);
+        $userId = (int) $db->lastInsertId();
+
+        $db->commit();
 
         $stmt = $db->prepare("
             SELECT t.id, t.name, t.slug, t.plan_id, t.status, t.created_at, p.name as plan_name, p.token_limit as plan_token_limit
@@ -142,9 +174,14 @@ if ($method === 'GET') {
         $tenant['plan'] = $tenant['plan_name'] ?? 'Básico';
         $tenant['planTokenLimit'] = isset($tenant['plan_token_limit']) ? (int) $tenant['plan_token_limit'] : 100;
         $tenant['createdAt'] = $tenant['created_at'];
+        $tenant['adminEmail'] = $adminEmail;
+        $tenant['adminUserId'] = (string) $userId;
         unset($tenant['plan_id'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['created_at']);
-        jsonSuccess($tenant, 'Empresa criada com sucesso');
+        jsonSuccess($tenant, 'Empresa e usuário administrador criados com sucesso');
     } catch (PDOException $e) {
+        if (isset($db) && $db->inTransaction()) {
+            $db->rollBack();
+        }
         error_log("Erro ao criar tenant: " . $e->getMessage());
         jsonError('Erro ao criar empresa. Execute database_migration_plans.sql se a coluna plan_id não existir.', 500);
     }

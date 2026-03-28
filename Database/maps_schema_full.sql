@@ -290,7 +290,9 @@ ON DUPLICATE KEY UPDATE `profile` = 'super_admin', `tenant_id` = NULL;
 INSERT IGNORE INTO `platform_settings` (`setting_key`, `setting_value`) VALUES
 ('scraper_api_key', NULL),
 ('credit_price_avulso', '2.00'),
-('saas_company_name', 'Nome da empresa SaaS');
+('saas_company_name', 'Nome da empresa SaaS'),
+('openrouter_api_key', NULL),
+('ia_model', 'google/gemini-2.0-flash-001');
 
 SET FOREIGN_KEY_CHECKS = 1;
 
