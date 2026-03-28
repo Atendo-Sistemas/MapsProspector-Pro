@@ -105,8 +105,6 @@ MapsProspector-Pro/
 ├── index.php                 # Ponto de entrada principal
 ├── index.html                # Redirecionamento
 ├── check.php                 # Verificação de saúde do sistema
-├── docker-compose.yml        # Configuração Docker
-├── Dockerfile                # Imagem Docker
 ├── nginx.conf                # Configuração Nginx
 │
 ├── .env.example              # Exemplo de variáveis de ambiente

@@ -106,20 +106,6 @@ Acesse `http://localhost:8000/index.php`
 
 ---
 
-## 🐳 Implantação com Docker
-
-O projeto inclui **Dockerfile** com PHP + Apache (sem Node).
-
-```bash
-docker-compose up -d --build
-```
-
-A aplicação estará disponível na porta **3005** (ou a definida no `docker-compose.yml`). Configure as variáveis de ambiente (banco de dados, chaves de API) no `docker-compose.yml` ou em um arquivo `.env`.
-
-Para uso em produção com banco externo, defina no ambiente do container as variáveis esperadas por `config/config.php` e `config/database.php`.
-
----
-
 ## 🗂️ Estrutura do Projeto
 
 ```
