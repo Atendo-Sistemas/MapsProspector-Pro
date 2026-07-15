@@ -1811,6 +1811,7 @@ function reviewPlanRequest(id, status, contentArea) {
             loadPlansTab(contentArea);
         }
     });
+});
 }
 
 function showPlansDeleteModal(contentArea, planId, planName) {
