@@ -1,0 +1,407 @@
+// ============================================================================
+// FINAL DO ARQUIVO - FUNÇÕES DE CNPJ E UTILIDADES
+// ============================================================================
+
+// Renderiza a aba de Consulta de CNPJ
+function renderCnpjLookupTab(contentArea) {
+    contentArea.innerHTML = `
+        <div class="max-w-4xl mx-auto py-10 space-y-8">
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Consulta de CNPJ</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Enriqueça sua base de dados consultando os dados cadastrais, quadro societário, CNAEs e endereço oficial de qualquer empresa diretamente na base da Receita Federal.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] shadow-sm border border-slate-200 dark:border-slate-600">
+                <form id="cnpj-search-form" class="flex flex-col sm:flex-row gap-4 items-end">
+                    <div class="flex-grow">
+                        <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Digite o CNPJ</label>
+                        <input id="cnpj-search-input" type="text" required class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm placeholder-slate-400 dark:placeholder-slate-500" placeholder="00.000.000/0001-00">
+                    </div>
+                    <button type="submit" id="btn-cnpj-search" class="w-full sm:w-auto px-8 py-3.5 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-lg text-xs uppercase tracking-wider">
+                        Consultar Empresa
+                    </button>
+                </form>
+            </div>
+            <div id="cnpj-error" class="hidden p-5 bg-amber-50 border-l-4 border-amber-400 text-amber-900 rounded-r-2xl shadow-sm"></div>
+            <div id="cnpj-results-container" class="hidden"></div>
+        </div>
+    `;
+    setupCnpjEvents();
+}
+
+// Renderiza os resultados da consulta CNPJ
+function renderCnpjResults(data, container) {
+    const est = data.estabelecimento || {};
+    const razao = data.razao_social || 'Não informado';
+    const fantasia = est.nome_fantasia || 'Não informado';
+    const statusClass = est.situacao_cadastral === 'Ativa' ? 'bg-emerald-500/10 text-emerald-500 border-emerald-500/20' : 'bg-red-500/10 text-red-500 border-red-500/20';
+    const capital = data.capital_social ? parseFloat(data.capital_social).toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) : 'Não informado';
+    const ddd = est.ddd1 || '';
+    const tel = est.telefone1 || '';
+    const phone = ddd && tel ? `(${ddd}) ${tel}` : 'Não informado';
+    const email = est.email || 'Não informado';
+    const logradouro = est.logradouro || '';
+    const numero = est.numero || '';
+    const complemento = est.complemento ? `, ${est.complemento}` : '';
+    const bairro = est.bairro ? ` - ${est.bairro}` : '';
+    const cidade = est.cidade ? est.cidade.nome : '';
+    const uf = est.estado ? est.estado.sigla : '';
+    const cep = est.cep ? ` CEP ${est.cep}` : '';
+    const enderecoCompleto = `${logradouro}, ${numero}${complemento}${bairro}, ${cidade} - ${uf}${cep}`;
+    
+    const sociosList = data.socios && data.socios.length > 0 
+        ? data.socios.map(s => `
+            <div class="p-4 bg-slate-50 dark:bg-slate-700/50 border border-slate-100 dark:border-slate-700 rounded-2xl flex items-center gap-3">
+                <span class="text-xl">👤</span>
+                <div>
+                    <p class="text-xs font-black text-slate-900 dark:text-slate-100 uppercase leading-snug">${s.nome}</p>
+                    <p class="text-[9px] font-bold text-slate-400 uppercase tracking-wider">${s.qualificacao_socio ? s.qualificacao_socio.descricao : 'Sócio'}</p>
+                </div>
+            </div>
+        `).join('')
+        : '<p class="text-xs text-slate-400 font-bold col-span-full">Nenhum sócio ou administrador listado.</p>';
+    
+    const cnaePrincipal = est.atividade_principal ? `${est.atividade_principal.id} - ${est.atividade_principal.descricao}` : 'Não informado';
+    const cnaesSecundarios = est.atividades_secundarias && est.atividades_secundarias.length > 0
+        ? est.atividades_secundarias.map(c => `<li class="text-[10px] leading-relaxed text-slate-600 dark:text-slate-400 font-semibold">• ${c.id} - ${c.descricao}</li>`).join('')
+        : '<li class="text-[10px] text-slate-400 font-bold list-none">• Nenhum CNAE secundário listado.</li>';
+    
+    container.innerHTML = `
+        <div class="space-y-8 animate-slide-in">
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+                <div>
+                    <span class="px-3 py-1 text-[10px] font-black border rounded-full uppercase tracking-wider ${statusClass}">${est.situacao_cadastral || 'Inativo'}</span>
+                    <h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mt-3 tracking-tight uppercase leading-snug">${razao}</h4>
+                    <p class="text-xs font-bold text-slate-400 mt-1 uppercase">Nome Fantasia: <span class="text-slate-600 dark:text-slate-300">${fantasia}</span></p>
+                </div>
+                <button type="button" id="btn-export-cnpj-webhook" class="w-full md:w-auto flex items-center justify-center gap-2 px-6 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-2xl text-xs font-black uppercase shadow-lg shadow-blue-100 dark:shadow-blue-900/30 transition-all">
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg>
+                    Exportar enriquecido para Webhook
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm space-y-6">
+                    <h5 class="text-xs font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-700 pb-2">🏢 Dados Cadastrais</h5>
+                    <div class="space-y-4">
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <span class="text-[9px] font-black text-slate-400 uppercase">CNPJ</span>
+                                <p class="text-slate-700 dark:text-slate-300 font-mono font-bold text-xs">${est.cnpj || 'Não informado'}</p>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-black text-slate-400 uppercase">Abertura</span>
+                                <p class="text-slate-700 dark:text-slate-300 font-bold text-xs">${est.data_situacao_cadastral || 'Não informado'}</p>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-black text-slate-400 uppercase">Capital Social</span>
+                                <p class="text-slate-700 dark:text-slate-300 font-bold text-xs text-blue-600">${capital}</p>
+                            </div>
+                            <div>
+                                <span class="text-[9px] font-black text-slate-400 uppercase">Porte</span>
+                                <p class="text-slate-700 dark:text-slate-300 font-bold text-xs uppercase">${data.porte ? data.porte.descricao : 'Não informado'}</p>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700 space-y-3">
+                            <div class="flex items-center gap-3 bg-emerald-50/50 dark:bg-emerald-950/20 p-3 rounded-xl">
+                                <span class="text-emerald-500 text-xs">📞</span>
+                                <span class="text-emerald-700 dark:text-emerald-400 font-bold text-xs">${phone}</span>
+                            </div>
+                            <div class="flex items-center gap-3 bg-blue-50/50 dark:bg-blue-950/20 p-3 rounded-xl">
+                                <span class="text-blue-500 text-xs">✉️</span>
+                                <span class="text-blue-700 dark:text-blue-400 font-bold text-xs truncate">${email}</span>
+                            </div>
+                        </div>
+                        <div class="pt-4 border-t border-slate-100 dark:border-slate-700">
+                            <span class="text-[9px] font-black text-slate-400 uppercase">Endereço Fiscal Oficial</span>
+                            <p class="text-slate-500 dark:text-slate-400 font-semibold text-[11px] leading-relaxed mt-1">${enderecoCompleto}</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm space-y-6">
+                    <h5 class="text-xs font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-700 pb-2">👥 Sócios e Administradores (QSA)</h5>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-h-[250px] overflow-y-auto pr-1">
+                        ${sociosList}
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] border border-slate-200 dark:border-slate-600 shadow-sm space-y-6">
+                <h5 class="text-xs font-black text-slate-400 uppercase tracking-widest border-b border-slate-100 dark:border-slate-700 pb-2">📊 Atividades Econômicas (CNAE)</h5>
+                <div class="space-y-4">
+                    <div>
+                        <span class="text-[9px] font-black text-slate-400 uppercase">CNAE Principal</span>
+                        <p class="text-slate-700 dark:text-slate-300 font-bold text-xs mt-1">• ${cnaePrincipal}</p>
+                    </div>
+                    <div class="pt-4 border-t border-slate-100 dark:border-slate-700">
+                        <span class="text-[9px] font-black text-slate-400 uppercase mb-2 block">CNAES Secundários</span>
+                        <ul class="space-y-2 max-h-[150px] overflow-y-auto pr-1">
+                            ${cnaesSecundarios}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    `;
+    
+    document.getElementById('btn-export-cnpj-webhook').onclick = async function() {
+        if (!AppState.config || !AppState.config.baseUrl || String(AppState.config.baseUrl).trim() === '') {
+            alert('Configure a URL do Webhook em Configurações para usar esta função.');
+            return;
+        }
+        const btnExport = document.getElementById('btn-export-cnpj-webhook');
+        btnExport.disabled = true;
+        btnExport.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block mr-2"></span> Enviando...';
+        try {
+            const res = await fetch(API_BASE + 'export.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    leadId: 'cnpj-' + est.cnpj,
+                    leadName: razao,
+                    leadAddress: enderecoCompleto,
+                    leadPhone: phone,
+                    leadEmail: email,
+                    leadWebsite: fantasia,
+                    customData: {
+                        cnpj: est.cnpj,
+                        capitalSocial: capital,
+                        situacaoCadastral: est.situacao_cadastral,
+                        cnaePrincipal: cnaePrincipal,
+                        socios: data.socios ? data.socios.map(s => s.nome).join(', ') : ''
+                    }
+                })
+            });
+            const resData = await res.json();
+            if (resData.success) {
+                showToast(resData.message || 'Dados enriquecidos enviados ao CRM!');
+            } else {
+                alert('❌ Erro no Envio: ' + resData.error);
+            }
+        } catch (e) {
+            alert('❌ Erro de conexão: ' + e.message);
+        } finally {
+            btnExport.disabled = false;
+            btnExport.innerHTML = '<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M8 7h12m0 0l-4-4m4 4l-4 4m0 6H4m0 0l4 4m-4-4l4-4" /></svg> Exportar enriquecido para Webhook';
+        }
+    };
+}
+
+// Renderiza aba de Empresas Recém-Abertas
+function renderLatestCompaniesTab(contentArea) {
+    contentArea.innerHTML = `
+        <div class="max-w-4xl mx-auto py-10 space-y-8">
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Empresas Recém-Abertas</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Consulte as últimas 20 empresas abertas em uma cidade. (Custo: 5 tokens)</p>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600">
+                <div class="flex gap-4">
+                    <input id="latest-city-input" type="text" class="flex-grow px-5 py-3 rounded-xl bg-slate-50 border border-slate-200" placeholder="Nome da cidade. Ex: Jales, SP">
+                    <button id="btn-latest-search" class="px-8 py-3 bg-blue-600 text-white font-bold rounded-xl hover:bg-blue-700">Buscar</button>
+                </div>
+            </div>
+            <div id="latest-results" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+    `;
+    document.getElementById('btn-latest-search').onclick = async () => {
+        const city = document.getElementById('latest-city-input').value;
+        const container = document.getElementById('latest-results');
+        container.innerHTML = '<p class="text-center">Buscando...</p>';
+        const res = await fetch(API_BASE + 'latest-companies.php?city=' + encodeURIComponent(city));
+        const data = await res.json();
+        if (data.success) {
+            container.innerHTML = data.data.map(emp => `
+                <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200">
+                    <h4 class="font-bold text-sm text-blue-600">${emp.razao_social}</h4>
+                    <p class="text-[10px] text-slate-500 uppercase font-black">${emp.estabelecimento.cnpj_formatado}</p>
+                    <p class="text-xs mt-2">${emp.estabelecimento.logradouro}, ${emp.estabelecimento.numero}</p>
+                </div>
+            `).join('');
+        } else {
+            container.innerHTML = '<p class="text-red-500">Erro: ' + data.error + '</p>';
+        }
+    };
+}
+
+// Renderiza aba de Busca Avançada CNPJ
+function renderCnpjAdvancedTab(contentArea) {
+    contentArea.innerHTML = `
+        <div class="max-w-4xl mx-auto py-10 space-y-8">
+            <div>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Busca Avançada por Segmento</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Localize empresas por atividade (CNAE), nome ou localização. Ideal para prospecção em massa por setores específicos.</p>
+            </div>
+            <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-sm border border-slate-200 dark:border-slate-600">
+                <form id="cnpj-advanced-form" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Segmento ou Palavra-Chave</label>
+                            <input id="adv-segment" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: Pet Shop, Restaurante...">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Estado (UF)</label>
+                            <select id="adv-uf" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm">
+                                <option value="">Todos os Estados</option>
+                                <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Cidade (Nome exato)</label>
+                            <input id="adv-city" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: Jales ou Sao Paulo">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Código CNAE (Opcional)</label>
+                            <input id="adv-cnae" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: 4789004">
+                        </div>
+                    </div>
+                    <button type="submit" id="btn-adv-search" class="w-full py-4 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-lg text-xs uppercase tracking-widest">
+                        Iniciar Busca Avançada
+                    </button>
+                </form>
+            </div>
+            <div id="adv-error" class="hidden p-5 bg-amber-50 border-l-4 border-amber-400 text-amber-900 rounded-r-2xl shadow-sm"></div>
+            <div id="adv-results-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
+        </div>
+    `;
+    setupCnpjAdvancedEvents();
+}
+
+// Setup eventos de Busca Avançada CNPJ
+async function setupCnpjAdvancedEvents() {
+    const form = document.getElementById('cnpj-advanced-form');
+    if (!form) return;
+    
+    form.onsubmit = async function(e) {
+        e.preventDefault();
+        
+        const segment = document.getElementById('adv-segment').value.trim();
+        const uf = document.getElementById('adv-uf').value;
+        const cityName = document.getElementById('adv-city').value.trim();
+        const manualCnae = document.getElementById('adv-cnae').value.trim();
+        
+        const btn = document.getElementById('btn-adv-search');
+        const errorEl = document.getElementById('adv-error');
+        const container = document.getElementById('adv-results-container');
+
+        btn.disabled = true;
+        btn.innerHTML = 'Processando...';
+        errorEl.classList.add('hidden');
+        container.innerHTML = '';
+
+        try {
+            let params = new URLSearchParams();
+
+            // 1. CNAE
+            if (manualCnae) {
+                params.append('cnae', manualCnae.replace(/\D/g, ''));
+            } else if (segment) {
+                const cnaeRes = await fetch('https://api.cnpj.pw/cnaes/');
+                const cnaeData = await cnaeRes.json();
+                const match = cnaeData.resultados.find(c => c.descricao.toLowerCase().includes(segment.toLowerCase()));
+                if (match) params.append('cnae', match.codigo);
+                else params.append('razao_social', segment);
+            }
+
+            // 2. Cidade
+            if (cityName) {
+                const munRes = await fetch('https://api.cnpj.pw/municipios/');
+                const munData = await munRes.json();
+                const normalize = (str) => (str || "").toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+                
+                const municipio = munData.resultados.find(m => 
+                    normalize(m.descricao) === normalize(cityName) && 
+                    (!uf || (m.uf && m.uf.toUpperCase() === uf.toUpperCase()))
+                );
+                
+                if (municipio) {
+                    params.append('municipio', municipio.codigo);
+                }
+            }
+
+            // 3. UF
+            if (uf && uf !== "") params.append('uf', uf.toUpperCase());
+
+            const searchRes = await fetch(`https://api.cnpj.pw/busca_difusa/?${params.toString()}`);
+            const searchData = await searchRes.json();
+
+            if (searchData.resultados && searchData.resultados.length > 0) {
+                renderAdvancedResults(searchData.resultados, container);
+                showToast(`${searchData.resultados.length} empresas encontradas!`);
+            } else {
+                errorEl.textContent = "Nenhuma empresa encontrada com esses filtros. Tente remover o filtro de cidade.";
+                errorEl.classList.remove('hidden');
+            }
+        } catch (err) {
+            console.error("Erro na busca:", err);
+            errorEl.textContent = "Erro ao processar busca. Verifique os dados.";
+            errorEl.classList.remove('hidden');
+        } finally {
+            btn.disabled = false;
+            btn.textContent = 'Iniciar Busca Avançada';
+        }
+    };
+}
+
+// Renderiza resultados da busca avançada
+function renderAdvancedResults(results, container) {
+    if (!results || results.length === 0) {
+        container.innerHTML = '<p class="col-span-full text-center py-10 text-slate-500">Nenhum resultado encontrado.</p>';
+        return;
+    }
+    container.innerHTML = results.map(emp => `
+        <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-600 shadow-sm flex flex-col justify-between">
+            <div>
+                <h4 class="font-black text-xs text-blue-600 dark:text-blue-400 uppercase truncate" title="${emp.nome_fantasia || emp.nome_empresarial}">
+                    ${emp.nome_fantasia || emp.nome_empresarial}
+                </h4>
+                <p class="text-[10px] font-mono font-bold text-slate-500 mt-1">${emp.cnpj}</p>
+                <p class="text-[10px] text-slate-400 mt-2 uppercase font-bold">📍 ${emp.municipio} - ${emp.uf}</p>
+            </div>
+            <button onclick="copyToCnpjLookup('${emp.cnpj}')" class="mt-4 w-full py-2 bg-slate-100 dark:bg-slate-700 text-[10px] font-black uppercase rounded-lg hover:bg-blue-600 hover:text-white transition-all">
+                Ver Detalhes Completos
+            </button>
+        </div>
+    `).join('');
+}
+
+// Copia CNPJ para aba de Consulta
+window.copyToCnpjLookup = function(cnpj) {
+    const cleanCnpj = cnpj.replace(/\D/g, '');
+    setActiveTab('cnpj-lookup');
+    setTimeout(() => {
+        const input = document.getElementById('cnpj-search-input');
+        if (input) {
+            input.value = cleanCnpj;
+            const btn = document.getElementById('btn-cnpj-search');
+            if (btn) btn.click();
+        }
+    }, 500);
+};
+
+// Toggle de sub-menus
+window.toggleSubmenu = function(id) {
+    const submenu = document.getElementById(id);
+    const arrow = document.getElementById('arrow-' + id.split('-')[1]);
+    if (submenu) {
+        submenu.classList.toggle('hidden');
+        if (arrow) arrow.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+    }
+};
+
+// Login modal
+window.openLoginModal = function() {
+    var landingPage = document.getElementById('landing-page');
+    var loginScreen = document.getElementById('login-screen');
+    if (landingPage) landingPage.style.display = 'none';
+    if (loginScreen) loginScreen.style.display = 'flex';
+};
+
+// Event listeners globais para tabs
+document.addEventListener('click', function(e) {
+    const btn = e.target.closest('.tab-btn');
+    if (btn && btn.dataset.tab) {
+        setActiveTab(btn.dataset.tab);
+    }
+});
+
+console.log("✅ Arquivo app.js carregado com sucesso - Todas as funções fechadas corretamente.");
