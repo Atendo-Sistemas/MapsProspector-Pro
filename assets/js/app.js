@@ -1811,7 +1811,6 @@ function reviewPlanRequest(id, status, contentArea) {
             loadPlansTab(contentArea);
         }
     });
-});
 }
 
 function showPlansDeleteModal(contentArea, planId, planName) {
@@ -4485,207 +4484,74 @@ function renderCnpjAdvancedTab(contentArea) {
         </div>
     `;
 }
-
-async function setupCnpjAdvancedEvents() {
-    const form = document.getElementById('cnpj-advanced-form');
-    if (!form) return;
-    
-    form.onsubmit = async function(e) {
-        e.preventDefault();
-        
-        const segment = document.getElementById('adv-segment').value.trim();
-        const uf = document.getElementById('adv-uf').value; // Pode ser "" (vazio)
-        const cityName = document.getElementById('adv-city').value.trim();
-        const manualCnae = document.getElementById('adv-cnae').value.trim();
-        
-        const btn = document.getElementById('btn-adv-search');
-        const errorEl = document.getElementById('adv-error');
-        const container = document.getElementById('adv-results-container');
-
-        btn.disabled = true;
-        btn.innerHTML = 'Processando...';
-        errorEl.classList.add('hidden');
-        container.innerHTML = '';
-
-        try {
-            let params = new URLSearchParams();
-
-            // 1. CNAE
-            if (manualCnae) {
-                params.append('cnae', manualCnae.replace(/\D/g, ''));
-            } else if (segment) {
-                const cnaeRes = await fetch('https://api.cnpj.pw/cnaes/');
-                const cnaeData = await cnaeRes.json();
-                const match = cnaeData.resultados.find(c => c.descricao.toLowerCase().includes(segment.toLowerCase()));
-                if (match) params.append('cnae', match.codigo);
-                else params.append('razao_social', segment);
-            }
-
-            // 2. Cidade com segurança extra
-            if (cityName) {
-                const munRes = await fetch('https://api.cnpj.pw/municipios/');
-                const munData = await munRes.json();
-                const normalize = (str) => (str || "").toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-                
-                const municipio = munData.resultados.find(m => 
-                    normalize(m.descricao) === normalize(cityName) && 
-                    (!uf || (m.uf && m.uf.toUpperCase() === uf.toUpperCase()))
-                );
-                
-                if (municipio) {
-                    params.append('municipio', municipio.codigo);
-                }
-            }
-
-            // 3. UF com segurança
-            if (uf && uf !== "") params.append('uf', uf.toUpperCase());
-
-            const searchRes = await fetch(`https://api.cnpj.pw/busca_difusa/?${params.toString()}`);
-            const searchData = await searchRes.json();
-
-            if (searchData.resultados && searchData.resultados.length > 0) {
-                renderAdvancedResults(searchData.resultados, container);
-            } else {
-                errorEl.textContent = "Nenhuma empresa encontrada com esses filtros.";
-                errorEl.classList.remove('hidden');
-            }
-        } catch (err) {
-            console.error("Erro na busca:", err);
-            errorEl.textContent = "Erro ao processar busca. Verifique os dados.";
-            errorEl.classList.remove('hidden');
-        } finally {
-            btn.disabled = false;
-            btn.textContent = 'Iniciar Busca Avançada';
-        }
-        
-        // 4. EXECUÇÃO DA BUSCA DIFUSA
-            const urlCompleta = `https://api.cnpj.pw/busca_difusa/?${params.toString()}`;
-            console.log("URL de busca sendo enviada:", urlCompleta);
-            
-            const searchRes = await fetch(urlCompleta);
-            const searchData = await searchRes.json();
-            
-            console.log("Resposta recebida da API:", searchData);
-
-            if (searchData.resultados && searchData.resultados.length > 0) {
-                renderAdvancedResults(searchData.resultados, container);
-                showToast(`${searchData.resultados.length} empresas encontradas!`);
-            } else {
-                errorEl.textContent = "Nenhuma empresa encontrada com esses filtros. Tente remover o filtro de cidade.";
-                errorEl.classList.remove('hidden');
-            }
-            
-function renderAdvancedResults(results, container) {
-    if (!results || results.length === 0) {
-        container.innerHTML = '<p class="col-span-full text-center py-10 text-slate-500">Nenhum resultado encontrado.</p>';
-        return;
-    }
-    container.innerHTML = results.map(emp => `
-        <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-600 shadow-sm flex flex-col justify-between">
-            <div>
-                <h4 class="font-black text-xs text-blue-600 dark:text-blue-400 uppercase truncate" title="${emp.nome_fantasia || emp.nome_empresarial}">
-                    ${emp.nome_fantasia || emp.nome_empresarial}
-                </h4>
-                <p class="text-[10px] font-mono font-bold text-slate-500 mt-1">${emp.cnpj}</p>
-                <p class="text-[10px] text-slate-400 mt-2 uppercase font-bold">📍 ${emp.municipio} - ${emp.uf}</p>
-            </div>
-            <button onclick="copyToCnpjLookup('${emp.cnpj}')" class="mt-4 w-full py-2 bg-slate-100 dark:bg-slate-700 text-[10px] font-black uppercase rounded-lg hover:bg-blue-600 hover:text-white transition-all">
-                Ver Detalhes Completos
-            </button>
-        </div>
-    `).join('');
-}
-
-window.copyToCnpjLookup = function(cnpj) {
-    const cleanCnpj = cnpj.replace(/\D/g, '');
-    setActiveTab('cnpj-lookup');
-    setTimeout(() => {
-        const input = document.getElementById('cnpj-search-input');
-        if (input) {
-            input.value = cleanCnpj;
-            const btn = document.getElementById('btn-cnpj-search');
-            if (btn) btn.click();
-        }
-    }, 500);
-};
-
-window.toggleSubmenu = function(id) {
+function toggleSubmenu(id) {
     const submenu = document.getElementById(id);
-    const arrow = document.getElementById('arrow-' + id.split('-')[1]);
+    const arrow = document.getElementById('arrow-cnpj'); // O ID da seta no seu HTML
+
     if (submenu) {
-        if (submenu.classList.contains('hidden')) {
-            submenu.classList.remove('hidden');
-            if (arrow) arrow.style.transform = 'rotate(180deg)';
-        } else {
-            submenu.classList.add('hidden');
-            if (arrow) arrow.style.transform = 'rotate(0deg)';
+        // Alterna a classe 'hidden' do Tailwind
+        submenu.classList.toggle('hidden');
+        
+        // Opcional: Rotaciona a seta se ela existir
+        if (arrow) {
+            arrow.classList.toggle('rotate-180');
         }
     }
-};
-
-// Re-garantir que os botões do sub-menu funcionem de forma geral
-document.addEventListener('click', function(e) {
-    const btn = e.target.closest('.tab-btn');
-    if (btn && btn.dataset.tab) {
-        setActiveTab(btn.dataset.tab);
-};
-// --- CORREÇÃO DE SEGURANÇA E FECHAMENTO DE BLOCOS ---
-
-window.openLoginModal = function() {
-    var landingPage = document.getElementById('landing-page');
-    var loginScreen = document.getElementById('login-screen');
-    if (landingPage) landingPage.style.display = 'none';
-    if (loginScreen) loginScreen.style.display = 'flex';
-};
-
-window.toggleSubmenu = function(id) {
+}
+function toggleSubmenu(id) {
     const submenu = document.getElementById(id);
-    const arrow = document.getElementById('arrow-' + id.split('-')[1]);
+    const arrow = document.getElementById('arrow-cnpj');
     if (submenu) {
         submenu.classList.toggle('hidden');
-        if (arrow) arrow.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        if (arrow) arrow.classList.toggle('rotate-180');
     }
-};
+}
+function setupCnpjAdvancedEvents() {
+    const form = document.getElementById('cnpj-advanced-form');
+    if (!form) return;
 
-window.copyToCnpjLookup = function(cnpj) {
-    const cleanCnpj = cnpj.replace(/\D/g, '');
-    setActiveTab('cnpj-lookup');
-    setTimeout(() => {
-        const input = document.getElementById('cnpj-search-input');
-        if (input) {
-            input.value = cleanCnpj;
-            const btn = document.getElementById('btn-cnpj-search');
-            if (btn) btn.click();
+    form.onsubmit = async function(e) {
+        e.preventDefault();
+        // Lógica de busca aqui...
+        console.log("Busca avançada iniciada");
+    };
+}
+async function buscarCnaeLocal(termo) {
+    const res = await fetch(API_BASE + 'cnae_estruturado.json');
+    const data = await res.json();
+    // Filtra pelo código ou pela descrição
+    return data.filter(c => 
+        c.denominacao.toLowerCase().includes(termo.toLowerCase()) || 
+        c.codigo.includes(termo)
+    ).slice(0, 50); // Retorna até 50 resultados para não travar a UI
+}
+// Exemplo de como implementar no seu submit:
+
+form.onsubmit = async function(e) {
+    e.preventDefault();
+    
+    // 1. Pegar valores
+    const cityInput = document.getElementById('adv-city').value;
+    const cnaeInput = document.getElementById('adv-cnae').value;
+    
+    let params = new URLSearchParams();
+
+    // 2. Integrar com o arquivo municipios.json
+    if (cityInput) {
+        const id = await buscarMunicipioLocal(cityInput);
+        if (id) {
+            params.append('municipio', id);
+        } else {
+            return alert("Cidade não encontrada no nosso banco!");
         }
-    }, 500);
-};
-
-document.addEventListener('click', function(e) {
-    const btn = e.target.closest('.tab-btn');
-    if (btn && btn.dataset.tab) {
-        setActiveTab(btn.dataset.tab);
     }
-});
 
-console.log("Arquivo carregado e corrigido.");
-// ... (seu código atual)
+    // 3. Integrar com o arquivo cnae_estruturado.json
+    if (cnaeInput) {
+        params.append('cnae', cnaeInput.replace(/\D/g, ''));
+    }
 
-// Garanta que todas as funções tenham o fechamento correto:
-function setupCnpjEvents() {
-    // ... conteúdo da função
-} // Fecha setupCnpjEvents
-
-function renderCnpjLookupTab(contentArea) {
-    // ... conteúdo
-} // Fecha renderCnpjLookupTab
-
-function renderCnpjResults(data, container) {
-    // ... conteúdo
-} // Fecha renderCnpjResults
-
-function renderLatestCompaniesTab(contentArea) {
-    // ... conteúdo
-} // Fecha renderLatestCompaniesTab
-
-// ADICIONE ISSO NO FINAL PARA CORRIGIR O ERRO DE SINTAXE E REFERENCE:
-window.openLoginModal = openLoginModal;
+    // 4. Executar busca na API externa com os parâmetros locais
+    const searchRes = await fetch(`https://api.cnpj.pw/busca_difusa/?${params.toString()}`);
+    // ... processar resultados
+};
