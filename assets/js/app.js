@@ -4379,555 +4379,204 @@ function renderLatestCompaniesTab(contentArea) {
 // FUNÇÕES DE BUSCA AVANÇADA CNPJ (API CNPJPW + DADOS LOCAIS)
 // =============================================================================
 
+async function setupCnpjAdvancedEvents() {
+    const form = document.getElementById('cnpj-advanced-form');
+    if (!form) return;
+    
+    form.onsubmit = async function(e) {
+        e.preventDefault();
+        
+        // Captura de valores
+        const segment = document.getElementById('adv-segment').value.trim();
+        const uf = document.getElementById('adv-uf').value; 
+        const cityName = document.getElementById('adv-city').value.trim();
+        const manualCnae = document.getElementById('adv-cnae').value.trim();
+        const dateStart = document.getElementById('adv-date-start').value;
+        const dateEnd = document.getElementById('adv-date-end').value;
+        const capitalMin = document.getElementById('adv-capital-min').value;
+        
+        const btn = document.getElementById('btn-adv-search');
+        const errorEl = document.getElementById('adv-error');
+        const container = document.getElementById('adv-results-container');
+
+        if (btn) {
+            btn.disabled = true;
+            btn.innerHTML = 'Processando...';
+        }
+        if (errorEl) errorEl.classList.add('hidden');
+        if (container) container.innerHTML = '';
+
+        try {
+            let params = new URLSearchParams();
+
+            // 1. Lógica de CNAE/Segmento
+            if (manualCnae) {
+                params.append('cnae', manualCnae.replace(/\D/g, ''));
+            } else if (segment) {
+                // Tenta buscar o código CNAE pela descrição do segmento
+                try {
+                    const cnaeRes = await fetch('https://api.cnpj.pw/cnaes/' );
+                    const cnaeData = await cnaeRes.json();
+                    const match = cnaeData.resultados.find(c => 
+                        c.descricao.toLowerCase().includes(segment.toLowerCase())
+                    );
+                    if (match) {
+                        params.append('cnae', match.codigo);
+                    } else {
+                        params.append('razao_social', segment);
+                    }
+                } catch (cnaeErr) {
+                    params.append('razao_social', segment);
+                }
+            }
+
+            // 2. Lógica de Localização (Cidade e UF)
+            if (cityName) {
+                try {
+                    const munRes = await fetch('https://api.cnpj.pw/municipios/' );
+                    const munData = await munRes.json();
+                    const normalize = (str) => (str || "").toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+                    const municipio = munData.resultados.find(m => 
+                        normalize(m.descricao) === normalize(cityName) && 
+                        (!uf || (m.uf && m.uf.toUpperCase() === uf.toUpperCase()))
+                    );
+                    if (municipio) {
+                        params.append('municipio', municipio.codigo);
+                    } else {
+                        // Se não achar o código, tenta passar o nome (menos preciso)
+                        params.append('municipio', cityName);
+                    }
+                } catch (munErr) {
+                    params.append('municipio', cityName);
+                }
+            }
+            
+            if (uf && uf !== "") params.append('uf', uf.toUpperCase());
+
+                        // 3. Filtros de Data e Capital (NOMES CORRIGIDOS PARA A API)
+            if (dateStart) params.append('abertura_inicio', dateStart);
+            if (dateEnd) params.append('abertura_fim', dateEnd);
+            if (capitalMin) params.append('capital_minimo', capitalMin);
+
+            // 4. Execução da Busca
+            const urlCompleta = `https://api.cnpj.pw/busca_difusa/?${params.toString( )}`;
+            console.log("URL de Busca Gerada:", urlCompleta); // Para depuração no F12
+
+            const searchRes = await fetch(urlCompleta);
+            const searchData = await searchRes.json();
+            
+            console.log("Resposta da API:", searchData);
+
+            if (searchData.resultados && searchData.resultados.length > 0) {
+                renderAdvancedResults(searchData.resultados, container);
+            } else {
+                if (errorEl) {
+                    errorEl.innerHTML = `
+                        <div class="flex flex-col gap-2">
+                            <p class="font-bold">Nenhuma empresa encontrada com esses filtros.</p>
+                            <p class="text-[10px] opacity-70">Tente remover a cidade ou ampliar o período de datas.</p>
+                            <p class="text-[10px] mt-2 italic">URL testada: <a href="${urlCompleta}" target="_blank" class="underline text-blue-600">${urlCompleta}</a></p>
+                        </div>
+                    `;
+                    errorEl.classList.remove('hidden');
+                }
+            }
+        } catch (err) {
+            console.error("Erro na busca avançada:", err);
+            if (errorEl) {
+                errorEl.textContent = "Erro ao processar busca. Verifique sua conexão ou os parâmetros.";
+                errorEl.classList.remove('hidden');
+            }
+        } finally {
+            if (btn) {
+                btn.disabled = false;
+                btn.innerHTML = 'Iniciar Busca Avançada';
+            }
+        }
+    };
+}
+// --- FUNÇÕES DE INTERFACE (TABS E MODAIS) ---
+
 function renderCnpjAdvancedTab(contentArea) {
+    if (!contentArea) return;
     contentArea.innerHTML = `
         <div class="max-w-4xl mx-auto py-10 space-y-8">
             <div>
-                <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Busca Avançada por CNAE</h3>
-                <p class="text-sm text-slate-500 dark:text-slate-400">Encontre empresas em massa em qualquer região filtrando diretamente pela atividade econômica (CNAE) oficial da Receita Federal.</p>
+                <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Busca Avançada por Segmento</h3>
+                <p class="text-sm text-slate-500 dark:text-slate-400">Localize empresas por atividade (CNAE), localização, data de abertura e porte.</p>
             </div>
-            
             <div class="bg-white dark:bg-slate-800 p-8 rounded-[2rem] shadow-sm border border-slate-200 dark:border-slate-600">
                 <form id="cnpj-advanced-form" class="space-y-6">
-                    <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-end">
-                        <!-- Campo CNAE com Botão Mapear Acoplado -->
-                        <div class="md:col-span-8">
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Atividade Econômica (CNAE)</label>
-                            <div class="flex gap-2">
-                                <input id="adv-cnae" type="text" class="flex-grow px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Digite o código ou clique em Mapear">
-                                <button type="button" onclick="showCnaeModal()" class="px-6 py-3 bg-slate-900 hover:bg-slate-800 text-white font-bold rounded-xl transition whitespace-nowrap text-xs uppercase tracking-wider shadow-md">
-                                    Mapear
-                                </button>
-                            </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Segmento ou Palavra-Chave</label>
+                            <input id="adv-segment" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: Pet Shop, Restaurante...">
                         </div>
-
-                        <!-- Seletor de Estado -->
-                        <div class="md:col-span-4">
-                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Filtrar por Estado (UF)</label>
-                            <select id="adv-uf" class="w-full px-5 py-3.5 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Estado (UF)</label>
+                            <select id="adv-uf" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm">
                                 <option value="">Todos os Estados</option>
                                 <option value="AC">Acre</option><option value="AL">Alagoas</option><option value="AP">Amapá</option><option value="AM">Amazonas</option><option value="BA">Bahia</option><option value="CE">Ceará</option><option value="DF">Distrito Federal</option><option value="ES">Espírito Santo</option><option value="GO">Goiás</option><option value="MA">Maranhão</option><option value="MT">Mato Grosso</option><option value="MS">Mato Grosso do Sul</option><option value="MG">Minas Gerais</option><option value="PA">Pará</option><option value="PB">Paraíba</option><option value="PR">Paraná</option><option value="PE">Pernambuco</option><option value="PI">Piauí</option><option value="RJ">Rio de Janeiro</option><option value="RN">Rio Grande do Norte</option><option value="RS">Rio Grande do Sul</option><option value="RO">Rondônia</option><option value="RR">Roraima</option><option value="SC">Santa Catarina</option><option value="SP">São Paulo</option><option value="SE">Sergipe</option><option value="TO">Tocantins</option>
                             </select>
                         </div>
                     </div>
-
-                    <!-- Botão de Envio Principal -->
-                    <button type="submit" id="btn-adv-search" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-black rounded-xl transition-all shadow-lg text-xs uppercase tracking-widest">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Cidade (Nome exato)</label>
+                            <input id="adv-city" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: Jales ou Sao Paulo">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Código CNAE (Opcional)</label>
+                            <input id="adv-cnae" type="text" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: 4789004">
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Abertas a partir de</label>
+                            <input id="adv-date-start" type="date" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Abertas até</label>
+                            <input id="adv-date-end" type="date" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-[10px] font-black text-slate-400 uppercase mb-1 ml-1 tracking-widest">Capital Social Mín.</label>
+                            <input id="adv-capital-min" type="number" class="w-full px-5 py-3 rounded-xl bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 focus:border-blue-500 outline-none font-bold text-sm" placeholder="Ex: 10000">
+                        </div>
+                    </div>
+                    <button type="submit" id="btn-adv-search" class="w-full py-4 bg-slate-900 hover:bg-blue-600 text-white font-black rounded-xl transition-all shadow-lg text-xs uppercase tracking-widest">
                         Iniciar Busca Avançada
                     </button>
                 </form>
             </div>
-            
             <div id="adv-error" class="hidden p-5 bg-amber-50 border-l-4 border-amber-400 text-amber-900 rounded-r-2xl shadow-sm"></div>
             <div id="adv-results-container" class="grid grid-cols-1 md:grid-cols-2 gap-4"></div>
         </div>
     `;
+    // Reinicializa os eventos após renderizar o HTML
+    setupCnpjAdvancedEvents();
 }
-
-function toggleSubmenu(id) {
-    const submenu = document.getElementById(id);
-    const arrow = document.getElementById('arrow-cnpj');
-    if (submenu) {
-        submenu.classList.toggle('hidden');
-        if (arrow) arrow.classList.toggle('rotate-180');
-    }
-}
-
-async function getMunicipioId(nome) {
-    try {
-        const res = await fetch(API_BASE + 'municipios.json');
-        const cidades = await res.json();
-        const norm = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-        const match = cidades.find(c => norm(c.nome) === norm(nome));
-        return match ? match.id : null;
-    } catch (e) {
-        console.error("Erro ao obter município ID local:", e);
-        return null;
-    }
-}
-
-// =============================================================================
-// MOTOR DE EVENTOS - BUSCA SIMPLES E AVANÇADA (CONEXÃO SEGURA SEM CONFLITOS)
-// =============================================================================
-
-// 1. BUSCA SIMPLES (Por número do CNPJ - Aba cnpj-lookup)
-function setupCnpjEvents() {
-    const inputSimple = document.getElementById('cnpj-search-input');
-    const formSimple = document.getElementById('cnpj-search-form');
-    const errorElSimple = document.getElementById('cnpj-error');
-    const containerSimple = document.getElementById('cnpj-results-container');
-    const btnSimple = document.getElementById('btn-cnpj-search');
-    
-    if (!inputSimple || !formSimple) return;
-
-    // Máscara dinâmica de CNPJ
-    inputSimple.addEventListener('input', function(e) {
-        let value = e.target.value.replace(/\D/g, '');
-        if (value.length > 14) value = value.slice(0, 14);
-        let masked = '';
-        if (value.length > 0) masked += value.slice(0, 2);
-        if (value.length > 2) masked += '.' + value.slice(2, 5);
-        if (value.length > 5) masked += '.' + value.slice(5, 8);
-        if (value.length > 8) masked += '/' + value.slice(8, 12);
-        if (value.length > 12) masked += '-' + value.slice(12, 14);
-        e.target.value = masked;
-    });
-
-    formSimple.onsubmit = async function(e) {
-        e.preventDefault();
-        const rawCnpj = inputSimple.value.replace(/\D/g, '');
-        if (rawCnpj.length !== 14) {
-            errorElSimple.textContent = 'Por favor, digite um CNPJ completo com 14 dígitos.';
-            errorElSimple.classList.remove('hidden');
-            return;
-        }
-        errorElSimple.classList.add('hidden');
-        if (containerSimple) containerSimple.classList.add('hidden');
-        btnSimple.disabled = true;
-        btnSimple.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin inline-block mr-2"></span> Buscando...';
-        
-        const hasPaidCnpjKey = AppState.config && AppState.config.cnpjApiKeyConfigured;
-        try {
-            if (hasPaidCnpjKey) {
-                const res = await fetch(API_BASE + 'cnpj.php?cnpj=' + encodeURIComponent(rawCnpj));
-                const data = await res.json();
-                if (data.success) {
-                    renderCnpjResults(data.data, containerSimple);
-                    containerSimple.classList.remove('hidden');
-                    if (data.data.tokenUsage) {
-                        AppState.tokenUsage = data.data.tokenUsage;
-                        renderHeaderTokenWarning();
-                    }
-                } else {
-                    errorElSimple.textContent = data.error || 'Erro ao consultar o CNPJ.';
-                    errorElSimple.classList.remove('hidden');
-                }
-            } else {
-                const res = await fetch('https://publica.cnpj.ws/cnpj/' + encodeURIComponent(rawCnpj));
-                if (res.status === 404) {
-                    errorElSimple.textContent = 'CNPJ não encontrado na base de dados da Receita Federal.';
-                    errorElSimple.classList.remove('hidden');
-                    return;
-                }
-                if (res.status === 429) {
-                    errorElSimple.textContent = 'Limite de consultas por IP atingido na API gratuita. Tente novamente em alguns segundos.';
-                    errorElSimple.classList.remove('hidden');
-                    return;
-                }
-                if (res.ok) {
-                    const data = await res.json();
-                    const deductRes = await fetch(API_BASE + 'cnpj.php', {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({ cnpj: rawCnpj, companyData: data })
-                    });
-                    const deductData = await deductRes.json();
-                    if (deductData.success) {
-                        renderCnpjResults(data, containerSimple);
-                        containerSimple.classList.remove('hidden');
-                        if (deductData.data && deductData.data.tokenUsage) {
-                            AppState.tokenUsage = deductData.data.tokenUsage;
-                            renderHeaderTokenWarning();
-                        }
-                    } else {
-                        errorElSimple.textContent = deductData.error || 'Erro ao processar o débito de tokens da consulta.';
-                        errorElSimple.classList.remove('hidden');
-                    }
-                } else {
-                    errorElSimple.textContent = 'Erro ao consultar CNPJ na base pública.';
-                    errorElSimple.classList.remove('hidden');
-                }
-            }
-        } catch (err) {
-            errorElSimple.textContent = 'Erro de conexão ou saldo insuficiente de tokens.';
-            errorElSimple.classList.remove('hidden');
-        } finally {
-            btnSimple.disabled = false;
-            btnSimple.textContent = 'Consultar Empresa';
-        }
-    };
-}
-
-// 2. BUSCA AVANÇADA (Por Código CNAE - Aba cnpj-advanced)
-async function setupCnpjAdvancedEvents() {
-    const formAdvanced = document.getElementById('cnpj-advanced-form');
-    if (!formAdvanced) return;
-
-    formAdvanced.onsubmit = async function(e) {
-        e.preventDefault();
-        
-        const cnaeEl = document.getElementById('adv-cnae');
-        const ufEl = document.getElementById('adv-uf');
-        const btnAdvanced = document.getElementById('btn-adv-search');
-        const containerAdvanced = document.getElementById('adv-results-container');
-        const errorElAdvanced = document.getElementById('adv-error');
-
-        const cnaeValue = cnaeEl ? cnaeEl.value.replace(/\D/g, '') : '';
-        if (!cnaeValue) {
-            alert("Por favor, selecione ou digite um código CNAE para realizar a busca.");
-            return;
-        }
-
-        btnAdvanced.disabled = true;
-        btnAdvanced.innerHTML = 'Processando...';
-        if (errorElAdvanced) errorElAdvanced.classList.add('hidden');
-        if (containerAdvanced) containerAdvanced.innerHTML = '<p class="text-center col-span-full">Aguarde, consultando base de dados nacional...</p>';
-
-        try {
-            let params = new URLSearchParams();
-            params.append('cnae', cnaeValue);
-            
-            const uf = ufEl ? ufEl.value : '';
-            if (uf) params.append('uf', uf.toUpperCase());
-
-            // A api.cnpj.pw usa o parâmetro 'limite' se você quiser mais resultados (padrão é 20)
-            params.append('limite', '50'); 
-
-            const urlCompleta = `https://api.cnpj.pw/busca_difusa/?${params.toString()}`;
-            console.log("Busca por CNAE ativa - URL chamada:", urlCompleta);
-
-            const res = await fetch(urlCompleta);
-            const data = await res.json();
-
-            if (containerAdvanced) containerAdvanced.innerHTML = '';
-
-            // A api.cnpj.pw retorna os dados dentro de 'resultados'
-            const listaBruta = data.resultados || [];
-
-            // FILTRAGEM: Aqui corrigimos o erro "emp is not defined"
-            // Usamos o .filter() para criar uma nova lista apenas com empresas ATIVAS
-            const listaFiltrada = listaBruta.filter(emp => {
-                // Pegamos o status (situacao_cadastral é o campo padrão dessa API)
-                const status = (emp.situacao_cadastral || '').toLowerCase();
-                
-                // Se o status contiver termos negativos, ignoramos a empresa (retorna false)
-                if (status.includes('baixada')) return false;
-                if (status.includes('inapta')) return false;
-                if (status.includes('suspensa')) return false;
-                if (status.includes('nula')) return false;
-
-                return true; // Se estiver OK, mantém na lista
-            });
-
-            if (listaFiltrada.length > 0) {
-                renderAdvancedResults(listaFiltrada, containerAdvanced);
-            } else {
-                if (errorElAdvanced) {
-                    errorElAdvanced.textContent = "Nenhuma empresa ATIVA localizada para este CNAE.";
-                    errorElAdvanced.classList.remove('hidden');
-                }
-            }
-        } catch (err) {
-            console.error("Erro na busca:", err);
-            if (containerAdvanced) containerAdvanced.innerHTML = '';
-            if (errorElAdvanced) {
-                errorElAdvanced.textContent = "Erro ao consultar a base nacional. Verifique sua conexão.";
-                errorElAdvanced.classList.remove('hidden');
-            }
-        } finally {
-            btnAdvanced.disabled = false;
-            btnAdvanced.innerHTML = 'Buscar Empresas';
-        }
-    };
-}
-
-function renderAdvancedResults(results, container) {
-    if (!container) return;
-    container.innerHTML = results.map(emp => `
-        <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-600 shadow-sm flex flex-col justify-between">
-            <div>
-                <h4 class="font-bold text-xs text-blue-600 dark:text-blue-400 uppercase truncate" title="${emp.nome_fantasia || emp.nome_empresarial}">
-                    ${emp.nome_fantasia || emp.nome_empresarial}
-                </h4>
-                <p class="text-[10px] font-mono font-bold text-slate-500 mt-1">${emp.cnpj}</p>
-                <p class="text-[10px] text-slate-400 mt-2 uppercase font-bold">📍 ${emp.municipio || 'N/A'} - ${emp.uf || 'N/A'}</p>
-            </div>
-            <button onclick="copyToCnpjLookup('${emp.cnpj}')" class="mt-4 w-full py-2 bg-slate-100 dark:bg-slate-700 text-[10px] font-black uppercase rounded-lg hover:bg-blue-600 hover:text-white transition-all">
-                Ver Detalhes Completos
-            </button>
-        </div>
-    `).join('');
-}
-
-window.showCnaeModal = async function() {
-    let modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-4';
-    modal.innerHTML = `
-        <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl w-full max-w-lg shadow-2xl">
-            <h4 class="font-black mb-4 text-slate-900 dark:text-white">Buscar CNAE</h4>
-            <input id="cnae-search-term" class="w-full p-3 border rounded-xl mb-4 bg-slate-50 dark:bg-slate-700 text-sm" placeholder="Ex: Cereais, Arroz...">
-            <div id="cnae-list" class="max-h-60 overflow-y-auto space-y-2 text-xs"></div>
-            <button onclick="this.parentElement.parentElement.remove()" class="mt-4 w-full py-2 bg-slate-200 dark:bg-slate-700 rounded-xl font-bold">Fechar</button>
-        </div>
-    `;
-    document.body.appendChild(modal);
-    const list = document.getElementById('cnae-list');
-    
-    try {
-        const res = await fetch(API_BASE + 'cnae_estruturado.json');
-        const data = await res.json();
-        
-        document.getElementById('cnae-search-term').oninput = (e) => {
-            const term = e.target.value.toLowerCase();
-            if (term.length < 2) {
-                list.innerHTML = '';
-                return;
-            }
-            list.innerHTML = data.filter(c => c.denominacao.toLowerCase().includes(term) || c.codigo.includes(term))
-                .slice(0, 50).map(c => `
-                    <button class="block w-full text-left p-2 hover:bg-blue-50 dark:hover:bg-slate-750 border-b border-slate-100 dark:border-slate-700 text-[11px]" onclick="selectCnae('${c.codigo}')">
-                        <span class="font-bold text-blue-600">${c.codigo}</span> - ${c.denominacao}
-                    </button>
-                `).join('');
-        };
-    } catch(err) {
-        list.innerHTML = '<p class="text-red-500 p-2">Erro ao carregar banco de dados de CNAEs.</p>';
-    }
-};
-
-window.selectCnae = (code) => {
-    const input = document.getElementById('adv-cnae');
-    if (input) {
-        input.value = code.replace(/\D/g, '');
-    }
-    const modal = document.querySelector('.fixed.inset-0');
-    if (modal) modal.remove();
-};
-
-window.copyToCnpjLookup = function(cnpj) {
-    const cleanCnpj = cnpj.replace(/\D/g, '');
-    setActiveTab('cnpj-lookup');
-    setTimeout(() => {
-        const input = document.getElementById('cnpj-search-input');
-        if (input) {
-            input.value = cleanCnpj;
-            const btn = document.getElementById('btn-cnpj-search');
-            if (btn) btn.click();
-        }
-    }, 500);
-};
-
-console.log("MapsProspector Pro - Modificações de Busca Avançada aplicadas.");
-
-// =============================================================================
-// MOTOR DE CONSULTA LOCAL (CNAE & MUNICÍPIOS) - MAPS PROSPECTOR
-// =============================================================================
-
-// 1. Busca o ID do município no arquivo municipios.json local
-async function getMunicipioId(nomeCidade) {
-    try {
-        const res = await fetch(API_BASE + 'municipios.json');
-        const cidades = await res.json();
-        
-        const norm = (str) => str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-        const match = cidades.find(c => norm(c.nome) === norm(nomeCidade));
-        
-        return match ? match.id : null;
-    } catch (e) {
-        console.error("Erro ao ler municipios.json:", e);
-        return null;
-    }
-}
-
-// 2. Controla o Modal de Busca de CNAE usando cnae_estruturado.json local
-window.showCnaeModal = async function() {
-    let modal = document.createElement('div');
-    modal.className = 'fixed inset-0 bg-black/50 z-[999] flex items-center justify-center p-4';
-    modal.innerHTML = `
-        <div class="bg-white dark:bg-slate-800 p-8 rounded-2xl w-full max-w-lg shadow-2xl">
-            <h4 class="font-black mb-4 text-slate-900 dark:text-white">Mapear Código CNAE</h4>
-            <input id="cnae-search-term" class="w-full p-3 border rounded-xl mb-4 bg-slate-50 dark:bg-slate-700 text-sm" placeholder="Ex: Petshop, Restaurante, Salão...">
-            <div id="cnae-list" class="max-h-60 overflow-y-auto space-y-2 text-xs"></div>
-            <button onclick="this.parentElement.parentElement.remove()" class="mt-4 w-full py-2 bg-slate-200 dark:bg-slate-700 rounded-xl font-bold">Fechar</button>
-        </div>
-    `;
-    document.body.appendChild(modal);
-
-    const list = document.getElementById('cnae-list');
-    const input = document.getElementById('cnae-search-term');
-
-    try {
-        const res = await fetch(API_BASE + 'cnae_estruturado.json');
-        const data = await res.json();
-
-        const render = (filter = '') => {
-            const term = filter.toLowerCase().trim();
-            const filtered = data.filter(c => 
-                c.denominacao.toLowerCase().includes(term) || 
-                c.codigo.includes(term)
-            );
-            
-            list.innerHTML = filtered.slice(0, 50).map(c => `
-                <button class="block w-full text-left p-2 hover:bg-blue-50 dark:hover:bg-slate-700 border-b border-slate-100" 
-                        onclick="selectCnae('${c.codigo}')">
-                    <span class="font-bold text-blue-600 dark:text-blue-400">${c.codigo}</span> - ${c.denominacao}
-                </button>
-            `).join('');
-        };
-
-        input.oninput = (e) => render(e.target.value);
-        render(); // Mostra as primeiras opções ao abrir
-        
-    } catch (err) {
-        list.innerHTML = '<p class="text-red-500 p-2">Erro ao carregar banco de dados de CNAEs.</p>';
-    }
-};
-
-window.selectCnae = (code) => {
-    const input = document.getElementById('adv-cnae');
-    if (input) {
-        input.value = code.replace(/\D/g, '');
-    }
-    const modal = document.querySelector('.fixed.inset-0');
-    if (modal) modal.remove();
-};
-
-
-function renderAdvancedResults(results, container) {
-    if (!container) return;
-
-    // Função auxiliar para converter "DD/MM/AAAA" em um objeto Date para comparação
-    const converterData = (dataStr) => {
-        if (!dataStr) return new Date(0); // Data padrão antiga se estiver vazio
-        const partes = dataStr.split('/');
-        if (partes.length !== 3) return new Date(0);
-        // Cria o objeto Date (Ano, Mês - 1, Dia)
-        return new Date(partes[2], partes[1] - 1, partes[0]);
-    };
-// Função para buscar empresas abertas em uma data específica
-async function buscarEmpresasPorData(dataInput) {
-    let dataFinal;
-
-    // Se não passar data, ele pega a data de hoje (mais recente)
-    if (!dataInput) {
-        const hoje = new Date();
-        const dia = String(hoje.getDate()).padStart(2, '0');
-        const mes = String(hoje.getMonth() + 1).padStart(2, '0');
-        const ano = hoje.getFullYear();
-        dataFinal = `${dia}-${mes}-${ano}`;
-    } else {
-        // Se vier do input (AAAA-MM-DD), inverte para (DD-MM-AAAA)
-        const [ano, mes, dia] = dataInput.split('-');
-        dataFinal = `${dia}-${mes}-${ano}`;
-    }
-    
-    const container = document.getElementById('adv-results-container');
-    const btn = document.getElementById('btn-date-search');
-    const errorEl = document.getElementById('adv-error');
-
-    if (btn) {
-        btn.disabled = true;
-        btn.innerHTML = 'Consultando...';
-    }
-    
-    if (container) container.innerHTML = '<p class="text-center col-span-full">Buscando empresas abertas em ' + dataFinal + '...</p>';
-    if (errorEl) errorEl.classList.add('hidden');
-
-    try {
-        // Chamada para a API usando o endpoint de data
-        const url = `https://api.cnpj.pw/data/${dataFinal}`;
-        console.log("Consultando empresas abertas em:", dataFinal);
-        
-        const res = await fetch(url);
-        const data = await res.json();
-
-        const listaBruta = data.resultados || data || [];
-
-        // Filtro para garantir que mostre apenas empresas ativas
-        const listaFiltrada = listaBruta.filter(emp => {
-            const status = (emp.situacao_cadastral || '').toLowerCase();
-            return !status.includes('baixada') && !status.includes('inapta') && !status.includes('suspensa');
-        });
-
-        if (listaFiltrada.length > 0) {
-            // Reutiliza sua função que já funciona
-            renderAdvancedResults(listaFiltrada, container);
-        } else {
-            if (container) container.innerHTML = '';
-            if (errorEl) {
-                errorEl.textContent = `Nenhuma empresa ativa encontrada aberta em ${dataFinal}. (Nota: Algumas datas levam 24h para atualizar)`;
-                errorEl.classList.remove('hidden');
-            }
-        }
-
-    } catch (err) {
-        console.error(err);
-        if (errorEl) {
-            errorEl.textContent = "Erro ao consultar base de datas.";
-            errorEl.classList.remove('hidden');
-        }
-    } finally {
-        if (btn) {
-            btn.disabled = false;
-            btn.innerHTML = 'Buscar por Data';
-        }
-    }
-}
-// Chamada automática para buscar os abertos de hoje ao carregar
-// (Ou você pode colocar isso no clique de um botão "Ver Recentes")
-document.addEventListener('DOMContentLoaded', () => {
-    // Se quiser carregar automaticamente ao abrir o site:
-    // buscarEmpresasPorData(); 
-});
-    // --- MOTOR DE ORDENAÇÃO CRONOLÓGICA ---
-    // Ordena o array: as datas mais recentes ficam no topo (decrescente)
-    results.sort((a, b) => converterData(b.abertura) - converterData(a.abertura));
-    // --------------------------------------
-
-    container.innerHTML = results.map(emp => {
-        const nomeEmpresa = emp.nome_fantasia || emp.razao_social || emp.nome_empresarial || "Razão Social não informada";
-        const cnpjFormatado = emp.cnpj ? emp.cnpj.replace(/^(\d{2})(\d{3})(\d{3})(\d{4})(\d{2})$/, "$1.$2.$3/$4-$5") : "Sem CNPJ";
-        
-        let cidadeNome = 'N/A';
-        if (emp.municipio) {
-            cidadeNome = typeof emp.municipio === 'object' ? (emp.municipio.descricao || 'N/A') : emp.municipio;
-        }
-
-        // Exibe de forma amigável a data de abertura no card
-        const dataAbertura = emp.abertura ? `Aberta em: ${emp.abertura}` : "Data de abertura não informada";
-
-        return `
-            <div class="bg-white dark:bg-slate-800 p-5 rounded-2xl border border-slate-200 dark:border-slate-600 shadow-sm flex flex-col justify-between relative overflow-hidden group">
-                <!-- Selo Visual de Empresa Recente (Opcional - destaca abertura no ano atual) -->
-                ${emp.abertura && emp.abertura.includes(new Date().getFullYear()) ? `
-                    <div class="absolute top-0 right-0 bg-emerald-500 text-white text-[8px] font-black px-3 py-1 uppercase rounded-bl-xl tracking-wider">Novo</div>
-                ` : ''}
-                
-                <div>
-                    <h4 class="font-bold text-xs text-blue-600 dark:text-blue-400 uppercase truncate pr-8" title="${nomeEmpresa}">
-                        ${nomeEmpresa}
-                    </h4>
-                    <p class="text-[10px] font-mono font-bold text-slate-500 mt-1">${cnpjFormatado}</p>
-                    
-                    <div class="mt-3 space-y-1">
-                        <p class="text-[10px] text-slate-400 uppercase font-bold">📍 ${cidadeNome} - ${emp.uf || 'N/A'}</p>
-                        <p class="text-[10px] text-emerald-600 dark:text-emerald-400 font-bold">${dataAbertura}</p>
-                    </div>
-                </div>
-                
-                <button onclick="copyToCnpjLookup('${emp.cnpj}')" class="mt-4 w-full py-2 bg-slate-100 dark:bg-slate-700 text-[10px] font-black uppercase rounded-lg hover:bg-blue-600 hover:text-white transition-all active:scale-95">
-                    Ver Detalhes Completos
-                </button>
-            </div>
-        `;
-    }).join('');
-}
-window.copyToCnpjLookup = function(cnpj) {
-    const cleanCnpj = cnpj.replace(/\D/g, '');
-    setActiveTab('cnpj-lookup');
-    setTimeout(() => {
-        const input = document.getElementById('cnpj-search-input');
-        if (input) {
-            input.value = cleanCnpj;
-            const btn = document.getElementById('btn-cnpj-search');
-            if (btn) btn.click();
-        }
-    }, 500);
-};
 
 window.toggleSubmenu = function(id) {
     const submenu = document.getElementById(id);
-    if (submenu) submenu.classList.toggle('hidden');
+    if (submenu) {
+        submenu.classList.toggle('hidden');
+        const btn = event.currentTarget;
+        if (btn) {
+            const icon = btn.querySelector('svg.transition-transform') || btn.querySelector('svg:last-child');
+            if (icon) icon.style.transform = submenu.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+        }
+    }
 };
 
-console.log("MapsProspector Pro - Integração local de CNPJPW estabelecida.");
+window.showCadastro = function() {
+    const overlay = document.getElementById('modal-cadastro-overlay');
+    if (overlay) overlay.classList.remove('hidden');
+    document.body.style.overflow = 'hidden';
+};
+
+window.hideCadastro = function() {
+    const overlay = document.getElementById('modal-cadastro-overlay');
+    if (overlay) overlay.classList.add('hidden');
+    document.body.style.overflow = '';
+};
