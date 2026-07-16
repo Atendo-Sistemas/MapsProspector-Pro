@@ -1,17 +1,27 @@
 <?php
 /**
  * Página Principal - MapsProspector Pro
- * Frontend PHP com JavaScript
+ * Frontend PHP com JavaScript com Carregamento Dinâmico de Marca
  */
 
 require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/includes/functions.php';
+
+// Busca o nome do seu SaaS dinamicamente do banco de dados
+try {
+    $db = Database::getInstance()->getConnection();
+    $saasName = getPlatformSetting($db, 'saas_company_name') ?? 'Maps Prospector';
+} catch (Exception $e) {
+    $saasName = 'Maps Prospector';
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="login-page-title">MapsProspector Pro | CRM Integration</title>
+    <title><?php echo htmlspecialchars($saasName); ?> | CRM Integration</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = { darkMode: 'class' };
@@ -24,13 +34,36 @@ require_once __DIR__ . '/config/config.php';
         .sidebar-nav-scroll { scrollbar-width: none; -ms-overflow-style: none; }
         .sidebar-nav-scroll::-webkit-scrollbar { display: none; }
         @keyframes slideIn { from { transform: translateX(100%); opacity: 0; } to { transform: translateX(0); opacity: 1; } }
-        .animate-slide-in { animation: slideIn 0.3s ease-out; }
+        .animate-slide-in { animation: slideIn 0.3s ease-out; }/* Correção Global para Modo Escuro */
+    .dark body, 
+    .dark .bg-white, 
+    .dark .bg-slate-50 {
+        color: #e2e8f0 !important; /* Texto claro padrão no escuro */
+    }
+    
+    .dark input, 
+    .dark select, 
+    .dark textarea {
+        background-color: #1e293b !important; /* Fundo input escuro */
+        color: #f8fafc !important; /* Texto input claro */
+        border-color: #475569 !important;
+    }
+
+    .dark .text-slate-900, 
+    .dark .text-gray-900 {
+        color: #f8fafc !important; /* Força títulos para branco */
+    }
+    
+    .dark .text-slate-500,
+    .dark .text-slate-600 {
+        color: #94a3b8 !important; /* Força textos secundários para cinza claro */
+    }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-900 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-200">
     <div id="app">
         <!-- Tela de Login -->
-        <div id="login-screen" class="min-h-screen flex items-center justify-center bg-[#0F172A] px-4 overflow-hidden relative">
+        <div id="login-screen" class="hidden min-h-screen flex items-center justify-center bg-[#0F172A] px-4 overflow-hidden relative">
             <div class="absolute top-0 left-0 w-full h-full overflow-hidden opacity-20 pointer-events-none">
                 <div class="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] bg-blue-600 rounded-full blur-[120px]"></div>
                 <div class="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] bg-indigo-900 rounded-full blur-[120px]"></div>
@@ -44,153 +77,487 @@ require_once __DIR__ . '/config/config.php';
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                             </svg>
                         </div>
-                        <h1 id="login-brand-name" class="text-3xl font-black text-slate-900 tracking-tight mb-2">MapsProspector Pro</h1>
+                        <h1 class="text-3xl font-black text-slate-900 tracking-tight mb-2"><?php echo htmlspecialchars($saasName); ?></h1>
                         <p class="text-slate-500 font-medium text-sm">Ferramenta de Prospecção Inteligente</p>
                     </div>
                     <form id="login-form" class="space-y-6">
                         <div class="bg-slate-50 p-6 rounded-2xl border border-slate-100 text-left space-y-4">
                             <div>
                                 <label for="login-email" class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">E-mail</label>
-                                <input type="email" id="login-email" name="email" placeholder="seu@email.com" required
-                                    class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                                <input type="email" id="login-email" name="email" placeholder="seu@email.com" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" autocomplete="email" />
                             </div>
                             <div>
                                 <label for="login-password" class="block text-[10px] font-black text-slate-500 uppercase mb-2 ml-1">Senha</label>
-                                <input type="password" id="login-password" name="password" placeholder="••••••••" required
-                                    class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
+                                <input type="password" id="login-password" name="password" placeholder="••••••••" required class="w-full bg-white border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" autocomplete="current-password" />
                             </div>
                             <p id="login-error" class="mt-2 text-xs font-bold text-red-500 hidden"></p>
                         </div>
-                        <button type="submit" id="btn-login" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl shadow-xl shadow-blue-100 transition-all active:scale-[0.98] flex items-center justify-center gap-3 text-sm tracking-wide uppercase">
+                        <button type="submit" id="btn-login" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-5 rounded-2xl shadow-xl shadow-blue-100 transition-all active:scale-[0.98] disabled:opacity-70 flex items-center justify-center gap-3 text-sm tracking-wide uppercase">
                             Entrar
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                         </button>
                     </form>
                     <div class="mt-8 pt-6 border-t border-slate-100">
                         <p class="text-[11px] text-slate-500 font-medium mb-2">Ainda não tem empresa cadastrada?</p>
                         <button type="button" id="link-cadastro" class="text-blue-600 font-bold text-sm hover:underline">Cadastrar minha empresa</button>
                     </div>
-                    <p id="cadastro-success" class="hidden mt-4 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-700 text-sm font-medium"></p>
                     <div class="mt-10 pt-6 border-t border-slate-100">
                         <p class="text-center text-[10px] text-slate-400 font-semibold tracking-wider uppercase">
-                            <span id="login-footer-name">MapsProspector Pro</span> © <?php echo date('Y'); ?>
+                            <?php echo htmlspecialchars($saasName); ?> © 2026
                         </p>
                     </div>
                 </div>
             </div>
         </div>
 
-        <!-- Modal Nova Empresa -->
-        <div id="modal-cadastro-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-[100] hidden flex items-center justify-center p-4">
-            <div id="modal-cadastro" class="bg-white rounded-[2rem] shadow-2xl border border-slate-200 w-full max-w-md max-h-[90vh] overflow-y-auto">
-                <div class="p-8">
-                    <div class="flex items-center justify-between mb-6">
-                        <h2 class="text-xl font-black text-slate-900">Nova Empresa</h2>
-                        <button type="button" id="modal-cadastro-fechar" class="p-2 rounded-xl text-slate-400 hover:bg-slate-100 transition-colors">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
-                        </button>
-                    </div>
-                    <form id="form-cadastro" class="space-y-4">
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-500 uppercase mb-1">CNPJ / CPF</label>
-                            <input type="text" id="reg-cnpj" placeholder="00.000.000/0001-00" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Nome da Empresa</label>
-                            <input type="text" id="reg-company" placeholder="Nome Fantasia" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Seu nome</label>
-                            <input type="text" id="reg-name" placeholder="Nome do responsável" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Email para acessar</label>
-                            <input type="email" id="reg-email" placeholder="seu@email.com" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Senha</label>
-                            <input type="password" id="reg-password" placeholder="••••••••" minlength="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                        </div>
-                        <div>
-                            <label class="block text-[10px] font-black text-slate-500 uppercase mb-1">Confirmar senha</label>
-                            <input type="password" id="reg-password-confirm" placeholder="••••••••" minlength="6" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium" />
-                        </div>
-                        <p id="reg-error" class="text-xs font-bold text-red-500 hidden"></p>
-                        <div class="flex gap-3 pt-2">
-                            <button type="button" id="btn-cadastro-voltar" class="flex-1 py-3 rounded-xl border border-slate-200 font-bold text-slate-600 hover:bg-slate-100 text-sm">Voltar</button>
-                            <button type="submit" id="btn-cadastro" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700 text-sm">Cadastrar</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
         <!-- Dashboard Principal -->
-        <div id="dashboard" class="hidden flex h-screen bg-slate-50 dark:bg-slate-900 transition-colors duration-200">
-            <!-- Sidebar -->
-            <aside class="w-72 bg-white dark:bg-slate-900 text-slate-900 dark:text-white flex flex-col shrink-0 shadow-2xl z-50 border-r border-slate-200 dark:border-slate-800">
+        <div id="dashboard" class="hidden flex h-screen bg-slate-50 dark:bg-slate-900 font-sans antialiased text-slate-900 dark:text-slate-100 overflow-hidden transition-colors duration-200">
+            <aside class="w-72 bg-white dark:bg-slate-900 text-slate-900 dark:text-white flex flex-col shrink-0 shadow-2xl z-50 transition-colors duration-200 border-r border-slate-200 dark:border-slate-800">
                 <div class="p-8 border-b border-slate-200 dark:border-slate-700/50">
                     <div class="flex items-center gap-4">
-                        <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center text-white">
-                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" /></svg>
+                        <div class="w-12 h-12 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg shadow-blue-900/40 border border-blue-400/20 text-white">
+                            <svg class="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" /></svg>
                         </div>
                         <div>
-                            <span id="sidebar-company-name" class="font-black text-lg block leading-none">MapsProspector Pro</span>
-                            <span id="sidebar-instance-name" class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Empresa</span>
+                            <span id="sidebar-company-name" class="font-black text-lg block leading-none tracking-tight italic text-slate-900 dark:text-white"><?php echo htmlspecialchars($saasName); ?></span>
+                            <span id="sidebar-instance-name" class="text-[10px] font-bold text-slate-500 dark:text-slate-400 uppercase tracking-[0.2em]">Nome da Instância</span>
                         </div>
                     </div>
                 </div>
-                <nav class="sidebar-nav-scroll flex-grow overflow-y-auto p-6">
-                    <div class="space-y-2">
-                        <button data-tab="dashboard" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold text-sm bg-blue-600 text-white">Dashboard</button>
-                        <button data-tab="search" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold text-sm text-slate-600 dark:text-slate-300">Prospecção</button>
-                        <button data-tab="history" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold text-sm text-slate-600 dark:text-slate-300">Histórico</button>
-                    </div>
-                    <!-- Administração (visível apenas para super_admin via JS) -->
-                    <div id="nav-block-administracao" class="hidden mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
-                        <p class="text-[11px] font-black text-slate-500 uppercase px-5 mb-3">Admin</p>
+                <nav class="sidebar-nav-scroll flex-grow min-h-0 overflow-y-auto p-6 flex flex-col gap-0">
+                    <div class="pb-4">
+                        <p class="text-[11px] font-black text-slate-500 dark:text-slate-300 uppercase tracking-widest px-5 mb-3">Normal</p>
                         <div class="space-y-2">
-                            <button data-tab="saas-config" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold text-sm text-slate-600 dark:text-slate-300">Marca SaaS</button>
-                            <button data-tab="companies" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold text-sm text-slate-600 dark:text-slate-300">Empresas</button>
+                            <button data-tab="dashboard" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm bg-blue-600 text-white shadow-xl shadow-blue-900/30">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 5a1 1 0 011-1h14a1 1 0 011 1v2a1 1 0 01-1 1H5a1 1 0 01-1-1V5zM4 13a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H5a1 1 0 01-1-1v-6zM16 13a1 1 0 011-1h2a1 1 0 011 1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-6z" /></svg>
+                                Dashboard
+                            </button>
+                            <button data-tab="search" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                Prospecção
+                            </button>
+                            <!-- Bloco Consultas CNPJ com Sub-menu -->
+<div class="space-y-1">
+    <button type="button" onclick="toggleSubmenu('submenu-cnpj')" class="w-full flex items-center justify-between gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm text-slate-600 hover:bg-slate-100 dark:text-slate-300 dark:hover:bg-slate-700/50">
+        <div class="flex items-center gap-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+            Consultas CNPJ
+        </div>
+        <svg id="arrow-cnpj" class="w-4 h-4 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+    </button>
+    
+    <div id="submenu-cnpj" class="hidden pl-10 space-y-1">
+        <button type="button" data-tab="cnpj-lookup" class="tab-btn w-full text-left px-5 py-3 rounded-xl text-xs font-bold text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors">
+            • Consulta Simples
+        </button>
+        <button type="button" data-tab="cnpj-advanced" class="tab-btn w-full text-left px-5 py-3 rounded-xl text-xs font-bold text-slate-500 hover:text-blue-600 dark:text-slate-400 dark:hover:text-blue-400 transition-colors">
+            • Busca Avançada
+        </button>
+    </div>
+</div>
+                            <button data-tab="history" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                Histórico
+                            </button>
+                            <button data-tab="request-credits" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                Solicitar Créditos
+                            </button>
+                            <button data-tab="choose-plan" id="nav-btn-choose-plan" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                                Meu plano
+                            </button>
+                            <button data-tab="team" id="nav-btn-team" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300 hidden">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                                Minha Equipe
+                            </button>
+                            
+                    </div>
+                    <div id="nav-block-administracao" class="hidden">
+                        <div class="h-px w-full bg-slate-200 dark:bg-slate-500 my-2"></div>
+                        <div class="pt-2 pb-4">
+                            <p class="text-[11px] font-black text-slate-500 dark:text-slate-300 uppercase tracking-widest px-5 mb-3">Administração</p>
+                            <div class="space-y-2">
+                                <button data-tab="saas-config" id="tab-btn-saas-config" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                                    Empresa SaaS
+                                </button>
+                                <button data-tab="plans" id="tab-btn-plans" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" /></svg>
+                                    Planos
+                                </button>
+                                <button data-tab="companies" id="tab-btn-companies" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" /></svg>
+                                    Empresas
+                                </button>
+                                <button data-tab="credits" id="tab-btn-credits" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                                    Créditos
+                                </button>
+                                <button data-tab="api-busca" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" /></svg>
+                                    API de Busca
+                                </button>
+                                <button data-tab="landing-page" id="tab-btn-landing-page" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6" /></svg>
+                                    Landing Page
+                                </button>
+                            </div>
                         </div>
                     </div>
-                    <div class="mt-6 pt-6 border-t border-slate-200 dark:border-slate-700">
-                        <button data-tab="settings" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl font-semibold text-sm text-slate-600 dark:text-slate-300">Configurações</button>
+                    <div class="pt-2 space-y-2">
+                        <button data-tab="settings" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-1.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z" /></svg>
+                            Configurações
+                        </button>
                     </div>
                 </nav>
+                <div class="p-6 border-t border-slate-200 dark:border-slate-700/50 space-y-4">
+                    <div id="sidebar-api-status-widget" class="bg-slate-100 dark:bg-slate-700/40 p-5 rounded-[1.25rem] border border-slate-200 dark:border-slate-600/50">
+                        <p class="text-[9px] font-black text-slate-500 dark:text-slate-400 uppercase mb-2 tracking-widest">API de Busca (Google Maps)</p>
+                        <p class="text-[10px] font-bold text-slate-900 dark:text-white truncate flex items-center gap-2 mb-2">
+                            <span id="search-api-indicator" class="w-2 h-2 rounded-full bg-red-500"></span>
+                            <span id="search-api-status">Verificando...</span>
+                        </p>
+                    </div>
+                </div>
             </aside>
-
-            <!-- Área Principal -->
             <main class="flex-grow flex flex-col min-w-0">
-                <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 h-20 flex items-center px-10 justify-between">
+                <div class="sticky top-0 z-50 bg-white dark:bg-slate-800 shadow-sm transition-colors duration-200">
+                <div id="header-token-warning" class="hidden bg-amber-500 text-amber-950 px-10 py-3 flex items-center justify-center gap-2 text-sm font-bold">
+                    <svg class="w-5 h-5 shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" /></svg>
+                    <span>Sua empresa atingiu o limite de tokens do plano. Entre em contato para aquisição de mais tokens.</span>
+                </div>
+                <div id="impersonation-banner" class="hidden bg-blue-600 text-white px-10 py-3 flex items-center justify-center gap-4 text-sm font-bold">
+                    <span>Acessando como <strong id="impersonation-tenant-name"></strong></span>
+                    <button type="button" id="btn-stop-impersonate" class="px-4 py-2 rounded-xl bg-white/20 hover:bg-white/30 font-bold text-xs uppercase">Sair do acesso</button>
+                </div>
+                <header class="bg-white dark:bg-slate-800 border-b border-slate-200 dark:border-slate-700 h-20 flex items-center px-10 justify-between backdrop-blur-md bg-white/80 dark:bg-slate-800/95 transition-colors duration-200">
                     <div class="flex flex-col">
-                        <h2 id="page-title" class="text-slate-900 dark:text-slate-100 font-extrabold text-xl">Dashboard</h2>
-                        <p id="header-dashboard-subtitle" class="text-[11px] text-slate-400 font-semibold uppercase">DASHBOARD</p>
+                        <h2 id="page-title" class="text-slate-900 dark:text-slate-100 font-extrabold text-xl tracking-tight">Dashboard</h2>
+                        <p id="header-dashboard-subtitle" class="text-[11px] text-slate-400 dark:text-slate-500 font-semibold uppercase tracking-wider">Dashboard</p>
                     </div>
                     <div class="flex items-center gap-6">
-                        <button id="btn-theme-toggle" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-600 text-slate-600 dark:text-slate-300">Tema</button>
-                        <div id="header-user-area" class="cursor-pointer relative">
-                            <span id="user-name" class="text-xs font-bold">Usuário</span>
-                            <div id="user-dropdown" class="hidden absolute right-0 top-full mt-2 w-48 bg-white dark:bg-slate-800 border rounded-xl shadow-xl py-2">
-                                <button id="btn-logout" class="w-full text-left px-4 py-2 text-sm">Sair</button>
+                        <button type="button" id="btn-theme-toggle" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-600/50 transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 dark:focus:ring-offset-slate-800" aria-label="Alternar tema (claro/escuro)" title="Alternar tema">
+                            <svg id="theme-icon-sun" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                            <svg id="theme-icon-moon" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                        </button>
+                        <div id="header-user-area" class="relative flex flex-col items-end border-l border-slate-200 dark:border-slate-600 pl-6 cursor-pointer group" title="Clique para abrir menu">
+                            <div class="flex items-center gap-2">
+                                <span id="user-name" class="text-xs font-bold text-slate-900 dark:text-slate-100">Administrador</span>
+                                <svg class="w-4 h-4 text-slate-400 dark:text-slate-500 group-hover:text-slate-600 dark:group-hover:text-slate-300 transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                            <span id="user-role" class="text-[10px] font-bold text-slate-400 dark:text-slate-500 uppercase">Admin</span>
+                            <div id="user-dropdown" class="hidden absolute right-0 top-full mt-2 w-48 bg-white dark:bg-slate-800 rounded-xl border border-slate-200 dark:border-slate-600 shadow-xl py-2 z-50">
+                                <button type="button" id="btn-perfil" class="w-full text-left px-4 py-3 text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" /></svg>
+                                    Perfil
+                                </button>
+                                <button type="button" id="btn-logout" class="w-full text-left px-4 py-3 text-sm font-bold text-slate-700 dark:text-slate-200 hover:bg-slate-100 dark:hover:bg-slate-700 rounded-lg flex items-center gap-2">
+                                    <svg class="w-5 h-5 text-slate-500 dark:text-slate-400" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" /></svg>
+                                    Sair
+                                </button>
                             </div>
                         </div>
                     </div>
                 </header>
-                <div class="flex-grow overflow-y-auto p-10 bg-[#F8FAFC] dark:bg-slate-900/50">
+                </div>
+                <div class="flex-grow overflow-y-auto p-10 bg-[#F8FAFC] dark:bg-slate-900/50 transition-colors duration-200">
                     <div id="content-area"></div>
                 </div>
             </main>
         </div>
     </div>
+    <div id="toast" class="hidden fixed bottom-10 right-10 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-4 z-[9999] animate-slide-in">
+        <div class="w-8 h-8 bg-emerald-500 rounded-full flex items-center justify-center text-white">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7" /></svg>
+        </div>
+        <div>
+            <h4 class="font-bold text-sm">Sucesso</h4>
+            <p id="toast-message" class="text-xs text-slate-300"></p>
+        </div>
+    </div>
+    <!-- Landing Page -->
+    <div id="landing-page">
+        <nav class="fixed top-0 w-full bg-white/80 dark:bg-slate-900/80 backdrop-blur-md border-b border-slate-200 dark:border-slate-700 z-50">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex justify-between items-center h-16">
+                    <a href="/" class="inline-block">
+    <div class="flex items-center">
+        <span class="text-xl font-black text-blue-600">MapsProspector</span>
+    </div>
+</a>
+                    <div class="hidden md:flex items-center gap-8">
+                        <a href="#features" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Recursos</a>
+                        <a href="#how-it-works" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Como funciona</a>
+                        <a href="#pricing" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Planos</a>
+                        <a href="#faq" class="text-sm font-semibold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">FAQ</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <button type="button" id="btn-theme-toggle-landing" class="p-2.5 rounded-xl border border-slate-200 dark:border-slate-600 bg-slate-50 dark:bg-slate-700/50 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-600/50 transition-colors duration-200" aria-label="Alternar tema (claro/escuro)">
+                            <svg id="theme-icon-sun-landing" class="w-5 h-5 hidden dark:block" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z" /></svg>
+                            <svg id="theme-icon-moon-landing" class="w-5 h-5 block dark:hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z" /></svg>
+                        </button>
+                        <button type="button" onclick="openLoginModal()" class="px-4 py-2 text-sm font-bold text-slate-600 dark:text-slate-300 hover:text-blue-600 dark:hover:text-blue-400 transition">Entrar</button>
+                        <button type="button" onclick="openLoginModal()" class="px-5 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold rounded-xl transition">Cadastrar</button>
+                    </div>
+                </div>
+            </div>
+        </nav>
+        <!-- Hero Section -->
+        <section id="hero" class="pt-32 pb-20 px-4">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-4xl mx-auto">
+                    <span class="inline-block px-4 py-1.5 bg-blue-100 dark:bg-blue-900/30 text-blue-700 dark:text-blue-300 text-xs font-bold rounded-full mb-6">🚀 A ferramenta de prospecção B2B</span>
+                    <h1 id="lp-hero-title" class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 dark:text-white mb-6 leading-tight"></h1>
+                    <p id="lp-hero-subtitle" class="text-lg md:text-xl text-slate-600 dark:text-slate-400 mb-8"></p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                        <button type="button" id="lp-hero-cta" onclick="openLoginModal()" class="px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white text-lg font-bold rounded-2xl transition shadow-lg shadow-blue-600/25"></button>
+                        <a href="#how-it-works" class="px-8 py-4 bg-white dark:bg-slate-800 border-2 border-slate-200 dark:border-slate-700 hover:border-slate-300 dark:hover:border-slate-600 text-slate-700 dark:text-slate-300 text-lg font-bold rounded-2xl transition">Ver como funciona</a>
+                    </div>
+                </div>
+                <div id="lp-hero-content" class="mt-12 max-w-3xl mx-auto text-center text-slate-600 dark:text-slate-400"></div>
+            </div>
+        </section>
+        <!-- Features Section -->
+        <section id="features" class="py-20 px-4 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-features-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-features-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-features-grid" class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <!-- Features loaded dynamically -->
+                </div>
+            </div>
+        </section>
+        <!-- How It Works -->
+        <section id="how-it-works" class="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-how-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-how-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div class="max-w-4xl mx-auto">
+                    <div id="lp-how-content" class="bg-white dark:bg-slate-800 rounded-3xl p-8 md:p-12 shadow-xl">
+                        <!-- Content loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Pricing / Plans -->
+        <section id="pricing" class="py-20 px-4 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4">Nossos Planos</h2>
+                    <p class="text-lg text-slate-600 dark:text-slate-400">Escolha o plano ideal para seu negócio</p>
+                </div>
+                <div id="landing-plans-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
+                    <!-- Plans loaded dynamically -->
+                </div>
+            </div>
+        </section>
+        <!-- Benefits -->
+        <section id="benefits" class="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-benefits-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-benefits-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-benefits-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+                    <!-- Benefits loaded dynamically -->
+                </div>
+            </div>
+        </section>
+        <!-- Testimonials -->
+        <section id="testimonials" class="py-20 px-4 bg-white dark:bg-slate-800">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 id="lp-testimonials-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-testimonials-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-testimonials-grid" class="grid md:grid-cols-3 gap-8">
+                    <!-- Testimonials loaded dynamically -->
+                </div>
+            </div>
+        </section>
+        <!-- FAQ -->
+        <section id="faq" class="py-20 px-4 bg-slate-50 dark:bg-slate-900">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 id="lp-faq-title" class="text-3xl md:text-4xl font-black text-slate-900 dark:text-white mb-4"></h2>
+                    <p id="lp-faq-subtitle" class="text-lg text-slate-600 dark:text-slate-400"></p>
+                </div>
+                <div id="lp-faq-list" class="space-y-4">
+                    <!-- FAQ loaded dynamically -->
+                </div>
+            </div>
+        </section>
+        <!-- CTA -->
+        <section id="register" class="py-20 px-4 bg-gradient-to-r from-blue-900 via-blue-800 to-blue-700">
+            <div class="max-w-4xl mx-auto text-center">
+                <h2 id="lp-cta-title" class="text-3xl md:text-4xl font-black text-white mb-4"></h2>
+                <p id="lp-cta-subtitle" class="text-lg text-blue-100 mb-8"></p>
+                <div id="lp-cta-content" class="text-blue-50 mb-8"></div>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <button type="button" id="lp-cta-button" onclick="openLoginModal()" class="px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-2xl transition shadow-lg hover:shadow-xl"></button>
+                    <button type="button" id="lp-cta-secondary" onclick="openLoginModal()" class="hidden px-8 py-4 bg-blue-500 hover:bg-blue-400 text-white text-lg font-bold rounded-2xl transition">Falar com Consultor</button>
+                </div>
+            </div>
+        </section>
+        <!-- Footer -->
+        <footer class="py-12 px-4 bg-slate-900 text-slate-400">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-center gap-4">
+                    <a href="/" class="inline-block">
+    <div class="flex items-center">
+        <span class="text-xl font-black text-blue-600">MapsProspector</span>
+    </div>
+</a>
+                    <div id="lp-footer-content" class="text-sm"></div>
+                    <div class="flex gap-6">
+                        <a href="termos.php" class="hover:text-white transition">Termos</a>
+                        <a href="privacidade.php" class="hover:text-white transition">Privacidade</a>
+                        <a href="contato.php" class="hover:text-white transition">Contato</a>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        window.API_BASE_URL = '<?php echo rtrim(dirname($_SERVER["SCRIPT_NAME"]), "/") . "/api/"; ?>';
+    </script>
+    <script src="assets/js/app.js?v=<?php echo time(); ?>"></script>
+    <!-- Script do Widget Atendo -->
+    <script src="https://off.atendo.log.br/webchat/public/widget.js" data-widget-id="241296f0-2993-4eaa-99c2-670d4661ec18"></script>
 
-    <!-- Toast Notification -->
-    <div id="toast" class="hidden fixed bottom-10 right-10 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl z-[9999] animate-slide-in">
-        <p id="toast-message" class="text-sm font-bold"></p>
+    <script>
+        window.API_BASE_URL = '<?php echo rtrim(dirname($_SERVER["SCRIPT_NAME"]), "/") . "/api/"; ?>';
+    </script>
+    <script src="assets/js/app.js?v=<?php echo time(); ?>"></script>
+    <!-- Modal Perfil -->
+    <div id="modal-perfil-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[60] flex items-center justify-center p-4 hidden">
+        <div class="bg-white dark:bg-slate-800 w-full max-w-md rounded-[2.5rem] shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden">
+            <div class="p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Meu Perfil</h3>
+                    <button id="modal-perfil-fechar" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                    </button>
+                </div>
+
+                <form id="form-perfil-senha" class="space-y-4">
+                    <div id="perfil-error" class="hidden p-4 bg-red-50 text-red-600 text-sm rounded-2xl border border-red-100 font-bold"></div>
+                    <div id="perfil-success" class="hidden p-4 bg-emerald-50 text-emerald-600 text-sm rounded-2xl border border-emerald-100 font-bold"></div>
+
+                    <div>
+                        <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Telefone / WhatsApp</label>
+                        <input type="text" id="perfil-phone" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="(00) 00000-0000">
+                    </div>
+
+                    <div class="pt-2">
+                        <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Senha Atual</label>
+                        <input type="password" id="perfil-senha-atual" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="••••••••">
+                    </div>
+
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Nova Senha</label>
+                            <input type="password" id="perfil-senha-nova" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="••••••••">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Confirmar</label>
+                            <input type="password" id="perfil-senha-confirm" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="••••••••">
+                        </div>
+                    </div>
+
+                    <button type="submit" id="btn-perfil-salvar" class="w-full py-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all shadow-lg shadow-blue-500/20 flex items-center justify-center gap-2 mt-4">
+                        Salvar Alterações
+                    </button>
+                </form>
+            </div>
+        </div>
     </div>
 
     <script>
         window.API_BASE_URL = '<?php echo rtrim(dirname($_SERVER["SCRIPT_NAME"]), "/") . "/api/"; ?>';
     </script>
     <script src="assets/js/app.js?v=<?php echo time(); ?>"></script>
+    <!-- Script do Widget Atendo -->
+    <!-- Modal Cadastro de Empresa -->
+<div id="modal-cadastro-overlay" class="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-[60] flex items-center justify-center p-4 hidden">
+    <div class="bg-white dark:bg-slate-800 w-full max-w-2xl rounded-[2.5rem] shadow-2xl border border-slate-200 dark:border-slate-700 overflow-hidden max-h-[90vh] overflow-y-auto">
+        <div class="p-8 md:p-12">
+            <div class="flex justify-between items-center mb-8">
+                <div>
+                    <h3 class="text-3xl font-black text-slate-900 dark:text-slate-100">Cadastrar Empresa</h3>
+                    <p class="text-slate-500 dark:text-slate-400 font-medium italic">Crie sua instância do MapsProspector Pro</p>
+                </div>
+                <button id="modal-cadastro-fechar" class="text-slate-400 hover:text-slate-600 dark:hover:text-slate-200 transition-colors">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" /></svg>
+                </button>
+            </div>
+
+            <form id="form-cadastro" class="space-y-6">
+                <div id="reg-error" class="hidden p-4 bg-red-50 text-red-600 text-sm rounded-2xl border border-red-100 font-bold"></div>
+                <div id="cadastro-success" class="hidden p-4 bg-emerald-50 text-emerald-600 text-sm rounded-2xl border border-emerald-100 font-bold"></div>
+                
+                <div class="grid md:grid-cols-2 gap-6">
+                    <!-- Dados da Empresa -->
+                    <div class="space-y-4">
+                        <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest border-b border-blue-100 pb-1">Empresa</p>
+                        <div>
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">CNPJ ou CPF</label>
+                            <input type="text" id="reg-cnpj" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="00.000.000/0000-00">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Nome da Empresa</label>
+                            <input type="text" id="reg-company" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="Ex: Minha Agência Digital">
+                        </div>
+                    </div>
+
+                    <!-- Dados do Administrador -->
+                    <div class="space-y-4">
+                        <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest border-b border-blue-100 pb-1">Administrador</p>
+                        <div>
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Seu Nome</label>
+                            <input type="text" id="reg-name" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="Nome Completo">
+                        </div>
+                        <div> 
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">WhatsApp (Obrigatório)</label>
+                            <input type="text" id="reg-phone" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="(00) 00000-0000">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6 pt-2">
+                    <div>
+                        <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">E-mail de Acesso</label>
+                        <input type="email" id="reg-email" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="seu@email.com">
+                    </div>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Senha</label>
+                            <input type="password" id="reg-password" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="••••••••">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Confirmar</label>
+                            <input type="password" id="reg-password-confirm" required class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="••••••••">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="pt-6">
+                    <button type="submit" id="btn-cadastro" class="w-full py-5 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-2xl transition-all shadow-xl shadow-blue-500/20 flex items-center justify-center gap-3 uppercase tracking-wide text-sm">
+                        Criar Minha Conta e Acessar
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
+                    </button>
+                    <p class="text-center text-[11px] text-slate-400 mt-4 font-medium italic">Ao se cadastrar, você concorda com nossos <a href="termos.php" target="_blank" class="underline">Termos de Uso</a>.</p>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>
