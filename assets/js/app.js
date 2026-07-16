@@ -18,7 +18,13 @@ var AppState = window.AppState || {
     history: [],
     folders: [],
     visibleCount: 12,
-    currentSearch: { query: '', location: '', tag: '', folderId: null, folderName: '' }
+    currentSearch: { query: '', location: '', tag: '', folderId: null, folderName: '' },
+    // Adicione estas linhas aqui:
+    localData: {
+        municipios: [],
+        cnaes: [],
+        loaded: false
+    }
 };
 // Tema (claro/escuro) — persistido em localStorage
 var THEME_STORAGE_KEY = 'mapsprospector-theme';
@@ -4409,92 +4415,100 @@ async function setupCnpjAdvancedEvents() {
         try {
             let params = new URLSearchParams();
 
-            // 1. Lógica de CNAE/Segmento
-            if (manualCnae) {
-                params.append('cnae', manualCnae.replace(/\D/g, ''));
-            } else if (segment) {
-                // Tenta buscar o código CNAE pela descrição do segmento
-                try {
-                    const cnaeRes = await fetch('https://api.cnpj.pw/cnaes/' );
-                    const cnaeData = await cnaeRes.json();
-                    const match = cnaeData.resultados.find(c => 
-                        c.descricao.toLowerCase().includes(segment.toLowerCase())
-                    );
-                    if (match) {
-                        params.append('cnae', match.codigo);
-                    } else {
-                        params.append('razao_social', segment);
-                    }
-                } catch (cnaeErr) {
-                    params.append('razao_social', segment);
-                }
-            }
-
-            // 2. Lógica de Localização (Cidade e UF)
-            if (cityName) {
-                try {
-                    const munRes = await fetch('https://api.cnpj.pw/municipios/' );
-                    const munData = await munRes.json();
-                    const normalize = (str) => (str || "").toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
-                    const municipio = munData.resultados.find(m => 
-                        normalize(m.descricao) === normalize(cityName) && 
-                        (!uf || (m.uf && m.uf.toUpperCase() === uf.toUpperCase()))
-                    );
-                    if (municipio) {
-                        params.append('municipio', municipio.codigo);
-                    } else {
-                        // Se não achar o código, tenta passar o nome (menos preciso)
-                        params.append('municipio', cityName);
-                    }
-                } catch (munErr) {
-                    params.append('municipio', cityName);
-                }
-            }
-            
-            if (uf && uf !== "") params.append('uf', uf.toUpperCase());
-
-                        // 3. Filtros de Data e Capital (NOMES CORRIGIDOS PARA A API)
-            if (dateStart) params.append('abertura_inicio', dateStart);
-            if (dateEnd) params.append('abertura_fim', dateEnd);
-            if (capitalMin) params.append('capital_minimo', capitalMin);
-
-            // 4. Execução da Busca
-            const urlCompleta = `https://api.cnpj.pw/busca_difusa/?${params.toString( )}`;
-            console.log("URL de Busca Gerada:", urlCompleta); // Para depuração no F12
-
-            const searchRes = await fetch(urlCompleta);
-            const searchData = await searchRes.json();
-            
-            console.log("Resposta da API:", searchData);
-
-            if (searchData.resultados && searchData.resultados.length > 0) {
-                renderAdvancedResults(searchData.resultados, container);
-            } else {
-                if (errorEl) {
-                    errorEl.innerHTML = `
-                        <div class="flex flex-col gap-2">
-                            <p class="font-bold">Nenhuma empresa encontrada com esses filtros.</p>
-                            <p class="text-[10px] opacity-70">Tente remover a cidade ou ampliar o período de datas.</p>
-                            <p class="text-[10px] mt-2 italic">URL testada: <a href="${urlCompleta}" target="_blank" class="underline text-blue-600">${urlCompleta}</a></p>
-                        </div>
-                    `;
-                    errorEl.classList.remove('hidden');
-                }
-            }
-        } catch (err) {
-            console.error("Erro na busca avançada:", err);
-            if (errorEl) {
-                errorEl.textContent = "Erro ao processar busca. Verifique sua conexão ou os parâmetros.";
-                errorEl.classList.remove('hidden');
-            }
-        } finally {
-            if (btn) {
-                btn.disabled = false;
-                btn.innerHTML = 'Iniciar Busca Avançada';
-            }
-        }
-    };
+                        // 1. Lógica de CNAE/Segmento (OTIMIZADA via CSV Local)
+           // 1. Lógica de CNAE/Segmento (OTIMIZADA via CSV Local)
+if (manualCnae) {
+    params.append('cnae', manualCnae.replace(/\D/g, ''));
+} else if (segment) {
+    if (!AppState.localData.loaded) await loadLocalDatabase();
+    
+    const segmentLower = segment.toLowerCase();
+    
+    // Proteção adicionada: c.descricao && ...
+    const match = AppState.localData.cnaes.find(c => 
+        c.descricao && c.descricao.toLowerCase().includes(segmentLower)
+    );
+    
+    if (match) {
+        params.append('cnae', match.codigo);
+    } else {
+        params.append('razao_social', segment);
+    }
 }
+            // 2. Lógica de Localização (Cidade e UF) (OTIMIZADA via CSV Local)
+            // No bloco de localização da Cidade
+    if (cityName) {
+        if (!AppState.localData.loaded) await loadLocalDatabase();
+        
+        const normalize = (str) => (str || "").toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+        const citySearch = normalize(cityName);
+        
+        // Procura o município comparando nome normalizado e UF
+        const municipio = AppState.localData.municipios.find(m => 
+            m.descricao_norm === citySearch && 
+            (!uf || m.uf === uf.toUpperCase())
+        );
+        
+        if (municipio) {
+            console.log("Município encontrado localmente:", municipio);
+            params.append('municipio', municipio.codigo);
+        } else {
+            console.warn("Município não encontrado no CSV:", cityName);
+            // Se não achar o código, não enviamos o nome para evitar o erro 422 da API
+        }
+    }
+        else {
+            // Se NÃO encontrar o código numérico, NÃO envia o nome (para evitar o erro 422)
+            console.warn("Código do município não encontrado para:", cityName);
+            // Opcional: alert("Cidade não encontrada no banco local. Verifique o nome.");
+        }
+                            // 3. Filtros de Data e Capital (NOMES CORRIGIDOS PARA A API)
+                if (dateStart) params.append('abertura_inicio', dateStart);
+                if (dateEnd) params.append('abertura_fim', dateEnd);
+                if (capitalMin) params.append('capital_minimo', capitalMin);
+    
+                            // 4. Execução da Busca
+            const urlCompleta = `https://api.cnpj.pw/busca_difusa/?${params.toString( )}`;
+            console.log("URL de Busca Gerada:", urlCompleta);
+
+            try {
+                const searchRes = await fetch(urlCompleta);
+                const searchData = await searchRes.json();
+                
+                console.log("Resposta da API (Bruta):", searchData);
+
+                if (searchData.resultados && searchData.resultados.length > 0) {
+                    
+                    // --- ORDENAÇÃO REFORÇADA ---
+                    searchData.resultados.sort((a, b) => {
+                        // Converte as datas para timestamp para comparação numérica precisa
+                        // A API costuma retornar no formato YYYY-MM-DD
+                        const dataA = new Date(a.data_abertura || a.abertura || 0).getTime();
+                        const dataB = new Date(b.data_abertura || b.abertura || 0).getTime();
+                        return dataB - dataA; // Mais recente (maior timestamp) primeiro
+                    });
+                    
+                    console.log("Resultados Ordenados (Mais recentes primeiro):", searchData.resultados);
+
+                    // Limpa o container antes de renderizar (garante que não haja duplicatas)
+                    if (container) container.innerHTML = '';
+                    
+                    renderAdvancedResults(searchData.resultados, container);
+                } else {
+                    // ... lógica de erro (nenhuma empresa encontrada) ...
+                    if (errorEl) {
+                        errorEl.innerHTML = `
+                            <div class="flex flex-col gap-2">
+                                <p class="font-bold">Nenhuma empresa encontrada com esses filtros.</p>
+                                <p class="text-[10px] opacity-70">Tente remover a cidade ou ampliar o período de datas.</p>
+                            </div>
+                        `;
+                        errorEl.classList.remove('hidden');
+                    }
+                }
+            } catch (fetchErr) {
+                console.error("Erro na requisição:", fetchErr);
+            }
 // --- FUNÇÕES DE INTERFACE (TABS E MODAIS) ---
 
 function renderCnpjAdvancedTab(contentArea) {
@@ -4580,3 +4594,64 @@ window.hideCadastro = function() {
     if (overlay) overlay.classList.add('hidden');
     document.body.style.overflow = '';
 };
+async function loadLocalDatabase() {
+    if (AppState.localData.loaded) return;
+    
+    console.log('Iniciando carregamento do banco de dados local...');
+    
+    try {
+        // Usamos caminhos relativos para evitar problemas de domínio
+        const [resMun, resCnae] = await Promise.all([
+            fetch('Database/municipios.csv'),
+            fetch('Database/cnaes.csv')
+        ]);
+
+        if (resMun.ok) {
+            const textMun = await resMun.text();
+            AppState.localData.municipios = parseCSV(textMun);
+            console.log('Municípios carregados:', AppState.localData.municipios.length);
+        } else {
+            console.error('Erro ao carregar municipios.csv:', resMun.status);
+        }
+
+        if (resCnae.ok) {
+            const textCnae = await resCnae.text();
+            AppState.localData.cnaes = parseCSV(textCnae);
+            console.log('CNAEs carregados:', AppState.localData.cnaes.length);
+        } else {
+            console.error('Erro ao carregar cnaes.csv:', resCnae.status);
+        }
+
+        AppState.localData.loaded = true;
+    } catch (err) {
+        console.error('Falha crítica no fetch dos CSVs:', err);
+    }
+}
+function parseCSV(text) {
+    const lines = text.split('\n');
+    const results = [];
+    const normalize = (str) => (str || "").toString().normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
+
+    for (let i = 0; i < lines.length; i++) {
+        const line = lines[i].trim();
+        if (!line) continue;
+        
+        const parts = line.match(/(".*?"|[^",\s;]+)(?=\s*[;,]|\s*$)/g);
+        
+        // Garante que temos pelo menos código e descrição antes de adicionar
+        if (parts && parts.length >= 2) {
+            const codigo = parts[0].replace(/"/g, '').trim();
+            const nome = parts[1].replace(/"/g, '').trim();
+            
+            if (codigo && nome) { // Só adiciona se ambos existirem
+                results.push({
+                    codigo: codigo,
+                    descricao: nome,
+                    descricao_norm: normalize(nome),
+                    uf: parts[2] ? parts[2].replace(/"/g, '').trim().toUpperCase() : null
+                });
+            }
+        }
+    }
+    return results;
+}
