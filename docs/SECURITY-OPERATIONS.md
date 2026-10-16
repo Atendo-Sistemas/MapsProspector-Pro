@@ -7,7 +7,7 @@ Revisão do código em 16/10/2026; não substitui auditoria de produção ou tes
 - As APIs de autenticação e busca não exibem erros PHP. Respostas de erro não incluem stack traces, caminhos locais ou mensagens de conexão do banco; detalhes operacionais são enviados ao log do servidor.
 - A conexão com o banco retorna mensagens genéricas ao cliente e registra a causa somente no log.
 - A criptografia de chaves não usa mais uma chave padrão fixa. Se não houver uma chave configurada ou persistida, a inicialização falha em vez de cifrar dados com um segredo conhecido.
-- Foram removidos os endpoints de diagnóstico/debug e os criadores legados de links InfinitePay que continham credenciais de banco embutidas.
+- Foram removidos endpoints de diagnóstico/debug e criadores legados de links InfinitePay que continham credenciais de banco embutidas; `check.php` e `test-asaas.php` agora só executam via CLI, e o teste Asaas não imprime o token do webhook.
 - A busca Maps informa que os dados vieram do fluxo de coleta integrado ao Google Maps e orienta a confirmar telefone e endereço antes do contato.
 
 ## Ações operacionais obrigatórias
@@ -22,4 +22,3 @@ Revisão do código em 16/10/2026; não substitui auditoria de produção ou tes
 ## Testes automatizados
 
 Execute `php tests/security-regression.php` para verificar as regras básicas de URL de webhook e a criptografia de chaves. Fluxos de login, cobrança, provedores externos e isolamento multi-tenant dependem do banco e de serviços configurados; devem ser validados em homologação com contas de teste separadas.
-

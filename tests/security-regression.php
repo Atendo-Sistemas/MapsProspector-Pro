@@ -17,6 +17,12 @@ expectSame(null, validateWebhookUrl('http://10.0.0.10/internal'), 'bloqueia ende
 expectSame(null, validateWebhookUrl('file:///etc/passwd'), 'bloqueia esquema não HTTP');
 
 if (extension_loaded('openssl')) {
+    try {
+        encryptApikey('regression-test-token');
+        fwrite(STDERR, "Falha: rejeita criptografia sem chave configurada\n");
+        exit(1);
+    } catch (RuntimeException $error) {
+    }
     define('ENCRYPTION_KEY', random_bytes(32));
     $encrypted = encryptApikey('regression-test-token');
     expectSame('regression-test-token', decryptApikey($encrypted), 'criptografa e descriptografa API key');

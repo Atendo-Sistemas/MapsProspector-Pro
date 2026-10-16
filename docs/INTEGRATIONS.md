@@ -21,4 +21,3 @@ Esta lista foi conferida no código do painel em 16/10/2026. Uma integração pr
 - Consulte o Dashboard e os endpoints administrativos de métricas Maps para volume, cobrança e estado do coletor.
 - O endpoint administrativo de uso Apify acompanha apenas a integração Apify; não representa o uso do coletor Maps privado.
 - Faça testes de busca e cobrança em ambiente de homologação após alterar credenciais, modelos, URLs ou configuração do coletor.
-

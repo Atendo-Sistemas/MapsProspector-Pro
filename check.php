@@ -1,7 +1,12 @@
 <?php
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    exit;
+}
+
 /**
  * Script de Verificação - MapsProspector Pro
- * Use este arquivo para verificar se tudo está configurado corretamente
+ * Execute pelo CLI para verificar a configuração do ambiente.
  */
 
 error_reporting(E_ALL);

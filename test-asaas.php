@@ -6,6 +6,12 @@
  * Não exige usuário logado (lê apenas a config salva em platform_settings).
  */
 declare(strict_types=1);
+
+if (PHP_SAPI !== 'cli') {
+    http_response_code(404);
+    exit;
+}
+
 error_reporting(E_ALL);
 ini_set('display_errors', '0');
 
@@ -113,6 +119,6 @@ if (isset($test['name'], $test['company'])) {
 }
 echo "\nCONCLUSAO: A integracao Asaas esta funcionando.\n";
 echo "URL do webhook a cadastrar no painel Asaas (Integracoes -> Webhooks): https://" . ($_SERVER['HTTP_HOST'] ?? 'SEU-DOMINIO') . "/webhook-asaas.php\n";
-echo "Cabeçalho exigido pelo webhook: asaas-access-token = " . ($token !== '' ? $token : '(gerado no salvar da config)') . "\n";
+echo "Cabeçalho exigido pelo webhook: asaas-access-token = configurado no painel (valor não exibido)\n";
 echo "Eventos a marcar: PAYMENT_CONFIRMED e PAYMENT_RECEIVED\n";
 exit(0);
