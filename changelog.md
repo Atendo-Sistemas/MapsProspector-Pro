@@ -30,7 +30,7 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
-## [1.4.4] - 2026-10-16
+## [1.4.4] - 2026-10-16 — **Versão Atual**
 
 ### Recuperação de acesso e permissões
 
@@ -42,7 +42,7 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
-## [1.3.0] - 2026-03-26 — **Versão Atual**
+## [1.3.0] - 2026-03-26
 
 ### Persistência de Dados e Otimização de Cache
 
