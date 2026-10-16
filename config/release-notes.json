@@ -1,5 +1,16 @@
 [
   {
+    "version": "20261016-search-quality-1",
+    "date": "2026-10-16",
+    "title": "Qualidade e privacidade nas pesquisas",
+    "items": [
+      "Resumo operacional agregado de Maps, LinkedIn e CNPJ com resultados vazios, latência, contatos ausentes, cache e créditos, restrito ao super administrador.",
+      "Resultados Maps são priorizados por aderência aos termos e completude dos contatos, com deduplicação por identificadores confiáveis.",
+      "As telas explicam resultados parciais, campos de contato ausentes e os filtros que justificam a correspondência.",
+      "Datas individuais e filtros de pesquisas reaproveitadas entre empresas não são expostos aos usuários finais."
+    ]
+  },
+  {
     "version": "20261016-password-search-controls-1",
     "date": "2026-10-16",
     "title": "Recuperação de senha e permissões individuais de pesquisa",

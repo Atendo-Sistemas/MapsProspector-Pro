@@ -20,7 +20,7 @@ require_once __DIR__ . '/../includes/functions.php';
 header('Content-Type: application/json; charset=UTF-8');
 header('Cache-Control: no-store, private, max-age=0');
 
-const IPA_VERSION = '20261016-password-search-controls-1';
+const IPA_VERSION = '20261016-search-quality-1';
 
 /** Resposta de erro e encerramento. */
 function ipavError(int $status, string $message): void

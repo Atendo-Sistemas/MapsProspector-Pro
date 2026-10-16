@@ -107,6 +107,17 @@ function mapsPilotNormalizePhone(?string $value): string
     return preg_replace('/\D+/', '', (string) $value) ?: '';
 }
 
+function mapsPilotNormalizeEmail(?string $value): string
+{
+    return strtolower(trim((string) $value));
+}
+
+function mapsPilotNormalizeCnpj(?string $value): string
+{
+    $digits = preg_replace('/\D+/', '', (string) $value) ?: '';
+    return strlen($digits) === 14 ? $digits : '';
+}
+
 function mapsPilotNormalizeDomain(?string $value): string
 {
     $website = trim((string) $value);
@@ -143,16 +154,6 @@ function mapsPilotNormalizeMapsUri(?string $value): string
     return $host . $path . ($query ? '?' . http_build_query($query) : '');
 }
 
-function mapsPilotFallbackKey(array $lead): string
-{
-    return implode('|', [
-        mapsPilotNormalizePhone($lead['phone'] ?? ''),
-        mapsPilotNormalizeDomain($lead['website'] ?? ''),
-        mapsPilotNormalizeText($lead['name'] ?? ''),
-        mapsPilotNormalizeText($lead['address'] ?? ''),
-    ]);
-}
-
 function mapsPilotLeadKeys(array $lead): array
 {
     $keys = [];
@@ -160,11 +161,48 @@ function mapsPilotLeadKeys(array $lead): array
     if ($mapsKey !== '') {
         $keys[] = 'maps:' . $mapsKey;
     }
-    $fallback = mapsPilotFallbackKey($lead);
-    if ($fallback !== '|||') {
-        $keys[] = 'fallback:' . $fallback;
+    $cnpj = mapsPilotNormalizeCnpj($lead['cnpj'] ?? '');
+    if ($cnpj !== '') {
+        $keys[] = 'cnpj:' . $cnpj;
     }
-    return $keys;
+    $email = mapsPilotNormalizeEmail($lead['email'] ?? '');
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $keys[] = 'email:' . $email;
+    }
+    $name = mapsPilotNormalizeText($lead['name'] ?? '');
+    $address = mapsPilotNormalizeText($lead['address'] ?? '');
+    $phone = mapsPilotNormalizePhone($lead['phone'] ?? '');
+    $domain = mapsPilotNormalizeDomain($lead['website'] ?? '');
+    if ($name !== '' && $phone !== '' && $address !== '') {
+        $keys[] = 'phone_name_address:' . $phone . '|' . $name . '|' . $address;
+    }
+    if ($name !== '' && $domain !== '' && $address !== '') {
+        $keys[] = 'domain_name_address:' . $domain . '|' . $name . '|' . $address;
+    }
+    if ($name !== '' && $address !== '') {
+        $keys[] = 'name_address:' . $name . '|' . $address;
+    }
+    return array_values(array_unique($keys));
+}
+
+function mapsPilotLeadScore(array $lead, string $query, string $location): int
+{
+    $name = mapsPilotNormalizeText($lead['name'] ?? '');
+    $normalizedQuery = mb_strtolower(trim((string) $query), 'UTF-8');
+    $normalizedQuery = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $normalizedQuery) ?: $normalizedQuery;
+    $queryTokens = preg_split('/[^a-z0-9]+/', $normalizedQuery, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    $score = 0;
+    foreach ($queryTokens as $token) {
+        if (strlen($token) >= 3 && strpos($name, $token) !== false) {
+            $score += 10;
+        }
+    }
+    if (trim((string) ($lead['phone'] ?? '')) !== '') $score += 3;
+    if (trim((string) ($lead['email'] ?? '')) !== '') $score += 3;
+    if (trim((string) ($lead['website'] ?? '')) !== '') $score += 2;
+    if (trim((string) ($lead['address'] ?? '')) !== '') $score += 1;
+    if (mapsPilotAddressMatchesLocation((string) ($lead['address'] ?? ''), $location)) $score += 5;
+    return $score;
 }
 
 /**
@@ -278,9 +316,20 @@ function mapsPilotEmailFromCsv(array $row): string
     return '';
 }
 
-function mapsPilotFrontendLead(array $row): array
+function mapsPilotFrontendLead(array $row, string $query = '', string $location = ''): array
 {
     $mapsUri = (string) ($row['maps_uri'] ?? '');
+    $normalizedQuery = mb_strtolower(trim($query), 'UTF-8');
+    $normalizedQuery = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $normalizedQuery) ?: $normalizedQuery;
+    $queryTokens = preg_split('/[^a-z0-9]+/', $normalizedQuery, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    $normalizedName = mapsPilotNormalizeText((string) ($row['name'] ?? ''));
+    $matchedTerms = array_values(array_filter($queryTokens, static function (string $token) use ($normalizedName): bool {
+        return strlen($token) >= 3 && strpos($normalizedName, $token) !== false;
+    }));
+    $locationConfirmed = $location !== '' && mapsPilotAddressMatchesLocation((string) ($row['address'] ?? ''), $location);
+    $matchReasons = [];
+    if ($matchedTerms) $matchReasons[] = 'Nome compatível com: ' . implode(', ', array_unique($matchedTerms));
+    if ($locationConfirmed) $matchReasons[] = 'Endereço compatível com a região informada';
     return [
         'id' => 'lead-' . (int) $row['id'],
         'dbId' => (int) $row['id'],
@@ -296,6 +345,9 @@ function mapsPilotFrontendLead(array $row): array
         'tag' => $row['tag'] ?? '',
         'latitude' => $row['latitude'] ?? null,
         'longitude' => $row['longitude'] ?? null,
+        'matchReason' => $matchReasons
+            ? implode(' · ', $matchReasons)
+            : 'Resultado retornado para os filtros selecionados; confira os dados antes do contato',
         'locked' => false,
     ];
 }
@@ -426,6 +478,9 @@ function mapsPilotLoadSharedLeadCandidates(PDO $db, int $currentHistoryId, strin
 }
 
 try {
+    $qualityStartedAt = microtime(true);
+    $qualityProvider = 'maps_shared_cache';
+    $qualityDuplicateCount = 0;
     if (strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? '')) !== 'POST') {
         mapsPilotError('Método não permitido.', 405);
     }
@@ -580,6 +635,7 @@ try {
     // suficientes para a quantidade solicitada, o coletor busca somente um
     // complemento; a deduplicação final acontece dentro da transação.
     if (count($candidateLeads) < $effectiveMax) {
+        $qualityProvider = $reusedSharedHistoryId > 0 ? 'maps_shared_cache+collector' : 'maps_collector';
         $collector = new AtendoMapsCollectorClient('/home/naciona4/atendo-secrets/maps-collector.php');
         if (!$collector->isEnabled()) {
             mapsPilotError('A busca Maps está temporariamente indisponível. Tente novamente em alguns instantes.', 503);
@@ -635,6 +691,14 @@ try {
         }
     }
 
+    usort($candidateLeads, static function (array $left, array $right) use ($history): int {
+        $scoreDifference = mapsPilotLeadScore($right, (string) $history['query'], (string) $history['location'])
+            <=> mapsPilotLeadScore($left, (string) $history['query'], (string) $history['location']);
+        return $scoreDifference !== 0
+            ? $scoreDifference
+            : strcasecmp((string) ($left['name'] ?? ''), (string) ($right['name'] ?? ''));
+    });
+
     $db->beginTransaction();
     try {
         $lockedHistory = $db->prepare('SELECT id, tag FROM search_history WHERE id = ? FOR UPDATE');
@@ -671,6 +735,7 @@ try {
                 }
             }
             if ($duplicate) {
+                $qualityDuplicateCount++;
                 continue;
             }
             foreach ($candidateKeys as $key) {
@@ -719,7 +784,23 @@ try {
 
     $allLeadsStmt = $db->prepare('SELECT id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude FROM leads WHERE search_history_id = ? ORDER BY id ASC');
     $allLeadsStmt->execute([$searchHistoryId]);
-    $allLeads = array_map('mapsPilotFrontendLead', $allLeadsStmt->fetchAll(PDO::FETCH_ASSOC));
+    $allLeads = array_map(static function (array $row) use ($history): array {
+        return mapsPilotFrontendLead($row, (string) ($history['query'] ?? ''), (string) ($history['location'] ?? ''));
+    }, $allLeadsStmt->fetchAll(PDO::FETCH_ASSOC));
+    $qualityResultCount = count($allLeads);
+    $qualityMissingContacts = count(array_filter($allLeads, static function (array $lead): bool {
+        return trim((string) ($lead['phone'] ?? '')) === '' && trim((string) ($lead['email'] ?? '')) === '';
+    }));
+    recordSearchQualityEvent($db, 'maps', [
+        'provider' => $qualityProvider,
+        'status' => $qualityResultCount === 0 ? 'empty' : (($requestedMax > 0 && $qualityResultCount < $requestedMax) ? 'partial' : 'success'),
+        'result_count' => $qualityResultCount,
+        'duplicate_count' => $qualityDuplicateCount,
+        'missing_contact_count' => $qualityMissingContacts,
+        'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+        'cache_hit' => $reusedSharedHistoryId > 0,
+        'credits_spent' => $newCount,
+    ]);
 
     if (ob_get_length()) {
         ob_clean();
@@ -753,5 +834,13 @@ try {
         . ($newCount > 0 ? '+' . $newCount . ' novos leads encontrados.' : 'Nenhum novo lead novo nesta atualização.'));
 } catch (Throwable $error) {
     error_log('maps-pilot.php: ' . $error->getMessage());
+    if (isset($db) && $db instanceof PDO && isset($qualityStartedAt)) {
+        recordSearchQualityEvent($db, 'maps', [
+            'provider' => $qualityProvider ?? 'maps_collector',
+            'status' => 'error',
+            'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+            'error_category' => 'maps_collection_failed',
+        ]);
+    }
     mapsPilotError('Não foi possível concluir a busca Maps agora. Tente novamente em alguns instantes.', 502);
 }

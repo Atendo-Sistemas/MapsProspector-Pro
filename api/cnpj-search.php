@@ -19,6 +19,7 @@ try {
 
     // Inicializa a conexão primeiro para evitar erros de variável indefinida
     $pdo = Database::getInstance()->getConnection();
+    $qualityStartedAt = microtime(true);
     
     if (session_status() === PHP_SESSION_NONE) session_start();
     if (!isset($_SESSION['user_id'])) {
@@ -167,17 +168,60 @@ try {
     if ($httpCode === 200) {
         $result = json_decode($response, true);
         $pdo->prepare("UPDATE tenants SET tokens_used = tokens_used + ? WHERE id = ?")->execute([$tokenCost, $tenant_id]);
+        $qualityResultCount = 0;
+        if (is_array($result) && $result) {
+            foreach (['results', 'resultados', 'items', 'estabelecimentos'] as $listKey) {
+                if (isset($result[$listKey]) && is_array($result[$listKey])) {
+                    $qualityResultCount = count($result[$listKey]);
+                    break;
+                }
+            }
+            if ($qualityResultCount === 0 && !isset($result['error'])) {
+                $qualityResultCount = 1;
+            }
+        }
+        $qualityCompany = is_array($result) ? $result : [];
+        $qualityHasContact = trim((string) ($qualityCompany['phone'] ?? $qualityCompany['telefone'] ?? $qualityCompany['telefone_1'] ?? '')) !== ''
+            || trim((string) ($qualityCompany['email'] ?? $qualityCompany['correio_eletronico'] ?? '')) !== '';
+        $qualityProvider = (string) (parse_url($url, PHP_URL_HOST) ?: 'cnpj_provider');
+        recordSearchQualityEvent($pdo, 'cnpj', [
+            'provider' => $qualityProvider,
+            'status' => $qualityResultCount > 0 ? 'success' : 'empty',
+            'result_count' => $qualityResultCount,
+            'missing_contact_count' => $qualityResultCount > 0 && !$qualityHasContact ? 1 : 0,
+            'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+            'credits_spent' => $tokenCost,
+        ]);
         
         $log_query = "CNPJ/Busca: " . ($params['cnpj'] ?? $params['razao_social'] ?? $params['date'] ?? 'Consulta');
         $pdo->prepare("INSERT INTO searches (tenant_id, user_id, query, results_count, created_at) VALUES (?, ?, ?, ?, NOW())")
             ->execute([$tenant_id, $user_id, $log_query, 1]);
             
-        echo json_encode(['success' => true, 'data' => $result]);
+        echo json_encode([
+            'success' => true,
+            'data' => $result,
+            'emptyReason' => $qualityResultCount === 0 ? 'no_results' : null,
+            'emptyMessage' => $qualityResultCount === 0 ? 'Nenhuma empresa foi encontrada nesta consulta. Confira o CNPJ ou ajuste os filtros informados.' : null,
+        ]);
     } else {
+        recordSearchQualityEvent($pdo, 'cnpj', [
+            'provider' => (string) (parse_url($url, PHP_URL_HOST) ?: 'cnpj_provider'),
+            'status' => 'error',
+            'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+            'error_category' => 'provider_http_error',
+        ]);
         echo json_encode(['success' => false, 'error' => 'Erro na API CNPJ. HTTP Code: ' . $httpCode]);
     }
 
 } catch (Exception $e) {
+    if (isset($pdo) && $pdo instanceof PDO && isset($qualityStartedAt)) {
+        recordSearchQualityEvent($pdo, 'cnpj', [
+            'provider' => 'cnpj_provider',
+            'status' => 'error',
+            'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+            'error_category' => 'cnpj_request_failed',
+        ]);
+    }
     ob_clean();
     echo json_encode(['success' => false, 'error' => 'Erro interno: ' . $e->getMessage()]);
 }

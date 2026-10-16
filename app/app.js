@@ -1997,6 +1997,7 @@ function renderSegmentedDashboardMetrics(container, payload) {
         }
         html += '</div></aside></div>';
         html += '<section id="dashboard-maps-pilot-metrics" class="mt-6 rounded-[2rem] border border-sky-200 bg-sky-50 px-6 py-5 text-xs text-sky-900 dark:border-sky-900/70 dark:bg-sky-950/35 dark:text-sky-100"><p class="font-bold">Métricas protegidas da Coleta Atendo disponíveis neste Dashboard.</p></section>';
+        html += '<section id="dashboard-search-quality" class="mt-6 rounded-[2rem] border border-indigo-200 bg-indigo-50 px-6 py-5 text-xs text-indigo-900 dark:border-indigo-900/70 dark:bg-indigo-950/35 dark:text-indigo-100"><p class="font-bold">Métricas agregadas de qualidade das pesquisas.</p></section>';
     }
     container.innerHTML = html + '</div>';
     if (scope === 'platform') {
@@ -2007,6 +2008,49 @@ function renderSegmentedDashboardMetrics(container, payload) {
         } else if (pilotContainer) {
             loadMapsPilotMetrics();
         }
+        loadSearchQualityMetrics();
+    }
+}
+
+async function loadSearchQualityMetrics() {
+    var container = document.getElementById('dashboard-search-quality');
+    if (!container) return;
+    try {
+        var response = await fetch(API_BASE + 'search-quality-metrics.php', {
+            credentials: 'include',
+            cache: 'no-store',
+            headers: { 'Accept': 'application/json' }
+        });
+        var payload = await response.json().catch(function() { return null; });
+        if (!response.ok || !payload || !payload.success) {
+            throw new Error((payload && payload.error) || 'Métricas indisponíveis.');
+        }
+        var data = payload.data || {};
+        var services = Array.isArray(data.services) ? data.services : [];
+        var labels = { maps: 'Maps', linkedin: 'LinkedIn', cnpj: 'CNPJ' };
+        var rows = services.map(function(item) {
+            var results = Number(item.results) || 0;
+            var credits = Number(item.credits_spent) || 0;
+            var costPerLead = results > 0 ? (credits / results).toFixed(2) : '—';
+            return '<tr class="border-t border-indigo-100 dark:border-indigo-900/60">'
+                + '<td class="px-3 py-2 font-bold">' + dashboardMetricEscape(labels[item.service] || item.service) + '</td>'
+                + '<td class="px-3 py-2">' + dashboardMetricEscape(item.provider) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.searches) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.empty_searches) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.partial_searches) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.failed_searches) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.duplicates) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.missing_contacts) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.cache_hits) + '</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(item.avg_latency_ms) + ' ms</td>'
+                + '<td class="px-3 py-2 text-right">' + dashboardMetricEscape(costPerLead) + '</td></tr>';
+        }).join('');
+        container.innerHTML = '<div class="flex flex-wrap items-center justify-between gap-3"><div><h4 class="font-black uppercase tracking-wider">Qualidade das pesquisas · super admin</h4><p class="mt-1 opacity-75">Resumo agregado dos últimos ' + (Number(data.periodDays) || 30) + ' dias. Nenhuma consulta, usuário, empresa ou data individual é exibida.</p></div><button type="button" onclick="loadSearchQualityMetrics()" class="rounded-xl bg-indigo-100 px-3 py-2 font-bold dark:bg-indigo-900/50">Atualizar</button></div>'
+            + (rows
+                ? '<div class="mt-4 overflow-x-auto"><table class="w-full min-w-[980px] text-left"><thead><tr class="text-[10px] uppercase opacity-70"><th class="px-3 py-2">Módulo</th><th class="px-3 py-2">Origem</th><th class="px-3 py-2 text-right">Buscas</th><th class="px-3 py-2 text-right">Sem resultado</th><th class="px-3 py-2 text-right">Parciais</th><th class="px-3 py-2 text-right">Falhas</th><th class="px-3 py-2 text-right">Duplicados</th><th class="px-3 py-2 text-right">Sem contato</th><th class="px-3 py-2 text-right">Cache</th><th class="px-3 py-2 text-right">Tempo médio</th><th class="px-3 py-2 text-right">Créditos/lead</th></tr></thead><tbody>' + rows + '</tbody></table></div>'
+                : '<p class="mt-4">Ainda não há telemetria. As métricas começarão após aplicar a migração e registrar novas pesquisas.</p>');
+    } catch (error) {
+        container.innerHTML = '<p class="font-bold">Métricas de qualidade temporariamente indisponíveis.</p><p class="mt-1">Verifique a migração do banco; a coleta de pesquisas continua funcionando.</p>';
     }
 }
 
@@ -6019,6 +6063,10 @@ async function runMapsCheckNewLeads() {
 function getLeadCardHTML(lead) {
     const phoneDisplay = formatPhoneDisplay(getLeadPhoneValue(lead));
     const isPilotNew = lead && lead.isPilotNew === true;
+    const contactFields = [getLeadPhoneValue(lead) ? 'telefone' : '', lead.email ? 'e-mail' : ''].filter(Boolean);
+    const contactQuality = contactFields.length
+        ? 'Contato informado: ' + contactFields.join(' e ')
+        : 'Nenhum contato informado';
     return `
         <div class="relative mt-4 pt-10 pb-6 px-6 bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-600 rounded-[1.5rem] hover:shadow-2xl hover:shadow-blue-900/5 transition-all duration-300 flex flex-col justify-between group">
             <div class="absolute -top-3 left-6 bg-blue-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-blue-200 z-10">
@@ -6027,7 +6075,9 @@ function getLeadCardHTML(lead) {
             ${isPilotNew ? '<div class="absolute -top-3 right-6 bg-emerald-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-emerald-200 z-10">Novo</div>' : ''}
             <div>
                 <h3 class="font-extrabold text-slate-900 dark:text-slate-100 text-sm uppercase leading-snug mb-4 min-h-[2.5rem]">${lead.name || ''}</h3>
-                <div class="space-y-3 mb-6">
+            <p class="mb-2 text-[10px] font-semibold text-slate-500 dark:text-slate-400">${escapeHtml(lead.matchReason || 'Resultado compatível com a pesquisa')}</p>
+            <p class="mb-3 text-[10px] font-bold ${contactFields.length ? 'text-emerald-700 dark:text-emerald-300' : 'text-amber-700 dark:text-amber-300'}">${contactQuality}</p>
+            <div class="space-y-3 mb-6">
                     <div class="flex items-center gap-3 bg-emerald-50/50 dark:bg-emerald-950/20 p-2 rounded-lg -mx-2">
                         <span class="text-emerald-500 dark:text-emerald-400 text-xs">📞</span>
                         <span class="text-emerald-700 dark:text-emerald-300 font-bold text-xs">${phoneDisplay || 'Sem telefone'}</span>

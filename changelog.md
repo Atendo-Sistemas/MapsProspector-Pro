@@ -30,7 +30,19 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
-## [1.4.4] - 2026-10-16 — **Versão Atual**
+## [1.4.5] - 2026-10-16 — **Versão Atual**
+
+### Qualidade e privacidade nas pesquisas
+
+- Adicionada telemetria agregada de qualidade para Maps, LinkedIn e CNPJ, visível somente ao super administrador.
+- Resultados Maps são ordenados por aderência e completude, e a deduplicação usa identificadores fortes e combinações conservadoras.
+- As interfaces orientam sobre resultados parciais, contatos ausentes e a correspondência com os filtros selecionados.
+- A data de origem de resultados LinkedIn compartilhados não é enviada ao cliente; métricas não exibem consultas, empresas ou datas individuais.
+- Adicionada migração para habilitar as métricas em bancos existentes.
+
+---
+
+## [1.4.4] - 2026-10-16
 
 ### Recuperação de acesso e permissões
 

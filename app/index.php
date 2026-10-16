@@ -29,7 +29,7 @@ if (!headers_sent()) {
     <meta name="application-name" content="<?php echo htmlspecialchars($saasName); ?>">
     <meta name="robots" content="noindex,nofollow,noarchive">
     <meta name="googlebot" content="noindex,nofollow,noarchive">
-    <link rel="manifest" href="/manifest.webmanifest?v=20261016-password-search-controls-1">
+    <link rel="manifest" href="/manifest.webmanifest?v=20261016-search-quality-1">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/pwa/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/pwa/icon-180.png">
     <title>Área da aplicação | MapsProspector</title>
@@ -626,14 +626,14 @@ if (!headers_sent()) {
 </div>
 
 <script src="/assets/js/export-replace.js?v=20260821-65"></script>
-<script src="/assets/js/linkedin-ui.js?v=20261008-linkedin-card-fields-1"></script>
+<script src="/assets/js/linkedin-ui.js?v=20261016-search-quality-1"></script>
 <script src="/assets/js/help-ui.js?v=20260821-65"></script>
 <script src="/assets/js/apify-usage-ui.js?v=20260822-88-traffic-referrals-1"></script>
 <script src="/assets/js/notification-ui.js?v=20261010-reengagement-editor-1"></script>
 <script src="/assets/js/notification-center.js?v=20261009-reengagement-1"></script>
 <script src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
 <script src="/assets/js/site-traffic.js?v=20261009-traffic-1" defer></script>
-<script src="/app/app.js?v=20261016-password-search-controls-1"></script>
+<script src="/app/app.js?v=20261016-search-quality-1"></script>
 <script src="/assets/js/help.js?v=20260821-65"></script>
 <script src="/assets/js/help-admin.js?v=20260821-65"></script>
 <script src="/assets/js/pwa.js?v=20261009-pwa-1"></script>

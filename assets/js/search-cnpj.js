@@ -70,7 +70,15 @@ function setupCnpjEvents() {
 
             const container = document.getElementById('cnpj-results-container');
             container.classList.remove('hidden');
-            renderCnpjResults(resJson.data, container);
+            if (resJson.emptyReason) {
+                container.textContent = '';
+                const emptyState = document.createElement('div');
+                emptyState.className = 'mt-6 rounded-2xl border border-amber-200 bg-amber-50 p-6 text-sm font-semibold text-amber-900';
+                emptyState.textContent = resJson.emptyMessage || 'Nenhuma empresa foi encontrada. Confira o CNPJ e tente novamente.';
+                container.appendChild(emptyState);
+            } else {
+                renderCnpjResults(resJson.data, container);
+            }
             checkAuth();
         } catch (err) {
             showToast(err.message, 'error');
