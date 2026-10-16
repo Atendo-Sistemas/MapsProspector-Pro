@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 error_reporting(E_ALL);
 /**
  * API de Autenticação com Cálculo de Teste de 30 Dias
@@ -46,7 +46,8 @@ if ($method === 'POST') {
         try {
             $db = Database::getInstance()->getConnection();
         } catch (Exception $e) {
-            jsonError($e->getMessage(), 500);
+            error_log('auth.php database connection failed: ' . $e->getMessage());
+            jsonError('Não foi possível processar o login agora. Tente novamente mais tarde.', 500);
         }
         
         try {

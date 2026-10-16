@@ -5706,7 +5706,8 @@ async function runDirectMapsPilotSearch() {
                 + (Number(result.credits_charged) || 0) + ' créditos consumidos nesta atualização'
                 + (result.reused_cached_results ? ' | resultados já disponíveis reaproveitados com segurança' : '')
                 + (result.billing_notice ? ' | ' + String(result.billing_notice) : '')
-                + (partialNotice ? ' | ' + partialNotice : ''),
+                + (partialNotice ? ' | ' + partialNotice : '')
+                + ' | ' + (result.source_notice || 'Dados coletados do Google Maps pelo serviço de prospecção; confirme antes de entrar em contato.'),
             newLeadIds: AppState.mapsPilotNewLeadIds.slice()
         };
         if (!Array.isArray(AppState.history)) AppState.history = [];

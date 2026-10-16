@@ -101,7 +101,10 @@ if ($encKeyBinary === '') {
         }
     }
 }
-define('ENCRYPTION_KEY', $encKeyBinary ?: hash('sha256', 'MapsProspector-Pro-Webhook-Key-2025', true));
+if ($encKeyBinary === '') {
+    throw new RuntimeException('Não foi possível carregar ou gerar a chave de criptografia. Configure ENCRYPTION_KEY ou verifique a permissão de storage/.');
+}
+define('ENCRYPTION_KEY', $encKeyBinary);
 
 // Permitir exibição em iframe (outro domínio). Desative em produção se não precisar.
 // Env ALLOW_IFRAME: '1' ou 'true' = qualquer site; lista de URLs = só esses domínios; '0' ou vazio = SAMEORIGIN

@@ -1,5 +1,5 @@
 <?php
-ini_set('display_errors', 1);
+ini_set('display_errors', 0);
 error_reporting(E_ALL);
 set_time_limit(300); // 💡 Aumenta o tempo limite para 5 minutos
 ini_set('max_execution_time', '300');
@@ -13,9 +13,10 @@ register_shutdown_function(function() {
         ob_clean();
         http_response_code(500);
         header('Content-Type: application/json; charset=utf-8');
+        error_log("search.php fatal error: {$error['message']} in {$error['file']}:{$error['line']}");
         echo json_encode([
             'success' => false,
-            'error' => "Erro Fatal: {$error['message']} em {$error['file']} na linha {$error['line']}"
+            'error' => 'Não foi possível concluir a busca agora. Tente novamente mais tarde.'
         ]);
         exit;
     }
@@ -95,8 +96,6 @@ try {
     $coords = $input['coords'] ?? null;
     $locationName = sanitizeInput($input['locationName'] ?? '');
     $maxCrawledPlacesPerSearch = isset($input['maxCrawledPlacesPerSearch']) ? max(1, min(1000, (int) $input['maxCrawledPlacesPerSearch'])) : 200;
-    $searchMethod = sanitizeInput($input['searchMethod'] ?? 'scraper');
-
     if (empty($query)) {
         jsonError('Digite o ramo de atividade (Ex: Petshop).', 400);
     }
@@ -106,8 +105,6 @@ try {
 
     // Chama o serviço de busca
     require_once __DIR__ . '/../services/scraperService.php';
-    require_once __DIR__ . '/../services/iaSearchService.php';
-
     $scraperApiKey = getRotatingApifyKey($db);
     
     if (empty(trim((string)$scraperApiKey))) {
@@ -136,13 +133,13 @@ try {
     }
 
     // Salva no histórico
-    // Captura o IP real do usu�rio
+    // Captura o IP real do usu�rio
     $userIp = $_SERVER['HTTP_CLIENT_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
     if (strpos($userIp, ',') !== false) {
         $userIp = trim(explode(',', $userIp)[0]);
     }
 
-    // Salva no hist�rico com o IP do usu�rio
+    // Salva no hist�rico com o IP do usu�rio
     $stmt = $db->prepare("INSERT INTO search_history (user_id, query, location, tag, results_count, user_ip) VALUES (?, ?, ?, ?, ?, ?)");
     $stmt->execute([$userId, $query, $locationText, $tag, count($leads), $userIp]);
     $searchHistoryId = $db->lastInsertId();
@@ -195,19 +192,19 @@ try {
         'leads' => $leadsForFrontend,
         'searchId' => (string)$searchHistoryId,
         'count' => count($leadsForFrontend),
-        'isNewSearch' => true
+        'isNewSearch' => true,
+        'sourceNotice' => 'Dados coletados do Google Maps pelo serviço de prospecção. Confirme as informações antes de entrar em contato.'
     ]);
 
 } catch (Throwable $e) {
     ob_clean();
     error_log("search.php error: " . $e->getMessage() . "\n" . $e->getTraceAsString());
     
-    // 💡 ISSO VAI MOSTRAR O ERRO EXATO DIRETAMENTE NO ALERTA DO PAINEL
     http_response_code(500);
     header('Content-Type: application/json; charset=utf-8');
     echo json_encode([
         'success' => false,
-        'error' => "Erro no PHP/Scraper: " . $e->getMessage() . " (Linha: " . $e->getLine() . ")"
+        'error' => 'Não foi possível concluir a busca agora. Tente novamente mais tarde.'
     ]);
     exit;
 }
