@@ -249,7 +249,10 @@ function formatPhoneNumber($phone) {
  */
 function encryptApikey($plain) {
     if ($plain === null || $plain === '') return '';
-    $key = defined('ENCRYPTION_KEY') ? ENCRYPTION_KEY : hash('sha256', 'MapsProspector-Pro-Webhook-Key-2025', true);
+    if (!defined('ENCRYPTION_KEY')) {
+        throw new RuntimeException('Chave de criptografia não configurada.');
+    }
+    $key = ENCRYPTION_KEY;
     $iv = openssl_random_pseudo_bytes(16);
     $encrypted = openssl_encrypt($plain, 'AES-256-CBC', $key, OPENSSL_RAW_DATA, $iv);
     if ($encrypted === false) return '';
@@ -262,7 +265,10 @@ function encryptApikey($plain) {
  */
 function decryptApikey($encrypted) {
     if ($encrypted === null || $encrypted === '') return '';
-    $key = defined('ENCRYPTION_KEY') ? ENCRYPTION_KEY : hash('sha256', 'MapsProspector-Pro-Webhook-Key-2025', true);
+    if (!defined('ENCRYPTION_KEY')) {
+        throw new RuntimeException('Chave de criptografia não configurada.');
+    }
+    $key = ENCRYPTION_KEY;
     $raw = base64_decode($encrypted, true);
     if ($raw === false || strlen($raw) < 17) {
         return trim($encrypted); // valor antigo em texto puro

@@ -1,5 +1,7 @@
 # Relatório de Análise de Segurança — MapsProspector Pro
 
+> Este relatório original é histórico. Consulte a revisão atual em [docs/SECURITY-OPERATIONS.md](docs/SECURITY-OPERATIONS.md); as observações antigas abaixo não representam necessariamente o estado atual do código.
+
 **Data:** 02/02/2025  
 **Escopo:** Projeto completo (PHP, API, config, serviços, banco de dados)
 

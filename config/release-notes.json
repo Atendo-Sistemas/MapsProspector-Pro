@@ -1,5 +1,16 @@
 [
   {
+    "version": "20261016-security-reliability-1",
+    "date": "2026-10-16",
+    "title": "Segurança e clareza nas buscas",
+    "items": [
+      "Erros técnicos e detalhes de conexão não são mais exibidos nas respostas das APIs de login e busca.",
+      "A chave de criptografia não usa mais um valor padrão conhecido; sem uma chave segura, o sistema falha de forma segura.",
+      "Rotas de diagnóstico e criadores de pagamento InfinitePay obsoletos foram removidos.",
+      "A busca Maps informa a origem dos dados e recomenda confirmar as informações antes do contato."
+    ]
+  },
+  {
     "version": "20261010-notification-editor-1",
     "date": "2026-10-10",
     "title": "Edição das mensagens de reengajamento na Central de Notificações",
