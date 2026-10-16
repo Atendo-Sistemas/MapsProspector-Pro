@@ -29,7 +29,7 @@ if (!headers_sent()) {
     <meta name="application-name" content="<?php echo htmlspecialchars($saasName); ?>">
     <meta name="robots" content="noindex,nofollow,noarchive">
     <meta name="googlebot" content="noindex,nofollow,noarchive">
-    <link rel="manifest" href="/manifest.webmanifest?v=20261009-traffic-pwa-1">
+    <link rel="manifest" href="/manifest.webmanifest?v=20261016-search-quality-1">
     <link rel="icon" type="image/png" sizes="192x192" href="/assets/pwa/icon-192.png">
     <link rel="apple-touch-icon" sizes="180x180" href="/assets/pwa/icon-180.png">
     <title>Área da aplicação | MapsProspector</title>
@@ -219,6 +219,7 @@ if (!headers_sent()) {
                             Entrar
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6" /></svg>
                         </button>
+                        <p class="text-right -mt-3"><button type="button" id="forgot-password-link" class="text-xs font-semibold text-blue-600 hover:underline">Esqueceu sua senha?</button></p>
                     </form>
                     <div class="mt-8 pt-6 border-t border-slate-100">
                         <p class="text-[11px] text-slate-500 font-medium mb-2">Ainda não tem empresa cadastrada?</p>
@@ -532,8 +533,8 @@ if (!headers_sent()) {
                     <div class="space-y-4">
                         <p class="text-[10px] font-black text-blue-600 uppercase tracking-widest border-b border-blue-100 pb-1">Empresa</p>
                         <div>
-                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">CNPJ ou CPF</label>
-                            <input type="text" id="reg-cnpj" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="00.000.000/0000-00">
+                            <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">CNPJ ou CPF (opcional)</label>
+                            <input type="text" id="reg-cnpj" inputmode="numeric" autocomplete="off" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all" placeholder="00.000.000/0000-00">
                         </div>
                         <div>
                             <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Nome da Empresa</label>
@@ -587,17 +588,52 @@ if (!headers_sent()) {
     </div>
 </div>
 
+<div id="forgot-password-modal" class="hidden fixed inset-0 z-[120] bg-slate-950/70 p-4 flex items-center justify-center" aria-hidden="true">
+    <section class="w-full max-w-md rounded-3xl bg-white p-8 shadow-2xl dark:bg-slate-800" role="dialog" aria-modal="true" aria-labelledby="forgot-password-title">
+        <h2 id="forgot-password-title" class="text-xl font-black text-slate-900 dark:text-slate-100">Recuperar senha</h2>
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Informe seu e-mail para receber um link de redefinição.</p>
+        <form id="forgot-password-form" class="mt-6 space-y-4">
+            <label for="forgot-password-email" class="block text-xs font-bold text-slate-600 dark:text-slate-300">E-mail</label>
+            <input id="forgot-password-email" type="email" required autocomplete="email" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 dark:border-slate-600 dark:bg-slate-700 dark:text-white">
+            <p id="forgot-password-message" class="hidden text-sm" role="status" aria-live="polite"></p>
+            <div class="flex gap-3">
+                <button type="button" id="forgot-password-close" class="flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-600 dark:border-slate-600 dark:text-slate-300">Cancelar</button>
+                <button type="submit" class="flex-1 rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-white">Enviar link</button>
+            </div>
+        </form>
+    </section>
+</div>
+
+<div id="reset-password-modal" class="hidden fixed inset-0 z-[120] bg-slate-950/70 p-4 flex items-center justify-center" aria-hidden="true">
+    <section class="w-full max-w-md rounded-3xl bg-white p-8 shadow-2xl dark:bg-slate-800" role="dialog" aria-modal="true" aria-labelledby="reset-password-title">
+        <h2 id="reset-password-title" class="text-xl font-black text-slate-900 dark:text-slate-100">Criar nova senha</h2>
+        <p class="mt-2 text-sm text-slate-500 dark:text-slate-400">Escolha uma senha com pelo menos 8 caracteres.</p>
+        <form id="reset-password-form" class="mt-6 space-y-4">
+            <input id="reset-password-token" type="hidden">
+            <label for="reset-password-value" class="block text-xs font-bold text-slate-600 dark:text-slate-300">Nova senha</label>
+            <input id="reset-password-value" type="password" required minlength="8" autocomplete="new-password" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 dark:border-slate-600 dark:bg-slate-700 dark:text-white">
+            <label for="reset-password-confirm" class="block text-xs font-bold text-slate-600 dark:text-slate-300">Confirmar nova senha</label>
+            <input id="reset-password-confirm" type="password" required minlength="8" autocomplete="new-password" class="w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-slate-900 dark:border-slate-600 dark:bg-slate-700 dark:text-white">
+            <p id="reset-password-message" class="hidden text-sm" role="status" aria-live="polite"></p>
+            <div class="flex gap-3">
+                <button type="button" id="reset-password-close" class="flex-1 rounded-xl border border-slate-200 px-4 py-3 text-sm font-bold text-slate-600 dark:border-slate-600 dark:text-slate-300">Cancelar</button>
+                <button type="submit" class="flex-1 rounded-xl bg-blue-600 px-4 py-3 text-sm font-bold text-white">Redefinir senha</button>
+            </div>
+        </form>
+    </section>
+</div>
+
 </div>
 
 <script src="/assets/js/export-replace.js?v=20260821-65"></script>
-<script src="/assets/js/linkedin-ui.js?v=20261008-linkedin-card-fields-1"></script>
+<script src="/assets/js/linkedin-ui.js?v=20261016-search-quality-1"></script>
 <script src="/assets/js/help-ui.js?v=20260821-65"></script>
 <script src="/assets/js/apify-usage-ui.js?v=20260822-88-traffic-referrals-1"></script>
 <script src="/assets/js/notification-ui.js?v=20261010-reengagement-editor-1"></script>
 <script src="/assets/js/notification-center.js?v=20261009-reengagement-1"></script>
 <script src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
 <script src="/assets/js/site-traffic.js?v=20261009-traffic-1" defer></script>
-<script src="/app/app.js?v=20261016-manual-billing-schema-1"></script>
+<script src="/app/app.js?v=20261016-search-quality-1"></script>
 <script src="/assets/js/help.js?v=20260821-65"></script>
 <script src="/assets/js/help-admin.js?v=20260821-65"></script>
 <script src="/assets/js/pwa.js?v=20261009-pwa-1"></script>

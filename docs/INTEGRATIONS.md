@@ -19,5 +19,6 @@ Esta lista foi conferida no código do painel em 16/10/2026. Uma integração pr
 
 - Verifique erros PHP nos logs privados do servidor (`logs/php_errors.log`, conforme `config/config.php`) e nos logs do servidor web. Não habilite `display_errors` em produção.
 - Consulte o Dashboard e os endpoints administrativos de métricas Maps para volume, cobrança e estado do coletor.
+- O resumo de qualidade de Maps, LinkedIn e CNPJ fica disponível somente ao super administrador após aplicar `Database/database_migration_search_quality.sql`; ele agrupa volume, resultados vazios, duplicados, contatos ausentes, latência, cache e créditos, sem filtros de busca, usuários, empresas ou datas individuais.
 - O endpoint administrativo de uso Apify acompanha apenas a integração Apify; não representa o uso do coletor Maps privado.
 - Faça testes de busca e cobrança em ambiente de homologação após alterar credenciais, modelos, URLs ou configuração do coletor.

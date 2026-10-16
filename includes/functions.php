@@ -106,6 +106,51 @@ function getAuthUser() {
     ];
 }
 
+function requireSearchPermission(PDO $db): void {
+    $userId = requireAuth();
+    if (strtolower((string) ($_SESSION['profile'] ?? '')) === 'super_admin') {
+        return;
+    }
+
+    try {
+        $stmt = $db->prepare('SELECT can_search FROM users WHERE id = ? LIMIT 1');
+        $stmt->execute([(int) $userId]);
+        $canSearch = $stmt->fetchColumn();
+    } catch (Throwable $error) {
+        error_log('Search permission check failed: ' . $error->getMessage());
+        jsonError('A permissão de pesquisa não está disponível. Atualize o banco de dados.', 503, 'search_permission_unavailable');
+    }
+
+    if ($canSearch === false || !(bool) $canSearch) {
+        jsonError('Seu administrador desativou a permissão para realizar pesquisas.', 403, 'search_permission_denied');
+    }
+}
+
+function recordSearchQualityEvent(PDO $db, string $service, array $event): void {
+    try {
+        $stmt = $db->prepare(
+            'INSERT INTO search_quality_events
+                (service, provider, status, result_count, duplicate_count, missing_contact_count,
+                 latency_ms, cache_hit, credits_spent, error_category)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)'
+        );
+        $stmt->execute([
+            substr($service, 0, 24),
+            substr((string) ($event['provider'] ?? 'unknown'), 0, 64),
+            substr((string) ($event['status'] ?? 'success'), 0, 16),
+            max(0, (int) ($event['result_count'] ?? 0)),
+            max(0, (int) ($event['duplicate_count'] ?? 0)),
+            max(0, (int) ($event['missing_contact_count'] ?? 0)),
+            max(0, (int) ($event['latency_ms'] ?? 0)),
+            !empty($event['cache_hit']) ? 1 : 0,
+            max(0, (int) ($event['credits_spent'] ?? 0)),
+            substr((string) ($event['error_category'] ?? ''), 0, 64) ?: null,
+        ]);
+    } catch (Throwable $error) {
+        error_log('Search quality telemetry unavailable: ' . $error->getMessage());
+    }
+}
+
 /**
  * Exige que o usuário seja super_admin (administrador da plataforma)
  */

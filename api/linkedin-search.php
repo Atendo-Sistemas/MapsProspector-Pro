@@ -223,6 +223,9 @@ function linkedinRepairInvertedFilters(string $location, array $jobTitles): arra
 
 $userId = requireAuth();
 $authUser = getAuthUser();
+$db = Database::getInstance()->getConnection();
+requireSearchPermission($db);
+$linkedinQualityStartedAt = microtime(true);
 $profile = strtolower((string) ($authUser['profile'] ?? ''));
 $tenantId = (int) ($authUser['tenant_id'] ?? 0);
 
@@ -281,7 +284,6 @@ if ($tenantId <= 0) {
     $tenantId = 1; // Super admin sem tenant usa o tenant principal da plataforma.
 }
 
-$db = Database::getInstance()->getConnection();
 if (!mpTenantHasModule($db, $tenantId, 'linkedin', $authUser)) {
     jsonError('O módulo de prospecção no LinkedIn não está incluído no plano desta empresa.', 403);
 }
@@ -453,6 +455,18 @@ try {
                     ->execute([$cachedCreditsCharged, $cachedRunId]);
             }
             $db->commit();
+            $cachedMissingContacts = count(array_filter($cachedLeads, static function (array $lead): bool {
+                return trim((string) ($lead['phone'] ?? '')) === '' && trim((string) ($lead['email'] ?? '')) === '';
+            }));
+            recordSearchQualityEvent($db, 'linkedin', [
+                'provider' => 'shared_cache',
+                'status' => count($cachedLeads) === 0 ? 'empty' : (count($cachedLeads) < $limit ? 'partial' : 'success'),
+                'result_count' => count($cachedLeads),
+                'missing_contact_count' => $cachedMissingContacts,
+                'latency_ms' => (int) round((microtime(true) - $linkedinQualityStartedAt) * 1000),
+                'cache_hit' => true,
+                'credits_spent' => $cachedCreditsCharged,
+            ]);
             jsonSuccess([
                 'runId' => (string) $cachedRunId,
                 'searchUrl' => $searchUrl,
@@ -460,12 +474,12 @@ try {
                 'cached' => true,
                 'reusedSameCompany' => $isSameCompanyCache,
                 'reusedSharedResults' => !$isSameCompanyCache,
-                'cachedAt' => ($cacheHasUpdatedAt && !empty($cacheHits['updated_at']))
-                    ? $cacheHits['updated_at']
-                    : $cacheHits['created_at'],
                 'creditsCharged' => $cachedCreditsCharged,
                 'requestedLimit' => $requestedLimit,
                 'effectiveLimit' => $limit,
+                'partialMessage' => count($cachedLeads) > 0 && count($cachedLeads) < $limit
+                    ? 'Foram encontrados ' . count($cachedLeads) . ' de até ' . $limit . ' perfis disponíveis. Amplie a localidade ou ajuste os cargos para tentar encontrar mais resultados.'
+                    : null,
                 'location' => $location,
                 'locationWasNormalized' => $locationWasNormalized,
                 'source' => 'search',
@@ -560,6 +574,17 @@ try {
     // A origem técnica permanece somente no banco; a resposta ao navegador
     // usa um rótulo neutro para não expor provider, actor ou estratégia.
     $source = 'search';
+    $linkedinMissingContacts = count(array_filter($leads, static function (array $lead): bool {
+        return trim((string) ($lead['phone'] ?? '')) === '' && trim((string) ($lead['email'] ?? '')) === '';
+    }));
+    recordSearchQualityEvent($db, 'linkedin', [
+        'provider' => $linkedinSearchStage,
+        'status' => count($leads) === 0 ? 'empty' : (count($leads) < $limit ? 'partial' : 'success'),
+        'result_count' => count($leads),
+        'missing_contact_count' => $linkedinMissingContacts,
+        'latency_ms' => (int) round((microtime(true) - $linkedinQualityStartedAt) * 1000),
+        'credits_spent' => $credits,
+    ]);
     jsonSuccess([
         'runId' => (string) $runId,
         'searchUrl' => $searchUrl,
@@ -580,6 +605,9 @@ try {
             : ($onlyNew
                 ? 'Nenhum perfil novo foi encontrado para esta combinação. Tente ampliar a localidade, usar um cargo mais específico ou revisar os termos informados.'
                 : 'Nenhum perfil foi encontrado para esta combinação. Tente ampliar a localidade ou revisar os cargos informados.'),
+        'partialMessage' => count($leads) > 0 && count($leads) < $limit
+            ? 'Foram encontrados ' . count($leads) . ' de até ' . $limit . ' perfis disponíveis. Amplie a localidade ou ajuste os cargos para tentar encontrar mais resultados.'
+            : null,
         'sourceNotice' => 'Perfis públicos compatíveis com os filtros foram processados e validados.',
     ], 'Pesquisa LinkedIn concluída.');
 } catch (Throwable $e) {
@@ -589,6 +617,14 @@ try {
     $safeStage = isset($linkedinSearchStage) ? (string) $linkedinSearchStage : 'bootstrap';
     $safeError = mb_substr((string) $e->getMessage(), 0, 1000);
     error_log('linkedin-search.php [' . $safeStage . ']: ' . $safeError);
+    if (isset($db) && $db instanceof PDO && isset($linkedinQualityStartedAt)) {
+        recordSearchQualityEvent($db, 'linkedin', [
+            'provider' => $safeStage,
+            'status' => 'error',
+            'latency_ms' => (int) round((microtime(true) - $linkedinQualityStartedAt) * 1000),
+            'error_category' => $safeStage,
+        ]);
+    }
     @file_put_contents(
         __DIR__ . '/linkedin-search-error.log',
         '[' . gmdate('c') . '] stage=' . $safeStage . ' error=' . $safeError . PHP_EOL,

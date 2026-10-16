@@ -18,6 +18,7 @@ $userId = requireAuth();
 $authUser = getAuthUser();
 $tenantId = $authUser['tenant_id'] ?? null;
 $db = Database::getInstance()->getConnection();
+requireSearchPermission($db);
 
 $input = json_decode(file_get_contents('php://input'), true);
 if (!is_array($input)) {
@@ -44,6 +45,8 @@ try {
 } catch (Exception $e) {}
 
 try {
+    $qualityStartedAt = microtime(true);
+    $qualityProvider = 'cnpj_api';
     $empresasEncontradas = [];
     $uf = '';
     $municipio = '';
@@ -170,6 +173,10 @@ try {
             $url = str_replace('{cnpj}', $cnpjBusca, $customCnpjUrl);
         } else {
             $url = rtrim($customCnpjUrl, '/') . '/' . $cnpjBusca;
+        }
+        $providerHost = parse_url($url, PHP_URL_HOST);
+        if (is_string($providerHost) && $providerHost !== '') {
+            $qualityProvider = mb_substr(strtolower($providerHost), 0, 64);
         }
 
         $ch = curl_init($url);
@@ -404,6 +411,7 @@ try {
     }
 
     $validCount = count($empresasEncontradas);
+    $creditsSpent = 0;
 
     // 💡 5. GRAVA NO HISTÓRICO DE BUSCAS
     if ($validCount > 0) {
@@ -453,9 +461,23 @@ try {
 
     // 💡 6. DEBITA CRÉDITOS APENAS SE A BUSCA NÃO VEIO DO CACHE
     if ($tenantId !== null && $validCount > 0 && !$fromCache && !$revalidatedCache) {
-        $creditsToDebit = $validCount * 5; 
-        incrementTenantUsage($db, $tenantId, $creditsToDebit);
+        $creditsSpent = $validCount * 5;
+        incrementTenantUsage($db, $tenantId, $creditsSpent);
     }
+
+    $missingContacts = count(array_filter($empresasEncontradas, static function (array $company): bool {
+        return trim((string) ($company['phone'] ?? '')) === ''
+            && trim((string) ($company['email'] ?? '')) === '';
+    }));
+    recordSearchQualityEvent($db, 'cnpj', [
+        'provider' => $fromCache ? 'local_cache' : $qualityProvider,
+        'status' => $validCount === 0 ? 'empty' : 'success',
+        'result_count' => $validCount,
+        'missing_contact_count' => $missingContacts,
+        'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+        'cache_hit' => $fromCache,
+        'credits_spent' => $creditsSpent,
+    ]);
 
     // Retorna saldo de tokens atualizado
     $tokenUsage = null;
@@ -475,9 +497,19 @@ try {
         'success' => true,
         'data' => $empresasEncontradas,
         'fromCache' => $fromCache,
+        'emptyReason' => $validCount === 0 ? 'no_results' : null,
+        'emptyMessage' => $validCount === 0 ? 'Nenhuma empresa foi encontrada nesta consulta. Confira o CNPJ ou ajuste os filtros de região e atividade.' : null,
         'tokenUsage' => $tokenUsage
     ]);
 
 } catch (Exception $e) {
+    if (isset($db) && $db instanceof PDO && isset($qualityStartedAt)) {
+        recordSearchQualityEvent($db, 'cnpj', [
+            'provider' => $qualityProvider ?? 'cnpj_api',
+            'status' => 'error',
+            'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+            'error_category' => 'cnpj_provider_failed',
+        ]);
+    }
     jsonError('Erro ao consultar a API de CNPJ configurada: ' . $e->getMessage(), 500);
 }

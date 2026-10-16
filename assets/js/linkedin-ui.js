@@ -568,6 +568,7 @@
                     ${newLeadsButton}
                 </div>
             </div>
+            ${meta && meta.partialMessage ? '<p class="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs font-semibold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100">' + escapeHtml(meta.partialMessage) + '</p>' : ''}
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
                 ${leads.map(function (lead, index) {
                     var isNewBadge = lead.__isNew ? '<div class="absolute -top-3 right-5 bg-emerald-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-emerald-200 z-10">Novo</div>' : '';

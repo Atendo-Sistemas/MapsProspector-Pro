@@ -90,7 +90,7 @@ if ($method === 'GET') {
     // Listar somente usuários da mesma empresa. A autoria do cadastro é uma
     // trilha de auditoria interna; nunca é consultada fora do tenant atual.
     $stmt = $db->prepare("
-        SELECT u.id, u.name, u.email, u.phone, u.profile, u.created_at,
+        SELECT u.id, u.name, u.email, u.phone, u.profile, u.can_search, u.created_at,
                u.created_by_user_id,
                COALESCE(NULLIF(creator.name, ''), NULLIF(u.created_by_name, ''),
                         CASE WHEN u.created_by_user_id IS NULL THEN 'Cadastro anterior à auditoria'
@@ -123,9 +123,10 @@ if ($method === 'GET') {
         }
 
         // Verifica se o colaborador a ser editado realmente pertence à mesma empresa
-        $stmtCheck = $db->prepare("SELECT id FROM users WHERE id = ? AND tenant_id = ? LIMIT 1");
+        $stmtCheck = $db->prepare("SELECT id, can_search FROM users WHERE id = ? AND tenant_id = ? LIMIT 1");
         $stmtCheck->execute([$targetUserId, $tenantId]);
-        if (!$stmtCheck->fetch()) {
+        $existingUser = $stmtCheck->fetch(PDO::FETCH_ASSOC);
+        if (!$existingUser) {
             jsonError('Colaborador não encontrado na sua empresa.', 404);
         }
 
@@ -136,6 +137,9 @@ if ($method === 'GET') {
         
         // Valida e sanitiza o cargo (suporta admin, supervisor/manager e user)
         $profileInput = sanitizeInput($input['profile'] ?? 'user');
+        $canSearch = array_key_exists('can_search', $input)
+            ? (filter_var($input['can_search'], FILTER_VALIDATE_BOOLEAN) ? 1 : 0)
+            : (int) $existingUser['can_search'];
         $validProfiles = ['user', 'supervisor', 'manager', 'admin'];
         if (!in_array($profileInput, $validProfiles, true)) {
             $profileInput = 'user';
@@ -164,17 +168,17 @@ if ($method === 'GET') {
             $passwordHash = password_hash($password, PASSWORD_BCRYPT);
             $stmtUpdate = $db->prepare("
                 UPDATE users 
-                SET name = ?, email = ?, phone = ?, password = ?, profile = ? 
+                SET name = ?, email = ?, phone = ?, password = ?, profile = ?, can_search = ?
                 WHERE id = ? AND tenant_id = ?
             ");
-            $stmtUpdate->execute([$name, $email, $phone, $passwordHash, $profileInput, $targetUserId, $tenantId]);
+            $stmtUpdate->execute([$name, $email, $phone, $passwordHash, $profileInput, $canSearch, $targetUserId, $tenantId]);
         } else {
             $stmtUpdate = $db->prepare("
                 UPDATE users 
-                SET name = ?, email = ?, phone = ?, profile = ? 
+                SET name = ?, email = ?, phone = ?, profile = ?, can_search = ?
                 WHERE id = ? AND tenant_id = ?
             ");
-            $stmtUpdate->execute([$name, $email, $phone, $profileInput, $targetUserId, $tenantId]);
+            $stmtUpdate->execute([$name, $email, $phone, $profileInput, $canSearch, $targetUserId, $tenantId]);
         }
 
         jsonSuccess(null, 'Colaborador atualizado com sucesso!');
@@ -190,6 +194,9 @@ if ($method === 'GET') {
     $password = $input['password'] ?? '';
     
     $profileInput = sanitizeInput($input['profile'] ?? 'user');
+    $canSearch = array_key_exists('can_search', $input)
+        ? (filter_var($input['can_search'], FILTER_VALIDATE_BOOLEAN) ? 1 : 0)
+        : 1;
     $validProfiles = ['user', 'supervisor', 'manager', 'admin'];
     if (!in_array($profileInput, $validProfiles, true)) {
         $profileInput = 'user';
@@ -240,10 +247,10 @@ if ($method === 'GET') {
     // Insere o usuário com o cargo selecionado e auditoria de criação.
     try {
         $stmt = $db->prepare("
-            INSERT INTO users (tenant_id, name, email, phone, password, profile, created_by_user_id, created_by_name, created_at)
-            VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())
+            INSERT INTO users (tenant_id, name, email, phone, password, profile, can_search, created_by_user_id, created_by_name, created_at)
+            VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())
         ");
-        $stmt->execute([$tenantId, $name, $email, $phone, $passwordHash, $profileInput, $userId, $creatorLabel]);
+        $stmt->execute([$tenantId, $name, $email, $phone, $passwordHash, $profileInput, $canSearch, $userId, $creatorLabel]);
     } catch (PDOException $e) {
         $isDuplicate = ((string) $e->getCode() === '23000') || (($e->errorInfo[1] ?? null) === 1062);
         error_log('users.php create: ' . $e->getMessage());

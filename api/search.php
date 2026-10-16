@@ -31,6 +31,7 @@ try {
 
     $userId = requireAuth();
     $db = Database::getInstance()->getConnection();
+    requireSearchPermission($db);
     $authUser = getAuthUser();
     $tenantId = $authUser['tenant_id'] ?? null;
     $profile = strtolower((string)($authUser['profile'] ?? ''));

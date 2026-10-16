@@ -57,6 +57,7 @@ CREATE TABLE IF NOT EXISTS `plans` (
 CREATE TABLE IF NOT EXISTS `tenants` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) NOT NULL,
+  `cnpj` varchar(20) DEFAULT NULL,
   `slug` varchar(100) NOT NULL,
   `plan_id` int(11) DEFAULT 1,
   `plan_access_until` date DEFAULT NULL,
@@ -80,10 +81,25 @@ CREATE TABLE IF NOT EXISTS `users` (
   `password` varchar(255) DEFAULT NULL,
   `tenant_id` int(11) DEFAULT NULL,
   `profile` varchar(50) DEFAULT 'user' COMMENT 'super_admin | admin | user',
+  `can_search` tinyint(1) NOT NULL DEFAULT 1,
+  `current_session_token` varchar(64) DEFAULT NULL,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
   UNIQUE KEY `email` (`email`),
   KEY `tenant_id` (`tenant_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+CREATE TABLE IF NOT EXISTS `password_reset_tokens` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `token_hash` char(64) NOT NULL,
+  `expires_at` datetime NOT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `token_hash` (`token_hash`),
+  KEY `user_id` (`user_id`),
+  KEY `expires_at` (`expires_at`),
+  CONSTRAINT `fk_password_reset_tokens_user` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------
@@ -144,6 +160,27 @@ CREATE TABLE IF NOT EXISTS `leads` (
   PRIMARY KEY (`id`),
   KEY `search_history_id` (`search_history_id`),
   KEY `exported` (`exported`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- -----------------------------------------------------------------------------
+-- Tabela: search_quality_events (telemetria agregável sem dados de busca/usuário)
+-- -----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `search_quality_events` (
+  `id` bigint(20) NOT NULL AUTO_INCREMENT,
+  `service` varchar(24) NOT NULL,
+  `provider` varchar(64) NOT NULL,
+  `status` varchar(16) NOT NULL,
+  `result_count` int(11) NOT NULL DEFAULT 0,
+  `duplicate_count` int(11) NOT NULL DEFAULT 0,
+  `missing_contact_count` int(11) NOT NULL DEFAULT 0,
+  `latency_ms` int(11) NOT NULL DEFAULT 0,
+  `cache_hit` tinyint(1) NOT NULL DEFAULT 0,
+  `credits_spent` int(11) NOT NULL DEFAULT 0,
+  `error_category` varchar(64) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `service_created_at` (`service`, `created_at`),
+  KEY `status_created_at` (`status`, `created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------

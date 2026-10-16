@@ -1,13 +1,19 @@
 <?php
 header('Content-Type: application/json');
-header('Access-Control-Allow-Origin: *');
-header('Access-Control-Allow-Headers: Content-Type');
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
 
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    jsonError('Método não permitido.', 405);
+}
+
+$appDb = Database::getInstance()->getConnection();
+requireSearchPermission($appDb);
 $input = json_decode(file_get_contents('php://input'), true);
 
-if ($_SERVER['REQUEST_METHOD'] !== 'POST' || !isset($input['params'])) {
-    echo json_encode(['success' => false, 'error' => 'Requisição inválida.']);
-    exit;
+if (!is_array($input) || !isset($input['params'])) {
+    jsonError('Requisição inválida.', 400);
 }
 
 $params = $input['params'];
@@ -22,11 +28,13 @@ if (empty($uf) || empty($citySiafi)) {
 }
 
 try {
-    // Configurações de Conexão com o Banco MySQL (Ajuste usuário e senha)
-    $host = 'localhost';
-    $dbname = 'naciona4_maps1243';
-    $username = 'naciona4_maps1243'; // Insira o usuário do banco aqui
-    $password = 'naciona4_maps1243';     // Insira a senha do banco aqui
+    $host = getenv('CNPJ_LOCAL_DB_HOST');
+    $dbname = getenv('CNPJ_LOCAL_DB_NAME');
+    $username = getenv('CNPJ_LOCAL_DB_USER');
+    $password = getenv('CNPJ_LOCAL_DB_PASSWORD');
+    if (!$host || !$dbname || !$username || !$password) {
+        jsonError('A pesquisa local de CNPJ não está configurada.', 503);
+    }
     
     $pdo = new PDO("mysql:host=$host;dbname=$dbname;charset=utf8mb4", $username, $password);
     $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
