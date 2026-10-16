@@ -9,7 +9,7 @@
 
 # MapsProspector-Pro — Ferramenta de Prospecção Inteligente
 
-O **MapsProspector-Pro** é uma aplicação web de prospecção B2B que minerar dados de empresas diretamente do **Google Maps** via API de busca (Scraper).  
+O **MapsProspector-Pro** é uma aplicação web de prospecção B2B que coleta dados públicos de empresas do **Google Maps** pelo serviço de coleta Atendo.
 
 A ferramenta permite exportar **leads qualificados** para o **CRM da Atendo** ou para outras plataformas via **Webhooks** (como **n8n**), facilitando e acelerando o processo comercial.
 
@@ -47,7 +47,7 @@ O projeto é **100% PHP + JavaScript** (sem React/Node no frontend).
 - **Backend:** PHP (APIs em `/api/`), MySQL/MariaDB
 - **Frontend:** HTML servido por PHP (`index.php`) + JavaScript vanilla (`assets/js/app.js`)
 - **Estilização:** Tailwind CSS (via CDN)
-- **API de Busca:** Integração com serviço de busca (Google Maps / Scraper)
+- **Busca principal de Maps:** Coletor Atendo servidor-a-servidor, integrado ao Google Maps
 
 ---
 
@@ -57,7 +57,7 @@ O projeto é **100% PHP + JavaScript** (sem React/Node no frontend).
 - **MySQL 5.7+** ou **MariaDB 10.2+**
 - Servidor web (Apache com mod_rewrite ou Nginx com PHP-FPM)
 - Opcional: Docker & Docker Compose para implantação em contêiner
-- Chave da API de Busca (Scraper / Google Maps)
+- Credenciais de banco e chave de criptografia; o coletor Maps é configurado no servidor de produção
 
 ---
 
@@ -79,6 +79,7 @@ mysql -u usuario -p maps < Database/maps_schema_full.sql
 ```
 
 Ou importe `Database/maps_schema_full.sql` pelo phpMyAdmin. Veja `Database/README.md` para detalhes.
+Para bancos existentes, execute `Database/database_migration_manual_payments.sql` para habilitar solicitações e aprovações manuais. Para habilitar o Asaas, importe também `sql/asaas-finance.sql` e `Database/database_migration_billing_due_dates.sql`.
 
 ### 3️⃣ Configure o PHP
 
@@ -124,7 +125,7 @@ MapsProspector-Pro/
 ├── includes/
 │   └── functions.php   # Funções auxiliares
 ├── services/            # Serviços no servidor (PHP)
-│   └── scraperService.php  # API de busca (Google Maps)
+│   └── scraperService.php  # Coletor Apify legado
 ├── assets/
 │   └── js/
 │       └── app.js      # Interface (JavaScript vanilla)
@@ -135,6 +136,12 @@ MapsProspector-Pro/
 ```
 
 ---
+
+## Integrações e operação
+
+A busca Maps usada pelo painel chama `api/maps-pilot.php`, que consulta o banco e, quando precisa de novos resultados, o coletor privado Atendo integrado ao Google Maps. A rota antiga `api/search.php` ainda usa Apify; não é a rota da busca principal do painel. A busca LinkedIn prioriza Groq Browser Search e possui mecanismos alternativos; CNPJ e CNAE usam os provedores indicados em [docs/INTEGRATIONS.md](docs/INTEGRATIONS.md).
+
+Consulte [docs/SECURITY-OPERATIONS.md](docs/SECURITY-OPERATIONS.md) para rotação de credenciais, logs e verificações pós-deploy. Não reutilize credenciais que já estiveram em versões antigas do repositório.
 
 ## ⚙️ Configuração do CRM
 

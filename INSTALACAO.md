@@ -42,6 +42,7 @@ Em produção, configure também:
    - `settings`, `platform_settings`
    - `search_history`, `leads`, `lead_unlocks`
    - `sessions`, `tenant_usage`, `credit_requests`, `plan_requests`
+   Para habilitar o módulo Asaas, execute também `sql/asaas-finance.sql` e `Database/database_migration_billing_due_dates.sql` (selecione/ajuste o banco `maps` no script). A migração habilita o vencimento administrativo de acesso e registra suas alterações.
 
 ### 2. Configurar Variáveis de Ambiente (recomendado)
 
@@ -93,7 +94,7 @@ Para alterar em ambiente que não suporte `.env`, edite `config/database.php` e 
 ### 4. Configurar Chave da API de Busca
 
 - **Obrigatório apenas o banco de dados** no arranque. Após acessar a aplicação, o **super admin** deve entrar em **Configurações** e cadastrar a **Chave da API de Busca** (Scraper / Google Maps). Opcionalmente, pode definir `SCRAPER_API_KEY` no `.env`.
-- **ENCRYPTION_KEY:** se não for definida no `.env`, o sistema gera uma chave automaticamente e salva em `storage/encryption_key` (a pasta `storage/` deve ser gravável pelo PHP).
+- **ENCRYPTION_KEY:** se não for definida no `.env`, o sistema gera uma chave aleatória e salva em `storage/encryption_key` (a pasta `storage/` deve ser gravável pelo PHP). Se não conseguir carregar ou gerar uma chave, o sistema falha de forma segura; não usa mais uma chave padrão conhecida. Faça backup protegido dessa chave: perdê-la impede a leitura dos tokens criptografados já armazenados.
 
 ### 5. Verificar Permissões e Diretórios
 

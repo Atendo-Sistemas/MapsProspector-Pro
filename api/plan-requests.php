@@ -12,6 +12,7 @@ require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../services/PaymentBonusService.php';
 require_once __DIR__ . '/../services/AsaasPaymentGateway.php';
+require_once __DIR__ . '/../services/ManualPaymentRequest.php';
 
 ob_clean();
 
@@ -104,7 +105,15 @@ if ($method === 'GET') {
         if (!$planRow) {
             jsonError('Plano não encontrado ou inativo.', 400);
         }
-        $planName = $planRow['name'];
+        $pending = $db->prepare("SELECT id FROM plan_requests WHERE tenant_id = ? AND plan_id = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
+        $pending->execute([(int) $tenantId, $planId]);
+        $pendingId = $pending->fetchColumn();
+        if ($pendingId) {
+            jsonSuccess(
+                ['id' => (string) $pendingId, 'status' => 'pending', 'mode' => 'manual'],
+                'Já existe uma solicitação manual pendente para análise.'
+            );
+        }
         if (class_exists('MapsProspectorAsaasPaymentGateway') && MapsProspectorAsaasPaymentGateway::isOperational($db)) {
             try {
                 $created = MapsProspectorAsaasPaymentGateway::createPlan($db, $authUser, (int) $tenantId, $planId);
@@ -115,28 +124,23 @@ if ($method === 'GET') {
             }
         }
 
-        $stmt = $db->prepare("INSERT INTO plan_requests (tenant_id, requested_by_user_id, plan_id, status) VALUES (?, ?, ?, 'pending')");
-        $stmt->execute([$tenantId, $userId, $planId]);
-        $newId = (int) $db->lastInsertId();
-     // --- INÍCIO DA INTEGRAÇÃO ---
-        try {
-            require_once __DIR__ . '/../services/notificationService.php';
-            $stmtSettings = $db->prepare("SELECT tenant_name FROM settings WHERE user_id = ? LIMIT 1");
-            $stmtSettings->execute([$userId]);
-            $settingsRow = $stmtSettings->fetch();
-            $companyName = (!empty($settingsRow['tenant_name'])) ? $settingsRow['tenant_name'] : 'Sua empresa';
-            
-            NotificationService::notifyPlanRequest($db, $companyName, $planName);
-        } catch (Exception $e) {
-            error_log("plan-requests.php POST: erro notificação: " . $e->getMessage());
-        }
-        // --- FIM DA INTEGRAÇÃO ---
-        jsonSuccess(['id' => (string) $newId, 'status' => 'pending'], 'Solicitação de plano enviada. Aguarde a confirmação do administrador.');
+        $manual = mapsCreateManualPaymentRequest($db, $authUser, (int) $tenantId, 'plan', 0, $planId);
+        jsonSuccess(
+            ['id' => (string) ($manual['requestId'] ?? ''), 'status' => 'pending', 'mode' => 'manual'],
+            !empty($manual['alreadyPending'])
+                ? 'Já existe uma solicitação manual pendente para análise.'
+                : 'Solicitação de plano enviada. Aguarde a confirmação do administrador.'
+        );
+    } catch (InvalidArgumentException $e) {
+        jsonError($e->getMessage(), 409);
     } catch (PDOException $e) {
         if (strpos($e->getMessage(), 'exist') !== false || strpos($e->getMessage(), '1146') !== false) {
             jsonError('Tabela de solicitações de plano não existe. Execute database_migration_plan_requests.sql no banco.', 500);
         }
         error_log("plan-requests POST: " . $e->getMessage());
+        jsonError('Erro ao criar solicitação.', 500);
+    } catch (Throwable $e) {
+        error_log("plan-requests POST unexpected: " . $e->getMessage());
         jsonError('Erro ao criar solicitação.', 500);
     }
 } elseif ($method === 'PUT') {
@@ -150,80 +154,82 @@ if ($method === 'GET') {
         jsonError('Informe o id da solicitação e o status (approved ou rejected).', 400);
     }
     try {
-        // Seleciona também o requested_by_user_id para podermos notificar o cliente correto
-        $stmt = $db->prepare("SELECT id, tenant_id, plan_id, requested_by_user_id, status FROM plan_requests WHERE id = ?");
+        $db->beginTransaction();
+        $stmt = $db->prepare("SELECT id, tenant_id, plan_id, requested_by_user_id, status FROM plan_requests WHERE id = ? LIMIT 1 FOR UPDATE");
         $stmt->execute([$id]);
-        $req = $stmt->fetch();
+        $req = $stmt->fetch(PDO::FETCH_ASSOC);
         if (!$req) {
+            $db->rollBack();
             jsonError('Solicitação não encontrada.', 404);
         }
         if ($req['status'] !== 'pending') {
-            jsonError('Esta solicitação já foi avaliada.', 400);
+            $db->rollBack();
+            jsonError('Esta solicitação já foi avaliada.', 409);
         }
-        $db->beginTransaction();
-        $stmt = $db->prepare("UPDATE plan_requests SET status = ?, reviewed_at = NOW(), reviewed_by_user_id = ? WHERE id = ?");
+        if ($status === 'approved') {
+            if ((bool) $db->query("SHOW TABLES LIKE 'asaas_subscriptions'")->fetchColumn()) {
+                $hasProductKind = (bool) $db->query("SHOW COLUMNS FROM asaas_subscriptions LIKE 'product_kind'")->fetchColumn();
+                $productFilter = $hasProductKind ? " AND COALESCE(product_kind, 'prospecting') = 'prospecting'" : '';
+                $subscription = $db->prepare(
+                    "SELECT id FROM asaas_subscriptions
+                      WHERE tenant_id = ?{$productFilter} AND status IN ('pending', 'active', 'overdue')
+                      ORDER BY id DESC LIMIT 1"
+                );
+                $subscription->execute([(int) $req['tenant_id']]);
+                if ($subscription->fetchColumn()) {
+                    $db->rollBack();
+                    jsonError('Esta empresa já possui uma assinatura Asaas em andamento. Cancele-a antes de aprovar manualmente.', 409);
+                }
+            }
+            $planCheck = $db->prepare("SELECT id FROM plans WHERE id = ? AND status = 'active' AND COALESCE(catalog_group, 'current') <> 'crm_addon' LIMIT 1");
+            $planCheck->execute([(int) $req['plan_id']]);
+            if (!$planCheck->fetchColumn()) {
+                $db->rollBack();
+                jsonError('O plano solicitado está inativo ou não é um plano principal.', 409);
+            }
+        }
+        $stmt = $db->prepare("UPDATE plan_requests SET status = ?, reviewed_at = NOW(), reviewed_by_user_id = ? WHERE id = ? AND status = 'pending'");
         $stmt->execute([$status, $userId, $id]);
+        if ($stmt->rowCount() !== 1) {
+            throw new RuntimeException('A solicitação já foi atualizada por outro administrador.');
+        }
         if ($status === 'approved') {
             $tid = (int) $req['tenant_id'];
             $planId = (int) $req['plan_id'];
-            $stmt = $db->prepare("UPDATE tenants SET plan_id = ? WHERE id = ?");
+            $stmt = $db->prepare("UPDATE tenants SET plan_id = ?, status = 'active' WHERE id = ?");
             $stmt->execute([$planId, $tid]);
             mpGrantPlanContractBonus($db, $tid, 'manual_plan_request', (string) $id, 50);
         }
         $db->commit();
-        
-        // --- INÍCIO DA NOTIFICAÇÃO DE APROVAÇÃO ---
-        try {
-            require_once __DIR__ . '/../services/notificationService.php';
-            
-            $stmtClient = $db->prepare("SELECT u.email, u.phone, s.tenant_name FROM users u LEFT JOIN settings s ON s.user_id = u.id WHERE u.id = ? LIMIT 1");
-            $stmtClient->execute([$req['requested_by_user_id']]);
-            $clientRow = $stmtClient->fetch();
 
-            if ($clientRow && $status === 'approved') {
-                $planName = $req['plan_name'] ?? 'Plano'; // Ajuste conforme o nome do plano no seu SELECT
-                NotificationService::notifyPlanApproval($db, $clientRow['tenant_name'] ?? 'Sua empresa', $planName, $clientRow['email'], $clientRow['phone']);
-            }
-        } catch (Exception $e) {
-            error_log("plan-requests.php PUT: erro notificação: " . $e->getMessage());
-        }
-        // --- FIM DA NOTIFICAÇÃO ---
-
-        // DISPARA NOTIFICAÇÃO DE PLANO APROVADO/ATIVADO PARA O CLIENTE
-        try {
-            require_once __DIR__ . '/../services/notificationService.php';
-            
-            // Busca os dados de contato do cliente (e-mail, telefone e nome da empresa)
-            $stmtClient = $db->prepare("
-                SELECT u.email, u.phone, s.tenant_name 
-                FROM users u 
-                LEFT JOIN settings s ON s.user_id = u.id 
-                WHERE u.id = ? LIMIT 1
-            ");
-            $stmtClient->execute([$req['requested_by_user_id']]);
-            $clientRow = $stmtClient->fetch();
-
-            if ($clientRow) {
-                $clientEmail = $clientRow['email'];
-                $clientPhone = $clientRow['phone'];
-                $companyName = (!empty($clientRow['tenant_name'])) ? $clientRow['tenant_name'] : 'sua empresa';
-
-                // Busca o nome do plano aprovado
-                $stmtPlanName = $db->prepare("SELECT name FROM plans WHERE id = ? LIMIT 1");
-                $stmtPlanName->execute([$req['plan_id']]);
-                $planRow = $stmtPlanName->fetch();
-                $planName = $planRow ? $planRow['name'] : 'Plano';
-
-                if ($status === 'approved') {
-                    NotificationService::notifyPlanApproval($db, $companyName, $planName, $clientEmail, $clientPhone);
+        if ($status === 'approved') {
+            try {
+                require_once __DIR__ . '/../services/notificationService.php';
+                $stmtClient = $db->prepare(
+                    "SELECT t.name AS tenant_name, u.email, u.phone, p.name AS plan_name
+                       FROM tenants t
+                       LEFT JOIN users u ON u.id = ?
+                       LEFT JOIN plans p ON p.id = ?
+                      WHERE t.id = ? LIMIT 1"
+                );
+                $stmtClient->execute([(int) $req['requested_by_user_id'], (int) $req['plan_id'], (int) $req['tenant_id']]);
+                $clientRow = $stmtClient->fetch(PDO::FETCH_ASSOC);
+                if ($clientRow) {
+                    NotificationService::notifyPlanApproval(
+                        $db,
+                        (string) ($clientRow['tenant_name'] ?? 'sua empresa'),
+                        (string) ($clientRow['plan_name'] ?? 'Plano'),
+                        (string) ($clientRow['email'] ?? ''),
+                        (string) ($clientRow['phone'] ?? '')
+                    );
                 }
+            } catch (Throwable $e) {
+                error_log("plan-requests.php PUT notification: " . $e->getMessage());
             }
-        } catch (Exception $e) {
-            error_log("plan-requests.php PUT: erro ao enviar notificações de aprovação: " . $e->getMessage());
         }
 
         jsonSuccess(['id' => (string) $id, 'status' => $status], $status === 'approved' ? 'Plano confirmado e vinculado à empresa.' : 'Solicitação recusada.');
-    } catch (PDOException $e) {
+    } catch (Throwable $e) {
         if ($db->inTransaction()) {
             $db->rollBack();
         }

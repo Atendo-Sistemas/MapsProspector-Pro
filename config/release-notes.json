@@ -1,5 +1,37 @@
 [
   {
+    "version": "20261016-manual-billing-schema-1",
+    "date": "2026-10-16",
+    "title": "Schema para solicitações e aprovações manuais",
+    "items": [
+      "O schema completo e a migração para bancos existentes agora criam a tabela de pagamentos usada por solicitações manuais.",
+      "A tabela de bônus de contratação agora está incluída, evitando que sua ausência reverta a aprovação manual de planos."
+    ]
+  },
+  {
+    "version": "20261016-billing-due-dates-1",
+    "date": "2026-10-16",
+    "title": "Aprovação manual de planos e vencimento por empresa",
+    "items": [
+      "A lista de planos agora conecta os botões de aprovar e recusar às solicitações pendentes e informa falhas da operação.",
+      "Empresas podem solicitar aprovação manual mesmo com o Asaas ativo; a ativação continua dependendo da conferência do administrador.",
+      "O schema/migração Asaas completa os campos do catálogo e o tipo de produto usados pelas assinaturas, evitando falhas em bancos instalados com o schema básico.",
+      "O Super Admin pode definir ou remover a data de vencimento do acesso de cada empresa; alterações ficam registradas e não mudam a data de cobrança Asaas.",
+      "A rotina diária rebaixa empresas com plano manual vencido, além de processar as expirações Asaas existentes."
+    ]
+  },
+  {
+    "version": "20261016-security-reliability-1",
+    "date": "2026-10-16",
+    "title": "Segurança e clareza nas buscas",
+    "items": [
+      "Erros técnicos e detalhes de conexão não são mais exibidos nas respostas das APIs de login e busca.",
+      "A chave de criptografia não usa mais um valor padrão conhecido; sem uma chave segura, o sistema falha de forma segura.",
+      "Rotas de diagnóstico e criadores de pagamento InfinitePay obsoletos foram removidos.",
+      "A busca Maps informa a origem dos dados e recomenda confirmar as informações antes do contato."
+    ]
+  },
+  {
     "version": "20261010-notification-editor-1",
     "date": "2026-10-10",
     "title": "Edição das mensagens de reengajamento na Central de Notificações",

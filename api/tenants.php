@@ -24,7 +24,7 @@ if ($method === 'GET') {
     if ($id) {
         try {
             $stmt = $db->prepare("
-                SELECT t.id, t.name, t.slug, t.plan_id, t.status, t.created_at, t.updated_at,
+                SELECT t.id, t.name, t.slug, t.plan_id, t.plan_access_until, t.status, t.created_at, t.updated_at,
                        p.name as plan_name, p.token_limit as plan_token_limit,
                        (SELECT u.email FROM users u WHERE u.tenant_id = t.id ORDER BY (u.profile = 'admin') DESC, u.id ASC LIMIT 1) as admin_email
                 FROM tenants t
@@ -42,18 +42,19 @@ if ($method === 'GET') {
         }
         $tenant['id'] = (string) $tenant['id'];
         $tenant['planId'] = isset($tenant['plan_id']) ? (string) $tenant['plan_id'] : '1';
+        $tenant['planAccessUntil'] = $tenant['plan_access_until'];
         $tenant['plan'] = $tenant['plan_name'] ?? 'Básico';
         $tenant['planTokenLimit'] = isset($tenant['plan_token_limit']) ? (int) $tenant['plan_token_limit'] : 100;
         $tenant['email'] = isset($tenant['admin_email']) ? trim($tenant['admin_email']) : '';
         $tenant['createdAt'] = $tenant['created_at'];
         $tenant['updatedAt'] = $tenant['updated_at'];
-        unset($tenant['plan_id'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['admin_email'], $tenant['created_at'], $tenant['updated_at']);
+        unset($tenant['plan_id'], $tenant['plan_access_until'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['admin_email'], $tenant['created_at'], $tenant['updated_at']);
         jsonSuccess($tenant);
     }
 
     try {
         $stmt = $db->query("
-            SELECT t.id, t.name, t.slug, t.plan_id, t.status, t.created_at,
+            SELECT t.id, t.name, t.slug, t.plan_id, t.plan_access_until, t.status, t.created_at,
                    p.name as plan_name, p.token_limit as plan_token_limit,
                    (SELECT COUNT(*) FROM users u WHERE u.tenant_id = t.id) as users_count,
                    (SELECT u.email FROM users u WHERE u.tenant_id = t.id ORDER BY (u.profile = 'admin') DESC, u.id ASC LIMIT 1) as admin_email
@@ -68,6 +69,7 @@ if ($method === 'GET') {
             $tenantId = (int) $row['id'];
             $row['id'] = (string) $row['id'];
             $row['planId'] = isset($row['plan_id']) ? (string) $row['plan_id'] : '1';
+            $row['planAccessUntil'] = $row['plan_access_until'];
             $row['plan'] = $row['plan_name'] ?? 'Básico';
             $row['planTokenLimit'] = isset($row['plan_token_limit']) ? (int) $row['plan_token_limit'] : 100;
             $row['usersCount'] = (int) ($row['users_count'] ?? 0);
@@ -77,7 +79,7 @@ if ($method === 'GET') {
             $bonus = getTenantTokenBonus($db, $tenantId, null);
             $row['tokensUsed'] = getTenantTokensUsed($db, $tenantId, null);
             $row['tokensLimit'] = $planLimit > 0 ? $planLimit + $bonus : 0;
-            unset($row['plan_id'], $row['plan_name'], $row['plan_token_limit'], $row['users_count'], $row['admin_email'], $row['created_at']);
+            unset($row['plan_id'], $row['plan_access_until'], $row['plan_name'], $row['plan_token_limit'], $row['users_count'], $row['admin_email'], $row['created_at']);
         }
         unset($row);
         jsonSuccess(['items' => $tenants, 'total' => $totalCount]);
@@ -188,6 +190,50 @@ if ($method === 'GET') {
 
 } elseif ($method === 'PUT') {
     $input = json_decode(file_get_contents('php://input'), true) ?? [];
+    if (($input['action'] ?? '') === 'set_plan_due_date') {
+        $id = isset($input['id']) ? (int) $input['id'] : 0;
+        $rawDueDate = $input['dueDate'] ?? null;
+        $dueDate = $rawDueDate === null || $rawDueDate === '' ? null : trim((string) $rawDueDate);
+        if ($id <= 1) {
+            jsonError('Selecione uma empresa válida.', 400);
+        }
+        if ($dueDate !== null) {
+            if (!preg_match('/^(\d{4})-(\d{2})-(\d{2})$/', $dueDate, $parts)
+                || !checkdate((int) $parts[2], (int) $parts[3], (int) $parts[1])) {
+                jsonError('Informe uma data de vencimento válida.', 422);
+            }
+        }
+        try {
+            $db->beginTransaction();
+            $stmt = $db->prepare('SELECT plan_access_until FROM tenants WHERE id = ? FOR UPDATE');
+            $stmt->execute([$id]);
+            $currentDueDate = $stmt->fetchColumn();
+            if ($currentDueDate === false) {
+                $db->rollBack();
+                jsonError('Empresa não encontrada.', 404);
+            }
+            $db->prepare('UPDATE tenants SET plan_access_until = ? WHERE id = ?')->execute([$dueDate, $id]);
+            $db->prepare(
+                "UPDATE asaas_subscriptions
+                    SET access_until = ?
+                  WHERE tenant_id = ? AND COALESCE(product_kind, 'prospecting') = 'prospecting'
+                    AND status IN ('pending', 'active', 'overdue')"
+            )->execute([$dueDate, $id]);
+            $db->prepare(
+                'INSERT INTO tenant_plan_due_date_audit
+                    (tenant_id, old_due_date, new_due_date, changed_by_user_id)
+                 VALUES (?, ?, ?, ?)'
+            )->execute([$id, $currentDueDate ?: null, $dueDate, $userId]);
+            $db->commit();
+            jsonSuccess(['id' => (string) $id, 'planAccessUntil' => $dueDate], 'Vencimento do acesso atualizado. A data da próxima cobrança Asaas não foi alterada.');
+        } catch (Throwable $e) {
+            if ($db->inTransaction()) {
+                $db->rollBack();
+            }
+            error_log('tenants.php due date: ' . $e->getMessage());
+            jsonError('Não foi possível atualizar o vencimento. Confirme se a migração de vencimentos foi aplicada.', 500);
+        }
+    }
     $id = isset($input['id']) ? (int) $input['id'] : 0;
     if (!$id) {
         jsonError('ID da empresa é obrigatório', 400);

@@ -5,7 +5,7 @@
  *
  * Ordem de resolução das credenciais:
  * 1) Variáveis de ambiente (DB_HOST etc.) — útil para testes e .env
- * 2) Fallbacks de produção (cPanel HostGator/naciona4)
+ * 2) Arquivo privado fora do webroot (fallback de produção)
  */
 
 class Database {
@@ -34,20 +34,12 @@ class Database {
         $this->username = getenv('DB_USER') ?: ($_ENV['DB_USER'] ?? ($privateConfig['username'] ?? ''));
         $this->password = (string) (getenv('DB_PASS') ?: ($_ENV['DB_PASS'] ?? ($privateConfig['password'] ?? '')));
 
-        // Debug: mostrar configurações (não expõe a senha)
-        $debug = [
-            'host' => $this->host,
-            'dbname' => $this->dbname,
-            'username' => $this->username,
-            'password' => empty($this->password) ? '(vazio)' : '(definido)',
-        ];
-
         if ($this->host === '' || $this->dbname === '') {
-            throw new Exception('DB_HOST e DB_NAME devem estar definidos. Debug: ' . json_encode($debug));
+            throw new RuntimeException('As configurações de conexão com o banco de dados estão incompletas.');
         }
         if ($this->username === 'root' || $this->password === '') {
             // Protege contra as credenciais XAMPP (root/vazio) vazarem para produção.
-            throw new Exception('Credenciais de desenvolvimento (root/vazio) não são permitidas neste ambiente. Debug: ' . json_encode($debug));
+            throw new RuntimeException('As credenciais de conexão com o banco de dados não são válidas.');
         }
 
         try {
@@ -62,15 +54,8 @@ class Database {
             $this->connection->exec("SET sql_mode=(SELECT REPLACE(@@sql_mode,'ONLY_FULL_GROUP_BY',''))");
         } catch (PDOException $e) {
             $errorMsg = $e->getMessage();
-            error_log("Erro de conexão: " . $errorMsg . " | Config: " . json_encode($debug));
-            $dbName = $this->dbname;
-            if (strpos($errorMsg, "Unknown database") !== false) {
-                throw new Exception("Banco de dados '{$dbName}' não encontrado. Crie o banco no phpMyAdmin e execute a migração SQL.");
-            }
-            if (strpos($errorMsg, "Access denied") !== false || strpos($errorMsg, "connect") !== false) {
-                throw new Exception("Erro de conexão. Verifique as credenciais. Debug: " . json_encode($debug) . " | Erro: " . $errorMsg);
-            }
-            throw new Exception("Erro ao conectar com o banco de dados: " . $errorMsg);
+            error_log('Database connection failed: ' . $errorMsg);
+            throw new RuntimeException('Não foi possível conectar ao banco de dados. Verifique as configurações e os logs.');
         }
     }
 

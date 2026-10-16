@@ -1,5 +1,5 @@
 -- ============================================================
--- Módulo de pagamentos Asaas (v20260820-64f4)
+-- Módulo de pagamentos Asaas
 -- Substitui o fluxo InfinitePay para compra de créditos e
 -- comissões do programa de indicações.
 -- Instalação idempotente (CREATE TABLE IF NOT EXISTS).
@@ -49,6 +49,7 @@ CREATE TABLE IF NOT EXISTS asaas_subscriptions (
     user_id INT UNSIGNED NOT NULL,
     plan_id INT UNSIGNED NOT NULL,
     plan_slug VARCHAR(64) NOT NULL,
+    product_kind VARCHAR(32) NOT NULL DEFAULT 'prospecting',
     amount_cents INT UNSIGNED NOT NULL,
     asaas_customer_id VARCHAR(64) NULL,
     asaas_subscription_id VARCHAR(128) NOT NULL,

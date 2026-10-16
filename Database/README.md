@@ -35,6 +35,8 @@ Scripts SQL para importação do schema em outro ambiente (MySQL/MariaDB).
 - `tenant_usage` – Uso de tokens por tenant/período
 - `credit_requests` – Solicitações de créditos
 - `plan_requests` – Solicitações de mudança de plano
+- `payments` – Pedidos e registros de pagamento manual
+- `payment_bonus_grants` – Controle idempotente de bônus de contratação
 - `lead_unlocks` – Leads desbloqueados por usuário
 - `platform_settings` – Configurações globais (chave API de busca, preço avulso, nome SaaS)
 
@@ -42,6 +44,12 @@ Scripts SQL para importação do schema em outro ambiente (MySQL/MariaDB).
 
 - MySQL 5.7+ ou MariaDB 10.2+
 - Charset: `utf8mb4`, collation: `utf8mb4_unicode_ci`
+
+## Módulo de pagamentos e vencimentos
+
+O schema completo já cria `payments` e `payment_bonus_grants`. Em bancos existentes, execute `database_migration_manual_payments.sql` para que a criação e a aprovação manuais de compras funcionem; essa migração é segura para reexecução. Ela usa o banco `maps`; ajuste a cláusula `USE` se necessário.
+
+Para habilitar pagamentos Asaas em uma instalação nova ou existente, execute `sql/asaas-finance.sql` e depois `database_migration_billing_due_dates.sql`. A migração é reexecutável, completa os campos do catálogo de planos usados pela cobrança, adiciona o tipo de assinatura e cria os campos/tabela de auditoria para vencimentos administrativos.
 
 ## Migrações opcionais (apenas para instalações antigas)
 
@@ -52,6 +60,8 @@ Use estas migrações **somente** se você já tinha o banco criado por uma vers
 | `database_migration_plan_trial.sql` | Insere o plano **Período de teste** (10 créditos). O schema completo já inclui; use só se o banco foi criado antes. |
 | `database_migration_user_password.sql` | Adiciona a coluna `password` na tabela `users`. O schema completo já inclui; use só em instalações antigas. |
 | `database_migration_admin_password_fix.sql` | Corrige a senha do usuário admin para `admin123` (hash bcrypt). Use se o admin não conseguir entrar (hash antigo era para outra senha). |
+| `database_migration_billing_due_dates.sql` | Adiciona o vencimento administrativo do acesso e completa o schema de assinaturas Asaas. |
+| `database_migration_manual_payments.sql` | Cria os registros de pagamento e a tabela de idempotência de bônus necessários para solicitações e aprovações manuais. |
 
 ## Dados iniciais
 

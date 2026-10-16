@@ -13,7 +13,8 @@
 -- Este arquivo já inclui o estado final após todas as migrações:
 --   plans, tenants (plan_id, plan), users (password), settings (tenant_name, scraper_api_key),
 --   search_history, leads, sessions, tenant_usage (token_bonus), credit_requests,
---   plan_requests, lead_unlocks, platform_settings (scraper_api_key, credit_price_avulso, saas_company_name).
+--   plan_requests, payments, payment_bonus_grants, lead_unlocks,
+--   platform_settings (scraper_api_key, credit_price_avulso, saas_company_name).
 -- Planos: Básico + Período de teste. Tenant padrão: Nome da empresa SaaS.
 -- Usuário super_admin: admin@atendo.maps (senha: admin123).
 -- Nenhuma migração adicional é necessária para instalação nova.
@@ -40,6 +41,9 @@ CREATE TABLE IF NOT EXISTS `plans` (
   `price_monthly` decimal(10,2) DEFAULT 0.00 COMMENT 'Valor mensal (R$)',
   `period` varchar(20) NOT NULL DEFAULT 'monthly' COMMENT 'monthly | yearly',
   `status` varchar(20) NOT NULL DEFAULT 'active' COMMENT 'active | inactive',
+  `catalog_group` varchar(32) NOT NULL DEFAULT 'current',
+  `included_users` int(11) NOT NULL DEFAULT 1,
+  `addon_user_price_cents` int(10) unsigned NOT NULL DEFAULT 0,
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `updated_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`),
@@ -55,6 +59,7 @@ CREATE TABLE IF NOT EXISTS `tenants` (
   `name` varchar(255) NOT NULL,
   `slug` varchar(100) NOT NULL,
   `plan_id` int(11) DEFAULT 1,
+  `plan_access_until` date DEFAULT NULL,
   `plan` varchar(50) DEFAULT 'basic',
   `status` varchar(20) DEFAULT 'active' COMMENT 'active | suspended',
   `created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
@@ -204,6 +209,48 @@ CREATE TABLE IF NOT EXISTS `plan_requests` (
   KEY `plan_id` (`plan_id`),
   KEY `status` (`status`),
   KEY `created_at` (`created_at`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- -----------------------------------------------------------------------------
+-- Tabela: payments (solicitações e registros de pagamento)
+-- -----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `payments` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `tenant_id` INT NOT NULL,
+  `user_id` INT DEFAULT NULL,
+  `type` VARCHAR(32) NOT NULL,
+  `amount` DECIMAL(12,2) NOT NULL DEFAULT 0.00,
+  `amount_cents` INT UNSIGNED NOT NULL DEFAULT 0,
+  `credits` INT UNSIGNED NOT NULL DEFAULT 0,
+  `plan_id` INT DEFAULT NULL,
+  `status` VARCHAR(20) NOT NULL DEFAULT 'pending',
+  `external_id` VARCHAR(100) DEFAULT NULL,
+  `external_ref` VARCHAR(100) DEFAULT NULL,
+  `receipt_url` TEXT DEFAULT NULL,
+  `capture_method` VARCHAR(40) DEFAULT NULL,
+  `paid_amount` DECIMAL(12,2) DEFAULT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `updated_at` DATETIME DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  KEY `idx_payments_tenant_status` (`tenant_id`, `status`),
+  KEY `idx_payments_external_id` (`external_id`),
+  KEY `idx_payments_plan` (`plan_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+-- -----------------------------------------------------------------------------
+-- Tabela: payment_bonus_grants (idempotência dos bônus por contratação)
+-- -----------------------------------------------------------------------------
+CREATE TABLE IF NOT EXISTS `payment_bonus_grants` (
+  `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
+  `tenant_id` INT NOT NULL,
+  `bonus_code` VARCHAR(64) NOT NULL,
+  `source_type` VARCHAR(32) NOT NULL,
+  `source_id` VARCHAR(100) NOT NULL,
+  `credits` INT UNSIGNED NOT NULL,
+  `created_at` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_payment_bonus_source` (`tenant_id`, `bonus_code`, `source_type`, `source_id`),
+  KEY `idx_payment_bonus_tenant` (`tenant_id`, `created_at`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 -- -----------------------------------------------------------------------------

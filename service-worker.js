@@ -1,10 +1,10 @@
-/* Maps Prospector PWA — versão 66.0.0
+/* Maps Prospector PWA — versão 66.0.3
  * Política: cache apenas da tela offline, manifest e ícones públicos.
  * APIs, sessão, HTML autenticado, pesquisas, créditos, histórico, exportações
  * e webhooks nunca são gravados no Cache Storage deste service worker.
  */
-const PWA_VERSION = '66.0.0';
-const CACHE_NAME = 'maps-prospector-v65.0.0';
+const PWA_VERSION = '66.0.3';
+const CACHE_NAME = 'maps-prospector-v66.0.3';
 const STATIC_ASSETS = [
   '/offline.html',
   '/manifest.webmanifest',

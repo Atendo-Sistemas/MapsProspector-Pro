@@ -732,6 +732,7 @@ try {
         'credits_charged' => $isPlatformTestWithoutBillingTenant ? 0 : $newCount,
         'billing_mode' => $billingMode,
         'search_source' => $searchSource,
+        'source_notice' => 'Dados coletados do Google Maps pelo serviço de prospecção. Confirme as informações antes de entrar em contato.',
         'reused_cached_results' => $reusedSharedHistoryId > 0,
         'reused_history_count' => is_array($shared['history_ids'] ?? null) ? count($shared['history_ids']) : 0,
         'billing_notice' => $isPlatformTestWithoutBillingTenant
@@ -749,9 +750,5 @@ try {
         . ($newCount > 0 ? '+' . $newCount . ' novos leads encontrados.' : 'Nenhum novo lead novo nesta atualização.'));
 } catch (Throwable $error) {
     error_log('maps-pilot.php: ' . $error->getMessage());
-    $profile = strtolower((string) ($currentUser['profile'] ?? ''));
-    $detail = $profile === 'super_admin'
-        ? ' Detalhe técnico: ' . substr((string) $error->getMessage(), 0, 240)
-        : '';
-    mapsPilotError('Não foi possível concluir a busca Maps agora. Tente novamente em alguns instantes.' . $detail, 502);
+    mapsPilotError('Não foi possível concluir a busca Maps agora. Tente novamente em alguns instantes.', 502);
 }

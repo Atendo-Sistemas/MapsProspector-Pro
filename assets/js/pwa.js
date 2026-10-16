@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  const VERSION = '66.0.0';
+  const VERSION = '66.0.3';
   const INSTALL_DISMISS_KEY = `mapsprospector-pwa-install-dismissed-${VERSION}`;
   const INSTALL_DISMISS_DURATION = 14 * 24 * 60 * 60 * 1000;
   let deferredInstallPrompt = null;
