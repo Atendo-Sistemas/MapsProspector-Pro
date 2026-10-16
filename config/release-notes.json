@@ -1,5 +1,16 @@
 [
   {
+    "version": "20261016-password-search-controls-1",
+    "date": "2026-10-16",
+    "title": "Recuperação de senha e permissões individuais de pesquisa",
+    "items": [
+      "Usuários podem solicitar redefinição de senha por e-mail com link temporário e uso único.",
+      "Administradores e supervisores podem controlar a permissão de pesquisa de cada integrante; os endpoints verificam a autorização.",
+      "O painel SaaS exibe as datas de cadastro e validade do acesso das empresas.",
+      "As pesquisas Maps exibem um modal de carregamento e o cadastro opcional armazena o CPF/CNPJ informado."
+    ]
+  },
+  {
     "version": "20261016-manual-billing-schema-1",
     "date": "2026-10-16",
     "title": "Schema para solicitações e aprovações manuais",

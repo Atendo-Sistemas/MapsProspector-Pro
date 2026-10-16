@@ -106,6 +106,26 @@ function getAuthUser() {
     ];
 }
 
+function requireSearchPermission(PDO $db): void {
+    $userId = requireAuth();
+    if (strtolower((string) ($_SESSION['profile'] ?? '')) === 'super_admin') {
+        return;
+    }
+
+    try {
+        $stmt = $db->prepare('SELECT can_search FROM users WHERE id = ? LIMIT 1');
+        $stmt->execute([(int) $userId]);
+        $canSearch = $stmt->fetchColumn();
+    } catch (Throwable $error) {
+        error_log('Search permission check failed: ' . $error->getMessage());
+        jsonError('A permissão de pesquisa não está disponível. Atualize o banco de dados.', 503, 'search_permission_unavailable');
+    }
+
+    if ($canSearch === false || !(bool) $canSearch) {
+        jsonError('Seu administrador desativou a permissão para realizar pesquisas.', 403, 'search_permission_denied');
+    }
+}
+
 /**
  * Exige que o usuário seja super_admin (administrador da plataforma)
  */

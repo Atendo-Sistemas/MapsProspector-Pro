@@ -62,6 +62,9 @@ Use estas migrações **somente** se você já tinha o banco criado por uma vers
 | `database_migration_admin_password_fix.sql` | Corrige a senha do usuário admin para `admin123` (hash bcrypt). Use se o admin não conseguir entrar (hash antigo era para outra senha). |
 | `database_migration_billing_due_dates.sql` | Adiciona o vencimento administrativo do acesso e completa o schema de assinaturas Asaas. |
 | `database_migration_manual_payments.sql` | Cria os registros de pagamento e a tabela de idempotência de bônus necessários para solicitações e aprovações manuais. |
+| `database_migration_password_search_permissions.sql` | Adiciona CNPJ/CPF da empresa, permissão de pesquisa por usuário, token de sessão e tokens para recuperação de senha. |
+
+A rota legada `api/cnpj-search-local.php` exige sessão autenticada com permissão de pesquisa e usa `CNPJ_LOCAL_DB_HOST`, `CNPJ_LOCAL_DB_NAME`, `CNPJ_LOCAL_DB_USER` e `CNPJ_LOCAL_DB_PASSWORD`. Sem essas variáveis, a rota permanece indisponível.
 
 ## Dados iniciais
 

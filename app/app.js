@@ -148,12 +148,19 @@ function isPwaLaunch() {
 function initApp() {
     console.log('DOM loaded, initializing...');
     applyTheme(getStoredTheme());
+    setupEventListeners();
+    const resetToken = new URLSearchParams(window.location.search).get('reset');
+    if (resetToken) {
+        showLogin();
+        openResetPasswordModal(resetToken);
+        console.log('Initialization complete');
+        return;
+    }
     // Evita exibir a home por alguns instantes quando o app foi aberto pelo PWA.
     // A autenticação decide depois entre dashboard e login.
     if (isPwaLaunch() || PRIVATE_APP_MODE) showLogin();
     else showLandingPage();
     checkAuth();
-    setupEventListeners();
     console.log('Initialization complete');
 }
 
@@ -1166,8 +1173,10 @@ function showDashboard() {
         if (apiStatusWidget) apiStatusWidget.classList.toggle('hidden', !isSuperAdmin);
         
         const profile = String(AppState.user.profile).toLowerCase();
-        const canUseResearchModules = !!AppState.user;
-        const canUseLinkedIn = !!AppState.user;
+        const canUseResearchModules = !!AppState.user && (
+            isSuperAdmin || (AppState.user.can_search !== false && Number(AppState.user.can_search) !== 0)
+        );
+        const canUseLinkedIn = canUseResearchModules;
         const canUseCrm = isSuperAdmin || profile === 'admin' || appHasModule('crm');
         const btnCrm = document.getElementById('nav-btn-crm');
         if (btnCrm) btnCrm.classList.toggle('hidden', !canUseCrm);
@@ -1179,6 +1188,9 @@ function showDashboard() {
             item.setAttribute('aria-hidden', canUseLinkedIn ? 'false' : 'true');
             if (!canUseLinkedIn) item.setAttribute('tabindex', '-1');
             else item.removeAttribute('tabindex');
+        });
+        document.querySelectorAll('[data-tab="search"], [data-tab="cnpj-lookup"]').forEach(function(item) {
+            item.classList.toggle('hidden', !canUseResearchModules);
         });
         
         // Todo item com a classe admin-only pertence à administração da
@@ -1514,6 +1526,7 @@ async function handleCadastroSubmit(e) {
     if (e && e.preventDefault) e.preventDefault();
     ensureCadastroLegalConsents();
     const company = (document.getElementById('reg-company')?.value || '').trim();
+    const companyDocument = (document.getElementById('reg-cnpj')?.value || '').replace(/\D/g, '');
     const email = (document.getElementById('reg-email')?.value || '').trim().toLowerCase();
     const phone = (document.getElementById('reg-phone')?.value || '').trim();
     const name = (document.getElementById('reg-name')?.value || '').trim();
@@ -1527,6 +1540,7 @@ async function handleCadastroSubmit(e) {
     if (errorEl) { errorEl.classList.add('hidden'); errorEl.textContent = ''; }
     
     if (!company) { if (errorEl) { errorEl.textContent = 'Nome da empresa é obrigatório.'; errorEl.classList.remove('hidden'); } return; }
+    if (companyDocument && ![11, 14].includes(companyDocument.length)) { if (errorEl) { errorEl.textContent = 'Informe um CPF ou CNPJ válido, ou deixe o campo em branco.'; errorEl.classList.remove('hidden'); } return; }
     if (!email || !email.includes('@')) { if (errorEl) { errorEl.textContent = 'E-mail inválido.'; errorEl.classList.remove('hidden'); } return; }
     if (regPassword.length < 6) { if (errorEl) { errorEl.textContent = 'A senha deve ter no mínimo 6 caracteres.'; errorEl.classList.remove('hidden'); } return; }
     if (regPassword !== regPasswordConfirm) { if (errorEl) { errorEl.textContent = 'As senhas não coincidem.'; errorEl.classList.remove('hidden'); } return; }
@@ -1542,6 +1556,7 @@ async function handleCadastroSubmit(e) {
             headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({ 
                 companyName: company, 
+                companyDocument: companyDocument,
                 adminEmail: email, 
                 adminPhone: phone, 
                 adminName: name || undefined, 
@@ -1650,9 +1665,118 @@ async function handlePerfilSenhaSubmit(e) {
         if (btn) btn.disabled = false;
     }
 }
+
+function setPasswordResetMessage(element, message, isError) {
+    if (!element) return;
+    element.textContent = message;
+    element.className = 'text-sm ' + (isError ? 'text-red-600' : 'text-emerald-600');
+}
+
+function openResetPasswordModal(token) {
+    var modal = document.getElementById('reset-password-modal');
+    var tokenInput = document.getElementById('reset-password-token');
+    var message = document.getElementById('reset-password-message');
+    if (!modal || !tokenInput) return;
+    tokenInput.value = token;
+    if (message) {
+        message.textContent = '';
+        message.classList.add('hidden');
+    }
+    modal.classList.remove('hidden');
+    modal.setAttribute('aria-hidden', 'false');
+}
+
+function closePasswordResetModal(id) {
+    var modal = document.getElementById(id);
+    if (!modal) return;
+    modal.classList.add('hidden');
+    modal.setAttribute('aria-hidden', 'true');
+}
+
+function setupPasswordResetEvents() {
+    var forgotLink = document.getElementById('forgot-password-link');
+    var forgotModal = document.getElementById('forgot-password-modal');
+    var forgotClose = document.getElementById('forgot-password-close');
+    var forgotForm = document.getElementById('forgot-password-form');
+    if (forgotLink && forgotModal) {
+        forgotLink.addEventListener('click', function() {
+            forgotModal.classList.remove('hidden');
+            forgotModal.setAttribute('aria-hidden', 'false');
+            var emailInput = document.getElementById('forgot-password-email');
+            var loginEmail = document.getElementById('login-email');
+            if (emailInput && loginEmail) emailInput.value = loginEmail.value;
+        });
+    }
+    if (forgotClose) forgotClose.addEventListener('click', function() { closePasswordResetModal('forgot-password-modal'); });
+    if (forgotModal) forgotModal.addEventListener('click', function(event) {
+        if (event.target === forgotModal) closePasswordResetModal('forgot-password-modal');
+    });
+    if (forgotForm) forgotForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        var message = document.getElementById('forgot-password-message');
+        var email = document.getElementById('forgot-password-email').value.trim();
+        try {
+            var response = await fetch(API_BASE + 'password-reset.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({ action: 'request', email: email })
+            });
+            var result = await response.json();
+            if (!response.ok || !result.success) throw new Error(result.error || 'Não foi possível solicitar a redefinição.');
+            setPasswordResetMessage(message, result.message, false);
+        } catch (error) {
+            setPasswordResetMessage(message, error.message || 'Erro de conexão. Tente novamente.', true);
+        }
+    });
+
+    var resetClose = document.getElementById('reset-password-close');
+    var resetModal = document.getElementById('reset-password-modal');
+    var resetForm = document.getElementById('reset-password-form');
+    if (resetClose) resetClose.addEventListener('click', function() {
+        closePasswordResetModal('reset-password-modal');
+        var url = new URL(window.location.href);
+        url.searchParams.delete('reset');
+        window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+    });
+    if (resetModal) resetModal.addEventListener('click', function(event) {
+        if (event.target === resetModal) closePasswordResetModal('reset-password-modal');
+    });
+    if (resetForm) resetForm.addEventListener('submit', async function(event) {
+        event.preventDefault();
+        var message = document.getElementById('reset-password-message');
+        var password = document.getElementById('reset-password-value').value;
+        var passwordConfirm = document.getElementById('reset-password-confirm').value;
+        try {
+            var response = await fetch(API_BASE + 'password-reset.php', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                body: JSON.stringify({
+                    action: 'reset',
+                    token: document.getElementById('reset-password-token').value,
+                    password: password,
+                    passwordConfirm: passwordConfirm
+                })
+            });
+            var result = await response.json();
+            if (!response.ok || !result.success) throw new Error(result.error || 'Não foi possível redefinir a senha.');
+            setPasswordResetMessage(message, result.message, false);
+            window.setTimeout(function() {
+                closePasswordResetModal('reset-password-modal');
+                var url = new URL(window.location.href);
+                url.searchParams.delete('reset');
+                window.history.replaceState({}, '', url.pathname + url.search + url.hash);
+                showLogin();
+            }, 1200);
+        } catch (error) {
+            setPasswordResetMessage(message, error.message || 'Erro de conexão. Tente novamente.', true);
+        }
+    });
+}
+
 function setupEventListeners() {
     console.log('Setting up event listeners...');
     setupMobileNavigation();
+    setupPasswordResetEvents();
     
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
@@ -4732,6 +4856,7 @@ function fetchCompaniesList() {
             var tokensLimit = t.tokensLimit != null ? t.tokensLimit : 0;
             var tokensInfo = tokensLimit > 0 ? ' · Tokens: ' + tokensUsed + '/' + tokensLimit : ' · Tokens: ' + tokensUsed + ' (ilimitado)';
             var dueDateLabel = t.planAccessUntil ? String(t.planAccessUntil).split('-').reverse().join('/') : 'Sem vencimento';
+            var createdAtLabel = t.createdAt ? new Date(String(t.createdAt).replace(' ', 'T')).toLocaleString('pt-BR') : 'Não informada';
 
             html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between flex-wrap gap-4">';
             html += '<div class="flex items-center gap-6">';
@@ -4739,7 +4864,7 @@ function fetchCompaniesList() {
             html += '<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
             html += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (t.name || '') + '</h4>';
             html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + tokensInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p>';
-            html += '<p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Vencimento do acesso: ' + dashboardMetricEscape(dueDateLabel) + '</p></div></div>';
+            html += '<p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Cadastro: ' + dashboardMetricEscape(createdAtLabel) + ' · Vencimento do acesso: ' + dashboardMetricEscape(dueDateLabel) + '</p></div></div>';
             html += '<div class="flex items-center gap-2">';
             html += '<button type="button" class="btn-access-tenant px-4 py-2 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-700 hover:bg-emerald-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Acessar</button>';
             html += '<button type="button" class="btn-edit-tenant px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-email="' + (t.email || '').replace(/"/g, '&quot;') + '">Editar</button>';
@@ -7949,6 +8074,10 @@ function showAddTeamMemberModal() {
                         <option value="admin">Administrador (Acesso Total)</option>
                     </select>
                 </div>
+                <label class="flex items-center gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <input type="checkbox" id="team-user-can-search" checked class="h-4 w-4 accent-blue-600">
+                    Permitir que este usuário realize pesquisas
+                </label>
 
                 <p id="team-member-error" class="text-red-600 text-xs font-bold hidden"></p>
 
@@ -7969,6 +8098,7 @@ function showAddTeamMemberModal() {
         const phone = document.getElementById('team-user-phone').value.trim(); // 💡 Captura o telefone
         const password = document.getElementById('team-user-password').value;
         const profile = document.getElementById('team-user-profile').value;
+        const canSearch = document.getElementById('team-user-can-search').checked;
         const errEl = document.getElementById('team-member-error');
         const btn = document.getElementById('btn-save-team-member');
 
@@ -7981,7 +8111,7 @@ function showAddTeamMemberModal() {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
-                body: JSON.stringify({ name, email, phone, password, profile }) // 💡 Envia o telefone no JSON
+                body: JSON.stringify({ name, email, phone, password, profile, can_search: canSearch }) // 💡 Envia o telefone no JSON
             });
 
             let data = null;
@@ -8066,6 +8196,7 @@ async function loadTeamMembers() {
                                 <h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-sm">${user.name || 'Sem nome'}</h4>
                                 <p class="text-xs text-slate-500 dark:text-slate-400 font-medium">${user.email} ${user.phone ? '· ' + user.phone : ''}</p>
                                 <p class="mt-1 text-[10px] text-slate-400 dark:text-slate-500 font-semibold">Cadastro: ${createdAt} · Criado por: ${createdBy}</p>
+                                <p class="mt-1 text-[10px] font-bold ${user.can_search ? 'text-emerald-600' : 'text-amber-600'}">${user.can_search ? 'Pesquisas permitidas' : 'Pesquisas bloqueadas'}</p>
                             </div>
                         </div>
                         <div class="flex items-center gap-3">
@@ -8131,6 +8262,10 @@ function showEditTeamMemberModal(encodedUser) {
                         <option value="admin" ${user.profile === 'admin' ? 'selected' : ''}>Administrador (Acesso Total)</option>
                     </select>
                 </div>
+                <label class="flex items-center gap-3 text-sm font-semibold text-slate-700 dark:text-slate-300">
+                    <input type="checkbox" id="edit-user-can-search" ${user.can_search ? 'checked' : ''} class="h-4 w-4 accent-blue-600">
+                    Permitir que este usuário realize pesquisas
+                </label>
 
                 <p id="edit-member-error" class="text-red-600 text-xs font-bold hidden"></p>
 
@@ -8152,6 +8287,7 @@ function showEditTeamMemberModal(encodedUser) {
         const phone = document.getElementById('edit-user-phone').value.trim();
         const password = document.getElementById('edit-user-password').value;
         const profile = document.getElementById('edit-user-profile').value;
+        const canSearch = document.getElementById('edit-user-can-search').checked;
         const errEl = document.getElementById('edit-member-error');
         const btn = document.getElementById('btn-update-team-member');
 
@@ -8164,7 +8300,7 @@ function showEditTeamMemberModal(encodedUser) {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 credentials: 'include',
-                body: JSON.stringify({ action: 'update', id, name, email, phone, password, profile })
+                body: JSON.stringify({ action: 'update', id, name, email, phone, password, profile, can_search: canSearch })
             });
 
             const data = await res.json();

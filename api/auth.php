@@ -135,7 +135,8 @@ if ($method === 'POST') {
                 'email' => $user['email'],
                 'phone' => $user['phone'],
                 'tenantId' => $tenantId !== null ? (string)$tenantId : '',
-                'profile' => $user['profile']
+                'profile' => $user['profile'],
+                'can_search' => (bool) ($user['can_search'] ?? true)
             ],
             'tenant' => [
                 'id' => $tenantId !== null ? (string)$tenantId : '',
@@ -215,7 +216,8 @@ if ($method === 'POST') {
                         'email' => $user['email'],
                         'phone' => $user['phone'],
                         'tenantId' => $tenantId !== null ? (string)$tenantId : '',
-                        'profile' => $user['profile']
+                        'profile' => $user['profile'],
+                        'can_search' => (bool) ($user['can_search'] ?? true)
                     ],
                     'tenant' => [
                         'id' => $tenantId !== null ? (string)$tenantId : '',

@@ -18,6 +18,7 @@ $userId = requireAuth();
 $authUser = getAuthUser();
 $tenantId = $authUser['tenant_id'] ?? null;
 $db = Database::getInstance()->getConnection();
+requireSearchPermission($db);
 
 $input = json_decode(file_get_contents('php://input'), true);
 if (!is_array($input)) {

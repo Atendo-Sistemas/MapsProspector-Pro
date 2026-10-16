@@ -29,6 +29,7 @@ try {
     }
 
     $user_id = (int) $_SESSION['user_id'];
+    requireSearchPermission($pdo);
     $tenant_id = (int) ($_SESSION['tenant_id'] ?? 0);
     $sessionProfile = strtolower((string) ($_SESSION['profile'] ?? $_SESSION['role'] ?? $_SESSION['user_type'] ?? ''));
     if (!mpTenantHasModule($pdo, $tenant_id, 'cnpj', ['profile' => $sessionProfile])) {

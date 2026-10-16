@@ -223,6 +223,8 @@ function linkedinRepairInvertedFilters(string $location, array $jobTitles): arra
 
 $userId = requireAuth();
 $authUser = getAuthUser();
+$db = Database::getInstance()->getConnection();
+requireSearchPermission($db);
 $profile = strtolower((string) ($authUser['profile'] ?? ''));
 $tenantId = (int) ($authUser['tenant_id'] ?? 0);
 
@@ -281,7 +283,6 @@ if ($tenantId <= 0) {
     $tenantId = 1; // Super admin sem tenant usa o tenant principal da plataforma.
 }
 
-$db = Database::getInstance()->getConnection();
 if (!mpTenantHasModule($db, $tenantId, 'linkedin', $authUser)) {
     jsonError('O módulo de prospecção no LinkedIn não está incluído no plano desta empresa.', 403);
 }

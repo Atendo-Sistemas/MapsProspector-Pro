@@ -64,8 +64,8 @@ function mapsPilotSessionUser(PDO $db): array
     }
 
     $stmt = $userId > 0
-        ? $db->prepare('SELECT id, tenant_id, profile, current_session_token FROM users WHERE id = ? LIMIT 1')
-        : $db->prepare('SELECT id, tenant_id, profile, current_session_token FROM users WHERE email = ? LIMIT 1');
+        ? $db->prepare('SELECT id, tenant_id, profile, can_search, current_session_token FROM users WHERE id = ? LIMIT 1')
+        : $db->prepare('SELECT id, tenant_id, profile, can_search, current_session_token FROM users WHERE email = ? LIMIT 1');
     $stmt->execute([$userId > 0 ? $userId : $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$user) {
@@ -80,6 +80,9 @@ function mapsPilotSessionUser(PDO $db): array
     $allowedProfiles = ['super_admin', 'admin', 'supervisor', 'normal', 'user', 'manager', 'gerente'];
     if (!in_array(strtolower((string) ($user['profile'] ?? '')), $allowedProfiles, true)) {
         mapsPilotError('Seu perfil não possui permissão para usar a busca Maps.', 403);
+    }
+    if (strtolower((string) ($user['profile'] ?? '')) !== 'super_admin' && !(bool) ($user['can_search'] ?? false)) {
+        mapsPilotError('Seu administrador desativou a permissão para realizar pesquisas.', 403);
     }
 
     try {

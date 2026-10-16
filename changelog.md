@@ -30,6 +30,18 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+## [1.4.4] - 2026-10-16
+
+### Recuperação de acesso e permissões
+
+- Adicionada recuperação de senha por e-mail com token temporário e de uso único.
+- Administradores e supervisores podem habilitar ou bloquear pesquisas por integrante; os endpoints de Maps, CNPJ e LinkedIn aplicam essa permissão.
+- O painel SaaS agora exibe a data de cadastro e a validade do acesso de cada empresa.
+- O cadastro armazena o CPF/CNPJ opcional e as pesquisas Maps exibem um modal de carregamento.
+- Adicionada migração para bancos existentes.
+
+---
+
 ## [1.3.0] - 2026-03-26 — **Versão Atual**
 
 ### Persistência de Dados e Otimização de Cache

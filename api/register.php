@@ -17,6 +17,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 
 $input = json_decode(file_get_contents('php://input'), true) ?? [];
 $companyName = sanitizeInput(trim($input['companyName'] ?? $input['name'] ?? ''));
+$companyDocument = preg_replace('/\D+/', '', (string) ($input['companyDocument'] ?? $input['cnpj'] ?? ''));
 $slug = isset($input['slug']) ? sanitizeInput(trim($input['slug'])) : '';
 $adminEmail = trim(strtolower($input['adminEmail'] ?? $input['email'] ?? ''));
 $adminPhone = sanitizeInput(trim($input['adminPhone'] ?? $input['phone'] ?? ''));
@@ -36,6 +37,9 @@ $privacyUrl = 'privacidade.php';
 
 if ($companyName === '') {
     jsonError('Nome da empresa é obrigatório', 400);
+}
+if ($companyDocument !== '' && !in_array(strlen($companyDocument), [11, 14], true)) {
+    jsonError('Informe um CPF ou CNPJ válido, ou deixe o campo em branco.', 400);
 }
 if ($adminPhone === '') {
     jsonError('O número de WhatsApp é obrigatório para o cadastro', 400);
@@ -113,8 +117,8 @@ try {
 
     $db->beginTransaction();
 
-    $stmt = $db->prepare("INSERT INTO tenants (name, slug, plan_id, plan, status) VALUES (?, ?, ?, ?, 'active')");
-    $stmt->execute([$companyName, $slug, $planId, $planSlug]);
+    $stmt = $db->prepare("INSERT INTO tenants (name, cnpj, slug, plan_id, plan, status) VALUES (?, ?, ?, ?, ?, 'active')");
+    $stmt->execute([$companyName, $companyDocument !== '' ? $companyDocument : null, $slug, $planId, $planSlug]);
     $tenantId = (int) $db->lastInsertId();
 
     $passwordHash = password_hash($adminPassword, PASSWORD_DEFAULT);
