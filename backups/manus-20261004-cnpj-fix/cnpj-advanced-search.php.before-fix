@@ -1,0 +1,354 @@
+<?php
+/**
+ * API de Consulta de CNPJ Dinâmica com Cache Local e Fallback para API Externa
+ * Endpoint: /api/cnpj-advanced-search.php
+ */
+
+header('Content-Type: application/json; charset=utf-8');
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
+
+// Garante autenticação
+$userId = requireAuth();
+$authUser = getAuthUser();
+$tenantId = $authUser['tenant_id'] ?? null;
+$db = Database::getInstance()->getConnection();
+
+$input = json_decode(file_get_contents('php://input'), true);
+if (!is_array($input)) {
+    jsonError('Dados inválidos', 400);
+}
+
+$cnpjBusca = preg_replace('/[^0-9]/', '', $input['cnpj'] ?? '');
+
+if (empty($cnpjBusca) || strlen($cnpjBusca) !== 14) {
+    jsonError('CNPJ inválido. Digite os 14 números.', 400);
+}
+
+// 💡 1. CRIA A TABELA DE CACHE AUTOMATICAMENTE (Se não existir)
+try {
+    $db->exec("
+        CREATE TABLE IF NOT EXISTS cnpj_cache (
+            id INT AUTO_INCREMENT PRIMARY KEY,
+            cnpj VARCHAR(14) NOT NULL UNIQUE,
+            data_json LONGTEXT NOT NULL,
+            created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            INDEX idx_cnpj (cnpj)
+        ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+    ");
+} catch (Exception $e) {}
+
+try {
+    $empresasEncontradas = [];
+    $uf = '';
+    $municipio = '';
+    $fromCache = false;
+    $normalizationVersion = 'v65.0';
+
+    $asText = static function ($value): string {
+        if (is_string($value) || is_numeric($value)) {
+            return trim((string)$value);
+        }
+        if (is_array($value)) {
+            foreach (['descricao', 'nome', 'texto', 'sigla', 'id'] as $key) {
+                if (isset($value[$key]) && (is_string($value[$key]) || is_numeric($value[$key]))) {
+                    return trim((string)$value[$key]);
+                }
+            }
+        }
+        return '';
+    };
+
+    $formatPhone = static function ($ddd, $number): string {
+        $ddd = preg_replace('/\D+/', '', (string)$ddd);
+        $number = preg_replace('/\D+/', '', (string)$number);
+        if ($number === '') return '';
+        return $ddd !== '' ? '(' . $ddd . ') ' . $number : $number;
+    };
+
+    $uniqueTexts = static function (array $values): array {
+        $normalized = [];
+        foreach ($values as $value) {
+            $value = trim((string)$value);
+            if ($value !== '') $normalized[$value] = $value;
+        }
+        return array_values($normalized);
+    };
+
+    // 💡 2. BUSCA PRIMEIRO NO CACHE DO BANCO DE DADOS LOCAL
+    $stmtCache = $db->prepare("SELECT data_json FROM cnpj_cache WHERE cnpj = ? LIMIT 1");
+    $stmtCache->execute([$cnpjBusca]);
+    $cachedRow = $stmtCache->fetch(PDO::FETCH_ASSOC);
+
+    if ($cachedRow && !empty($cachedRow['data_json'])) {
+        $decoded = json_decode($cachedRow['data_json'], true);
+        // Entradas anteriores à v65 não têm os campos completos. Elas são
+        // atualizadas uma única vez a partir da fonte cadastrada.
+        if (is_array($decoded) && count($decoded) > 0 && (($decoded[0]['data_version'] ?? '') === $normalizationVersion)) {
+            $empresasEncontradas = $decoded;
+            $fromCache = true;
+        }
+    }
+
+    // 💡 3. SE NÃO ACHOU NO BANCO LOCAL, CONSULTA NA API EXTERNA
+    if (empty($empresasEncontradas)) {
+        $userIp = $_SERVER['HTTP_CLIENT_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
+        if (strpos($userIp, ',') !== false) {
+            $userIp = trim(explode(',', $userIp)[0]);
+        }
+
+        $customCnpjUrl = getPlatformSetting($db, 'cnpj_api_url');
+        if (empty(trim($customCnpjUrl))) {
+            $customCnpjUrl = 'https://publica.cnpj.ws/cnpj/{cnpj}';
+        }
+
+        if (strpos($customCnpjUrl, '{cnpj}') !== false) {
+            $url = str_replace('{cnpj}', $cnpjBusca, $customCnpjUrl);
+        } else {
+            $url = rtrim($customCnpjUrl, '/') . '/' . $cnpjBusca;
+        }
+
+        $ch = curl_init($url);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 15);
+        
+        $headers = [
+            "X-Forwarded-For: " . $userIp,
+            "Client-IP: " . $userIp
+        ];
+
+        $cnpjApiKey = getPlatformSetting($db, 'cnpj_api_key');
+        if (!empty(trim($cnpjApiKey))) {
+            $headers[] = "x-api-key: " . trim($cnpjApiKey);
+        }
+
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+
+        $response = curl_exec($ch);
+        $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+        curl_close($ch);
+
+        if ($httpCode === 200 && $response) {
+            $data = json_decode($response, true);
+            
+            if ($data) {
+                if (isset($data['cnpj_raiz'])) {
+                    // Formato CNPJ.ws
+                    $estab = is_array($data['estabelecimento'] ?? null) ? $data['estabelecimento'] : [];
+                    $state = is_array($estab['estado'] ?? null) ? $estab['estado'] : [];
+                    $city = is_array($estab['cidade'] ?? null) ? $estab['cidade'] : [];
+
+                    $phones = $uniqueTexts([
+                        $formatPhone($estab['ddd1'] ?? '', $estab['telefone1'] ?? ''),
+                        $formatPhone($estab['ddd2'] ?? '', $estab['telefone2'] ?? '')
+                    ]);
+                    $emails = $uniqueTexts([$estab['email'] ?? '', $data['email'] ?? '']);
+
+                    $partners = [];
+                    foreach ((array)($data['socios'] ?? []) as $s) {
+                        if (!is_array($s)) continue;
+                        $partners[] = [
+                            'name' => $asText($s['nome'] ?? ''),
+                            'type' => $asText($s['tipo'] ?? $s['tipo_socio'] ?? ''),
+                            'qualification' => $asText($s['qualificacao_socio'] ?? $s['qualificacao'] ?? ''),
+                            'entry_date' => $asText($s['data_entrada_sociedade'] ?? ''),
+                            'country' => $asText($s['pais'] ?? '')
+                        ];
+                    }
+                    $partners = array_values(array_filter($partners, static fn($partner) => $partner['name'] !== ''));
+
+                    $activities = [];
+                    $principal = is_array($estab['atividade_principal'] ?? null) ? $estab['atividade_principal'] : [];
+                    if (!empty($principal)) {
+                        $activities[] = [
+                            'code' => $asText($principal['id'] ?? $principal['codigo'] ?? ''),
+                            'description' => $asText($principal['descricao'] ?? ''),
+                            'principal' => true
+                        ];
+                    }
+                    foreach ((array)($estab['atividades_secundarias'] ?? []) as $activity) {
+                        if (!is_array($activity)) continue;
+                        $activities[] = [
+                            'code' => $asText($activity['id'] ?? $activity['codigo'] ?? ''),
+                            'description' => $asText($activity['descricao'] ?? ''),
+                            'principal' => false
+                        ];
+                    }
+
+                    $uf = $asText($state['sigla'] ?? '');
+                    $municipio = $asText($city['nome'] ?? '');
+                    $address = trim(implode(', ', array_filter([
+                        trim(($estab['tipo_logradouro'] ?? '') . ' ' . ($estab['logradouro'] ?? '') . ', ' . ($estab['numero'] ?? '')),
+                        $estab['complemento'] ?? '',
+                        $estab['bairro'] ?? '',
+                        trim($municipio . ($uf !== '' ? '/' . $uf : '')),
+                        !empty($estab['cep']) ? 'CEP ' . $estab['cep'] : ''
+                    ])));
+
+                    $empresasEncontradas[] = [
+                        'data_version' => $normalizationVersion,
+                        'cnpj' => $data['cnpj_completo'] ?? $cnpjBusca,
+                        'name' => $data['razao_social'] ?? '',
+                        'tradeName' => $estab['nome_fantasia'] ?? '',
+                        'situation' => $asText($estab['situacao_cadastral'] ?? $data['situacao_cadastral'] ?? '') ?: 'Não informada',
+                        'situation_date' => $asText($estab['data_situacao_cadastral'] ?? ''),
+                        'situation_reason' => $asText($estab['motivo_situacao_cadastral'] ?? ''),
+                        'cnae_codigo' => $activities[0]['code'] ?? '',
+                        'cnae_descricao' => $activities[0]['description'] ?? '',
+                        'activities' => $activities,
+                        'phones' => $phones,
+                        'phone' => implode(' · ', $phones) ?: 'Não informado',
+                        'emails' => $emails,
+                        'email' => implode(' · ', $emails) ?: 'Não informado',
+                        'address' => $address ?: 'Não informado',
+                        'address_data' => [
+                            'street' => trim(($estab['tipo_logradouro'] ?? '') . ' ' . ($estab['logradouro'] ?? '')),
+                            'number' => $asText($estab['numero'] ?? ''),
+                            'complement' => $asText($estab['complemento'] ?? ''),
+                            'district' => $asText($estab['bairro'] ?? ''),
+                            'city' => $municipio,
+                            'state' => $uf,
+                            'zip_code' => $asText($estab['cep'] ?? '')
+                        ],
+                        'capital' => $data['capital_social'] ?? 0,
+                        'porte' => $asText($data['porte'] ?? ''),
+                        'legal_nature' => $asText($data['natureza_juridica'] ?? ''),
+                        'registration_type' => $asText($estab['tipo'] ?? ''),
+                        'data_abertura' => $asText($estab['data_inicio_atividade'] ?? $data['data_inicio_atividade'] ?? ''),
+                        'partners' => $partners,
+                        'socios' => implode(', ', array_column($partners, 'name')) ?: 'Não informado'
+                    ];
+                } elseif (isset($data['cnpj'])) {
+                    // Formato BrasilAPI
+                    $uf = $data['uf'] ?? '';
+                    $municipio = $data['municipio'] ?? '';
+
+                    $phones = $uniqueTexts([
+                        $formatPhone($data['ddd_telefone_1'] ?? '', $data['telefone_1'] ?? ''),
+                        $formatPhone($data['ddd_telefone_2'] ?? '', $data['telefone_2'] ?? '')
+                    ]);
+                    $emails = $uniqueTexts([$data['email'] ?? '']);
+                    $empresasEncontradas[] = [
+                        'data_version' => $normalizationVersion,
+                        'cnpj' => $data['cnpj'],
+                        'name' => $data['razao_social'] ?? '',
+                        'tradeName' => $data['nome_fantasia'] ?? '',
+                        'situation' => $data['descricao_situacao_cadastral'] ?? 'ATIVA',
+                        'cnae_codigo' => $data['cnae_fiscal'] ?? '',
+                        'cnae_descricao' => $data['cnae_fiscal_descricao'] ?? '',
+                        'phones' => $phones,
+                        'phone' => implode(' · ', $phones) ?: 'Não informado',
+                        'emails' => $emails,
+                        'email' => implode(' · ', $emails) ?: 'Não informado',
+                        'address' => trim(($data['logradouro'] ?? '') . ', ' . ($data['numero'] ?? '') . ' - ' . ($data['bairro'] ?? '') . ', ' . ($data['municipio'] ?? '') . '/' . ($data['uf'] ?? '')),
+                        'capital' => $data['capital_social'] ?? 0,
+                        'porte' => $asText($data['porte'] ?? ''),
+                        'legal_nature' => $asText($data['natureza_juridica'] ?? ''),
+                        'registration_type' => $asText($data['descricao_tipo_de_logradouro'] ?? ''),
+                        'data_abertura' => $data['data_inicio_atividade'] ?? '',
+                        'activities' => [[
+                            'code' => $data['cnae_fiscal'] ?? '',
+                            'description' => $data['cnae_fiscal_descricao'] ?? '',
+                            'principal' => true
+                        ]],
+                        'partners' => [],
+                        'socios' => 'Informação não disponível nesta API'
+                    ];
+                }
+
+                // 💡 4. SALVA O RESULTADO NO BANCO LOCAL PARA AS PRÓXIMAS CONSULTAS
+                if (!empty($empresasEncontradas)) {
+                    try {
+                        $stmtSaveCache = $db->prepare("INSERT INTO cnpj_cache (cnpj, data_json) VALUES (?, ?) ON DUPLICATE KEY UPDATE data_json = VALUES(data_json)");
+                        $stmtSaveCache->execute([$cnpjBusca, json_encode($empresasEncontradas)]);
+                    } catch (Exception $eCache) {
+                        error_log("Erro ao salvar cache de CNPJ: " . $eCache->getMessage());
+                    }
+                }
+            }
+        }
+    }
+
+    $validCount = count($empresasEncontradas);
+
+    // 💡 5. GRAVA NO HISTÓRICO DE BUSCAS
+    if ($validCount > 0) {
+        try {
+            $locais = [];
+            if (!empty($uf)) { $locais[] = "UF: " . $uf; }
+            if (!empty($municipio)) { $locais[] = "Cidade: " . $municipio; }
+            $locationText = !empty($locais) ? implode(' | ', $locais) : 'Filtro Geral';
+            $firstCompanyName = trim((string) ($empresasEncontradas[0]['name'] ?? ''));
+            $historyQuery = 'Consulta CNPJ: ' . ($cnpjBusca !== '' ? $cnpjBusca : 'Busca avançada');
+            if ($firstCompanyName !== '') $historyQuery .= ' — ' . $firstCompanyName;
+
+            $db->beginTransaction();
+            $stmtHist = $db->prepare(
+                "INSERT INTO search_history (user_id, query, location, tag, results_count, user_ip, created_at)
+                 VALUES (?, ?, ?, ?, ?, ?, NOW())"
+            );
+            $stmtHist->execute([$userId, $historyQuery, $locationText, 'CNPJ_AVANCADA', $validCount, $userIp]);
+            $historyId = (int) $db->lastInsertId();
+            if ($historyId < 1) throw new RuntimeException('Histórico CNPJ não retornou identificador válido.');
+
+            $leadInsert = $db->prepare(
+                'INSERT INTO leads (search_history_id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude)
+                 VALUES (?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, NULL, NULL)'
+            );
+            foreach ($empresasEncontradas as $empresa) {
+                $leadName = trim((string) ($empresa['name'] ?? ''));
+                if ($leadName === '') $leadName = trim((string) ($empresa['tradeName'] ?? '')) ?: 'Empresa sem razão social';
+                $partnerText = (string) ($empresa['socios'] ?? '');
+                $leadInsert->execute([
+                    $historyId,
+                    mb_substr($leadName, 0, 255),
+                    mb_substr((string) ($empresa['address'] ?? ''), 0, 1000),
+                    mb_substr((string) ($empresa['phone'] ?? ''), 0, 255),
+                    mb_substr((string) ($empresa['email'] ?? ''), 0, 255),
+                    preg_replace('/\\D+/', '', (string) ($empresa['cnpj'] ?? $cnpjBusca)),
+                    mb_substr($partnerText, 0, 2000),
+                    'CNPJ_AVANCADA'
+                ]);
+            }
+            $db->commit();
+        } catch (Throwable $e) {
+            if ($db->inTransaction()) $db->rollBack();
+            error_log("Erro ao salvar histórico/leads CNPJ: " . $e->getMessage());
+        }
+    }
+
+    // 💡 6. DEBITA CRÉDITOS APENAS SE A BUSCA NÃO VEIO DO CACHE
+    if ($tenantId !== null && $validCount > 0 && !$fromCache) {
+        $creditsToDebit = $validCount * 5; 
+        incrementTenantUsage($db, $tenantId, $creditsToDebit);
+    }
+
+    // Retorna saldo de tokens atualizado
+    $tokenUsage = null;
+    if ($tenantId !== null) {
+        $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+        $bonus = getTenantTokenBonus($db, $tenantId, null);
+        $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
+        $used = getTenantTokensUsed($db, $tenantId, null);
+        $tokenUsage = [
+            'used' => $used,
+            'limit' => $effectiveLimit,
+            'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
+        ];
+    }
+
+    echo json_encode([
+        'success' => true,
+        'data' => $empresasEncontradas,
+        'fromCache' => $fromCache,
+        'tokenUsage' => $tokenUsage
+    ]);
+
+} catch (Exception $e) {
+    jsonError('Erro ao consultar a API de CNPJ configurada: ' . $e->getMessage(), 500);
+}

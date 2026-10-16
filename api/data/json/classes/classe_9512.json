@@ -1,0 +1,109 @@
+{
+  "classe": "9512",
+  "grupo": "951",
+  "divisao": "95",
+  "secao": "S",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Reparação e manutenção de equipamentos de comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Comunicacao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos de comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    }
+  ]
+}

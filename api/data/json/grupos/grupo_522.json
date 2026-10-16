@@ -1,0 +1,568 @@
+{
+  "grupo": "522",
+  "divisao": "52",
+  "secao": "H",
+  "total_termos": 56,
+  "termos": [
+    {
+      "termo": "Concessionárias de rodovias, pontes, túneis e serviços relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Concessionárias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concessionárias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Concessionarias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concessionárias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Pontes",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pontes",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Pontes",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pontes",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Túneis",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "túneis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Tuneis",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "túneis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Concessionárias de rodovias, pontes, túneis e serviços relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terminais rodoviários e ferroviários",
+      "codigo_cnae": "5222200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terminais",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terminais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terminais",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terminais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodoviários",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodoviarios",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Ferroviários",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferroviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Ferroviarios",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferroviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terminais rodoviários e ferroviários",
+      "codigo_cnae": "5222200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Estacionamento de veículos",
+      "codigo_cnae": "5223100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Estacionamento",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estacionamento",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Estacionamento",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estacionamento",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Estacionamento de veículos",
+      "codigo_cnae": "5223100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Serviços de apoio ao transporte por táxi, inclusive centrais de chamada",
+      "codigo_cnae": "5229001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Táxi",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "táxi",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Taxi",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "táxi",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Centrais",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "centrais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Centrais",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "centrais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Chamada",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chamada",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Chamada",
+      "codigo_cnae": "5229001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chamada",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Serviços de apoio ao transporte por táxi, inclusive centrais de chamada",
+      "codigo_cnae": "5229001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Serviços de reboque de veículos",
+      "codigo_cnae": "5229002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Reboque",
+      "codigo_cnae": "5229002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reboque",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Reboque",
+      "codigo_cnae": "5229002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reboque",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "5229002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "5229002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Serviços de reboque de veículos",
+      "codigo_cnae": "5229002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Outras atividades auxiliares dos transportes terrestres não especificadas anteriormente",
+      "codigo_cnae": "5229099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Auxiliares",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auxiliares",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Auxiliares",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auxiliares",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Transportes",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transportes",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Transportes",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transportes",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terrestres",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terrestres",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terrestres",
+      "codigo_cnae": "5229099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terrestres",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Outras atividades auxiliares dos transportes terrestres não especificadas anteriormente",
+      "codigo_cnae": "5229099",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    }
+  ]
+}

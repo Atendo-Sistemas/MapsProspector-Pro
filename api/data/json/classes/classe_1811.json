@@ -1,0 +1,389 @@
+{
+  "classe": "1811",
+  "grupo": "181",
+  "divisao": "18",
+  "secao": "C",
+  "total_termos": 38,
+  "termos": [
+    {
+      "termo": "Impressão de jornais",
+      "codigo_cnae": "1811301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão",
+      "codigo_cnae": "1811301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressao",
+      "codigo_cnae": "1811301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Jornais",
+      "codigo_cnae": "1811301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jornais",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Jornais",
+      "codigo_cnae": "1811301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jornais",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão de jornais",
+      "codigo_cnae": "1811301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão de livros, revistas e outras publicações periódicas",
+      "codigo_cnae": "1811302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressao",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Livros",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "livros",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Livros",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "livros",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Revistas",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "revistas",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Revistas",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "revistas",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Publicações",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicações",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Publicacoes",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicações",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Periódicas",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "periódicas",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Periodicas",
+      "codigo_cnae": "1811302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "periódicas",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão de livros, revistas e outras publicações periódicas",
+      "codigo_cnae": "1811302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão de material de uso comercial e outros materiais gráficos, exceto papelaria, embalagens, jornais e livros",
+      "codigo_cnae": "1811303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressao",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Gráficos",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gráficos",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Graficos",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gráficos",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Papelaria",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "papelaria",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Papelaria",
+      "codigo_cnae": "1811303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "papelaria",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão de material de uso comercial e outros materiais gráficos, exceto papelaria, embalagens, jornais e livros",
+      "codigo_cnae": "1811303",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "18"
+    }
+  ]
+}

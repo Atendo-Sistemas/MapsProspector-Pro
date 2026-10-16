@@ -1,0 +1,208 @@
+{
+  "grupo": "263",
+  "divisao": "26",
+  "secao": "C",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamentos transmissores de comunicação",
+      "codigo_cnae": "2631100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2631100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2631100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Transmissores",
+      "codigo_cnae": "2631100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissores",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Transmissores",
+      "codigo_cnae": "2631100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissores",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Comunicação",
+      "codigo_cnae": "2631100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Comunicacao",
+      "codigo_cnae": "2631100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de equipamentos transmissores de comunicação",
+      "codigo_cnae": "2631100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de aparelhos telefônicos e de outros equipamentos de comunicação",
+      "codigo_cnae": "2632900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Telefônicos",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "telefônicos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Telefonicos",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "telefônicos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Comunicação",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Comunicacao",
+      "codigo_cnae": "2632900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de aparelhos telefônicos e de outros equipamentos de comunicação",
+      "codigo_cnae": "2632900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    }
+  ]
+}

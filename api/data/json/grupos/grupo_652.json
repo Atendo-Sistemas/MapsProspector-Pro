@@ -1,0 +1,68 @@
+{
+  "grupo": "652",
+  "divisao": "65",
+  "secao": "K",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Seguros-saúde",
+      "codigo_cnae": "6520100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Seguros",
+      "codigo_cnae": "6520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seguros",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Seguros",
+      "codigo_cnae": "6520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seguros",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Saúde",
+      "codigo_cnae": "6520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saúde",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Saude",
+      "codigo_cnae": "6520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saúde",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Seguros-saúde",
+      "codigo_cnae": "6520100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "65"
+    }
+  ]
+}

@@ -1,0 +1,184 @@
+<?php
+/**
+ * API de Histórico de Buscas (Roteamento Inteligente por Cargo - Dados Completos)
+ * Endpoint: /api/history.php
+ */
+
+ini_set('display_errors', 0);
+error_reporting(0);
+
+// Previne qualquer output antes do JSON
+ob_start();
+
+register_shutdown_function(function() {
+    $error = error_get_last();
+    if ($error !== null && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR])) {
+        ob_clean();
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode([
+            'success' => false,
+            'error' => 'Erro Fatal no PHP: ' . $error['message'] . ' na linha ' . $error['line']
+        ], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+});
+
+try {
+    require_once __DIR__ . '/../config/config.php';
+    require_once __DIR__ . '/../config/database.php';
+    require_once __DIR__ . '/../includes/functions.php';
+
+    ob_clean();
+
+    $userId = requireAuth();
+    $authUser = getAuthUser();
+    $db = Database::getInstance()->getConnection();
+
+    $tenantId = $authUser['tenant_id'] ?? null;
+    $profile = strtolower((string)($authUser['profile'] ?? ''));
+
+    $method = $_SERVER['REQUEST_METHOD'];
+
+    if ($method === 'GET') {
+        $canSeeCompanyHistory = in_array($profile, ['admin', 'supervisor', 'manager', 'gerente'], true);
+        $isSuperAdmin = ($profile === 'super_admin');
+
+        $hasFolderId = false;
+        try {
+            $db->query("SELECT folder_id FROM search_history LIMIT 1");
+            $hasFolderId = true;
+        } catch (Exception $e) {}
+
+        $folderSelect = $hasFolderId ? "sh.folder_id," : "NULL as folder_id,";
+
+        if ($canSeeCompanyHistory && $tenantId !== null) {
+            $stmt = $db->prepare("
+                SELECT sh.id, sh.query, sh.location, sh.tag, {$folderSelect} sh.results_count, sh.user_ip, sh.created_at as timestamp,
+                       u.name as user_name
+                FROM search_history sh
+                INNER JOIN users u ON u.id = sh.user_id
+                WHERE u.tenant_id = ?
+                ORDER BY sh.created_at DESC
+                LIMIT 100
+            ");
+            $stmt->execute([$tenantId]);
+        } elseif ($isSuperAdmin) {
+            $stmt = $db->query("
+                SELECT sh.id, sh.query, sh.location, sh.tag, {$folderSelect} sh.results_count, sh.user_ip, sh.created_at as timestamp,
+                       u.name as user_name
+                FROM search_history sh
+                INNER JOIN users u ON u.id = sh.user_id
+                ORDER BY sh.created_at DESC
+                LIMIT 100
+            ");
+        } else {
+            $stmt = $db->prepare("
+                SELECT sh.id, sh.query, sh.location, sh.tag, {$folderSelect} sh.results_count, sh.user_ip, sh.created_at as timestamp
+                FROM search_history sh
+                WHERE sh.user_id = ?
+                ORDER BY sh.created_at DESC
+                LIMIT 100
+            ");
+            $stmt->execute([$userId]);
+        }
+
+        $history = $stmt->fetchAll(PDO::FETCH_ASSOC);
+
+        foreach ($history as &$item) {
+            $searchHistoryId = (int) $item['id'];
+
+            $stmtLeads = $db->prepare("
+                SELECT id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude
+                FROM leads
+                WHERE search_history_id = ?
+                ORDER BY id ASC
+            ");
+            $stmtLeads->execute([$searchHistoryId]);
+            $rawLeads = $stmtLeads->fetchAll(PDO::FETCH_ASSOC);
+
+            $leads = [];
+            foreach ($rawLeads as $row) {
+                $leadDbId = (int) $row['id'];
+                $mapsLink = $row['maps_uri'] ?? '';
+
+                $leads[] = [
+                    'id' => 'lead-' . $leadDbId,
+                    'name' => $row['name'] ?? '',
+                    'phone' => $row['phone'] ?? '',
+                    'email' => $row['email'] ?? '',
+                    'address' => $row['address'] ?? '',
+                    'website' => $row['website'] ?? '',
+                    'mapsUri' => $mapsLink,
+                    'maps_uri' => $mapsLink,
+                    'cnpj' => $row['cnpj'] ?? '',
+                    'partners' => $row['partners'] ?? '',
+                    'tag' => $row['tag'] ?? '',
+                    'latitude' => $row['latitude'] ?? null,
+                    'longitude' => $row['longitude'] ?? null,
+                    'locked' => false,
+                    'dbId' => $leadDbId,
+                ];
+            }
+
+            $item['leads'] = $leads;
+            $isCnpjHistory = strtoupper((string) ($item['tag'] ?? '')) === 'CNPJ_AVANCADA';
+            $item['companyName'] = $isCnpjHistory && !empty($leads[0]['name']) ? (string) $leads[0]['name'] : '';
+            if ($isCnpjHistory && $item['companyName'] === '') {
+                $cnpjDigits = preg_replace('/\\D+/', '', (string) ($item['query'] ?? ''));
+                if (strlen($cnpjDigits) >= 14) {
+                    try {
+                        $cacheStmt = $db->prepare('SELECT data_json FROM cnpj_cache WHERE cnpj = ? LIMIT 1');
+                        $cacheStmt->execute([substr($cnpjDigits, 0, 14)]);
+                        $cached = json_decode((string) ($cacheStmt->fetchColumn() ?: ''), true);
+                        if (is_array($cached) && isset($cached[0]) && is_array($cached[0])) {
+                            $item['companyName'] = (string) ($cached[0]['name'] ?? '');
+                            $item['tradeName'] = (string) ($cached[0]['tradeName'] ?? '');
+                            $item['cnpj'] = (string) ($cached[0]['cnpj'] ?? substr($cnpjDigits, 0, 14));
+                        }
+                    } catch (Throwable $cacheError) {
+                        error_log('history.php CNPJ cache: ' . $cacheError->getMessage());
+                    }
+                }
+            }
+            $item['id'] = (string) $item['id'];
+            $item['folderId'] = !empty($item['folder_id']) ? (string) $item['folder_id'] : null;
+            $item['folderName'] = $item['folder_name'] ?? null;
+            
+            if (isset($item['user_name'])) {
+                $item['location'] = $item['location'] . " (por " . $item['user_name'] . ")";
+            }
+        }
+
+        jsonSuccess($history);
+        exit;
+
+    } elseif ($method === 'DELETE') {
+        $canClearCompanyHistory = in_array($profile, ['admin', 'supervisor', 'manager', 'gerente'], true);
+
+        if ($canClearCompanyHistory && $tenantId !== null) {
+            $stmt = $db->prepare("
+                DELETE sh FROM search_history sh
+                INNER JOIN users u ON u.id = sh.user_id
+                WHERE u.tenant_id = ?
+            ");
+            $stmt->execute([$tenantId]);
+        } else {
+            $stmt = $db->prepare("DELETE FROM search_history WHERE user_id = ?");
+            $stmt->execute([$userId]);
+        }
+
+        jsonSuccess(null, 'Histórico limpo com sucesso');
+        exit;
+
+    } else {
+        jsonError('Método não permitido', 405);
+        exit;
+    }
+
+} catch (Throwable $e) {
+    ob_clean();
+    error_log("history.php error: " . $e->getMessage());
+    jsonError('Erro no histórico: ' . $e->getMessage(), 500);
+    exit;
+}

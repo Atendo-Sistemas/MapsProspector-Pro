@@ -1,0 +1,128 @@
+{
+  "grupo": "783",
+  "divisao": "78",
+  "secao": "N",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fornecimento e gestão de recursos humanos para terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Gestao",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Humanos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Humanos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento e gestão de recursos humanos para terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    }
+  ]
+}

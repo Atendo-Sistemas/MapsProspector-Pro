@@ -1,0 +1,289 @@
+{
+  "classe": "0111",
+  "grupo": "011",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Cultivo de arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111301",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111301",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de milho",
+      "codigo_cnae": "0111302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111302",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111302",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "0111302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "0111302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de milho",
+      "codigo_cnae": "0111302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111303",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111303",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outros cereais não especificados anteriormente",
+      "codigo_cnae": "0111399",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111399",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111399",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cereais",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cereais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cereais",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cereais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outros cereais não especificados anteriormente",
+      "codigo_cnae": "0111399",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

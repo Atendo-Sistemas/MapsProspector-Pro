@@ -1,0 +1,51 @@
+{
+  "classe": "5232",
+  "total_termos": 3,
+  "termos": [
+    {
+      "termo": "Atividades de agenciamento marítimo",
+      "termo_normalizado": "atividades de agenciamento maritimo",
+      "codigo_cnae": "5232000",
+      "descricao": "Atividades de agenciamento marítimo",
+      "relevancia": 100,
+      "categoria": "523",
+      "secao": "H",
+      "divisao": "52",
+      "grupo": "523",
+      "classe": "5232",
+      "subclasse": "5232000",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "agenciamento",
+      "termo_normalizado": "agenciamento",
+      "codigo_cnae": "5232000",
+      "descricao": "Atividades de agenciamento marítimo",
+      "relevancia": 85,
+      "categoria": "523",
+      "secao": "H",
+      "divisao": "52",
+      "grupo": "523",
+      "classe": "5232",
+      "subclasse": "5232000",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "marítimo",
+      "termo_normalizado": "maritimo",
+      "codigo_cnae": "5232000",
+      "descricao": "Atividades de agenciamento marítimo",
+      "relevancia": 85,
+      "categoria": "523",
+      "secao": "H",
+      "divisao": "52",
+      "grupo": "523",
+      "classe": "5232",
+      "subclasse": "5232000",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "classe": "8711",
+  "grupo": "871",
+  "divisao": "87",
+  "secao": "Q",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Clínicas e residências geriátricas",
+      "codigo_cnae": "8711500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Clínicas",
+      "codigo_cnae": "8711500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "clínicas",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Clinicas",
+      "codigo_cnae": "8711500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "clínicas",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Residências",
+      "codigo_cnae": "8711500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "residências",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Residencias",
+      "codigo_cnae": "8711500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "residências",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Geriátricas",
+      "codigo_cnae": "8711500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geriátricas",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Geriatricas",
+      "codigo_cnae": "8711500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geriátricas",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Clínicas e residências geriátricas",
+      "codigo_cnae": "8711500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "87"
+    }
+  ]
+}

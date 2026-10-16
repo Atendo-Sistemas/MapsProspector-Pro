@@ -1,0 +1,69 @@
+{
+  "classe": "8112",
+  "grupo": "811",
+  "divisao": "81",
+  "secao": "N",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Condomínios prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condominios",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "classe": "1111",
+  "grupo": "111",
+  "divisao": "11",
+  "secao": "C",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Fabricação de aguardente de cana-de-açúcar",
+      "codigo_cnae": "1111901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardente",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardente",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardente",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardente",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de aguardente de cana-de-açúcar",
+      "codigo_cnae": "1111901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de outras aguardentes e bebidas destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardentes",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardentes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardentes",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardentes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "destiladas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "destiladas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de outras aguardentes e bebidas destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    }
+  ]
+}

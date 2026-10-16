@@ -1,0 +1,89 @@
+{
+  "classe": "4724",
+  "grupo": "472",
+  "divisao": "47",
+  "secao": "G",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Comércio varejista de hortifrutigranjeiros",
+      "codigo_cnae": "4724500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4724500",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4724500",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4724500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4724500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Hortifrutigranjeiros",
+      "codigo_cnae": "4724500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hortifrutigranjeiros",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Hortifrutigranjeiros",
+      "codigo_cnae": "4724500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hortifrutigranjeiros",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de hortifrutigranjeiros",
+      "codigo_cnae": "4724500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    }
+  ]
+}

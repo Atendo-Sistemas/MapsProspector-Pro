@@ -1,0 +1,189 @@
+{
+  "classe": "4922",
+  "grupo": "492",
+  "divisao": "49",
+  "secao": "H",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Transporte rodoviário coletivo de passageiros, com itinerário fixo, intermunicipal, exceto em região metropolitana",
+      "codigo_cnae": "4922101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Rodoviário",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviário",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Rodoviario",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviário",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Coletivo",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coletivo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Coletivo",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coletivo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Itinerário",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "itinerário",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Itinerario",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "itinerário",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Fixo",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fixo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Fixo",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fixo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Intermunicipal",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermunicipal",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Intermunicipal",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermunicipal",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Região",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "região",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Regiao",
+      "codigo_cnae": "4922101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "região",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte rodoviário coletivo de passageiros, com itinerário fixo, intermunicipal, exceto em região metropolitana",
+      "codigo_cnae": "4922101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "49"
+    }
+  ]
+}

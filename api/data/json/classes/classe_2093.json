@@ -1,0 +1,89 @@
+{
+  "classe": "2093",
+  "grupo": "209",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de aditivos de uso industrial",
+      "codigo_cnae": "2093200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Aditivos",
+      "codigo_cnae": "2093200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aditivos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Aditivos",
+      "codigo_cnae": "2093200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aditivos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2093200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2093200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2093200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2093200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de aditivos de uso industrial",
+      "codigo_cnae": "2093200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

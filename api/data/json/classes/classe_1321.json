@@ -1,0 +1,89 @@
+{
+  "classe": "1321",
+  "grupo": "132",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Tecelagem de fios de algodão",
+      "codigo_cnae": "1321900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecelagem",
+      "codigo_cnae": "1321900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecelagem",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecelagem",
+      "codigo_cnae": "1321900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecelagem",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1321900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1321900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodão",
+      "codigo_cnae": "1321900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodao",
+      "codigo_cnae": "1321900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecelagem de fios de algodão",
+      "codigo_cnae": "1321900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

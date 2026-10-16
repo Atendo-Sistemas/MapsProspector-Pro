@@ -1,0 +1,289 @@
+{
+  "classe": "8610",
+  "grupo": "861",
+  "divisao": "86",
+  "secao": "Q",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Atividades de atendimento hospitalar, exceto pronto-socorro e unidades para atendimento a urgências",
+      "codigo_cnae": "8610101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalar",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalar",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalar",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalar",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de atendimento hospitalar, exceto pronto-socorro e unidades para atendimento a urgências",
+      "codigo_cnae": "8610101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de atendimento em pronto-socorro e unidades hospitalares para atendimento a urgências",
+      "codigo_cnae": "8610102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalares",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalares",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalares",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalares",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de atendimento em pronto-socorro e unidades hospitalares para atendimento a urgências",
+      "codigo_cnae": "8610102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    }
+  ]
+}

@@ -1,0 +1,388 @@
+{
+  "grupo": "301",
+  "divisao": "30",
+  "secao": "C",
+  "total_termos": 38,
+  "termos": [
+    {
+      "termo": "Construção de embarcações de grande porte",
+      "codigo_cnae": "3011301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Embarcações",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Embarcacoes",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Grande",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grande",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Grande",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grande",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Porte",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "porte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Porte",
+      "codigo_cnae": "3011301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "porte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção de embarcações de grande porte",
+      "codigo_cnae": "3011301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção de embarcações para uso comercial e para usos especiais, exceto de grande porte",
+      "codigo_cnae": "3011302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Embarcações",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Embarcacoes",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Usos",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Usos",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Grande",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grande",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Grande",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grande",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Porte",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "porte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Porte",
+      "codigo_cnae": "3011302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "porte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção de embarcações para uso comercial e para usos especiais, exceto de grande porte",
+      "codigo_cnae": "3011302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção de embarcações para esporte e lazer",
+      "codigo_cnae": "3012100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Embarcações",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Embarcacoes",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Esporte",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esporte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Esporte",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esporte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Lazer",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lazer",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Lazer",
+      "codigo_cnae": "3012100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lazer",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Construção de embarcações para esporte e lazer",
+      "codigo_cnae": "3012100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    }
+  ]
+}

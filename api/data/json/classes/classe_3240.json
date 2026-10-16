@@ -1,0 +1,469 @@
+{
+  "classe": "3240",
+  "grupo": "324",
+  "divisao": "32",
+  "secao": "C",
+  "total_termos": 46,
+  "termos": [
+    {
+      "termo": "Fabricação de jogos eletrônicos",
+      "codigo_cnae": "3240001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Jogos",
+      "codigo_cnae": "3240001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jogos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Jogos",
+      "codigo_cnae": "3240001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jogos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Eletrônicos",
+      "codigo_cnae": "3240001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônicos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Eletronicos",
+      "codigo_cnae": "3240001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônicos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de jogos eletrônicos",
+      "codigo_cnae": "3240001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de mesas de bilhar, de sinuca e acessórios não associada à locação",
+      "codigo_cnae": "3240002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Mesas",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mesas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Mesas",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mesas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bilhar",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bilhar",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bilhar",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bilhar",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Sinuca",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinuca",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Sinuca",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinuca",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Associada",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associada",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Associada",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associada",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "3240002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de mesas de bilhar, de sinuca e acessórios não associada à locação",
+      "codigo_cnae": "3240002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de mesas de bilhar, de sinuca e acessórios associada à locação",
+      "codigo_cnae": "3240003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Mesas",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mesas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Mesas",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mesas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bilhar",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bilhar",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bilhar",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bilhar",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Sinuca",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinuca",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Sinuca",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinuca",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Associada",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associada",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Associada",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associada",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "3240003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de mesas de bilhar, de sinuca e acessórios associada à locação",
+      "codigo_cnae": "3240003",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de outros brinquedos e jogos recreativos não especificados anteriormente",
+      "codigo_cnae": "3240099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Brinquedos",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "brinquedos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Brinquedos",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "brinquedos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Jogos",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jogos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Jogos",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jogos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "3240099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de outros brinquedos e jogos recreativos não especificados anteriormente",
+      "codigo_cnae": "3240099",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    }
+  ]
+}

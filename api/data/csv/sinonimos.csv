@@ -1,0 +1,277 @@
+sinonimo,codigo_cnae,descricao_cnae,termo_original,relevancia
+mineração,0600004,Extração de areia betuminosa e asfalto natural,,70
+lavra,0600004,Extração de areia betuminosa e asfalto natural,,70
+mineração,0729401,Extração de minérios de nióbio e titânio,,70
+lavra,0729401,Extração de minérios de nióbio e titânio,,70
+mineração,0729402,Extração de minério de tungstênio,,70
+lavra,0729402,Extração de minério de tungstênio,,70
+mineração,0729403,Extração de minério de níquel,,70
+lavra,0729403,Extração de minério de níquel,,70
+mineração,0729404,"Extração de minérios de cobre, chumbo, zinco e outros minerais metálicos não-ferrosos não especificados anteriormente",,70
+lavra,0729404,"Extração de minérios de cobre, chumbo, zinco e outros minerais metálicos não-ferrosos não especificados anteriormente",,70
+produção,1622699,Fabricação de outros artefatos e peças de madeira para uso na construção,,70
+manufatura,1622699,Fabricação de outros artefatos e peças de madeira para uso na construção,,70
+produção,1722201,Fabricação de fraldas descartáveis,,70
+manufatura,1722201,Fabricação de fraldas descartáveis,,70
+produção,1722202,Fabricação de absorventes higiênicos,,70
+manufatura,1722202,Fabricação de absorventes higiênicos,,70
+produção,1722299,Fabricação de produtos de papel para uso doméstico e higiênico-sanitário não especificados anteriormente,,70
+manufatura,1722299,Fabricação de produtos de papel para uso doméstico e higiênico-sanitário não especificados anteriormente,,70
+produção,1733801,Fabricação de chapas de fibra de madeira prensada - MDF,,70
+manufatura,1733801,Fabricação de chapas de fibra de madeira prensada - MDF,,70
+produção,1733802,Fabricação de chapas de fibra de madeira prensada - demais,,70
+manufatura,1733802,Fabricação de chapas de fibra de madeira prensada - demais,,70
+produção,2034700,Fabricação de fibras artificiais e sintéticas,,70
+manufatura,2034700,Fabricação de fibras artificiais e sintéticas,,70
+produção,2212900,Fabricação de embalagens de material plástico,,70
+manufatura,2212900,Fabricação de embalagens de material plástico,,70
+produção,2219600,Fabricação de artefatos de material plástico para outros usos,,70
+manufatura,2219600,Fabricação de artefatos de material plástico para outros usos,,70
+produção,2229301,Fabricação de artefatos de borracha para uso industrial,,70
+manufatura,2229301,Fabricação de artefatos de borracha para uso industrial,,70
+produção,2229302,Fabricação de artefatos de plástico para outros usos,,70
+manufatura,2229302,Fabricação de artefatos de plástico para outros usos,,70
+produção,2330399,"Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",,70
+manufatura,2330399,"Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",,70
+produção,2341900,Fabricação de produtos cerâmicos refratários,,70
+manufatura,2341900,Fabricação de produtos cerâmicos refratários,,70
+produção,2342701,Fabricação de azulejos e pisos,,70
+manufatura,2342701,Fabricação de azulejos e pisos,,70
+produção,2342702,"Fabricação de artefatos de cerâmica e barro cozido para uso na construção, exceto azulejos e pisos",,70
+manufatura,2342702,"Fabricação de artefatos de cerâmica e barro cozido para uso na construção, exceto azulejos e pisos",,70
+produção,2349401,Fabricação de material isolante cerâmico,,70
+manufatura,2349401,Fabricação de material isolante cerâmico,,70
+produção,2349402,Fabricação de cerâmica sanitária,,70
+manufatura,2349402,Fabricação de cerâmica sanitária,,70
+produção,2349499,Fabricação de produtos cerâmicos não refratários não especificados anteriormente,,70
+manufatura,2349499,Fabricação de produtos cerâmicos não refratários não especificados anteriormente,,70
+produção,2592600,Fabricação de produtos de trefilados de metal,,70
+manufatura,2592600,Fabricação de produtos de trefilados de metal,,70
+produção,2610806,Fabricação de semicondutores,,70
+manufatura,2610806,Fabricação de semicondutores,,70
+produção,2610899,Fabricação de componentes eletrônicos não especificados anteriormente,,70
+manufatura,2610899,Fabricação de componentes eletrônicos não especificados anteriormente,,70
+produção,2710499,"Fabricação de motores, geradores e transformadores não especificados anteriormente",,70
+manufatura,2710499,"Fabricação de motores, geradores e transformadores não especificados anteriormente",,70
+produção,2732501,Fabricação de fios e cabos isolantes de borracha vulcanizada,,70
+manufatura,2732501,Fabricação de fios e cabos isolantes de borracha vulcanizada,,70
+produção,2732502,Fabricação de fios e cabos isolantes de plástico,,70
+manufatura,2732502,Fabricação de fios e cabos isolantes de plástico,,70
+produção,2930101,"Fabricação de cabines, carrocerias e reboques para caminhões",,70
+manufatura,2930101,"Fabricação de cabines, carrocerias e reboques para caminhões",,70
+produção,2930102,Fabricação de carrocerias para ônibus,,70
+manufatura,2930102,Fabricação de carrocerias para ônibus,,70
+produção,2930103,"Fabricação de cabines, carrocerias e reboques para outros veículos automotores, exceto caminhões e ônibus",,70
+manufatura,2930103,"Fabricação de cabines, carrocerias e reboques para outros veículos automotores, exceto caminhões e ônibus",,70
+produção,2941700,Fabricação de peças e acessórios para o sistema motor de veículos automotores,,70
+manufatura,2941700,Fabricação de peças e acessórios para o sistema motor de veículos automotores,,70
+produção,2942500,Fabricação de peças e acessórios para os sistemas de marcha e transmissão de veículos automotores,,70
+manufatura,2942500,Fabricação de peças e acessórios para os sistemas de marcha e transmissão de veículos automotores,,70
+produção,2943300,Fabricação de peças e acessórios para o sistema de freios de veículos automotores,,70
+manufatura,2943300,Fabricação de peças e acessórios para o sistema de freios de veículos automotores,,70
+produção,2944100,Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores,,70
+manufatura,2944100,Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores,,70
+produção,2945000,"Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",,70
+manufatura,2945000,"Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",,70
+produção,2949201,Fabricação de bancos e estofados para veículos automotores,,70
+manufatura,2949201,Fabricação de bancos e estofados para veículos automotores,,70
+produção,2949299,Fabricação de outras peças e acessórios para veículos automotores não especificados anteriormente,,70
+manufatura,2949299,Fabricação de outras peças e acessórios para veículos automotores não especificados anteriormente,,70
+produção,3042301,"Fabricação de turbinas, motores e outros componentes e peças para aeronaves",,70
+manufatura,3042301,"Fabricação de turbinas, motores e outros componentes e peças para aeronaves",,70
+produção,3042302,"Fabricação de equipamentos e instrumentos aeronáuticos, peças e acessórios",,70
+manufatura,3042302,"Fabricação de equipamentos e instrumentos aeronáuticos, peças e acessórios",,70
+produção,3102101,Fabricação de móveis com predominância de metal - exceto cadeiras e mesas,,70
+manufatura,3102101,Fabricação de móveis com predominância de metal - exceto cadeiras e mesas,,70
+produção,3102102,Fabricação de cadeiras e mesas - exceto cadeiras para veículos,,70
+manufatura,3102102,Fabricação de cadeiras e mesas - exceto cadeiras para veículos,,70
+produção,3103901,"Fabricação de móveis de outros materiais, exceto madeira e metal - exceto cadeiras e mesas",,70
+manufatura,3103901,"Fabricação de móveis de outros materiais, exceto madeira e metal - exceto cadeiras e mesas",,70
+produção,3103902,"Fabricação de cadeiras e mesas de outros materiais, exceto madeira e metal",,70
+manufatura,3103902,"Fabricação de cadeiras e mesas de outros materiais, exceto madeira e metal",,70
+edificação,4120499,Construção de edifícios não especificados anteriormente,,70
+obra,4120499,Construção de edifícios não especificados anteriormente,,70
+venda,4530701,Comércio por atacado de peças e acessórios novos para veículos automotores,,70
+negócio,4530701,Comércio por atacado de peças e acessórios novos para veículos automotores,,70
+venda,4530702,Comércio por atacado de pneumáticos e câmaras-de-ar,,70
+negócio,4530702,Comércio por atacado de pneumáticos e câmaras-de-ar,,70
+venda,4530703,Comércio a varejo de peças e acessórios novos para veículos automotores,,70
+negócio,4530703,Comércio a varejo de peças e acessórios novos para veículos automotores,,70
+venda,4530704,Comércio a varejo de peças e acessórios usados para veículos automotores,,70
+negócio,4530704,Comércio a varejo de peças e acessórios usados para veículos automotores,,70
+venda,4530705,Comércio a varejo de pneumáticos e câmaras-de-ar,,70
+negócio,4530705,Comércio a varejo de pneumáticos e câmaras-de-ar,,70
+venda,4631100,Comércio atacadista de leite e laticínios,,70
+negócio,4631100,Comércio atacadista de leite e laticínios,,70
+venda,4632001,Comércio atacadista de cereais e leguminosas beneficiados,,70
+negócio,4632001,Comércio atacadista de cereais e leguminosas beneficiados,,70
+venda,4632002,"Comércio atacadista de farinhas, amidos e féculas",,70
+negócio,4632002,"Comércio atacadista de farinhas, amidos e féculas",,70
+venda,4632003,"Comércio atacadista de cereais e leguminosas beneficiados, farinhas, amidos e féculas, com atividade de fracionamento e acondicionamento associada",,70
+negócio,4632003,"Comércio atacadista de cereais e leguminosas beneficiados, farinhas, amidos e féculas, com atividade de fracionamento e acondicionamento associada",,70
+venda,4633801,"Comércio atacadista de frutas, verduras, raízes, tubérculos, hortaliças e legumes frescos",,70
+negócio,4633801,"Comércio atacadista de frutas, verduras, raízes, tubérculos, hortaliças e legumes frescos",,70
+venda,4633802,Comércio atacadista de aves vivas e ovos,,70
+negócio,4633802,Comércio atacadista de aves vivas e ovos,,70
+venda,4633803,Comércio atacadista de coelhos e outros pequenos animais vivos para alimentação,,70
+negócio,4633803,Comércio atacadista de coelhos e outros pequenos animais vivos para alimentação,,70
+venda,4634601,Comércio atacadista de carnes bovinas e suínas e derivados,,70
+negócio,4634601,Comércio atacadista de carnes bovinas e suínas e derivados,,70
+venda,4634602,Comércio atacadista de aves abatidas e derivados,,70
+negócio,4634602,Comércio atacadista de aves abatidas e derivados,,70
+venda,4634603,Comércio atacadista de pescados e frutos do mar,,70
+negócio,4634603,Comércio atacadista de pescados e frutos do mar,,70
+venda,4634699,Comércio atacadista de carnes e derivados de outros animais,,70
+negócio,4634699,Comércio atacadista de carnes e derivados de outros animais,,70
+venda,4635401,Comércio atacadista de água mineral,,70
+negócio,4635401,Comércio atacadista de água mineral,,70
+venda,4635402,"Comércio atacadista de cerveja, chope e refrigerante",,70
+negócio,4635402,"Comércio atacadista de cerveja, chope e refrigerante",,70
+venda,4635403,Comércio atacadista de bebidas com atividade de fracionamento e acondicionamento associada,,70
+negócio,4635403,Comércio atacadista de bebidas com atividade de fracionamento e acondicionamento associada,,70
+venda,4635499,Comércio atacadista de bebidas não especificadas anteriormente,,70
+negócio,4635499,Comércio atacadista de bebidas não especificadas anteriormente,,70
+venda,4636201,Comércio atacadista de fumo beneficiado,,70
+negócio,4636201,Comércio atacadista de fumo beneficiado,,70
+venda,4636202,"Comércio atacadista de cigarros, cigarrilhas e charutos",,70
+negócio,4636202,"Comércio atacadista de cigarros, cigarrilhas e charutos",,70
+venda,4637101,"Comércio atacadista de café torrado, moído e solúvel",,70
+negócio,4637101,"Comércio atacadista de café torrado, moído e solúvel",,70
+venda,4637102,Comércio atacadista de açúcar,,70
+negócio,4637102,Comércio atacadista de açúcar,,70
+venda,4637103,Comércio atacadista de óleos e gorduras,,70
+negócio,4637103,Comércio atacadista de óleos e gorduras,,70
+venda,4637104,"Comércio atacadista de pães, bolos, biscoitos e similares",,70
+negócio,4637104,"Comércio atacadista de pães, bolos, biscoitos e similares",,70
+venda,4637105,Comércio atacadista de massas alimentícias,,70
+negócio,4637105,Comércio atacadista de massas alimentícias,,70
+venda,4637106,Comércio atacadista de sorvetes,,70
+negócio,4637106,Comércio atacadista de sorvetes,,70
+venda,4637107,"Comércio atacadista de chocolates, confeitos, balas, bombons e semelhantes",,70
+negócio,4637107,"Comércio atacadista de chocolates, confeitos, balas, bombons e semelhantes",,70
+venda,4637199,Comércio atacadista especializado em outros produtos alimentícios não especificados anteriormente,,70
+negócio,4637199,Comércio atacadista especializado em outros produtos alimentícios não especificados anteriormente,,70
+venda,4639701,Comércio atacadista de produtos alimentícios em geral,,70
+negócio,4639701,Comércio atacadista de produtos alimentícios em geral,,70
+venda,4639702,"Comércio atacadista de produtos alimentícios em geral, com atividade de fracionamento e acondicionamento associada",,70
+negócio,4639702,"Comércio atacadista de produtos alimentícios em geral, com atividade de fracionamento e acondicionamento associada",,70
+venda,4731800,Comércio varejista de combustíveis para veículos automotores,,70
+negócio,4731800,Comércio varejista de combustíveis para veículos automotores,,70
+venda,4732600,Comércio varejista de lubrificantes,,70
+negócio,4732600,Comércio varejista de lubrificantes,,70
+venda,4741500,Comércio varejista de tintas e materiais para pintura,,70
+negócio,4741500,Comércio varejista de tintas e materiais para pintura,,70
+venda,4742300,Comércio varejista de material elétrico,,70
+negócio,4742300,Comércio varejista de material elétrico,,70
+venda,4743100,Comércio varejista de vidros,,70
+negócio,4743100,Comércio varejista de vidros,,70
+venda,4744001,Comércio varejista de ferragens e ferramentas,,70
+negócio,4744001,Comércio varejista de ferragens e ferramentas,,70
+venda,4744002,Comércio varejista de madeira e artefatos,,70
+negócio,4744002,Comércio varejista de madeira e artefatos,,70
+venda,4744003,Comércio varejista de materiais hidráulicos,,70
+negócio,4744003,Comércio varejista de materiais hidráulicos,,70
+venda,4744004,"Comércio varejista de cal, areia, pedra britada, tijolos e telhas",,70
+negócio,4744004,"Comércio varejista de cal, areia, pedra britada, tijolos e telhas",,70
+venda,4744005,Comércio varejista de materiais de construção não especificados anteriormente,,70
+negócio,4744005,Comércio varejista de materiais de construção não especificados anteriormente,,70
+venda,4744006,Comércio varejista de pedras para revestimento,,70
+negócio,4744006,Comércio varejista de pedras para revestimento,,70
+venda,4744099,Comércio varejista de materiais de construção em geral,,70
+negócio,4744099,Comércio varejista de materiais de construção em geral,,70
+venda,4751200,Comércio varejista especializado de equipamentos e suprimentos de informática,,70
+negócio,4751200,Comércio varejista especializado de equipamentos e suprimentos de informática,,70
+venda,4751201,Comércio varejista especializado de equipamentos e suprimentos de informática,,70
+negócio,4751201,Comércio varejista especializado de equipamentos e suprimentos de informática,,70
+venda,4752100,Comércio varejista especializado de equipamentos de telefonia e comunicação,,70
+negócio,4752100,Comércio varejista especializado de equipamentos de telefonia e comunicação,,70
+venda,4753900,Comércio varejista especializado de eletrodomésticos e equipamentos de áudio e vídeo,,70
+negócio,4753900,Comércio varejista especializado de eletrodomésticos e equipamentos de áudio e vídeo,,70
+venda,4754701,Comércio varejista de móveis,,70
+negócio,4754701,Comércio varejista de móveis,,70
+venda,4754702,Comércio varejista de artigos de colchoaria,,70
+negócio,4754702,Comércio varejista de artigos de colchoaria,,70
+venda,4754703,Comércio varejista de artigos de iluminação,,70
+negócio,4754703,Comércio varejista de artigos de iluminação,,70
+venda,4755501,Comércio varejista de tecidos,,70
+negócio,4755501,Comércio varejista de tecidos,,70
+venda,4756300,Comércio varejista especializado de instrumentos musicais e acessórios,,70
+negócio,4756300,Comércio varejista especializado de instrumentos musicais e acessórios,,70
+venda,4757100,"Comércio varejista especializado de peças e acessórios para aparelhos eletroeletrônicos para uso doméstico, exceto informática e comunicação",,70
+negócio,4757100,"Comércio varejista especializado de peças e acessórios para aparelhos eletroeletrônicos para uso doméstico, exceto informática e comunicação",,70
+venda,4759801,"Comércio varejista de artigos de tapeçaria, cortinas e persianas",,70
+negócio,4759801,"Comércio varejista de artigos de tapeçaria, cortinas e persianas",,70
+venda,4759899,Comércio varejista de outros artigos de uso pessoal e doméstico não especificados anteriormente,,70
+negócio,4759899,Comércio varejista de outros artigos de uso pessoal e doméstico não especificados anteriormente,,70
+venda,4761001,Comércio varejista de livros,,70
+negócio,4761001,Comércio varejista de livros,,70
+venda,4761002,Comércio varejista de jornais e revistas,,70
+negócio,4761002,Comércio varejista de jornais e revistas,,70
+venda,4761003,Comércio varejista de artigos de papelaria,,70
+negócio,4761003,Comércio varejista de artigos de papelaria,,70
+venda,4762800,"Comércio varejista de discos, CDs, DVDs e fitas",,70
+negócio,4762800,"Comércio varejista de discos, CDs, DVDs e fitas",,70
+venda,4763601,Comércio varejista de brinquedos e artigos recreativos,,70
+negócio,4763601,Comércio varejista de brinquedos e artigos recreativos,,70
+venda,4763602,Comércio varejista de artigos esportivos,,70
+negócio,4763602,Comércio varejista de artigos esportivos,,70
+venda,4763603,Comércio varejista de bicicletas e triciclos; peças e acessórios,,70
+negócio,4763603,Comércio varejista de bicicletas e triciclos; peças e acessórios,,70
+venda,4763604,"Comércio varejista de artigos de caça, pesca e camping",,70
+negócio,4763604,"Comércio varejista de artigos de caça, pesca e camping",,70
+venda,4763605,Comércio varejista de embarcações e outros veículos recreativos; peças e acessórios,,70
+negócio,4763605,Comércio varejista de embarcações e outros veículos recreativos; peças e acessórios,,70
+venda,4771701,"Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas",,70
+negócio,4771701,"Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas",,70
+venda,4771702,"Comércio varejista de produtos farmacêuticos, com manipulação de fórmulas",,70
+negócio,4771702,"Comércio varejista de produtos farmacêuticos, com manipulação de fórmulas",,70
+venda,4771703,Comércio varejista de produtos farmacêuticos homeopáticos,,70
+negócio,4771703,Comércio varejista de produtos farmacêuticos homeopáticos,,70
+venda,4771704,Comércio varejista de medicamentos veterinários,,70
+negócio,4771704,Comércio varejista de medicamentos veterinários,,70
+venda,4772500,"Comércio varejista de cosméticos, produtos de perfumaria e de higiene pessoal",,70
+negócio,4772500,"Comércio varejista de cosméticos, produtos de perfumaria e de higiene pessoal",,70
+venda,4773300,Comércio varejista de artigos médicos e ortopédicos,,70
+negócio,4773300,Comércio varejista de artigos médicos e ortopédicos,,70
+venda,4774100,Comércio varejista de artigos de óptica,,70
+negócio,4774100,Comércio varejista de artigos de óptica,,70
+venda,4781400,Comércio varejista de artigos do vestuário e acessórios,,70
+negócio,4781400,Comércio varejista de artigos do vestuário e acessórios,,70
+venda,4782201,Comércio varejista de calçados,,70
+negócio,4782201,Comércio varejista de calçados,,70
+venda,4782202,Comércio varejista de artigos de viagem,,70
+negócio,4782202,Comércio varejista de artigos de viagem,,70
+venda,4783101,Comércio varejista de artigos de joalheria,,70
+negócio,4783101,Comércio varejista de artigos de joalheria,,70
+venda,4783102,Comércio varejista de artigos de relojoaria,,70
+negócio,4783102,Comércio varejista de artigos de relojoaria,,70
+venda,4784900,Comércio varejista de gás liqüefeito de petróleo (GLP),,70
+negócio,4784900,Comércio varejista de gás liqüefeito de petróleo (GLP),,70
+venda,4785701,Comércio varejista de antigüidades,,70
+negócio,4785701,Comércio varejista de antigüidades,,70
+venda,4785799,Comércio varejista de outros artigos usados,,70
+negócio,4785799,Comércio varejista de outros artigos usados,,70
+venda,4789001,"Comércio varejista de suvenires, bijuterias e artesanatos",,70
+negócio,4789001,"Comércio varejista de suvenires, bijuterias e artesanatos",,70
+venda,4789002,Comércio varejista de plantas e flores naturais,,70
+negócio,4789002,Comércio varejista de plantas e flores naturais,,70
+venda,4789003,Comércio varejista de objetos de arte,,70
+negócio,4789003,Comércio varejista de objetos de arte,,70
+venda,4789004,Comércio varejista de animais vivos e de artigos e alimentos para animais de estimação,,70
+negócio,4789004,Comércio varejista de animais vivos e de artigos e alimentos para animais de estimação,,70
+venda,4789005,Comércio varejista de produtos saneantes domissanitários,,70
+negócio,4789005,Comércio varejista de produtos saneantes domissanitários,,70
+venda,4789006,Comércio varejista de fogos de artifício e artigos pirotécnicos,,70
+negócio,4789006,Comércio varejista de fogos de artifício e artigos pirotécnicos,,70
+venda,4789007,Comércio varejista de equipamentos para escritório,,70
+negócio,4789007,Comércio varejista de equipamentos para escritório,,70
+venda,4789008,Comércio varejista de artigos fotográficos e para filmagem,,70
+negócio,4789008,Comércio varejista de artigos fotográficos e para filmagem,,70
+venda,4789009,Comércio varejista de armas e munições,,70
+negócio,4789009,Comércio varejista de armas e munições,,70
+venda,4789099,Comércio varejista de outros produtos não especificados anteriormente,,70
+negócio,4789099,Comércio varejista de outros produtos não especificados anteriormente,,70
+frete,5099801,"Transporte aquaviário para travessia de rios, baías e canais",,70
+logística,5099801,"Transporte aquaviário para travessia de rios, baías e canais",,70
+frete,5250805,Operador de transporte multimodal - OTM,,70
+logística,5250805,Operador de transporte multimodal - OTM,,70

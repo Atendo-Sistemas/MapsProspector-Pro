@@ -1,0 +1,389 @@
+{
+  "classe": "4322",
+  "grupo": "432",
+  "divisao": "43",
+  "secao": "F",
+  "total_termos": 38,
+  "termos": [
+    {
+      "termo": "Instalações hidráulicas, sanitárias e de gás",
+      "codigo_cnae": "4322301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacoes",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Hidráulicas",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Hidraulicas",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sanitárias",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sanitárias",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sanitarias",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sanitárias",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Gás",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gás",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Gas",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gás",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações hidráulicas, sanitárias e de gás",
+      "codigo_cnae": "4322301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação e manutenção de sistemas centrais de ar condicionado, de ventilação e refrigeração",
+      "codigo_cnae": "4322302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistemas",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistemas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistemas",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistemas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Centrais",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "centrais",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Centrais",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "centrais",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Ventilação",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ventilação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Ventilacao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ventilação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Refrigeração",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeração",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Refrigeracao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeração",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação e manutenção de sistemas centrais de ar condicionado, de ventilação e refrigeração",
+      "codigo_cnae": "4322302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações de sistema de prevenção contra incêndio",
+      "codigo_cnae": "4322303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacoes",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistema",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistema",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistema",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistema",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Prevenção",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prevenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Prevencao",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prevenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Contra",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contra",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Contra",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contra",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Incêndio",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "incêndio",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Incendio",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "incêndio",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações de sistema de prevenção contra incêndio",
+      "codigo_cnae": "4322303",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    }
+  ]
+}

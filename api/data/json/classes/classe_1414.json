@@ -1,0 +1,109 @@
+{
+  "classe": "1414",
+  "grupo": "141",
+  "divisao": "14",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de acessórios do vestuário, exceto para segurança e proteção",
+      "codigo_cnae": "1414200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Proteção",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "proteção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Protecao",
+      "codigo_cnae": "1414200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "proteção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Fabricação de acessórios do vestuário, exceto para segurança e proteção",
+      "codigo_cnae": "1414200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "14"
+    }
+  ]
+}

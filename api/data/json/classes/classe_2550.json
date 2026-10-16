@@ -1,0 +1,249 @@
+{
+  "classe": "2550",
+  "grupo": "255",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 24,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamento bélico pesado, exceto veículos militares de combate",
+      "codigo_cnae": "2550101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Equipamento",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamento",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Equipamento",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamento",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Bélico",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bélico",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Belico",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bélico",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pesado",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesado",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pesado",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesado",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Militares",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "militares",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Militares",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "militares",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Combate",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combate",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Combate",
+      "codigo_cnae": "2550101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combate",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de equipamento bélico pesado, exceto veículos militares de combate",
+      "codigo_cnae": "2550101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de armas de fogo, outras armas e munições",
+      "codigo_cnae": "2550102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Armas",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Armas",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fogo",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fogo",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fogo",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fogo",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Munições",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "munições",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Municoes",
+      "codigo_cnae": "2550102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "munições",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de armas de fogo, outras armas e munições",
+      "codigo_cnae": "2550102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

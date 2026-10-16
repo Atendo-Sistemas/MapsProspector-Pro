@@ -1,0 +1,109 @@
+{
+  "classe": "2022",
+  "grupo": "202",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de intermediários para plastificantes, resinas e fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Intermediários",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermediários",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Intermediarios",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermediários",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Plastificantes",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plastificantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Plastificantes",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plastificantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de intermediários para plastificantes, resinas e fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

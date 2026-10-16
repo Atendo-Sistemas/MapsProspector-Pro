@@ -1,0 +1,169 @@
+{
+  "classe": "0891",
+  "grupo": "089",
+  "divisao": "08",
+  "secao": "B",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Extração de minerais para fabricação de adubos, fertilizantes e outros produtos químicos",
+      "codigo_cnae": "0891600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Adubos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adubos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Adubos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adubos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Fertilizantes",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fertilizantes",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Fertilizantes",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fertilizantes",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Químicos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Quimicos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de minerais para fabricação de adubos, fertilizantes e outros produtos químicos",
+      "codigo_cnae": "0891600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    }
+  ]
+}

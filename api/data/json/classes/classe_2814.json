@@ -1,0 +1,249 @@
+{
+  "classe": "2814",
+  "grupo": "281",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 24,
+  "termos": [
+    {
+      "termo": "Fabricação de compressores para uso industrial, peças e acessórios",
+      "codigo_cnae": "2814301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de compressores para uso industrial, peças e acessórios",
+      "codigo_cnae": "2814301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de compressores para uso não industrial, peças e acessórios",
+      "codigo_cnae": "2814302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de compressores para uso não industrial, peças e acessórios",
+      "codigo_cnae": "2814302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

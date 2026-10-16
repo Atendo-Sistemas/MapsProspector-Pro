@@ -26,8 +26,8 @@ SET FOREIGN_KEY_CHECKS = 0;
 -- -----------------------------------------------------------------------------
 -- Criar banco
 -- -----------------------------------------------------------------------------
-CREATE DATABASE IF NOT EXISTS `maps` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
-USE `maps`;
+-- CREATE DATABASE IF NOT EXISTS `maps` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+-- USE `maps`;
 
 -- -----------------------------------------------------------------------------
 -- Tabela: plans (planos e limites de tokens) — deve existir antes de tenants

@@ -1,0 +1,836 @@
+{
+  "divisao": "96",
+  "total_termos": 83,
+  "termos": [
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavanderias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavanderias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tinturarias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tinturarias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete de animais domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "toalete",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "toalete",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Domesticos",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete de animais domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros, manicure e pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabeleireiros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabeleireiros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Manicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Manicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros, manicure e pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades de estética e outros serviços de cuidados com a beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Estética",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estética",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Estetica",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estética",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cuidados",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cuidados",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cuidados",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cuidados",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beleza",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beleza",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades de estética e outros serviços de cuidados com a beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Gestão e manutenção de cemitérios",
+      "codigo_cnae": "9603301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "9603301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "manutenção",
+      "codigo_cnae": "9603301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "cemitérios",
+      "codigo_cnae": "9603301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de cremação",
+      "codigo_cnae": "9603302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "cremação",
+      "codigo_cnae": "9603302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de sepultamento",
+      "codigo_cnae": "9603303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "sepultamento",
+      "codigo_cnae": "9603303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de funerárias",
+      "codigo_cnae": "9603304",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603304",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "funerárias",
+      "codigo_cnae": "9603304",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de somatoconservação",
+      "codigo_cnae": "9603305",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603305",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "somatoconservação",
+      "codigo_cnae": "9603305",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Clinicas de estética e similares",
+      "codigo_cnae": "9609201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Clinicas",
+      "codigo_cnae": "9609201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "estética",
+      "codigo_cnae": "9609201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "similares",
+      "codigo_cnae": "9609201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Agências matrimoniais",
+      "codigo_cnae": "9609202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Agências matrimoniais",
+      "codigo_cnae": "9609202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento, higiene e embelezamento de animais",
+      "codigo_cnae": "9609203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento",
+      "codigo_cnae": "9609203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "higiene",
+      "codigo_cnae": "9609203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "embelezamento",
+      "codigo_cnae": "9609203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "alojamento higiene e embelezamento de animais",
+      "codigo_cnae": "9609203",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Exploração de máquinas de serviços pessoais acionadas por moeda",
+      "codigo_cnae": "9609204",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Exploração",
+      "codigo_cnae": "9609204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "máquinas",
+      "codigo_cnae": "9609204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "serviços pessoais acionadas por moeda",
+      "codigo_cnae": "9609204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades de sauna e banhos",
+      "codigo_cnae": "9609205",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9609205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "sauna",
+      "codigo_cnae": "9609205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "banhos",
+      "codigo_cnae": "9609205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de tatuagem e colocação de piercing",
+      "codigo_cnae": "9609206",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9609206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "tatuagem",
+      "codigo_cnae": "9609206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "colocação",
+      "codigo_cnae": "9609206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento de animais domésticos",
+      "codigo_cnae": "9609207",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento",
+      "codigo_cnae": "9609207",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "animais domésticos",
+      "codigo_cnae": "9609207",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Higiene e embelezamento de animais domésticos",
+      "codigo_cnae": "9609208",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Higiene",
+      "codigo_cnae": "9609208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "embelezamento",
+      "codigo_cnae": "9609208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "animais domésticos",
+      "codigo_cnae": "9609208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outras atividades de serviços pessoais não especificadas anteriormente",
+      "codigo_cnae": "9609299",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "9609299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "serviços pessoais não especificadas anteriormente",
+      "codigo_cnae": "9609299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    }
+  ]
+}

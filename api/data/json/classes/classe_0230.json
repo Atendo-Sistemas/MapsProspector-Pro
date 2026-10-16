@@ -1,0 +1,69 @@
+{
+  "classe": "0230",
+  "grupo": "023",
+  "divisao": "02",
+  "secao": "A",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de apoio à produção florestal",
+      "codigo_cnae": "0230600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0230600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0230600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestal",
+      "codigo_cnae": "0230600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestal",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestal",
+      "codigo_cnae": "0230600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestal",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Atividades de apoio à produção florestal",
+      "codigo_cnae": "0230600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    }
+  ]
+}

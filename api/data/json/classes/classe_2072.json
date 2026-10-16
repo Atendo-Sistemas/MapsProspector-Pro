@@ -1,0 +1,69 @@
+{
+  "classe": "2072",
+  "grupo": "207",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de corantes e pigmentos",
+      "codigo_cnae": "2072000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Corantes",
+      "codigo_cnae": "2072000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Corantes",
+      "codigo_cnae": "2072000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Pigmentos",
+      "codigo_cnae": "2072000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pigmentos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Pigmentos",
+      "codigo_cnae": "2072000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pigmentos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de corantes e pigmentos",
+      "codigo_cnae": "2072000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

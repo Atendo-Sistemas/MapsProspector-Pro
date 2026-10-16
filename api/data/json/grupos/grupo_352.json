@@ -1,0 +1,208 @@
+{
+  "grupo": "352",
+  "divisao": "35",
+  "secao": "D",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Produção de gás; processamento de gás natural",
+      "codigo_cnae": "3520401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Gás",
+      "codigo_cnae": "3520401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gás",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Gas",
+      "codigo_cnae": "3520401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gás",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Processamento",
+      "codigo_cnae": "3520401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "processamento",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Processamento",
+      "codigo_cnae": "3520401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "processamento",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Natural",
+      "codigo_cnae": "3520401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "natural",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Natural",
+      "codigo_cnae": "3520401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "natural",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Produção de gás; processamento de gás natural",
+      "codigo_cnae": "3520401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Distribuição de combustíveis gasosos por redes urbanas",
+      "codigo_cnae": "3520402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Distribuição",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "distribuição",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Distribuicao",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "distribuição",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Combustíveis",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combustíveis",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Combustiveis",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combustíveis",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Gasosos",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gasosos",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Gasosos",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gasosos",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Redes",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "redes",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Redes",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "redes",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "3520402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Distribuição de combustíveis gasosos por redes urbanas",
+      "codigo_cnae": "3520402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "D",
+      "divisao": "35"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "classe": "2811",
+  "grupo": "281",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Fabricação de motores e turbinas, peças e acessórios, exceto para aviões e veículos rodoviários",
+      "codigo_cnae": "2811900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Turbinas",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turbinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Turbinas",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turbinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aviões",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aviões",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Avioes",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aviões",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rodoviários",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rodoviarios",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de motores e turbinas, peças e acessórios, exceto para aviões e veículos rodoviários",
+      "codigo_cnae": "2811900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

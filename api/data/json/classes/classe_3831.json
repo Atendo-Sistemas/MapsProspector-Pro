@@ -1,0 +1,189 @@
+{
+  "classe": "3831",
+  "grupo": "383",
+  "divisao": "38",
+  "secao": "E",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Recuperação de sucata de alumínio",
+      "codigo_cnae": "3831901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Recuperação",
+      "codigo_cnae": "3831901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recuperação",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Recuperacao",
+      "codigo_cnae": "3831901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recuperação",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Sucata",
+      "codigo_cnae": "3831901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sucata",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Sucata",
+      "codigo_cnae": "3831901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sucata",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Alumínio",
+      "codigo_cnae": "3831901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Aluminio",
+      "codigo_cnae": "3831901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Recuperação de sucata de alumínio",
+      "codigo_cnae": "3831901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Recuperação de materiais metálicos, exceto alumínio",
+      "codigo_cnae": "3831999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Recuperação",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recuperação",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Recuperacao",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recuperação",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Metálicos",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Metalicos",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Alumínio",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Aluminio",
+      "codigo_cnae": "3831999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Recuperação de materiais metálicos, exceto alumínio",
+      "codigo_cnae": "3831999",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "E",
+      "divisao": "38"
+    }
+  ]
+}

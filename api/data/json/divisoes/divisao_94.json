@@ -1,0 +1,526 @@
+{
+  "divisao": "94",
+  "total_termos": 52,
+  "termos": [
+    {
+      "termo": "Atividades de organizações associativas patronais e empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizações",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizacoes",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Patronais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "patronais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Patronais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "patronais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresariais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresariais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações associativas patronais e empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações associativas profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizações",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizacoes",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissionais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissionais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações associativas profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de fiscalização profissional, exceto auditoria contábil",
+      "codigo_cnae": "9412001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Fiscalização",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiscalização",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Fiscalizacao",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiscalização",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissional",
+      "codigo_cnae": "9412001",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissional",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissional",
+      "codigo_cnae": "9412001",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissional",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Auditoria",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auditoria",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Auditoria",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auditoria",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Contábil",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contábil",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Contabil",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contábil",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de fiscalização profissional, exceto auditoria contábil",
+      "codigo_cnae": "9412001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Outras atividades associativas patronais, empresariais e profissionais não especificadas anteriormente",
+      "codigo_cnae": "9412099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Outras atividades associativas patronais",
+      "codigo_cnae": "9412099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "empresariais",
+      "codigo_cnae": "9412099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "profissionais não especificadas anteriormente",
+      "codigo_cnae": "9412099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "outras atividades associativas patronais empresariais e profissionais não especificadas anteriormente",
+      "codigo_cnae": "9412099",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações sindicais",
+      "codigo_cnae": "9420100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9420100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "organizações sindicais",
+      "codigo_cnae": "9420100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de associações de defesa de direitos sociais",
+      "codigo_cnae": "9430800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9430800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "associações",
+      "codigo_cnae": "9430800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "defesa",
+      "codigo_cnae": "9430800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações religiosas ou filosóficas",
+      "codigo_cnae": "9491000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9491000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "organizações religiosas ou filosóficas",
+      "codigo_cnae": "9491000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações políticas",
+      "codigo_cnae": "9492800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9492800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "organizações políticas",
+      "codigo_cnae": "9492800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de associações de defesa de direitos e benefícios",
+      "codigo_cnae": "9493600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9493600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "associações",
+      "codigo_cnae": "9493600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "defesa",
+      "codigo_cnae": "9493600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades associativas não especificadas anteriormente",
+      "codigo_cnae": "9499500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades associativas não especificadas anteriormente",
+      "codigo_cnae": "9499500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    }
+  ]
+}

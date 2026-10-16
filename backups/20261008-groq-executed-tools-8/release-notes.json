@@ -1,0 +1,250 @@
+[
+  {
+    "version": "20261008-groq-results-maximized-7",
+    "date": "2026-10-08",
+    "title": "Groq otimizada para maximizar resultados",
+    "items": [
+      "A consulta curta agora usa OR real entre até dois cargos, sem transformar a expressão em frase literal.",
+      "A localidade enviada ao mecanismo de busca usa a cidade principal, mantendo a UF no filtro de validação para não perder perfis por variações de escrita.",
+      "Foi preservado o limite mínimo de tokens, a chamada única e o modelo 20B, mantendo a redução aproximada de 91,9% medida no teste."
+    ]
+  },
+  {
+    "version": "20261008-groq-context-optimized-6",
+    "date": "2026-10-08",
+    "title": "Groq com contexto mínimo e maior volume de resultados",
+    "items": [
+      "As pesquisas LinkedIn passaram a usar o modelo openai/gpt-oss-20b, adequado para buscas operacionais e com menor custo de contexto.",
+      "A consulta Browser Search foi estreitada para site:linkedin.com/in/, cargo, localidade e empresa quando informada, reduzindo páginas irrelevantes e o volume de tokens de entrada.",
+      "A resposta continua em uma única chamada, com somente nome, cargo, empresa, localidade e URL do perfil.",
+      "O orçamento de saída ficou dinâmico: aproximadamente 768 tokens para buscas pequenas, até 1536 para limites maiores."
+    ]
+  },
+  {
+    "version": "20261008-groq-token-efficient-5",
+    "date": "2026-10-08",
+    "title": "Pesquisa Groq com consumo reduzido de tokens",
+    "items": [
+      "A pesquisa LinkedIn passou a usar uma única chamada Groq com Browser Search; a segunda chamada de extração foi removida.",
+      "O prompt foi reduzido aos cinco campos essenciais: nome, cargo, empresa, localidade e URL do perfil.",
+      "O orçamento de saída agora é dinâmico, entre 768 e 1536 tokens, conforme a quantidade solicitada.",
+      "A sobreamostragem para encontrar perfis novos caiu de até 3x para 2x, reduzindo o volume consultado sem alterar a deduplicação."
+    ]
+  },
+  {
+    "version": "20261008-linkedin-apify-limit-4",
+    "date": "2026-10-08",
+    "title": "Correção de resultados LinkedIn e diagnóstico da Apify",
+    "items": [
+      "Corrigido o payload do actor para enviar a cidade/região no formato aceito pelo filtro de localidade do LinkedIn, removendo o sufixo automático de país/UF que estava produzindo datasets vazios.",
+      "O cargo informado também é enviado na busca textual, além do filtro estruturado de cargos, aumentando a compatibilidade com títulos como Gerente Comercial.",
+      "A paginação inicial foi explicitada e a rotação entre as chaves Apify permanece ativa.",
+      "Identificado e tratado o status externo da Apify \"free user run limit reached\": a rotação não insiste em tokens da mesma conta, a pesquisa não é apresentada como “nenhum perfil” e o painel recebe uma orientação clara para ativar um plano ou configurar outra conta."
+    ]
+  },
+  {
+    "version": "20261008-linkedin-groq-fallback-2",
+    "date": "2026-10-08",
+    "title": "Pesquisa LinkedIn com contingência e configuração Groq persistente",
+    "items": [
+      "Quando a pesquisa pública principal falha e a sessão autenticada está indisponível, o sistema agora tenta as chaves Apify elegíveis em sequência antes de devolver erro ao usuário.",
+      "A rotação usa somente chaves ativas cadastradas no painel e mantém a cobrança e a deduplicação existentes.",
+      "A causa técnica da falha Groq passa a ser registrada internamente de forma redigida, sem tokens, filtros ou dados pessoais.",
+      "A configuração Groq salva volta a aparecer no painel somente como máscara; a máscara nunca é reenviada como uma nova chave.",
+      "O cache-buster do painel foi atualizado para carregar imediatamente as correções."
+    ]
+  },
+  {
+    "version": "20261008-invalid-response-fix-1",
+    "date": "2026-10-08",
+    "title": "Pesquisa LinkedIn com retorno mais confiável",
+    "items": [
+      "A pesquisa passou a considerar também as evidências retornadas pela consulta pública antes da etapa de normalização, evitando que perfis encontrados sejam descartados por falta de conteúdo textual direto.",
+      "Respostas não JSON, inclusive recusas temporárias do servidor, agora recebem uma mensagem clara no painel em vez de aparecerem apenas como resposta inválida.",
+      "Resultados completos do novo provider podem ser reutilizados pelo cache compartilhado; a mesma empresa não refaz nem cobra novamente a pesquisa já concluída.",
+      "A credencial permanece somente no backend, sem exposição no navegador, nas respostas ou nos logs; backups da publicação foram preservados."
+    ]
+  },
+  {
+    "version": "20261007-groq-linkedin-1",
+    "date": "2026-10-07",
+    "title": "Nova pesquisa profissional com proteção de acesso",
+    "items": [
+      "A pesquisa LinkedIn foi preparada para usar o novo provider de pesquisa pública do backend, mantendo os campos, histórico, deduplicação, armazenamento e créditos existentes.",
+      "A chave da nova integração é cadastrada somente pelo Super Admin em endpoint protegido, armazenada com criptografia e nunca devolvida ao navegador após o salvamento.",
+      "Durante a migração, a aba de pesquisa LinkedIn fica temporariamente oculta e bloqueada para usuários comuns; o Super Admin mantém acesso para configuração e validação.",
+      "As integrações legadas permanecem disponíveis para os módulos que ainda dependem delas, sem alterar Maps, CNPJ ou outros fluxos.",
+      "A versão foi publicada com backup remoto, lint PHP e validação pública dos assets; nenhuma chave ou credencial foi incluída no pacote."
+    ]
+  },
+  {
+    "version": "20261007-reuse-shared-results-1",
+    "date": "2026-10-07",
+    "title": "Reutilização de pesquisas e fallback entre chaves de prospecção",
+    "items": [
+      "A mesma empresa agora recupera pesquisas LinkedIn e Maps já realizadas sem nova cobrança, preservando os leads já encontrados.",
+      "Outra empresa pode reutilizar resultados compartilhados: somente os leads entregues à nova empresa entram no consumo do saldo.",
+      "A pesquisa normal do LinkedIn passou a priorizar o cache histórico; a ação separada de verificar novos leads continua disponível para buscar complementos.",
+      "Quando o actor LinkedIn retorna erro ou zero perfis, o sistema tenta sequencialmente as demais chaves Apify elegíveis e saudáveis antes de acionar a contingência.",
+      "A tela informa a diferença entre leads reutilizados sem cobrança, novos leads e créditos consumidos."
+    ]
+  },
+  {
+    "version": "20261005-maps-location-audit-2",
+    "date": "2026-10-05",
+    "title": "Busca Maps com comparação mais confiável e proteção contra duplicidade",
+    "items": [
+      "A auditoria confirmou que a lista do Google Maps precisa ser carregada até o fim para uma comparação justa; depois da rolagem, o Google Maps e o coletor retornaram a mesma quantidade de resultados no caso analisado.",
+      "A busca passou a auditar cidade e UF dos resultados e informar quando a fonte retorna localidades diferentes do texto solicitado, sem ocultar automaticamente resultados que o próprio Google Maps pode apresentar.",
+      "A reutilização de resultados já armazenados continua separada da coleta complementar, evitando interpretar o total reaproveitado como uma nova coleta.",
+      "Cliques repetidos ou acionamentos simultâneos enquanto uma pesquisa está em andamento agora são bloqueados com uma mensagem clara, evitando requisições duplicadas.",
+      "O teste técnico foi executado sem cobrança e removido após a validação; nenhuma credencial ou detalhe interno é exibido ao cliente."
+    ]
+  },
+  {
+    "version": "20261004-cnpj-complete-3",
+    "date": "2026-10-04",
+    "title": "Consulta CNPJ com dados cadastrais completos",
+    "items": [
+      "A consulta passou a exibir o quadro de sócios e administradores com nome, tipo, qualificação, data de entrada e demais campos fornecidos pela fonte.",
+      "Foram incluídas atividades econômicas principal e secundárias, situação cadastral, motivo, datas, porte, natureza jurídica, capital social, contatos e endereço detalhado.",
+      "Dados complementares de registro, matriz/filial, situações especiais, inscrições, Suframa e regimes tributários são exibidos quando disponíveis.",
+      "O fallback BrasilAPI agora normaliza QSA e CNAEs secundários; o endpoint legado também preserva sócios no cache.",
+      "Caches antigos são revalidados sem nova cobrança; se a fonte estiver indisponível, o último resultado válido permanece disponível.",
+      "A interface não expõe detalhes técnicos sobre a origem interna dos dados.",
+      "O bloco tributário também exibe opções e datas de Simples Nacional e MEI quando retornadas pela fonte."
+    ]
+  },
+  {
+    "version": "20261004-history-unified",
+    "date": "2026-10-04",
+    "title": "Histórico unificado de pesquisas Maps e LinkedIn",
+    "items": [
+      "Pesquisas LinkedIn agora aparecem na aba Histórico de pesquisas, junto com as consultas Maps, ordenadas por data.",
+      "O histórico identifica a origem, a quantidade de leads, os cargos e o status da pesquisa.",
+      "O super administrador visualiza pesquisas de todos os usuários e empresas; administradores e supervisores veem a empresa; usuários comuns veem apenas o próprio histórico.",
+      "O botão Ver perfis abre a pesquisa LinkedIn selecionada sem deixar o histórico geral.",
+      "A aba Pesquisa LinkedIn deixou de carregar um segundo histórico separado."
+    ]
+  },
+  {
+    "version": "20261004-linkedin-fix",
+    "date": "2026-10-04",
+    "title": "Pesquisa LinkedIn mais consistente por cargo e localidade",
+    "items": [
+      "O actor HarvestAPI Full agora recebe empresa, cargos e localidade nos campos apropriados; cargo e localidade deixam de ser repetidos no texto livre da busca.",
+      "Respostas vazias mostram orientação prática para ampliar a região ou revisar os cargos, em vez de parecerem uma falha genérica.",
+      "Falhas técnicas do actor passam a ser diferenciadas de filtros sem correspondência, com mensagem de tentativa novamente e diagnóstico interno preservado.",
+      "A tela mostra um estado de carregamento mais claro durante a consulta e mantém os filtros informados."
+    ]
+  },
+  {
+    "version": "20261004-map-search-ux",
+    "date": "2026-10-04",
+    "title": "Busca Maps com espera mais clara e retorno transparente",
+    "items": [
+      "Durante a pesquisa Maps, uma tela de espera mostra o andamento, o tempo decorrido e orienta a pessoa a não fechar ou atualizar a página até o retorno.",
+      "Quando a fonte retorna menos leads do que a quantidade solicitada, o painel informa claramente o total recebido e sugere usar Buscar novos leads para tentar complementar a pesquisa.",
+      "Os botões da busca Maps usam apenas nomes voltados ao cliente, sem expor detalhes técnicos da infraestrutura."
+    ]
+  },
+  {
+    "version": "20261004-dashboard-metrics",
+    "date": "2026-10-04",
+    "title": "Acesso e painel com informações mais confiáveis",
+    "items": [
+      "O aplicativo instalado agora abre diretamente na área de acesso, enquanto o navegador mantém o botão para voltar à página inicial.",
+      "O cadastro passou a enviar o nome da pessoa e o e-mail de acesso corretamente na confirmação, sem exibir marcadores como {email}.",
+      "O Dashboard passou a mostrar a data de cadastro de cada empresa na lista de empresas monitoradas.",
+      "A lista de empresas monitoradas agora apresenta os leads da empresa e os créditos usados no período, com os totais globais corrigidos.",
+      "O indicador de atividade foi esclarecido: ele mostra o último acesso autenticado registrado após o início do monitoramento, e informa quando ainda não existe histórico.",
+      "A busca Maps mantém a coleta pela VPS, reaproveita resultados já armazenados, busca apenas o complemento necessário e pode trabalhar com até 1.000 leads por execução, conforme o saldo da conta."
+    ]
+  },
+  {
+    "version": "65.0.0",
+    "date": "2026-08-21",
+    "title": "Versão 65.0.0 — Assinaturas, controles e mais visibilidade",
+    "items": [
+      "Os planos mensais passam a usar assinatura recorrente, com opção de cancelamento da próxima cobrança pelo próprio painel e preservação do período já pago.",
+      "A área administrativa de pagamentos foi ampliada com ambiente de operação, ativação do gateway, teste seguro da conexão, endereço de recebimento de confirmações e resumo de assinaturas.",
+      "A opção de pesquisa por IA foi temporariamente retirada do painel. As pesquisas disponíveis continuam sendo Google Maps e LinkedIn.",
+      "A área de equipe agora exige telefone e e-mail e mostra quem criou cada acesso e quando ele foi cadastrado.",
+      "A pesquisa de CNPJ recebeu mais dados de contato, situação cadastral, atividades e quadro societário quando disponíveis na consulta.",
+      "A página inicial passou a mostrar automaticamente quantas empresas usam a plataforma. O painel principal do super administrador agora mostra usuários cadastrados e usuários ativos no momento.",
+      "A aba API de busca foi ajustada para atualizar o monitor de disponibilidade ao ser aberta, sem interromper pesquisas caso o monitor esteja indisponível."
+    ]
+  },
+  {
+    "version": "20260820-64f4d",
+    "date": "2026-08-20",
+    "title": "Versão 64f4d — Auditoria e teste de pagamento",
+    "items": [
+      "Revisado o pacote de atualização e confirmado que os recursos das três revisões anteriores permanecem incluídos.",
+      "Reforçado o isolamento dos menus exclusivos da plataforma: somente o super administrador pode visualizá-los.",
+      "Novo botão para testar com segurança a conexão de pagamento, sem criar cobranças.",
+      "Mantida a correção da tela de acesso e renovado o cache do aplicativo para carregar a versão atualizada."
+    ]
+  },
+  {
+    "version": "20260820-64f4b",
+    "date": "2026-08-20",
+    "title": "Versão 64f4b — Correção de acesso",
+    "items": [
+      "Corrigido o carregamento da tela de acesso após a atualização do aplicativo.",
+      "Quando não houver sessão ativa, o formulário de login volta a ser exibido normalmente, tanto no navegador quanto no aplicativo instalado.",
+      "O bloqueio dos menus exclusivos de administração permanece preservado."
+    ]
+  },
+  {
+    "version": "20260820-64f4a",
+    "date": "2026-08-20",
+    "title": "Versão 64f4a — Pagamentos e recebimento de indicações",
+    "items": [
+      "Corrigida a confirmação da configuração de pagamentos: o sistema agora só informa sucesso após confirmar a leitura do dado salvo.",
+      "No programa de indicações, cada participante pode cadastrar sua chave PIX, escolhendo entre CPF, CNPJ, e-mail, telefone ou chave aleatória.",
+      "A solicitação de saque passa a exigir uma chave PIX cadastrada e preserva os dados informados no momento do pedido para conferência operacional.",
+      "O painel consolidado do super administrador mostra a forma e a chave de recebimento necessárias para processar os saques, sem expor esses dados a outros usuários.",
+      "A atualização inclui o endpoint de configuração utilizado pela interface e renova o cache do aplicativo."
+    ]
+  },
+  {
+    "version": "20260820-64",
+    "date": "2026-08-20",
+    "title": "Versão 64 — Novos leads na hora certa e busca LinkedIn sempre ativa",
+    "items": [
+      "Novo botão \"Verificar novos leads\" nas pesquisas do Maps e do LinkedIn: ele compara o banco de dados com o que você já viu nesta sessão e marca os contatos ainda não exibidos com a tag \"Novo\".",
+      "Ao refazer uma pesquisa, o sistema agora mostra no topo quantos leads novos foram adicionados e permite filtrar a lista para ver somente eles.",
+      "A pesquisa do LinkedIn continua funcionando mesmo quando o serviço primário está sem créditos ou fora do ar: a busca é concluída automaticamente pela plataforma, sem exibir erros.",
+      "A busca da sua plataforma ganhou um nome mais comercial no painel: agora aparece como \"Coleta Atendo\".",
+      "Melhorias gerais de segurança e desempenho."
+    ]
+  },
+  {
+    "version": "20260819-63",
+    "date": "2026-08-19",
+    "title": "Versão 63 — Pagamentos, notificações e mais estabilidade",
+    "items": [
+      "Nova Central de Notificações: você recebe avisos diretos sobre seus créditos e solicitações sem precisar procurar.",
+      "Recarga de créditos extras com pagamento automático: agora é possível comprar créditos adicionais direto pelo sistema, e eles são liberados assim que o pagamento é confirmado.",
+      "Novo menu Versões e Atualizações: mostra a versão atual do sistema e o que mudou em cada atualização, em linguagem simples.",
+      "A pesquisa no Maps ficou disponível para todos os perfis, com cobrança apenas pelos contatos novos que ainda não estavam no seu histórico.",
+      "Ao refazer uma pesquisa, o sistema mostra quais contatos são novos e cobra somente por eles.",
+      "Quando há resultado salvo para os mesmos termos de pesquisa, a consulta fica mais rápida.",
+      "O sistema agora funciona mesmo quando um dos serviços de busca está temporariamente fora do ar, sem exibir erros técnicos na tela.",
+      "Ajustes na tela de Ajuda, com conteúdo organizado por tipo de usuário (admin, supervisor e usuário comum).",
+      "Melhorias gerais de segurança e desempenho em todo o sistema."
+    ]
+  },
+  {
+    "version": "20260818-48",
+    "date": "2026-08-18",
+    "title": "Versão 48 — Pesquisa LinkedIn e dados de contato",
+    "items": [
+      "Nova pesquisa de profissionais no LinkedIn: encontre pessoas por cargo e cidade.",
+      "Ao abrir um contato encontrado no LinkedIn, é possível enriquecer os dados e visualizar telefone e e-mail disponíveis publicamente.",
+      "O histórico da pesquisa no LinkedIn agora guarda o resultado para os mesmos termos, deixando novas consultas mais rápidas.",
+      "Agora os contatos novos aparecem marcados quando você refaz uma pesquisa."
+    ]
+  }
+]

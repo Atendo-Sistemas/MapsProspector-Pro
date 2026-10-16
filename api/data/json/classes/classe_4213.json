@@ -1,0 +1,129 @@
+{
+  "classe": "4213",
+  "grupo": "421",
+  "divisao": "42",
+  "secao": "F",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Obras de urbanização - ruas, praças e calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Urbanização",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Urbanizacao",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ruas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ruas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ruas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ruas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Praças",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "praças",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pracas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "praças",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçadas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Calcadas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçadas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras de urbanização - ruas, praças e calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    }
+  ]
+}

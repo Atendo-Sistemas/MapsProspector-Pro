@@ -1,0 +1,89 @@
+{
+  "classe": "4321",
+  "grupo": "432",
+  "divisao": "43",
+  "secao": "F",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Instalação e manutenção elétrica",
+      "codigo_cnae": "4321500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação e manutenção elétrica",
+      "codigo_cnae": "4321500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    }
+  ]
+}

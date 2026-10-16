@@ -1,0 +1,1442 @@
+codigo_cnae,descricao_cnae,secao,divisao,grupo,classe
+0111301,,A,01,,
+0111302,,A,01,,
+0111303,,A,01,,
+0111399,,A,01,,
+0112101,,A,01,,
+0112102,,A,01,,
+0112199,,A,01,,
+0113000,,A,01,,
+0114800,,A,01,,
+0115600,,A,01,,
+0116401,,A,01,,
+0116402,,A,01,,
+0116403,,A,01,,
+0116499,,A,01,,
+0119901,,A,01,,
+0119902,,A,01,,
+0119903,,A,01,,
+0119904,,A,01,,
+0119905,,A,01,,
+0119906,,A,01,,
+0119907,,A,01,,
+0119908,,A,01,,
+0119909,,A,01,,
+0119999,,A,01,,
+0121101,,A,01,,
+0121102,,A,01,,
+0122900,,A,01,,
+0131800,,A,01,,
+0132600,,A,01,,
+0133401,,A,01,,
+0133402,,A,01,,
+0133403,,A,01,,
+0133404,,A,01,,
+0133405,,A,01,,
+0133406,,A,01,,
+0133407,,A,01,,
+0133408,,A,01,,
+0133409,,A,01,,
+0133410,,A,01,,
+0133411,,A,01,,
+0133499,,A,01,,
+0134200,,A,01,,
+0135100,,A,01,,
+0139301,,A,01,,
+0139302,,A,01,,
+0139303,,A,01,,
+0139304,,A,01,,
+0139305,,A,01,,
+0139306,,A,01,,
+0139399,,A,01,,
+0141501,,A,01,,
+0141502,,A,01,,
+0142300,,A,01,,
+0151201,,A,01,,
+0151202,,A,01,,
+0151203,,A,01,,
+0152101,,A,01,,
+0152102,,A,01,,
+0152103,,A,01,,
+0153901,,A,01,,
+0153902,,A,01,,
+0154700,,A,01,,
+0155501,,A,01,,
+0155502,,A,01,,
+0155503,,A,01,,
+0155504,,A,01,,
+0155505,,A,01,,
+0159801,,A,01,,
+0159802,,A,01,,
+0159803,,A,01,,
+0159804,,A,01,,
+0159899,,A,01,,
+0161001,,A,01,,
+0161002,,A,01,,
+0161003,,A,01,,
+0161099,,A,01,,
+0162801,,A,01,,
+0162802,,A,01,,
+0162803,,A,01,,
+0162899,,A,01,,
+0163600,,A,01,,
+0170900,,A,01,,
+0210101,,A,02,,
+0210102,,A,02,,
+0210103,,A,02,,
+0210104,,A,02,,
+0210105,,A,02,,
+0210106,,A,02,,
+0210107,,A,02,,
+0210108,,A,02,,
+0210109,,A,02,,
+0210199,,A,02,,
+0220901,,A,02,,
+0220902,,A,02,,
+0220903,,A,02,,
+0220904,,A,02,,
+0220905,,A,02,,
+0220906,,A,02,,
+0220999,,A,02,,
+0230600,,A,02,,
+0311601,,A,03,,
+0311602,,A,03,,
+0311603,,A,03,,
+0311604,,A,03,,
+0312401,,A,03,,
+0312402,,A,03,,
+0312403,,A,03,,
+0312404,,A,03,,
+0321301,,A,03,,
+0321302,,A,03,,
+0321303,,A,03,,
+0321304,,A,03,,
+0321305,,A,03,,
+0321399,,A,03,,
+0322101,,A,03,,
+0322102,,A,03,,
+0322103,,A,03,,
+0322104,,A,03,,
+0322105,,A,03,,
+0322106,,A,03,,
+0322107,,A,03,,
+0322199,,A,03,,
+0500301,,B,05,,
+0500302,,B,05,,
+0600001,,B,06,,
+0710301,,B,07,,
+0710302,,B,07,,
+0721901,,B,07,,
+0721902,,B,07,,
+0722701,,B,07,,
+0722702,,B,07,,
+0723501,,B,07,,
+0723502,,B,07,,
+0810001,,B,08,,
+0810002,,B,08,,
+0810003,,B,08,,
+0810004,,B,08,,
+0810005,,B,08,,
+0810006,,B,08,,
+0810007,,B,08,,
+0810008,,B,08,,
+0810009,,B,08,,
+0810010,,B,08,,
+0810099,,B,08,,
+0891600,,B,08,,
+0892401,,B,08,,
+0892402,,B,08,,
+0892403,,B,08,,
+0893200,,B,08,,
+0899101,,B,08,,
+0899102,,B,08,,
+0899103,,B,08,,
+0899199,,B,08,,
+0910600,,B,09,,
+0990401,,B,09,,
+1011201,,C,10,,
+1011202,,C,10,,
+1011203,,C,10,,
+1011204,,C,10,,
+1011205,,C,10,,
+1012101,,C,10,,
+1012102,,C,10,,
+1012103,,C,10,,
+1012104,,C,10,,
+1013901,,C,10,,
+1013902,,C,10,,
+1020101,,C,10,,
+1020102,,C,10,,
+1020103,,C,10,,
+1031700,,C,10,,
+1032501,,C,10,,
+1032599,,C,10,,
+1033301,,C,10,,
+1033302,,C,10,,
+1041400,,C,10,,
+1042200,,C,10,,
+1043100,,C,10,,
+1051100,,C,10,,
+1052000,,C,10,,
+1053800,,C,10,,
+1061901,,C,10,,
+1061902,,C,10,,
+1062700,,C,10,,
+1063500,,C,10,,
+1064300,,C,10,,
+1065101,,C,10,,
+1065102,,C,10,,
+1065103,,C,10,,
+1071600,,C,10,,
+1072401,,C,10,,
+1072402,,C,10,,
+1081301,,C,10,,
+1081302,,C,10,,
+1082100,,C,10,,
+1091100,,C,10,,
+1091101,,C,10,,
+1091102,,C,10,,
+1092900,,C,10,,
+1093701,,C,10,,
+1093702,,C,10,,
+1094500,,C,10,,
+1095300,,C,10,,
+1096100,,C,10,,
+1099601,,C,10,,
+1099602,,C,10,,
+1099603,,C,10,,
+1099604,,C,10,,
+1099605,,C,10,,
+1099606,,C,10,,
+1099607,,C,10,,
+1099699,,C,10,,
+1111901,,C,11,,
+1111902,,C,11,,
+1112700,,C,11,,
+1113501,,C,11,,
+1113502,,C,11,,
+1121601,,C,11,,
+1121602,,C,11,,
+1121603,,C,11,,
+1122401,,C,11,,
+1122402,,C,11,,
+1122403,,C,11,,
+1122404,,C,11,,
+1122499,,C,11,,
+1210700,,C,12,,
+1220401,,C,12,,
+1220402,,C,12,,
+1220403,,C,12,,
+1311100,,C,13,,
+1312000,,C,13,,
+1313800,,C,13,,
+1314600,,C,13,,
+1321900,,C,13,,
+1322700,,C,13,,
+1323500,,C,13,,
+1330800,,C,13,,
+1340501,,C,13,,
+1340502,,C,13,,
+1340599,,C,13,,
+1351100,,C,13,,
+1352900,,C,13,,
+1353700,,C,13,,
+1354500,,C,13,,
+1391600,,C,13,,
+1392300,,C,13,,
+1393400,,C,13,,
+1394200,,C,13,,
+1399101,,C,13,,
+1399102,,C,13,,
+1399103,,C,13,,
+1411801,,C,14,,
+1411802,,C,14,,
+1412601,,C,14,,
+1412602,,C,14,,
+1412603,,C,14,,
+1412699,,C,14,,
+1413401,,C,14,,
+1413402,,C,14,,
+1413499,,C,14,,
+1414200,,C,14,,
+1510600,,C,15,,
+1521100,,C,15,,
+1529700,,C,15,,
+1531901,,C,15,,
+1531902,,C,15,,
+1532700,,C,15,,
+1533500,,C,15,,
+1610201,,C,16,,
+1610202,,C,16,,
+1610203,,C,16,,
+1610204,,C,16,,
+1610205,,C,16,,
+1621800,,C,16,,
+1622601,,C,16,,
+1622602,,C,16,,
+1623400,,C,16,,
+1710900,,C,17,,
+1721400,,C,17,,
+1722200,,C,17,,
+1731100,,C,17,,
+1732000,,C,17,,
+1733800,,C,17,,
+1811301,,C,18,,
+1811302,,C,18,,
+1811303,,C,18,,
+1812100,,C,18,,
+1821100,,C,18,,
+1822901,,C,18,,
+1910100,,C,19,,
+1921700,,C,19,,
+1922501,,C,19,,
+1922502,,C,19,,
+2011800,,C,20,,
+2012600,,C,20,,
+2013400,,C,20,,
+2014200,,C,20,,
+2019301,,C,20,,
+2019399,,C,20,,
+2021500,,C,20,,
+2022300,,C,20,,
+2029100,,C,20,,
+2031200,,C,20,,
+2032100,,C,20,,
+2033900,,C,20,,
+2040101,,C,20,,
+2040102,,C,20,,
+2040103,,C,20,,
+2040199,,C,20,,
+2051700,,C,20,,
+2052500,,C,20,,
+2061400,,C,20,,
+2062200,,C,20,,
+2063100,,C,20,,
+2071100,,C,20,,
+2072000,,C,20,,
+2091600,,C,20,,
+2092401,,C,20,,
+2092402,,C,20,,
+2092403,,C,20,,
+2093200,,C,20,,
+2094100,,C,20,,
+2099199,,C,20,,
+2110600,,C,21,,
+2121101,,C,21,,
+2121102,,C,21,,
+2121103,,C,21,,
+2122000,,C,21,,
+2123800,,C,21,,
+2211100,,C,22,,
+2212800,,C,22,,
+2219500,,C,22,,
+2221800,,C,22,,
+2222600,,C,22,,
+2223400,,C,22,,
+2229300,,C,22,,
+2311700,,C,23,,
+2312500,,C,23,,
+2319200,,C,23,,
+2320600,,C,23,,
+2330301,,C,23,,
+2330302,,C,23,,
+2330303,,C,23,,
+2330304,,C,23,,
+2330305,,C,23,,
+2411300,,C,24,,
+2412100,,C,24,,
+2421100,,C,24,,
+2422901,,C,24,,
+2422902,,C,24,,
+2423701,,C,24,,
+2423702,,C,24,,
+2431800,,C,24,,
+2439300,,C,24,,
+2441501,,C,24,,
+2441502,,C,24,,
+2442300,,C,24,,
+2443100,,C,24,,
+2449101,,C,24,,
+2449102,,C,24,,
+2449199,,C,24,,
+2511000,,C,25,,
+2512800,,C,25,,
+2513600,,C,25,,
+2521700,,C,25,,
+2522500,,C,25,,
+2531401,,C,25,,
+2531402,,C,25,,
+2532201,,C,25,,
+2532202,,C,25,,
+2539000,,C,25,,
+2541100,,C,25,,
+2542000,,C,25,,
+2543800,,C,25,,
+2550101,,C,25,,
+2550102,,C,25,,
+2591800,,C,25,,
+2592601,,C,25,,
+2592602,,C,25,,
+2593400,,C,25,,
+2599301,,C,25,,
+2599302,,C,25,,
+2599399,,C,25,,
+2610800,,C,26,,
+2621300,,C,26,,
+2622100,,C,26,,
+2631100,,C,26,,
+2632900,,C,26,,
+2640000,,C,26,,
+2651500,,C,26,,
+2652300,,C,26,,
+2660400,,C,26,,
+2670101,,C,26,,
+2670102,,C,26,,
+2680900,,C,26,,
+2710401,,C,27,,
+2710402,,C,27,,
+2710403,,C,27,,
+2721000,,C,27,,
+2722801,,C,27,,
+2722802,,C,27,,
+2731700,,C,27,,
+2732500,,C,27,,
+2733300,,C,27,,
+2740601,,C,27,,
+2740602,,C,27,,
+2751100,,C,27,,
+2811900,,C,28,,
+2812700,,C,28,,
+2813500,,C,28,,
+2814301,,C,28,,
+2814302,,C,28,,
+2815101,,C,28,,
+2815102,,C,28,,
+2821601,,C,28,,
+2821602,,C,28,,
+2822401,,C,28,,
+2822402,,C,28,,
+2823200,,C,28,,
+2824101,,C,28,,
+2824102,,C,28,,
+2825900,,C,28,,
+2829101,,C,28,,
+2829199,,C,28,,
+2831300,,C,28,,
+2832100,,C,28,,
+2833000,,C,28,,
+2840200,,C,28,,
+2851800,,C,28,,
+2852600,,C,28,,
+2853400,,C,28,,
+2854200,,C,28,,
+2859300,,C,28,,
+2910701,,C,29,,
+2910702,,C,29,,
+2910703,,C,29,,
+2920401,,C,29,,
+2920402,,C,29,,
+3011301,,C,30,,
+3011302,,C,30,,
+3012100,,C,30,,
+3031800,,C,30,,
+3041500,,C,30,,
+3042300,,C,30,,
+3050400,,C,30,,
+3091100,,C,30,,
+3091101,,C,30,,
+3091102,,C,30,,
+3092000,,C,30,,
+3099700,,C,30,,
+3101200,,C,31,,
+3102100,,C,31,,
+3103900,,C,31,,
+3104700,,C,31,,
+3211601,,C,32,,
+3211602,,C,32,,
+3211603,,C,32,,
+3212400,,C,32,,
+3220500,,C,32,,
+3230200,,C,32,,
+3240001,,C,32,,
+3240002,,C,32,,
+3240003,,C,32,,
+3240099,,C,32,,
+3250701,,C,32,,
+3250702,,C,32,,
+3250703,,C,32,,
+3311200,,C,33,,
+3312102,,C,33,,
+3312103,,C,33,,
+3313901,,C,33,,
+3314701,,C,33,,
+3511500,,D,35,,
+3511501,,D,35,,
+3512300,,D,35,,
+3513100,,D,35,,
+3514000,,D,35,,
+3520401,,D,35,,
+3520402,,D,35,,
+3530100,,D,35,,
+3600601,,E,36,,
+3701100,,E,37,,
+3811400,,E,38,,
+3812200,,E,38,,
+3821100,,E,38,,
+3822000,,E,38,,
+3831901,,E,38,,
+3831999,,E,38,,
+3832700,,E,38,,
+3839401,,E,38,,
+3839499,,E,38,,
+3900500,,E,39,,
+4110700,,F,41,,
+4120400,,F,41,,
+4211101,,F,42,,
+4211102,,F,42,,
+4212000,,F,42,,
+4213800,,F,42,,
+4221901,,F,42,,
+4311801,,F,43,,
+4311802,,F,43,,
+4312600,,F,43,,
+4313400,,F,43,,
+4319300,,F,43,,
+4321500,,F,43,,
+4322301,,F,43,,
+4322302,,F,43,,
+4322303,,F,43,,
+4329101,,F,43,,
+4329102,,F,43,,
+4329103,,F,43,,
+4329104,,F,43,,
+4329105,,F,43,,
+4330401,,F,43,,
+4330402,,F,43,,
+4330403,,F,43,,
+4330404,,F,43,,
+4511101,,G,45,,
+4511102,,G,45,,
+4511103,,G,45,,
+4511104,,G,45,,
+4511105,,G,45,,
+4511106,,G,45,,
+4611700,,G,46,,
+4612500,,G,46,,
+4613300,,G,46,,
+4614100,,G,46,,
+4615000,,G,46,,
+4616800,,G,46,,
+4617600,,G,46,,
+4618401,,G,46,,
+4618402,,G,46,,
+4618403,,G,46,,
+4618499,,G,46,,
+4619200,,G,46,,
+4621400,,G,46,,
+4622200,,G,46,,
+4623101,,G,46,,
+4623102,,G,46,,
+4623103,,G,46,,
+4623104,,G,46,,
+4623105,,G,46,,
+4623106,,G,46,,
+4623107,,G,46,,
+4623108,,G,46,,
+4623109,,G,46,,
+4623199,,G,46,,
+4711301,,G,47,,
+4711302,,G,47,,
+4712100,,G,47,,
+4713001,,G,47,,
+4713002,,G,47,,
+4713003,,G,47,,
+4721101,,G,47,,
+4721102,,G,47,,
+4721103,,G,47,,
+4721104,,G,47,,
+4722901,,G,47,,
+4722902,,G,47,,
+4723700,,G,47,,
+4724500,,G,47,,
+4729601,,G,47,,
+4729602,,G,47,,
+4729699,,G,47,,
+4911600,,H,49,,
+4912401,,H,49,,
+4912402,,H,49,,
+4912403,,H,49,,
+4921301,,H,49,,
+4921302,,H,49,,
+4922101,,H,49,,
+4923001,,H,49,,
+4923002,,H,49,,
+5011401,,H,50,,
+5011402,,H,50,,
+5012201,,H,50,,
+5012202,,H,50,,
+5111100,,H,51,,
+5112901,,H,51,,
+5112999,,H,51,,
+5120000,,H,51,,
+5211701,,H,52,,
+5211702,,H,52,,
+5211799,,H,52,,
+5212500,,H,52,,
+5221400,,H,52,,
+5222200,,H,52,,
+5223100,,H,52,,
+5229001,,H,52,,
+5229002,,H,52,,
+5229099,,H,52,,
+5310501,,H,53,,
+5310502,,H,53,,
+5510801,,I,55,,
+5510802,,I,55,,
+5510803,,I,55,,
+5590601,,I,55,,
+5611201,,I,56,,
+5611202,,I,56,,
+5612100,,I,56,,
+5620101,,I,56,,
+5811500,,J,58,,
+5812301,,J,58,,
+5812302,,J,58,,
+5813100,,J,58,,
+5819100,,J,58,,
+5911101,,J,59,,
+5911102,,J,59,,
+5912001,,J,59,,
+5912002,,J,59,,
+5913800,,J,59,,
+5914700,,J,59,,
+6010100,,J,60,,
+6021700,,J,60,,
+6022501,,J,60,,
+6022502,,J,60,,
+6110801,,J,61,,
+6110802,,J,61,,
+6110803,,J,61,,
+6120501,,J,61,,
+6120502,,J,61,,
+6201500,,J,62,,
+6201501,,J,62,,
+6201502,,J,62,,
+6202300,,J,62,,
+6203100,,J,62,,
+6204000,,J,62,,
+6311900,,J,63,,
+6312000,,J,63,,
+6319400,,J,63,,
+6391700,,J,63,,
+6399200,,J,63,,
+6410700,,K,64,,
+6421200,,K,64,,
+6422100,,K,64,,
+6423900,,K,64,,
+6431000,,K,64,,
+6432800,,K,64,,
+6433600,,K,64,,
+6434400,,K,64,,
+6435201,,K,64,,
+6435202,,K,64,,
+6511101,,K,65,,
+6511102,,K,65,,
+6512000,,K,65,,
+6520100,,K,65,,
+6611801,,K,66,,
+6611802,,K,66,,
+6611803,,K,66,,
+6611804,,K,66,,
+6612600,,K,66,,
+6810201,,L,68,,
+6810202,,L,68,,
+6810203,,L,68,,
+6911701,,M,69,,
+6911702,,M,69,,
+6911703,,M,69,,
+7010600,,M,70,,
+7020400,,M,70,,
+7111100,,M,71,,
+7112000,,M,71,,
+7119701,,M,71,,
+7119702,,M,71,,
+7119703,,M,71,,
+7119704,,M,71,,
+7120100,,M,71,,
+7210000,,M,72,,
+7220700,,M,72,,
+7311400,,M,73,,
+7312200,,M,73,,
+7320300,,M,73,,
+7410201,,M,74,,
+7410202,,M,74,,
+7410203,,M,74,,
+7420001,,M,74,,
+7420002,,M,74,,
+7420003,,M,74,,
+7500100,,M,75,,
+7711000,,N,77,,
+7719501,,N,77,,
+7719502,,N,77,,
+7719599,,N,77,,
+7721700,,N,77,,
+7810800,,N,78,,
+7820500,,N,78,,
+7830200,,N,78,,
+7911200,,N,79,,
+7912100,,N,79,,
+7920200,,N,79,,
+8011100,,N,80,,
+8011101,,N,80,,
+8012900,,N,80,,
+8111700,,N,81,,
+8112500,,N,81,,
+8121400,,N,81,,
+8122200,,N,81,,
+8130300,,N,81,,
+8211300,,N,82,,
+8219901,,N,82,,
+8219999,,N,82,,
+8220200,,N,82,,
+8230001,,N,82,,
+8230002,,N,82,,
+8291100,,N,82,,
+8411600,,O,84,,
+8412400,,O,84,,
+8413200,,O,84,,
+8421300,,O,84,,
+8422100,,O,84,,
+8423000,,O,84,,
+8430200,,O,84,,
+8511200,,P,85,,
+8512100,,P,85,,
+8513900,,P,85,,
+8520100,,P,85,,
+8531700,,P,85,,
+8532500,,P,85,,
+8610101,,Q,86,,
+8610102,,Q,86,,
+8621601,,Q,86,,
+8621602,,Q,86,,
+8622400,,Q,86,,
+8630501,,Q,86,,
+8630502,,Q,86,,
+8711500,,Q,87,,
+8712300,,Q,87,,
+8800600,,Q,88,,
+9001901,,R,90,,
+9001902,,R,90,,
+9001903,,R,90,,
+9101500,,R,91,,
+9102301,,R,91,,
+9102302,,R,91,,
+9103100,,R,91,,
+9200301,,R,92,,
+9200302,,R,92,,
+9200399,,R,92,,
+9311500,,R,93,,
+9312300,,R,93,,
+9313100,,R,93,,
+9319101,,R,93,,
+9319199,,R,93,,
+9411100,,S,94,,
+9412000,,S,94,,
+9412001,,S,94,,
+9511800,,S,95,,
+9512600,,S,95,,
+9521500,,S,95,,
+9529100,,S,95,,
+9601701,,S,96,,
+9601702,,S,96,,
+9601703,,S,96,,
+9602501,,S,96,,
+9602502,,S,96,,
+9700500,,T,97,,
+9900800,,U,99,,
+0600002,,B,06,060,0600
+0600003,,B,06,060,0600
+0724301,,B,07,072,0724
+0724302,,B,07,072,0724
+0725100,,B,07,072,0725
+0910601,,B,09,091,0910
+0910602,,B,09,091,0910
+0910603,,B,09,091,0910
+1210101,,C,12,121,1210
+1210102,,C,12,121,1210
+1210103,,C,12,121,1210
+1359600,,C,13,135,1359
+1411803,,C,14,141,1411
+1411804,,C,14,141,1411
+1413403,,C,14,141,1413
+1510601,,C,15,151,1510
+1510602,,C,15,151,1510
+1510603,,C,15,151,1510
+1510604,,C,15,151,1510
+1510605,,C,15,151,1510
+1629301,,C,16,162,1629
+1629302,,C,16,162,1629
+1710901,,C,17,171,1710
+1710902,,C,17,171,1710
+1710903,,C,17,171,1710
+1741901,,C,17,174,1741
+1741902,,C,17,174,1741
+1742701,,C,17,174,1742
+1742702,,C,17,174,1742
+1742799,,C,17,174,1742
+1749400,,C,17,174,1749
+1813001,,C,18,181,1813
+1813099,,C,18,181,1813
+1822999,,C,18,182,1822
+1830001,,C,18,183,1830
+1830002,,C,18,183,1830
+1830003,,C,18,183,1830
+1911700,,C,19,191,1911
+1912500,,C,19,191,1912
+1922599,,C,19,192,1922
+1931400,,C,19,193,1931
+1932200,,C,19,193,1932
+2040100,,C,20,204,2040
+2073800,,C,20,207,2073
+2099101,,C,20,209,2099
+2424501,,C,24,242,2424
+2424502,,C,24,242,2424
+2449103,,C,24,244,2449
+2449104,,C,24,244,2449
+2449105,,C,24,244,2449
+2449106,,C,24,244,2449
+2449107,,C,24,244,2449
+2449108,,C,24,244,2449
+2449109,,C,24,244,2449
+2449110,,C,24,244,2449
+2449111,,C,24,244,2449
+2449112,,C,24,244,2449
+2451200,,C,24,245,2451
+2452100,,C,24,245,2452
+2861500,,C,28,286,2861
+2862300,,C,28,286,2862
+2863100,,C,28,286,2863
+2864000,,C,28,286,2864
+2865800,,C,28,286,2865
+2866600,,C,28,286,2866
+2869100,,C,28,286,2869
+3250704,,C,32,325,3250
+3250705,,C,32,325,3250
+3250706,,C,32,325,3250
+3250707,,C,32,325,3250
+3250708,,C,32,325,3250
+3250709,,C,32,325,3250
+3261500,,C,32,326,3261
+3262300,,C,32,326,3262
+3291400,,C,32,329,3291
+3292201,,C,32,329,3292
+3292202,,C,32,329,3292
+3299001,,C,32,329,3299
+3299002,,C,32,329,3299
+3299003,,C,32,329,3299
+3299004,,C,32,329,3299
+3299005,,C,32,329,3299
+3299006,,C,32,329,3299
+3299099,,C,32,329,3299
+3312101,,C,33,331,3312
+3511502,,D,35,351,3511
+3600604,,E,36,360,3600
+3600605,,E,36,360,3600
+3701101,,E,37,370,3701
+3702901,,E,37,370,3702
+3702902,,E,37,370,3702
+3900501,,E,39,390,3900
+3900502,,E,39,390,3900
+4120401,,F,41,412,4120
+4120402,,F,41,412,4120
+4120403,,F,41,412,4120
+4120404,,F,41,412,4120
+4930201,,H,49,493,4930
+5232000,,H,52,523,5232
+5310503,,H,53,531,5310
+5320203,,H,53,532,5320
+5914600,,J,59,591,5914
+5920101,,J,59,592,5920
+5920102,,J,59,592,5920
+6110899,,J,61,611,6110
+6120599,,J,61,612,6120
+6130200,,J,61,613,6130
+6141800,,J,61,614,6141
+6142600,,J,61,614,6142
+6143400,,J,61,614,6143
+6190601,,J,61,619,6190
+6190602,,J,61,619,6190
+6190699,,J,61,619,6190
+6209100,,J,62,620,6209
+0111304,,A,01,,
+0111305,,A,01,,
+0114801,,A,01,,
+0115601,,A,01,,
+0115602,,A,01,,
+0115603,,A,01,,
+0115604,,A,01,,
+0116404,,A,01,,
+0116405,,A,01,,
+0117201,,A,01,,
+0117202,,A,01,,
+0117203,,A,01,,
+0117204,,A,01,,
+0117205,,A,01,,
+0121103,,A,01,,
+0122901,,A,01,,
+0122902,,A,01,,
+0122903,,A,01,,
+0122904,,A,01,,
+0122905,,A,01,,
+0122906,,A,01,,
+0122907,,A,01,,
+0122908,,A,01,,
+0122909,,A,01,,
+0125301,,A,01,,
+0125302,,A,01,,
+0131801,,A,01,,
+0131802,,A,01,,
+0141503,,A,01,,
+0142301,,A,01,,
+0142302,,A,01,,
+0142303,,A,01,,
+0143101,,A,01,,
+0143102,,A,01,,
+0144000,,A,01,,
+0145801,,A,01,,
+0145802,,A,01,,
+0145803,,A,01,,
+0145804,,A,01,,
+0145805,,A,01,,
+0149101,,A,01,,
+0149102,,A,01,,
+0149103,,A,01,,
+0149104,,A,01,,
+0149199,,A,01,,
+0220907,,A,02,,
+0220908,,A,02,,
+0220909,,A,02,,
+0312400,,A,03,,
+1041401,,C,10,,
+1041402,,C,10,,
+1042201,,C,10,,
+1042202,,C,10,,
+1050301,,C,10,,
+1050302,,C,10,,
+1050303,,C,10,,
+1066000,,C,10,,
+1069400,,C,10,,
+1121600,,C,11,,
+1421500,,C,14,,
+1422301,,C,14,,
+1521101,,C,15,,
+1521102,,C,15,,
+1521103,,C,15,,
+1529701,,C,15,,
+1529702,,C,15,,
+1539400,,C,15,,
+2610801,,C,26,,
+2610802,,C,26,,
+2610803,,C,26,,
+2610804,,C,26,,
+2610805,,C,26,,
+2640001,,C,26,,
+2640002,,C,26,,
+2759701,,C,27,,
+2759799,,C,27,,
+2870001,,C,28,,
+2870002,,C,28,,
+3101201,,C,31,,
+3101202,,C,31,,
+3312100,,C,33,,
+3313902,,C,33,,
+3314702,,C,33,,
+3314703,,C,33,,
+3314704,,C,33,,
+3314705,,C,33,,
+3314706,,C,33,,
+3314707,,C,33,,
+3314708,,C,33,,
+3314709,,C,33,,
+3314710,,C,33,,
+3314711,,C,33,,
+3314712,,C,33,,
+3314713,,C,33,,
+3314714,,C,33,,
+3314715,,C,33,,
+3314716,,C,33,,
+3314717,,C,33,,
+3314718,,C,33,,
+3314719,,C,33,,
+3314799,,C,33,,
+3315500,,C,33,,
+3316301,,C,33,,
+3316302,,C,33,,
+3317101,,C,33,,
+3317102,,C,33,,
+3319800,,C,33,,
+3821200,,E,38,,
+4221902,,F,42,,
+4221903,,F,42,,
+4221904,,F,42,,
+4221905,,F,42,,
+4291000,,F,42,,
+4292801,,F,42,,
+4292802,,F,42,,
+4299501,,F,42,,
+4299599,,F,42,,
+4329199,,F,43,,
+4330405,,F,43,,
+4512901,,G,45,,
+4512902,,G,45,,
+4520001,,G,45,,
+4520002,,G,45,,
+4520003,,G,45,,
+4520004,,G,45,,
+4520005,,G,45,,
+4520006,,G,45,,
+4520007,,G,45,,
+4520008,,G,45,,
+4541200,,G,45,,
+4543900,,G,45,,
+4922102,,H,49,,
+4924800,,H,49,,
+4929901,,H,49,,
+4929902,,H,49,,
+4929903,,H,49,,
+4929904,,H,49,,
+4929999,,H,49,,
+4930202,,H,49,,
+4930203,,H,49,,
+4930204,,H,49,,
+5021101,,H,50,,
+5021102,,H,50,,
+5022001,,H,50,,
+5022002,,H,50,,
+5030101,,H,50,,
+5030102,,H,50,,
+5030103,,H,50,,
+5091201,,H,50,,
+5091202,,H,50,,
+5231101,,H,52,,
+5231102,,H,52,,
+5239700,,H,52,,
+5240101,,H,52,,
+5240102,,H,52,,
+5240199,,H,52,,
+5320201,,H,53,,
+5320202,,H,53,,
+5590602,,I,55,,
+5590603,,I,55,,
+5590699,,I,55,,
+5611203,,I,56,,
+5611204,,I,56,,
+5611205,,I,56,,
+5620102,,I,56,,
+5620103,,I,56,,
+5620104,,I,56,,
+5812300,,J,58,,
+6424701,,K,64,,
+6424702,,K,64,,
+6424703,,K,64,,
+6424704,,K,64,,
+6435203,,K,64,,
+6436100,,K,64,,
+6437900,,K,64,,
+6438701,,K,64,,
+6438799,,K,64,,
+6440900,,K,64,,
+6450600,,K,64,,
+6461100,,K,64,,
+6462000,,K,64,,
+6463800,,K,64,,
+6470101,,K,64,,
+6470102,,K,64,,
+6470103,,K,64,,
+6470104,,K,64,,
+6512900,,K,65,,
+6530800,,K,65,,
+6541300,,K,65,,
+6542100,,K,65,,
+6550200,,K,65,,
+6612601,,K,66,,
+6612602,,K,66,,
+6612603,,K,66,,
+6612604,,K,66,,
+6612605,,K,66,,
+6613400,,K,66,,
+6619301,,K,66,,
+6619302,,K,66,,
+6619303,,K,66,,
+6619304,,K,66,,
+6619305,,K,66,,
+6619399,,K,66,,
+6621501,,K,66,,
+6621502,,K,66,,
+6622300,,K,66,,
+6629100,,K,66,,
+6821801,,L,68,,
+6821802,,L,68,,
+6822600,,L,68,,
+6912500,,M,69,,
+6920601,,M,69,,
+6920602,,M,69,,
+7112001,,M,71,,
+7112002,,M,71,,
+7112003,,M,71,,
+7112004,,M,71,,
+7112005,,M,71,,
+7112006,,M,71,,
+7112007,,M,71,,
+7119799,,M,71,,
+7210001,,M,72,,
+7210002,,M,72,,
+7220701,,M,72,,
+7319001,,M,73,,
+7319002,,M,73,,
+7319003,,M,73,,
+7319004,,M,73,,
+7410299,,M,74,,
+7420004,,M,74,,
+7420005,,M,74,,
+7490101,,M,74,,
+7490102,,M,74,,
+7490103,,M,74,,
+7490104,,M,74,,
+7490105,,M,74,,
+7490199,,M,74,,
+7722500,,N,77,,
+7723300,,N,77,,
+7729201,,N,77,,
+7729202,,N,77,,
+7729203,,N,77,,
+7729299,,N,77,,
+7731400,,N,77,,
+7732201,,N,77,,
+7732202,,N,77,,
+7733100,,N,77,,
+7739001,,N,77,,
+7739002,,N,77,,
+7739003,,N,77,,
+7739099,,N,77,,
+7740300,,N,77,,
+8011102,,N,80,,
+8020000,,N,80,,
+8020001,,N,80,,
+8030700,,N,80,,
+8129000,,N,81,,
+8292000,,N,82,,
+8299701,,N,82,,
+8299702,,N,82,,
+8299703,,N,82,,
+8299704,,N,82,,
+8299705,,N,82,,
+8299706,,N,82,,
+8299707,,N,82,,
+8299799,,N,82,,
+8424800,,O,84,,
+8425600,,O,84,,
+8520101,,P,85,,
+8520102,,P,85,,
+8533300,,P,85,,
+8541400,,P,85,,
+8542200,,P,85,,
+8550301,,P,85,,
+8550302,,P,85,,
+8591100,,P,85,,
+8592901,,P,85,,
+8592902,,P,85,,
+8592903,,P,85,,
+8592999,,P,85,,
+8593700,,P,85,,
+8599601,,P,85,,
+8599602,,P,85,,
+8599603,,P,85,,
+8599604,,P,85,,
+8599605,,P,85,,
+8599699,,P,85,,
+8630503,,Q,86,,
+8630504,,Q,86,,
+8630505,,Q,86,,
+8630506,,Q,86,,
+8640201,,Q,86,,
+8640202,,Q,86,,
+8640203,,Q,86,,
+8640204,,Q,86,,
+8640205,,Q,86,,
+8640206,,Q,86,,
+8640207,,Q,86,,
+8640208,,Q,86,,
+8640209,,Q,86,,
+8640210,,Q,86,,
+8640211,,Q,86,,
+8640212,,Q,86,,
+8640213,,Q,86,,
+8640214,,Q,86,,
+8640299,,Q,86,,
+8650001,,Q,86,,
+8650002,,Q,86,,
+8650003,,Q,86,,
+8650004,,Q,86,,
+8650005,,Q,86,,
+8650006,,Q,86,,
+8650007,,Q,86,,
+8650099,,Q,86,,
+8660700,,Q,86,,
+8690901,,Q,86,,
+8690902,,Q,86,,
+8690903,,Q,86,,
+8690904,,Q,86,,
+8690999,,Q,86,,
+8711501,,Q,87,,
+8711502,,Q,87,,
+8711503,,Q,87,,
+8711504,,Q,87,,
+8711505,,Q,87,,
+8720401,,Q,87,,
+8720499,,Q,87,,
+8730101,,Q,87,,
+8730102,,Q,87,,
+8730199,,Q,87,,
+9001904,,R,90,,
+9001905,,R,90,,
+9001906,,R,90,,
+9001999,,R,90,,
+9002701,,R,90,,
+9002702,,R,90,,
+9003500,,R,90,,
+9321200,,R,93,,
+9329801,,R,93,,
+9329802,,R,93,,
+9329803,,R,93,,
+9329804,,R,93,,
+9329899,,R,93,,
+9412099,,S,94,,
+9420100,,S,94,,
+9430800,,S,94,,
+9491000,,S,94,,
+9492800,,S,94,,
+9493600,,S,94,,
+9499500,,S,94,,
+9529101,,S,95,,
+9529102,,S,95,,
+9529103,,S,95,,
+9529104,,S,95,,
+9529105,,S,95,,
+9529106,,S,95,,
+9529199,,S,95,,
+9603301,,S,96,,
+9603302,,S,96,,
+9603303,,S,96,,
+9603304,,S,96,,
+9603305,,S,96,,
+9609201,,S,96,,
+9609202,,S,96,,
+9609203,,S,96,,
+9609204,,S,96,,
+9609205,,S,96,,
+9609206,,S,96,,
+9609207,,S,96,,
+9609208,,S,96,,
+9609299,,S,96,,
+0500303,Coleta de carvão mineral,B,05,050,0500
+0600004,Extração de areia betuminosa e asfalto natural,B,06,060,0600
+0729401,Extração de minérios de nióbio e titânio,B,07,072,0729
+0729402,Extração de minério de tungstênio,B,07,072,0729
+0729403,Extração de minério de níquel,B,07,072,0729
+0729404,"Extração de minérios de cobre, chumbo, zinco e outros minerais metálicos não-ferrosos não especificados anteriormente",B,07,072,0729
+0990402,"Atividades de apoio à extração de minerais metálicos não-ferrosos, exceto minério de ferro",B,09,099,0990
+0990403,"Atividades de apoio à extração de minerais não-metálicos, exceto combustíveis",B,09,099,0990
+1622699,Fabricação de outros artefatos e peças de madeira para uso na construção,C,16,162,1622
+1722201,Fabricação de fraldas descartáveis,C,17,172,1722
+1722202,Fabricação de absorventes higiênicos,C,17,172,1722
+1722299,Fabricação de produtos de papel para uso doméstico e higiênico-sanitário não especificados anteriormente,C,17,172,1722
+1733801,Fabricação de chapas de fibra de madeira prensada - MDF,C,17,173,1733
+1733802,Fabricação de chapas de fibra de madeira prensada - demais,C,17,173,1733
+1822900,Serviços de acabamentos gráficos,C,18,182,1822
+2034700,Fabricação de fibras artificiais e sintéticas,C,20,203,2034
+2212900,Fabricação de embalagens de material plástico,C,22,221,2212
+2219600,Fabricação de artefatos de material plástico para outros usos,C,22,221,2219
+2229301,Fabricação de artefatos de borracha para uso industrial,C,22,222,2229
+2229302,Fabricação de artefatos de plástico para outros usos,C,22,222,2229
+2330399,"Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",C,23,233,2330
+2341900,Fabricação de produtos cerâmicos refratários,C,23,234,2341
+2342701,Fabricação de azulejos e pisos,C,23,234,2342
+2342702,"Fabricação de artefatos de cerâmica e barro cozido para uso na construção, exceto azulejos e pisos",C,23,234,2342
+2349401,Fabricação de material isolante cerâmico,C,23,234,2349
+2349402,Fabricação de cerâmica sanitária,C,23,234,2349
+2349499,Fabricação de produtos cerâmicos não refratários não especificados anteriormente,C,23,234,2349
+2422903,Produção de laminados planos de aço especial não especificados anteriormente,C,24,242,2422
+2423703,Produção de tubos de aço com costura,C,24,242,2423
+2423704,Produção de outros tubos de ferro e aço,C,24,242,2423
+2441500,Metalurgia do alumínio e suas ligas em formas primárias,C,24,244,2441
+2531400,Produção de forjados de aço,C,25,253,2531
+2539001,"Serviços de usinagem, tornearia e solda",C,25,253,2539
+2539002,Serviços de tratamento e revestimento em metais,C,25,253,2539
+2592600,Fabricação de produtos de trefilados de metal,C,25,259,2592
+2610806,Fabricação de semicondutores,C,26,261,2610
+2610899,Fabricação de componentes eletrônicos não especificados anteriormente,C,26,261,2610
+2710499,"Fabricação de motores, geradores e transformadores não especificados anteriormente",C,27,271,2710
+2732501,Fabricação de fios e cabos isolantes de borracha vulcanizada,C,27,273,2732
+2732502,Fabricação de fios e cabos isolantes de plástico,C,27,273,2732
+2930101,"Fabricação de cabines, carrocerias e reboques para caminhões",C,29,293,2930
+2930102,Fabricação de carrocerias para ônibus,C,29,293,2930
+2930103,"Fabricação de cabines, carrocerias e reboques para outros veículos automotores, exceto caminhões e ônibus",C,29,293,2930
+2941700,Fabricação de peças e acessórios para o sistema motor de veículos automotores,C,29,294,2941
+2942500,Fabricação de peças e acessórios para os sistemas de marcha e transmissão de veículos automotores,C,29,294,2942
+2943300,Fabricação de peças e acessórios para o sistema de freios de veículos automotores,C,29,294,2943
+2944100,Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores,C,29,294,2944
+2945000,"Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",C,29,294,2945
+2949201,Fabricação de bancos e estofados para veículos automotores,C,29,294,2949
+2949299,Fabricação de outras peças e acessórios para veículos automotores não especificados anteriormente,C,29,294,2949
+3042301,"Fabricação de turbinas, motores e outros componentes e peças para aeronaves",C,30,304,3042
+3042302,"Fabricação de equipamentos e instrumentos aeronáuticos, peças e acessórios",C,30,304,3042
+3042303,Manutenção de aeronaves na fábrica,C,30,304,3042
+3102101,Fabricação de móveis com predominância de metal - exceto cadeiras e mesas,C,31,310,3102
+3102102,Fabricação de cadeiras e mesas - exceto cadeiras para veículos,C,31,310,3102
+3103901,"Fabricação de móveis de outros materiais, exceto madeira e metal - exceto cadeiras e mesas",C,31,310,3103
+3103902,"Fabricação de cadeiras e mesas de outros materiais, exceto madeira e metal",C,31,310,3103
+3311201,"Manutenção e reparação de tanques, reservatórios metálicos e caldeiras para aquecimento central",C,33,331,3311
+3311202,"Manutenção e reparação de tanques, reservatórios metálicos e caldeiras para aquecimento central - exceto para veículos",C,33,331,3311
+3530101,Produção de vapor,D,35,353,3530
+3530102,Produção de água quente,D,35,353,3530
+3530103,Produção de ar condicionado,D,35,353,3530
+3530104,"Distribuição de vapor, água quente e ar condicionado",D,35,353,3530
+3600602,Distribuição de água por caminhões,E,36,360,3600
+3600603,Captação e tratamento de água para abastecimento de estabelecimentos,E,36,360,3600
+3701102,Gestão de redes de esgoto industriais,E,37,370,3701
+3821201,Tratamento e disposição de resíduos não-perigosos,E,38,382,3821
+3821202,Tratamento e disposição de resíduos não-perigosos - incineração,E,38,382,3821
+4110701,Incorporação de empreendimentos imobiliários - incorporação de edificações,F,41,411,4110
+4110702,Incorporação de empreendimentos imobiliários - incorporação de loteamentos,F,41,411,4110
+4110703,Incorporação de empreendimentos imobiliários - loteamento de terrenos,F,41,411,4110
+4120499,Construção de edifícios não especificados anteriormente,F,41,412,4120
+4311800,Demolição e preparação de canteiros de obras,F,43,431,4311
+4330406,Instalação de revestimentos cerâmicos,F,43,433,4330
+4330499,Outras obras de acabamento da construção,F,43,433,4330
+4530701,Comércio por atacado de peças e acessórios novos para veículos automotores,G,45,453,4530
+4530702,Comércio por atacado de pneumáticos e câmaras-de-ar,G,45,453,4530
+4530703,Comércio a varejo de peças e acessórios novos para veículos automotores,G,45,453,4530
+4530704,Comércio a varejo de peças e acessórios usados para veículos automotores,G,45,453,4530
+4530705,Comércio a varejo de pneumáticos e câmaras-de-ar,G,45,453,4530
+4530706,Representantes comerciais e agentes do comércio de peças e acessórios novos e usados para veículos automotores,G,45,453,4530
+4631100,Comércio atacadista de leite e laticínios,G,46,463,4631
+4632001,Comércio atacadista de cereais e leguminosas beneficiados,G,46,463,4632
+4632002,"Comércio atacadista de farinhas, amidos e féculas",G,46,463,4632
+4632003,"Comércio atacadista de cereais e leguminosas beneficiados, farinhas, amidos e féculas, com atividade de fracionamento e acondicionamento associada",G,46,463,4632
+4633801,"Comércio atacadista de frutas, verduras, raízes, tubérculos, hortaliças e legumes frescos",G,46,463,4633
+4633802,Comércio atacadista de aves vivas e ovos,G,46,463,4633
+4633803,Comércio atacadista de coelhos e outros pequenos animais vivos para alimentação,G,46,463,4633
+4634601,Comércio atacadista de carnes bovinas e suínas e derivados,G,46,463,4634
+4634602,Comércio atacadista de aves abatidas e derivados,G,46,463,4634
+4634603,Comércio atacadista de pescados e frutos do mar,G,46,463,4634
+4634699,Comércio atacadista de carnes e derivados de outros animais,G,46,463,4634
+4635401,Comércio atacadista de água mineral,G,46,463,4635
+4635402,"Comércio atacadista de cerveja, chope e refrigerante",G,46,463,4635
+4635403,Comércio atacadista de bebidas com atividade de fracionamento e acondicionamento associada,G,46,463,4635
+4635499,Comércio atacadista de bebidas não especificadas anteriormente,G,46,463,4635
+4636201,Comércio atacadista de fumo beneficiado,G,46,463,4636
+4636202,"Comércio atacadista de cigarros, cigarrilhas e charutos",G,46,463,4636
+4637101,"Comércio atacadista de café torrado, moído e solúvel",G,46,463,4637
+4637102,Comércio atacadista de açúcar,G,46,463,4637
+4637103,Comércio atacadista de óleos e gorduras,G,46,463,4637
+4637104,"Comércio atacadista de pães, bolos, biscoitos e similares",G,46,463,4637
+4637105,Comércio atacadista de massas alimentícias,G,46,463,4637
+4637106,Comércio atacadista de sorvetes,G,46,463,4637
+4637107,"Comércio atacadista de chocolates, confeitos, balas, bombons e semelhantes",G,46,463,4637
+4637199,Comércio atacadista especializado em outros produtos alimentícios não especificados anteriormente,G,46,463,4637
+4639701,Comércio atacadista de produtos alimentícios em geral,G,46,463,4639
+4639702,"Comércio atacadista de produtos alimentícios em geral, com atividade de fracionamento e acondicionamento associada",G,46,463,4639
+4731800,Comércio varejista de combustíveis para veículos automotores,G,47,473,4731
+4732600,Comércio varejista de lubrificantes,G,47,473,4732
+4741500,Comércio varejista de tintas e materiais para pintura,G,47,474,4741
+4742300,Comércio varejista de material elétrico,G,47,474,4742
+4743100,Comércio varejista de vidros,G,47,474,4743
+4744001,Comércio varejista de ferragens e ferramentas,G,47,474,4744
+4744002,Comércio varejista de madeira e artefatos,G,47,474,4744
+4744003,Comércio varejista de materiais hidráulicos,G,47,474,4744
+4744004,"Comércio varejista de cal, areia, pedra britada, tijolos e telhas",G,47,474,4744
+4744005,Comércio varejista de materiais de construção não especificados anteriormente,G,47,474,4744
+4744006,Comércio varejista de pedras para revestimento,G,47,474,4744
+4744099,Comércio varejista de materiais de construção em geral,G,47,474,4744
+4751200,Comércio varejista especializado de equipamentos e suprimentos de informática,G,47,475,4751
+4751201,Comércio varejista especializado de equipamentos e suprimentos de informática,G,47,475,4751
+4751202,Recarga de cartuchos para equipamentos de informática,G,47,475,4751
+4752100,Comércio varejista especializado de equipamentos de telefonia e comunicação,G,47,475,4752
+4753900,Comércio varejista especializado de eletrodomésticos e equipamentos de áudio e vídeo,G,47,475,4753
+4754701,Comércio varejista de móveis,G,47,475,4754
+4754702,Comércio varejista de artigos de colchoaria,G,47,475,4754
+4754703,Comércio varejista de artigos de iluminação,G,47,475,4754
+4755501,Comércio varejista de tecidos,G,47,475,4755
+4755502,Comercio varejista de artigos de armarinho,G,47,475,4755
+4755503,Comercio varejista de artigos de costura,G,47,475,4755
+4756300,Comércio varejista especializado de instrumentos musicais e acessórios,G,47,475,4756
+4757100,"Comércio varejista especializado de peças e acessórios para aparelhos eletroeletrônicos para uso doméstico, exceto informática e comunicação",G,47,475,4757
+4759801,"Comércio varejista de artigos de tapeçaria, cortinas e persianas",G,47,475,4759
+4759899,Comércio varejista de outros artigos de uso pessoal e doméstico não especificados anteriormente,G,47,475,4759
+4761001,Comércio varejista de livros,G,47,476,4761
+4761002,Comércio varejista de jornais e revistas,G,47,476,4761
+4761003,Comércio varejista de artigos de papelaria,G,47,476,4761
+4762800,"Comércio varejista de discos, CDs, DVDs e fitas",G,47,476,4762
+4763601,Comércio varejista de brinquedos e artigos recreativos,G,47,476,4763
+4763602,Comércio varejista de artigos esportivos,G,47,476,4763
+4763603,Comércio varejista de bicicletas e triciclos; peças e acessórios,G,47,476,4763
+4763604,"Comércio varejista de artigos de caça, pesca e camping",G,47,476,4763
+4763605,Comércio varejista de embarcações e outros veículos recreativos; peças e acessórios,G,47,476,4763
+4771701,"Comércio varejista de produtos farmacêuticos, sem manipulação de fórmulas",G,47,477,4771
+4771702,"Comércio varejista de produtos farmacêuticos, com manipulação de fórmulas",G,47,477,4771
+4771703,Comércio varejista de produtos farmacêuticos homeopáticos,G,47,477,4771
+4771704,Comércio varejista de medicamentos veterinários,G,47,477,4771
+4772500,"Comércio varejista de cosméticos, produtos de perfumaria e de higiene pessoal",G,47,477,4772
+4773300,Comércio varejista de artigos médicos e ortopédicos,G,47,477,4773
+4774100,Comércio varejista de artigos de óptica,G,47,477,4774
+4781400,Comércio varejista de artigos do vestuário e acessórios,G,47,478,4781
+4782201,Comércio varejista de calçados,G,47,478,4782
+4782202,Comércio varejista de artigos de viagem,G,47,478,4782
+4783101,Comércio varejista de artigos de joalheria,G,47,478,4783
+4783102,Comércio varejista de artigos de relojoaria,G,47,478,4783
+4784900,Comércio varejista de gás liqüefeito de petróleo (GLP),G,47,478,4784
+4785701,Comércio varejista de antigüidades,G,47,478,4785
+4785799,Comércio varejista de outros artigos usados,G,47,478,4785
+4789001,"Comércio varejista de suvenires, bijuterias e artesanatos",G,47,478,4789
+4789002,Comércio varejista de plantas e flores naturais,G,47,478,4789
+4789003,Comércio varejista de objetos de arte,G,47,478,4789
+4789004,Comércio varejista de animais vivos e de artigos e alimentos para animais de estimação,G,47,478,4789
+4789005,Comércio varejista de produtos saneantes domissanitários,G,47,478,4789
+4789006,Comércio varejista de fogos de artifício e artigos pirotécnicos,G,47,478,4789
+4789007,Comércio varejista de equipamentos para escritório,G,47,478,4789
+4789008,Comércio varejista de artigos fotográficos e para filmagem,G,47,478,4789
+4789009,Comércio varejista de armas e munições,G,47,478,4789
+4789099,Comércio varejista de outros produtos não especificados anteriormente,G,47,478,4789
+5099801,"Transporte aquaviário para travessia de rios, baías e canais",H,50,509,5099
+5099899,Outros transportes aquaviários não especificados anteriormente,H,50,509,5099
+5250801,Comissaria de despachos,H,52,525,5250
+5250802,Atividades de despachantes aduaneiros,H,52,525,5250
+5250803,"Agenciamento de cargas, exceto para o transporte marítimo",H,52,525,5250
+5250804,Organização logística do transporte de carga,H,52,525,5250
+5250805,Operador de transporte multimodal - OTM,H,52,525,5250
+5811501,Edição de livros impressos,J,58,581,5811
+5811502,Edição de livros em meios eletrônicos,J,58,581,5811
+5811503,Edição de livros exclusivamente em meio eletrônico,J,58,581,5811
+5812303,Edição de jornais exclusivamente em meio eletrônico,J,58,581,5812
+5813101,Edição de revistas impressas,J,58,581,5813
+5813102,Edição de revistas em meios eletrônicos,J,58,581,5813
+5911199,"Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",J,59,591,5911
+5912003,Atividades de pós-produção de programas de televisão,J,59,591,5912
+5912099,Atividades de pós-produção cinematográfica e de vídeos não especificadas anteriormente,J,59,591,5912
+5920100,Atividades de gravação de som e de edição de música,J,59,592,5920
+6209101,"Suporte técnico, manutenção e outros serviços em tecnologia da informação",J,62,620,6209
+6209102,Promoção de vendas de tecnologia da informação,J,62,620,6209
+6209103,Suporte e outros serviços em tecnologia da informação,J,62,620,6209
+6399201,Provisionamento de bandas largas,J,63,639,6399
+6399299,Outras atividades de prestação de serviços de informação não especificadas anteriormente,J,63,639,6399
+6410701,Banco Central,K,64,641,6410
+7010700,Sedes de empresas e unidades administrativas locais,M,70,701,7010
+7010701,Sedes de empresas e unidades administrativas locais,M,70,701,7010
+7010702,Holdings não institucionais,M,70,701,7010
+7010703,Holdings institucionais,M,70,701,7010
+8630507,Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares,Q,86,863,8630
+8720402,"Atividades de assistência psicossocial e à saúde a portadores de distúrbios psíquicos, deficiência mental e dependência química",Q,87,872,8720
+8720403,"Atividades de assistência a deficientes psíquicos, mentais e dependentes químicos",Q,87,872,8720
+9002700,Atividades de apoio a espetáculos,R,90,900,9002
+9102300,Atividades de museus e de exploração de lugares e prédios históricos e atrações similares,R,91,910,9102

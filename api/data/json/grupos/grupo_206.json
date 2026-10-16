@@ -1,0 +1,288 @@
+{
+  "grupo": "206",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Fabricação de sabões e detergentes sintéticos",
+      "codigo_cnae": "2061400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Sabões",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sabões",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Saboes",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sabões",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Detergentes",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "detergentes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Detergentes",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "detergentes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Sintéticos",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sintéticos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Sinteticos",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sintéticos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de sabões e detergentes sintéticos",
+      "codigo_cnae": "2061400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos de limpeza e polimento",
+      "codigo_cnae": "2062200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2062200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2062200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "2062200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "2062200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Polimento",
+      "codigo_cnae": "2062200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "polimento",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Polimento",
+      "codigo_cnae": "2062200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "polimento",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos de limpeza e polimento",
+      "codigo_cnae": "2062200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de cosméticos, produtos de perfumaria e de higiene pessoal",
+      "codigo_cnae": "2063100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Cosméticos",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cosméticos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Cosmeticos",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cosméticos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Perfumaria",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perfumaria",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Perfumaria",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perfumaria",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Higiene",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "higiene",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Higiene",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "higiene",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "2063100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de cosméticos, produtos de perfumaria e de higiene pessoal",
+      "codigo_cnae": "2063100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

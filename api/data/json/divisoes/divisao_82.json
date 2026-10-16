@@ -1,0 +1,936 @@
+{
+  "divisao": "82",
+  "total_termos": 93,
+  "termos": [
+    {
+      "termo": "Serviços combinados de escritório e apoio administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Escritório",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Escritorio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços combinados de escritório e apoio administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotocópias",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocopias",
+      "codigo_cnae": "8219901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotocópias",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente",
+      "codigo_cnae": "8219999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Documentos",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "documentos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Documentos",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "documentos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente",
+      "codigo_cnae": "8219999",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teleatendimento",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teleatendimento",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de organização de feiras, congressos, exposições e festas",
+      "codigo_cnae": "8230001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Organização",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organização",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Organizacao",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organização",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Feiras",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feiras",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Feiras",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feiras",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Congressos",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "congressos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Congressos",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "congressos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Exposições",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exposições",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Exposicoes",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exposições",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de organização de feiras, congressos, exposições e festas",
+      "codigo_cnae": "8230001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas de festas e eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas de festas e eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de cobranças e informações cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cobranças",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobranças",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cobrancas",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobranças",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Informações",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informações",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Informacoes",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informações",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastrais",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastrais",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de cobranças e informações cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Envasamento e empacotamento sob contrato",
+      "codigo_cnae": "8292000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Envasamento",
+      "codigo_cnae": "8292000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "empacotamento",
+      "codigo_cnae": "8292000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "contrato",
+      "codigo_cnae": "8292000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Medição de consumo de energia elétrica, gás e água",
+      "codigo_cnae": "8299701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Medição",
+      "codigo_cnae": "8299701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "consumo",
+      "codigo_cnae": "8299701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "energia elétrica",
+      "codigo_cnae": "8299701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "medição de consumo de energia elétrica gás e água",
+      "codigo_cnae": "8299701",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Emissão de vales-alimentação, vales-transporte e similares",
+      "codigo_cnae": "8299702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Emissão",
+      "codigo_cnae": "8299702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "vales",
+      "codigo_cnae": "8299702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "alimentação",
+      "codigo_cnae": "8299702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "emissão de valesalimentação valestransporte e similares",
+      "codigo_cnae": "8299702",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de gravação de carimbos, exceto confecção",
+      "codigo_cnae": "8299703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8299703",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "gravação",
+      "codigo_cnae": "8299703",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "carimbos",
+      "codigo_cnae": "8299703",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "serviços de gravação de carimbos exceto confecção",
+      "codigo_cnae": "8299703",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Leiloeiros independentes",
+      "codigo_cnae": "8299704",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Leiloeiros independentes",
+      "codigo_cnae": "8299704",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de levantamento de fundos sob contrato",
+      "codigo_cnae": "8299705",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8299705",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "levantamento",
+      "codigo_cnae": "8299705",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "fundos",
+      "codigo_cnae": "8299705",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas lotéricas",
+      "codigo_cnae": "8299706",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas lotéricas",
+      "codigo_cnae": "8299706",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Salas de acesso à internet",
+      "codigo_cnae": "8299707",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Salas",
+      "codigo_cnae": "8299707",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "acesso à internet",
+      "codigo_cnae": "8299707",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Outras atividades de serviços prestados principalmente às empresas não especificadas anteriormente",
+      "codigo_cnae": "8299799",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "8299799",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "serviços prestados principalmente às empresas não especificadas anteriormente",
+      "codigo_cnae": "8299799",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    }
+  ]
+}

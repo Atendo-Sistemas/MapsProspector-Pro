@@ -1,0 +1,129 @@
+{
+  "classe": "8622",
+  "grupo": "862",
+  "divisao": "86",
+  "secao": "Q",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Serviços de remoção de pacientes, exceto os serviços móveis de atendimento a urgências",
+      "codigo_cnae": "8622400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Remoção",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "remoção",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Remocao",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "remoção",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pacientes",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pacientes",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pacientes",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pacientes",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móveis",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Moveis",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de remoção de pacientes, exceto os serviços móveis de atendimento a urgências",
+      "codigo_cnae": "8622400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    }
+  ]
+}

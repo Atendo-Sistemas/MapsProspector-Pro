@@ -1,0 +1,89 @@
+{
+  "classe": "3050",
+  "grupo": "305",
+  "divisao": "30",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de veículos militares de combate",
+      "codigo_cnae": "3050400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "3050400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "3050400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Militares",
+      "codigo_cnae": "3050400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "militares",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Militares",
+      "codigo_cnae": "3050400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "militares",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Combate",
+      "codigo_cnae": "3050400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combate",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Combate",
+      "codigo_cnae": "3050400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combate",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Fabricação de veículos militares de combate",
+      "codigo_cnae": "3050400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    }
+  ]
+}

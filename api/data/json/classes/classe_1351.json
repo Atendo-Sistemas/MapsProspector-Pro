@@ -1,0 +1,109 @@
+{
+  "classe": "1351",
+  "grupo": "135",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos têxteis para uso doméstico",
+      "codigo_cnae": "1351100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxteis",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texteis",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Doméstico",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Domestico",
+      "codigo_cnae": "1351100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos têxteis para uso doméstico",
+      "codigo_cnae": "1351100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

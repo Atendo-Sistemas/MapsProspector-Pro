@@ -1,0 +1,189 @@
+{
+  "classe": "2859",
+  "grupo": "285",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Fabricação de máquinas e equipamentos de uso industrial específico não especificados anteriormente, peças e acessórios",
+      "codigo_cnae": "2859300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Específico",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "específico",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Especifico",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "específico",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2859300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas e equipamentos de uso industrial específico não especificados anteriormente, peças e acessórios",
+      "codigo_cnae": "2859300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

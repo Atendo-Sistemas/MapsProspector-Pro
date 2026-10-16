@@ -1,0 +1,123 @@
+{
+  "grupo": "433",
+  "total_termos": 9,
+  "termos": [
+    {
+      "termo": "Instalação de revestimentos cerâmicos",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330406",
+      "descricao_cnae": "Instalação de revestimentos cerâmicos",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "instalação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330406",
+      "descricao_cnae": "Instalação de revestimentos cerâmicos",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "revestimentos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330406",
+      "descricao_cnae": "Instalação de revestimentos cerâmicos",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "cerâmicos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330406",
+      "descricao_cnae": "Instalação de revestimentos cerâmicos",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "Outras obras de acabamento da construção",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330499",
+      "descricao_cnae": "Outras obras de acabamento da construção",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "outras",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330499",
+      "descricao_cnae": "Outras obras de acabamento da construção",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "obras",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330499",
+      "descricao_cnae": "Outras obras de acabamento da construção",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "acabamento",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330499",
+      "descricao_cnae": "Outras obras de acabamento da construção",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "construção",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4330499",
+      "descricao_cnae": "Outras obras de acabamento da construção",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "433",
+      "classe": "4330",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

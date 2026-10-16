@@ -1,0 +1,89 @@
+{
+  "classe": "2311",
+  "grupo": "231",
+  "divisao": "23",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de vidro plano e de segurança",
+      "codigo_cnae": "2311700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Vidro",
+      "codigo_cnae": "2311700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vidro",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Vidro",
+      "codigo_cnae": "2311700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vidro",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Plano",
+      "codigo_cnae": "2311700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plano",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Plano",
+      "codigo_cnae": "2311700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plano",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "2311700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "2311700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Fabricação de vidro plano e de segurança",
+      "codigo_cnae": "2311700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "23"
+    }
+  ]
+}

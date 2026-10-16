@@ -2,7 +2,8 @@
 /**
  * API de Planos - SaaS
  * Endpoint: /api/plans.php
- * Apenas super_admin pode listar, criar, editar e desativar planos.
+ * O super_admin e o admin do tenant principal (tenant 1) podem listar, criar, editar e desativar planos.
+ * A exceção do tenant 1 é limitada ao catálogo e não concede acesso às demais áreas globais da plataforma.
  * Planos definem limite de tokens (ex.: buscas) por período; empresas são vinculadas a um plano.
  */
 
@@ -11,11 +12,39 @@ ob_start();
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/module-access.php';
 
 ob_clean();
 
-$userId = requireSuperAdmin();
+$userId = requireAuth();
+$catalogUser = getAuthUser();
+$catalogProfile = strtolower((string) ($catalogUser['profile'] ?? ''));
+$catalogTenantId = (int) ($catalogUser['tenant_id'] ?? 0);
+if ($catalogProfile !== 'super_admin' && !($catalogProfile === 'admin' && $catalogTenantId === 1)) {
+    jsonError('Acesso negado. Apenas o administrador da plataforma ou o administrador do tenant principal pode gerenciar o catálogo.', 403);
+}
 $db = Database::getInstance()->getConnection();
+
+function planModuleKeys(PDO $db, int $planId): array
+{
+    try {
+        $stmt = $db->prepare('SELECT module_key FROM plan_modules WHERE plan_id = ? AND is_active = 1 ORDER BY module_key ASC');
+        $stmt->execute([$planId]);
+        return array_values(array_map('strval', $stmt->fetchAll(PDO::FETCH_COLUMN)));
+    } catch (Throwable $e) {
+        return [];
+    }
+}
+
+function savePlanModuleKeys(PDO $db, int $planId, mixed $modules): void
+{
+    if (!is_array($modules)) return;
+    $allowed = array_keys(mpModuleCatalog());
+    $keys = array_values(array_unique(array_intersect($allowed, array_map('strval', $modules))));
+    $db->prepare('DELETE FROM plan_modules WHERE plan_id = ?')->execute([$planId]);
+    $insert = $db->prepare('INSERT INTO plan_modules (plan_id, module_key, is_active) VALUES (?, ?, 1)');
+    foreach ($keys as $key) $insert->execute([$planId, $key]);
+}
 
 $method = $_SERVER['REQUEST_METHOD'];
 
@@ -24,7 +53,7 @@ if ($method === 'GET') {
 
     if ($id) {
         try {
-            $stmt = $db->prepare("SELECT id, name, slug, token_limit, price_monthly, period, status, created_at, updated_at FROM plans WHERE id = ?");
+            $stmt = $db->prepare("SELECT id, name, slug, token_limit, price_monthly, period, status, catalog_group, included_users, addon_user_price_cents, created_at, updated_at FROM plans WHERE id = ?");
             $stmt->execute([$id]);
             $plan = $stmt->fetch();
         } catch (PDOException $e) {
@@ -37,15 +66,19 @@ if ($method === 'GET') {
         $plan['id'] = (string) $plan['id'];
         $plan['tokenLimit'] = (int) $plan['token_limit'];
         $plan['priceMonthly'] = isset($plan['price_monthly']) ? (float) $plan['price_monthly'] : 0;
+        $plan['includedUsers'] = max(1, (int) ($plan['included_users'] ?? 1));
+        $plan['addonUserPriceCents'] = max(0, (int) ($plan['addon_user_price_cents'] ?? 0));
+        $plan['catalogGroup'] = in_array(($plan['catalog_group'] ?? 'current'), ['current', 'suggested', 'crm_addon'], true) ? $plan['catalog_group'] : 'current';
+        $plan['modules'] = planModuleKeys($db, (int) $plan['id']);
         $plan['createdAt'] = $plan['created_at'];
         $plan['updatedAt'] = $plan['updated_at'];
-        unset($plan['token_limit'], $plan['price_monthly'], $plan['created_at'], $plan['updated_at']);
+        unset($plan['token_limit'], $plan['price_monthly'], $plan['included_users'], $plan['addon_user_price_cents'], $plan['catalog_group'], $plan['created_at'], $plan['updated_at']);
         jsonSuccess($plan);
     }
 
     try {
         $stmt = $db->query("
-            SELECT p.id, p.name, p.slug, p.token_limit, p.price_monthly, p.period, p.status, p.created_at,
+            SELECT p.id, p.name, p.slug, p.token_limit, p.price_monthly, p.period, p.status, p.catalog_group, p.included_users, p.addon_user_price_cents, p.created_at,
                    (SELECT COUNT(*) FROM tenants t WHERE t.plan_id = p.id) as tenants_count
             FROM plans p
             ORDER BY p.token_limit ASC, p.name ASC
@@ -56,9 +89,13 @@ if ($method === 'GET') {
             $row['id'] = (string) $row['id'];
             $row['tokenLimit'] = (int) $row['token_limit'];
             $row['priceMonthly'] = isset($row['price_monthly']) ? (float) $row['price_monthly'] : 0;
+            $row['includedUsers'] = max(1, (int) ($row['included_users'] ?? 1));
+            $row['addonUserPriceCents'] = max(0, (int) ($row['addon_user_price_cents'] ?? 0));
+            $row['catalogGroup'] = in_array(($row['catalog_group'] ?? 'current'), ['current', 'suggested', 'crm_addon'], true) ? $row['catalog_group'] : 'current';
+            $row['modules'] = planModuleKeys($db, (int) $row['id']);
             $row['tenantsCount'] = (int) ($row['tenants_count'] ?? 0);
             $row['createdAt'] = isset($row['created_at']) ? (string) $row['created_at'] : '';
-            unset($row['token_limit'], $row['price_monthly'], $row['tenants_count'], $row['created_at']);
+            unset($row['token_limit'], $row['price_monthly'], $row['included_users'], $row['addon_user_price_cents'], $row['catalog_group'], $row['tenants_count'], $row['created_at']);
         }
         unset($row);
         jsonSuccess(['items' => $plans, 'total' => $totalCount]);
@@ -79,6 +116,15 @@ if ($method === 'GET') {
     $priceMonthly = isset($input['priceMonthly']) ? (float) str_replace(',', '.', $input['priceMonthly']) : 0;
     $period = sanitizeInput($input['period'] ?? 'monthly');
     $status = isset($input['status']) ? sanitizeInput($input['status']) : 'active';
+    $includedUsers = max(1, (int) ($input['includedUsers'] ?? 1));
+    $addonUserPriceCents = max(0, (int) ($input['addonUserPriceCents'] ?? 0));
+    $catalogGroup = sanitizeInput($input['catalogGroup'] ?? 'current');
+    if (!in_array($catalogGroup, ['current', 'suggested', 'crm_addon'], true)) $catalogGroup = 'current';
+    $modulesInput = $input['modules'] ?? null;
+    if ($catalogGroup === 'crm_addon') {
+        $tokenLimit = 0;
+        $modulesInput = ['crm'];
+    }
 
     if (empty($name)) {
         jsonError('Nome do plano é obrigatório', 400);
@@ -111,18 +157,23 @@ if ($method === 'GET') {
             jsonError('Já existe um plano com este identificador (slug). Escolha outro.', 400);
         }
 
-        $stmt = $db->prepare("INSERT INTO plans (name, slug, token_limit, price_monthly, period, status) VALUES (?, ?, ?, ?, ?, ?)");
-        $stmt->execute([$name, $slug, $tokenLimit, $priceMonthly, $period, $status]);
+        $stmt = $db->prepare("INSERT INTO plans (name, slug, token_limit, price_monthly, period, status, catalog_group, included_users, addon_user_price_cents) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt->execute([$name, $slug, $tokenLimit, $priceMonthly, $period, $status, $catalogGroup, $includedUsers, $addonUserPriceCents]);
         $newId = (int) $db->lastInsertId();
+        savePlanModuleKeys($db, $newId, $modulesInput);
 
-        $stmt = $db->prepare("SELECT id, name, slug, token_limit, price_monthly, period, status, created_at FROM plans WHERE id = ?");
+        $stmt = $db->prepare("SELECT id, name, slug, token_limit, price_monthly, period, status, catalog_group, included_users, addon_user_price_cents, created_at FROM plans WHERE id = ?");
         $stmt->execute([$newId]);
         $plan = $stmt->fetch();
         $plan['id'] = (string) $plan['id'];
         $plan['tokenLimit'] = (int) $plan['token_limit'];
         $plan['priceMonthly'] = isset($plan['price_monthly']) ? (float) $plan['price_monthly'] : 0;
+        $plan['includedUsers'] = max(1, (int) ($plan['included_users'] ?? 1));
+        $plan['addonUserPriceCents'] = max(0, (int) ($plan['addon_user_price_cents'] ?? 0));
+        $plan['catalogGroup'] = in_array(($plan['catalog_group'] ?? 'current'), ['current', 'suggested', 'crm_addon'], true) ? $plan['catalog_group'] : 'current';
+        $plan['modules'] = planModuleKeys($db, (int) $plan['id']);
         $plan['createdAt'] = $plan['created_at'];
-        unset($plan['token_limit'], $plan['price_monthly'], $plan['created_at']);
+        unset($plan['token_limit'], $plan['price_monthly'], $plan['included_users'], $plan['addon_user_price_cents'], $plan['catalog_group'], $plan['created_at']);
         jsonSuccess($plan, 'Plano criado com sucesso');
     } catch (PDOException $e) {
         error_log("Erro ao criar plano: " . $e->getMessage());
@@ -142,6 +193,15 @@ if ($method === 'GET') {
     $priceMonthly = isset($input['priceMonthly']) ? (float) str_replace(',', '.', $input['priceMonthly']) : null;
     $period = isset($input['period']) ? sanitizeInput($input['period']) : null;
     $status = isset($input['status']) ? sanitizeInput($input['status']) : null;
+    $includedUsers = array_key_exists('includedUsers', $input) ? max(1, (int) $input['includedUsers']) : null;
+    $addonUserPriceCents = array_key_exists('addonUserPriceCents', $input) ? max(0, (int) $input['addonUserPriceCents']) : null;
+    $catalogGroup = array_key_exists('catalogGroup', $input) ? sanitizeInput($input['catalogGroup']) : null;
+    if ($catalogGroup !== null && !in_array($catalogGroup, ['current', 'suggested', 'crm_addon'], true)) $catalogGroup = 'current';
+    $modulesInput = array_key_exists('modules', $input) ? $input['modules'] : null;
+    if ($catalogGroup === 'crm_addon') {
+        $tokenLimit = 0;
+        $modulesInput = ['crm'];
+    }
 
     $stmt = $db->prepare("SELECT id FROM plans WHERE id = ?");
     $stmt->execute([$id]);
@@ -180,28 +240,49 @@ if ($method === 'GET') {
         $updates[] = "status = ?";
         $params[] = $status;
     }
+    if ($includedUsers !== null) {
+        $updates[] = "included_users = ?";
+        $params[] = $includedUsers;
+    }
+    if ($addonUserPriceCents !== null) {
+        $updates[] = "addon_user_price_cents = ?";
+        $params[] = $addonUserPriceCents;
+    }
+    if ($catalogGroup !== null) {
+        $updates[] = "catalog_group = ?";
+        $params[] = $catalogGroup;
+    }
 
-    if (empty($updates)) {
+    if (empty($updates) && !is_array($modulesInput)) {
         jsonError('Nenhum campo para atualizar', 400);
     }
 
-    $params[] = $id;
-    $sql = "UPDATE plans SET " . implode(', ', $updates) . " WHERE id = ?";
-    $db->prepare($sql)->execute($params);
+    if ($updates) {
+        $params[] = $id;
+        $sql = "UPDATE plans SET " . implode(', ', $updates) . " WHERE id = ?";
+        $db->prepare($sql)->execute($params);
+    }
+    if (is_array($modulesInput)) {
+        savePlanModuleKeys($db, $id, $modulesInput);
+    }
 
-    $stmt = $db->prepare("SELECT id, name, slug, token_limit, price_monthly, period, status, created_at, updated_at FROM plans WHERE id = ?");
+    $stmt = $db->prepare("SELECT id, name, slug, token_limit, price_monthly, period, status, catalog_group, included_users, addon_user_price_cents, created_at, updated_at FROM plans WHERE id = ?");
     $stmt->execute([$id]);
     $plan = $stmt->fetch();
     $plan['id'] = (string) $plan['id'];
     $plan['tokenLimit'] = (int) $plan['token_limit'];
     $plan['priceMonthly'] = isset($plan['price_monthly']) ? (float) $plan['price_monthly'] : 0;
+    $plan['includedUsers'] = max(1, (int) ($plan['included_users'] ?? 1));
+        $plan['addonUserPriceCents'] = max(0, (int) ($plan['addon_user_price_cents'] ?? 0));
+    $plan['catalogGroup'] = in_array(($plan['catalog_group'] ?? 'current'), ['current', 'suggested', 'crm_addon'], true) ? $plan['catalog_group'] : 'current';
+    $plan['modules'] = planModuleKeys($db, (int) $plan['id']);
     $plan['createdAt'] = $plan['created_at'];
     $plan['updatedAt'] = $plan['updated_at'];
-    unset($plan['token_limit'], $plan['price_monthly'], $plan['created_at'], $plan['updated_at']);
+    unset($plan['token_limit'], $plan['price_monthly'], $plan['included_users'], $plan['addon_user_price_cents'], $plan['catalog_group'], $plan['created_at'], $plan['updated_at']);
     jsonSuccess($plan, 'Plano atualizado com sucesso');
 
 } elseif ($method === 'DELETE') {
-    // Excluir plano: somente super_admin (já garantido por requireSuperAdmin() no topo do arquivo).
+    // A exclusão permanece protegida pela autorização do catálogo no topo do arquivo.
     $id = isset($_GET['id']) ? (int) $_GET['id'] : 0;
     if (!$id) {
         jsonError('ID do plano é obrigatório', 400);

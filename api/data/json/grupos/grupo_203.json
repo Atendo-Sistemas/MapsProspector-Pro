@@ -1,0 +1,97 @@
+{
+  "grupo": "203",
+  "total_termos": 7,
+  "termos": [
+    {
+      "termo": "Fabricação de fibras artificiais e sintéticas",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2034700",
+      "descricao_cnae": "Fabricação de fibras artificiais e sintéticas",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "203",
+      "classe": "2034",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "fabricação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2034700",
+      "descricao_cnae": "Fabricação de fibras artificiais e sintéticas",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "203",
+      "classe": "2034",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "fibras",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2034700",
+      "descricao_cnae": "Fabricação de fibras artificiais e sintéticas",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "203",
+      "classe": "2034",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "artificiais",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2034700",
+      "descricao_cnae": "Fabricação de fibras artificiais e sintéticas",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "203",
+      "classe": "2034",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "sintéticas",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2034700",
+      "descricao_cnae": "Fabricação de fibras artificiais e sintéticas",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "203",
+      "classe": "2034",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2034700",
+      "descricao_cnae": "Fabricação de fibras artificiais e sintéticas",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "203",
+      "classe": "2034",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "manufatura",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2034700",
+      "descricao_cnae": "Fabricação de fibras artificiais e sintéticas",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "203",
+      "classe": "2034",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

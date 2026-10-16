@@ -1,0 +1,89 @@
+{
+  "classe": "2122",
+  "grupo": "212",
+  "divisao": "21",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de medicamentos para uso veterinário",
+      "codigo_cnae": "2122000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Veterinário",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veterinário",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Veterinario",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veterinário",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos para uso veterinário",
+      "codigo_cnae": "2122000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    }
+  ]
+}

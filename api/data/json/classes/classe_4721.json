@@ -1,0 +1,449 @@
+{
+  "classe": "4721",
+  "grupo": "472",
+  "divisao": "47",
+  "secao": "G",
+  "total_termos": 44,
+  "termos": [
+    {
+      "termo": "Padaria e confeitaria com predominância de produção própria",
+      "codigo_cnae": "4721101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Própria",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "própria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Propria",
+      "codigo_cnae": "4721101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "própria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Padaria e confeitaria com predominância de produção própria",
+      "codigo_cnae": "4721101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Padaria e confeitaria com predominância de revenda",
+      "codigo_cnae": "4721102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Revenda",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "revenda",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Revenda",
+      "codigo_cnae": "4721102",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "revenda",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Padaria e confeitaria com predominância de revenda",
+      "codigo_cnae": "4721102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de laticínios e frios",
+      "codigo_cnae": "4721103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Laticínios",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laticínios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Laticinios",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laticínios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Frios",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Frios",
+      "codigo_cnae": "4721103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de laticínios e frios",
+      "codigo_cnae": "4721103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de doces, balas, bombons e semelhantes",
+      "codigo_cnae": "4721104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Doces",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doces",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Doces",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doces",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Balas",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "balas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Balas",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "balas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Bombons",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bombons",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Bombons",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bombons",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "4721104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de doces, balas, bombons e semelhantes",
+      "codigo_cnae": "4721104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    }
+  ]
+}

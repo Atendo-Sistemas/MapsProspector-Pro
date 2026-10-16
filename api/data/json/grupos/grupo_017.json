@@ -1,0 +1,68 @@
+{
+  "grupo": "017",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Caça e serviços relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caça",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caça",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caca",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caça",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caça e serviços relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

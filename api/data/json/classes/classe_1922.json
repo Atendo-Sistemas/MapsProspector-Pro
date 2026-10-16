@@ -1,0 +1,81 @@
+{
+  "classe": "1922",
+  "total_termos": 5,
+  "termos": [
+    {
+      "termo": "Fabricação de outros combustíveis não especificados anteriormente",
+      "termo_normalizado": "fabricacao de outros combustiveis nao especificados anteriormente",
+      "codigo_cnae": "1922599",
+      "descricao": "Fabricação de outros combustíveis não especificados anteriormente",
+      "relevancia": 100,
+      "categoria": "192",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "192",
+      "classe": "1922",
+      "subclasse": "1922599",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "outros",
+      "termo_normalizado": "outros",
+      "codigo_cnae": "1922599",
+      "descricao": "Fabricação de outros combustíveis não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "192",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "192",
+      "classe": "1922",
+      "subclasse": "1922599",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "combustíveis",
+      "termo_normalizado": "combustiveis",
+      "codigo_cnae": "1922599",
+      "descricao": "Fabricação de outros combustíveis não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "192",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "192",
+      "classe": "1922",
+      "subclasse": "1922599",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "especificados",
+      "termo_normalizado": "especificados",
+      "codigo_cnae": "1922599",
+      "descricao": "Fabricação de outros combustíveis não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "192",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "192",
+      "classe": "1922",
+      "subclasse": "1922599",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "anteriormente",
+      "termo_normalizado": "anteriormente",
+      "codigo_cnae": "1922599",
+      "descricao": "Fabricação de outros combustíveis não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "192",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "192",
+      "classe": "1922",
+      "subclasse": "1922599",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

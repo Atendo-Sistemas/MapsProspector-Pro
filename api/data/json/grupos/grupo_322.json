@@ -1,0 +1,108 @@
+{
+  "grupo": "322",
+  "divisao": "32",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de instrumentos musicais, peças e acessórios",
+      "codigo_cnae": "3220500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Instrumentos",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instrumentos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Instrumentos",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instrumentos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Musicais",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "musicais",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Musicais",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "musicais",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "3220500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de instrumentos musicais, peças e acessórios",
+      "codigo_cnae": "3220500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    }
+  ]
+}

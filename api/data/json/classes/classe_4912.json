@@ -1,0 +1,329 @@
+{
+  "classe": "4912",
+  "grupo": "491",
+  "divisao": "49",
+  "secao": "H",
+  "total_termos": 32,
+  "termos": [
+    {
+      "termo": "Transporte férreo de passageiros intermunicipal e interestadual",
+      "codigo_cnae": "4912401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Férreo",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "férreo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Ferreo",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "férreo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Intermunicipal",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermunicipal",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Intermunicipal",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermunicipal",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Interestadual",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "interestadual",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Interestadual",
+      "codigo_cnae": "4912401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "interestadual",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte férreo de passageiros intermunicipal e interestadual",
+      "codigo_cnae": "4912401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte férreo de passageiros municipal e em região metropolitana",
+      "codigo_cnae": "4912402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Férreo",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "férreo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Ferreo",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "férreo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Municipal",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "municipal",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Municipal",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "municipal",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Região",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "região",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Regiao",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "região",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Metropolitana",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metropolitana",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Metropolitana",
+      "codigo_cnae": "4912402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metropolitana",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte férreo de passageiros municipal e em região metropolitana",
+      "codigo_cnae": "4912402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte metroviário",
+      "codigo_cnae": "4912403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4912403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4912403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Metroviário",
+      "codigo_cnae": "4912403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metroviário",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Metroviario",
+      "codigo_cnae": "4912403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metroviário",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte metroviário",
+      "codigo_cnae": "4912403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "49"
+    }
+  ]
+}

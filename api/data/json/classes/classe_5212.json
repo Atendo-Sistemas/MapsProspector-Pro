@@ -1,0 +1,69 @@
+{
+  "classe": "5212",
+  "grupo": "521",
+  "divisao": "52",
+  "secao": "H",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Carga e descarga",
+      "codigo_cnae": "5212500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5212500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5212500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Descarga",
+      "codigo_cnae": "5212500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "descarga",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Descarga",
+      "codigo_cnae": "5212500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "descarga",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Carga e descarga",
+      "codigo_cnae": "5212500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    }
+  ]
+}

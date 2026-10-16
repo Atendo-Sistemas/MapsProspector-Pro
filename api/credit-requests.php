@@ -1,6 +1,6 @@
 <?php
 /**
- * API de Solicitação de Créditos (tokens)
+ * API de Solicitação de Créditos (tokens) com Notificações Integradas
  * Endpoint: /api/credit-requests.php
  * Usuários com empresa solicitam créditos; Super Admin aprova ou recusa.
  */
@@ -10,6 +10,7 @@ ob_start();
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../services/AsaasPaymentGateway.php';
 
 ob_clean();
 
@@ -91,10 +92,35 @@ if ($method === 'GET') {
     if ($tokensRequested < 100 || $tokensRequested > 10000) {
         jsonError('Informe uma quantidade entre 100 e 10.000 tokens.', 400);
     }
+    if (class_exists('MapsProspectorAsaasPaymentGateway') && MapsProspectorAsaasPaymentGateway::isOperational($db)) {
+        try {
+            $created = MapsProspectorAsaasPaymentGateway::createCredits($db, $authUser, (int) $tenantId, $tokensRequested);
+            jsonSuccess($created, 'Cobrança de créditos criada no Asaas. Abra o link para concluir o pagamento.');
+        } catch (Throwable $e) {
+            error_log('credit-requests automatic Asaas creation: ' . $e->getMessage());
+            jsonError('O Asaas está configurado, mas não foi possível criar a cobrança agora. Nenhuma solicitação manual foi aberta automaticamente.', 502);
+        }
+    }
     try {
         $stmt = $db->prepare("INSERT INTO credit_requests (tenant_id, requested_by_user_id, tokens_requested, status) VALUES (?, ?, ?, 'pending')");
         $stmt->execute([$tenantId, $userId, $tokensRequested]);
         $newId = (int) $db->lastInsertId();
+
+        // DISPARA NOTIFICAÇÃO DE SOLICITAÇÃO DE CRÉDITO PARA O SUPER ADMIN
+        try {
+            require_once __DIR__ . '/../services/notificationService.php';
+            
+            // Busca o Nome da Instância do cliente
+            $stmtSettings = $db->prepare("SELECT tenant_name FROM settings WHERE user_id = ? LIMIT 1");
+            $stmtSettings->execute([$userId]);
+            $settingsRow = $stmtSettings->fetch();
+            $companyName = (!empty($settingsRow['tenant_name'])) ? $settingsRow['tenant_name'] : 'sua empresa';
+
+            NotificationService::notifyCreditRequest($db, $companyName, $tokensRequested);
+        } catch (Exception $e) {
+            error_log("credit-requests.php POST: erro ao enviar notificação de pedido: " . $e->getMessage());
+        }
+
         jsonSuccess(['id' => (string) $newId, 'status' => 'pending'], 'Solicitação enviada.');
     } catch (PDOException $e) {
         if (strpos($e->getMessage(), 'exist') !== false || strpos($e->getMessage(), '1146') !== false) {
@@ -114,7 +140,8 @@ if ($method === 'GET') {
         jsonError('Informe o id da solicitação e o status (approved ou rejected).', 400);
     }
     try {
-        $stmt = $db->prepare("SELECT id, tenant_id, tokens_requested, status FROM credit_requests WHERE id = ?");
+        // Seleciona também o requested_by_user_id para sabermos quem notificar no sucesso
+        $stmt = $db->prepare("SELECT id, tenant_id, requested_by_user_id, tokens_requested, status FROM credit_requests WHERE id = ?");
         $stmt->execute([$id]);
         $req = $stmt->fetch();
         if (!$req) {
@@ -142,6 +169,35 @@ if ($method === 'GET') {
             $stmt->execute([$tid, $periodStart, $amount, $amount]);
         }
         $db->commit();
+
+        // DISPARA NOTIFICAÇÃO DE CRÉDITOS LIBERADOS PARA O CLIENTE
+        try {
+            require_once __DIR__ . '/../services/notificationService.php';
+            
+            // Busca os dados de contato do cliente (e-mail, telefone e nome da empresa)
+            $stmtClient = $db->prepare("
+                SELECT u.email, u.phone, s.tenant_name 
+                FROM users u 
+                LEFT JOIN settings s ON s.user_id = u.id 
+                WHERE u.id = ? LIMIT 1
+            ");
+            $stmtClient->execute([$req['requested_by_user_id']]);
+            $clientRow = $stmtClient->fetch();
+
+            if ($clientRow) {
+                $clientEmail = $clientRow['email'];
+                $clientPhone = $clientRow['phone'];
+                $companyName = (!empty($clientRow['tenant_name'])) ? $clientRow['tenant_name'] : 'sua empresa';
+                $amount = (int) $req['tokens_requested'];
+
+                if ($status === 'approved') {
+                    NotificationService::notifyCreditApproval($db, $companyName, $amount, $clientEmail, $clientPhone);
+                }
+            }
+        } catch (Exception $e) {
+            error_log("credit-requests.php PUT: erro ao enviar notificações de liberação: " . $e->getMessage());
+        }
+
         jsonSuccess(['id' => (string) $id, 'status' => $status], $status === 'approved' ? 'Créditos aprovados e adicionados à empresa.' : 'Solicitação recusada.');
     } catch (PDOException $e) {
         if ($db->inTransaction()) {

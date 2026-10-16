@@ -1,0 +1,69 @@
+{
+  "classe": "7311",
+  "grupo": "731",
+  "divisao": "73",
+  "secao": "M",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Agências de publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agências",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agencias",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agências de publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "73"
+    }
+  ]
+}

@@ -1,0 +1,169 @@
+{
+  "classe": "6435",
+  "grupo": "643",
+  "divisao": "64",
+  "secao": "K",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Sociedades de crédito imobiliário",
+      "codigo_cnae": "6435201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sociedades",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociedades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sociedades",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociedades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Crédito",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crédito",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Credito",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crédito",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Imobiliário",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imobiliário",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Imobiliario",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imobiliário",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sociedades de crédito imobiliário",
+      "codigo_cnae": "6435201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associações de poupança e empréstimo",
+      "codigo_cnae": "6435202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associações",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associações",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associacoes",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associações",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Poupança",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poupança",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Poupanca",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poupança",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Empréstimo",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empréstimo",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Emprestimo",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empréstimo",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associações de poupança e empréstimo",
+      "codigo_cnae": "6435202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    }
+  ]
+}

@@ -1,0 +1,326 @@
+{
+  "divisao": "78",
+  "total_termos": 32,
+  "termos": [
+    {
+      "termo": "Seleção e agenciamento de mão-de-obra",
+      "codigo_cnae": "7810800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Seleção",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seleção",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Selecao",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seleção",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mão",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mao",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Seleção e agenciamento de mão-de-obra",
+      "codigo_cnae": "7810800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação de mão-de-obra temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mão",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mao",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação de mão-de-obra temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento e gestão de recursos humanos para terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Gestao",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Humanos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Humanos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento e gestão de recursos humanos para terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    }
+  ]
+}

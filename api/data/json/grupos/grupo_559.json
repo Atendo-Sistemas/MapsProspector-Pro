@@ -1,0 +1,68 @@
+{
+  "grupo": "559",
+  "divisao": "55",
+  "secao": "I",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Albergues, exceto assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Albergues",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "albergues",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Albergues",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "albergues",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistenciais",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistenciais",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Albergues, exceto assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    }
+  ]
+}

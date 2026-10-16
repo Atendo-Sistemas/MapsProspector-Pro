@@ -1,0 +1,228 @@
+{
+  "grupo": "152",
+  "divisao": "15",
+  "secao": "C",
+  "total_termos": 22,
+  "termos": [
+    {
+      "termo": "Fabricação de artigos para viagem, bolsa e semelhantes de qualquer material",
+      "codigo_cnae": "1521100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Viagem",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viagem",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Viagem",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viagem",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Qualquer",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "qualquer",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Qualquer",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "qualquer",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1521100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Fabricação de artigos para viagem, bolsa e semelhantes de qualquer material",
+      "codigo_cnae": "1521100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Fabricação de artefatos de couro não especificados anteriormente",
+      "codigo_cnae": "1529700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Fabricação de artefatos de couro não especificados anteriormente",
+      "codigo_cnae": "1529700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "15"
+    }
+  ]
+}

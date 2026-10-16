@@ -1,0 +1,109 @@
+{
+  "classe": "3822",
+  "grupo": "382",
+  "divisao": "38",
+  "secao": "E",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Tratamento e disposição de resíduos perigosos",
+      "codigo_cnae": "3822000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Tratamento",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamento",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Tratamento",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamento",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Disposição",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "disposição",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Disposicao",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "disposição",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Resíduos",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resíduos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Residuos",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resíduos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Perigosos",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perigosos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Perigosos",
+      "codigo_cnae": "3822000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perigosos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Tratamento e disposição de resíduos perigosos",
+      "codigo_cnae": "3822000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "E",
+      "divisao": "38"
+    }
+  ]
+}

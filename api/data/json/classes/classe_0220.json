@@ -1,0 +1,749 @@
+{
+  "classe": "0220",
+  "grupo": "022",
+  "divisao": "02",
+  "secao": "A",
+  "total_termos": 74,
+  "termos": [
+    {
+      "termo": "Extração de madeira em florestas nativas",
+      "codigo_cnae": "0220901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Extração de madeira em florestas nativas",
+      "codigo_cnae": "0220901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de carvão vegetal - florestas nativas",
+      "codigo_cnae": "0220902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Carvão",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Carvao",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de carvão vegetal - florestas nativas",
+      "codigo_cnae": "0220902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de castanha-do-pará em florestas nativas",
+      "codigo_cnae": "0220903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Castanha",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "castanha",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Castanha",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "castanha",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Pará",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pará",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Para",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pará",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de castanha-do-pará em florestas nativas",
+      "codigo_cnae": "0220903",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de látex em florestas nativas",
+      "codigo_cnae": "0220904",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Látex",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "látex",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Latex",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "látex",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de látex em florestas nativas",
+      "codigo_cnae": "0220904",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de palmito em florestas nativas",
+      "codigo_cnae": "0220905",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Palmito",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "palmito",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Palmito",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "palmito",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de palmito em florestas nativas",
+      "codigo_cnae": "0220905",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Conservação de florestas nativas",
+      "codigo_cnae": "0220906",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Conservação",
+      "codigo_cnae": "0220906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservação",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Conservacao",
+      "codigo_cnae": "0220906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservação",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Conservação de florestas nativas",
+      "codigo_cnae": "0220906",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de produtos não-madeireiros não especificados anteriormente em florestas nativas",
+      "codigo_cnae": "0220999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeireiros",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeireiros",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeireiros",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeireiros",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Nativas",
+      "codigo_cnae": "0220999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nativas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Coleta de produtos não-madeireiros não especificados anteriormente em florestas nativas",
+      "codigo_cnae": "0220999",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    }
+  ]
+}

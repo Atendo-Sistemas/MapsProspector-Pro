@@ -1,0 +1,148 @@
+{
+  "grupo": "422",
+  "divisao": "42",
+  "secao": "F",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Construção de barragens e represas para geração de energia elétrica",
+      "codigo_cnae": "4221901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Barragens",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "barragens",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Barragens",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "barragens",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Represas",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "represas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Represas",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "represas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Geração",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geração",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Geracao",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geração",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de barragens e represas para geração de energia elétrica",
+      "codigo_cnae": "4221901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    }
+  ]
+}

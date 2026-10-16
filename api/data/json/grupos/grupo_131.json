@@ -1,0 +1,428 @@
+{
+  "grupo": "131",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 42,
+  "termos": [
+    {
+      "termo": "Preparação e fiação de fibras de algodão",
+      "codigo_cnae": "1311100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiação",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiacao",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodão",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodao",
+      "codigo_cnae": "1311100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Preparação e fiação de fibras de algodão",
+      "codigo_cnae": "1311100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Preparação e fiação de fibras têxteis naturais, exceto algodão",
+      "codigo_cnae": "1312000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiação",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiacao",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxteis",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texteis",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodão",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodao",
+      "codigo_cnae": "1312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Preparação e fiação de fibras têxteis naturais, exceto algodão",
+      "codigo_cnae": "1312000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiação de fibras artificiais e sintéticas",
+      "codigo_cnae": "1313800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiação",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiacao",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiação",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artificiais",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificiais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artificiais",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificiais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Sintéticas",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sintéticas",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Sinteticas",
+      "codigo_cnae": "1313800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sintéticas",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fiação de fibras artificiais e sintéticas",
+      "codigo_cnae": "1313800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de linhas para costurar e bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Linhas",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "linhas",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Linhas",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "linhas",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Costurar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "costurar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Costurar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "costurar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bordar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bordar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de linhas para costurar e bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

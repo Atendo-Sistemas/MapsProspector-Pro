@@ -1,0 +1,66 @@
+{
+  "classe": "2451",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fundição de ferro e aço",
+      "termo_normalizado": "fundicao de ferro e aco",
+      "codigo_cnae": "2451200",
+      "descricao": "Fundição de ferro e aço",
+      "relevancia": 100,
+      "categoria": "245",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "245",
+      "classe": "2451",
+      "subclasse": "2451200",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "fundição",
+      "termo_normalizado": "fundicao",
+      "codigo_cnae": "2451200",
+      "descricao": "Fundição de ferro e aço",
+      "relevancia": 85,
+      "categoria": "245",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "245",
+      "classe": "2451",
+      "subclasse": "2451200",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "ferro",
+      "termo_normalizado": "ferro",
+      "codigo_cnae": "2451200",
+      "descricao": "Fundição de ferro e aço",
+      "relevancia": 85,
+      "categoria": "245",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "245",
+      "classe": "2451",
+      "subclasse": "2451200",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "aço",
+      "termo_normalizado": "aco",
+      "codigo_cnae": "2451200",
+      "descricao": "Fundição de ferro e aço",
+      "relevancia": 85,
+      "categoria": "245",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "245",
+      "classe": "2451",
+      "subclasse": "2451200",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

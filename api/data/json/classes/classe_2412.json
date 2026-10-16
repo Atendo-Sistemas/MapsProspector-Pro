@@ -1,0 +1,49 @@
+{
+  "classe": "2412",
+  "grupo": "241",
+  "divisao": "24",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Produção de ferroligas",
+      "codigo_cnae": "2412100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Ferroligas",
+      "codigo_cnae": "2412100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferroligas",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Ferroligas",
+      "codigo_cnae": "2412100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferroligas",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Produção de ferroligas",
+      "codigo_cnae": "2412100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    }
+  ]
+}

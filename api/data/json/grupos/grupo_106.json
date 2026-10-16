@@ -1,0 +1,628 @@
+{
+  "grupo": "106",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 62,
+  "termos": [
+    {
+      "termo": "Beneficiamento de arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento de arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos do arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos do arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem de trigo e fabricação de derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moagem",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moagem",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem de trigo e fabricação de derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de mandioca e derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mandioca",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mandioca",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mandioca",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mandioca",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de mandioca e derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de milho e derivados, exceto óleos de milho",
+      "codigo_cnae": "1064300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de milho e derivados, exceto óleos de milho",
+      "codigo_cnae": "1064300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de amidos e féculas de vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Amidos",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amidos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Amidos",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amidos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Féculas",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "féculas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Feculas",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "féculas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de amidos e féculas de vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho em bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho em bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

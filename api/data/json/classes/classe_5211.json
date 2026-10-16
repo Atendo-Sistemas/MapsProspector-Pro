@@ -1,0 +1,329 @@
+{
+  "classe": "5211",
+  "grupo": "521",
+  "divisao": "52",
+  "secao": "H",
+  "total_termos": 32,
+  "termos": [
+    {
+      "termo": "Armazéns gerais - emissão de warrant",
+      "codigo_cnae": "5211701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Armazéns",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armazéns",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Armazens",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armazéns",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Gerais",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gerais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Gerais",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gerais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Emissão",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "emissão",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Emissao",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "emissão",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Warrant",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "warrant",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Warrant",
+      "codigo_cnae": "5211701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "warrant",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Armazéns gerais - emissão de warrant",
+      "codigo_cnae": "5211701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Guarda-móveis",
+      "codigo_cnae": "5211702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Guarda",
+      "codigo_cnae": "5211702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "guarda",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Guarda",
+      "codigo_cnae": "5211702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "guarda",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Móveis",
+      "codigo_cnae": "5211702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Moveis",
+      "codigo_cnae": "5211702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Guarda-móveis",
+      "codigo_cnae": "5211702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Depósitos de mercadorias para terceiros, exceto armazéns gerais e guarda-móveis",
+      "codigo_cnae": "5211799",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Depósitos",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "depósitos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Depositos",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "depósitos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Armazéns",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armazéns",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Armazens",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armazéns",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Gerais",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gerais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Gerais",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gerais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Guarda",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "guarda",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Guarda",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "guarda",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Móveis",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Moveis",
+      "codigo_cnae": "5211799",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Depósitos de mercadorias para terceiros, exceto armazéns gerais e guarda-móveis",
+      "codigo_cnae": "5211799",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    }
+  ]
+}

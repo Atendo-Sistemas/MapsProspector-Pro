@@ -1,0 +1,129 @@
+{
+  "classe": "3314",
+  "grupo": "331",
+  "divisao": "33",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Manutenção e reparação de máquinas motrizes não-elétricas",
+      "codigo_cnae": "3314701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Motrizes",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motrizes",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Motrizes",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motrizes",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Elétricas",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricas",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Eletricas",
+      "codigo_cnae": "3314701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricas",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Manutenção e reparação de máquinas motrizes não-elétricas",
+      "codigo_cnae": "3314701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "33"
+    }
+  ]
+}

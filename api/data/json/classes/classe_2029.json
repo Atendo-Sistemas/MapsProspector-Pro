@@ -1,0 +1,109 @@
+{
+  "classe": "2029",
+  "grupo": "202",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos químicos orgânicos não especificados anteriormente",
+      "codigo_cnae": "2029100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Químicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Quimicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Orgânicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "orgânicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Organicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "orgânicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos químicos orgânicos não especificados anteriormente",
+      "codigo_cnae": "2029100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

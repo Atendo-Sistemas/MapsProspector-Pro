@@ -1,0 +1,209 @@
+{
+  "classe": "1121",
+  "grupo": "112",
+  "divisao": "11",
+  "secao": "C",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Fabricação de águas envasadas",
+      "codigo_cnae": "1121601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Águas",
+      "codigo_cnae": "1121601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "águas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguas",
+      "codigo_cnae": "1121601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "águas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Envasadas",
+      "codigo_cnae": "1121601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "envasadas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Envasadas",
+      "codigo_cnae": "1121601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "envasadas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de águas envasadas",
+      "codigo_cnae": "1121601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de refrigerantes",
+      "codigo_cnae": "1121602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Refrigerantes",
+      "codigo_cnae": "1121602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigerantes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Refrigerantes",
+      "codigo_cnae": "1121602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigerantes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de refrigerantes",
+      "codigo_cnae": "1121602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de refrescos, xaropes e pós para refrescos, exceto refrigerantes",
+      "codigo_cnae": "1121603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Refrescos",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrescos",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Refrescos",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrescos",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Xaropes",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "xaropes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Xaropes",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "xaropes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Pós",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Pos",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Refrigerantes",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigerantes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Refrigerantes",
+      "codigo_cnae": "1121603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigerantes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de refrescos, xaropes e pós para refrescos, exceto refrigerantes",
+      "codigo_cnae": "1121603",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    }
+  ]
+}

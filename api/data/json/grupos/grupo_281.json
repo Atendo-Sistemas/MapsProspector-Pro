@@ -1,0 +1,848 @@
+{
+  "grupo": "281",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 84,
+  "termos": [
+    {
+      "termo": "Fabricação de motores e turbinas, peças e acessórios, exceto para aviões e veículos rodoviários",
+      "codigo_cnae": "2811900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Turbinas",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turbinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Turbinas",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turbinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aviões",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aviões",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Avioes",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aviões",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rodoviários",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rodoviarios",
+      "codigo_cnae": "2811900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de motores e turbinas, peças e acessórios, exceto para aviões e veículos rodoviários",
+      "codigo_cnae": "2811900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos hidráulicos e pneumáticos, exceto válvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Hidráulicos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Hidraulicos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pneumáticos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pneumáticos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pneumaticos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pneumáticos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Válvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Valvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos hidráulicos e pneumáticos, exceto válvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de válvulas, registros e dispositivos semelhantes, peças e acessórios",
+      "codigo_cnae": "2813500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Válvulas",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Valvulas",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Registros",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "registros",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Registros",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "registros",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Dispositivos",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dispositivos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Dispositivos",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dispositivos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de válvulas, registros e dispositivos semelhantes, peças e acessórios",
+      "codigo_cnae": "2813500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de compressores para uso industrial, peças e acessórios",
+      "codigo_cnae": "2814301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2814301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de compressores para uso industrial, peças e acessórios",
+      "codigo_cnae": "2814301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de compressores para uso não industrial, peças e acessórios",
+      "codigo_cnae": "2814302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Compressores",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compressores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2814302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de compressores para uso não industrial, peças e acessórios",
+      "codigo_cnae": "2814302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de rolamentos para fins industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de rolamentos para fins industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos de transmissão para fins industriais, exceto rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transmissão",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissão",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transmissao",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissão",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos de transmissão para fins industriais, exceto rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

@@ -1,0 +1,349 @@
+{
+  "classe": "2821",
+  "grupo": "282",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 34,
+  "termos": [
+    {
+      "termo": "Fabricação de fornos industriais, aparelhos e equipamentos não-elétricos para instalação térmica, peças e acessórios",
+      "codigo_cnae": "2821601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Térmica",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "térmica",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Termica",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "térmica",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de fornos industriais, aparelhos e equipamentos não-elétricos para instalação térmica, peças e acessórios",
+      "codigo_cnae": "2821601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de estufas e fornos elétricos para fins industriais, peças e acessórios",
+      "codigo_cnae": "2821602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Estufas",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estufas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Estufas",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estufas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de estufas e fornos elétricos para fins industriais, peças e acessórios",
+      "codigo_cnae": "2821602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

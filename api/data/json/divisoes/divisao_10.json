@@ -1,0 +1,5076 @@
+{
+  "divisao": "10",
+  "total_termos": 507,
+  "termos": [
+    {
+      "termo": "Frigorífico - abate de bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de eqüinos",
+      "codigo_cnae": "1011202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Eqüinos",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Equinos",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de eqüinos",
+      "codigo_cnae": "1011202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de ovinos e caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de ovinos e caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de reses sob contrato - exceto abate de suínos",
+      "codigo_cnae": "1011205",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Reses",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reses",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Reses",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reses",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suínos",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suinos",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de reses sob contrato - exceto abate de suínos",
+      "codigo_cnae": "1011205",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de aves",
+      "codigo_cnae": "1012101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de aves",
+      "codigo_cnae": "1012101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de pequenos animais",
+      "codigo_cnae": "1012102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pequenos",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pequenos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pequenos",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pequenos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de pequenos animais",
+      "codigo_cnae": "1012102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de suínos",
+      "codigo_cnae": "1012103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suínos",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suinos",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de suínos",
+      "codigo_cnae": "1012103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de suínos sob contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suínos",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suinos",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de suínos sob contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de carne",
+      "codigo_cnae": "1013901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de carne",
+      "codigo_cnae": "1013901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de produtos de carne",
+      "codigo_cnae": "1013902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de produtos de carne",
+      "codigo_cnae": "1013902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Processamento industrial do pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Processamento",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "processamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Processamento",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "processamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Processamento industrial do pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de frutas",
+      "codigo_cnae": "1031700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1031700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1031700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1031700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1031700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de frutas",
+      "codigo_cnae": "1031700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de palmito",
+      "codigo_cnae": "1032501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1032501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1032501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Palmito",
+      "codigo_cnae": "1032501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "palmito",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Palmito",
+      "codigo_cnae": "1032501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "palmito",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de palmito",
+      "codigo_cnae": "1032501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de legumes e outros vegetais, exceto palmito",
+      "codigo_cnae": "1032599",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Legumes",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "legumes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Legumes",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "legumes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Palmito",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "palmito",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Palmito",
+      "codigo_cnae": "1032599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "palmito",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de legumes e outros vegetais, exceto palmito",
+      "codigo_cnae": "1032599",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de sucos concentrados de frutas, hortaliças e legumes",
+      "codigo_cnae": "1033301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sucos",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sucos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sucos",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sucos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Concentrados",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concentrados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Concentrados",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concentrados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Hortaliças",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hortaliças",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Hortalicas",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hortaliças",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Legumes",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "legumes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Legumes",
+      "codigo_cnae": "1033301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "legumes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de sucos concentrados de frutas, hortaliças e legumes",
+      "codigo_cnae": "1033301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de sucos de frutas, hortaliças e legumes, exceto concentrados",
+      "codigo_cnae": "1033302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sucos",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sucos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sucos",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sucos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Hortaliças",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hortaliças",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Hortalicas",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hortaliças",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Legumes",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "legumes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Legumes",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "legumes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Concentrados",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concentrados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Concentrados",
+      "codigo_cnae": "1033302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concentrados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de sucos de frutas, hortaliças e legumes, exceto concentrados",
+      "codigo_cnae": "1033302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais em bruto, exceto óleo de milho",
+      "codigo_cnae": "1041400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais em bruto, exceto óleo de milho",
+      "codigo_cnae": "1041400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais refinados, exceto óleo de milho",
+      "codigo_cnae": "1042200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinados",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinados",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais refinados, exceto óleo de milho",
+      "codigo_cnae": "1042200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de margarina e outras gorduras vegetais e de óleos não-comestíveis de animais",
+      "codigo_cnae": "1043100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Margarina",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "margarina",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Margarina",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "margarina",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gorduras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gorduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gorduras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gorduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comestíveis",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comestiveis",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de margarina e outras gorduras vegetais e de óleos não-comestíveis de animais",
+      "codigo_cnae": "1043100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação do leite",
+      "codigo_cnae": "1051100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação do leite",
+      "codigo_cnae": "1051100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de laticínios",
+      "codigo_cnae": "1052000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Laticínios",
+      "codigo_cnae": "1052000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laticínios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Laticinios",
+      "codigo_cnae": "1052000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laticínios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de laticínios",
+      "codigo_cnae": "1052000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de sorvetes e outros gelados comestíveis",
+      "codigo_cnae": "1053800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sorvetes",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sorvetes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sorvetes",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sorvetes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gelados",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gelados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gelados",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gelados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comestíveis",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comestiveis",
+      "codigo_cnae": "1053800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de sorvetes e outros gelados comestíveis",
+      "codigo_cnae": "1053800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento de arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento de arroz",
+      "codigo_cnae": "1061901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos do arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos do arroz",
+      "codigo_cnae": "1061902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem de trigo e fabricação de derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moagem",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moagem",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem de trigo e fabricação de derivados",
+      "codigo_cnae": "1062700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de mandioca e derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mandioca",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mandioca",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mandioca",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mandioca",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de mandioca e derivados",
+      "codigo_cnae": "1063500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de milho e derivados, exceto óleos de milho",
+      "codigo_cnae": "1064300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Farinha",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farinha",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1064300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de farinha de milho e derivados, exceto óleos de milho",
+      "codigo_cnae": "1064300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de amidos e féculas de vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Amidos",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amidos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Amidos",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amidos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Féculas",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "féculas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Feculas",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "féculas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de amidos e féculas de vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho em bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho em bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de açúcar em bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de açúcar em bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de açúcar de cana refinado",
+      "codigo_cnae": "1072401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "1072401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "1072401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "1072401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "1072401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1072401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1072401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de açúcar de cana refinado",
+      "codigo_cnae": "1072401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de açúcar de cereais (dextrose) e de beterraba",
+      "codigo_cnae": "1072402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cereais",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cereais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cereais",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cereais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Dextrose",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dextrose",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Dextrose",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dextrose",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beterraba",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beterraba",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beterraba",
+      "codigo_cnae": "1072402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beterraba",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de açúcar de cereais (dextrose) e de beterraba",
+      "codigo_cnae": "1072402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento de café",
+      "codigo_cnae": "1081301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "1081301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "1081301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Café",
+      "codigo_cnae": "1081301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cafe",
+      "codigo_cnae": "1081301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Beneficiamento de café",
+      "codigo_cnae": "1081301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Torrefação e moagem de café",
+      "codigo_cnae": "1081302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Torrefação",
+      "codigo_cnae": "1081302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "torrefação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Torrefacao",
+      "codigo_cnae": "1081302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "torrefação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem",
+      "codigo_cnae": "1081302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moagem",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem",
+      "codigo_cnae": "1081302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moagem",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Café",
+      "codigo_cnae": "1081302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cafe",
+      "codigo_cnae": "1081302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Torrefação e moagem de café",
+      "codigo_cnae": "1081302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos à base de café",
+      "codigo_cnae": "1082100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1082100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1082100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Base",
+      "codigo_cnae": "1082100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "base",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Base",
+      "codigo_cnae": "1082100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "base",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Café",
+      "codigo_cnae": "1082100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cafe",
+      "codigo_cnae": "1082100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos à base de café",
+      "codigo_cnae": "1082100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de panificação",
+      "codigo_cnae": "1091100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificação",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificacao",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de panificação",
+      "codigo_cnae": "1091100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de panificação industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificação",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificacao",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de panificação industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria",
+      "codigo_cnae": "1091102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Própria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "própria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Propria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "própria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria",
+      "codigo_cnae": "1091102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de biscoitos e bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Biscoitos",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "biscoitos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Biscoitos",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "biscoitos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolachas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolachas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de biscoitos e bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos derivados do cacau e de chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chocolates",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chocolates",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos derivados do cacau e de chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de frutas cristalizadas, balas e semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cristalizadas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cristalizadas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cristalizadas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cristalizadas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Balas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "balas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Balas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "balas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de frutas cristalizadas, balas e semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de massas alimentícias",
+      "codigo_cnae": "1094500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Massas",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "massas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Massas",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "massas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentícias",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimenticias",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de massas alimentícias",
+      "codigo_cnae": "1094500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de especiarias, molhos, temperos e condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especiarias",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiarias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especiarias",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiarias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Molhos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "molhos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Molhos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "molhos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Temperos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temperos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Temperos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temperos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de especiarias, molhos, temperos e condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos e pratos prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pratos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pratos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pratos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pratos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prontos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prontos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos e pratos prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinagres",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinagres",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de pós alimentícios",
+      "codigo_cnae": "1099602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pós",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pos",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de pós alimentícios",
+      "codigo_cnae": "1099602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de fermentos e leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fermentos",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fermentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fermentos",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fermentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leveduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leveduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de fermentos e leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de gelo comum",
+      "codigo_cnae": "1099604",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gelo",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gelo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gelo",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gelo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comum",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comum",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comum",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comum",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de gelo comum",
+      "codigo_cnae": "1099604",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos para infusão (chá, mate, etc.)",
+      "codigo_cnae": "1099605",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Infusão",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infusão",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Infusao",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infusão",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Chá",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chá",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cha",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chá",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mate",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mate",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Etc",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "etc",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Etc",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "etc",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos para infusão (chá, mate, etc.)",
+      "codigo_cnae": "1099605",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de adoçantes naturais e artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Adoçantes",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adoçantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Adocantes",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adoçantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificiais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificiais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de adoçantes naturais e artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos dietéticos e complementos alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Dietéticos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dietéticos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Dieteticos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dietéticos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Complementos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "complementos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Complementos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "complementos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentares",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentares",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos dietéticos e complementos alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de outros produtos alimentícios não especificados anteriormente",
+      "codigo_cnae": "1099699",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de outros produtos alimentícios não especificados anteriormente",
+      "codigo_cnae": "1099699",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais em bruto, exceto óleo de milho",
+      "codigo_cnae": "1041401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação",
+      "codigo_cnae": "1041401",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "óleos vegetais",
+      "codigo_cnae": "1041401",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "bruto",
+      "codigo_cnae": "1041401",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "fabricação de óleos vegetais em bruto exceto óleo de milho",
+      "codigo_cnae": "1041401",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais em bruto, inclusive óleo de milho",
+      "codigo_cnae": "1041402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação",
+      "codigo_cnae": "1041402",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "óleos vegetais",
+      "codigo_cnae": "1041402",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "bruto",
+      "codigo_cnae": "1041402",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "fabricação de óleos vegetais em bruto inclusive óleo de milho",
+      "codigo_cnae": "1041402",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais refinados, exceto óleo de milho",
+      "codigo_cnae": "1042201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação",
+      "codigo_cnae": "1042201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "óleos vegetais refinados",
+      "codigo_cnae": "1042201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "óleo",
+      "codigo_cnae": "1042201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "fabricação de óleos vegetais refinados exceto óleo de milho",
+      "codigo_cnae": "1042201",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho",
+      "codigo_cnae": "1042202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação",
+      "codigo_cnae": "1042202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "óleo",
+      "codigo_cnae": "1042202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "milho",
+      "codigo_cnae": "1042202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação do leite",
+      "codigo_cnae": "1050301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1050301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "leite",
+      "codigo_cnae": "1050301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de laticínios",
+      "codigo_cnae": "1050302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação",
+      "codigo_cnae": "1050302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "laticínios",
+      "codigo_cnae": "1050302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de sorvetes e outros gelados comestíveis",
+      "codigo_cnae": "1050303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação",
+      "codigo_cnae": "1050303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "sorvetes",
+      "codigo_cnae": "1050303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "outros gelados comestíveis",
+      "codigo_cnae": "1050303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos para animais",
+      "codigo_cnae": "1066000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação",
+      "codigo_cnae": "1066000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "alimentos",
+      "codigo_cnae": "1066000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "animais",
+      "codigo_cnae": "1066000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem e fabricação de produtos de origem vegetal não especificados anteriormente",
+      "codigo_cnae": "1069400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Moagem",
+      "codigo_cnae": "1069400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "fabricação",
+      "codigo_cnae": "1069400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "produtos",
+      "codigo_cnae": "1069400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

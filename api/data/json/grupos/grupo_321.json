@@ -1,0 +1,308 @@
+{
+  "grupo": "321",
+  "divisao": "32",
+  "secao": "C",
+  "total_termos": 30,
+  "termos": [
+    {
+      "termo": "Lapidação de gemas",
+      "codigo_cnae": "3211601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Lapidação",
+      "codigo_cnae": "3211601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lapidação",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Lapidacao",
+      "codigo_cnae": "3211601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lapidação",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Gemas",
+      "codigo_cnae": "3211601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gemas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Gemas",
+      "codigo_cnae": "3211601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gemas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Lapidação de gemas",
+      "codigo_cnae": "3211601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de artefatos de joalheria e ourivesaria",
+      "codigo_cnae": "3211602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3211602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3211602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Joalheria",
+      "codigo_cnae": "3211602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "joalheria",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Joalheria",
+      "codigo_cnae": "3211602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "joalheria",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Ourivesaria",
+      "codigo_cnae": "3211602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ourivesaria",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Ourivesaria",
+      "codigo_cnae": "3211602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ourivesaria",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de artefatos de joalheria e ourivesaria",
+      "codigo_cnae": "3211602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Cunhagem de moedas e medalhas",
+      "codigo_cnae": "3211603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Cunhagem",
+      "codigo_cnae": "3211603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cunhagem",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Cunhagem",
+      "codigo_cnae": "3211603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cunhagem",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Moedas",
+      "codigo_cnae": "3211603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moedas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Moedas",
+      "codigo_cnae": "3211603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moedas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Medalhas",
+      "codigo_cnae": "3211603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medalhas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Medalhas",
+      "codigo_cnae": "3211603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medalhas",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Cunhagem de moedas e medalhas",
+      "codigo_cnae": "3211603",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de bijuterias e artefatos semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bijuterias",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bijuterias",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bijuterias",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bijuterias",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de bijuterias e artefatos semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    }
+  ]
+}

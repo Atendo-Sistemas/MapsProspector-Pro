@@ -1,0 +1,2046 @@
+{
+  "divisao": "08",
+  "total_termos": 204,
+  "termos": [
+    {
+      "termo": "Extração de ardósia e beneficiamento associado",
+      "codigo_cnae": "0810001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Ardósia",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ardósia",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Ardosia",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ardósia",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de ardósia e beneficiamento associado",
+      "codigo_cnae": "0810001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de granito e beneficiamento associado",
+      "codigo_cnae": "0810002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Granito",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "granito",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Granito",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "granito",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de granito e beneficiamento associado",
+      "codigo_cnae": "0810002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de mármore e beneficiamento associado",
+      "codigo_cnae": "0810003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Mármore",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mármore",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marmore",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mármore",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de mármore e beneficiamento associado",
+      "codigo_cnae": "0810003",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de calcário e dolomito e beneficiamento associado",
+      "codigo_cnae": "0810004",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Calcário",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calcário",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Calcario",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calcário",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Dolomito",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dolomito",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Dolomito",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dolomito",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810004",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de calcário e dolomito e beneficiamento associado",
+      "codigo_cnae": "0810004",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de gesso e caulim",
+      "codigo_cnae": "0810005",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810005",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810005",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gesso",
+      "codigo_cnae": "0810005",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gesso",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gesso",
+      "codigo_cnae": "0810005",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gesso",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Caulim",
+      "codigo_cnae": "0810005",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caulim",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Caulim",
+      "codigo_cnae": "0810005",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caulim",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de gesso e caulim",
+      "codigo_cnae": "0810005",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de areia, cascalho ou pedregulho e beneficiamento associado",
+      "codigo_cnae": "0810006",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Areia",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "areia",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Areia",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "areia",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Cascalho",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cascalho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Cascalho",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cascalho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedregulho",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedregulho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedregulho",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedregulho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810006",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de areia, cascalho ou pedregulho e beneficiamento associado",
+      "codigo_cnae": "0810006",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de argila e beneficiamento associado",
+      "codigo_cnae": "0810007",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Argila",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "argila",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Argila",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "argila",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810007",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de argila e beneficiamento associado",
+      "codigo_cnae": "0810007",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de saibro e beneficiamento associado",
+      "codigo_cnae": "0810008",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Saibro",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saibro",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Saibro",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saibro",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810008",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de saibro e beneficiamento associado",
+      "codigo_cnae": "0810008",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de basalto e beneficiamento associado",
+      "codigo_cnae": "0810009",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Basalto",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "basalto",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Basalto",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "basalto",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810009",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de basalto e beneficiamento associado",
+      "codigo_cnae": "0810009",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de brita e beneficiamento associado",
+      "codigo_cnae": "0810010",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Brita",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "brita",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Brita",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "brita",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810010",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de brita e beneficiamento associado",
+      "codigo_cnae": "0810010",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração e britamento de pedras e outros materiais para construção e beneficiamento associado",
+      "codigo_cnae": "0810099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Britamento",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "britamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Britamento",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "britamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedras",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedras",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedras",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedras",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Associado",
+      "codigo_cnae": "0810099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associado",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração e britamento de pedras e outros materiais para construção e beneficiamento associado",
+      "codigo_cnae": "0810099",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de minerais para fabricação de adubos, fertilizantes e outros produtos químicos",
+      "codigo_cnae": "0891600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Adubos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adubos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Adubos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adubos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Fertilizantes",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fertilizantes",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Fertilizantes",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fertilizantes",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Químicos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Quimicos",
+      "codigo_cnae": "0891600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de minerais para fabricação de adubos, fertilizantes e outros produtos químicos",
+      "codigo_cnae": "0891600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de sal marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de sal marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino de sal marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refino",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refino",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino de sal marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de sal-gema",
+      "codigo_cnae": "0892403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gema",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gema",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gema",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gema",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de sal-gema",
+      "codigo_cnae": "0892403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de gemas (pedras preciosas e semipreciosas)",
+      "codigo_cnae": "0893200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gemas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gemas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gemas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gemas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedras",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedras",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedras",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedras",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Preciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Preciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Semipreciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semipreciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Semipreciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semipreciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de gemas (pedras preciosas e semipreciosas)",
+      "codigo_cnae": "0893200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grafita",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grafita",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "quartzo",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "quartzo",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amianto",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amianto",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de outros minerais não-metálicos não especificados anteriormente",
+      "codigo_cnae": "0899199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Metálicos",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Metalicos",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de outros minerais não-metálicos não especificados anteriormente",
+      "codigo_cnae": "0899199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    }
+  ]
+}

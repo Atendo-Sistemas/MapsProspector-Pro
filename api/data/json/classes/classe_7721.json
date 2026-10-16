@@ -1,0 +1,109 @@
+{
+  "classe": "7721",
+  "grupo": "772",
+  "divisao": "77",
+  "secao": "N",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Aluguel de equipamentos recreativos e esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aluguel",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aluguel",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de equipamentos recreativos e esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    }
+  ]
+}

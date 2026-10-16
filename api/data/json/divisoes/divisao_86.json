@@ -1,0 +1,2124 @@
+{
+  "divisao": "86",
+  "total_termos": 210,
+  "termos": [
+    {
+      "termo": "Atividades de atendimento hospitalar, exceto pronto-socorro e unidades para atendimento a urgências",
+      "codigo_cnae": "8610101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalar",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalar",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalar",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalar",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8610101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de atendimento hospitalar, exceto pronto-socorro e unidades para atendimento a urgências",
+      "codigo_cnae": "8610101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de atendimento em pronto-socorro e unidades hospitalares para atendimento a urgências",
+      "codigo_cnae": "8610102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pronto",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pronto",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Socorro",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "socorro",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Unidades",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "unidades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalares",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalares",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Hospitalares",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalares",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8610102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de atendimento em pronto-socorro e unidades hospitalares para atendimento a urgências",
+      "codigo_cnae": "8610102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "UTI móvel",
+      "codigo_cnae": "8621601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móvel",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Movel",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "UTI móvel",
+      "codigo_cnae": "8621601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços móveis de atendimento a urgências, exceto por UTI móvel",
+      "codigo_cnae": "8621602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móveis",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Moveis",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móvel",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Movel",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços móveis de atendimento a urgências, exceto por UTI móvel",
+      "codigo_cnae": "8621602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de remoção de pacientes, exceto os serviços móveis de atendimento a urgências",
+      "codigo_cnae": "8622400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Remoção",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "remoção",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Remocao",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "remoção",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pacientes",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pacientes",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Pacientes",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pacientes",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móveis",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Moveis",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8622400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de remoção de pacientes, exceto os serviços móveis de atendimento a urgências",
+      "codigo_cnae": "8622400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade médica ambulatorial com recursos para realização de procedimentos cirúrgicos",
+      "codigo_cnae": "8630501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Médica",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médica",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Medica",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médica",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Ambulatorial",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ambulatorial",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Ambulatorial",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ambulatorial",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Realização",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "realização",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Realizacao",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "realização",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Procedimentos",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "procedimentos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Procedimentos",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "procedimentos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Cirúrgicos",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cirúrgicos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Cirurgicos",
+      "codigo_cnae": "8630501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cirúrgicos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade médica ambulatorial com recursos para realização de procedimentos cirúrgicos",
+      "codigo_cnae": "8630501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade médica ambulatorial com recursos para realização de exames complementares",
+      "codigo_cnae": "8630502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Médica",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médica",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Medica",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médica",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Ambulatorial",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ambulatorial",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Ambulatorial",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ambulatorial",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Realização",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "realização",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Realizacao",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "realização",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Exames",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exames",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Exames",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exames",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Complementares",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "complementares",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Complementares",
+      "codigo_cnae": "8630502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "complementares",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade médica ambulatorial com recursos para realização de exames complementares",
+      "codigo_cnae": "8630502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade médica ambulatorial restrita a consultas",
+      "codigo_cnae": "8630503",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade médica ambulatorial restrita a consultas",
+      "codigo_cnae": "8630503",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade odontológica",
+      "codigo_cnae": "8630504",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade odontológica",
+      "codigo_cnae": "8630504",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade odontológica sem recursos para realização de procedimentos cirúrgicos",
+      "codigo_cnae": "8630505",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade odontológica sem recursos",
+      "codigo_cnae": "8630505",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "realização",
+      "codigo_cnae": "8630505",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "procedimentos cirúrgicos",
+      "codigo_cnae": "8630505",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade odontológica com recursos para realização de procedimentos cirúrgicos",
+      "codigo_cnae": "8630506",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade odontológica",
+      "codigo_cnae": "8630506",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "recursos",
+      "codigo_cnae": "8630506",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "realização",
+      "codigo_cnae": "8630506",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Laboratórios de anatomia patológica e citológica",
+      "codigo_cnae": "8640201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Laboratórios",
+      "codigo_cnae": "8640201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "anatomia patológica",
+      "codigo_cnae": "8640201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "citológica",
+      "codigo_cnae": "8640201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Laboratórios clínicos",
+      "codigo_cnae": "8640202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Laboratórios clínicos",
+      "codigo_cnae": "8640202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de diálise e nefrologia",
+      "codigo_cnae": "8640203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "diálise",
+      "codigo_cnae": "8640203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "nefrologia",
+      "codigo_cnae": "8640203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de tomografia",
+      "codigo_cnae": "8640204",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "tomografia",
+      "codigo_cnae": "8640204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de diagnóstico por imagem com uso de radiação ionizante, exceto tomografia",
+      "codigo_cnae": "8640205",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "diagnóstico por imagem",
+      "codigo_cnae": "8640205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "uso",
+      "codigo_cnae": "8640205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "serviços de diagnóstico por imagem com uso de radiação ionizante exceto tomografia",
+      "codigo_cnae": "8640205",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de ressonância magnética",
+      "codigo_cnae": "8640206",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "ressonância magnética",
+      "codigo_cnae": "8640206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de diagnóstico por imagem sem uso de radiação ionizante, exceto ressonância magnética",
+      "codigo_cnae": "8640207",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640207",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "diagnóstico por imagem sem uso",
+      "codigo_cnae": "8640207",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "radiação ionizante",
+      "codigo_cnae": "8640207",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "serviços de diagnóstico por imagem sem uso de radiação ionizante exceto ressonância magnética",
+      "codigo_cnae": "8640207",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de diagnóstico por registro gráfico - ECG, EEG e outros exames análogos",
+      "codigo_cnae": "8640208",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "diagnóstico por registro gráfico",
+      "codigo_cnae": "8640208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "ECG",
+      "codigo_cnae": "8640208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "serviços de diagnóstico por registro gráfico  ecg eeg e outros exames análogos",
+      "codigo_cnae": "8640208",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de diagnóstico por métodos ópticos - endoscopia e outros exames análogos",
+      "codigo_cnae": "8640209",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640209",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "diagnóstico por métodos ópticos",
+      "codigo_cnae": "8640209",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "endoscopia",
+      "codigo_cnae": "8640209",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "serviços de diagnóstico por métodos ópticos  endoscopia e outros exames análogos",
+      "codigo_cnae": "8640209",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de quimioterapia",
+      "codigo_cnae": "8640210",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640210",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "quimioterapia",
+      "codigo_cnae": "8640210",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de radioterapia",
+      "codigo_cnae": "8640211",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640211",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "radioterapia",
+      "codigo_cnae": "8640211",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de hemoterapia",
+      "codigo_cnae": "8640212",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640212",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "hemoterapia",
+      "codigo_cnae": "8640212",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de litotripcia",
+      "codigo_cnae": "8640213",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640213",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "litotripcia",
+      "codigo_cnae": "8640213",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços de bancos de células-tronco",
+      "codigo_cnae": "8640214",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8640214",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "bancos",
+      "codigo_cnae": "8640214",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "células",
+      "codigo_cnae": "8640214",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "serviços de bancos de célulastronco",
+      "codigo_cnae": "8640214",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Outras atividades de apoio ao diagnóstico e terapia, exceto laboratórios clínicos",
+      "codigo_cnae": "8640299",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "8640299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "apoio ao diagnóstico",
+      "codigo_cnae": "8640299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "terapia",
+      "codigo_cnae": "8640299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "outras atividades de apoio ao diagnóstico e terapia exceto laboratórios clínicos",
+      "codigo_cnae": "8640299",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de enfermagem",
+      "codigo_cnae": "8650001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "enfermagem",
+      "codigo_cnae": "8650001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de profissionais da nutrição",
+      "codigo_cnae": "8650002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "profissionais",
+      "codigo_cnae": "8650002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "nutrição",
+      "codigo_cnae": "8650002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de psicologia e psicanálise",
+      "codigo_cnae": "8650003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650003",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "psicologia",
+      "codigo_cnae": "8650003",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "psicanálise",
+      "codigo_cnae": "8650003",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de fisioterapia",
+      "codigo_cnae": "8650004",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650004",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "fisioterapia",
+      "codigo_cnae": "8650004",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de terapia ocupacional",
+      "codigo_cnae": "8650005",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650005",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "terapia ocupacional",
+      "codigo_cnae": "8650005",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de fonoaudiologia",
+      "codigo_cnae": "8650006",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650006",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "fonoaudiologia",
+      "codigo_cnae": "8650006",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de terapia nutricional",
+      "codigo_cnae": "8650007",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650007",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "terapia nutricional",
+      "codigo_cnae": "8650007",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de profissionais da área de saúde não especificadas anteriormente",
+      "codigo_cnae": "8650099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8650099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "profissionais",
+      "codigo_cnae": "8650099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "área",
+      "codigo_cnae": "8650099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de apoio à gestão de saúde",
+      "codigo_cnae": "8660700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8660700",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "apoio à gestão",
+      "codigo_cnae": "8660700",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "saúde",
+      "codigo_cnae": "8660700",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de práticas integrativas e complementares em saúde humana",
+      "codigo_cnae": "8690901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8690901",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "práticas integrativas",
+      "codigo_cnae": "8690901",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "complementares",
+      "codigo_cnae": "8690901",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de banco de leite humano",
+      "codigo_cnae": "8690902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8690902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "banco",
+      "codigo_cnae": "8690902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "leite humano",
+      "codigo_cnae": "8690902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de acupuntura",
+      "codigo_cnae": "8690903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8690903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "acupuntura",
+      "codigo_cnae": "8690903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades de podologia",
+      "codigo_cnae": "8690904",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8690904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "podologia",
+      "codigo_cnae": "8690904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Outras atividades de atenção à saúde humana não especificadas anteriormente",
+      "codigo_cnae": "8690999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "8690999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "atenção à saúde humana não especificadas anteriormente",
+      "codigo_cnae": "8690999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "atividade",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "médica",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "ambulatorial",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "recursos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "procedimentos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

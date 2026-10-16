@@ -1,0 +1,48 @@
+{
+  "grupo": "813",
+  "divisao": "81",
+  "secao": "N",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Atividades paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paisagísticas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Paisagisticas",
+      "codigo_cnae": "8130300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paisagísticas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    }
+  ]
+}

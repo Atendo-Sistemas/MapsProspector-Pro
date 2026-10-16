@@ -1,0 +1,249 @@
+{
+  "classe": "5112",
+  "grupo": "511",
+  "divisao": "51",
+  "secao": "H",
+  "total_termos": 24,
+  "termos": [
+    {
+      "termo": "Serviço de táxi aéreo e locação de aeronaves com tripulação",
+      "codigo_cnae": "5112901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Táxi",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "táxi",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Taxi",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "táxi",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aéreo",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aereo",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Tripulação",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Tripulacao",
+      "codigo_cnae": "5112901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Serviço de táxi aéreo e locação de aeronaves com tripulação",
+      "codigo_cnae": "5112901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Outros serviços de transporte aéreo de passageiros não-regular",
+      "codigo_cnae": "5112999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aéreo",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aereo",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Regular",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regular",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Regular",
+      "codigo_cnae": "5112999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regular",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Outros serviços de transporte aéreo de passageiros não-regular",
+      "codigo_cnae": "5112999",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "51"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "classe": "9312",
+  "grupo": "931",
+  "divisao": "93",
+  "secao": "R",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Clubes sociais, esportivos e similares",
+      "codigo_cnae": "9312300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Clubes",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "clubes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Clubes",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "clubes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Clubes sociais, esportivos e similares",
+      "codigo_cnae": "9312300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    }
+  ]
+}

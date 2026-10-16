@@ -1,0 +1,69 @@
+{
+  "classe": "2110",
+  "grupo": "211",
+  "divisao": "21",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de insumos farmacêuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Insumos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "insumos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Insumos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "insumos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Farmacêuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farmacêuticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Farmaceuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farmacêuticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de insumos farmacêuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    }
+  ]
+}

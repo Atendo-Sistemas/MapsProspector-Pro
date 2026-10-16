@@ -1,0 +1,89 @@
+{
+  "classe": "8430",
+  "grupo": "843",
+  "divisao": "84",
+  "secao": "O",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Seguridade social obrigatória",
+      "codigo_cnae": "8430200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Seguridade",
+      "codigo_cnae": "8430200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seguridade",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Seguridade",
+      "codigo_cnae": "8430200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seguridade",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Social",
+      "codigo_cnae": "8430200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "social",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Social",
+      "codigo_cnae": "8430200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "social",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Obrigatória",
+      "codigo_cnae": "8430200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obrigatória",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Obrigatoria",
+      "codigo_cnae": "8430200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obrigatória",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Seguridade social obrigatória",
+      "codigo_cnae": "8430200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    }
+  ]
+}

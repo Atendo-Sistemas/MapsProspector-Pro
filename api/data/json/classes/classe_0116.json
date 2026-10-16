@@ -1,0 +1,309 @@
+{
+  "classe": "0116",
+  "grupo": "011",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 30,
+  "termos": [
+    {
+      "termo": "Cultivo de amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116401",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116401",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amendoim",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amendoim",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116402",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116402",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "girassol",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "girassol",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116403",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116403",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mamona",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mamona",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras oleaginosas de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0116499",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116499",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116499",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Oleaginosas",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "oleaginosas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Oleaginosas",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "oleaginosas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras oleaginosas de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0116499",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

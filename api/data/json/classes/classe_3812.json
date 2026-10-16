@@ -1,0 +1,89 @@
+{
+  "classe": "3812",
+  "grupo": "381",
+  "divisao": "38",
+  "secao": "E",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Coleta de resíduos perigosos",
+      "codigo_cnae": "3812200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "3812200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "3812200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Resíduos",
+      "codigo_cnae": "3812200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resíduos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Residuos",
+      "codigo_cnae": "3812200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resíduos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Perigosos",
+      "codigo_cnae": "3812200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perigosos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Perigosos",
+      "codigo_cnae": "3812200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perigosos",
+      "secao": "E",
+      "divisao": "38"
+    },
+    {
+      "termo": "Coleta de resíduos perigosos",
+      "codigo_cnae": "3812200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "E",
+      "divisao": "38"
+    }
+  ]
+}

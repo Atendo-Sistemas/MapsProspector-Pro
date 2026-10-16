@@ -1,0 +1,376 @@
+{
+  "divisao": "68",
+  "total_termos": 37,
+  "termos": [
+    {
+      "termo": "Compra e venda de imóveis próprios",
+      "codigo_cnae": "6810201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Compra",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "compra",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Compra",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "compra",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Venda",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "venda",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Venda",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "venda",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Imóveis",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imóveis",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Imoveis",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imóveis",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Próprios",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "próprios",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Proprios",
+      "codigo_cnae": "6810201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "próprios",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Compra e venda de imóveis próprios",
+      "codigo_cnae": "6810201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Aluguel de imóveis próprios",
+      "codigo_cnae": "6810202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "6810202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aluguel",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "6810202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aluguel",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Imóveis",
+      "codigo_cnae": "6810202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imóveis",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Imoveis",
+      "codigo_cnae": "6810202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imóveis",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Próprios",
+      "codigo_cnae": "6810202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "próprios",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Proprios",
+      "codigo_cnae": "6810202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "próprios",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Aluguel de imóveis próprios",
+      "codigo_cnae": "6810202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Loteamento de imóveis próprios",
+      "codigo_cnae": "6810203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Loteamento",
+      "codigo_cnae": "6810203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "loteamento",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Loteamento",
+      "codigo_cnae": "6810203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "loteamento",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Imóveis",
+      "codigo_cnae": "6810203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imóveis",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Imoveis",
+      "codigo_cnae": "6810203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imóveis",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Próprios",
+      "codigo_cnae": "6810203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "próprios",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Proprios",
+      "codigo_cnae": "6810203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "próprios",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Loteamento de imóveis próprios",
+      "codigo_cnae": "6810203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Corretagem na compra e venda e avaliação de imóveis",
+      "codigo_cnae": "6821801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Corretagem na compra",
+      "codigo_cnae": "6821801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "venda",
+      "codigo_cnae": "6821801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "avaliação",
+      "codigo_cnae": "6821801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Corretagem no aluguel de imóveis",
+      "codigo_cnae": "6821802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Corretagem no aluguel",
+      "codigo_cnae": "6821802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "imóveis",
+      "codigo_cnae": "6821802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Gestão e administração da propriedade imobiliária",
+      "codigo_cnae": "6822600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "6822600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "administração",
+      "codigo_cnae": "6822600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    },
+    {
+      "termo": "propriedade imobiliária",
+      "codigo_cnae": "6822600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "L",
+      "divisao": "68"
+    }
+  ]
+}

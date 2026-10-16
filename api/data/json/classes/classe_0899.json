@@ -1,0 +1,309 @@
+{
+  "classe": "0899",
+  "grupo": "089",
+  "divisao": "08",
+  "secao": "B",
+  "total_termos": 30,
+  "termos": [
+    {
+      "termo": "Extração de grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grafita",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grafita",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de grafita",
+      "codigo_cnae": "0899101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "quartzo",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "quartzo",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de quartzo",
+      "codigo_cnae": "0899102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amianto",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amianto",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de amianto",
+      "codigo_cnae": "0899103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de outros minerais não-metálicos não especificados anteriormente",
+      "codigo_cnae": "0899199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Metálicos",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Metalicos",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicos",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0899199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de outros minerais não-metálicos não especificados anteriormente",
+      "codigo_cnae": "0899199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "classe": "7320",
+  "grupo": "732",
+  "divisao": "73",
+  "secao": "M",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Pesquisas de mercado e de opinião pública",
+      "codigo_cnae": "7320300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pesquisas",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesquisas",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pesquisas",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesquisas",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Mercado",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercado",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Mercado",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercado",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Opinião",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "opinião",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Opiniao",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "opinião",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pública",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publica",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pesquisas de mercado e de opinião pública",
+      "codigo_cnae": "7320300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "73"
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "grupo": "111",
+  "divisao": "11",
+  "secao": "C",
+  "total_termos": 36,
+  "termos": [
+    {
+      "termo": "Fabricação de aguardente de cana-de-açúcar",
+      "codigo_cnae": "1111901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardente",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardente",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardente",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardente",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "1111901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de aguardente de cana-de-açúcar",
+      "codigo_cnae": "1111901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de outras aguardentes e bebidas destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardentes",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardentes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Aguardentes",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aguardentes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "destiladas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "destiladas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de outras aguardentes e bebidas destiladas",
+      "codigo_cnae": "1111902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinho",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinho",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de malte, inclusive malte uísque",
+      "codigo_cnae": "1113501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Malte",
+      "codigo_cnae": "1113501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "malte",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Malte",
+      "codigo_cnae": "1113501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "malte",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "1113501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "1113501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Uísque",
+      "codigo_cnae": "1113501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uísque",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Uisque",
+      "codigo_cnae": "1113501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uísque",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de malte, inclusive malte uísque",
+      "codigo_cnae": "1113501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de cervejas e chopes",
+      "codigo_cnae": "1113502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Cervejas",
+      "codigo_cnae": "1113502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cervejas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Cervejas",
+      "codigo_cnae": "1113502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cervejas",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Chopes",
+      "codigo_cnae": "1113502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chopes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Chopes",
+      "codigo_cnae": "1113502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chopes",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de cervejas e chopes",
+      "codigo_cnae": "1113502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    }
+  ]
+}

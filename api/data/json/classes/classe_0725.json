@@ -1,0 +1,51 @@
+{
+  "classe": "0725",
+  "total_termos": 3,
+  "termos": [
+    {
+      "termo": "Extração de minerais radioativos",
+      "termo_normalizado": "extracao de minerais radioativos",
+      "codigo_cnae": "0725100",
+      "descricao": "Extração de minerais radioativos",
+      "relevancia": 100,
+      "categoria": "072",
+      "secao": "B",
+      "divisao": "07",
+      "grupo": "072",
+      "classe": "0725",
+      "subclasse": "0725100",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "minerais",
+      "termo_normalizado": "minerais",
+      "codigo_cnae": "0725100",
+      "descricao": "Extração de minerais radioativos",
+      "relevancia": 85,
+      "categoria": "072",
+      "secao": "B",
+      "divisao": "07",
+      "grupo": "072",
+      "classe": "0725",
+      "subclasse": "0725100",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "radioativos",
+      "termo_normalizado": "radioativos",
+      "codigo_cnae": "0725100",
+      "descricao": "Extração de minerais radioativos",
+      "relevancia": 85,
+      "categoria": "072",
+      "secao": "B",
+      "divisao": "07",
+      "grupo": "072",
+      "classe": "0725",
+      "subclasse": "0725100",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

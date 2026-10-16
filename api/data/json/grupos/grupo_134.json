@@ -1,0 +1,548 @@
+{
+  "grupo": "134",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 54,
+  "termos": [
+    {
+      "termo": "Estamparia e texturização em fios, tecidos, artefatos têxteis e peças do vestuário",
+      "codigo_cnae": "1340501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Estamparia",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estamparia",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Estamparia",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estamparia",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texturização",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "texturização",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texturizacao",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "texturização",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxteis",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texteis",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "1340501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Estamparia e texturização em fios, tecidos, artefatos têxteis e peças do vestuário",
+      "codigo_cnae": "1340501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Alvejamento, tingimento e torção em fios, tecidos, artefatos têxteis e peças do vestuário",
+      "codigo_cnae": "1340502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Alvejamento",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alvejamento",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Alvejamento",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alvejamento",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tingimento",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tingimento",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tingimento",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tingimento",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Torção",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "torção",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Torcao",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "torção",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxteis",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texteis",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "1340502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Alvejamento, tingimento e torção em fios, tecidos, artefatos têxteis e peças do vestuário",
+      "codigo_cnae": "1340502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Outros serviços de acabamento em fios, tecidos, artefatos têxteis e peças do vestuário",
+      "codigo_cnae": "1340599",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Acabamento",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acabamento",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Acabamento",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acabamento",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxteis",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texteis",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "1340599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Outros serviços de acabamento em fios, tecidos, artefatos têxteis e peças do vestuário",
+      "codigo_cnae": "1340599",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

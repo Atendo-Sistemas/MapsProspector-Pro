@@ -1,0 +1,89 @@
+{
+  "classe": "3512",
+  "grupo": "351",
+  "divisao": "35",
+  "secao": "D",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Transmissão de energia elétrica",
+      "codigo_cnae": "3512300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Transmissão",
+      "codigo_cnae": "3512300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissão",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Transmissao",
+      "codigo_cnae": "3512300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissão",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "3512300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "3512300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "3512300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "3512300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Transmissão de energia elétrica",
+      "codigo_cnae": "3512300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "D",
+      "divisao": "35"
+    }
+  ]
+}

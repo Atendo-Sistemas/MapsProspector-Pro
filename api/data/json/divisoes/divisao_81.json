@@ -1,0 +1,436 @@
+{
+  "divisao": "81",
+  "total_termos": 43,
+  "termos": [
+    {
+      "termo": "Serviços combinados para apoio a edifícios, exceto condomínios prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Edifícios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edifícios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Edificios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edifícios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condominios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Serviços combinados para apoio a edifícios, exceto condomínios prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condominios",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza em prédios e em domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prédios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Predios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Domicilios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza em prédios e em domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização e controle de pragas urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imunização",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunizacao",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imunização",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização e controle de pragas urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paisagísticas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Paisagisticas",
+      "codigo_cnae": "8130300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paisagísticas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades de limpeza não especificadas anteriormente",
+      "codigo_cnae": "8129000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8129000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "limpeza não especificadas anteriormente",
+      "codigo_cnae": "8129000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    }
+  ]
+}

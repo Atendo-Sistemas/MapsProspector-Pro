@@ -1,0 +1,69 @@
+{
+  "classe": "8413",
+  "grupo": "841",
+  "divisao": "84",
+  "secao": "O",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Regulação das atividades econômicas",
+      "codigo_cnae": "8413200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regulação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulacao",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regulação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Econômicas",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "econômicas",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Economicas",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "econômicas",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação das atividades econômicas",
+      "codigo_cnae": "8413200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    }
+  ]
+}

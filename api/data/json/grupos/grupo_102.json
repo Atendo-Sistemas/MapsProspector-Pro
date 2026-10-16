@@ -1,0 +1,208 @@
+{
+  "grupo": "102",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Processamento industrial do pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Processamento",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "processamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Processamento",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "processamento",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Processamento industrial do pescado",
+      "codigo_cnae": "1020101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pescado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de pescado",
+      "codigo_cnae": "1020102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Conservas",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de conservas de peixes",
+      "codigo_cnae": "1020103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

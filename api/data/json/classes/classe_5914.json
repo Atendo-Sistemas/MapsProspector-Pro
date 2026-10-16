@@ -1,0 +1,51 @@
+{
+  "classe": "5914",
+  "total_termos": 3,
+  "termos": [
+    {
+      "termo": "Atividades de exibição cinematográfica",
+      "termo_normalizado": "atividades de exibicao cinematografica",
+      "codigo_cnae": "5914600",
+      "descricao": "Atividades de exibição cinematográfica",
+      "relevancia": 100,
+      "categoria": "591",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5914",
+      "subclasse": "5914600",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "exibição",
+      "termo_normalizado": "exibicao",
+      "codigo_cnae": "5914600",
+      "descricao": "Atividades de exibição cinematográfica",
+      "relevancia": 85,
+      "categoria": "591",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5914",
+      "subclasse": "5914600",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "cinematográfica",
+      "termo_normalizado": "cinematografica",
+      "codigo_cnae": "5914600",
+      "descricao": "Atividades de exibição cinematográfica",
+      "relevancia": 85,
+      "categoria": "591",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5914",
+      "subclasse": "5914600",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

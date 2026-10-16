@@ -1,0 +1,848 @@
+{
+  "grupo": "451",
+  "divisao": "45",
+  "secao": "G",
+  "total_termos": 84,
+  "termos": [
+    {
+      "termo": "Comércio a varejo de automóveis, camionetas e utilitários novos",
+      "codigo_cnae": "4511101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Varejo",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejo",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Varejo",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejo",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Utilitários",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Utilitarios",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio a varejo de automóveis, camionetas e utilitários novos",
+      "codigo_cnae": "4511101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio a varejo de automóveis, camionetas e utilitários usados",
+      "codigo_cnae": "4511102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Varejo",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejo",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Varejo",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejo",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Utilitários",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Utilitarios",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio a varejo de automóveis, camionetas e utilitários usados",
+      "codigo_cnae": "4511102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de automóveis, camionetas e utilitários novos e usados",
+      "codigo_cnae": "4511103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Utilitários",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Utilitarios",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de automóveis, camionetas e utilitários novos e usados",
+      "codigo_cnae": "4511103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de caminhões novos e usados",
+      "codigo_cnae": "4511104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Caminhões",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caminhões",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Caminhoes",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caminhões",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de caminhões novos e usados",
+      "codigo_cnae": "4511104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de reboques e semi-reboques novos e usados",
+      "codigo_cnae": "4511105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Reboques",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reboques",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Reboques",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reboques",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Semi",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semi",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Semi",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semi",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de reboques e semi-reboques novos e usados",
+      "codigo_cnae": "4511105",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de ônibus e microônibus novos e usados",
+      "codigo_cnae": "4511106",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Atacado",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacado",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Ônibus",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ônibus",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Onibus",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ônibus",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Microônibus",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "microônibus",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Microonibus",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "microônibus",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Novos",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "novos",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Usados",
+      "codigo_cnae": "4511106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "usados",
+      "secao": "G",
+      "divisao": "45"
+    },
+    {
+      "termo": "Comércio por atacado de ônibus e microônibus novos e usados",
+      "codigo_cnae": "4511106",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "45"
+    }
+  ]
+}

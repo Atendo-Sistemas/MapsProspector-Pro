@@ -1,0 +1,69 @@
+{
+  "classe": "1353",
+  "grupo": "135",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos de cordoaria",
+      "codigo_cnae": "1353700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1353700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1353700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Cordoaria",
+      "codigo_cnae": "1353700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cordoaria",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Cordoaria",
+      "codigo_cnae": "1353700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cordoaria",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos de cordoaria",
+      "codigo_cnae": "1353700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

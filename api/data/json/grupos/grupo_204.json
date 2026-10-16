@@ -1,0 +1,66 @@
+{
+  "grupo": "204",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de fibras artificiais e sintéticas",
+      "termo_normalizado": "fabricacao de fibras artificiais e sinteticas",
+      "codigo_cnae": "2040100",
+      "descricao": "Fabricação de fibras artificiais e sintéticas",
+      "relevancia": 100,
+      "categoria": "204",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "204",
+      "classe": "2040",
+      "subclasse": "2040100",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "fibras",
+      "termo_normalizado": "fibras",
+      "codigo_cnae": "2040100",
+      "descricao": "Fabricação de fibras artificiais e sintéticas",
+      "relevancia": 85,
+      "categoria": "204",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "204",
+      "classe": "2040",
+      "subclasse": "2040100",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "artificiais",
+      "termo_normalizado": "artificiais",
+      "codigo_cnae": "2040100",
+      "descricao": "Fabricação de fibras artificiais e sintéticas",
+      "relevancia": 85,
+      "categoria": "204",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "204",
+      "classe": "2040",
+      "subclasse": "2040100",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "sintéticas",
+      "termo_normalizado": "sinteticas",
+      "codigo_cnae": "2040100",
+      "descricao": "Fabricação de fibras artificiais e sintéticas",
+      "relevancia": 85,
+      "categoria": "204",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "204",
+      "classe": "2040",
+      "subclasse": "2040100",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

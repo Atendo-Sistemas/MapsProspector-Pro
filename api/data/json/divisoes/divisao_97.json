@@ -1,0 +1,46 @@
+{
+  "divisao": "97",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Serviços domésticos",
+      "codigo_cnae": "9700500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "T",
+      "divisao": "97"
+    },
+    {
+      "termo": "Domésticos",
+      "codigo_cnae": "9700500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "T",
+      "divisao": "97"
+    },
+    {
+      "termo": "Domesticos",
+      "codigo_cnae": "9700500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "T",
+      "divisao": "97"
+    },
+    {
+      "termo": "Serviços domésticos",
+      "codigo_cnae": "9700500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "T",
+      "divisao": "97"
+    }
+  ]
+}

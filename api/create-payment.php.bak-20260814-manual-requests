@@ -1,0 +1,80 @@
+<?php
+/**
+ * Solicitações de créditos e planos com aprovação manual.
+ *
+ * Compatibilidade: o endpoint preserva o caminho histórico utilizado pelo
+ * frontend, mas não cria checkout, fatura ou link de pagamento.
+ */
+
+header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+
+try {
+    require_once __DIR__ . '/../config/config.php';
+    require_once __DIR__ . '/../config/database.php';
+    require_once __DIR__ . '/../includes/functions.php';
+
+    $userId = requireAuth();
+    $authUser = getAuthUser();
+    $tenantId = $authUser['tenant_id'] ?? null;
+    if (!$tenantId) {
+        jsonError('Empresa não encontrada para esta conta.', 400);
+    }
+
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (!is_array($input)) {
+        jsonError('Dados inválidos.', 400);
+    }
+
+    $type = (string)($input['type'] ?? '');
+    $credits = (int)($input['credits'] ?? 0);
+    $planId = isset($input['planId']) ? (int)$input['planId'] : null;
+    if (!in_array($type, ['credits', 'plan'], true)) {
+        jsonError('Tipo de solicitação inválido.', 400);
+    }
+    if ($type === 'credits' && ($credits < 100 || $credits > 10000)) {
+        jsonError('Informe uma quantidade entre 100 e 10.000 créditos.', 400);
+    }
+    if ($type === 'plan' && (!$planId || $planId < 1)) {
+        jsonError('Informe o plano a ser solicitado.', 400);
+    }
+
+    $db = Database::getInstance()->getConnection();
+    $db->beginTransaction();
+
+    $stmt = $db->prepare('INSERT INTO payments (tenant_id, user_id, type, amount, amount_cents, credits, plan_id, status, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, \'pending\', NOW())');
+    $stmt->execute([(int)$tenantId, (int)$userId, $type, 0, 0, $type === 'credits' ? $credits : 0, $type === 'plan' ? $planId : null]);
+    $requestId = (int)$db->lastInsertId();
+    $db->prepare('UPDATE payments SET external_id = ? WHERE id = ?')->execute(['REQ_' . $requestId, $requestId]);
+
+    if ($type === 'credits') {
+        try {
+            $db->prepare('INSERT INTO credit_requests (tenant_id, user_id, requested_by_user_id, tokens_requested, status, created_at) VALUES (?, ?, ?, ?, \'pending\', NOW())')->execute([(int)$tenantId, (int)$userId, (int)$userId, $credits]);
+        } catch (PDOException $e) {
+            try {
+                $db->prepare('INSERT INTO credit_requests (tenant_id, requested_by_user_id, tokens_requested, status, created_at) VALUES (?, ?, ?, \'pending\', NOW())')->execute([(int)$tenantId, (int)$userId, $credits]);
+            } catch (PDOException $fallbackError) {
+                $db->prepare('INSERT INTO credit_requests (tenant_id, tokens_requested, status, created_at) VALUES (?, ?, \'pending\', NOW())')->execute([(int)$tenantId, $credits]);
+            }
+        }
+    } else {
+        try {
+            $db->prepare('INSERT INTO plan_requests (tenant_id, user_id, requested_by_user_id, plan_id, status, created_at) VALUES (?, ?, ?, ?, \'pending\', NOW())')->execute([(int)$tenantId, (int)$userId, (int)$userId, $planId]);
+        } catch (PDOException $e) {
+            try {
+                $db->prepare('INSERT INTO plan_requests (tenant_id, requested_by_user_id, plan_id, status, created_at) VALUES (?, ?, ?, \'pending\', NOW())')->execute([(int)$tenantId, (int)$userId, $planId]);
+            } catch (PDOException $fallbackError) {
+                $db->prepare('INSERT INTO plan_requests (tenant_id, plan_id, status, created_at) VALUES (?, ?, \'pending\', NOW())')->execute([(int)$tenantId, $planId]);
+            }
+        }
+    }
+
+    $db->commit();
+    jsonSuccess(['requestId' => $requestId], 'Solicitação enviada para análise manual do administrador.');
+} catch (Throwable $e) {
+    if (isset($db) && $db instanceof PDO && $db->inTransaction()) {
+        $db->rollBack();
+    }
+    error_log('manual-request error: ' . $e->getMessage());
+    jsonError('Não foi possível registrar a solicitação agora. Tente novamente.', 500);
+}

@@ -1,0 +1,129 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Dicionário CNAE",
+  "description": "Schema de validação para o Dicionário CNAE 2.0",
+  "type": "object",
+  "properties": {
+    "termo": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "description": "Termo original"
+    },
+    "termo_normalizado": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 255,
+      "description": "Termo normalizado para busca"
+    },
+    "codigo_cnae": {
+      "type": "string",
+      "pattern": "^[0-9]{7}$",
+      "description": "Código CNAE de 7 dígitos"
+    },
+    "descricao": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 500,
+      "description": "Descrição oficial da atividade CNAE"
+    },
+    "relevancia": {
+      "type": "integer",
+      "minimum": 0,
+      "maximum": 100,
+      "description": "Pontuação de relevância (0-100)"
+    },
+    "categoria": {
+      "type": "string",
+      "enum": [
+        "nome_oficial",
+        "sinonimo",
+        "termo_popular",
+        "regionalismo",
+        "abreviacao",
+        "erro_digitacao",
+        "nome_comercial",
+        "atividade",
+        "servico",
+        "produto",
+        "profissao",
+        "marca_generica",
+        "palavra_chave",
+        "variante"
+      ]
+    },
+    "secao": {
+      "type": "string",
+      "pattern": "^[A-U]$",
+      "description": "Código da seção (A-U)"
+    },
+    "divisao": {
+      "type": "string",
+      "pattern": "^[0-9]{2}$",
+      "description": "Código da divisão (2 dígitos)"
+    },
+    "grupo": {
+      "type": "string",
+      "pattern": "^[0-9]{3}$",
+      "description": "Código do grupo (3 dígitos)"
+    },
+    "classe": {
+      "type": "string",
+      "pattern": "^[0-9]{4}$",
+      "description": "Código da classe (4 dígitos)"
+    },
+    "subclasse": {
+      "type": "string",
+      "pattern": "^[0-9]{7}$",
+      "description": "Código da subclasse (7 dígitos)"
+    },
+    "origem": {
+      "type": "string",
+      "enum": [
+        "descrição oficial",
+        "linguagem popular",
+        "regionalismo",
+        "mercado",
+        "pesquisa comum",
+        "fachada comercial",
+        "classificação semântica",
+        "normalização automática",
+        "extração semântica"
+      ]
+    },
+    "tipo": {
+      "type": "string",
+      "enum": [
+        "nome_oficial",
+        "sinonimo",
+        "termo_popular",
+        "regionalismo",
+        "abreviacao",
+        "erro_digitacao",
+        "nome_comercial",
+        "atividade",
+        "servico",
+        "produto",
+        "profissao",
+        "marca_generica",
+        "palavra_chave",
+        "variante"
+      ]
+    }
+  },
+  "required": [
+    "termo",
+    "termo_normalizado",
+    "codigo_cnae",
+    "descricao",
+    "relevancia",
+    "categoria",
+    "secao",
+    "divisao",
+    "grupo",
+    "classe",
+    "subclasse",
+    "origem",
+    "tipo"
+  ]
+}

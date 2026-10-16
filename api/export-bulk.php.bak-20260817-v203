@@ -1,0 +1,216 @@
+<?php
+/**
+ * Exportação em lote da pesquisa atual para o Webhook da empresa.
+ * Versão 204 — compatibilidade ampliada de PHP e tratamento seguro de avisos.
+ *
+ * POST /api/export-bulk.php
+ * Body JSON: { leadIds: [1, 2, ...] }  (vazio = últimos 200 leads do tenant)
+ * Resposta: { success: true, sent: N, message: ... }
+ */
+
+// --- Blindagem de saída: qualquer aviso/erro vira JSON, nunca HTML ---
+ob_start();
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+if (!headers_sent()) {
+    header('Content-Type: application/json; charset=utf-8');
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+}
+set_exception_handler(static function (Throwable $e) {
+    error_log('export-bulk.php: ' . $e->getMessage() . ' em ' . $e->getFile() . ':' . $e->getLine());
+    while (ob_get_level() > 0) { ob_end_clean(); }
+    if (!headers_sent()) {
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+    }
+    echo '{"success":false,"error":"Falha no servidor ao exportar para o Webhook."}';
+    exit;
+});
+
+// --- Carregamento do sistema ---
+define('BASE_PATH', __DIR__ . '/../');
+require_once BASE_PATH . 'config/config.php';
+require_once BASE_PATH . 'config/database.php';
+require_once BASE_PATH . 'includes/functions.php';
+
+// --- Resposta padronizada ---
+function bulkOk(array $data = [], string $message = ''): void
+{
+    while (ob_get_level() > 0) { ob_end_clean(); }
+    echo json_encode(
+        ['success' => true, 'data' => $data, 'message' => $message],
+        JSON_UNESCAPED_UNICODE
+    );
+    exit;
+}
+function bulkFail(string $message, int $status = 400): void
+{
+    while (ob_get_level() > 0) { ob_end_clean(); }
+    http_response_code($status);
+    echo json_encode(['success' => false, 'error' => $message], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+// --- Autenticação ---
+if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
+    bulkFail('Método não permitido.', 405);
+}
+if (!requireAuth()) {
+    bulkFail('Sessão expirada. Faça login novamente.', 401);
+}
+$user = getAuthUser();
+if (!$user) {
+    bulkFail('Sessão expirada. Faça login novamente.', 401);
+}
+
+// --- Tenant e URL do Webhook ---
+$pdo = null;
+try {
+    $pdo = Database::getInstance()->getConnection();
+} catch (\Throwable $e) {
+    bulkFail('Conexão com o banco indisponível.', 503);
+}
+
+$st = $pdo->prepare('SELECT tenant_id, profile FROM users WHERE id = ? LIMIT 1');
+$st->execute([(int)$user['id']]);
+$userRow = $st->fetch(PDO::FETCH_ASSOC) ?: [];
+$tenantId = (int)($userRow['tenant_id'] ?? 0);
+$isSuperAdmin = (strtolower((string)($userRow['profile'] ?? '')) === 'super_admin');
+
+// O super admin não tem tenant próprio. Se ele não estiver em modo
+// "acessar empresa" (impersonate), o body pode informar o tenant alvo
+// que ele deseja exportar (permitido somente para super_admin).
+$input = json_decode((string)file_get_contents('php://input'), true);
+if (!is_array($input)) { $input = []; }
+
+if ($tenantId <= 0) {
+    if ($isSuperAdmin && (int)($input['tenantId'] ?? 0) > 0) {
+        $tenantId = (int)$input['tenantId'];
+    } elseif ($isSuperAdmin) {
+        // Super admin sem tenant informado: sugere verificar empresas
+        $st = $pdo->prepare('SELECT id FROM tenants WHERE status != \'inativo\' ORDER BY id LIMIT 1');
+        $st->execute();
+        $fallback = (int)($st->fetchColumn() ?: 0);
+        if ($fallback > 0) {
+            bulkFail('Use o painel de empresas para entrar na empresa antes de exportar (ou informe tenantId no pedido).');
+        }
+        bulkFail('Conta não associada a uma empresa.');
+    } else {
+        bulkFail('Conta não associada a uma empresa. Contate o administrador.');
+    }
+}
+if (!$isSuperAdmin && (int)($input['tenantId'] ?? 0) > 0) {
+    // Usuário comum não pode trocar de tenant pelo pedido: ignora e usa o dele.
+}
+
+$st = $pdo->prepare('SELECT name, webhook_url FROM tenants WHERE id = ? LIMIT 1');
+$st->execute([$tenantId]);
+$row = $st->fetch(PDO::FETCH_ASSOC);
+$webhookUrl = trim((string)($row['webhook_url'] ?? ''));
+$tenantName = (string)($row['name'] ?? '');
+if ($webhookUrl === '') {
+    bulkFail('Configure a URL do Webhook em Configurações para usar esta função.');
+}
+if (!filter_var($webhookUrl, FILTER_VALIDATE_URL)) {
+    bulkFail('A URL do Webhook configurada não é válida.');
+}
+
+// --- Seleção dos leads ---
+$ids = [];
+if (is_array($input['leadIds'] ?? null)) {
+    foreach ($input['leadIds'] as $v) {
+        $n = (int)preg_replace('/[^0-9]/', '', (string)$v);
+        if ($n > 0) { $ids[] = $n; }
+    }
+}
+
+if ($ids !== []) {
+    $ph = implode(',', array_fill(0, count($ids), '?'));
+    $st = $pdo->prepare("SELECT * FROM leads WHERE id IN ($ph) AND tenant_id = ? ORDER BY id");
+    // array_merge evita a sintaxe de espalhamento em arrays, incompatível
+    // com editores e instalações PHP anteriores à versão 7.4.
+    $st->execute(array_merge($ids, [$tenantId]));
+} else {
+    $st = $pdo->prepare('SELECT * FROM leads WHERE tenant_id = ? ORDER BY id DESC LIMIT 200');
+    $st->execute([$tenantId]);
+}
+$leads = $st->fetchAll(PDO::FETCH_ASSOC);
+if ($leads === []) {
+    bulkFail('Nenhum lead encontrado para exportar.');
+}
+
+$items = [];
+foreach ($leads as $lead) {
+    $items[] = [
+        'leadId'     => (int)$lead['id'],
+        'nome'       => $lead['nome'] ?? '',
+        'telefone'   => $lead['telefone'] ?? '',
+        'endereco'   => $lead['endereco'] ?? '',
+        'segmento'   => $lead['segmento'] ?? '',
+        'cidade'     => $lead['cidade'] ?? '',
+        'estado'     => $lead['estado'] ?? '',
+        'dataCaptura' => $lead['data_captura'] ?? null,
+    ];
+}
+
+// --- Auditoria (tabela opcional) ---
+$logId = null;
+try {
+    $st = $pdo->prepare("INSERT INTO webhook_exports (tenant_id, user_id, lead_ids, payload, status, created_at) VALUES (?, ?, ?, ?, 'pending', datetime('now'))");
+    $st->execute([
+        $tenantId,
+        (int)$user['id'],
+        json_encode(array_column($leads, 'id')),
+        json_encode(['tenant' => $tenantName, 'items' => $items], JSON_UNESCAPED_UNICODE),
+    ]);
+    $logId = (int)$pdo->lastInsertId();
+} catch (\Throwable $e) { /* tabela inexistente: segue */ }
+
+// --- Envio ao Webhook ---
+$payload = json_encode(['tenant' => $tenantName, 'items' => $items], JSON_UNESCAPED_UNICODE);
+$sent = 0;
+$httpStatus = 0;
+$falha = null;
+if (!function_exists('curl_init')) {
+    $falha = 'Extensão cURL indisponível no servidor.';
+} else {
+    $ch = curl_init($webhookUrl);
+    if ($ch === false) {
+        $falha = 'Falha ao iniciar o envio ao Webhook.';
+    } else {
+        curl_setopt_array($ch, [
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $payload,
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_TIMEOUT => 30,
+            CURLOPT_HTTPHEADER => ['Content-Type: application/json', 'Accept: application/json'],
+        ]);
+        $resp = (string)curl_exec($ch);
+        if (curl_errno($ch) !== 0) {
+            $falha = 'Falha de conexão com o Webhook: ' . curl_error($ch);
+        } else {
+            $httpStatus = (int)curl_getinfo($ch, CURLINFO_HTTP_CODE);
+            if ($httpStatus < 200 || $httpStatus >= 400) {
+                $falha = 'O Webhook rejeitou o envio (HTTP ' . $httpStatus . '). Verifique a URL configurada em Configurações.';
+            } else {
+                $sent = count($items);
+            }
+        }
+        curl_close($ch);
+    }
+}
+
+// --- Atualiza auditoria ---
+if ($logId !== null) {
+    try {
+        $st = $pdo->prepare("UPDATE webhook_exports SET status = ?, http_status = ?, response = ?, updated_at = datetime('now') WHERE id = ?");
+        $st->execute([$falha ? 'failed' : 'sent', (int)$httpStatus, mb_substr((string)($resp ?? ''), 0, 2000), $logId]);
+    } catch (\Throwable $e) { /* silencioso */ }
+}
+
+if ($falha !== null) {
+    bulkFail($falha, 502);
+}
+
+$mensagem = $sent === 1 ? '1 lead enviado para o Webhook.' : "$sent leads enviados para o Webhook.";
+bulkOk(['sent' => $sent, 'httpStatus' => $httpStatus], $mensagem);

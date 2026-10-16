@@ -1,0 +1,4 @@
+Options -Indexes
+<FilesMatch "^(seo-public-page|includes_seo-clean-pages)\.php$">
+    Require all denied
+</FilesMatch>

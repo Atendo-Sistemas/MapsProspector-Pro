@@ -1,0 +1,110 @@
+{
+  "classe": "2944",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "fabricação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "peças",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "acessórios",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "sistema",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "direção",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "manufatura",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2944100",
+      "descricao_cnae": "Fabricação de peças e acessórios para o sistema de direção e suspensão de veículos automotores",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2944",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

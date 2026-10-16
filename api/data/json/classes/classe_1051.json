@@ -1,0 +1,69 @@
+{
+  "classe": "1051",
+  "grupo": "105",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Preparação do leite",
+      "codigo_cnae": "1051100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "1051100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação do leite",
+      "codigo_cnae": "1051100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

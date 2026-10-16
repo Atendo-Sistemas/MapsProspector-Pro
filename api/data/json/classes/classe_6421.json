@@ -1,0 +1,69 @@
+{
+  "classe": "6421",
+  "grupo": "642",
+  "divisao": "64",
+  "secao": "K",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Bancos comerciais",
+      "codigo_cnae": "6421200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6421200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6421200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "6421200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "6421200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos comerciais",
+      "codigo_cnae": "6421200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    }
+  ]
+}

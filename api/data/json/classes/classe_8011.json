@@ -1,0 +1,169 @@
+{
+  "classe": "8011",
+  "grupo": "801",
+  "divisao": "80",
+  "secao": "N",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Atividades de vigilância e segurança privada",
+      "codigo_cnae": "8011100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilancia",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Privada",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "privada",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Privada",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "privada",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de vigilância e segurança privada",
+      "codigo_cnae": "8011100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância e segurança eletrônica",
+      "codigo_cnae": "8011101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilancia",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Eletrônica",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônica",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Eletronica",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônica",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância e segurança eletrônica",
+      "codigo_cnae": "8011101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "80"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "classe": "7112",
+  "grupo": "711",
+  "divisao": "71",
+  "secao": "M",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Serviços de engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "engenharia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "engenharia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    }
+  ]
+}

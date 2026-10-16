@@ -1,0 +1,15 @@
+{
+  "nome": "Dicionário CNAE 2.0",
+  "versao": "1.0.0",
+  "descricao": "Expansão da tabela CNAE 2.0 do IBGE com termos associados, sinônimos e classificação estruturada para facilitar buscas e normalização de dados empresariais.",
+  "autor": "Manus AI",
+  "data_geracao": "2026-07-29 13:52:02",
+  "licenca": "MIT",
+  "formatos": [
+    "JSON",
+    "CSV",
+    "SQL"
+  ],
+  "total_cnaes": 1441,
+  "total_termos": 10483
+}

@@ -1,0 +1,89 @@
+{
+  "classe": "3514",
+  "grupo": "351",
+  "divisao": "35",
+  "secao": "D",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Distribuição de energia elétrica",
+      "codigo_cnae": "3514000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Distribuição",
+      "codigo_cnae": "3514000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "distribuição",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Distribuicao",
+      "codigo_cnae": "3514000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "distribuição",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "3514000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "3514000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "3514000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "3514000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Distribuição de energia elétrica",
+      "codigo_cnae": "3514000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "D",
+      "divisao": "35"
+    }
+  ]
+}

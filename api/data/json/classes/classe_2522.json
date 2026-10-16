@@ -1,0 +1,149 @@
+{
+  "classe": "2522",
+  "grupo": "252",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de caldeiras geradoras de vapor, exceto para aquecimento central e para veículos",
+      "codigo_cnae": "2522500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Caldeiras",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caldeiras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Caldeiras",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caldeiras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Geradoras",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geradoras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Geradoras",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geradoras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Vapor",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vapor",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Vapor",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vapor",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Aquecimento",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aquecimento",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Aquecimento",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aquecimento",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Central",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "central",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Central",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "central",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "2522500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de caldeiras geradoras de vapor, exceto para aquecimento central e para veículos",
+      "codigo_cnae": "2522500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

@@ -1,0 +1,489 @@
+{
+  "classe": "1412",
+  "grupo": "141",
+  "divisao": "14",
+  "secao": "C",
+  "total_termos": 48,
+  "termos": [
+    {
+      "termo": "Confecção de peças de vestuário infantil",
+      "codigo_cnae": "1412601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confeccao",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "1412601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção de peças de vestuário infantil",
+      "codigo_cnae": "1412601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção de peças de vestuário para prática esportiva",
+      "codigo_cnae": "1412602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confeccao",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Prática",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prática",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Pratica",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prática",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Esportiva",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportiva",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Esportiva",
+      "codigo_cnae": "1412602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportiva",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção de peças de vestuário para prática esportiva",
+      "codigo_cnae": "1412602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção de uniformes escolares",
+      "codigo_cnae": "1412603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção",
+      "codigo_cnae": "1412603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confeccao",
+      "codigo_cnae": "1412603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Uniformes",
+      "codigo_cnae": "1412603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uniformes",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Uniformes",
+      "codigo_cnae": "1412603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uniformes",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Escolares",
+      "codigo_cnae": "1412603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escolares",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Escolares",
+      "codigo_cnae": "1412603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escolares",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção de uniformes escolares",
+      "codigo_cnae": "1412603",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção de outras peças de vestuário, exceto roupas íntimas e as destinadas à prática esportiva",
+      "codigo_cnae": "1412699",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confeccao",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Roupas",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "roupas",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Roupas",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "roupas",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Íntimas",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "íntimas",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Intimas",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "íntimas",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Destinadas",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "destinadas",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Destinadas",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "destinadas",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Prática",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prática",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Pratica",
+      "codigo_cnae": "1412699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prática",
+      "secao": "C",
+      "divisao": "14"
+    },
+    {
+      "termo": "Confecção de outras peças de vestuário, exceto roupas íntimas e as destinadas à prática esportiva",
+      "codigo_cnae": "1412699",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "14"
+    }
+  ]
+}

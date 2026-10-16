@@ -1,0 +1,89 @@
+{
+  "classe": "1812",
+  "grupo": "181",
+  "divisao": "18",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Impressão de material de segurança",
+      "codigo_cnae": "1812100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão",
+      "codigo_cnae": "1812100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressao",
+      "codigo_cnae": "1812100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1812100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1812100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "1812100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "1812100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão de material de segurança",
+      "codigo_cnae": "1812100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "18"
+    }
+  ]
+}

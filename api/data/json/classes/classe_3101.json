@@ -1,0 +1,89 @@
+{
+  "classe": "3101",
+  "grupo": "310",
+  "divisao": "31",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de móveis com predominância de madeira",
+      "codigo_cnae": "3101200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Móveis",
+      "codigo_cnae": "3101200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Moveis",
+      "codigo_cnae": "3101200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "3101200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "3101200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "3101200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "3101200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Fabricação de móveis com predominância de madeira",
+      "codigo_cnae": "3101200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "31"
+    }
+  ]
+}

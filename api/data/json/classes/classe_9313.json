@@ -1,0 +1,69 @@
+{
+  "classe": "9313",
+  "grupo": "931",
+  "divisao": "93",
+  "secao": "R",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de condicionamento físico",
+      "codigo_cnae": "9313100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Condicionamento",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionamento",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Condicionamento",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionamento",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Físico",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "físico",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Fisico",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "físico",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Atividades de condicionamento físico",
+      "codigo_cnae": "9313100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "classe": "4312",
+  "grupo": "431",
+  "divisao": "43",
+  "secao": "F",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Perfurações e sondagens",
+      "codigo_cnae": "4312600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Perfurações",
+      "codigo_cnae": "4312600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perfurações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Perfuracoes",
+      "codigo_cnae": "4312600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perfurações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sondagens",
+      "codigo_cnae": "4312600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sondagens",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sondagens",
+      "codigo_cnae": "4312600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sondagens",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Perfurações e sondagens",
+      "codigo_cnae": "4312600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    }
+  ]
+}

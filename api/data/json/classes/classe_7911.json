@@ -1,0 +1,69 @@
+{
+  "classe": "7911",
+  "grupo": "791",
+  "divisao": "79",
+  "secao": "N",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Agências de viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Agências",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Agencias",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viagens",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viagens",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Agências de viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "79"
+    }
+  ]
+}

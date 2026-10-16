@@ -1,0 +1,268 @@
+{
+  "grupo": "602",
+  "divisao": "60",
+  "secao": "J",
+  "total_termos": 26,
+  "termos": [
+    {
+      "termo": "Atividades de televisão aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisão",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisao",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aberta",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aberta",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Atividades de televisão aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Programadoras e atividades de televisão por assinatura por cabo",
+      "codigo_cnae": "6022501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Programadoras",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programadoras",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Programadoras",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programadoras",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisão",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisao",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Assinatura",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assinatura",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Assinatura",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assinatura",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Cabo",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabo",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Cabo",
+      "codigo_cnae": "6022501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabo",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Programadoras e atividades de televisão por assinatura por cabo",
+      "codigo_cnae": "6022501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Atividades relacionadas à televisão por assinatura, exceto programadoras",
+      "codigo_cnae": "6022502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Relacionadas",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionadas",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Relacionadas",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionadas",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisão",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisao",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Assinatura",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assinatura",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Assinatura",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assinatura",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Programadoras",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programadoras",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Programadoras",
+      "codigo_cnae": "6022502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programadoras",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Atividades relacionadas à televisão por assinatura, exceto programadoras",
+      "codigo_cnae": "6022502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "60"
+    }
+  ]
+}

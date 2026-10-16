@@ -1,0 +1,129 @@
+{
+  "classe": "2221",
+  "grupo": "222",
+  "divisao": "22",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de laminados planos e tubulares de material plástico",
+      "codigo_cnae": "2221800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Laminados",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laminados",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Laminados",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laminados",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Planos",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "planos",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Planos",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "planos",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Tubulares",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tubulares",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Tubulares",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tubulares",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Plástico",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plástico",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Plastico",
+      "codigo_cnae": "2221800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plástico",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Fabricação de laminados planos e tubulares de material plástico",
+      "codigo_cnae": "2221800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "22"
+    }
+  ]
+}

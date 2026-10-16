@@ -1,0 +1,51 @@
+{
+  "classe": "5320",
+  "total_termos": 3,
+  "termos": [
+    {
+      "termo": "Transporte de encomendas",
+      "termo_normalizado": "transporte de encomendas",
+      "codigo_cnae": "5320203",
+      "descricao": "Transporte de encomendas",
+      "relevancia": 100,
+      "categoria": "532",
+      "secao": "H",
+      "divisao": "53",
+      "grupo": "532",
+      "classe": "5320",
+      "subclasse": "5320203",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "transporte",
+      "termo_normalizado": "transporte",
+      "codigo_cnae": "5320203",
+      "descricao": "Transporte de encomendas",
+      "relevancia": 85,
+      "categoria": "532",
+      "secao": "H",
+      "divisao": "53",
+      "grupo": "532",
+      "classe": "5320",
+      "subclasse": "5320203",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "encomendas",
+      "termo_normalizado": "encomendas",
+      "codigo_cnae": "5320203",
+      "descricao": "Transporte de encomendas",
+      "relevancia": 85,
+      "categoria": "532",
+      "secao": "H",
+      "divisao": "53",
+      "grupo": "532",
+      "classe": "5320",
+      "subclasse": "5320203",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

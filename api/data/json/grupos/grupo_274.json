@@ -1,0 +1,148 @@
+{
+  "grupo": "274",
+  "divisao": "27",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de lâmpadas",
+      "codigo_cnae": "2740601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Lâmpadas",
+      "codigo_cnae": "2740601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lâmpadas",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Lampadas",
+      "codigo_cnae": "2740601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lâmpadas",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de lâmpadas",
+      "codigo_cnae": "2740601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de luminárias e outros equipamentos de iluminação",
+      "codigo_cnae": "2740602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Luminárias",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "luminárias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Luminarias",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "luminárias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Iluminação",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "iluminação",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Iluminacao",
+      "codigo_cnae": "2740602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "iluminação",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de luminárias e outros equipamentos de iluminação",
+      "codigo_cnae": "2740602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    }
+  ]
+}

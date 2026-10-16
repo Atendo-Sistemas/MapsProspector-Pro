@@ -1,0 +1,169 @@
+{
+  "classe": "0721",
+  "grupo": "072",
+  "divisao": "07",
+  "secao": "B",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Extração de minério de alumínio",
+      "codigo_cnae": "0721901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0721901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0721901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minério",
+      "codigo_cnae": "0721901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minerio",
+      "codigo_cnae": "0721901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Alumínio",
+      "codigo_cnae": "0721901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Aluminio",
+      "codigo_cnae": "0721901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extração de minério de alumínio",
+      "codigo_cnae": "0721901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento de minério de alumínio",
+      "codigo_cnae": "0721902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0721902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0721902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minério",
+      "codigo_cnae": "0721902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minerio",
+      "codigo_cnae": "0721902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Alumínio",
+      "codigo_cnae": "0721902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Aluminio",
+      "codigo_cnae": "0721902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alumínio",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento de minério de alumínio",
+      "codigo_cnae": "0721902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "07"
+    }
+  ]
+}

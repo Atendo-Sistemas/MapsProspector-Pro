@@ -1,0 +1,49 @@
+{
+  "classe": "2033",
+  "grupo": "203",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de elastômeros",
+      "codigo_cnae": "2033900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Elastômeros",
+      "codigo_cnae": "2033900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elastômeros",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Elastomeros",
+      "codigo_cnae": "2033900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elastômeros",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de elastômeros",
+      "codigo_cnae": "2033900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

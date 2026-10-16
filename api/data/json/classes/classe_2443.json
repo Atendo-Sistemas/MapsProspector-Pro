@@ -1,0 +1,69 @@
+{
+  "classe": "2443",
+  "grupo": "244",
+  "divisao": "24",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Metalurgia do cobre",
+      "codigo_cnae": "2443100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metalurgia",
+      "codigo_cnae": "2443100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metalurgia",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metalurgia",
+      "codigo_cnae": "2443100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metalurgia",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Cobre",
+      "codigo_cnae": "2443100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobre",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Cobre",
+      "codigo_cnae": "2443100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobre",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metalurgia do cobre",
+      "codigo_cnae": "2443100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    }
+  ]
+}

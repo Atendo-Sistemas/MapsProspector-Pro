@@ -1,0 +1,71 @@
+{
+  "grupo": "431",
+  "total_termos": 5,
+  "termos": [
+    {
+      "termo": "Demolição e preparação de canteiros de obras",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4311800",
+      "descricao_cnae": "Demolição e preparação de canteiros de obras",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "431",
+      "classe": "4311",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "demolição",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4311800",
+      "descricao_cnae": "Demolição e preparação de canteiros de obras",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "431",
+      "classe": "4311",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "preparação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4311800",
+      "descricao_cnae": "Demolição e preparação de canteiros de obras",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "431",
+      "classe": "4311",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "canteiros",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4311800",
+      "descricao_cnae": "Demolição e preparação de canteiros de obras",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "431",
+      "classe": "4311",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "obras",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4311800",
+      "descricao_cnae": "Demolição e preparação de canteiros de obras",
+      "secao": "F",
+      "divisao": "43",
+      "grupo": "431",
+      "classe": "4311",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

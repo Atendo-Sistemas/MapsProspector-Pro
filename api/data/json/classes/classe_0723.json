@@ -1,0 +1,169 @@
+{
+  "classe": "0723",
+  "grupo": "072",
+  "divisao": "07",
+  "secao": "B",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Extração de minério de manganês",
+      "codigo_cnae": "0723501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0723501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0723501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minério",
+      "codigo_cnae": "0723501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minerio",
+      "codigo_cnae": "0723501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Manganês",
+      "codigo_cnae": "0723501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manganês",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Manganes",
+      "codigo_cnae": "0723501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manganês",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extração de minério de manganês",
+      "codigo_cnae": "0723501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento de minério de manganês",
+      "codigo_cnae": "0723502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0723502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0723502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minério",
+      "codigo_cnae": "0723502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minerio",
+      "codigo_cnae": "0723502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Manganês",
+      "codigo_cnae": "0723502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manganês",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Manganes",
+      "codigo_cnae": "0723502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manganês",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamento de minério de manganês",
+      "codigo_cnae": "0723502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "07"
+    }
+  ]
+}

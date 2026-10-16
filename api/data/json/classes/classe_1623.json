@@ -1,0 +1,109 @@
+{
+  "classe": "1623",
+  "grupo": "162",
+  "divisao": "16",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos de tanoaria e de embalagens de madeira",
+      "codigo_cnae": "1623400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Tanoaria",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tanoaria",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Tanoaria",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tanoaria",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1623400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Fabricação de artefatos de tanoaria e de embalagens de madeira",
+      "codigo_cnae": "1623400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "16"
+    }
+  ]
+}

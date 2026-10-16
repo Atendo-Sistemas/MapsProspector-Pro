@@ -1,166 +1,570 @@
 <?php
 /**
- * API de Configurações
+ * API de configurações da plataforma.
+ *
+ * A URL pode ser exibida no painel. O token já salvo nunca é devolvido ao
+ * navegador: somente um valor mascarado é retornado. A ação explícita de gerar
+ * um novo token entrega o novo segredo uma única vez ao administrador para cópia.
+ *
  * Endpoint: /api/settings.php
  */
 
-// Previne qualquer output antes do JSON
 ob_start();
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+header('X-Content-Type-Options: nosniff');
+header('X-Frame-Options: SAMEORIGIN');
+header('Referrer-Policy: no-referrer');
+header('Permissions-Policy: geolocation=(), microphone=(), camera=()');
+header("Content-Security-Policy: default-src 'none'; base-uri 'none'; form-action 'self'; frame-ancestors 'self'");
+header('Strict-Transport-Security: max-age=31536000; includeSubDomains');
+
+// Garante que erros fatais de include/configuração também retornem JSON.
+// Sem este bloco, um fatal antes do try/catch resulta em resposta vazia e o
+// frontend exibe apenas "Unexpected end of JSON input".
+register_shutdown_function(function (): void {
+    $error = error_get_last();
+    $fatalTypes = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR];
+
+    if (!$error || !in_array($error['type'], $fatalTypes, true)) {
+        return;
+    }
+
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
+    if (!headers_sent()) {
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+    }
+
+    echo json_encode([
+        'success' => false,
+        'error' => 'Falha fatal no endpoint de configurações.',
+    ], JSON_UNESCAPED_UNICODE);
+});
 
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/asaas-secrets.php';
 
-// Limpa qualquer output buffer
-ob_clean();
-
-$userId = requireAuth();
-$authUser = getAuthUser();
-$db = Database::getInstance()->getConnection();
-$isSuperAdmin = ($authUser && strtolower((string)($authUser['profile'] ?? '')) === 'super_admin');
-
-$method = $_SERVER['REQUEST_METHOD'];
-
-if ($method === 'GET') {
-    // Chave da API de busca: apenas super_admin vê o valor; demais recebem apenas se está configurada
-    $platformScraperKey = getPlatformSetting($db, 'scraper_api_key');
-    $platformScraperKey = $platformScraperKey === null ? '' : (string) $platformScraperKey;
-    $scraperApiKeyConfigured = trim($platformScraperKey) !== '';
-    
-    // Chave da API de IA (OpenRouter)
-    $platformOpenRouterKey = getPlatformSetting($db, 'openrouter_api_key');
-    $platformOpenRouterKey = $platformOpenRouterKey === null ? '' : (string) $platformOpenRouterKey;
-    $openrouterApiKeyConfigured = trim($platformOpenRouterKey) !== '';
-
-    // Modelo de IA selecionado (OpenRouter)
-    $platformIaModel = getPlatformSetting($db, 'ia_model');
-    $iaModel = $platformIaModel !== null ? (string) $platformIaModel : 'google/gemini-2.0-flash-001';
-    
-    // Modelo de IA fallback (OpenRouter)
-    $platformIaModelFallback = getPlatformSetting($db, 'ia_model_fallback');
-    $iaModelFallback = $platformIaModelFallback !== null ? (string) $platformIaModelFallback : '';
-
-    // Busca configurações do usuário (webhook, token, etc.)
-    $stmt = $db->prepare("SELECT * FROM settings WHERE user_id = ?");
-    $stmt->execute([$userId]);
-    $settings = $stmt->fetch();
-    $settings = $settings ?: [];
-    
-    $base = [
-        'baseUrl' => $settings['base_url'] ?? '',
-        'token' => '',  // nunca enviado em texto; front usa campo para valor do header apikey
-        'tenantName' => $settings['tenant_name'] ?? 'Nome da empresa SaaS',
-        'scraperApiKeyConfigured' => $scraperApiKeyConfigured,
-        'openrouterApiKeyConfigured' => $openrouterApiKeyConfigured,
-        'iaModel' => $iaModel,
-        'iaModelFallback' => $iaModelFallback
-    ];
-    if ($isSuperAdmin) {
-        $base['scraperApiKey'] = $platformScraperKey ?? '';
-        $base['openrouterApiKey'] = $platformOpenRouterKey ?? '';
-    } else {
-        $base['scraperApiKey'] = '';  // demais não veem a chave
-        $base['openrouterApiKey'] = '';
+function settingsMaskSecret(string $secret): string
+{
+    $secret = trim($secret);
+    if ($secret === '') {
+        return '';
     }
-    jsonSuccess($base);
-    
-} elseif ($method === 'POST' || $method === 'PUT') {
-    // Salva configurações
+
+    // Nunca revela o início do token: mesmo uma credencial parcial não deve
+    // ser exposta no navegador. Tokens curtos não exibem caractere algum.
+    if (strlen($secret) <= 8) {
+        return str_repeat("\u{2022}", 8);
+    }
+
+    return str_repeat("\u{2022}", 8) . substr($secret, -4);
+}
+
+/**
+ * Respostas locais do endpoint. Não dependem de jsonSuccess/jsonError, pois
+ * algumas versões antigas dessas funções encerram a execução sem imprimir
+ * corpo quando a sessão não está autenticada.
+ */
+function settingsJsonResponse(bool $success, $data = null, string $message = '', int $status = 200): void
+{
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
+    http_response_code($status);
+    header('Content-Type: application/json; charset=utf-8');
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+
+    $payload = ['success' => $success];
+    if ($success) {
+        $payload['data'] = $data;
+        if ($message !== '') {
+            $payload['message'] = $message;
+        }
+    } else {
+        $payload['error'] = $message !== '' ? $message : 'Erro ao processar a solicitação.';
+    }
+
+    $json = json_encode(
+        $payload,
+        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE
+    );
+
+    if ($json === false) {
+        http_response_code(500);
+        $json = '{"success":false,"error":"Falha ao serializar a resposta de configurações."}';
+    }
+
+    echo $json;
+    exit;
+}
+
+function settingsSuccess($data = null, string $message = ''): void
+{
+    settingsJsonResponse(true, $data, $message, 200);
+}
+
+function settingsError(string $message, int $status = 400): void
+{
+    settingsJsonResponse(false, null, $message, $status);
+}
+
+function settingsReadRow(PDO $db, int $userId): ?array
+{
+    $stmt = $db->prepare('SELECT id, base_url, tenant_name, token FROM settings WHERE user_id = ? LIMIT 1');
+    $stmt->execute([$userId]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row ?: null;
+}
+
+/**
+ * Obtém o usuário autenticado diretamente da sessão.
+ *
+ * Não chama getAuthUser(): há uma versão de produção desse helper que pode
+ * executar exit sem imprimir JSON para determinados perfis, especialmente
+ * quando a sessão pertence ao super administrador.
+ */
+function settingsSessionUser(PDO $db): ?array
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        @session_start();
+    }
+
+    $sessionCandidates = [
+        $_SESSION['user'] ?? null,
+        $_SESSION['auth_user'] ?? null,
+        $_SESSION['current_user'] ?? null,
+        $_SESSION['user_data'] ?? null,
+    ];
+
+    foreach ($sessionCandidates as $candidate) {
+        if (!is_array($candidate)) {
+            continue;
+        }
+
+        $id = $candidate['id'] ?? $candidate['user_id'] ?? null;
+        $profile = strtolower((string)($candidate['profile'] ?? $candidate['role'] ?? $candidate['user_type'] ?? ''));
+        if (($id === null || $id === '') && $profile !== 'super_admin') {
+            continue;
+        }
+
+        return [
+            'id' => $id === null || $id === '' ? 0 : (int)$id,
+            'tenant_id' => $candidate['tenant_id'] ?? $candidate['tenantId'] ?? null,
+            'profile' => $profile,
+            'email' => $candidate['email'] ?? '',
+            'name' => $candidate['name'] ?? '',
+        ];
+    }
+
+    $sessionProfile = strtolower((string)($_SESSION['profile'] ?? $_SESSION['role'] ?? $_SESSION['user_type'] ?? ''));
+    if ($sessionProfile === 'super_admin' || !empty($_SESSION['is_super_admin'])) {
+        return [
+            'id' => 0,
+            'tenant_id' => null,
+            'profile' => 'super_admin',
+            'email' => (string)($_SESSION['email'] ?? $_SESSION['user_email'] ?? ''),
+            'name' => (string)($_SESSION['name'] ?? $_SESSION['user_name'] ?? 'Super administrador'),
+        ];
+    }
+
+    $sessionId = $_SESSION['user_id'] ?? $_SESSION['auth_user_id'] ?? null;
+    $sessionEmail = $_SESSION['email'] ?? $_SESSION['user_email'] ?? null;
+    if (($sessionId === null || $sessionId === '') && ($sessionEmail === null || $sessionEmail === '')) {
+        return null;
+    }
+
+    try {
+        if ($sessionId !== null && $sessionId !== '') {
+            $stmt = $db->prepare('SELECT * FROM users WHERE id = ? LIMIT 1');
+            $stmt->execute([(int)$sessionId]);
+        } else {
+            $stmt = $db->prepare('SELECT * FROM users WHERE email = ? LIMIT 1');
+            $stmt->execute([(string)$sessionEmail]);
+        }
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$row) {
+            return null;
+        }
+
+        return [
+            'id' => (int)($row['id'] ?? 0),
+            'tenant_id' => $row['tenant_id'] ?? $row['tenantId'] ?? null,
+            'profile' => $row['profile'] ?? $row['role'] ?? $row['user_type'] ?? '',
+            'email' => $row['email'] ?? '',
+            'name' => $row['name'] ?? '',
+        ];
+    } catch (Throwable $e) {
+        error_log('settingsSessionUser: falha ao resolver usuário da sessão: ' . $e->getMessage());
+        return null;
+    }
+}
+
+try {
+    $db = Database::getInstance()->getConnection();
+
+    // Não use getAuthUser()/requireAuth() neste endpoint: algumas versões
+    // encerram silenciosamente para a sessão do super administrador.
+    $authUser = settingsSessionUser($db);
+    $profile = strtolower((string)($authUser['profile'] ?? ''));
+    $isSuperAdmin = $profile === 'super_admin';
+    if (!is_array($authUser) || (!$isSuperAdmin && empty($authUser['id']))) {
+        settingsError('Não autenticado.', 401);
+    }
+    $userId = (int)$authUser['id'];
+    $tenantId = $authUser['tenant_id'] ?? $authUser['tenantId'] ?? null;
+    $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+    $settingsRow = $isSuperAdmin ? null : settingsReadRow($db, (int)$userId);
+    $storedToken = '';
+
+    if ($isSuperAdmin && function_exists('getPlatformSetting')) {
+        $storedToken = trim((string)(getPlatformSetting($db, 'atendo_wa_token') ?? ''));
+    } elseif ($settingsRow && !empty($settingsRow['token'])) {
+        $storedToken = (string)decryptApikey($settingsRow['token']);
+    }
+
+    if ($method === 'GET') {
+        $baseUrl = $isSuperAdmin && function_exists('getPlatformSetting')
+            ? (string)(getPlatformSetting($db, 'atendo_wa_base_url') ?? '')
+            : (string)($settingsRow['base_url'] ?? '');
+        $personalWebhookUrl = $isSuperAdmin ? '' : (string)($settingsRow['base_url'] ?? '');
+        $companyWebhookUrl = '';
+        $platformWebhookUrl = $isSuperAdmin && function_exists('getPlatformSetting')
+            ? (string)(getPlatformSetting($db, 'webhook_default_url') ?? '')
+            : '';
+        $tenantName = $isSuperAdmin && function_exists('getPlatformSetting')
+            ? (string)(getPlatformSetting($db, 'platform_name') ?? 'Nome da empresa SaaS')
+            : (string)($settingsRow['tenant_name'] ?? 'Nome da empresa SaaS');
+
+        // Para contas de empresa, o nome canônico pertence ao tenant. O webhook
+        // mantém compatibilidade com registros antigos quando ainda não existe
+        // um valor específico em settings.
+        if (!$isSuperAdmin && $tenantId !== null) {
+            $stmtTenant = $db->prepare('SELECT name, webhook_url FROM tenants WHERE id = ? LIMIT 1');
+            $stmtTenant->execute([$tenantId]);
+            $tenantRow = $stmtTenant->fetch(PDO::FETCH_ASSOC);
+            if ($tenantRow) {
+                $companyWebhookUrl = (string)($tenantRow['webhook_url'] ?? '');
+                $tenantName = (string)($tenantRow['name'] ?? $tenantName ?: 'Empresa');
+            }
+        }
+
+        if (!$isSuperAdmin) {
+            // Para a empresa, base_url representa exclusivamente o webhook de
+            // integração. Não exponha metadados de tokens ou configuração global.
+            settingsSuccess([
+                'webhookUrl' => $personalWebhookUrl,
+                'baseUrl' => $personalWebhookUrl,
+                'personalWebhookUrl' => $personalWebhookUrl,
+                'companyWebhookUrl' => $profile === 'admin' ? $companyWebhookUrl : '',
+                'tenantName' => $tenantName ?: 'Empresa',
+                'webhookConfigured' => $personalWebhookUrl !== '' || $companyWebhookUrl !== '',
+                'canEditTenantName' => $profile === 'admin',
+                'canEditCompanyWebhook' => $profile === 'admin',
+            ]);
+        }
+
+        $adminNumber = '551731981705';
+        if (function_exists('getPlatformSetting')) {
+            $adminNumber = (string)(getPlatformSetting($db, 'atendo_wa_admin_number') ?: $adminNumber);
+        }
+
+        $data = [
+            'baseUrl' => $baseUrl,
+            'atendoWaBaseUrl' => $baseUrl,
+            'tenantName' => $tenantName ?: 'Nome da empresa SaaS',
+            'atendoWaAdminNumber' => $adminNumber,
+            'atendoWaTokenConfigured' => $storedToken !== '',
+            'atendoWaTokenMasked' => settingsMaskSecret($storedToken),
+            'tokenConfigured' => $storedToken !== '',
+            'tokenMasked' => settingsMaskSecret($storedToken),
+            'scraperApiKeyConfigured' => trim((string)(getPlatformSetting($db, 'scraper_api_key') ?? '')) !== '',
+            'openrouterApiKeyConfigured' => trim((string)(getPlatformSetting($db, 'openrouter_api_key') ?? '')) !== '',
+            'iaModel' => getPlatformSetting($db, 'ia_model') ?? 'google/gemini-2.0-flash-001',
+            'iaModelFallback' => getPlatformSetting($db, 'ia_model_fallback') ?? '',
+            'cnpjApiUrl' => getPlatformSetting($db, 'cnpj_api_url') ?? 'https://publica.cnpj.ws/cnpj/{cnpj}',
+            'platformWebhookUrl' => $platformWebhookUrl,
+        ];
+
+        $asaasApiKey = $isSuperAdmin ? asaSecretGetOrMigrate($db, 'asaas_api_key') : '';
+        $asaasToken = $isSuperAdmin ? asaSecretGetOrMigrate($db, 'asaas_webhook_token') : '';
+
+        if ($isSuperAdmin) {
+            $data['scraperApiKey'] = getPlatformSetting($db, 'scraper_api_key') ?? '';
+            $data['openrouterApiKey'] = getPlatformSetting($db, 'openrouter_api_key') ?? '';
+            $data['mapboxAccessToken'] = getPlatformSetting($db, 'mapbox_access_token') ?? '';
+            $data['asaasApiKeyConfigured'] = $asaasApiKey !== '';
+            $data['asaasApiKeyMasked'] = settingsMaskSecret($asaasApiKey);
+            $data['asaasWebhookTokenConfigured'] = $asaasToken !== '';
+            $data['asaasWebhookTokenMasked'] = settingsMaskSecret($asaasToken);
+            $data['asaasActive'] = function_exists('getPlatformSetting') && (string) (getPlatformSetting($db, 'asaas_active') ?? '0') === '1';
+            $forwardedProto = strtolower(trim((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')));
+        $scheme = in_array($forwardedProto, ['https', 'http'], true) ? $forwardedProto : ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http');
+        $origin = $scheme . '://' . ($_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? 'localhost');
+            $data['asaasWebhookUrl'] = rtrim($origin, '/') . '/webhook-asaas.php';
+        } else {
+            $data['scraperApiKey'] = '';
+            $data['openrouterApiKey'] = '';
+            $data['mapboxAccessToken'] = '';
+            $data['asaasApiKeyConfigured'] = false;
+            $data['asaasApiKeyMasked'] = '';
+            $data['asaasWebhookTokenConfigured'] = false;
+            $data['asaasWebhookTokenMasked'] = '';
+            $data['asaasActive'] = false;
+            $data['asaasWebhookUrl'] = '';
+        }
+
+        settingsSuccess($data);
+    }
+
+    if ($method !== 'POST' && $method !== 'PUT') {
+        settingsError('Método não permitido.', 405);
+    }
+
     $input = json_decode(file_get_contents('php://input'), true);
     if (!is_array($input)) {
-        $input = [];
+        settingsError('Dados inválidos.', 400);
     }
 
-    $baseUrlRaw = trim($input['baseUrl'] ?? '');
-    $baseUrl = $baseUrlRaw !== '' ? validateWebhookUrl($baseUrlRaw) : '';
-    if ($baseUrlRaw !== '' && $baseUrl === null) {
-        jsonError('URL do Webhook/CRM inválida. Use apenas HTTPS (ou HTTP em ambiente controlado) e evite IPs internos.', 400);
-    }
-    $baseUrl = $baseUrl ?? '';
-    $apikeyPlain = trim($input['token'] ?? '');
-    $tenantName = sanitizeInput($input['tenantName'] ?? 'Nome da empresa SaaS');
-
-    // Chave da API de busca: apenas super_admin pode alterar; salva em platform_settings (toda a plataforma usa)
-    if ($isSuperAdmin && array_key_exists('scraperApiKey', $input)) {
-        $scraperApiKey = sanitizeInput($input['scraperApiKey'] ?? '');
-        try {
-            setPlatformSetting($db, 'scraper_api_key', $scraperApiKey);
-        } catch (PDOException $e) {
-            error_log("settings.php setPlatformSetting: " . $e->getMessage());
-            jsonError('Não foi possível salvar a chave da API de busca. Execute o script database_migration_platform_settings.sql no banco de dados.', 500);
+    if ($isSuperAdmin && !empty($input['asaasRemove'])) {
+        $cleared = asaSecretPersist($db, 'asaas_api_key', '')
+            && asaSecretPersist($db, 'asaas_webhook_token', '');
+        if (function_exists('setPlatformSetting')) {
+            setPlatformSetting($db, 'asaas_active', '0');
         }
-    }
-    
-    // Chave da API de IA (OpenRouter): apenas super_admin pode alterar
-    if ($isSuperAdmin && array_key_exists('openrouterApiKey', $input)) {
-        $openrouterApiKey = sanitizeInput($input['openrouterApiKey'] ?? '');
-        try {
-            setPlatformSetting($db, 'openrouter_api_key', $openrouterApiKey);
-        } catch (PDOException $e) {
-            error_log("settings.php setPlatformSetting openrouter: " . $e->getMessage());
-            jsonError('Não foi possível salvar a chave da API de IA.', 500);
+        if (!$cleared || asaSecretGet($db, 'asaas_api_key') !== '' || asaSecretGet($db, 'asaas_webhook_token') !== '') {
+            settingsError('Não foi possível confirmar a remoção da configuração Asaas.', 500);
         }
+        settingsSuccess([
+            'asaasApiKeyConfigured' => false,
+            'asaasWebhookTokenConfigured' => false,
+            'asaasWebhookTokenMasked' => '',
+            'asaasActive' => false,
+        ], 'Configuração Asaas removida. O sistema seguirá pelo fluxo de aprovação manual.');
     }
 
-    // Modelo de IA: apenas super_admin pode alterar
-    if ($isSuperAdmin && array_key_exists('iaModel', $input)) {
-        $iaModel = sanitizeInput($input['iaModel'] ?? 'google/gemini-2.0-flash-001');
-        if (empty(trim($iaModel))) {
-            $iaModel = 'google/gemini-2.0-flash-001';
+    if ($isSuperAdmin && !empty($input['asaasGenerateWebhookToken'])) {
+        $generatedToken = strtolower(bin2hex(random_bytes(16)));
+        if (!asaSecretPersist($db, 'asaas_webhook_token', $generatedToken) || asaSecretGet($db, 'asaas_webhook_token') !== $generatedToken) {
+            settingsError('Não foi possível gerar e confirmar o token do webhook Asaas.', 500);
         }
-        try {
-            setPlatformSetting($db, 'ia_model', $iaModel);
-        } catch (PDOException $e) {
-            error_log("settings.php setPlatformSetting ia_model: " . $e->getMessage());
-            jsonError('Não foi possível salvar o modelo de IA.', 500);
-        }
-    }
-    
-    // Modelo de IA fallback: apenas super_admin pode alterar
-    if ($isSuperAdmin && array_key_exists('iaModelFallback', $input)) {
-        $iaModelFallback = sanitizeInput($input['iaModelFallback'] ?? '');
-        try {
-            setPlatformSetting($db, 'ia_model_fallback', $iaModelFallback);
-        } catch (PDOException $e) {
-            error_log("settings.php setPlatformSetting ia_model_fallback: " . $e->getMessage());
-            jsonError('Não foi possível salvar o modelo fallback de IA.', 500);
-        }
+        $forwardedProto = strtolower(trim((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')));
+        $scheme = in_array($forwardedProto, ['https', 'http'], true) ? $forwardedProto : ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http');
+        $origin = $scheme . '://' . ($_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? 'localhost');
+        settingsSuccess([
+            'asaasWebhookTokenConfigured' => true,
+            'asaasWebhookTokenMasked' => settingsMaskSecret($generatedToken),
+            'asaasWebhookUrl' => rtrim($origin, '/') . '/webhook-asaas.php',
+            'asaasActive' => function_exists('getPlatformSetting') && (string) (getPlatformSetting($db, 'asaas_active') ?? '0') === '1',
+            'webhookToken' => $generatedToken,
+        ], 'Token do webhook Asaas gerado e salvo com segurança. Copie-o agora para o painel do Asaas.');
     }
 
-    $stmt = $db->prepare("SELECT id, token FROM settings WHERE user_id = ?");
-    $stmt->execute([$userId]);
-    $exists = $stmt->fetch();
-
-    if ($exists) {
-        $tokenToSave = $exists['token'];
-        if ($apikeyPlain !== '') {
-            $tokenToSave = encryptApikey($apikeyPlain);
+    if (!$isSuperAdmin) {
+        // Usuários de empresas podem administrar somente o webhook e, quando
+        // forem administradores, o nome do próprio tenant.
+        // Bloqueia explicitamente qualquer tentativa de gravar dados globais.
+        $globalFields = ['token', 'atendoWaToken', 'atendoWaAdminNumber', 'scraperApiKey', 'openrouterApiKey', 'mapboxAccessToken', 'cnpjApiUrl', 'asaasApiKey', 'asaasWebhookToken'];
+        foreach ($globalFields as $globalField) {
+            if (array_key_exists($globalField, $input)) {
+                settingsError('Configurações globais são exclusivas do super administrador.', 403);
+            }
         }
-        $stmt = $db->prepare("
-            UPDATE settings SET
-                base_url = ?,
-                token = ?,
-                tenant_name = ?,
-                updated_at = NOW()
-            WHERE user_id = ?
-        ");
-        $stmt->execute([
-            $baseUrl, $tokenToSave, $tenantName, $userId
-        ]);
+
+        $personalWebhookUrl = trim((string)($input['personalWebhookUrl'] ?? $input['webhookUrl'] ?? $input['baseUrl'] ?? ''));
+        if ($personalWebhookUrl !== '' && !filter_var($personalWebhookUrl, FILTER_VALIDATE_URL)) {
+            settingsError('A URL do seu webhook não é válida.', 400);
+        }
+
+        $canEditCompanyWebhook = $profile === 'admin';
+        $hasCompanyWebhook = array_key_exists('companyWebhookUrl', $input);
+        $companyWebhookUrl = trim((string)($input['companyWebhookUrl'] ?? ''));
+        if ($hasCompanyWebhook && !$canEditCompanyWebhook) {
+            settingsError('Somente o administrador da empresa pode alterar o webhook geral.', 403);
+        }
+        if ($hasCompanyWebhook && $companyWebhookUrl !== '' && !filter_var($companyWebhookUrl, FILTER_VALIDATE_URL)) {
+            settingsError('A URL do webhook geral da empresa não é válida.', 400);
+        }
+
+        $canEditTenantName = $profile === 'admin';
+        $hasTenantName = array_key_exists('tenantName', $input);
+        $tenantName = trim((string)($input['tenantName'] ?? ''));
+        if ($hasTenantName && !$canEditTenantName) {
+            settingsError('Somente o administrador da empresa pode alterar o nome.', 403);
+        }
+        if ($hasTenantName && ($tenantName === '' || mb_strlen($tenantName) > 120)) {
+            settingsError('Informe um nome de empresa entre 1 e 120 caracteres.', 400);
+        }
+
+        $existing = settingsReadRow($db, (int)$userId);
+        if ($existing) {
+            $stmt = $db->prepare('UPDATE settings SET base_url = ?, tenant_name = ? WHERE user_id = ?');
+            $stmt->execute([$personalWebhookUrl, $hasTenantName ? sanitizeInput($tenantName) : (string)($existing['tenant_name'] ?? 'Empresa'), (int)$userId]);
+        } else {
+            $stmt = $db->prepare('INSERT INTO settings (user_id, base_url, tenant_name) VALUES (?, ?, ?)');
+            $stmt->execute([(int)$userId, $personalWebhookUrl, $hasTenantName ? sanitizeInput($tenantName) : 'Empresa']);
+        }
+
+        // O webhook geral da empresa só pode ser definido pelo perfil admin.
+        if ($hasCompanyWebhook && $tenantId !== null) {
+            $stmtTenantWebhook = $db->prepare('UPDATE tenants SET webhook_url = ? WHERE id = ?');
+            $stmtTenantWebhook->execute([$companyWebhookUrl !== '' ? $companyWebhookUrl : null, (int)$tenantId]);
+        }
+
+        if ($hasTenantName && $tenantId !== null) {
+            $stmtTenant = $db->prepare('UPDATE tenants SET name = ? WHERE id = ?');
+            $stmtTenant->execute([sanitizeInput($tenantName), (int)$tenantId]);
+        }
+
+        settingsSuccess(null, 'Configurações da empresa salvas com sucesso.');
+    }
+
+    $baseUrl = trim((string)($input['baseUrl'] ?? $input['atendoWaBaseUrl'] ?? ''));
+    $hasPlatformWebhook = array_key_exists('platformWebhookUrl', $input);
+    $platformWebhookUrl = trim((string)($input['platformWebhookUrl'] ?? ''));
+    $tenantName = trim((string)($input['tenantName'] ?? ''));
+    $newToken = trim((string)($input['token'] ?? $input['atendoWaToken'] ?? ''));
+    $adminNumber = preg_replace('/\D+/', '', (string)($input['atendoWaAdminNumber'] ?? ''));
+
+    if ($baseUrl !== '' && !filter_var($baseUrl, FILTER_VALIDATE_URL)) {
+        settingsError('A URL da API Atendo não é válida.', 400);
+    }
+    if ($hasPlatformWebhook && $platformWebhookUrl !== '' && !filter_var($platformWebhookUrl, FILTER_VALIDATE_URL)) {
+        settingsError('A URL geral do webhook não é válida.', 400);
+    }
+
+    if ($adminNumber !== '' && strlen($adminNumber) < 10) {
+        settingsError('O número administrativo precisa estar no formato internacional.', 400);
+    }
+
+    if ($isSuperAdmin) {
+        if (!function_exists('setPlatformSetting')) {
+            settingsError('A função de configurações globais não está disponível.', 500);
+        }
+
+        if ($baseUrl !== '') {
+            setPlatformSetting($db, 'atendo_wa_base_url', $baseUrl);
+        }
+        if ($tenantName !== '') {
+            setPlatformSetting($db, 'platform_name', sanitizeInput($tenantName));
+        }
+        if ($newToken !== '') {
+            setPlatformSetting($db, 'atendo_wa_token', $newToken);
+        }
+        if ($adminNumber !== '') {
+            setPlatformSetting($db, 'atendo_wa_admin_number', $adminNumber);
+        }
+        if ($hasPlatformWebhook) {
+            setPlatformSetting($db, 'webhook_default_url', $platformWebhookUrl);
+        }
+        if (array_key_exists('scraperApiKey', $input)) {
+            setPlatformSetting($db, 'scraper_api_key', trim((string)$input['scraperApiKey']));
+        }
+        if (array_key_exists('openrouterApiKey', $input)) {
+            setPlatformSetting($db, 'openrouter_api_key', trim((string)$input['openrouterApiKey']));
+        }
+        if (array_key_exists('mapboxAccessToken', $input)) {
+            setPlatformSetting($db, 'mapbox_access_token', trim((string)$input['mapboxAccessToken']));
+        }
+        if (array_key_exists('cnpjApiUrl', $input)) {
+            setPlatformSetting($db, 'cnpj_api_url', trim((string)$input['cnpjApiUrl']));
+        }
+
+        // A tela de configurações usa este endpoint (e não api/asaas.php).
+        // Salve os campos Asaas antes da resposta e confirme a persistência por
+        // uma nova leitura, evitando a confirmação visual de falso sucesso.
+        $asaasKeySubmitted = array_key_exists('asaasApiKey', $input);
+        $asaasWebhookSubmitted = array_key_exists('asaasWebhookToken', $input);
+        $asaasActiveSubmitted = array_key_exists('asaasActive', $input);
+        $submittedAsaasKey = trim((string)($input['asaasApiKey'] ?? ''));
+        $submittedAsaasWebhookToken = trim((string)($input['asaasWebhookToken'] ?? ''));
+        $requestedAsaasActive = !empty($input['asaasActive']);
+
+        // Campo vazio mantém o valor anterior, assim como ocorre com o token
+        // principal da plataforma. A remoção deliberada não é exposta pela UI.
+        if ($asaasKeySubmitted && $submittedAsaasKey !== '') {
+            if (!asaSecretPersist($db, 'asaas_api_key', $submittedAsaasKey)) {
+                settingsError('A chave do Asaas não pôde ser gravada no armazenamento protegido. Nenhuma alteração foi confirmada.', 500);
+            }
+        }
+        if ($asaasWebhookSubmitted && $submittedAsaasWebhookToken !== '') {
+            if (!asaSecretPersist($db, 'asaas_webhook_token', $submittedAsaasWebhookToken)) {
+                settingsError('O token do webhook Asaas não pôde ser gravado no armazenamento protegido.', 500);
+            }
+        }
+
+        $savedAsaasKey = asaSecretGetOrMigrate($db, 'asaas_api_key');
+        $savedAsaasWebhookToken = asaSecretGetOrMigrate($db, 'asaas_webhook_token');
+        if ($asaasKeySubmitted && $submittedAsaasKey !== '' && $savedAsaasKey === '') {
+            settingsError('A chave do Asaas não pôde ser confirmada após o salvamento. Nenhuma alteração foi confirmada.', 500);
+        }
+        if ($asaasWebhookSubmitted && $submittedAsaasWebhookToken !== '' && $savedAsaasWebhookToken === '') {
+            settingsError('O token do webhook Asaas não pôde ser confirmado após o salvamento.', 500);
+        }
+        if ($asaasActiveSubmitted) {
+            if ($requestedAsaasActive && $savedAsaasKey === '') {
+                settingsError('Configure e valide a chave do Asaas antes de ativar a cobrança automática.', 422);
+            }
+            setPlatformSetting($db, 'asaas_active', $requestedAsaasActive ? '1' : '0');
+        }
+
+        $forwardedProto = strtolower(trim((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')));
+        $scheme = in_array($forwardedProto, ['https', 'http'], true) ? $forwardedProto : ((isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on') ? 'https' : 'http');
+        $origin = $scheme . '://' . ($_SERVER['HTTP_X_FORWARDED_HOST'] ?? $_SERVER['HTTP_HOST'] ?? 'localhost');
+        settingsSuccess([
+            'asaasApiKeyConfigured' => $savedAsaasKey !== '',
+            'asaasApiKeyMasked' => settingsMaskSecret($savedAsaasKey),
+            'asaasWebhookTokenConfigured' => $savedAsaasWebhookToken !== '',
+            'asaasWebhookTokenMasked' => settingsMaskSecret($savedAsaasWebhookToken),
+            'asaasActive' => function_exists('getPlatformSetting') && (string) (getPlatformSetting($db, 'asaas_active') ?? '0') === '1',
+            'asaasWebhookUrl' => rtrim($origin, '/') . '/webhook-asaas.php',
+        ], 'Configurações globais salvas e confirmadas.');
+    }
+
+    $fields = ['base_url = ?'];
+    $params = [$baseUrl];
+
+    if ($tenantName !== '') {
+        $fields[] = 'tenant_name = ?';
+        $params[] = sanitizeInput($tenantName);
+    }
+
+    // Campo vazio significa “manter o token atual”. Nunca o substitua por vazio.
+    if ($newToken !== '') {
+        $fields[] = 'token = ?';
+        $params[] = encryptApikey($newToken);
+    }
+
+    $existing = settingsReadRow($db, (int)$userId);
+    if ($existing) {
+        $params[] = (int)$userId;
+        $stmt = $db->prepare('UPDATE settings SET ' . implode(', ', $fields) . ' WHERE user_id = ?');
+        $stmt->execute($params);
     } else {
-        $tokenToSave = $apikeyPlain !== '' ? encryptApikey($apikeyPlain) : '';
-        $stmt = $db->prepare("
-            INSERT INTO settings 
-            (user_id, base_url, token, tenant_name)
-            VALUES (?, ?, ?, ?)
-        ");
-        $stmt->execute([
-            $userId, $baseUrl, $tokenToSave, $tenantName
-        ]);
+        $encryptedToken = $newToken !== '' ? encryptApikey($newToken) : '';
+        $stmt = $db->prepare('INSERT INTO settings (user_id, base_url, token, tenant_name) VALUES (?, ?, ?, ?)');
+        $stmt->execute([(int)$userId, $baseUrl, $encryptedToken, $tenantName !== '' ? sanitizeInput($tenantName) : 'Empresa']);
     }
-    
-    jsonSuccess(null, 'Configurações salvas com sucesso');
-    
-} else {
-    jsonError('Método não permitido', 405);
+
+    if ($adminNumber !== '' && function_exists('setPlatformSetting')) {
+        setPlatformSetting($db, 'atendo_wa_admin_number', $adminNumber);
+    }
+
+    settingsSuccess(null, 'Configurações salvas com sucesso.');
+} catch (Throwable $e) {
+    settingsError('Falha ao processar as configurações.', 500);
 }

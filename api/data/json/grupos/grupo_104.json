@@ -1,0 +1,408 @@
+{
+  "grupo": "104",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 40,
+  "termos": [
+    {
+      "termo": "Fabricação de óleos vegetais em bruto, exceto óleo de milho",
+      "codigo_cnae": "1041400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1041400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais em bruto, exceto óleo de milho",
+      "codigo_cnae": "1041400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais refinados, exceto óleo de milho",
+      "codigo_cnae": "1042200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinados",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinados",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1042200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleos vegetais refinados, exceto óleo de milho",
+      "codigo_cnae": "1042200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de margarina e outras gorduras vegetais e de óleos não-comestíveis de animais",
+      "codigo_cnae": "1043100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Margarina",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "margarina",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Margarina",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "margarina",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gorduras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gorduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gorduras",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gorduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleos",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleos",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comestíveis",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comestiveis",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1043100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de margarina e outras gorduras vegetais e de óleos não-comestíveis de animais",
+      "codigo_cnae": "1043100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

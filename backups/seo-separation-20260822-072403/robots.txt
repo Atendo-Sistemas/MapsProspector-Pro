@@ -1,0 +1,26 @@
+# Maps Prospector — diretivas para robôs de busca (Google, Bing e assistentes de IA)
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /config/
+Disallow: /includes/
+Disallow: /assets/pwa/
+Disallow: /*?*action=
+
+# Regras para crawlers de IA e assistentes
+User-agent: GPTBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
+User-agent: PerplexityBot
+Allow: /
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ClaudeBot
+Allow: /
+User-agent: Google-Extended
+Allow: /
+User-agent: anthropic-ai
+Allow: /
+
+Sitemap: https://prospec.atendo.log.br/sitemap.xml

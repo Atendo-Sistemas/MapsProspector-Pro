@@ -1,0 +1,149 @@
+{
+  "classe": "7220",
+  "grupo": "722",
+  "divisao": "72",
+  "secao": "M",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Pesquisa e desenvolvimento experimental em ciências sociais e humanas",
+      "codigo_cnae": "7220700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Pesquisa",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesquisa",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Pesquisa",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesquisa",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Experimental",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "experimental",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Experimental",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "experimental",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Ciências",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ciências",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Ciencias",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ciências",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Humanas",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanas",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Humanas",
+      "codigo_cnae": "7220700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanas",
+      "secao": "M",
+      "divisao": "72"
+    },
+    {
+      "termo": "Pesquisa e desenvolvimento experimental em ciências sociais e humanas",
+      "codigo_cnae": "7220700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "72"
+    }
+  ]
+}

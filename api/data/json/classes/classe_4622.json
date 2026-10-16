@@ -1,0 +1,89 @@
+{
+  "classe": "4622",
+  "grupo": "462",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Comércio atacadista de soja",
+      "codigo_cnae": "4622200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Soja",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "soja",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Soja",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "soja",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de soja",
+      "codigo_cnae": "4622200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

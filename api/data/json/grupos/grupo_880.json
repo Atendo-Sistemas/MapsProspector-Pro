@@ -1,0 +1,108 @@
+{
+  "grupo": "880",
+  "divisao": "88",
+  "secao": "Q",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Serviços de assistência social sem alojamento",
+      "codigo_cnae": "8800600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Assistência",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistência",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Assistencia",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistência",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Social",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "social",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Social",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "social",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Alojamento",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alojamento",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Alojamento",
+      "codigo_cnae": "8800600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alojamento",
+      "secao": "Q",
+      "divisao": "88"
+    },
+    {
+      "termo": "Serviços de assistência social sem alojamento",
+      "codigo_cnae": "8800600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "88"
+    }
+  ]
+}

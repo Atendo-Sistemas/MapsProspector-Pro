@@ -1,0 +1,109 @@
+{
+  "classe": "5111",
+  "grupo": "511",
+  "divisao": "51",
+  "secao": "H",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Transporte aéreo de passageiros regular",
+      "codigo_cnae": "5111100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aéreo",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aereo",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Regular",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regular",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Regular",
+      "codigo_cnae": "5111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regular",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte aéreo de passageiros regular",
+      "codigo_cnae": "5111100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "51"
+    }
+  ]
+}

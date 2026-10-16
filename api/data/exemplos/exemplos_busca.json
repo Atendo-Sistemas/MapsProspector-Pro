@@ -1,0 +1,44 @@
+{
+  "exemplos": [
+    {
+      "busca": "restaurante",
+      "resultado_esperado": "5611201 - Restaurantes e similares"
+    },
+    {
+      "busca": "desenvolvimento de software",
+      "resultado_esperado": "6201501 - Desenvolvimento de programas de computador sob encomenda"
+    },
+    {
+      "busca": "construção civil",
+      "resultado_esperado": "4120400 - Construção de edifícios"
+    },
+    {
+      "busca": "transporte rodoviário",
+      "resultado_esperado": "4930201 - Transporte rodoviário de carga, exceto produtos perigosos e mudanças, municipal"
+    },
+    {
+      "busca": "advocacia",
+      "resultado_esperado": "6911701 - Serviços advocatícios"
+    },
+    {
+      "busca": "supermercado",
+      "resultado_esperado": "4711302 - Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - supermercados"
+    },
+    {
+      "busca": "clínica médica",
+      "resultado_esperado": "8630501 - Atividade médica ambulatorial com recursos para realização de procedimentos cirúrgicos"
+    },
+    {
+      "busca": "escola",
+      "resultado_esperado": "8513900 - Ensino fundamental"
+    },
+    {
+      "busca": "oficina mecânica",
+      "resultado_esperado": "4520001 - Serviços de manutenção e reparação mecânica de veículos automotores"
+    },
+    {
+      "busca": "salão de beleza",
+      "resultado_esperado": "9602501 - Cabeleireiros, manicure e pedicure"
+    }
+  ]
+}

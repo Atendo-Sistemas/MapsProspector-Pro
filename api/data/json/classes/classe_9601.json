@@ -1,0 +1,169 @@
+{
+  "classe": "9601",
+  "grupo": "960",
+  "divisao": "96",
+  "secao": "S",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavanderias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavanderias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tinturarias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tinturarias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete de animais domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "toalete",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "toalete",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Domesticos",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete de animais domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    }
+  ]
+}

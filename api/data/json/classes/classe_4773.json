@@ -1,0 +1,110 @@
+{
+  "classe": "4773",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Comércio varejista de artigos médicos e ortopédicos",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "comércio",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "varejista",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "artigos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "médicos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "ortopédicos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "venda",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "negócio",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4773300",
+      "descricao_cnae": "Comércio varejista de artigos médicos e ortopédicos",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "477",
+      "classe": "4773",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

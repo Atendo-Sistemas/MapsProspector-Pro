@@ -3,7 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>MapsProspector - Encontre seus clientes ideais</title>
+    <title>MapsProspector | Prospecção B2B e organização de leads</title>
+    <meta name="description" content="Conheça os recursos do MapsProspector para prospecção B2B no Google Maps, pesquisa no LinkedIn autenticado, consulta de CNPJ e organização de leads.">
+    <meta name="robots" content="index,follow">
+    <link rel="canonical" href="https://prospec.atendo.log.br/">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:site_name" content="MapsProspector">
+    <meta property="og:title" content="MapsProspector | Prospecção B2B e organização de leads">
+    <meta property="og:description" content="Recursos para pesquisar empresas, consultar CNPJ e organizar o processo comercial.">
+    <meta property="og:url" content="https://prospec.atendo.log.br/">
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="MapsProspector | Prospecção B2B e organização de leads">
+    <meta name="twitter:description" content="Recursos para pesquisar empresas, consultar CNPJ e organizar o processo comercial.">
+    <script type="application/ld+json">{"@context":"https://schema.org","@type":"SoftwareApplication","name":"MapsProspector","applicationCategory":"BusinessApplication","operatingSystem":"Web","inLanguage":"pt-BR","url":"https://prospec.atendo.log.br/","description":"Plataforma com recursos para prospecção B2B, consulta de CNPJ e organização de leads."}</script>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -34,10 +47,11 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-16">
                 <div class="flex items-center">
-                    <a href="#" class="text-xl font-black text-blue-600">MapsProspector</a>
+                    <a href="/" class="text-xl font-black text-blue-600">MapsProspector</a>
                 </div>
                 <div class="hidden md:flex items-center gap-8">
                     <a href="#features" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Recursos</a>
+                    <a href="solucoes.php" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Soluções</a>
                     <a href="#how-it-works" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Como funciona</a>
                     <a href="#pricing" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">Planos</a>
                     <a href="#faq" class="text-sm font-semibold text-slate-600 hover:text-blue-600 transition">FAQ</a>
@@ -54,7 +68,7 @@
     <section id="hero" class="pt-32 pb-20 px-4">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-4xl mx-auto">
-                <span id="hero-badge" class="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 text-xs font-bold rounded-full mb-6">🚀 A ferramenta de prospecção B2B</span>
+                <span id="hero-badge" class="inline-block px-4 py-1.5 bg-blue-100 text-blue-700 text-xs font-bold rounded-full mb-6">Plataforma de prospecção B2B</span>
                 <h1 id="hero-title" class="text-4xl md:text-5xl lg:text-6xl font-black text-slate-900 mb-6 leading-tight"></h1>
                 <p id="hero-subtitle" class="text-lg md:text-xl text-slate-600 mb-8"></p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
@@ -99,7 +113,7 @@
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Nossos Planos</h2>
-                <p class="text-lg text-slate-600">Escolha o plano ideal para seu negócio</p>
+                <p class="text-lg text-slate-600">Consulte as opções de acesso e os recursos disponíveis em cada plano.</p>
             </div>
             <div id="plans-grid" class="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-6xl mx-auto">
                 <!-- Plans will be loaded dynamically -->
@@ -120,8 +134,40 @@
         </div>
     </section>
 
+    <!-- Social proof / Platform stats -->
+    <section id="platform-stats" class="py-16 px-4 bg-white">
+        <div class="max-w-6xl mx-auto">
+            <div class="text-center max-w-3xl mx-auto mb-10">
+                <span class="inline-flex px-4 py-1.5 bg-blue-50 text-blue-700 text-xs font-black uppercase tracking-wider rounded-full mb-4">Uma plataforma em crescimento</span>
+                <h2 class="text-3xl md:text-4xl font-black text-slate-900 mb-4">Empresas e profissionais confiam no nosso sistema</h2>
+                <p class="text-lg text-slate-600">Números atualizados automaticamente para mostrar o alcance real da plataforma.</p>
+            </div>
+            <div id="platform-stats-grid" class="grid gap-6 md:grid-cols-2 max-w-4xl mx-auto">
+                <div class="rounded-3xl border border-blue-100 bg-blue-50 p-8 text-center shadow-sm">
+                    <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-blue-600 text-white shadow-lg shadow-blue-600/20">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M8 7h2m-2 4h2m4-4h2m-2 4h2M9 21v-4h6v4" /></svg>
+                    </div>
+                    <p id="platform-companies-count" class="text-4xl font-black text-slate-950">—</p>
+                    <h3 class="mt-2 text-lg font-extrabold text-slate-900">Empresas cadastradas</h3>
+                    <p class="mt-2 text-sm text-slate-600">Negócios que já fazem parte da plataforma.</p>
+                </div>
+                <div class="rounded-3xl border border-emerald-100 bg-emerald-50 p-8 text-center shadow-sm">
+                    <div class="mx-auto mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-600 text-white shadow-lg shadow-emerald-600/20">
+                        <svg class="h-7 w-7" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" /></svg>
+                    </div>
+                    <p id="platform-users-count" class="text-4xl font-black text-slate-950">—</p>
+                    <h3 class="mt-2 text-lg font-extrabold text-slate-900">Usuários na plataforma</h3>
+                    <p class="mt-2 text-sm text-slate-600">Profissionais que utilizam nossos recursos de prospecção.</p>
+                </div>
+            </div>
+            <div class="mt-8 text-center">
+                <a href="index.php?register=1" class="inline-flex items-center justify-center rounded-xl bg-blue-700 px-6 py-3 text-sm font-black text-white shadow-lg shadow-blue-700/20 transition hover:bg-blue-800">Faça parte dessa rede</a>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials -->
-    <section id="testimonials" class="py-20 px-4 bg-white">
+    <section id="testimonials" class="hidden" aria-hidden="true">
         <div class="max-w-7xl mx-auto">
             <div class="text-center max-w-3xl mx-auto mb-16">
                 <h2 id="testimonials-title" class="text-3xl md:text-4xl font-black text-slate-900 mb-4"></h2>
@@ -154,7 +200,7 @@
             <div id="cta-content" class="text-blue-50 mb-8"></div>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a id="cta-button" href="index.php?register=1" class="px-8 py-4 bg-white text-blue-600 text-lg font-bold rounded-2xl transition shadow-lg hover:shadow-xl"></a>
-                <a id="cta-secondary" href="#contact" class="px-8 py-4 bg-blue-500 hover:bg-blue-400 text-white text-lg font-bold rounded-2xl transition">Falar com Consultor</a>
+                <a id="cta-secondary" href="solucoes.php" class="px-8 py-4 bg-blue-500 hover:bg-blue-400 text-white text-lg font-bold rounded-2xl transition">Ver soluções</a>
             </div>
         </div>
     </section>
@@ -166,9 +212,10 @@
                 <div class="text-2xl font-black text-white">MapsProspector</div>
                 <div id="footer-content" class="text-sm"></div>
                 <div class="flex gap-6">
-                    <a href="#" class="hover:text-white transition">Termos</a>
-                    <a href="#" class="hover:text-white transition">Privacidade</a>
-                    <a href="#" class="hover:text-white transition">Contato</a>
+                    <a href="termos.php" class="hover:text-white transition">Termos</a>
+                    <a href="privacidade.php" class="hover:text-white transition">Privacidade</a>
+                    <a href="contato.php" class="hover:text-white transition">Contato</a>
+                    <a href="paginas-publicadas.php" class="font-bold text-blue-300 hover:text-white transition">Explorar páginas</a>
                 </div>
             </div>
         </div>
@@ -279,8 +326,14 @@
                 if (section.extraData && section.extraData.cta_text) {
                     document.getElementById('cta-button').textContent = section.extraData.cta_text;
                 }
+                if (section.extraData && section.extraData.cta_link) {
+                    document.getElementById('cta-button').href = section.extraData.cta_link;
+                }
                 if (section.extraData && section.extraData.secondary_cta_text) {
                     document.getElementById('cta-secondary').textContent = section.extraData.secondary_cta_text;
+                }
+                if (section.extraData && section.extraData.secondary_cta_link) {
+                    document.getElementById('cta-secondary').href = section.extraData.secondary_cta_link;
                 }
                 break;
                 
@@ -342,10 +395,26 @@
         }
     }
 
+    async function loadPlatformStats() {
+        try {
+            const res = await fetch(API_BASE + 'public-stats.php', { cache: 'no-store' });
+            const data = await res.json();
+            if (!data.success || !data.data) return;
+            const formatNumber = value => new Intl.NumberFormat('pt-BR').format(Number(value || 0));
+            const companiesCount = document.getElementById('platform-companies-count');
+            const usersCount = document.getElementById('platform-users-count');
+            if (companiesCount) companiesCount.textContent = formatNumber(data.data.companies);
+            if (usersCount) usersCount.textContent = formatNumber(data.data.users);
+        } catch (err) {
+            console.error('Error loading platform stats:', err);
+        }
+    }
+
     // Initialize
     document.addEventListener('DOMContentLoaded', () => {
         loadContent();
         loadPlans();
+        loadPlatformStats();
     });
     </script>
 </body>

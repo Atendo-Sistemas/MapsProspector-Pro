@@ -1,0 +1,129 @@
+{
+  "classe": "1394",
+  "grupo": "139",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos para decoração e uso doméstico em tecidos",
+      "codigo_cnae": "1394200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Decoração",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "decoração",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Decoracao",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "decoração",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Doméstico",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Domestico",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1394200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos para decoração e uso doméstico em tecidos",
+      "codigo_cnae": "1394200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

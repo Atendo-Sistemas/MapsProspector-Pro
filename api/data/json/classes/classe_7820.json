@@ -1,0 +1,109 @@
+{
+  "classe": "7820",
+  "grupo": "782",
+  "divisao": "78",
+  "secao": "N",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Locação de mão-de-obra temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mão",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mao",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação de mão-de-obra temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    }
+  ]
+}

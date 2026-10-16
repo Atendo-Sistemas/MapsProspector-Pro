@@ -1,0 +1,369 @@
+{
+  "classe": "0155",
+  "grupo": "015",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 36,
+  "termos": [
+    {
+      "termo": "Criação de frangos para corte",
+      "codigo_cnae": "0155501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Frangos",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frangos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Frangos",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frangos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de frangos para corte",
+      "codigo_cnae": "0155501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de pintos de um dia",
+      "codigo_cnae": "0155502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pintos",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pintos",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Dia",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Dia",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de pintos de um dia",
+      "codigo_cnae": "0155502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros galináceos, exceto para corte",
+      "codigo_cnae": "0155503",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galináceos",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galinaceos",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros galináceos, exceto para corte",
+      "codigo_cnae": "0155503",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de aves, exceto galináceos",
+      "codigo_cnae": "0155504",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galináceos",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galinaceos",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de aves, exceto galináceos",
+      "codigo_cnae": "0155504",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

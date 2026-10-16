@@ -1,0 +1,69 @@
+{
+  "classe": "8513",
+  "grupo": "851",
+  "divisao": "85",
+  "secao": "P",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Ensino fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ensino",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ensino",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fundamental",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fundamental",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+{
+  "classe": "0151",
+  "grupo": "015",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 26,
+  "termos": [
+    {
+      "termo": "Criação de bovinos para corte",
+      "codigo_cnae": "0151201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos para corte",
+      "codigo_cnae": "0151201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos para leite",
+      "codigo_cnae": "0151202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos para leite",
+      "codigo_cnae": "0151202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos, exceto para corte e leite",
+      "codigo_cnae": "0151203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos, exceto para corte e leite",
+      "codigo_cnae": "0151203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

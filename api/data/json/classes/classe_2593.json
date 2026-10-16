@@ -1,0 +1,129 @@
+{
+  "classe": "2593",
+  "grupo": "259",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de artigos de metal para uso doméstico e pessoal",
+      "codigo_cnae": "2593400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Doméstico",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Domestico",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "2593400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de artigos de metal para uso doméstico e pessoal",
+      "codigo_cnae": "2593400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

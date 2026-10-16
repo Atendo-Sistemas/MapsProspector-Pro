@@ -1,39 +1,62 @@
 <?php
 /**
  * Configurações Gerais do Sistema
- * MapsProspector Pro - XAMPP
+ * MapsProspector Pro — compatível com XAMPP (local) e cPanel (produção).
+ *
+ * No cPanel não existe arquivo .env; as credenciais ficam nos
+ * fallbacks do config/database.php e nas constantes abaixo.
  */
 
-// Carrega variáveis do arquivo .env (Hostinger e hospedagens que não injetam env pelo servidor)
+// Carrega variáveis do arquivo .env quando existir (apenas local/XAMPP).
+// Nunca sobrescreve variáveis já injetadas pelo servidor (evita derrubar a sessão).
 $envFile = __DIR__ . '/../.env';
 if (is_file($envFile) && is_readable($envFile)) {
     $lines = @file($envFile, FILE_IGNORE_NEW_LINES | FILE_SKIP_EMPTY_LINES) ?: [];
     foreach ($lines as $line) {
         $line = trim($line);
-        if ($line === '' || strpos($line, '#') === 0) continue;
-        if (strpos($line, '=') === false) continue;
+        if ($line === '' || strpos($line, '#') === 0) {
+            continue;
+        }
+        if (strpos($line, '=') === false) {
+            continue;
+        }
         $key = trim(substr($line, 0, strpos($line, '=')));
         $value = trim(substr($line, strpos($line, '=') + 1));
-        if ($key === '') continue;
+        if ($key === '') {
+            continue;
+        }
         if (preg_match('/^["\'](.+)["\']\s*$/', $value, $m)) {
             $value = $m[1];
         }
-        // Sempre define as variáveis do .env (sobrescreve se já existirem)
-        $_ENV[$key] = $value;
-        $_SERVER[$key] = $value;
+        // Só define se ainda não existir (não sobrescreve variáveis injetadas pelo servidor)
+        if (!isset($_ENV[$key])) {
+            $_ENV[$key] = $value;
+        }
+        if (!isset($_SERVER[$key])) {
+            $_SERVER[$key] = $value;
+        }
     }
 }
 
-// Configurações de ambiente (podem vir do .env)
-define('ENVIRONMENT', getenv('ENVIRONMENT') ?: 'development'); // development | production
-define('BASE_URL', rtrim(getenv('BASE_URL') ?: 'http://localhost/MapsProspector-Pro/', '/') . '/');
+// Configurações de ambiente (podem vir do .env; fallback de produção)
+define('ENVIRONMENT', getenv('ENVIRONMENT') ?: ($_ENV['ENVIRONMENT'] ?? 'production'));
+define('BASE_URL', rtrim(getenv('BASE_URL') ?: ($_ENV['BASE_URL'] ?? 'https://prospec.atendo.log.br/'), '/') . '/');
 
 // Configurações de sessão
 ini_set('session.cookie_httponly', 1);
 ini_set('session.use_only_cookies', 1);
-ini_set('session.cookie_secure', 0); // Mude para 1 em produção com HTTPS
+
+// cookie_secure só quando a requisição realmente é HTTPS (detecta Cloudflare via CF-Visitor)
+$https = (!empty($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) !== 'off')
+    || (isset($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] === 'https')
+    || (isset($_SERVER['HTTP_CF_VISITOR']) && strpos($_SERVER['HTTP_CF_VISITOR'], 'https') !== false);
+ini_set('session.cookie_secure', $https ? '1' : '0');
 ini_set('session.cookie_samesite', 'Lax');
-session_start();
+
+// Evita o aviso "session_start() because a session is already active"
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
 
 // Timezone
 date_default_timezone_set('America/Sao_Paulo');

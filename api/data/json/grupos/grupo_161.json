@@ -1,0 +1,508 @@
+{
+  "grupo": "161",
+  "divisao": "16",
+  "secao": "C",
+  "total_termos": 50,
+  "termos": [
+    {
+      "termo": "Serrarias com desdobramento de madeira",
+      "codigo_cnae": "1610201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias com desdobramento de madeira",
+      "codigo_cnae": "1610201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias sem desdobramento de madeira",
+      "codigo_cnae": "1610202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias sem desdobramento de madeira",
+      "codigo_cnae": "1610202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias com desdobramento de madeira em bruto",
+      "codigo_cnae": "1610203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1610203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias com desdobramento de madeira em bruto",
+      "codigo_cnae": "1610203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias com desdobramento de madeira, exceto em bruto",
+      "codigo_cnae": "1610204",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serrarias",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Desdobramento",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desdobramento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1610204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serrarias com desdobramento de madeira, exceto em bruto",
+      "codigo_cnae": "1610204",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serviço de tratamento de madeira realizado sob contrato",
+      "codigo_cnae": "1610205",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Tratamento",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Tratamento",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamento",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Realizado",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "realizado",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Realizado",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "realizado",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1610205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Serviço de tratamento de madeira realizado sob contrato",
+      "codigo_cnae": "1610205",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "16"
+    }
+  ]
+}

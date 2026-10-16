@@ -1,0 +1,389 @@
+{
+  "classe": "1399",
+  "grupo": "139",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 38,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos em material têxtil para uso industrial",
+      "codigo_cnae": "1399101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxtil",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxtil",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Textil",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxtil",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1399101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos em material têxtil para uso industrial",
+      "codigo_cnae": "1399101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos em material têxtil para uso médico-hospitalar",
+      "codigo_cnae": "1399102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxtil",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxtil",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Textil",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxtil",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Médico",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médico",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Medico",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médico",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Hospitalar",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Hospitalar",
+      "codigo_cnae": "1399102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospitalar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos em material têxtil para uso médico-hospitalar",
+      "codigo_cnae": "1399102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos em material têxtil para uso em vestuário",
+      "codigo_cnae": "1399103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxtil",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxtil",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Textil",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxtil",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "1399103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artefatos em material têxtil para uso em vestuário",
+      "codigo_cnae": "1399103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

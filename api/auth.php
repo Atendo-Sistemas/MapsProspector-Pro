@@ -1,6 +1,8 @@
 <?php
+ini_set('display_errors', 1);
+error_reporting(E_ALL);
 /**
- * API de Autenticação
+ * API de Autenticação com Cálculo de Teste de 30 Dias
  * Endpoint: /api/auth.php
  */
 
@@ -10,11 +12,19 @@ ob_start();
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/module-access.php';
 
 // Limpa qualquer output buffer
 ob_clean();
 
 $method = $_SERVER['REQUEST_METHOD'];
+
+// Este endpoint recebe comandos JSON via POST. Evita que GET/HEAD alcancem
+// o código legado de finalização de sessão e retornem erro 500 por variáveis ausentes.
+if ($method !== 'POST') {
+    header('Allow: POST');
+    jsonError('Método não permitido. Use POST.', 405, 'method_not_allowed');
+}
 
 if ($method === 'POST') {
     $input = json_decode(file_get_contents('php://input'), true);
@@ -62,11 +72,14 @@ if ($method === 'POST') {
         $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;
         $tenantName = 'Nome da empresa SaaS';
         $tenantStatus = 'active';
-        $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+        $tokenUsage = ['used' => 0, 'limit' => 0, 'planLimit' => 0, 'bonus' => 0, 'available' => 0, 'limitReached' => false, 'modules' => []];
         $tenantPlanId = '';
         $tenantPlanName = '';
+        $trialDaysLeft = 30;
+        $trialExpired = false;
+
         if ($tenantId) {
-            $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+            $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
             $stmtT->execute([$tenantId]);
             $row = $stmtT->fetch();
             if ($row) {
@@ -74,6 +87,16 @@ if ($method === 'POST') {
                 $tenantStatus = $row['status'] ?? 'active';
                 $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
                 $tenantPlanName = $row['plan_name'] ?? '';
+                
+                // Cálculo de expiração do teste de 30 dias a partir da data de cadastro
+                if (!empty($row['created_at'])) {
+                    $createdAt = new DateTime($row['created_at']);
+                    $now = new DateTime();
+                    $daysUsed = (int) $now->diff($createdAt)->days;
+                    $trialDaysLeft = max(0, 30 - $daysUsed);
+                    $trialExpired = ($daysUsed >= 30);
+                }
+
                 $planLimit = getTenantPlanTokenLimit($db, $tenantId);
                 $bonus = getTenantTokenBonus($db, $tenantId, null);
                 $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
@@ -81,7 +104,11 @@ if ($method === 'POST') {
                 $tokenUsage = [
                     'used' => $used,
                     'limit' => $effectiveLimit,
-                    'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
+                    'planLimit' => $planLimit,
+                            'bonus' => $bonus,
+                            'available' => $effectiveLimit > 0 ? max(0, $effectiveLimit - $used) : null,
+                            'limitReached' => ($effectiveLimit > 0 && $used >= $effectiveLimit) || $trialExpired,
+                            'modules' => mpTenantModules($db, $tenantId, $user)
                 ];
             }
         } else {
@@ -93,12 +120,19 @@ if ($method === 'POST') {
         $_SESSION['user_email'] = $user['email'];
         $_SESSION['tenant_id'] = $tenantId;
         $_SESSION['profile'] = $user['profile'];
+        try {
+            $stmtActivity = $db->prepare('UPDATE users SET last_activity = NOW() WHERE id = ?');
+            $stmtActivity->execute([(int) $user['id']]);
+        } catch (Throwable $activityError) {
+            error_log('auth login activity touch: ' . $activityError->getMessage());
+        }
         
         jsonSuccess([
             'user' => [
                 'id' => (string)$user['id'],
                 'name' => $user['name'],
                 'email' => $user['email'],
+                'phone' => $user['phone'],
                 'tenantId' => $tenantId !== null ? (string)$tenantId : '',
                 'profile' => $user['profile']
             ],
@@ -107,7 +141,9 @@ if ($method === 'POST') {
                 'name' => $tenantName,
                 'status' => $tenantStatus,
                 'planId' => $tenantPlanId,
-                'planName' => $tenantPlanName
+                'planName' => $tenantPlanName,
+                'trialDaysLeft' => $trialDaysLeft,
+                'trialExpired' => $trialExpired
             ],
             'tokenUsage' => $tokenUsage
         ]);
@@ -129,11 +165,14 @@ if ($method === 'POST') {
                 $tenantId = isset($user['tenant_id']) ? (int) $user['tenant_id'] : null;
                 $tenantName = 'Nome da empresa SaaS';
                 $tenantStatus = 'active';
-                $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+                $tokenUsage = ['used' => 0, 'limit' => 0, 'planLimit' => 0, 'bonus' => 0, 'available' => 0, 'limitReached' => false, 'modules' => []];
                 $tenantPlanId = '';
                 $tenantPlanName = '';
+                $trialDaysLeft = 30;
+                $trialExpired = false;
+
                 if ($tenantId) {
-                    $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+                    $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
                     $stmtT->execute([$tenantId]);
                     $row = $stmtT->fetch();
                     if ($row) {
@@ -141,6 +180,16 @@ if ($method === 'POST') {
                         $tenantStatus = $row['status'] ?? 'active';
                         $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
                         $tenantPlanName = $row['plan_name'] ?? '';
+                        
+                        // Cálculo de expiração do teste de 30 dias
+                        if (!empty($row['created_at'])) {
+                            $createdAt = new DateTime($row['created_at']);
+                            $now = new DateTime();
+                            $daysUsed = (int) $now->diff($createdAt)->days;
+                            $trialDaysLeft = max(0, 30 - $daysUsed);
+                            $trialExpired = ($daysUsed >= 30);
+                        }
+
                         $planLimit = getTenantPlanTokenLimit($db, $tenantId);
                         $bonus = getTenantTokenBonus($db, $tenantId, null);
                         $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
@@ -148,7 +197,11 @@ if ($method === 'POST') {
                         $tokenUsage = [
                             'used' => $used,
                             'limit' => $effectiveLimit,
-                            'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
+                            'planLimit' => $planLimit,
+                            'bonus' => $bonus,
+                            'available' => $effectiveLimit > 0 ? max(0, $effectiveLimit - $used) : null,
+                            'limitReached' => ($effectiveLimit > 0 && $used >= $effectiveLimit) || $trialExpired,
+                            'modules' => mpTenantModules($db, $tenantId, $user)
                         ];
                     }
                 } else {
@@ -159,6 +212,7 @@ if ($method === 'POST') {
                         'id' => (string)$user['id'],
                         'name' => $user['name'],
                         'email' => $user['email'],
+                        'phone' => $user['phone'],
                         'tenantId' => $tenantId !== null ? (string)$tenantId : '',
                         'profile' => $user['profile']
                     ],
@@ -167,10 +221,18 @@ if ($method === 'POST') {
                         'name' => $tenantName,
                         'status' => $tenantStatus,
                         'planId' => $tenantPlanId,
-                        'planName' => $tenantPlanName
+                        'planName' => $tenantPlanName,
+                        'trialDaysLeft' => $trialDaysLeft,
+                        'trialExpired' => $trialExpired
                     ],
                     'tokenUsage' => $tokenUsage
                 ];
+                try {
+                    $stmtActivity = $db->prepare('UPDATE users SET last_activity = NOW() WHERE id = ?');
+                    $stmtActivity->execute([(int) $user['id']]);
+                } catch (Throwable $activityError) {
+                    error_log('auth check activity touch: ' . $activityError->getMessage());
+                }
                 if (!empty($_SESSION['impersonating']) && $tenantId !== null) {
                     $payload['impersonating'] = true;
                     $payload['impersonatingTenantName'] = $tenantName;
@@ -221,14 +283,23 @@ if ($method === 'POST') {
         $_SESSION['tenant_id'] = (int) $targetUser['tenant_id'];
         $_SESSION['profile'] = $targetUser['profile'];
         $_SESSION['impersonating'] = true;
+        try {
+            $stmtActivity = $db->prepare('UPDATE users SET last_activity = NOW() WHERE id = ?');
+            $stmtActivity->execute([(int) $targetUser['id']]);
+        } catch (Throwable $activityError) {
+            error_log('auth impersonation activity touch: ' . $activityError->getMessage());
+        }
 
         $tenantId = (int) $targetUser['tenant_id'];
         $tenantName = 'Nome da empresa SaaS';
         $tenantStatus = 'active';
-        $tokenUsage = ['used' => 0, 'limit' => 0, 'limitReached' => false];
+        $tokenUsage = ['used' => 0, 'limit' => 0, 'planLimit' => 0, 'bonus' => 0, 'available' => 0, 'limitReached' => false, 'modules' => []];
         $tenantPlanId = '';
         $tenantPlanName = '';
-        $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+        $trialDaysLeft = 30;
+        $trialExpired = false;
+
+        $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
         $stmtT->execute([$tenantId]);
         $row = $stmtT->fetch();
         if ($row) {
@@ -236,6 +307,16 @@ if ($method === 'POST') {
             $tenantStatus = $row['status'] ?? 'active';
             $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
             $tenantPlanName = $row['plan_name'] ?? '';
+            
+            // Cálculo de expiração do teste
+            if (!empty($row['created_at'])) {
+                $createdAt = new DateTime($row['created_at']);
+                $now = new DateTime();
+                $daysUsed = (int) $now->diff($createdAt)->days;
+                $trialDaysLeft = max(0, 30 - $daysUsed);
+                $trialExpired = ($daysUsed >= 30);
+            }
+
             $planLimit = getTenantPlanTokenLimit($db, $tenantId);
             $bonus = getTenantTokenBonus($db, $tenantId, null);
             $effectiveLimit = $planLimit > 0 ? $planLimit + $bonus : 0;
@@ -243,7 +324,11 @@ if ($method === 'POST') {
             $tokenUsage = [
                 'used' => $used,
                 'limit' => $effectiveLimit,
-                'limitReached' => $effectiveLimit > 0 && $used >= $effectiveLimit
+                'planLimit' => $planLimit,
+                            'bonus' => $bonus,
+                            'available' => $effectiveLimit > 0 ? max(0, $effectiveLimit - $used) : null,
+                            'limitReached' => ($effectiveLimit > 0 && $used >= $effectiveLimit) || $trialExpired,
+'modules' => mpTenantModules($db, $tenantId, $targetUser)
             ];
         }
         jsonSuccess([
@@ -259,7 +344,9 @@ if ($method === 'POST') {
                 'name' => $tenantName,
                 'status' => $tenantStatus,
                 'planId' => $tenantPlanId,
-                'planName' => $tenantPlanName
+                'planName' => $tenantPlanName,
+                'trialDaysLeft' => $trialDaysLeft,
+                'trialExpired' => $trialExpired
             ],
             'tokenUsage' => $tokenUsage,
             'impersonating' => true,
@@ -277,47 +364,60 @@ if ($method === 'POST') {
         unset($_SESSION['impersonating'], $_SESSION['impersonate_original_user_id'], $_SESSION['impersonate_original_user_name'],
               $_SESSION['impersonate_original_user_email'], $_SESSION['impersonate_original_tenant_id'], $_SESSION['impersonate_original_profile']);
         jsonSuccess(['restored' => true], 'Voltou à sua conta');
+
     } elseif ($action === 'logout') {
         session_destroy();
         jsonSuccess(null, 'Logout realizado com sucesso');
 
-    } elseif ($action === 'change_password') {
-        // Alterar senha do usuário logado (requer senha atual)
+    } elseif ($action === 'update_profile') {
+        // Alterar senha ou atualizar telefone do usuário logado
         if (empty($_SESSION['user_id'])) {
-            jsonError('Faça login para alterar a senha.', 401);
+            jsonError('Faça login para alterar o perfil.', 401);
         }
+        
         $currentPassword = $input['currentPassword'] ?? '';
         $newPassword = $input['newPassword'] ?? '';
-        if (empty($currentPassword)) {
-            jsonError('Informe a senha atual.');
-        }
-        if (strlen($newPassword) < 6) {
-            jsonError('A nova senha deve ter no mínimo 6 caracteres.');
-        }
+        $newPhone = isset($input['phone']) ? sanitizeInput($input['phone']) : null;
+        
         try {
             $db = Database::getInstance()->getConnection();
         } catch (Exception $e) {
             jsonError($e->getMessage(), 500);
         }
+
         $stmt = $db->prepare("SELECT id, password FROM users WHERE id = ?");
         $stmt->execute([$_SESSION['user_id']]);
         $user = $stmt->fetch();
+        
         if (!$user) {
             jsonError('Usuário não encontrado.', 404);
         }
-        $storedHash = $user['password'] ?? null;
-        if (empty($storedHash) || !password_verify($currentPassword, $storedHash)) {
-            jsonError('Senha atual incorreta.');
+
+        // Verifica a senha atual se o usuário estiver tentando mudar a senha
+        if (!empty($newPassword)) {
+            if (empty($currentPassword) || !password_verify($currentPassword, $user['password'])) {
+                jsonError('Senha atual incorreta.');
+            }
+            if (strlen($newPassword) < 6) {
+                jsonError('A nova senha deve ter no mínimo 6 caracteres.');
+            }
+            $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
+            $stmt = $db->prepare("UPDATE users SET password = ?, phone = ? WHERE id = ?");
+            $stmt->execute([$newHash, $newPhone, $_SESSION['user_id']]);
+        } else {
+            // Apenas atualiza o telefone, sem mudar a senha
+            $stmt = $db->prepare("UPDATE users SET phone = ? WHERE id = ?");
+            $stmt->execute([$newPhone, $_SESSION['user_id']]);
         }
-        $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
-        $stmt = $db->prepare("UPDATE users SET password = ? WHERE id = ?");
-        $stmt->execute([$newHash, $_SESSION['user_id']]);
-        jsonSuccess(null, 'Senha alterada com sucesso.');
         
-    } else {
-        jsonError('Ação inválida', 400);
+        jsonSuccess(null, 'Perfil atualizado com sucesso.');
+        
     }
-    
-} else {
-    jsonError('Método não permitido', 405);
 }
+// Gerar novo token único de sessão no login bem-sucedido
+$newSessionToken = bin2hex(random_bytes(32));
+$_SESSION['session_token'] = $newSessionToken;
+
+// Salva o token atual no banco de dados
+$stmtToken = $db->prepare("UPDATE users SET current_session_token = ? WHERE id = ?");
+$stmtToken->execute([$newSessionToken, $user['id']]);

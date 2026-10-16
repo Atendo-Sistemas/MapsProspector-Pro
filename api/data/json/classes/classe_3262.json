@@ -1,0 +1,66 @@
+{
+  "classe": "3262",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de esquadrias de material plástico e de peças para esquadrias",
+      "termo_normalizado": "fabricacao de esquadrias de material plastico e de pecas para esquadrias",
+      "codigo_cnae": "3262300",
+      "descricao": "Fabricação de esquadrias de material plástico e de peças para esquadrias",
+      "relevancia": 100,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3262",
+      "subclasse": "3262300",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "esquadrias",
+      "termo_normalizado": "esquadrias",
+      "codigo_cnae": "3262300",
+      "descricao": "Fabricação de esquadrias de material plástico e de peças para esquadrias",
+      "relevancia": 85,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3262",
+      "subclasse": "3262300",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "material",
+      "termo_normalizado": "material",
+      "codigo_cnae": "3262300",
+      "descricao": "Fabricação de esquadrias de material plástico e de peças para esquadrias",
+      "relevancia": 85,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3262",
+      "subclasse": "3262300",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "plástico",
+      "termo_normalizado": "plastico",
+      "codigo_cnae": "3262300",
+      "descricao": "Fabricação de esquadrias de material plástico e de peças para esquadrias",
+      "relevancia": 85,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3262",
+      "subclasse": "3262300",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

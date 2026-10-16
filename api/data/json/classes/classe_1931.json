@@ -1,0 +1,36 @@
+{
+  "classe": "1931",
+  "total_termos": 2,
+  "termos": [
+    {
+      "termo": "Fabricação de coque",
+      "termo_normalizado": "fabricacao de coque",
+      "codigo_cnae": "1931400",
+      "descricao": "Fabricação de coque",
+      "relevancia": 100,
+      "categoria": "193",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "193",
+      "classe": "1931",
+      "subclasse": "1931400",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "coque",
+      "termo_normalizado": "coque",
+      "codigo_cnae": "1931400",
+      "descricao": "Fabricação de coque",
+      "relevancia": 85,
+      "categoria": "193",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "193",
+      "classe": "1931",
+      "subclasse": "1931400",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

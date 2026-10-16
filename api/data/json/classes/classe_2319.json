@@ -1,0 +1,69 @@
+{
+  "classe": "2319",
+  "grupo": "231",
+  "divisao": "23",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de artigos de vidro",
+      "codigo_cnae": "2319200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2319200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2319200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Vidro",
+      "codigo_cnae": "2319200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vidro",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Vidro",
+      "codigo_cnae": "2319200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vidro",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Fabricação de artigos de vidro",
+      "codigo_cnae": "2319200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "23"
+    }
+  ]
+}

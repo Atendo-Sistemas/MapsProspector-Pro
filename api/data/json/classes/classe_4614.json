@@ -1,0 +1,189 @@
+{
+  "classe": "4614",
+  "grupo": "461",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Representantes comerciais e agentes do comércio de máquinas, equipamentos, embarcações e aeronaves",
+      "codigo_cnae": "4614100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Embarcações",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Embarcacoes",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "4614100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de máquinas, equipamentos, embarcações e aeronaves",
+      "codigo_cnae": "4614100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

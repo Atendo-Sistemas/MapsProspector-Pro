@@ -1,0 +1,57 @@
+{
+  "classe": "8591",
+  "total_registros": 3,
+  "registros": [
+    {
+      "termo": "Ensino de esportes",
+      "termo_normalizado": "ensino de esportes",
+      "codigo_cnae": "8591100",
+      "codigo_formatado": "8591-1/00",
+      "descricao": "Ensino de esportes",
+      "relevancia": 100,
+      "categoria": "nome_oficial",
+      "secao": "P",
+      "divisao": "85",
+      "grupo": "859",
+      "classe": "8591",
+      "subclasse": "8591100",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial",
+      "busca_fulltext": "ensino de esportes ensino de esportes"
+    },
+    {
+      "termo": "ensino",
+      "termo_normalizado": "ensino",
+      "codigo_cnae": "8591100",
+      "codigo_formatado": "8591-1/00",
+      "descricao": "Ensino de esportes",
+      "relevancia": 60,
+      "categoria": "palavra_chave",
+      "secao": "P",
+      "divisao": "85",
+      "grupo": "859",
+      "classe": "8591",
+      "subclasse": "8591100",
+      "origem": "extração semântica",
+      "tipo": "palavra_chave",
+      "busca_fulltext": "ensino ensino de esportes"
+    },
+    {
+      "termo": "esportes",
+      "termo_normalizado": "esportes",
+      "codigo_cnae": "8591100",
+      "codigo_formatado": "8591-1/00",
+      "descricao": "Ensino de esportes",
+      "relevancia": 60,
+      "categoria": "palavra_chave",
+      "secao": "P",
+      "divisao": "85",
+      "grupo": "859",
+      "classe": "8591",
+      "subclasse": "8591100",
+      "origem": "extração semântica",
+      "tipo": "palavra_chave",
+      "busca_fulltext": "esportes ensino de esportes"
+    }
+  ]
+}

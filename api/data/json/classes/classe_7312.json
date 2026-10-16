@@ -1,0 +1,129 @@
+{
+  "classe": "7312",
+  "grupo": "731",
+  "divisao": "73",
+  "secao": "M",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Agenciamento de espaços para publicidade, exceto em veículos de comunicação",
+      "codigo_cnae": "7312200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Espaços",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espaços",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Espacos",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espaços",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Comunicação",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Comunicacao",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agenciamento de espaços para publicidade, exceto em veículos de comunicação",
+      "codigo_cnae": "7312200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "73"
+    }
+  ]
+}

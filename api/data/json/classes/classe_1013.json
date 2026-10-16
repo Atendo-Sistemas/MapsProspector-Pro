@@ -1,0 +1,149 @@
+{
+  "classe": "1013",
+  "grupo": "101",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos de carne",
+      "codigo_cnae": "1013901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de carne",
+      "codigo_cnae": "1013901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de produtos de carne",
+      "codigo_cnae": "1013902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de produtos de carne",
+      "codigo_cnae": "1013902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

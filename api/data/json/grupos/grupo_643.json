@@ -1,0 +1,468 @@
+{
+  "grupo": "643",
+  "divisao": "64",
+  "secao": "K",
+  "total_termos": 46,
+  "termos": [
+    {
+      "termo": "Bancos múltiplos, sem carteira comercial",
+      "codigo_cnae": "6431000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Múltiplos",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "múltiplos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Multiplos",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "múltiplos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Carteira",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carteira",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Carteira",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carteira",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "6431000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos múltiplos, sem carteira comercial",
+      "codigo_cnae": "6431000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos de investimento",
+      "codigo_cnae": "6432800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6432800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6432800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Investimento",
+      "codigo_cnae": "6432800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "investimento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Investimento",
+      "codigo_cnae": "6432800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "investimento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos de investimento",
+      "codigo_cnae": "6432800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos de desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos de desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Agências de fomento",
+      "codigo_cnae": "6434400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Agências",
+      "codigo_cnae": "6434400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Agencias",
+      "codigo_cnae": "6434400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Fomento",
+      "codigo_cnae": "6434400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fomento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Fomento",
+      "codigo_cnae": "6434400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fomento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Agências de fomento",
+      "codigo_cnae": "6434400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sociedades de crédito imobiliário",
+      "codigo_cnae": "6435201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sociedades",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociedades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sociedades",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociedades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Crédito",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crédito",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Credito",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crédito",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Imobiliário",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imobiliário",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Imobiliario",
+      "codigo_cnae": "6435201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imobiliário",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Sociedades de crédito imobiliário",
+      "codigo_cnae": "6435201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associações de poupança e empréstimo",
+      "codigo_cnae": "6435202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associações",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associações",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associacoes",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associações",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Poupança",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poupança",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Poupanca",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poupança",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Empréstimo",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empréstimo",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Emprestimo",
+      "codigo_cnae": "6435202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empréstimo",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Associações de poupança e empréstimo",
+      "codigo_cnae": "6435202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    }
+  ]
+}

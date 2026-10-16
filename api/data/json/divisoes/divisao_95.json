@@ -1,0 +1,806 @@
+{
+  "divisao": "95",
+  "total_termos": 80,
+  "termos": [
+    {
+      "termo": "Reparação e manutenção de computadores e de equipamentos periféricos",
+      "codigo_cnae": "9511800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Computadores",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computadores",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Computadores",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computadores",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Periféricos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "periféricos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Perifericos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "periféricos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de computadores e de equipamentos periféricos",
+      "codigo_cnae": "9511800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos de comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Comunicacao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos de comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos eletroeletrônicos de uso pessoal e doméstico",
+      "codigo_cnae": "9521500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Eletroeletrônicos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletroeletrônicos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Eletroeletronicos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletroeletrônicos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Doméstico",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Domestico",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos eletroeletrônicos de uso pessoal e doméstico",
+      "codigo_cnae": "9521500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de objetos e equipamentos pessoais e domésticos não especificados anteriormente",
+      "codigo_cnae": "9529100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Objetos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "objetos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Objetos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "objetos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoais",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoais",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoais",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoais",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Domésticos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Domesticos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de objetos e equipamentos pessoais e domésticos não especificados anteriormente",
+      "codigo_cnae": "9529100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de calçados, bolsas e artigos de viagem",
+      "codigo_cnae": "9529101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "calçados",
+      "codigo_cnae": "9529101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "bolsas",
+      "codigo_cnae": "9529101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "reparação de calçados bolsas e artigos de viagem",
+      "codigo_cnae": "9529101",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Chaveiros",
+      "codigo_cnae": "9529102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Chaveiros",
+      "codigo_cnae": "9529102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de relógios",
+      "codigo_cnae": "9529103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "relógios",
+      "codigo_cnae": "9529103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de bicicletas, triciclos e outros veículos não-motorizados",
+      "codigo_cnae": "9529104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "bicicletas",
+      "codigo_cnae": "9529104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "triciclos",
+      "codigo_cnae": "9529104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "reparação de bicicletas triciclos e outros veículos nãomotorizados",
+      "codigo_cnae": "9529104",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de artigos do mobiliário",
+      "codigo_cnae": "9529105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "artigos",
+      "codigo_cnae": "9529105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "mobiliário",
+      "codigo_cnae": "9529105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de jóias",
+      "codigo_cnae": "9529106",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529106",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "jóias",
+      "codigo_cnae": "9529106",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de outros objetos e equipamentos pessoais e domésticos não especificados anteriormente",
+      "codigo_cnae": "9529199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "manutenção",
+      "codigo_cnae": "9529199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "outros objetos",
+      "codigo_cnae": "9529199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    }
+  ]
+}

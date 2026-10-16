@@ -1,0 +1,289 @@
+{
+  "classe": "2599",
+  "grupo": "259",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Serviços de confecção de armações metálicas para a construção",
+      "codigo_cnae": "2599301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Confecção",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Confeccao",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confecção",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Armações",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armações",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Armacoes",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "armações",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metálicas",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metalicas",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "2599301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Serviços de confecção de armações metálicas para a construção",
+      "codigo_cnae": "2599301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Serviço de corte e dobra de metais",
+      "codigo_cnae": "2599302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "2599302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "2599302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Dobra",
+      "codigo_cnae": "2599302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dobra",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Dobra",
+      "codigo_cnae": "2599302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dobra",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metais",
+      "codigo_cnae": "2599302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metais",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metais",
+      "codigo_cnae": "2599302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metais",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Serviço de corte e dobra de metais",
+      "codigo_cnae": "2599302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de outros produtos de metal não especificados anteriormente",
+      "codigo_cnae": "2599399",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2599399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de outros produtos de metal não especificados anteriormente",
+      "codigo_cnae": "2599399",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

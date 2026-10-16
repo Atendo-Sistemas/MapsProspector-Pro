@@ -1,0 +1,968 @@
+{
+  "grupo": "101",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 96,
+  "termos": [
+    {
+      "termo": "Frigorífico - abate de bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de bovinos",
+      "codigo_cnae": "1011201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de eqüinos",
+      "codigo_cnae": "1011202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Eqüinos",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Equinos",
+      "codigo_cnae": "1011202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de eqüinos",
+      "codigo_cnae": "1011202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de ovinos e caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de ovinos e caprinos",
+      "codigo_cnae": "1011203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de bufalinos",
+      "codigo_cnae": "1011204",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de reses sob contrato - exceto abate de suínos",
+      "codigo_cnae": "1011205",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Reses",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reses",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Reses",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reses",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suínos",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suinos",
+      "codigo_cnae": "1011205",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de reses sob contrato - exceto abate de suínos",
+      "codigo_cnae": "1011205",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de aves",
+      "codigo_cnae": "1012101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "1012101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de aves",
+      "codigo_cnae": "1012101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de pequenos animais",
+      "codigo_cnae": "1012102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pequenos",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pequenos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pequenos",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pequenos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "1012102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate de pequenos animais",
+      "codigo_cnae": "1012102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de suínos",
+      "codigo_cnae": "1012103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorifico",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frigorífico",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suínos",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suinos",
+      "codigo_cnae": "1012103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frigorífico - abate de suínos",
+      "codigo_cnae": "1012103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de suínos sob contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matadouro",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Abate",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suínos",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Suinos",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Matadouro - abate de suínos sob contrato",
+      "codigo_cnae": "1012104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de carne",
+      "codigo_cnae": "1013901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de carne",
+      "codigo_cnae": "1013901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de produtos de carne",
+      "codigo_cnae": "1013902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Carne",
+      "codigo_cnae": "1013902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carne",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Preparação de produtos de carne",
+      "codigo_cnae": "1013902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

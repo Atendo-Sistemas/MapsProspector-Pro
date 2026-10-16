@@ -1,0 +1,129 @@
+{
+  "classe": "8111",
+  "grupo": "811",
+  "divisao": "81",
+  "secao": "N",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Serviços combinados para apoio a edifícios, exceto condomínios prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Edifícios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edifícios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Edificios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edifícios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condominios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Serviços combinados para apoio a edifícios, exceto condomínios prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    }
+  ]
+}

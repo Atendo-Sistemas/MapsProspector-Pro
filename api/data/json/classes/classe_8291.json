@@ -1,0 +1,89 @@
+{
+  "classe": "8291",
+  "grupo": "829",
+  "divisao": "82",
+  "secao": "N",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Atividades de cobranças e informações cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cobranças",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobranças",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cobrancas",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobranças",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Informações",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informações",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Informacoes",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informações",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastrais",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastrais",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de cobranças e informações cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    }
+  ]
+}

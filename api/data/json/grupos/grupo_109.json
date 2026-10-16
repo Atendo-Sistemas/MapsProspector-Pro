@@ -1,0 +1,1388 @@
+{
+  "grupo": "109",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 138,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos de panificação",
+      "codigo_cnae": "1091100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificação",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificacao",
+      "codigo_cnae": "1091100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de panificação",
+      "codigo_cnae": "1091100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de panificação industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificação",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Panificacao",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "panificação",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de panificação industrial",
+      "codigo_cnae": "1091101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria",
+      "codigo_cnae": "1091102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Padaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "padaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Confeitaria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "confeitaria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Própria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "própria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Propria",
+      "codigo_cnae": "1091102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "própria",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos de padaria e confeitaria com predominância de produção própria",
+      "codigo_cnae": "1091102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de biscoitos e bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Biscoitos",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "biscoitos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Biscoitos",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "biscoitos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolachas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolachas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de biscoitos e bolachas",
+      "codigo_cnae": "1092900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos derivados do cacau e de chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Derivados",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "derivados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chocolates",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chocolates",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos derivados do cacau e de chocolates",
+      "codigo_cnae": "1093701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de frutas cristalizadas, balas e semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cristalizadas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cristalizadas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cristalizadas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cristalizadas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Balas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "balas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Balas",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "balas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de frutas cristalizadas, balas e semelhantes",
+      "codigo_cnae": "1093702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de massas alimentícias",
+      "codigo_cnae": "1094500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Massas",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "massas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Massas",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "massas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentícias",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimenticias",
+      "codigo_cnae": "1094500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de massas alimentícias",
+      "codigo_cnae": "1094500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de especiarias, molhos, temperos e condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especiarias",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiarias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especiarias",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiarias",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Molhos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "molhos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Molhos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "molhos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Temperos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temperos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Temperos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temperos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de especiarias, molhos, temperos e condimentos",
+      "codigo_cnae": "1095300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos e pratos prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pratos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pratos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pratos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pratos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prontos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prontos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos e pratos prontos",
+      "codigo_cnae": "1096100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinagres",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinagres",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de vinagres",
+      "codigo_cnae": "1099601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de pós alimentícios",
+      "codigo_cnae": "1099602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pós",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Pos",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "1099602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de pós alimentícios",
+      "codigo_cnae": "1099602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de fermentos e leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fermentos",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fermentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fermentos",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fermentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leveduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leveduras",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de fermentos e leveduras",
+      "codigo_cnae": "1099603",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de gelo comum",
+      "codigo_cnae": "1099604",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gelo",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gelo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Gelo",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gelo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comum",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comum",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Comum",
+      "codigo_cnae": "1099604",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comum",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de gelo comum",
+      "codigo_cnae": "1099604",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos para infusão (chá, mate, etc.)",
+      "codigo_cnae": "1099605",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Infusão",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infusão",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Infusao",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infusão",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Chá",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chá",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Cha",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chá",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mate",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Mate",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mate",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Etc",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "etc",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Etc",
+      "codigo_cnae": "1099605",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "etc",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de produtos para infusão (chá, mate, etc.)",
+      "codigo_cnae": "1099605",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de adoçantes naturais e artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Adoçantes",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adoçantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Adocantes",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adoçantes",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificiais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificiais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de adoçantes naturais e artificiais",
+      "codigo_cnae": "1099606",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos dietéticos e complementos alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Dietéticos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dietéticos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Dieteticos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dietéticos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Complementos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "complementos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Complementos",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "complementos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentares",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentares",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de alimentos dietéticos e complementos alimentares",
+      "codigo_cnae": "1099607",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de outros produtos alimentícios não especificados anteriormente",
+      "codigo_cnae": "1099699",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1099699",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de outros produtos alimentícios não especificados anteriormente",
+      "codigo_cnae": "1099699",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

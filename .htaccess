@@ -1,51 +1,45 @@
-# MapsProspector Pro - Configuração Apache/XAMPP
-# Interface única: PHP (index.php + assets/js/app.js). Histórico no banco de dados.
-
-DirectoryIndex index.php
-
+# MapsProspector — migração SEO de URLs legadas
+# Gerado a partir de legacy-to-clean-map.json; não inserir /app/ ou APIs aqui.
 RewriteEngine On
-RewriteBase /MapsProspector-Pro/
 
-# Redireciona para index.php se arquivo não existir
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule ^(.*)$ index.php [QSA,L]
+RewriteRule ^index\.php$ / [R=301,L]
+RewriteRule ^landing\.php$ / [R=301,L]
+RewriteRule ^solucoes\.php$ /recursos/ [R=301,L]
+RewriteRule ^prospeccao-google-maps\.php$ /prospeccao-google-maps/ [R=301,L]
+RewriteRule ^buscar-empresas-no-google-maps\.php$ /prospeccao-google-maps/ [R=301,L]
+RewriteRule ^encontrar-leads-locais\.php$ /lista-de-empresas/ [R=301,L]
+RewriteRule ^filtros-de-segmento-e-localizacao\.php$ /prospeccao-google-maps/ [R=301,L]
+RewriteRule ^novos-leads-google-maps\.php$ /geracao-de-leads/ [R=301,L]
+RewriteRule ^prospeccao-linkedin\.php$ /prospeccao-linkedin/ [R=301,L]
+RewriteRule ^buscar-leads-no-linkedin\.php$ /prospeccao-linkedin/ [R=301,L]
+RewriteRule ^filtros-de-cargos-no-linkedin\.php$ /prospeccao-linkedin/ [R=301,L]
+RewriteRule ^pesquisa-autenticada-linkedin\.php$ /prospeccao-linkedin/ [R=301,L]
+RewriteRule ^novos-leads-linkedin\.php$ /geracao-de-leads/ [R=301,L]
+RewriteRule ^gestao-de-leads\.php$ /crm-comercial/ [R=301,L]
+RewriteRule ^organizar-leads-comerciais\.php$ /crm-comercial/ [R=301,L]
+RewriteRule ^historico-de-prospeccao\.php$ /historico-prospeccao/ [R=301,L]
+RewriteRule ^minha-equipe-prospeccao\.php$ /equipe-prospeccao/ [R=301,L]
+RewriteRule ^dashboard-comercial\.php$ /crm-comercial/ [R=301,L]
+RewriteRule ^planos-de-prospeccao\.php$ /precos/ [R=301,L]
+RewriteRule ^assinatura-mensal\.php$ /precos/ [R=301,L]
+RewriteRule ^plano-gratuito\.php$ /precos/ [R=301,L]
+RewriteRule ^como-funcionam-creditos-de-busca\.php$ /creditos/ [R=301,L]
+RewriteRule ^consulta-cnpj\.php$ /pesquisa-cnpj/ [R=301,L]
+RewriteRule ^dados-cadastrais-de-empresas\.php$ /pesquisa-cnpj/ [R=301,L]
+RewriteRule ^quadro-de-socios-cnpj\.php$ /pesquisa-cnpj/ [R=301,L]
+RewriteRule ^enriquecer-leads-com-cnpj\.php$ /pesquisa-cnpj/ [R=301,L]
+RewriteRule ^telefones-e-emails-de-empresas\.php$ /pesquisa-cnpj/ [R=301,L]
 
-# Protege arquivos sensíveis
-<FilesMatch "\.(sql|env|log|md)$">
-    Order allow,deny
-    Deny from all
-</FilesMatch>
+# Rotas limpas não devem ser redirecionadas por estas regras.
 
-# Configurações de segurança (X-Frame-Options controlado em config/config.php via ALLOW_IFRAME)
-<IfModule mod_headers.c>
-    Header set X-Content-Type-Options "nosniff"
-    Header set X-XSS-Protection "1; mode=block"
-</IfModule>
-
-# Desabilita listagem de diretórios
+# MAPS-SECURITY-HARDENING-20261005
+# Bloqueia artefatos, logs, dumps, backups e dados tabulares do webroot.
 Options -Indexes
-
-# Configurações PHP (se permitido)
-<IfModule mod_php.c>
-    php_value upload_max_filesize 10M
-    php_value post_max_size 10M
-    php_value max_execution_time 300
-    php_value max_input_time 300
-</IfModule>
-
-# Compressão GZIP
-<IfModule mod_deflate.c>
-    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
-</IfModule>
-
-# Cache de arquivos estáticos
-<IfModule mod_expires.c>
-    ExpiresActive On
-    ExpiresByType image/jpg "access plus 1 year"
-    ExpiresByType image/jpeg "access plus 1 year"
-    ExpiresByType image/gif "access plus 1 year"
-    ExpiresByType image/png "access plus 1 year"
-    ExpiresByType text/css "access plus 1 month"
-    ExpiresByType application/javascript "access plus 1 month"
-</IfModule>
+<FilesMatch "^(?:\\.env(?:\\..*)?|\\.htaccess|.*\\.(?:bak|backup|old|orig|sql|sqlite|db|dump|log|csv|ini|conf|dist|yml|yaml))$">
+    <IfModule mod_authz_core.c>
+        Require all denied
+    </IfModule>
+    <IfModule !mod_authz_core.c>
+        Deny from all
+    </IfModule>
+</FilesMatch>

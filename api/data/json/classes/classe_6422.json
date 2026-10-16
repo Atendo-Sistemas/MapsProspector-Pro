@@ -1,0 +1,109 @@
+{
+  "classe": "6422",
+  "grupo": "642",
+  "divisao": "64",
+  "secao": "K",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Bancos múltiplos, com carteira comercial",
+      "codigo_cnae": "6422100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Múltiplos",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "múltiplos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Multiplos",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "múltiplos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Carteira",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carteira",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Carteira",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carteira",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "6422100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos múltiplos, com carteira comercial",
+      "codigo_cnae": "6422100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    }
+  ]
+}

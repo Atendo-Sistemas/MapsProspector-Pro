@@ -1,0 +1,188 @@
+{
+  "grupo": "275",
+  "divisao": "27",
+  "secao": "C",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Fabricação de fogões, refrigeradores e máquinas de lavar e secar para uso doméstico, exceto a vapor",
+      "codigo_cnae": "2751100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fogões",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fogões",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fogoes",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fogões",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Refrigeradores",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeradores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Refrigeradores",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeradores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Lavar",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavar",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Lavar",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavar",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Secar",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "secar",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Secar",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "secar",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Doméstico",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Domestico",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Vapor",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vapor",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Vapor",
+      "codigo_cnae": "2751100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vapor",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de fogões, refrigeradores e máquinas de lavar e secar para uso doméstico, exceto a vapor",
+      "codigo_cnae": "2751100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    }
+  ]
+}

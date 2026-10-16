@@ -1,0 +1,97 @@
+{
+  "classe": "4631",
+  "total_termos": 7,
+  "termos": [
+    {
+      "termo": "Comércio atacadista de leite e laticínios",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4631100",
+      "descricao_cnae": "Comércio atacadista de leite e laticínios",
+      "secao": "G",
+      "divisao": "46",
+      "grupo": "463",
+      "classe": "4631",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "comércio",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4631100",
+      "descricao_cnae": "Comércio atacadista de leite e laticínios",
+      "secao": "G",
+      "divisao": "46",
+      "grupo": "463",
+      "classe": "4631",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "atacadista",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4631100",
+      "descricao_cnae": "Comércio atacadista de leite e laticínios",
+      "secao": "G",
+      "divisao": "46",
+      "grupo": "463",
+      "classe": "4631",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "leite",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4631100",
+      "descricao_cnae": "Comércio atacadista de leite e laticínios",
+      "secao": "G",
+      "divisao": "46",
+      "grupo": "463",
+      "classe": "4631",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "laticínios",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4631100",
+      "descricao_cnae": "Comércio atacadista de leite e laticínios",
+      "secao": "G",
+      "divisao": "46",
+      "grupo": "463",
+      "classe": "4631",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "venda",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4631100",
+      "descricao_cnae": "Comércio atacadista de leite e laticínios",
+      "secao": "G",
+      "divisao": "46",
+      "grupo": "463",
+      "classe": "4631",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "negócio",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4631100",
+      "descricao_cnae": "Comércio atacadista de leite e laticínios",
+      "secao": "G",
+      "divisao": "46",
+      "grupo": "463",
+      "classe": "4631",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

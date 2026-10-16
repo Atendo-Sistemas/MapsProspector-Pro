@@ -1,0 +1,249 @@
+{
+  "classe": "1065",
+  "grupo": "106",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 24,
+  "termos": [
+    {
+      "termo": "Fabricação de amidos e féculas de vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Amidos",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amidos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Amidos",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amidos",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Féculas",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "féculas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Feculas",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "féculas",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetais",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de amidos e féculas de vegetais",
+      "codigo_cnae": "1065101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho em bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho em bruto",
+      "codigo_cnae": "1065102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Óleo",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Oleo",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "óleo",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refinado",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de óleo de milho refinado",
+      "codigo_cnae": "1065103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

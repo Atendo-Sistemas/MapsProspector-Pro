@@ -1,0 +1,51 @@
+{
+  "grupo": "613",
+  "total_termos": 3,
+  "termos": [
+    {
+      "termo": "Telecomunicações por satélite",
+      "termo_normalizado": "telecomunicacoes por satelite",
+      "codigo_cnae": "6130200",
+      "descricao": "Telecomunicações por satélite",
+      "relevancia": 100,
+      "categoria": "613",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "613",
+      "classe": "6130",
+      "subclasse": "6130200",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "telecomunicações",
+      "termo_normalizado": "telecomunicacoes",
+      "codigo_cnae": "6130200",
+      "descricao": "Telecomunicações por satélite",
+      "relevancia": 85,
+      "categoria": "613",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "613",
+      "classe": "6130",
+      "subclasse": "6130200",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "satélite",
+      "termo_normalizado": "satelite",
+      "codigo_cnae": "6130200",
+      "descricao": "Telecomunicações por satélite",
+      "relevancia": 85,
+      "categoria": "613",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "613",
+      "classe": "6130",
+      "subclasse": "6130200",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

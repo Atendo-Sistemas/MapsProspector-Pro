@@ -1,0 +1,149 @@
+{
+  "classe": "1322",
+  "grupo": "132",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Tecelagem de fios de fibras têxteis naturais, exceto algodão",
+      "codigo_cnae": "1322700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecelagem",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecelagem",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecelagem",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecelagem",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Têxteis",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Texteis",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Naturais",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "naturais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodão",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Algodao",
+      "codigo_cnae": "1322700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecelagem de fios de fibras têxteis naturais, exceto algodão",
+      "codigo_cnae": "1322700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

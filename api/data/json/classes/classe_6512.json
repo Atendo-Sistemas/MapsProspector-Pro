@@ -1,0 +1,69 @@
+{
+  "classe": "6512",
+  "grupo": "651",
+  "divisao": "65",
+  "secao": "K",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Seguros não-vida",
+      "codigo_cnae": "6512000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Seguros",
+      "codigo_cnae": "6512000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seguros",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Seguros",
+      "codigo_cnae": "6512000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seguros",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Vida",
+      "codigo_cnae": "6512000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vida",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Vida",
+      "codigo_cnae": "6512000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vida",
+      "secao": "K",
+      "divisao": "65"
+    },
+    {
+      "termo": "Seguros não-vida",
+      "codigo_cnae": "6512000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "65"
+    }
+  ]
+}

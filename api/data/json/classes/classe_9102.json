@@ -1,0 +1,84 @@
+{
+  "classe": "9102",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "atividades",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "museus",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "exploração",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "lugares",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "prédios",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "classe": "4612",
+  "grupo": "461",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Representantes comerciais e agentes do comércio de combustíveis, minerais, produtos siderúrgicos e químicos",
+      "codigo_cnae": "4612500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Combustíveis",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combustíveis",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Combustiveis",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combustíveis",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Minerais",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minerais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Siderúrgicos",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "siderúrgicos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Siderurgicos",
+      "codigo_cnae": "4612500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "siderúrgicos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de combustíveis, minerais, produtos siderúrgicos e químicos",
+      "codigo_cnae": "4612500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

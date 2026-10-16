@@ -1,0 +1,2156 @@
+{
+  "secao": "S",
+  "total_termos": 215,
+  "termos": [
+    {
+      "termo": "Atividades de organizações associativas patronais e empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizações",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizacoes",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Patronais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "patronais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Patronais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "patronais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresariais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresariais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações associativas patronais e empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações associativas profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizações",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizacoes",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissionais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissionais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações associativas profissionais",
+      "codigo_cnae": "9412000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de fiscalização profissional, exceto auditoria contábil",
+      "codigo_cnae": "9412001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Fiscalização",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiscalização",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Fiscalizacao",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fiscalização",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissional",
+      "codigo_cnae": "9412001",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissional",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Profissional",
+      "codigo_cnae": "9412001",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "profissional",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Auditoria",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auditoria",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Auditoria",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auditoria",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Contábil",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contábil",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Contabil",
+      "codigo_cnae": "9412001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contábil",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de fiscalização profissional, exceto auditoria contábil",
+      "codigo_cnae": "9412001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Reparação e manutenção de computadores e de equipamentos periféricos",
+      "codigo_cnae": "9511800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Computadores",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computadores",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Computadores",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computadores",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Periféricos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "periféricos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Perifericos",
+      "codigo_cnae": "9511800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "periféricos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de computadores e de equipamentos periféricos",
+      "codigo_cnae": "9511800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos de comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Comunicacao",
+      "codigo_cnae": "9512600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos de comunicação",
+      "codigo_cnae": "9512600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos eletroeletrônicos de uso pessoal e doméstico",
+      "codigo_cnae": "9521500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Eletroeletrônicos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletroeletrônicos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Eletroeletronicos",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletroeletrônicos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoal",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoal",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Doméstico",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Domestico",
+      "codigo_cnae": "9521500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doméstico",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de equipamentos eletroeletrônicos de uso pessoal e doméstico",
+      "codigo_cnae": "9521500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de objetos e equipamentos pessoais e domésticos não especificados anteriormente",
+      "codigo_cnae": "9529100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Objetos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "objetos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Objetos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "objetos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoais",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoais",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Pessoais",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoais",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Domésticos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Domesticos",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "9529100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de objetos e equipamentos pessoais e domésticos não especificados anteriormente",
+      "codigo_cnae": "9529100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavanderias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavanderias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Lavanderias",
+      "codigo_cnae": "9601701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tinturarias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tinturarias",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Tinturarias",
+      "codigo_cnae": "9601702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete de animais domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "toalete",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "toalete",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Domesticos",
+      "codigo_cnae": "9601703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domésticos",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Toalete de animais domésticos",
+      "codigo_cnae": "9601703",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros, manicure e pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabeleireiros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabeleireiros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Manicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Manicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedicure",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cabeleireiros, manicure e pedicure",
+      "codigo_cnae": "9602501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades de estética e outros serviços de cuidados com a beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Estética",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estética",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Estetica",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estética",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cuidados",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cuidados",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Cuidados",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cuidados",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beleza",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beleza",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades de estética e outros serviços de cuidados com a beleza",
+      "codigo_cnae": "9602502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outras atividades associativas patronais, empresariais e profissionais não especificadas anteriormente",
+      "codigo_cnae": "9412099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Outras atividades associativas patronais",
+      "codigo_cnae": "9412099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "empresariais",
+      "codigo_cnae": "9412099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "profissionais não especificadas anteriormente",
+      "codigo_cnae": "9412099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "outras atividades associativas patronais empresariais e profissionais não especificadas anteriormente",
+      "codigo_cnae": "9412099",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações sindicais",
+      "codigo_cnae": "9420100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9420100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "organizações sindicais",
+      "codigo_cnae": "9420100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de associações de defesa de direitos sociais",
+      "codigo_cnae": "9430800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9430800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "associações",
+      "codigo_cnae": "9430800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "defesa",
+      "codigo_cnae": "9430800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações religiosas ou filosóficas",
+      "codigo_cnae": "9491000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9491000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "organizações religiosas ou filosóficas",
+      "codigo_cnae": "9491000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações políticas",
+      "codigo_cnae": "9492800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9492800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "organizações políticas",
+      "codigo_cnae": "9492800",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de associações de defesa de direitos e benefícios",
+      "codigo_cnae": "9493600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9493600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "associações",
+      "codigo_cnae": "9493600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "defesa",
+      "codigo_cnae": "9493600",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades associativas não especificadas anteriormente",
+      "codigo_cnae": "9499500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades associativas não especificadas anteriormente",
+      "codigo_cnae": "9499500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Reparação de calçados, bolsas e artigos de viagem",
+      "codigo_cnae": "9529101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "calçados",
+      "codigo_cnae": "9529101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "bolsas",
+      "codigo_cnae": "9529101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "reparação de calçados bolsas e artigos de viagem",
+      "codigo_cnae": "9529101",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Chaveiros",
+      "codigo_cnae": "9529102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Chaveiros",
+      "codigo_cnae": "9529102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de relógios",
+      "codigo_cnae": "9529103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "relógios",
+      "codigo_cnae": "9529103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de bicicletas, triciclos e outros veículos não-motorizados",
+      "codigo_cnae": "9529104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "bicicletas",
+      "codigo_cnae": "9529104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "triciclos",
+      "codigo_cnae": "9529104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "reparação de bicicletas triciclos e outros veículos nãomotorizados",
+      "codigo_cnae": "9529104",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de artigos do mobiliário",
+      "codigo_cnae": "9529105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "artigos",
+      "codigo_cnae": "9529105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "mobiliário",
+      "codigo_cnae": "9529105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação de jóias",
+      "codigo_cnae": "9529106",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529106",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "jóias",
+      "codigo_cnae": "9529106",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação e manutenção de outros objetos e equipamentos pessoais e domésticos não especificados anteriormente",
+      "codigo_cnae": "9529199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "9529199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "manutenção",
+      "codigo_cnae": "9529199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "outros objetos",
+      "codigo_cnae": "9529199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "95"
+    },
+    {
+      "termo": "Gestão e manutenção de cemitérios",
+      "codigo_cnae": "9603301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "9603301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "manutenção",
+      "codigo_cnae": "9603301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "cemitérios",
+      "codigo_cnae": "9603301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de cremação",
+      "codigo_cnae": "9603302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "cremação",
+      "codigo_cnae": "9603302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de sepultamento",
+      "codigo_cnae": "9603303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "sepultamento",
+      "codigo_cnae": "9603303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de funerárias",
+      "codigo_cnae": "9603304",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603304",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "funerárias",
+      "codigo_cnae": "9603304",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de somatoconservação",
+      "codigo_cnae": "9603305",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9603305",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "somatoconservação",
+      "codigo_cnae": "9603305",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Clinicas de estética e similares",
+      "codigo_cnae": "9609201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Clinicas",
+      "codigo_cnae": "9609201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "estética",
+      "codigo_cnae": "9609201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "similares",
+      "codigo_cnae": "9609201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Agências matrimoniais",
+      "codigo_cnae": "9609202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Agências matrimoniais",
+      "codigo_cnae": "9609202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento, higiene e embelezamento de animais",
+      "codigo_cnae": "9609203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento",
+      "codigo_cnae": "9609203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "higiene",
+      "codigo_cnae": "9609203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "embelezamento",
+      "codigo_cnae": "9609203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "alojamento higiene e embelezamento de animais",
+      "codigo_cnae": "9609203",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Exploração de máquinas de serviços pessoais acionadas por moeda",
+      "codigo_cnae": "9609204",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Exploração",
+      "codigo_cnae": "9609204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "máquinas",
+      "codigo_cnae": "9609204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "serviços pessoais acionadas por moeda",
+      "codigo_cnae": "9609204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades de sauna e banhos",
+      "codigo_cnae": "9609205",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9609205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "sauna",
+      "codigo_cnae": "9609205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "banhos",
+      "codigo_cnae": "9609205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços de tatuagem e colocação de piercing",
+      "codigo_cnae": "9609206",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "9609206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "tatuagem",
+      "codigo_cnae": "9609206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "colocação",
+      "codigo_cnae": "9609206",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento de animais domésticos",
+      "codigo_cnae": "9609207",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Alojamento",
+      "codigo_cnae": "9609207",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "animais domésticos",
+      "codigo_cnae": "9609207",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Higiene e embelezamento de animais domésticos",
+      "codigo_cnae": "9609208",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Higiene",
+      "codigo_cnae": "9609208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "embelezamento",
+      "codigo_cnae": "9609208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "animais domésticos",
+      "codigo_cnae": "9609208",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outras atividades de serviços pessoais não especificadas anteriormente",
+      "codigo_cnae": "9609299",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "9609299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    },
+    {
+      "termo": "serviços pessoais não especificadas anteriormente",
+      "codigo_cnae": "9609299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "96"
+    }
+  ]
+}

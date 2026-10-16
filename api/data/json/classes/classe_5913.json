@@ -1,0 +1,129 @@
+{
+  "classe": "5913",
+  "grupo": "591",
+  "divisao": "59",
+  "secao": "J",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Distribuição cinematográfica, de vídeo e de programas de televisão",
+      "codigo_cnae": "5913800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Distribuição",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "distribuição",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Distribuicao",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "distribuição",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Cinematográfica",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cinematográfica",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Cinematografica",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cinematográfica",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Vídeo",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeo",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Video",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeo",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Televisão",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Televisao",
+      "codigo_cnae": "5913800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "59"
+    },
+    {
+      "termo": "Distribuição cinematográfica, de vídeo e de programas de televisão",
+      "codigo_cnae": "5913800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "59"
+    }
+  ]
+}

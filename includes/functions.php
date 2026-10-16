@@ -60,10 +60,36 @@ function validateEmail($email) {
  * Verifica se usuário está autenticado e retorna o ID
  */
 function requireAuth() {
-    if (!isset($_SESSION['user_id'])) {
-        jsonError('Não autenticado', 401);
+    if (session_status() === PHP_SESSION_NONE) {
+        session_start();
     }
-    return (int) $_SESSION['user_id'];
+    
+    if (empty($_SESSION['user_id'])) {
+        jsonError('Não autenticado.', 401);
+    }
+
+    // Validação de Sessão Única (Bloqueio de Múltiplos Logins)
+    $db = Database::getInstance()->getConnection();
+    $stmt = $db->prepare("SELECT current_session_token FROM users WHERE id = ? LIMIT 1");
+    $stmt->execute([$_SESSION['user_id']]);
+    $dbSessionToken = $stmt->fetchColumn();
+
+    if ($dbSessionToken && isset($_SESSION['session_token']) && $_SESSION['session_token'] !== $dbSessionToken) {
+        // Sessão foi derrubada por outro login
+        session_destroy();
+        jsonError('Sua conta foi acessada em outro dispositivo. Faça login novamente.', 401);
+    }
+
+    // O campo é criado por migração idempotente. A atividade é atualizada
+    // somente após a sessão ser validada, sem alterar o token de sessão.
+    try {
+        $touch = $db->prepare('UPDATE users SET last_activity = NOW() WHERE id = ?');
+        $touch->execute([(int) $_SESSION['user_id']]);
+    } catch (Throwable $error) {
+        error_log('auth activity touch: ' . $error->getMessage());
+    }
+
+    return $_SESSION['user_id'];
 }
 
 /**
@@ -449,6 +475,49 @@ function incrementTenantUsage($db, $tenantId, $tokens = 1) {
             ON DUPLICATE KEY UPDATE tokens_used = tokens_used + ?
         ");
         $stmt->execute([$tenantId, $periodStart, $tokens, $tokens]);
+
+        // A indisponibilidade do canal de mensagens não pode impedir a busca
+        // nem a atualização do consumo de créditos do tenant.
+        try {
+            $planLimit = getTenantPlanTokenLimit($db, $tenantId);
+            $bonus = getTenantTokenBonus($db, $tenantId, $periodStart);
+            $totalTokens = $planLimit + $bonus;
+
+            if ($totalTokens > 0 && file_exists(__DIR__ . '/../services/notificationService.php')) {
+                require_once __DIR__ . '/../services/notificationService.php';
+                $contact = NotificationService::getTenantNotificationContact($db, (int) $tenantId);
+
+                if (is_array($contact) && !empty($contact['phone'])) {
+                    $usedTokens = getTenantTokensUsed($db, $tenantId, $periodStart);
+                    // Em transação, reserva o evento já persistido antes do
+                    // commit. O cURL real sempre ocorre no shutdown, depois
+                    // de a resposta HTTP ser entregue ao navegador.
+                    if ($db->inTransaction()) {
+                        NotificationService::notifyLowBalance(
+                            $db,
+                            (int) $tenantId,
+                            (string) $contact['phone'],
+                            (string) ($contact['company_name'] ?? 'sua empresa'),
+                            $usedTokens,
+                            $totalTokens,
+                            $periodStart
+                        );
+                    }
+
+                    NotificationService::deferLowBalanceDispatch(
+                        $db,
+                        (int) $tenantId,
+                        (string) $contact['phone'],
+                        (string) ($contact['company_name'] ?? 'sua empresa'),
+                        $usedTokens,
+                        $totalTokens,
+                        $periodStart
+                    );
+                }
+            }
+        } catch (Throwable $notificationError) {
+            error_log('incrementTenantUsage: alerta de saldo baixo não enviado.');
+        }
     } catch (PDOException $e) {
         error_log("incrementTenantUsage: " . $e->getMessage());
     }
@@ -478,5 +547,208 @@ function getTenantTokenBonus($db, $tenantId, $periodStart = null) {
     } catch (PDOException $e) {
         error_log("getTenantTokenBonus: " . $e->getMessage());
         return 0;
+    }
+}
+/**
+ * Retorna a próxima chave da Apify ativa utilizando rotação automática (Round-Robin / Menor uso)
+ */
+function getRotatingApifyKey($db) {
+    try {
+        // Primeiro tenta uma conta de produção saudável ou uma reserva já promovida.
+        $sql = "
+            SELECT
+                k.id,
+                k.api_key,
+                COALESCE(p.role, 'production') AS key_role,
+                COALESCE(p.state, 'active') AS policy_state,
+                au.status AS usage_status,
+                au.checked_at AS usage_checked_at
+            FROM apify_keys k
+            LEFT JOIN apify_key_policies p
+                ON p.provider_key_id = k.id
+            LEFT JOIN apify_account_usage au
+                ON au.id = (
+                    SELECT latest.id
+                    FROM apify_account_usage latest
+                    WHERE latest.provider_key_id = k.id
+                    ORDER BY latest.checked_at DESC
+                    LIMIT 1
+                )
+            WHERE k.is_active = 1
+              AND (
+                    COALESCE(p.role, 'production') = 'production'
+                    OR (p.role = 'reserve' AND p.state = 'active')
+              )
+              AND COALESCE(p.state, 'active') NOT IN ('cooldown', 'disabled')
+              AND COALESCE(au.status, 'unknown') NOT IN ('critical', 'limit_reached', 'error')
+            ORDER BY
+                CASE WHEN COALESCE(p.role, 'production') = 'production' THEN 0 ELSE 1 END,
+                k.last_used_at ASC,
+                k.id ASC
+            LIMIT 1
+        ";
+
+        $row = $db->query($sql)->fetch(PDO::FETCH_ASSOC);
+
+        // Se a produção estiver indisponível, promove a reserva standby de menor prioridade.
+        if (!$row) {
+            $reserveSql = "
+                SELECT
+                    k.id,
+                    k.api_key
+                FROM apify_keys k
+                INNER JOIN apify_key_policies p
+                    ON p.provider_key_id = k.id
+                LEFT JOIN apify_account_usage au
+                    ON au.id = (
+                        SELECT latest.id
+                        FROM apify_account_usage latest
+                        WHERE latest.provider_key_id = k.id
+                        ORDER BY latest.checked_at DESC
+                        LIMIT 1
+                    )
+                WHERE k.is_active = 1
+                  AND p.role = 'reserve'
+                  AND p.state = 'standby'
+                  AND COALESCE(au.status, 'unknown') NOT IN ('critical', 'limit_reached', 'error')
+                ORDER BY
+                    p.priority ASC,
+                    k.last_used_at ASC,
+                    k.id ASC
+                LIMIT 1
+            ";
+
+            $row = $db->query($reserveSql)->fetch(PDO::FETCH_ASSOC);
+
+            if ($row) {
+                $promote = $db->prepare(" 
+                    UPDATE apify_key_policies
+                    SET
+                        state = 'active',
+                        promoted_at = NOW(),
+                        last_transition_at = NOW(),
+                        transition_reason = 'Failover automático: nenhuma conta de produção disponível'
+                    WHERE provider_key_id = ?
+                      AND role = 'reserve'
+                      AND state = 'standby'
+                ");
+                $promote->execute([(int) $row['id']]);
+            }
+        }
+
+        if ($row && !empty($row['api_key'])) {
+            $update = $db->prepare(
+                'UPDATE apify_keys
+                 SET tokens_used = tokens_used + 1,
+                     last_used_at = NOW()
+                 WHERE id = ?'
+            );
+            $update->execute([(int) $row['id']]);
+
+            return trim((string) $row['api_key']);
+        }
+    } catch (Throwable $e) {
+        // Não exponha detalhes do banco ou qualquer token ao usuário final.
+        error_log('Erro na rotação de chaves de pesquisa: ' . $e->getMessage());
+    }
+
+    // Compatibilidade com a chave padrão antiga, caso nenhuma conta esteja disponível.
+    return getPlatformSetting($db, 'scraper_api_key')
+        ?: (defined('SCRAPER_API_KEY') ? SCRAPER_API_KEY : '');
+}
+
+
+/**
+ * Retorna as chaves Apify elegíveis em ordem de rotação, sem expor os valores.
+ * A lista é usada somente para tentar a próxima conta quando a anterior
+ * retornar erro ou zero perfis.
+ *
+ * @return array<int, array{id:int,api_key:string}>
+ */
+function getRotatingApifyKeyCandidates($db): array
+{
+    try {
+        $sql = "
+            SELECT
+                k.id,
+                k.api_key,
+                COALESCE(p.role, 'production') AS key_role
+            FROM apify_keys k
+            LEFT JOIN apify_key_policies p
+                ON p.provider_key_id = k.id
+            LEFT JOIN apify_account_usage au
+                ON au.id = (
+                    SELECT latest.id
+                    FROM apify_account_usage latest
+                    WHERE latest.provider_key_id = k.id
+                    ORDER BY latest.checked_at DESC
+                    LIMIT 1
+                )
+            WHERE k.is_active = 1
+              AND (
+                    COALESCE(p.role, 'production') = 'production'
+                    OR (p.role = 'reserve' AND p.state = 'active')
+              )
+              AND COALESCE(p.state, 'active') NOT IN ('cooldown', 'disabled')
+              AND COALESCE(au.status, 'unknown') NOT IN ('critical', 'limit_reached', 'error')
+            ORDER BY
+                CASE WHEN COALESCE(p.role, 'production') = 'production' THEN 0 ELSE 1 END,
+                k.last_used_at ASC,
+                k.id ASC
+        ";
+        $rows = $db->query($sql)->fetchAll(PDO::FETCH_ASSOC);
+
+        // Se não houver produção saudável, usa as reservas standby em ordem de prioridade.
+        if (!$rows) {
+            $reserveSql = "
+                SELECT k.id, k.api_key
+                FROM apify_keys k
+                INNER JOIN apify_key_policies p ON p.provider_key_id = k.id
+                LEFT JOIN apify_account_usage au
+                    ON au.id = (
+                        SELECT latest.id
+                        FROM apify_account_usage latest
+                        WHERE latest.provider_key_id = k.id
+                        ORDER BY latest.checked_at DESC
+                        LIMIT 1
+                    )
+                WHERE k.is_active = 1
+                  AND p.role = 'reserve'
+                  AND p.state = 'standby'
+                  AND COALESCE(au.status, 'unknown') NOT IN ('critical', 'limit_reached', 'error')
+                ORDER BY p.priority ASC, k.last_used_at ASC, k.id ASC
+            ";
+            $rows = $db->query($reserveSql)->fetchAll(PDO::FETCH_ASSOC);
+        }
+
+        return array_values(array_filter(array_map(static function (array $row): array {
+            return [
+                'id' => (int) ($row['id'] ?? 0),
+                'api_key' => trim((string) ($row['api_key'] ?? '')),
+            ];
+        }, $rows), static function (array $row): bool {
+            return $row['id'] > 0 && $row['api_key'] !== '';
+        }));
+    } catch (Throwable $e) {
+        error_log('Erro ao listar chaves elegíveis de pesquisa: ' . $e->getMessage());
+        return [];
+    }
+}
+
+/** Atualiza o contador interno quando uma tentativa usa uma chave específica. */
+function markRotatingApifyKeyUsed($db, int $keyId): void
+{
+    if ($keyId < 1) {
+        return;
+    }
+    try {
+        $stmt = $db->prepare(
+            'UPDATE apify_keys
+             SET tokens_used = tokens_used + 1, last_used_at = NOW()
+             WHERE id = ?'
+        );
+        $stmt->execute([$keyId]);
+    } catch (Throwable $e) {
+        error_log('Erro ao registrar uso de chave de pesquisa: ' . $e->getMessage());
     }
 }

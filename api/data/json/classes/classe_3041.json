@@ -1,0 +1,49 @@
+{
+  "classe": "3041",
+  "grupo": "304",
+  "divisao": "30",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de aeronaves",
+      "codigo_cnae": "3041500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "3041500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "3041500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Fabricação de aeronaves",
+      "codigo_cnae": "3041500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    }
+  ]
+}

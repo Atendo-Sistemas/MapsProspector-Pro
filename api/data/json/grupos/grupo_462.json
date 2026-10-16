@@ -1,0 +1,1368 @@
+{
+  "grupo": "462",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 136,
+  "termos": [
+    {
+      "termo": "Comércio atacadista de café em grão",
+      "codigo_cnae": "4621400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Café",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Cafe",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Grão",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grão",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Grao",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grão",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de café em grão",
+      "codigo_cnae": "4621400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de soja",
+      "codigo_cnae": "4622200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Soja",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "soja",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Soja",
+      "codigo_cnae": "4622200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "soja",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de soja",
+      "codigo_cnae": "4622200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de animais vivos",
+      "codigo_cnae": "4623101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Vivos",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vivos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Vivos",
+      "codigo_cnae": "4623101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vivos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de animais vivos",
+      "codigo_cnae": "4623101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de couros, lãs, peles e outros subprodutos não-comestíveis de origem animal",
+      "codigo_cnae": "4623102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Couros",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couros",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Couros",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couros",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Lãs",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lãs",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Las",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lãs",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Peles",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peles",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Peles",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peles",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Subprodutos",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "subprodutos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Subprodutos",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "subprodutos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comestíveis",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comestiveis",
+      "codigo_cnae": "4623102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comestíveis",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de couros, lãs, peles e outros subprodutos não-comestíveis de origem animal",
+      "codigo_cnae": "4623102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de algodão",
+      "codigo_cnae": "4623103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623103",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623103",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Algodão",
+      "codigo_cnae": "4623103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Algodao",
+      "codigo_cnae": "4623103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de algodão",
+      "codigo_cnae": "4623103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de fumo em folha não beneficiado",
+      "codigo_cnae": "4623104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Folha",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "folha",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Folha",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "folha",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Beneficiado",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiado",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Beneficiado",
+      "codigo_cnae": "4623104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiado",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de fumo em folha não beneficiado",
+      "codigo_cnae": "4623104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de cacau",
+      "codigo_cnae": "4623105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623105",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623105",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "4623105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "4623105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de cacau",
+      "codigo_cnae": "4623105",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de sementes, flores, plantas e gramas",
+      "codigo_cnae": "4623106",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Flores",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "flores",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Flores",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "flores",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Gramas",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gramas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Gramas",
+      "codigo_cnae": "4623106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gramas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de sementes, flores, plantas e gramas",
+      "codigo_cnae": "4623106",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de sisal",
+      "codigo_cnae": "4623107",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623107",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623107",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Sisal",
+      "codigo_cnae": "4623107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sisal",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Sisal",
+      "codigo_cnae": "4623107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sisal",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de sisal",
+      "codigo_cnae": "4623107",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de matérias-primas agrícolas com atividade de fracionamento e acondicionamento associada",
+      "codigo_cnae": "4623108",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Matérias",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matérias",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Materias",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matérias",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Primas",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "primas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Primas",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "primas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agrícolas",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agricolas",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Fracionamento",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fracionamento",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Fracionamento",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fracionamento",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Acondicionamento",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acondicionamento",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Acondicionamento",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acondicionamento",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Associada",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associada",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Associada",
+      "codigo_cnae": "4623108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associada",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de matérias-primas agrícolas com atividade de fracionamento e acondicionamento associada",
+      "codigo_cnae": "4623108",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de alimentos para animais",
+      "codigo_cnae": "4623109",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "4623109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de alimentos para animais",
+      "codigo_cnae": "4623109",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de matérias-primas agrícolas não especificadas anteriormente",
+      "codigo_cnae": "4623199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Matérias",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matérias",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Materias",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "matérias",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Primas",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "primas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Primas",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "primas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agrícolas",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agricolas",
+      "codigo_cnae": "4623199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de matérias-primas agrícolas não especificadas anteriormente",
+      "codigo_cnae": "4623199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

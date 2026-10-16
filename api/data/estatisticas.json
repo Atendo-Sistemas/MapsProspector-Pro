@@ -1,0 +1,25 @@
+{
+  "versao": "1.0.0",
+  "data_geracao": "2026-07-29 13:52:02",
+  "total_termos": 10483,
+  "total_cnaes_unicos": 1441,
+  "total_secoes": 21,
+  "total_divisoes": 87,
+  "total_grupos": 85,
+  "total_classes": 152,
+  "media_termos_por_cnae": 7.3,
+  "media_relevancia": 86.4,
+  "distribuicao_tipos": {
+    "nome_oficial": 1240,
+    "produto": 1073,
+    "atividade": 5530,
+    "palavra_chave": 1179,
+    "profissao": 10,
+    "servico": 2,
+    "variante_normalizada": 105,
+    "descricao-oficial": 201,
+    "palavra-chave": 867,
+    "sinônimo": 276
+  },
+  "cobertura_oficial": "1.301 subclasses oficiais + extras"
+}

@@ -1,0 +1,729 @@
+{
+  "classe": "4618",
+  "grupo": "461",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 72,
+  "termos": [
+    {
+      "termo": "Representantes comerciais e agentes do comércio de medicamentos, cosméticos e produtos de perfumaria",
+      "codigo_cnae": "4618401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Cosméticos",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cosméticos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Cosmeticos",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cosméticos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Perfumaria",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perfumaria",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Perfumaria",
+      "codigo_cnae": "4618401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perfumaria",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de medicamentos, cosméticos e produtos de perfumaria",
+      "codigo_cnae": "4618401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de instrumentos e materiais odonto-médico-hospitalares",
+      "codigo_cnae": "4618402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Instrumentos",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instrumentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Instrumentos",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instrumentos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Odonto",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "odonto",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Odonto",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "odonto",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Médico",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médico",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Medico",
+      "codigo_cnae": "4618402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médico",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de instrumentos e materiais odonto-médico-hospitalares",
+      "codigo_cnae": "4618402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de jornais, revistas e outras publicações",
+      "codigo_cnae": "4618403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Jornais",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jornais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Jornais",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jornais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Revistas",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "revistas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Revistas",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "revistas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Publicações",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicações",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Publicacoes",
+      "codigo_cnae": "4618403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicações",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de jornais, revistas e outras publicações",
+      "codigo_cnae": "4618403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outros representantes comerciais e agentes do comércio especializado em produtos não especificados anteriormente",
+      "codigo_cnae": "4618499",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Especializado",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializado",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Especializado",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializado",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "4618499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Outros representantes comerciais e agentes do comércio especializado em produtos não especificados anteriormente",
+      "codigo_cnae": "4618499",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

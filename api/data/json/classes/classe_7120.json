@@ -1,0 +1,89 @@
+{
+  "classe": "7120",
+  "grupo": "712",
+  "divisao": "71",
+  "secao": "M",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Testes e análises técnicas",
+      "codigo_cnae": "7120100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Testes",
+      "codigo_cnae": "7120100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "testes",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Testes",
+      "codigo_cnae": "7120100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "testes",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Análises",
+      "codigo_cnae": "7120100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "análises",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Analises",
+      "codigo_cnae": "7120100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "análises",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Técnicas",
+      "codigo_cnae": "7120100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnicas",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Tecnicas",
+      "codigo_cnae": "7120100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnicas",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Testes e análises técnicas",
+      "codigo_cnae": "7120100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    }
+  ]
+}

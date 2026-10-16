@@ -1,0 +1,69 @@
+{
+  "classe": "2011",
+  "grupo": "201",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de cloro e álcalis",
+      "codigo_cnae": "2011800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Cloro",
+      "codigo_cnae": "2011800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cloro",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Cloro",
+      "codigo_cnae": "2011800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cloro",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Álcalis",
+      "codigo_cnae": "2011800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "álcalis",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Alcalis",
+      "codigo_cnae": "2011800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "álcalis",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de cloro e álcalis",
+      "codigo_cnae": "2011800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

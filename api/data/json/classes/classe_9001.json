@@ -1,0 +1,149 @@
+{
+  "classe": "9001",
+  "grupo": "900",
+  "divisao": "90",
+  "secao": "R",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Produção teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teatral",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teatral",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção musical",
+      "codigo_cnae": "9001902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Musical",
+      "codigo_cnae": "9001902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "musical",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Musical",
+      "codigo_cnae": "9001902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "musical",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção musical",
+      "codigo_cnae": "9001902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção de espetáculos de dança",
+      "codigo_cnae": "9001903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Espetáculos",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espetáculos",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Espetaculos",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espetáculos",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Dança",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dança",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Danca",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dança",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção de espetáculos de dança",
+      "codigo_cnae": "9001903",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "90"
+    }
+  ]
+}

@@ -1,0 +1,756 @@
+{
+  "divisao": "74",
+  "total_termos": 75,
+  "termos": [
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "interiores",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "interiores",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de produto",
+      "codigo_cnae": "7410203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Produto",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produto",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Produto",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produto",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de produto",
+      "codigo_cnae": "7410203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de fotografia, exceto aérea",
+      "codigo_cnae": "7420001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Fotografia",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotografia",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Fotografia",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotografia",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Aérea",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aérea",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Aerea",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aérea",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de fotografia, exceto aérea",
+      "codigo_cnae": "7420001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de festas e eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de festas e eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de vídeos para internet",
+      "codigo_cnae": "7420003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Vídeos",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Videos",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de vídeos para internet",
+      "codigo_cnae": "7420003",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de design não especificadas anteriormente",
+      "codigo_cnae": "7410299",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "7410299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "design não especificadas anteriormente",
+      "codigo_cnae": "7410299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem de festas e eventos",
+      "codigo_cnae": "7420004",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420004",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "festas",
+      "codigo_cnae": "7420004",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "eventos",
+      "codigo_cnae": "7420004",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Serviços de microfilmagem",
+      "codigo_cnae": "7420005",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "7420005",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "microfilmagem",
+      "codigo_cnae": "7420005",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Serviços de tradução, interpretação e similares",
+      "codigo_cnae": "7490101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "7490101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "tradução",
+      "codigo_cnae": "7490101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "interpretação",
+      "codigo_cnae": "7490101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "serviços de tradução interpretação e similares",
+      "codigo_cnae": "7490101",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Escafandria e mergulho",
+      "codigo_cnae": "7490102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Escafandria",
+      "codigo_cnae": "7490102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "mergulho",
+      "codigo_cnae": "7490102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Serviços de agronomia e de consultoria às atividades agrícolas e pecuárias",
+      "codigo_cnae": "7490103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "7490103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "agronomia",
+      "codigo_cnae": "7490103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "de consultoria às atividades agrícolas",
+      "codigo_cnae": "7490103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de intermediação e agenciamento de serviços e negócios em geral, exceto imobiliários",
+      "codigo_cnae": "7490104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "7490104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "intermediação",
+      "codigo_cnae": "7490104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "agenciamento",
+      "codigo_cnae": "7490104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "atividades de intermediação e agenciamento de serviços e negócios em geral exceto imobiliários",
+      "codigo_cnae": "7490104",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Agenciamento de profissionais para atividades esportivas, culturais e artísticas",
+      "codigo_cnae": "7490105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7490105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "profissionais",
+      "codigo_cnae": "7490105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "atividades esportivas",
+      "codigo_cnae": "7490105",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "agenciamento de profissionais para atividades esportivas culturais e artísticas",
+      "codigo_cnae": "7490105",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Outras atividades profissionais, científicas e técnicas não especificadas anteriormente",
+      "codigo_cnae": "7490199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Outras atividades profissionais",
+      "codigo_cnae": "7490199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "científicas",
+      "codigo_cnae": "7490199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "técnicas não especificadas anteriormente",
+      "codigo_cnae": "7490199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "outras atividades profissionais científicas e técnicas não especificadas anteriormente",
+      "codigo_cnae": "7490199",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    }
+  ]
+}

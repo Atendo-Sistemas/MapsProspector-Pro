@@ -1,0 +1,188 @@
+{
+  "grupo": "691",
+  "divisao": "69",
+  "secao": "M",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Serviços advocatícios",
+      "codigo_cnae": "6911701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Advocatícios",
+      "codigo_cnae": "6911701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "advocatícios",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Advocaticios",
+      "codigo_cnae": "6911701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "advocatícios",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Serviços advocatícios",
+      "codigo_cnae": "6911701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Atividades auxiliares da justiça",
+      "codigo_cnae": "6911702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Auxiliares",
+      "codigo_cnae": "6911702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auxiliares",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Auxiliares",
+      "codigo_cnae": "6911702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "auxiliares",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Justiça",
+      "codigo_cnae": "6911702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "justiça",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Justica",
+      "codigo_cnae": "6911702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "justiça",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Atividades auxiliares da justiça",
+      "codigo_cnae": "6911702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Agente de propriedade industrial",
+      "codigo_cnae": "6911703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Agente",
+      "codigo_cnae": "6911703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agente",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Agente",
+      "codigo_cnae": "6911703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agente",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Propriedade",
+      "codigo_cnae": "6911703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "propriedade",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Propriedade",
+      "codigo_cnae": "6911703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "propriedade",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "6911703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "6911703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "M",
+      "divisao": "69"
+    },
+    {
+      "termo": "Agente de propriedade industrial",
+      "codigo_cnae": "6911703",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "69"
+    }
+  ]
+}

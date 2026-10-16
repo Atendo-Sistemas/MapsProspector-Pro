@@ -1,0 +1,228 @@
+{
+  "grupo": "071",
+  "divisao": "07",
+  "secao": "B",
+  "total_termos": 22,
+  "termos": [
+    {
+      "termo": "Extração de minério de ferro",
+      "codigo_cnae": "0710301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0710301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0710301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minério",
+      "codigo_cnae": "0710301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minerio",
+      "codigo_cnae": "0710301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Ferro",
+      "codigo_cnae": "0710301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferro",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Ferro",
+      "codigo_cnae": "0710301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferro",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Extração de minério de ferro",
+      "codigo_cnae": "0710301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Pelotização, sinterização e outros beneficiamentos de minério de ferro",
+      "codigo_cnae": "0710302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Pelotização",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pelotização",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Pelotizacao",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pelotização",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Sinterização",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinterização",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Sinterizacao",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinterização",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamentos",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamentos",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Beneficiamentos",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamentos",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minério",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Minerio",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minério",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Ferro",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferro",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Ferro",
+      "codigo_cnae": "0710302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferro",
+      "secao": "B",
+      "divisao": "07"
+    },
+    {
+      "termo": "Pelotização, sinterização e outros beneficiamentos de minério de ferro",
+      "codigo_cnae": "0710302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "07"
+    }
+  ]
+}

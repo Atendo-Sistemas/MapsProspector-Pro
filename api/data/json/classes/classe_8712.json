@@ -1,0 +1,149 @@
+{
+  "classe": "8712",
+  "grupo": "871",
+  "divisao": "87",
+  "secao": "Q",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Atividades de fornecimento de infraestrutura de apoio e assistência a paciente no domicílio",
+      "codigo_cnae": "8712300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Infraestrutura",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infraestrutura",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Infraestrutura",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infraestrutura",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Assistência",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistência",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Assistencia",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistência",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Paciente",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paciente",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Paciente",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paciente",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Domicílio",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílio",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Domicilio",
+      "codigo_cnae": "8712300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílio",
+      "secao": "Q",
+      "divisao": "87"
+    },
+    {
+      "termo": "Atividades de fornecimento de infraestrutura de apoio e assistência a paciente no domicílio",
+      "codigo_cnae": "8712300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "87"
+    }
+  ]
+}

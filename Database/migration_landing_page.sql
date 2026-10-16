@@ -4,7 +4,7 @@
 
 SET NAMES utf8mb4;
 
-USE `maps`;
+USE `naciona4_maps1243`;
 
 -- -----------------------------------------------------------------------------
 -- Tabela: landing_page_content (conteúdo editável da landing page)

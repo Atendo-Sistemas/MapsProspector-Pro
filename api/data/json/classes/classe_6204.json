@@ -1,0 +1,89 @@
+{
+  "classe": "6204",
+  "grupo": "620",
+  "divisao": "62",
+  "secao": "J",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Consultoria em tecnologia da informação",
+      "codigo_cnae": "6204000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Consultoria",
+      "codigo_cnae": "6204000",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "consultoria",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Consultoria",
+      "codigo_cnae": "6204000",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "consultoria",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Tecnologia",
+      "codigo_cnae": "6204000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecnologia",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Tecnologia",
+      "codigo_cnae": "6204000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecnologia",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Informação",
+      "codigo_cnae": "6204000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informação",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Informacao",
+      "codigo_cnae": "6204000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informação",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Consultoria em tecnologia da informação",
+      "codigo_cnae": "6204000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "62"
+    }
+  ]
+}

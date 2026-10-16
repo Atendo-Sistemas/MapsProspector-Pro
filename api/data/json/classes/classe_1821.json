@@ -1,0 +1,69 @@
+{
+  "classe": "1821",
+  "grupo": "182",
+  "divisao": "18",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Serviços de pré-impressão",
+      "codigo_cnae": "1821100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Pré",
+      "codigo_cnae": "1821100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pré",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Pre",
+      "codigo_cnae": "1821100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pré",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressão",
+      "codigo_cnae": "1821100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Impressao",
+      "codigo_cnae": "1821100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "impressão",
+      "secao": "C",
+      "divisao": "18"
+    },
+    {
+      "termo": "Serviços de pré-impressão",
+      "codigo_cnae": "1821100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "18"
+    }
+  ]
+}

@@ -1,0 +1,328 @@
+{
+  "grupo": "561",
+  "divisao": "56",
+  "secao": "I",
+  "total_termos": 32,
+  "termos": [
+    {
+      "termo": "Restaurantes e similares",
+      "codigo_cnae": "5611201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Restaurantes",
+      "codigo_cnae": "5611201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "restaurantes",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Restaurantes",
+      "codigo_cnae": "5611201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "restaurantes",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "5611201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "5611201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Restaurantes e similares",
+      "codigo_cnae": "5611201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bares e outros estabelecimentos especializados em servir bebidas",
+      "codigo_cnae": "5611202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bares",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bares",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bares",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bares",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Estabelecimentos",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estabelecimentos",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Estabelecimentos",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estabelecimentos",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Servir",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "servir",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Servir",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "servir",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "5611202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bares e outros estabelecimentos especializados em servir bebidas",
+      "codigo_cnae": "5611202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Restaurantes e outros estabelecimentos de serviços de alimentação e bebidas",
+      "codigo_cnae": "5612100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Restaurantes",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "restaurantes",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Restaurantes",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "restaurantes",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Estabelecimentos",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estabelecimentos",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Estabelecimentos",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estabelecimentos",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Alimentação",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentação",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Alimentacao",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentação",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "5612100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Restaurantes e outros estabelecimentos de serviços de alimentação e bebidas",
+      "codigo_cnae": "5612100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "56"
+    }
+  ]
+}

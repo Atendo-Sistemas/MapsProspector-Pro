@@ -1,0 +1,3546 @@
+{
+  "secao": "N",
+  "total_termos": 354,
+  "termos": [
+    {
+      "termo": "Locação de automóveis sem condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de automóveis sem condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de embarcações sem tripulação, exceto para fins recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Embarcações",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Embarcacoes",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulação",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulacao",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de embarcações sem tripulação, exceto para fins recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de aeronaves sem tripulação",
+      "codigo_cnae": "7719502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulação",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulacao",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de aeronaves sem tripulação",
+      "codigo_cnae": "7719502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de outros meios de transporte não especificados anteriormente, sem condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Meios",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "meios",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Meios",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "meios",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de outros meios de transporte não especificados anteriormente, sem condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de equipamentos recreativos e esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aluguel",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aluguel",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de equipamentos recreativos e esportivos",
+      "codigo_cnae": "7721700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Seleção e agenciamento de mão-de-obra",
+      "codigo_cnae": "7810800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Seleção",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seleção",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Selecao",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seleção",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mão",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mao",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7810800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Seleção e agenciamento de mão-de-obra",
+      "codigo_cnae": "7810800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação de mão-de-obra temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mão",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Mao",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Obra",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obra",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "7820500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Locação de mão-de-obra temporária",
+      "codigo_cnae": "7820500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento e gestão de recursos humanos para terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Gestao",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Recursos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recursos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Humanos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Humanos",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humanos",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terceiros",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Fornecimento e gestão de recursos humanos para terceiros",
+      "codigo_cnae": "7830200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "78"
+    },
+    {
+      "termo": "Agências de viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Agências",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Agencias",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viagens",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viagens",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Agências de viagens",
+      "codigo_cnae": "7911200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Operadores turísticos",
+      "codigo_cnae": "7912100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Operadores",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "operadores",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Operadores",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "operadores",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turísticos",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turísticos",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turisticos",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turísticos",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Operadores turísticos",
+      "codigo_cnae": "7912100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Atividades de reservas e outros serviços de turismo não especificados anteriormente",
+      "codigo_cnae": "7920200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turismo",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turismo",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turismo",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turismo",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Atividades de reservas e outros serviços de turismo não especificados anteriormente",
+      "codigo_cnae": "7920200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Atividades de vigilância e segurança privada",
+      "codigo_cnae": "8011100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilancia",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Privada",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "privada",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Privada",
+      "codigo_cnae": "8011100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "privada",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de vigilância e segurança privada",
+      "codigo_cnae": "8011100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância e segurança eletrônica",
+      "codigo_cnae": "8011101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilancia",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vigilância",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Eletrônica",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônica",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Eletronica",
+      "codigo_cnae": "8011101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônica",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Vigilância e segurança eletrônica",
+      "codigo_cnae": "8011101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de transporte de valores",
+      "codigo_cnae": "8012900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de transporte de valores",
+      "codigo_cnae": "8012900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Serviços combinados para apoio a edifícios, exceto condomínios prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Edifícios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edifícios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Edificios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edifícios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condominios",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Serviços combinados para apoio a edifícios, exceto condomínios prediais",
+      "codigo_cnae": "8111700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condominios",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condomínios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prediais",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Condomínios prediais",
+      "codigo_cnae": "8112500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza em prédios e em domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prédios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Predios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Domicilios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza em prédios e em domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização e controle de pragas urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imunização",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunizacao",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imunização",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização e controle de pragas urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paisagísticas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Paisagisticas",
+      "codigo_cnae": "8130300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "paisagísticas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades paisagísticas",
+      "codigo_cnae": "8130300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Serviços combinados de escritório e apoio administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Escritório",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Escritorio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços combinados de escritório e apoio administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotocópias",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocopias",
+      "codigo_cnae": "8219901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotocópias",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente",
+      "codigo_cnae": "8219999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Documentos",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "documentos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Documentos",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "documentos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente",
+      "codigo_cnae": "8219999",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teleatendimento",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teleatendimento",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de organização de feiras, congressos, exposições e festas",
+      "codigo_cnae": "8230001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Organização",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organização",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Organizacao",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organização",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Feiras",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feiras",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Feiras",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feiras",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Congressos",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "congressos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Congressos",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "congressos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Exposições",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exposições",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Exposicoes",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exposições",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de organização de feiras, congressos, exposições e festas",
+      "codigo_cnae": "8230001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas de festas e eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas de festas e eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de cobranças e informações cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cobranças",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobranças",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cobrancas",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cobranças",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Informações",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informações",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Informacoes",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informações",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastrais",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastrais",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de cobranças e informações cadastrais",
+      "codigo_cnae": "8291100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Aluguel de fitas de vídeo, DVDs e similares",
+      "codigo_cnae": "7722500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7722500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "fitas",
+      "codigo_cnae": "7722500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "vídeo",
+      "codigo_cnae": "7722500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de fitas de vídeo dvds e similares",
+      "codigo_cnae": "7722500",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de objetos do vestuário, jóias e acessórios",
+      "codigo_cnae": "7723300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7723300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "objetos",
+      "codigo_cnae": "7723300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "vestuário",
+      "codigo_cnae": "7723300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de objetos do vestuário jóias e acessórios",
+      "codigo_cnae": "7723300",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de aparelhos de jogos eletrônicos",
+      "codigo_cnae": "7729201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7729201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aparelhos",
+      "codigo_cnae": "7729201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "jogos eletrônicos",
+      "codigo_cnae": "7729201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de equipamentos científicos, médicos e hospitalares, sem operador",
+      "codigo_cnae": "7729202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7729202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "equipamentos científicos",
+      "codigo_cnae": "7729202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "médicos",
+      "codigo_cnae": "7729202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de equipamentos científicos médicos e hospitalares sem operador",
+      "codigo_cnae": "7729202",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de material médico",
+      "codigo_cnae": "7729203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7729203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "material médico",
+      "codigo_cnae": "7729203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de outros objetos pessoais e domésticos não especificados anteriormente",
+      "codigo_cnae": "7729299",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7729299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "outros objetos pessoais",
+      "codigo_cnae": "7729299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "domésticos não especificados anteriormente",
+      "codigo_cnae": "7729299",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de máquinas e equipamentos agrícolas sem operador",
+      "codigo_cnae": "7731400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7731400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "máquinas",
+      "codigo_cnae": "7731400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "equipamentos agrícolas sem operador",
+      "codigo_cnae": "7731400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de máquinas e equipamentos para construção sem operador, exceto andaimes",
+      "codigo_cnae": "7732201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7732201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "máquinas",
+      "codigo_cnae": "7732201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "equipamentos",
+      "codigo_cnae": "7732201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de máquinas e equipamentos para construção sem operador exceto andaimes",
+      "codigo_cnae": "7732201",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de andaimes",
+      "codigo_cnae": "7732202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7732202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "andaimes",
+      "codigo_cnae": "7732202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de máquinas e equipamentos para escritórios",
+      "codigo_cnae": "7733100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7733100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "máquinas",
+      "codigo_cnae": "7733100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "equipamentos",
+      "codigo_cnae": "7733100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de máquinas e equipamentos para extração de minérios e petróleo, sem operador",
+      "codigo_cnae": "7739001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7739001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "máquinas",
+      "codigo_cnae": "7739001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "equipamentos",
+      "codigo_cnae": "7739001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de máquinas e equipamentos para extração de minérios e petróleo sem operador",
+      "codigo_cnae": "7739001",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de equipamentos científicos, médicos e hospitalares, com operador",
+      "codigo_cnae": "7739002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7739002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "equipamentos científicos",
+      "codigo_cnae": "7739002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "médicos",
+      "codigo_cnae": "7739002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de equipamentos científicos médicos e hospitalares com operador",
+      "codigo_cnae": "7739002",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de palcos, coberturas e outros equipamentos de sonorização e iluminação",
+      "codigo_cnae": "7739003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7739003",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "palcos",
+      "codigo_cnae": "7739003",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "coberturas",
+      "codigo_cnae": "7739003",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de palcos coberturas e outros equipamentos de sonorização e iluminação",
+      "codigo_cnae": "7739003",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel de outras máquinas e equipamentos comerciais e industriais não especificados anteriormente, sem operador",
+      "codigo_cnae": "7739099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aluguel",
+      "codigo_cnae": "7739099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "outras máquinas",
+      "codigo_cnae": "7739099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "equipamentos comerciais",
+      "codigo_cnae": "7739099",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "aluguel de outras máquinas e equipamentos comerciais e industriais não especificados anteriormente sem operador",
+      "codigo_cnae": "7739099",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Gestão de ativos intangíveis não-financeiros",
+      "codigo_cnae": "7740300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "7740300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "ativos intangíveis não",
+      "codigo_cnae": "7740300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "financeiros",
+      "codigo_cnae": "7740300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "gestão de ativos intangíveis nãofinanceiros",
+      "codigo_cnae": "7740300",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Serviços de escolta em veículos blindados",
+      "codigo_cnae": "8011102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8011102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "escolta",
+      "codigo_cnae": "8011102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "veículos blindados",
+      "codigo_cnae": "8011102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de monitoramento de sistemas de segurança",
+      "codigo_cnae": "8020000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8020000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "monitoramento",
+      "codigo_cnae": "8020000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "sistemas",
+      "codigo_cnae": "8020000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de monitoramento de sistemas de segurança eletrônico",
+      "codigo_cnae": "8020001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8020001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "monitoramento",
+      "codigo_cnae": "8020001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "sistemas",
+      "codigo_cnae": "8020001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de investigação particular",
+      "codigo_cnae": "8030700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8030700",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "investigação particular",
+      "codigo_cnae": "8030700",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de limpeza não especificadas anteriormente",
+      "codigo_cnae": "8129000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8129000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "limpeza não especificadas anteriormente",
+      "codigo_cnae": "8129000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Envasamento e empacotamento sob contrato",
+      "codigo_cnae": "8292000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Envasamento",
+      "codigo_cnae": "8292000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "empacotamento",
+      "codigo_cnae": "8292000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "contrato",
+      "codigo_cnae": "8292000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Medição de consumo de energia elétrica, gás e água",
+      "codigo_cnae": "8299701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Medição",
+      "codigo_cnae": "8299701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "consumo",
+      "codigo_cnae": "8299701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "energia elétrica",
+      "codigo_cnae": "8299701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "medição de consumo de energia elétrica gás e água",
+      "codigo_cnae": "8299701",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Emissão de vales-alimentação, vales-transporte e similares",
+      "codigo_cnae": "8299702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Emissão",
+      "codigo_cnae": "8299702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "vales",
+      "codigo_cnae": "8299702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "alimentação",
+      "codigo_cnae": "8299702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "emissão de valesalimentação valestransporte e similares",
+      "codigo_cnae": "8299702",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de gravação de carimbos, exceto confecção",
+      "codigo_cnae": "8299703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8299703",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "gravação",
+      "codigo_cnae": "8299703",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "carimbos",
+      "codigo_cnae": "8299703",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "serviços de gravação de carimbos exceto confecção",
+      "codigo_cnae": "8299703",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Leiloeiros independentes",
+      "codigo_cnae": "8299704",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Leiloeiros independentes",
+      "codigo_cnae": "8299704",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de levantamento de fundos sob contrato",
+      "codigo_cnae": "8299705",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços",
+      "codigo_cnae": "8299705",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "levantamento",
+      "codigo_cnae": "8299705",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "fundos",
+      "codigo_cnae": "8299705",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas lotéricas",
+      "codigo_cnae": "8299706",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas lotéricas",
+      "codigo_cnae": "8299706",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Salas de acesso à internet",
+      "codigo_cnae": "8299707",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Salas",
+      "codigo_cnae": "8299707",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "acesso à internet",
+      "codigo_cnae": "8299707",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Outras atividades de serviços prestados principalmente às empresas não especificadas anteriormente",
+      "codigo_cnae": "8299799",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "8299799",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "serviços prestados principalmente às empresas não especificadas anteriormente",
+      "codigo_cnae": "8299799",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    }
+  ]
+}

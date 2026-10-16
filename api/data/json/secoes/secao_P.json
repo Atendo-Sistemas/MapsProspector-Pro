@@ -1,0 +1,1116 @@
+{
+  "secao": "P",
+  "total_termos": 111,
+  "termos": [
+    {
+      "termo": "Educação infantil - creche",
+      "codigo_cnae": "8511200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação",
+      "codigo_cnae": "8511200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educacao",
+      "codigo_cnae": "8511200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "8511200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "8511200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Creche",
+      "codigo_cnae": "8511200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "creche",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Creche",
+      "codigo_cnae": "8511200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "creche",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação infantil - creche",
+      "codigo_cnae": "8511200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação infantil - pré-escola",
+      "codigo_cnae": "8512100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educacao",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Pré",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pré",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Pre",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pré",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Escola",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escola",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Escola",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escola",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação infantil - pré-escola",
+      "codigo_cnae": "8512100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ensino",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ensino",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fundamental",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fundamental",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino fundamental",
+      "codigo_cnae": "8513900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino médio",
+      "codigo_cnae": "8520100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ensino",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ensino",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Médio",
+      "codigo_cnae": "8520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médio",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Medio",
+      "codigo_cnae": "8520100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "médio",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino médio",
+      "codigo_cnae": "8520100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação superior - graduação",
+      "codigo_cnae": "8531700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educacao",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Superior",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "superior",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Superior",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "superior",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Graduação",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "graduação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Graduacao",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "graduação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação superior - graduação",
+      "codigo_cnae": "8531700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação superior - graduação e pós-graduação",
+      "codigo_cnae": "8532500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educacao",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Superior",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "superior",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Superior",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "superior",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Graduação",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "graduação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Graduacao",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "graduação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Pós",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Pos",
+      "codigo_cnae": "8532500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação superior - graduação e pós-graduação",
+      "codigo_cnae": "8532500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino fundamental",
+      "codigo_cnae": "8520101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino fundamental",
+      "codigo_cnae": "8520101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino médio",
+      "codigo_cnae": "8520102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino médio",
+      "codigo_cnae": "8520102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação superior - pós-graduação e extensão",
+      "codigo_cnae": "8533300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação superior",
+      "codigo_cnae": "8533300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "pós",
+      "codigo_cnae": "8533300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "graduação",
+      "codigo_cnae": "8533300",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "educação superior  pósgraduação e extensão",
+      "codigo_cnae": "8533300",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação profissional de nível técnico",
+      "codigo_cnae": "8541400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação profissional",
+      "codigo_cnae": "8541400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "nível técnico",
+      "codigo_cnae": "8541400",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação profissional de nível tecnológico",
+      "codigo_cnae": "8542200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação profissional",
+      "codigo_cnae": "8542200",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "nível tecnológico",
+      "codigo_cnae": "8542200",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Administração de caixas escolares",
+      "codigo_cnae": "8550301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Administração",
+      "codigo_cnae": "8550301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "caixas escolares",
+      "codigo_cnae": "8550301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Atividades de apoio à educação, exceto caixas escolares",
+      "codigo_cnae": "8550302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "8550302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "apoio à educação",
+      "codigo_cnae": "8550302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "caixas escolares",
+      "codigo_cnae": "8550302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "atividades de apoio à educação exceto caixas escolares",
+      "codigo_cnae": "8550302",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino de esportes",
+      "codigo_cnae": "8591100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8591100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "esportes",
+      "codigo_cnae": "8591100",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino de dança",
+      "codigo_cnae": "8592901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8592901",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "dança",
+      "codigo_cnae": "8592901",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino de artes cênicas, exceto dança",
+      "codigo_cnae": "8592902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8592902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "artes cênicas",
+      "codigo_cnae": "8592902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "dança",
+      "codigo_cnae": "8592902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "ensino de artes cênicas exceto dança",
+      "codigo_cnae": "8592902",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino de música",
+      "codigo_cnae": "8592903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8592903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "música",
+      "codigo_cnae": "8592903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino de arte e cultura não especificado anteriormente",
+      "codigo_cnae": "8592999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8592999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "arte",
+      "codigo_cnae": "8592999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "cultura não especificado anteriormente",
+      "codigo_cnae": "8592999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino de idiomas",
+      "codigo_cnae": "8593700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Ensino",
+      "codigo_cnae": "8593700",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "idiomas",
+      "codigo_cnae": "8593700",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Formação de condutores",
+      "codigo_cnae": "8599601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Formação",
+      "codigo_cnae": "8599601",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "condutores",
+      "codigo_cnae": "8599601",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Cursos de pilotagem",
+      "codigo_cnae": "8599602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Cursos",
+      "codigo_cnae": "8599602",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "pilotagem",
+      "codigo_cnae": "8599602",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Treinamento em informática",
+      "codigo_cnae": "8599603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Treinamento",
+      "codigo_cnae": "8599603",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "informática",
+      "codigo_cnae": "8599603",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Treinamento em desenvolvimento profissional e gerencial",
+      "codigo_cnae": "8599604",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Treinamento",
+      "codigo_cnae": "8599604",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "desenvolvimento profissional",
+      "codigo_cnae": "8599604",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "gerencial",
+      "codigo_cnae": "8599604",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Cursos preparatórios para concursos",
+      "codigo_cnae": "8599605",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Cursos preparatórios",
+      "codigo_cnae": "8599605",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "concursos",
+      "codigo_cnae": "8599605",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Outras atividades de ensino não especificadas anteriormente",
+      "codigo_cnae": "8599699",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "8599699",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "ensino não especificadas anteriormente",
+      "codigo_cnae": "8599699",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    }
+  ]
+}

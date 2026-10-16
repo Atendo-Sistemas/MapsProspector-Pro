@@ -1,0 +1,81 @@
+{
+  "grupo": "207",
+  "total_termos": 5,
+  "termos": [
+    {
+      "termo": "Fabricação de impermeabilizantes, solventes e produtos afins",
+      "termo_normalizado": "fabricacao de impermeabilizantes solventes e produtos afins",
+      "codigo_cnae": "2073800",
+      "descricao": "Fabricação de impermeabilizantes, solventes e produtos afins",
+      "relevancia": 100,
+      "categoria": "207",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "207",
+      "classe": "2073",
+      "subclasse": "2073800",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "impermeabilizantes,",
+      "termo_normalizado": "impermeabilizantes",
+      "codigo_cnae": "2073800",
+      "descricao": "Fabricação de impermeabilizantes, solventes e produtos afins",
+      "relevancia": 85,
+      "categoria": "207",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "207",
+      "classe": "2073",
+      "subclasse": "2073800",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "solventes",
+      "termo_normalizado": "solventes",
+      "codigo_cnae": "2073800",
+      "descricao": "Fabricação de impermeabilizantes, solventes e produtos afins",
+      "relevancia": 85,
+      "categoria": "207",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "207",
+      "classe": "2073",
+      "subclasse": "2073800",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "produtos",
+      "termo_normalizado": "produtos",
+      "codigo_cnae": "2073800",
+      "descricao": "Fabricação de impermeabilizantes, solventes e produtos afins",
+      "relevancia": 85,
+      "categoria": "207",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "207",
+      "classe": "2073",
+      "subclasse": "2073800",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "afins",
+      "termo_normalizado": "afins",
+      "codigo_cnae": "2073800",
+      "descricao": "Fabricação de impermeabilizantes, solventes e produtos afins",
+      "relevancia": 85,
+      "categoria": "207",
+      "secao": "C",
+      "divisao": "20",
+      "grupo": "207",
+      "classe": "2073",
+      "subclasse": "2073800",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "classe": "2051",
+  "grupo": "205",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos agroquímicos, exceto agrotóxicos",
+      "codigo_cnae": "2051700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2051700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2051700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Agroquímicos",
+      "codigo_cnae": "2051700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agroquímicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Agroquimicos",
+      "codigo_cnae": "2051700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agroquímicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Agrotóxicos",
+      "codigo_cnae": "2051700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrotóxicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Agrotoxicos",
+      "codigo_cnae": "2051700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrotóxicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos agroquímicos, exceto agrotóxicos",
+      "codigo_cnae": "2051700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

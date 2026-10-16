@@ -1,0 +1,89 @@
+{
+  "classe": "3099",
+  "grupo": "309",
+  "divisao": "30",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamentos de transporte não especificados anteriormente",
+      "codigo_cnae": "3099700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "3099700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "3099700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "3099700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "3099700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "3099700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "3099700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Fabricação de equipamentos de transporte não especificados anteriormente",
+      "codigo_cnae": "3099700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    }
+  ]
+}

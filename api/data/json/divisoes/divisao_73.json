@@ -1,0 +1,406 @@
+{
+  "divisao": "73",
+  "total_termos": 40,
+  "termos": [
+    {
+      "termo": "Agências de publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agências",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agencias",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agências de publicidade",
+      "codigo_cnae": "7311400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agenciamento de espaços para publicidade, exceto em veículos de comunicação",
+      "codigo_cnae": "7312200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agenciamento",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agenciamento",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Espaços",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espaços",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Espacos",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espaços",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publicidade",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicidade",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Comunicação",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Comunicacao",
+      "codigo_cnae": "7312200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comunicação",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Agenciamento de espaços para publicidade, exceto em veículos de comunicação",
+      "codigo_cnae": "7312200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pesquisas de mercado e de opinião pública",
+      "codigo_cnae": "7320300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pesquisas",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesquisas",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pesquisas",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesquisas",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Mercado",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercado",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Mercado",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercado",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Opinião",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "opinião",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Opiniao",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "opinião",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pública",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Publica",
+      "codigo_cnae": "7320300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Pesquisas de mercado e de opinião pública",
+      "codigo_cnae": "7320300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Criação de estandes para feiras e exposições",
+      "codigo_cnae": "7319001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "7319001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "estandes",
+      "codigo_cnae": "7319001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "feiras",
+      "codigo_cnae": "7319001",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Promoção de vendas",
+      "codigo_cnae": "7319002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Promoção",
+      "codigo_cnae": "7319002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "vendas",
+      "codigo_cnae": "7319002",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Marketing direto",
+      "codigo_cnae": "7319003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Marketing direto",
+      "codigo_cnae": "7319003",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Consultoria em publicidade",
+      "codigo_cnae": "7319004",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "Consultoria",
+      "codigo_cnae": "7319004",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    },
+    {
+      "termo": "publicidade",
+      "codigo_cnae": "7319004",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "73"
+    }
+  ]
+}

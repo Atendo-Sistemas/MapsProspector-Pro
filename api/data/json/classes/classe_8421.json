@@ -1,0 +1,69 @@
+{
+  "classe": "8421",
+  "grupo": "842",
+  "divisao": "84",
+  "secao": "O",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Relações exteriores",
+      "codigo_cnae": "8421300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Relações",
+      "codigo_cnae": "8421300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relações",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Relacoes",
+      "codigo_cnae": "8421300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relações",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Exteriores",
+      "codigo_cnae": "8421300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exteriores",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Exteriores",
+      "codigo_cnae": "8421300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exteriores",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Relações exteriores",
+      "codigo_cnae": "8421300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    }
+  ]
+}

@@ -1,0 +1,369 @@
+{
+  "classe": "0159",
+  "grupo": "015",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 36,
+  "termos": [
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "apicultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "apicultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de animais de estimação",
+      "codigo_cnae": "0159802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Estimação",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estimação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Estimacao",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estimação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de animais de estimação",
+      "codigo_cnae": "0159802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de escargô",
+      "codigo_cnae": "0159803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Escargô",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escargô",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Escargo",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escargô",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de escargô",
+      "codigo_cnae": "0159803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bicho-da-seda",
+      "codigo_cnae": "0159804",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bicho",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bicho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bicho",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bicho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Seda",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Seda",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bicho-da-seda",
+      "codigo_cnae": "0159804",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros animais não especificados anteriormente",
+      "codigo_cnae": "0159899",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros animais não especificados anteriormente",
+      "codigo_cnae": "0159899",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

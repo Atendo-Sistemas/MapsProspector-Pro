@@ -1,0 +1,110 @@
+{
+  "classe": "4784",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "comércio",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "varejista",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "liqüefeito",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "petróleo",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "(glp)",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "venda",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "negócio",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "4784900",
+      "descricao_cnae": "Comércio varejista de gás liqüefeito de petróleo (GLP)",
+      "secao": "G",
+      "divisao": "47",
+      "grupo": "478",
+      "classe": "4784",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

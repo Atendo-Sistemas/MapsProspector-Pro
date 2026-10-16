@@ -1,0 +1,109 @@
+{
+  "classe": "2812",
+  "grupo": "281",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamentos hidráulicos e pneumáticos, exceto válvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Hidráulicos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Hidraulicos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pneumáticos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pneumáticos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pneumaticos",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pneumáticos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Válvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Valvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos hidráulicos e pneumáticos, exceto válvulas",
+      "codigo_cnae": "2812700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

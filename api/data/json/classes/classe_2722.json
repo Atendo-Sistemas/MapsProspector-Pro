@@ -1,0 +1,269 @@
+{
+  "classe": "2722",
+  "grupo": "272",
+  "divisao": "27",
+  "secao": "C",
+  "total_termos": 26,
+  "termos": [
+    {
+      "termo": "Fabricação de baterias e acumuladores para veículos automotores",
+      "codigo_cnae": "2722801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Baterias",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baterias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Baterias",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baterias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Acumuladores",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acumuladores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Acumuladores",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acumuladores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Automotores",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automotores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Automotores",
+      "codigo_cnae": "2722801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automotores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de baterias e acumuladores para veículos automotores",
+      "codigo_cnae": "2722801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Recondicionamento e recuperação de baterias e acumuladores elétricos para veículos automotores",
+      "codigo_cnae": "2722802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Recondicionamento",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recondicionamento",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Recondicionamento",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recondicionamento",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Recuperação",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recuperação",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Recuperacao",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recuperação",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Baterias",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baterias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Baterias",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baterias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Acumuladores",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acumuladores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Acumuladores",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acumuladores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Automotores",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automotores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Automotores",
+      "codigo_cnae": "2722802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automotores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Recondicionamento e recuperação de baterias e acumuladores elétricos para veículos automotores",
+      "codigo_cnae": "2722802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    }
+  ]
+}

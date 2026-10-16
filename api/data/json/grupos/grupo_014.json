@@ -1,0 +1,368 @@
+{
+  "grupo": "014",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 36,
+  "termos": [
+    {
+      "termo": "Produção de sementes certificadas, exceto de forrageiras para pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas, exceto de forrageiras para pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas de forrageiras para formação de pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formação",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formacao",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas de forrageiras para formação de pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de mudas e outras formas de propagação vegetal, certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mudas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mudas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mudas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mudas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Propagação",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "propagação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Propagacao",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "propagação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de mudas e outras formas de propagação vegetal, certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

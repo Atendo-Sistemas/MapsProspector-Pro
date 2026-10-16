@@ -1,0 +1,149 @@
+{
+  "classe": "0153",
+  "grupo": "015",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Criação de caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de ovinos, inclusive para produção de lã",
+      "codigo_cnae": "0153902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de ovinos, inclusive para produção de lã",
+      "codigo_cnae": "0153902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

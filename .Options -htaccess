@@ -1,0 +1,61 @@
+# MapsProspector Pro - Configuração Apache/XAMPP
+# Interface única: PHP (index.php + assets/js/app.js). Histórico no banco de dados.
+
+DirectoryIndex index.php
+
+RewriteEngine On
+RewriteBase /MapsProspector-Pro/
+
+# Redireciona para index.php se arquivo não existir
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteRule ^(.*)$ index.php [QSA,L]
+
+# Protege arquivos sensíveis
+<FilesMatch "\.(sql|env|log|md)$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# Configurações de segurança (X-Frame-Options controlado em config/config.php via ALLOW_IFRAME)
+<IfModule mod_headers.c>
+    Header set X-Content-Type-Options "nosniff"
+    Header set X-XSS-Protection "1; mode=block"
+</IfModule>
+
+# Desabilita listagem de diretórios
+Options -Indexes
+
+# Configurações PHP (se permitido)
+<IfModule mod_php.c>
+    php_value upload_max_filesize 10M
+    php_value post_max_size 10M
+    php_value max_execution_time 300
+    php_value max_input_time 300
+</IfModule>
+
+# Compressão GZIP
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/html text/plain text/xml text/css text/javascript application/javascript application/json
+</IfModule>
+
+# Cache de arquivos estáticos
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+# 1. Bloquear listagem de arquivos nas pastas
+Options -Indexes
+
+# 2. Bloquear acesso a pastas sensíveis
+RewriteEngine On
+RewriteRule ^(config|includes|services|logs|backups)/(.*)$ - [F,L]
+
+# 3. Bloquear acesso ao arquivo de banco especificamente
+RewriteRule ^config/database\.php$ - [F,L]
+

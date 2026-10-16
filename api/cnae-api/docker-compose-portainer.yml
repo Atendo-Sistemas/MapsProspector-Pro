@@ -1,0 +1,16 @@
+version: '3.8'
+
+services:
+  cnae-api:
+    image: cnae-api:latest
+    ports:
+      - "5000:5000"
+    volumes:
+      - cnae_data:/app/data
+    environment:
+      - PORT=5000
+      - CNAE_DB_PATH=/app/data/cnae.db
+      - CNAE_JSON_PATH=/app/data/dicionario_cnae.json
+
+volumes:
+  cnae_data:
