@@ -2393,6 +2393,7 @@ function loadChoosePlanData(currentPlanId) {
                     html += '<p class="text-sm font-bold text-blue-600">Plano atual</p>';
                 } else if (!isTrial && priceNum > 0) {
                     html += '<button type="button" class="btn-request-plan w-full py-3 rounded-xl bg-blue-600 text-white font-bold text-sm hover:bg-blue-700 shadow-lg shadow-blue-600/20" data-plan-id="' + p.id + '">Assinar mensalmente</button>';
+                    html += '<button type="button" class="btn-request-plan-manual mt-2 w-full py-3 rounded-xl bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold text-sm hover:bg-slate-200" data-plan-id="' + p.id + '">Solicitar aprovação manual</button>';
                 } else {
                     html += '<p class="text-sm text-slate-400">Gratuito</p>';
                 }
@@ -2435,6 +2436,35 @@ function loadChoosePlanData(currentPlanId) {
                     } finally {
                         btn.disabled = false;
                         btn.textContent = 'Assinar mensalmente';
+                    }
+                };
+            });
+            gridEl.querySelectorAll('.btn-request-plan-manual').forEach(function(btn) {
+                btn.onclick = async function() {
+                    if (!window.confirm('A solicitação seguirá para aprovação manual. O administrador da plataforma confirmará o pagamento antes de ativar o plano. Deseja continuar?')) return;
+                    btn.disabled = true;
+                    btn.textContent = 'Enviando solicitação...';
+                    try {
+                        const response = await fetch(API_BASE + 'create-payment.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            credentials: 'include',
+                            body: JSON.stringify({ type: 'plan', planId: parseInt(btn.dataset.planId, 10), paymentMode: 'manual' })
+                        });
+                        const result = await response.json().catch(function() { return null; });
+                        if (!response.ok || !result || !result.success || result.data?.mode !== 'manual') {
+                            throw new Error((result && result.error) || 'Não foi possível enviar para aprovação manual.');
+                        }
+                        var pendingEl = document.getElementById('choose-plan-pending');
+                        if (pendingEl) {
+                            pendingEl.textContent = result.message || 'Solicitação enviada. A ativação depende da conferência do pagamento pelo administrador.';
+                            pendingEl.className = 'mb-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium';
+                        }
+                        btn.textContent = 'Aguardando aprovação';
+                    } catch (error) {
+                        alert(error.message || 'Erro de conexão ao solicitar aprovação manual.');
+                        btn.disabled = false;
+                        btn.textContent = 'Solicitar aprovação manual';
                     }
                 };
             });
@@ -3251,8 +3281,7 @@ function renderRequestsSection(sectionEl, title, items, kind) {
         button.onclick = () => {
             const status = button.classList.contains('request-approve') ? 'approved' : 'rejected';
             if (button.dataset.kind === 'credit') reviewCreditRequest(button.dataset.id, status);
-            else reviewPlanRequest(button.dataset.id, status, document.getElementById('content-area'));
-            setTimeout(loadRequestsTab, 600);
+            else reviewPlanRequest(button.dataset.id, status, document.getElementById('content-area'), button, loadRequestsTab);
         };
     });
 }
@@ -4033,14 +4062,24 @@ function fetchPlansList(contentArea) {
             var rHtml = '<h4 class="text-lg font-black text-slate-900 dark:text-slate-100 mb-4">Solicitações de plano (pendentes)</h4><div class="space-y-4">';
             pendingRequests.forEach(function(r) {
                 var dateStr = r.createdAt ? new Date(r.createdAt).toLocaleString('pt-BR') : '';
-                var planInfo = (r.planName || '—') + ' (' + (r.planTokenLimit ? r.planTokenLimit.toLocaleString('pt-BR') : '') + ' tokens · R$ ' + (r.planPrice != null ? Number(r.planPrice).toFixed(2).replace('.', ',') : '0,00') + '/mês)';
+                var tenantName = escapeHtml(r.tenantName || 'Empresa');
+                var requester = escapeHtml(r.requestedByName || r.requestedByEmail || '—');
+                var planInfo = escapeHtml(r.planName || '—') + ' (' + (Number(r.planTokenLimit || 0).toLocaleString('pt-BR')) + ' tokens · R$ ' + (r.planPrice != null ? Number(r.planPrice).toFixed(2).replace('.', ',') : '0,00') + '/mês)';
                 rHtml += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex flex-wrap items-center justify-between gap-4">';
-                rHtml += '<div class="flex items-center gap-6"><div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (r.tenantName ? r.tenantName.charAt(0).toUpperCase() : 'E') + '</div>';
-                rHtml += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (r.tenantName || 'Empresa') + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (r.requestedByName || r.requestedByEmail || '—') + ' · Plano: ' + planInfo + '</p><p class="text-xs text-amber-600 font-bold mt-1">' + dateStr + ' · Pendente</p></div></div>';
+                rHtml += '<div class="flex items-center gap-6"><div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (tenantName.charAt(0) || 'E') + '</div>';
+                rHtml += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + tenantName + '</h4><p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + requester + ' · Plano: ' + planInfo + '</p><p class="text-xs text-amber-600 font-bold mt-1">' + dateStr + ' · Pendente</p></div></div>';
                 rHtml += '<div class="flex items-center gap-2"><button type="button" class="btn-plan-request-approve bg-emerald-100 text-emerald-700 hover:bg-emerald-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Confirmar</button><button type="button" class="btn-plan-request-reject bg-red-100 text-red-700 hover:bg-red-200 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + r.id + '">Recusar</button></div></div>';
             });
             rHtml += '</div>';
             requestsSection.innerHTML = rHtml;
+            requestsSection.querySelectorAll('.btn-plan-request-approve, .btn-plan-request-reject').forEach(function(button) {
+                button.onclick = function() {
+                    var approve = button.classList.contains('btn-plan-request-approve');
+                    var status = approve ? 'approved' : 'rejected';
+                    if (!approve && !window.confirm('Recusar esta solicitação de plano?')) return;
+                    reviewPlanRequest(button.dataset.id, status, contentArea, button);
+                };
+            });
         } else {
             if (requestsSection) requestsSection.classList.add('hidden');
         }
@@ -4102,6 +4141,7 @@ function fetchPlansList(contentArea) {
                 html += '<span class="text-amber-700 dark:text-amber-300 text-xs font-bold px-3 py-2 rounded-xl bg-amber-50 dark:bg-amber-950/30">Não contratável enquanto rascunho</span>';
             } else if (!canManagePlanCatalog && p.status === 'active' && priceMonthly > 0) {
                 html += '<button type="button" class="btn-request-plan bg-blue-600 hover:bg-blue-700 text-white font-bold px-5 py-2 rounded-xl text-xs" data-plan-id="' + planId + '" data-price="' + priceMonthly + '">Solicitar plano</button>';
+                html += '<button type="button" class="btn-request-plan-manual bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-200 font-bold px-4 py-2 rounded-xl text-xs" data-plan-id="' + planId + '">Solicitar aprovação manual</button>';
             }
             if (canManagePlanCatalog) {
                 html += '<button type="button" class="btn-plan-edit bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 font-bold px-4 py-2 rounded-xl text-xs" data-id="' + planId + '">Editar</button>';
@@ -4175,6 +4215,31 @@ function fetchPlansList(contentArea) {
                     }
                 };
             });
+            listEl.querySelectorAll('.btn-request-plan-manual').forEach(function(btn) {
+                btn.onclick = async function() {
+                    if (!window.confirm('A solicitação seguirá para aprovação manual. O administrador da plataforma confirmará o pagamento antes de ativar o plano. Deseja continuar?')) return;
+                    btn.disabled = true;
+                    btn.textContent = 'Enviando...';
+                    try {
+                        const response = await fetch(API_BASE + 'create-payment.php', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            credentials: 'include',
+                            body: JSON.stringify({ type: 'plan', planId: parseInt(btn.dataset.planId, 10), paymentMode: 'manual' })
+                        });
+                        const result = await response.json().catch(function() { return null; });
+                        if (!response.ok || !result || !result.success || result.data?.mode !== 'manual') {
+                            throw new Error((result && result.error) || 'Não foi possível enviar para aprovação manual.');
+                        }
+                        btn.textContent = 'Aguardando aprovação';
+                        alert(result.message || 'Solicitação enviada. A ativação depende da conferência do pagamento pelo administrador.');
+                    } catch (error) {
+                        alert(error.message || 'Erro de conexão ao solicitar aprovação manual.');
+                        btn.disabled = false;
+                        btn.textContent = 'Solicitar aprovação manual';
+                    }
+                };
+            });
 
         var totalEl = document.getElementById('plans-total');
         if (totalEl) totalEl.textContent = total + ' plano(s)';
@@ -4184,15 +4249,31 @@ function fetchPlansList(contentArea) {
     });
 }
 
-function reviewPlanRequest(id, status, contentArea) {
+function reviewPlanRequest(id, status, contentArea, button, onSuccess) {
+    var originalText = button ? button.textContent : '';
+    if (button) {
+        button.disabled = true;
+        button.textContent = status === 'approved' ? 'Confirmando...' : 'Recusando...';
+    }
     fetch(API_BASE + 'plan-requests.php', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ id: parseInt(id, 10), status: status })
-    }).then(function(r) { return r.json(); }).then(function(data) {
-        if (data.success) {
-            loadPlansTab(contentArea);
+    }).then(function(response) {
+        return response.json().then(function(data) {
+            if (!response.ok || !data.success) throw new Error(data.error || 'Não foi possível processar a solicitação.');
+            return data;
+        });
+    }).then(function(data) {
+        if (typeof onSuccess === 'function') onSuccess();
+        else if (contentArea) loadPlansTab(contentArea);
+        if (typeof showToast === 'function') showToast(data.message || 'Solicitação atualizada.');
+    }).catch(function(error) {
+        alert(error.message || 'Erro de conexão ao processar a solicitação.');
+        if (button) {
+            button.disabled = false;
+            button.textContent = originalText;
         }
     });
 }
@@ -4560,6 +4641,58 @@ function loadCompaniesTab(contentArea) {
     fetchCompaniesList();
 }
 
+function showTenantDueDateModal(tenantId, tenantName, dueDate) {
+    var overlay = document.getElementById('tenant-due-date-overlay');
+    if (overlay) overlay.remove();
+    overlay = document.createElement('div');
+    overlay.id = 'tenant-due-date-overlay';
+    overlay.className = 'fixed inset-0 bg-black/50 flex items-center justify-center z-[100] p-4';
+    overlay.innerHTML = '<div class="bg-white dark:bg-slate-800 rounded-[2rem] shadow-2xl p-8 max-w-md w-full" onclick="event.stopPropagation()">' +
+        '<h4 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-2">Vencimento do acesso</h4>' +
+        '<p class="text-sm text-slate-500 dark:text-slate-400 mb-5">' + dashboardMetricEscape(tenantName || 'Empresa') + '</p>' +
+        '<form id="tenant-due-date-form" class="space-y-4">' +
+        '<label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1" for="tenant-due-date-input">Data limite de acesso</label>' +
+        '<input id="tenant-due-date-input" type="date" value="' + (dueDate || '') + '" class="w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-medium">' +
+        '<p class="text-xs text-slate-500 dark:text-slate-400">A data é inclusiva e não altera a próxima cobrança recorrente no Asaas. Deixe em branco para remover o vencimento. Expiração processada pela rotina diária.</p>' +
+        '<p id="tenant-due-date-error" class="text-red-600 text-sm font-medium hidden"></p>' +
+        '<div class="flex gap-3 pt-2">' +
+        '<button type="button" id="tenant-due-date-cancel" class="flex-1 py-3 rounded-xl border border-slate-200 dark:border-slate-600 font-bold text-slate-600 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-700">Cancelar</button>' +
+        '<button type="submit" id="tenant-due-date-submit" class="flex-1 py-3 rounded-xl bg-blue-600 text-white font-bold hover:bg-blue-700">Salvar vencimento</button>' +
+        '</div></form></div>';
+    overlay.onclick = function(event) { if (event.target === overlay) overlay.remove(); };
+    document.body.appendChild(overlay);
+    document.getElementById('tenant-due-date-cancel').onclick = function() { overlay.remove(); };
+    document.getElementById('tenant-due-date-form').onsubmit = function(event) {
+        event.preventDefault();
+        var submit = document.getElementById('tenant-due-date-submit');
+        var error = document.getElementById('tenant-due-date-error');
+        var selectedDate = document.getElementById('tenant-due-date-input').value || null;
+        submit.disabled = true;
+        submit.textContent = 'Salvando...';
+        error.classList.add('hidden');
+        fetch(API_BASE + 'tenants.php', {
+            method: 'PUT',
+            headers: { 'Content-Type': 'application/json' },
+            credentials: 'same-origin',
+            body: JSON.stringify({ action: 'set_plan_due_date', id: parseInt(tenantId, 10), dueDate: selectedDate })
+        }).then(function(response) {
+            return response.json().then(function(result) {
+                if (!response.ok || !result.success) throw new Error(result.error || 'Não foi possível salvar o vencimento.');
+                return result;
+            });
+        }).then(function(result) {
+            overlay.remove();
+            fetchCompaniesList();
+            if (typeof showToast === 'function') showToast(result.message || 'Vencimento atualizado.');
+        }).catch(function(requestError) {
+            error.textContent = requestError.message || 'Erro de conexão ao salvar o vencimento.';
+            error.classList.remove('hidden');
+            submit.disabled = false;
+            submit.textContent = 'Salvar vencimento';
+        });
+    };
+}
+
 function fetchCompaniesList() {
     var listEl = document.getElementById('companies-list');
     var spinnerEl = document.getElementById('companies-spinner');
@@ -4598,18 +4731,21 @@ function fetchCompaniesList() {
             var tokensUsed = t.tokensUsed != null ? t.tokensUsed : 0;
             var tokensLimit = t.tokensLimit != null ? t.tokensLimit : 0;
             var tokensInfo = tokensLimit > 0 ? ' · Tokens: ' + tokensUsed + '/' + tokensLimit : ' · Tokens: ' + tokensUsed + ' (ilimitado)';
+            var dueDateLabel = t.planAccessUntil ? String(t.planAccessUntil).split('-').reverse().join('/') : 'Sem vencimento';
 
             html += '<div class="bg-white dark:bg-slate-800 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex items-center justify-between flex-wrap gap-4">';
             html += '<div class="flex items-center gap-6">';
             // AQUI ESTAVA O ERRO - AGORA CORRIGIDO PARA justify-center:
             html += '<div class="w-12 h-12 bg-slate-100 dark:bg-slate-700 rounded-xl flex items-center justify-center text-xl font-black text-slate-600 dark:text-slate-400">' + (t.name ? t.name.charAt(0).toUpperCase() : '') + '</div>';
             html += '<div><h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg">' + (t.name || '') + '</h4>';
-            html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + tokensInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p></div></div>';
+            html += '<p class="text-[11px] font-bold text-slate-400 uppercase tracking-wider">' + (t.slug || '') + (t.email ? ' · ' + (t.email) : '') + ' · Plano: ' + planInfo + tokensInfo + ' · ' + (t.usersCount || 0) + ' usuário(s) · <span class="' + statusClass + ' px-2 py-0.5 rounded-full text-xs font-bold">' + statusLabel + '</span></p>';
+            html += '<p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Vencimento do acesso: ' + dashboardMetricEscape(dueDateLabel) + '</p></div></div>';
             html += '<div class="flex items-center gap-2">';
             html += '<button type="button" class="btn-access-tenant px-4 py-2 rounded-xl text-xs font-bold bg-emerald-100 text-emerald-700 hover:bg-emerald-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Acessar</button>';
             html += '<button type="button" class="btn-edit-tenant px-4 py-2 rounded-xl text-xs font-bold bg-slate-100 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-email="' + (t.email || '').replace(/"/g, '&quot;') + '">Editar</button>';
             html += '<button type="button" class="btn-toggle-tenant px-4 py-2 rounded-xl text-xs font-bold ' + (t.status === 'active' ? 'bg-amber-100 text-amber-700 hover:bg-amber-200' : 'bg-emerald-100 text-emerald-700 hover:bg-emerald-200') + '" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-status="' + (t.status === 'active' ? 'suspended' : 'active') + '">' + toggleLabel + '</button>';
             html += '<button type="button" class="btn-link-plan px-4 py-2 rounded-xl text-xs font-bold bg-blue-100 text-blue-700 hover:bg-blue-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '" data-plan-id="' + (t.planId || '1') + '">Vincular plano</button>';
+            html += '<button type="button" class="btn-tenant-due-date px-4 py-2 rounded-xl text-xs font-bold bg-violet-100 text-violet-700 hover:bg-violet-200" data-id="' + t.id + '" data-name="' + dashboardMetricEscape(t.name || '') + '" data-due-date="' + dashboardMetricEscape(t.planAccessUntil || '') + '">Vencimento</button>';
             if (t.status === 'suspended') {
                 html += '<button type="button" class="btn-delete-tenant px-4 py-2 rounded-xl text-xs font-bold bg-red-100 text-red-700 hover:bg-red-200" data-id="' + t.id + '" data-name="' + (t.name || '').replace(/"/g, '&quot;') + '">Excluir</button>';
             }
@@ -4720,6 +4856,12 @@ function fetchCompaniesList() {
                     .then(function(res) {
                         if (res.success) { overlay.remove(); fetchCompaniesList(); }
                         else { document.getElementById('companies-link-plan-error').textContent = res.error || 'Erro.'; document.getElementById('companies-link-plan-error').classList.remove('hidden'); submitBtn.disabled = false; }
+                    });
+
+                    listEl.querySelectorAll('.btn-tenant-due-date').forEach(function(btn) {
+                        btn.addEventListener('click', function() {
+                            showTenantDueDateModal(btn.dataset.id, btn.dataset.name, btn.dataset.dueDate);
+                        });
                     });
                 };
                 document.getElementById('companies-link-plan-cancel').onclick = function() { overlay.remove(); };

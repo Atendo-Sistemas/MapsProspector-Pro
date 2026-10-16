@@ -42,6 +42,7 @@ Em produção, configure também:
    - `settings`, `platform_settings`
    - `search_history`, `leads`, `lead_unlocks`
    - `sessions`, `tenant_usage`, `credit_requests`, `plan_requests`
+   Para habilitar o módulo Asaas, execute também `sql/asaas-finance.sql` e `Database/database_migration_billing_due_dates.sql` (selecione/ajuste o banco `maps` no script). A migração habilita o vencimento administrativo de acesso e registra suas alterações.
 
 ### 2. Configurar Variáveis de Ambiente (recomendado)
 

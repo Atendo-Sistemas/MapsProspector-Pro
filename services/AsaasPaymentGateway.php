@@ -17,7 +17,8 @@ final class MapsProspectorAsaasPaymentGateway
             && self::setting($db, 'asaas_api_key') !== ''
             && self::setting($db, 'asaas_webhook_token') !== ''
             && self::tableReady($db, 'asaas_orders')
-            && self::tableReady($db, 'asaas_subscriptions');
+            && self::tableReady($db, 'asaas_subscriptions')
+            && self::columnReady($db, 'asaas_subscriptions', 'product_kind');
     }
 
     public static function creditPrice(PDO $db): float
@@ -189,6 +190,20 @@ final class MapsProspectorAsaasPaymentGateway
         $safe = str_replace('`', '', $table);
         try {
             return (bool) $db->query("SHOW TABLES LIKE '" . $safe . "'")->fetchColumn();
+        } catch (Throwable $e) {
+            return false;
+        }
+    }
+
+    private static function columnReady(PDO $db, string $table, string $column): bool
+    {
+        if (!preg_match('/^[a-zA-Z0-9_]+$/', $table) || !preg_match('/^[a-zA-Z0-9_]+$/', $column)) {
+            return false;
+        }
+        try {
+            $stmt = $db->prepare("SHOW COLUMNS FROM `{$table}` LIKE ?");
+            $stmt->execute([$column]);
+            return (bool) $stmt->fetchColumn();
         } catch (Throwable $e) {
             return false;
         }

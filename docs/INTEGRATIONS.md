@@ -10,7 +10,7 @@ Esta lista foi conferida no código do painel em 16/10/2026. Uma integração pr
 | Consulta de CNPJ | `api/cnpj-search.php`, `api/cnpj.php` e `api/cnpj-advanced-search.php` | CNPJ.WS, CNPJ.PW e, conforme a operação, uma VPS privada | A origem depende do tipo de pesquisa e da configuração. |
 | Sugestões de CNAE por IA | `api/cnae-ia-matcher.php` | 9router, Groq ou OpenRouter | O roteador e o provedor são selecionados conforme a configuração da plataforma. |
 | Dicionário CNAE | `api/cnae-api/app.py` | API Flask própria com SQLite | Serviço interno, não um provedor de IA. |
-| Pagamentos | `api/create-payment.php`, `api/asaas.php` | Asaas | As solicitações podem seguir para aprovação manual quando o gateway não está operacional. |
+| Pagamentos | `api/create-payment.php`, `api/asaas.php` | Asaas | O cliente pode pagar pelo Asaas ou solicitar aprovação manual; a ativação manual depende da conferência do administrador. |
 | Exportação de leads | `api/export.php`, `api/export-bulk.php` | Webhook configurado pela empresa | O destino pode ser CRM ou automação externa, por exemplo n8n. |
 | Notificações WhatsApp | `services/notificationService.php` | API Atendo configurada na plataforma | O envio depende de credenciais e URL configuradas. |
 | Busca de lugares alternativa | `api/search-mapbox.php` | Mapbox | Endpoint encontrado no repositório; não é chamado pelo fluxo principal do painel. |

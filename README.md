@@ -79,6 +79,7 @@ mysql -u usuario -p maps < Database/maps_schema_full.sql
 ```
 
 Ou importe `Database/maps_schema_full.sql` pelo phpMyAdmin. Veja `Database/README.md` para detalhes.
+Para habilitar o Asaas, importe também `sql/asaas-finance.sql` e `Database/database_migration_billing_due_dates.sql`.
 
 ### 3️⃣ Configure o PHP
 

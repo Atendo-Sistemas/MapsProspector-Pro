@@ -12,7 +12,15 @@ require_once __DIR__ . '/CrmAddonService.php';
 
 function mpAsaasSubscriptionTableReady(PDO $db): bool
 {
-    return (bool) $db->query("SHOW TABLES LIKE 'asaas_subscriptions'")->fetchColumn();
+    try {
+        if (!(bool) $db->query("SHOW TABLES LIKE 'asaas_subscriptions'")->fetchColumn()) {
+            return false;
+        }
+        $column = $db->query("SHOW COLUMNS FROM asaas_subscriptions LIKE 'product_kind'");
+        return (bool) $column->fetchColumn();
+    } catch (Throwable $e) {
+        return false;
+    }
 }
 
 function mpAsaasFreePlanId(PDO $db): int
@@ -31,12 +39,8 @@ function mpAsaasFreePlanId(PDO $db): int
 
 function mpAsaasAccessUntil(?string $dueDate): string
 {
-    try {
-        $base = new DateTimeImmutable($dueDate ?: 'today');
-    } catch (Throwable $e) {
-        $base = new DateTimeImmutable('today');
-    }
-    return $base->modify('+1 month')->modify('-1 day')->format('Y-m-d');
+    $nextDueDate = new DateTimeImmutable(mpAsaasNextDueDate($dueDate));
+    return $nextDueDate->modify('-1 day')->format('Y-m-d');
 }
 
 function mpAsaasNextDueDate(?string $dueDate): string
@@ -46,7 +50,9 @@ function mpAsaasNextDueDate(?string $dueDate): string
     } catch (Throwable $e) {
         $base = new DateTimeImmutable('today');
     }
-    return $base->modify('+1 month')->format('Y-m-d');
+    $nextMonth = $base->modify('first day of next month');
+    $day = min((int) $base->format('d'), (int) $nextMonth->format('t'));
+    return $nextMonth->setDate((int) $nextMonth->format('Y'), (int) $nextMonth->format('m'), $day)->format('Y-m-d');
 }
 
 /** Ativa ou renova o plano apenas quando o pagamento recebido é confirmado. */
@@ -81,8 +87,16 @@ function mpAsaasConfirmSubscriptionPayment(PDO $db, string $subscriptionId, arra
         if ((string) ($subscription['product_kind'] ?? 'prospecting') === 'crm_addon') {
             crmAddonActivateLicense($db, (int) $subscription['tenant_id'], (int) $subscription['plan_id'], 'asaas');
         } else {
-            $tenant = $db->prepare('UPDATE tenants SET plan_id = ? WHERE id = ?');
-            $tenant->execute([(int) $subscription['plan_id'], (int) $subscription['tenant_id']]);
+            $tenant = $db->prepare(
+                'UPDATE tenants
+                    SET plan_id = ?,
+                        plan_access_until = CASE
+                            WHEN plan_access_until IS NULL OR plan_access_until < ? THEN ?
+                            ELSE plan_access_until
+                        END
+                  WHERE id = ?'
+            );
+            $tenant->execute([(int) $subscription['plan_id'], $accessUntil, $accessUntil, (int) $subscription['tenant_id']]);
             mpGrantPlanContractBonus($db, (int) $subscription['tenant_id'], 'asaas_subscription', $subscriptionId, 50);
         }
         $db->commit();
@@ -131,37 +145,63 @@ function mpAsaasMarkSubscriptionCancelled(PDO $db, string $subscriptionId): bool
 /** Rebaixa somente assinaturas vencidas, canceladas ou inadimplentes, em operação idempotente. */
 function mpAsaasExpireDueSubscriptions(PDO $db, ?string $today = null): array
 {
-    if (!mpAsaasSubscriptionTableReady($db)) {
-        return ['checked' => 0, 'downgraded' => 0];
-    }
     $today = $today ?: date('Y-m-d');
     $freePlanId = mpAsaasFreePlanId($db);
-    $query = $db->prepare(
-        "SELECT id, tenant_id, plan_id, product_kind FROM asaas_subscriptions
-          WHERE status IN ('cancelled', 'overdue', 'active')
-            AND access_until IS NOT NULL AND access_until < ?
-          ORDER BY id ASC"
-    );
-    $query->execute([$today]);
-    $rows = $query->fetchAll(PDO::FETCH_ASSOC);
+    $rows = [];
     $downgraded = 0;
-    foreach ($rows as $row) {
+    if (mpAsaasSubscriptionTableReady($db)) {
+        $query = $db->prepare(
+            "SELECT id, tenant_id, plan_id, product_kind FROM asaas_subscriptions
+              WHERE status IN ('cancelled', 'overdue', 'active')
+                AND access_until IS NOT NULL AND access_until < ?
+              ORDER BY id ASC"
+        );
+        $query->execute([$today]);
+        $rows = $query->fetchAll(PDO::FETCH_ASSOC);
+        foreach ($rows as $row) {
+            $db->beginTransaction();
+            try {
+                $expire = $db->prepare(
+                    "UPDATE asaas_subscriptions
+                        SET status = 'expired'
+                      WHERE id = ? AND status IN ('cancelled', 'overdue', 'active') AND access_until < ?"
+                );
+                $expire->execute([(int) $row['id'], $today]);
+                if ($expire->rowCount() > 0) {
+                    if ((string) ($row['product_kind'] ?? 'prospecting') === 'crm_addon') {
+                        crmAddonPauseLicense($db, (int) $row['tenant_id'], (int) $row['plan_id']);
+                    } else {
+                        $db->prepare('UPDATE tenants SET plan_id = ?, plan_access_until = NULL WHERE id = ?')
+                            ->execute([$freePlanId, (int) $row['tenant_id']]);
+                    }
+                    $downgraded++;
+                }
+                $db->commit();
+            } catch (Throwable $e) {
+                if ($db->inTransaction()) {
+                    $db->rollBack();
+                }
+                throw $e;
+            }
+        }
+    }
+    $manualQuery = $db->prepare(
+        'SELECT id FROM tenants
+          WHERE id <> 1 AND plan_id <> ? AND plan_access_until IS NOT NULL AND plan_access_until < ?
+          ORDER BY id ASC'
+    );
+    $manualQuery->execute([$freePlanId, $today]);
+    $manualRows = $manualQuery->fetchAll(PDO::FETCH_COLUMN);
+    $manualDowngraded = 0;
+    foreach ($manualRows as $tenantId) {
         $db->beginTransaction();
         try {
             $expire = $db->prepare(
-                "UPDATE asaas_subscriptions
-                    SET status = 'expired'
-                  WHERE id = ? AND status IN ('cancelled', 'overdue', 'active') AND access_until < ?"
+                'UPDATE tenants SET plan_id = ?, plan_access_until = NULL
+                  WHERE id = ? AND plan_id <> ? AND plan_access_until IS NOT NULL AND plan_access_until < ?'
             );
-            $expire->execute([(int) $row['id'], $today]);
-            if ($expire->rowCount() > 0) {
-                if ((string) ($row['product_kind'] ?? 'prospecting') === 'crm_addon') {
-                    crmAddonPauseLicense($db, (int) $row['tenant_id'], (int) $row['plan_id']);
-                } else {
-                    $db->prepare('UPDATE tenants SET plan_id = ? WHERE id = ?')->execute([$freePlanId, (int) $row['tenant_id']]);
-                }
-                $downgraded++;
-            }
+            $expire->execute([$freePlanId, (int) $tenantId, $freePlanId, $today]);
+            $manualDowngraded += $expire->rowCount();
             $db->commit();
         } catch (Throwable $e) {
             if ($db->inTransaction()) {
@@ -170,5 +210,8 @@ function mpAsaasExpireDueSubscriptions(PDO $db, ?string $today = null): array
             throw $e;
         }
     }
-    return ['checked' => count($rows), 'downgraded' => $downgraded];
+    return [
+        'checked' => count($rows) + count($manualRows),
+        'downgraded' => $downgraded + $manualDowngraded,
+    ];
 }

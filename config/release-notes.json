@@ -1,5 +1,17 @@
 [
   {
+    "version": "20261016-billing-due-dates-1",
+    "date": "2026-10-16",
+    "title": "Aprovação manual de planos e vencimento por empresa",
+    "items": [
+      "A lista de planos agora conecta os botões de aprovar e recusar às solicitações pendentes e informa falhas da operação.",
+      "Empresas podem solicitar aprovação manual mesmo com o Asaas ativo; a ativação continua dependendo da conferência do administrador.",
+      "O schema/migração Asaas completa os campos do catálogo e o tipo de produto usados pelas assinaturas, evitando falhas em bancos instalados com o schema básico.",
+      "O Super Admin pode definir ou remover a data de vencimento do acesso de cada empresa; alterações ficam registradas e não mudam a data de cobrança Asaas.",
+      "A rotina diária rebaixa empresas com plano manual vencido, além de processar as expirações Asaas existentes."
+    ]
+  },
+  {
     "version": "20261016-security-reliability-1",
     "date": "2026-10-16",
     "title": "Segurança e clareza nas buscas",

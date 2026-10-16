@@ -54,8 +54,12 @@ try {
     $type = (string) ($input['type'] ?? '');
     $credits = (int) ($input['credits'] ?? 0);
     $planId = isset($input['planId']) ? (int) $input['planId'] : 0;
+    $paymentMode = (string) ($input['paymentMode'] ?? 'automatic');
     if (!in_array($type, ['credits', 'plan'], true)) {
         manualRequestResponse(false, null, 'Tipo de solicitação inválido.', 400);
+    }
+    if (!in_array($paymentMode, ['automatic', 'manual'], true)) {
+        manualRequestResponse(false, null, 'Forma de contratação inválida.', 400);
     }
     if ($type === 'credits' && ($credits < 100 || $credits > 10000)) {
         manualRequestResponse(false, null, 'Informe uma quantidade entre 100 e 10.000 créditos.', 400);
@@ -83,7 +87,7 @@ try {
         ], 'Já existe uma solicitação manual pendente para análise.');
     }
 
-    if (MapsProspectorAsaasPaymentGateway::isOperational($db)) {
+    if ($paymentMode !== 'manual' && MapsProspectorAsaasPaymentGateway::isOperational($db)) {
         try {
             if ($type === 'credits') {
                 $existingAsaas = $db->prepare("SELECT order_nsu, payment_url, amount_cents FROM asaas_orders WHERE tenant_id = ? AND quantity = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
@@ -102,7 +106,7 @@ try {
                 manualRequestResponse(true, $result, 'Cobrança criada no Asaas. Abra o link para concluir o pagamento.');
             }
 
-            $existingAsaas = $db->prepare("SELECT asaas_subscription_id, payment_url, amount_cents FROM asaas_subscriptions WHERE tenant_id = ? AND status IN ('pending', 'active', 'overdue') ORDER BY id DESC LIMIT 1");
+            $existingAsaas = $db->prepare("SELECT asaas_subscription_id, payment_url, amount_cents FROM asaas_subscriptions WHERE tenant_id = ? AND COALESCE(product_kind, 'prospecting') = 'prospecting' AND status IN ('pending', 'active', 'overdue') ORDER BY id DESC LIMIT 1");
             $existingAsaas->execute([$tenantId]);
             $existingSubscription = $existingAsaas->fetch(PDO::FETCH_ASSOC);
             if (is_array($existingSubscription)) {
