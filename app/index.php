@@ -597,7 +597,7 @@ if (!headers_sent()) {
 <script src="/assets/js/notification-center.js?v=20261009-reengagement-1"></script>
 <script src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
 <script src="/assets/js/site-traffic.js?v=20261009-traffic-1" defer></script>
-<script src="/app/app.js?v=20261016-billing-due-dates-1"></script>
+<script src="/app/app.js?v=20261016-manual-billing-schema-1"></script>
 <script src="/assets/js/help.js?v=20260821-65"></script>
 <script src="/assets/js/help-admin.js?v=20260821-65"></script>
 <script src="/assets/js/pwa.js?v=20261009-pwa-1"></script>

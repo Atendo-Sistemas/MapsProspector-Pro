@@ -1,5 +1,14 @@
 [
   {
+    "version": "20261016-manual-billing-schema-1",
+    "date": "2026-10-16",
+    "title": "Schema para solicitações e aprovações manuais",
+    "items": [
+      "O schema completo e a migração para bancos existentes agora criam a tabela de pagamentos usada por solicitações manuais.",
+      "A tabela de bônus de contratação agora está incluída, evitando que sua ausência reverta a aprovação manual de planos."
+    ]
+  },
+  {
     "version": "20261016-billing-due-dates-1",
     "date": "2026-10-16",
     "title": "Aprovação manual de planos e vencimento por empresa",
