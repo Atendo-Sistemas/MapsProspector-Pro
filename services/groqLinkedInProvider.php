@@ -361,16 +361,16 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
 
     /**
      * Executa Groq + pesquisa web e grava o resultado usando o contrato atual.
-     * Retorna false para que o endpoint possa usar o coletor autenticado como
-     * fallback operacional sem reintroduzir o Apify no fluxo LinkedIn.
+     *
+     * @return string completed, empty, filtered ou failed
      */
-    function linkedinRunGroqBrowserSearch(PDO $db, int $userId, array $run, int $tenantId, string $profile, string $internalMessage = ''): bool
+    function linkedinRunGroqBrowserSearch(PDO $db, int $userId, array $run, int $tenantId, string $profile, string $internalMessage = ''): string
     {
         try {
             $config = linkedinGroqConfig($db);
             if ($config['api_key'] === '') {
                 error_log('linkedin groq: chave não configurada para run ' . (int) ($run['id'] ?? 0));
-                return false;
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             $jobTitles = json_decode((string) ($run['search_job_titles'] ?? ''), true);
             $jobTitles = is_array($jobTitles) ? array_values(array_filter(array_map(static fn ($v): string => trim((string) $v), $jobTitles))) : [];
@@ -378,7 +378,7 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
             $company = trim((string) ($run['search_company'] ?? ''));
             $limit = max(1, min(50, (int) ($run['limit_requested'] ?? 10)));
             if ($location === '' || $jobTitles === []) {
-                return false;
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             $onlyNew = !array_key_exists('only_new', $run) || (bool) $run['only_new'];
             // A busca normal usa exatamente o limite solicitado. O modo de
@@ -431,8 +431,13 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
                 }
             }
             if ($candidates === []) {
-                error_log('linkedin groq: nenhum perfil retornado para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
-                return false;
+                $hasSearchEvidence = $content !== '' || !empty($response['choices'][0]['message']['executed_tools']);
+                if ($hasSearchEvidence) {
+                    error_log('linkedin groq: busca concluída sem perfis para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
+                    return LINKEDIN_RUN_RESULT_EMPTY;
+                }
+                error_log('linkedin groq: resposta sem evidência de busca para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             if (function_exists('linkedinEnsureSeenProfilesTable')) {
                 linkedinEnsureSeenProfilesTable($db);
@@ -444,7 +449,7 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
                     : array_slice($candidates, 0, $limit);
                 if ($leads === []) {
                     $db->rollBack();
-                    return false;
+                    return LINKEDIN_RUN_RESULT_FILTERED;
                 }
                 $leadStmt = $db->prepare(
                     'INSERT INTO linkedin_leads
@@ -493,10 +498,10 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
                 linkedinGroqWriteCache($db, $tenantId, (int) ($run['user_id'] ?? $userId), $company, is_array($cacheTitles) ? $cacheTitles : [], $location, $leads);
             }
             error_log('linkedin groq: pesquisa concluída com ' . count($leads) . ' perfis; run=' . (int) $run['id']);
-            return true;
+            return LINKEDIN_RUN_RESULT_COMPLETED;
         } catch (Throwable $error) {
             error_log('linkedin groq: falha controlada no run ' . (int) ($run['id'] ?? 0));
-            return false;
+            return LINKEDIN_RUN_RESULT_FAILED;
         }
     }
 

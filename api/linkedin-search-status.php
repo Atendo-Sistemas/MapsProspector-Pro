@@ -182,7 +182,10 @@ try {
     $completed = !empty($searchOutcome['completed']);
     $source = 'search';
     if (!$completed) {
-        jsonError('A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
+        $publicError = trim((string) ($searchOutcome['publicError'] ?? ''));
+        jsonError($publicError !== ''
+            ? $publicError
+            : 'A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
     }
     $leads = linkedinStatusLoadRunLeads($db, $tenantId, $runId);
     $reloaded = $db->prepare('SELECT leads_found, credits_charged, apify_actor FROM linkedin_runs WHERE id = ? LIMIT 1');

@@ -25,8 +25,27 @@
         var overlay = document.getElementById('maps-search-loading-overlay');
         if (!overlay) return;
         if (event.type === 'keydown' && event.key === 'Tab') {
-            event.preventDefault();
-            overlay.focus();
+            var focusable = Array.prototype.filter.call(
+                overlay.querySelectorAll('a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'),
+                function (element) {
+                    return !element.hasAttribute('hidden') && element.getAttribute('aria-hidden') !== 'true';
+                }
+            );
+            if (focusable.length === 0) {
+                event.preventDefault();
+                overlay.focus();
+                return;
+            }
+            var first = focusable[0];
+            var last = focusable[focusable.length - 1];
+            var active = document.activeElement;
+            if (event.shiftKey && (active === first || active === overlay || !overlay.contains(active))) {
+                event.preventDefault();
+                last.focus();
+            } else if (!event.shiftKey && (active === last || active === overlay || !overlay.contains(active))) {
+                event.preventDefault();
+                first.focus();
+            }
         } else if (event.type === 'focusin' && !overlay.contains(event.target)) {
             overlay.focus();
         }

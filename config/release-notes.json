@@ -1,6 +1,6 @@
 [
   {
-    "version": "20261017-linkedin-apify-search-modal-5",
+    "version": "20261017-linkedin-apify-search-modal-7",
     "date": "2026-10-17",
     "title": "Contingência LinkedIn e modal de pesquisa",
     "items": [
@@ -8,7 +8,9 @@
       "As consultas de Maps, LinkedIn e CNPJ exibem um modal de carregamento durante a pesquisa.",
       "Resultados vazios só são confirmados quando os provedores indicam ausência real de perfis, mantendo erros de resposta distintos.",
       "O modal atualiza a descrição da pesquisa ativa e restaura a anterior quando buscas simultâneas terminam.",
-      "O modal gerencia foco acessível e restaura o foco ao concluir as consultas."
+      "O modal gerencia foco acessível e restaura o foco ao concluir as consultas.",
+      "Resultados vazios confirmados pela busca web são diferenciados de falhas dos provedores de contingência.",
+      "Erros públicos de limite da Apify são propagados sem estado global e registrados com a etapa operacional."
     ]
   },
   {
