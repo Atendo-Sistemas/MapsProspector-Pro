@@ -169,17 +169,23 @@ try {
         jsonSuccess(['runId' => (string) $runId, 'pending' => true, 'status' => $run['status'], 'pollAfterMs' => 2000]);
     }
 
-    $internalMessage = trim((string) ($run['error_message'] ?? ''));
-    $internalMessage = $internalMessage !== '' ? $internalMessage : 'execução incompleta reprocessada';
-    $completed = function_exists('linkedinRunGroqBrowserSearch')
-        ? linkedinRunGroqBrowserSearch($db, $userId, $run, $tenantId, $profile, 'reprocessamento da pesquisa')
-        : false;
+    $searchOutcome = linkedinRunSearchWithFallbacks(
+        $db,
+        $userId,
+        $run,
+        $tenantId,
+        $profile,
+        'reprocessamento da pesquisa',
+        'contingência Apify após pesquisa principal sem resultados',
+        'fallback operacional após indisponibilidade da pesquisa principal e Apify'
+    );
+    $completed = !empty($searchOutcome['completed']);
     $source = 'search';
     if (!$completed) {
-        $completed = linkedinRunAuthenticatedSearch($db, $userId, $run, $tenantId, $profile, 'fallback operacional após indisponibilidade da pesquisa principal');
-    }
-    if (!$completed) {
-        jsonError('A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
+        $publicError = trim((string) ($searchOutcome['publicError'] ?? ''));
+        jsonError($publicError !== ''
+            ? $publicError
+            : 'A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
     }
     $leads = linkedinStatusLoadRunLeads($db, $tenantId, $runId);
     $reloaded = $db->prepare('SELECT leads_found, credits_charged, apify_actor FROM linkedin_runs WHERE id = ? LIMIT 1');

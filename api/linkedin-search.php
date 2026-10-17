@@ -530,41 +530,24 @@ try {
         'limit_requested' => $limit,
         'only_new' => $onlyNew,
     ];
-    // A pesquisa LinkedIn usa Groq + Browser Search. O coletor autenticado
-    // permanece apenas como fallback operacional; o Apify não é chamado por
-    // este fluxo.
-    $linkedinSearchStage = 'groq_web_search';
-    $completed = function_exists('linkedinRunGroqBrowserSearch')
-        ? linkedinRunGroqBrowserSearch($db, $userId, $runPayload, $tenantId, $profile, 'pesquisa concluída')
-        : false;
+    // Groq + Browser Search é a fonte principal. Se não retornar perfis,
+    // tenta Apify e mantém o coletor autenticado como fallback final.
+    $searchOutcome = linkedinRunSearchWithFallbacks(
+        $db,
+        $userId,
+        $runPayload,
+        $tenantId,
+        $profile,
+        'pesquisa concluída',
+        'contingência Apify após pesquisa principal sem resultados',
+        'fallback operacional após indisponibilidade da pesquisa principal e Apify'
+    );
+    $linkedinSearchStage = (string) ($searchOutcome['stage'] ?? LINKEDIN_RUN_STAGE_GROQ);
+    $linkedinProviderPublicError = trim((string) ($searchOutcome['publicError'] ?? ''));
+    $completed = !empty($searchOutcome['completed']);
     $source = 'search';
     if (!$completed) {
-        $linkedinSearchStage = 'authenticated_fallback';
-        $completed = linkedinRunAuthenticatedSearch(
-            $db,
-            $userId,
-            $runPayload,
-            $tenantId,
-            $profile,
-            'fallback operacional após indisponibilidade da pesquisa principal'
-        );
-    }
-    if (!$completed && function_exists('linkedinRunApifyContingency')) {
-        // A sessão autenticada pode estar expirada mesmo quando o provedor
-        // principal sofre limite temporário. Usa as chaves elegíveis do painel
-        // em sequência antes de devolver erro ao cliente.
-        $linkedinSearchStage = 'apify_rotating_fallback';
-        $completed = linkedinRunApifyContingency(
-            $db,
-            $userId,
-            $runPayload,
-            $tenantId,
-            $profile,
-            'contingência após indisponibilidade das fontes principais'
-        );
-    }
-    if (!$completed) {
-        throw new RuntimeException('A coleta autenticada e a contingência não foram concluídas.');
+        throw new RuntimeException('A pesquisa por IA, a contingência Apify e o coletor autenticado não foram concluídos.');
     }
     $leads = linkedinReadSavedLeads($db, $tenantId, $runId);
     $creditsStmt = $db->prepare('SELECT credits_charged, apify_actor FROM linkedin_runs WHERE id = ? LIMIT 1');
@@ -630,9 +613,7 @@ try {
         '[' . gmdate('c') . '] stage=' . $safeStage . ' error=' . $safeError . PHP_EOL,
         FILE_APPEND | LOCK_EX
     );
-    $providerPublicError = function_exists('linkedinApifyContingencyPublicMessage')
-        ? trim((string) linkedinApifyContingencyPublicMessage())
-        : '';
+    $providerPublicError = trim((string) ($linkedinProviderPublicError ?? ''));
     if (isset($runId) && $runId > 0 && isset($db) && $db instanceof PDO) {
         try {
             $db->prepare('UPDATE linkedin_runs SET status = ?, error_message = ?, finished_at = NOW() WHERE id = ?')
