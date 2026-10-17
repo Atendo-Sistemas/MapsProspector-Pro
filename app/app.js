@@ -5801,10 +5801,10 @@ async function refreshCurrentSearchWithMapsPilot(buttonId = 'btn-maps-pilot-refr
         button.disabled = true;
         button.textContent = 'Atualizando...';
     }
-    beginMapsSearchLoading('incremental');
     hideError();
 
     try {
+        beginMapsSearchLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -5961,9 +5961,9 @@ async function runDirectMapsPilotSearch() {
         button.disabled = true;
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Coletando...';
     }
-    beginMapsSearchLoading('initial');
     hideError();
     try {
+        beginMapsSearchLoading('initial');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -7748,12 +7748,12 @@ async function performCnpjSimpleLookup() {
         btn.disabled = true;
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Consultando...';
     }
-    showSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
     if (resultDiv) {
         resultDiv.classList.remove('hidden');
         resultDiv.innerHTML = '<div class="py-12 text-center text-slate-500 font-bold">Realizando consulta de informações...</div>';
     }
     try {
+        showSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -7904,8 +7904,8 @@ async function performCnpjAdvancedSearch() {
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     }
 
-    showSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
     try {
+        showSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },

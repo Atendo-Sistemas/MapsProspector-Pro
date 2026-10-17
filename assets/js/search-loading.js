@@ -4,6 +4,12 @@
     var timer = null;
     var startedAt = 0;
     var activeCount = 0;
+    function beforeUnloadHandler(event) {
+        if (activeCount === 0) return;
+        event.preventDefault();
+        event.returnValue = '';
+        return '';
+    }
 
     function formatElapsed(seconds) {
         var total = Math.max(0, Number(seconds) || 0);
@@ -13,7 +19,8 @@
     }
 
     function beginSearchLoading(title, message) {
-        if (activeCount === 0) startedAt = Date.now();
+        var wasInactive = activeCount === 0;
+        if (wasInactive) startedAt = Date.now();
         activeCount += 1;
         var overlay = document.getElementById('maps-search-loading-overlay');
         if (!overlay) {
@@ -39,16 +46,12 @@
         updateElapsed();
         if (timer) window.clearInterval(timer);
         timer = window.setInterval(updateElapsed, 1000);
-        window.onbeforeunload = function (event) {
-            if (activeCount === 0) return undefined;
-            event.preventDefault();
-            event.returnValue = '';
-            return '';
-        };
+        if (wasInactive) window.addEventListener('beforeunload', beforeUnloadHandler);
     }
 
     function endSearchLoading() {
-        activeCount = Math.max(0, activeCount - 1);
+        if (activeCount === 0) return;
+        activeCount -= 1;
         if (activeCount > 0) return;
         if (timer) {
             window.clearInterval(timer);
@@ -56,7 +59,7 @@
         }
         var overlay = document.getElementById('maps-search-loading-overlay');
         if (overlay) overlay.remove();
-        window.onbeforeunload = null;
+        window.removeEventListener('beforeunload', beforeUnloadHandler);
     }
 
     function beginMapsLoading(mode) {

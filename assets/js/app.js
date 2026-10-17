@@ -5203,7 +5203,6 @@ async function performSearch() {
         btn.disabled = true;
     btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     hideError();
-    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
     AppState.leads = [];
     AppState.visibleCount = 12;
     AppState.mapsPilotSummary = null;
@@ -5211,6 +5210,7 @@ async function performSearch() {
     AppState.mapsPilotShowOnlyNew = false;
     
     try {
+        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
         var maxPlacesEl = document.getElementById('search-max-places');
         var maxPlaces = 200;
         var tokenUsage = AppState.tokenUsage;
@@ -5486,9 +5486,8 @@ async function refreshCurrentSearchWithMapsPilot() {
         button.textContent = 'Atualizando...';
     }
     hideError();
-    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
-
     try {
+        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -5619,8 +5618,8 @@ async function runDirectMapsPilotSearch() {
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Coletando...';
     }
     hideError();
-    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
     try {
+        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -5687,8 +5686,8 @@ async function runMapsCheckNewLeads() {
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Verificando...';
     }
     hideError();
-    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
     try {
+        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot-new-leads.php?search_history_id=' + encodeURIComponent(AppState.searchId), {
             credentials: 'same-origin',
             cache: 'no-store'
@@ -7049,14 +7048,13 @@ async function performCnpjSimpleLookup() {
         btn.disabled = true;
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Consultando...';
     }
-    showSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
-
     if (resultDiv) {
         resultDiv.classList.remove('hidden');
         resultDiv.innerHTML = '<div class="py-12 text-center text-slate-500 font-bold">Realizando Consulta de inforações</div>';
     }
 
     try {
+        showSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -7194,8 +7192,8 @@ async function performCnpjAdvancedSearch() {
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     }
 
-    showSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
     try {
+        showSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
