@@ -182,7 +182,7 @@ try {
             $completed = $apifyResult === 'completed';
         }
     }
-    $authenticatedResult = 'failed';
+    $authenticatedResult = 'unavailable';
     if (!$completed && function_exists('linkedinRunAuthenticatedSearch')) {
         $authenticatedResult = linkedinRunAuthenticatedSearch($db, $userId, $run, $tenantId, $profile, 'fallback operacional após indisponibilidade da pesquisa principal e Apify');
         $completed = $authenticatedResult === 'completed';

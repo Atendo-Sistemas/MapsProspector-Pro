@@ -830,8 +830,8 @@
                 var limit = parseInt(document.getElementById('linkedin-limit').value, 10) || 10;
                 if (!location || !jobTitles.length) throw new Error('Informe a localidade e pelo menos um cargo.');
 
-                loadingStarted = true;
-                if (typeof window.beginSearchLoading === 'function') {
+                loadingStarted = typeof window.beginSearchLoading === 'function';
+                if (loadingStarted) {
                     window.beginSearchLoading('Pesquisando perfis profissionais no LinkedIn...', 'Estamos buscando e preparando os perfis solicitados.');
                 }
                 var response = await fetch(apiUrl('linkedin-search.php'), {

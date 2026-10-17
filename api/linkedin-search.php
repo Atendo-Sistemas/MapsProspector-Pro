@@ -552,7 +552,7 @@ try {
             $completed = $apifyResult === 'completed';
         }
     }
-    $authenticatedResult = 'failed';
+    $authenticatedResult = 'unavailable';
     if (!$completed && function_exists('linkedinRunAuthenticatedSearch')) {
         $linkedinSearchStage = 'authenticated_fallback';
         $authenticatedResult = linkedinRunAuthenticatedSearch(

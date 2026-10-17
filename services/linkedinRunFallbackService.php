@@ -205,7 +205,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
      * Mantém o nome histórico da função de coleta como compatibilidade com
      * instalações v64, mas não usa o script público antigo.
      *
-     * @return string completed, empty ou failed
+     * @return string completed, empty, unavailable ou failed
      */
     function linkedinRunAuthenticatedSearch(
         PDO $db,
@@ -247,6 +247,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $actor = 'harvestapi_full';
             $message = 'Nenhum perfil novo compatível foi encontrado para estes filtros.';
         } elseif ($apifyResult === 'empty') {
+            if (!in_array($authenticatedResult, ['empty', 'unavailable'], true)) return false;
             $actor = 'harvestapi_full';
             $message = 'Nenhum perfil retornado pelas chaves elegíveis do actor.';
         } else {
@@ -273,7 +274,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
     /**
      * Conclui uma pesquisa LinkedIn pelo coletor autenticado isolado.
      *
-     * @return string completed, empty ou failed
+     * @return string completed, empty, unavailable ou failed
      */
     function linkedinRunFallbackToMapsCollector(
         PDO $db,
@@ -286,7 +287,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         try {
             $collector = linkedinFallbackLoadCollectorClient();
             if ($collector === null) {
-                return 'failed';
+                return 'unavailable';
             }
 
             $jobTitles = json_decode((string) ($run['search_job_titles'] ?? ''), true);
@@ -823,8 +824,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
             $candidates = linkedinApifyNormalizeLeads(is_array($rows) ? $rows : [], $fetchLimit);
             if (!is_array($candidates) || !$candidates) {
-                $validEmptyDataset = is_array($rows)
-                    && ($rows === [] || array_keys($rows) === range(0, count($rows) - 1));
+                $validEmptyDataset = is_array($rows) && $rows === [];
                 $providerStatus = linkedinApifyLastRunStatusMessage($token);
                 if (preg_match('/free user run limit|run limit reached|quota|limit.*run/iu', $providerStatus)) {
                     $GLOBALS['linkedin_apify_public_error'] = 'O limite de pesquisas gratuitas da conta de integração foi atingido. O administrador precisa ativar um plano da Apify ou configurar outra conta para continuar as pesquisas LinkedIn.';

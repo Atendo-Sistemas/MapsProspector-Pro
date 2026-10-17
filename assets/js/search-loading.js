@@ -90,7 +90,7 @@
         window.removeEventListener('beforeunload', beforeUnloadHandler);
     }
 
-    function beginMapsLoading(mode) {
+    function beginMapsSearchLoading(mode) {
         var isIncremental = mode === 'incremental';
         beginSearchLoading(
             isIncremental ? 'Procurando novos leads' : 'Pesquisando empresas no Maps',
@@ -102,7 +102,5 @@
 
     window.beginSearchLoading = beginSearchLoading;
     window.endSearchLoading = endSearchLoading;
-    window.showSearchLoading = beginSearchLoading;
-    window.hideSearchLoading = endSearchLoading;
-    window.showMapsSearchLoading = beginMapsLoading;
+    window.beginMapsSearchLoading = beginMapsSearchLoading;
 }());
