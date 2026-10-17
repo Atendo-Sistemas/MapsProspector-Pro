@@ -1,5 +1,14 @@
 [
   {
+    "version": "20261017-linkedin-apify-search-modal-1",
+    "date": "2026-10-17",
+    "title": "Contingência LinkedIn e modal de pesquisa",
+    "items": [
+      "A pesquisa LinkedIn aciona a Apify se a busca principal por IA não encontrar perfis, mantendo a sessão autenticada como alternativa.",
+      "As consultas de Maps, LinkedIn e CNPJ exibem um modal de carregamento durante a pesquisa."
+    ]
+  },
+  {
     "version": "20261016-search-quality-1",
     "date": "2026-10-16",
     "title": "Qualidade e privacidade nas pesquisas",

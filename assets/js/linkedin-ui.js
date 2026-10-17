@@ -829,6 +829,9 @@
                 var limit = parseInt(document.getElementById('linkedin-limit').value, 10) || 10;
                 if (!location || !jobTitles.length) throw new Error('Informe a localidade e pelo menos um cargo.');
 
+                if (typeof window.beginSearchLoading === 'function') {
+                    window.beginSearchLoading('Pesquisando perfis profissionais no LinkedIn...', 'Estamos buscando e preparando os perfis solicitados.');
+                }
                 var response = await fetch(apiUrl('linkedin-search.php'), {
                     method: 'POST',
                     credentials: 'include',
@@ -866,6 +869,9 @@
             } catch (error) {
                 showLinkedInError(error.message);
             } finally {
+                if (typeof window.endSearchLoading === 'function') {
+                    window.endSearchLoading();
+                }
                 setSearching(false);
             }
         });

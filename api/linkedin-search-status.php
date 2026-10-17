@@ -176,7 +176,11 @@ try {
         : false;
     $source = 'search';
     if (!$completed) {
-        $completed = linkedinRunAuthenticatedSearch($db, $userId, $run, $tenantId, $profile, 'fallback operacional após indisponibilidade da pesquisa principal');
+        $completed = function_exists('linkedinRunApifyContingency')
+            && linkedinRunApifyContingency($db, $userId, $run, $tenantId, $profile, 'contingência Apify após pesquisa principal sem resultados');
+    }
+    if (!$completed) {
+        $completed = linkedinRunAuthenticatedSearch($db, $userId, $run, $tenantId, $profile, 'fallback operacional após indisponibilidade da pesquisa principal e Apify');
     }
     if (!$completed) {
         jsonError('A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);

@@ -5764,6 +5764,7 @@ function displayLeads() {
 let mapsSearchLoadingTimer = null;
 let mapsSearchLoadingStartedAt = 0;
 let mapsSearchInFlight = false;
+let searchLoadingInFlight = false;
 
 function formatMapsSearchElapsed(seconds) {
     const total = Math.max(0, Number(seconds) || 0);
@@ -5772,12 +5773,9 @@ function formatMapsSearchElapsed(seconds) {
     return String(minutes).padStart(2, '0') + ':' + String(remainder).padStart(2, '0');
 }
 
-function beginMapsSearchLoading(mode = 'initial') {
-    mapsSearchInFlight = true;
+function beginSearchLoading(title, message) {
+    searchLoadingInFlight = true;
     mapsSearchLoadingStartedAt = Date.now();
-    const isIncremental = mode === 'incremental';
-    const title = isIncremental ? 'Procurando novos leads' : 'Pesquisando empresas no Maps';
-    const message = isIncremental ? 'Estamos procurando leads adicionais para esta pesquisa e removendo os que você já recebeu.' : 'Estamos consultando os filtros informados e organizando os leads encontrados para você.';
     let overlay = document.getElementById('maps-search-loading-overlay');
     if (!overlay) {
         overlay = document.createElement('div');
@@ -5797,16 +5795,32 @@ function beginMapsSearchLoading(mode = 'initial') {
     updateElapsed();
     if (mapsSearchLoadingTimer) window.clearInterval(mapsSearchLoadingTimer);
     mapsSearchLoadingTimer=window.setInterval(updateElapsed,1000);
-    window.onbeforeunload=function(event){ if (!mapsSearchInFlight) return undefined; event.preventDefault(); event.returnValue=''; return ''; };
+    window.onbeforeunload=function(event){ if (!searchLoadingInFlight) return undefined; event.preventDefault(); event.returnValue=''; return ''; };
 }
 
-function endMapsSearchLoading() {
-    mapsSearchInFlight=false;
+function endSearchLoading() {
+    searchLoadingInFlight=false;
     if (mapsSearchLoadingTimer) { window.clearInterval(mapsSearchLoadingTimer); mapsSearchLoadingTimer=null; }
     const overlay=document.getElementById('maps-search-loading-overlay');
     if (overlay) overlay.remove();
     window.onbeforeunload=null;
 }
+
+function beginMapsSearchLoading(mode = 'initial') {
+    mapsSearchInFlight = true;
+    const isIncremental = mode === 'incremental';
+    const title = isIncremental ? 'Procurando novos leads' : 'Pesquisando empresas no Maps';
+    const message = isIncremental ? 'Estamos procurando leads adicionais para esta pesquisa e removendo os que você já recebeu.' : 'Estamos consultando os filtros informados e organizando os leads encontrados para você.';
+    beginSearchLoading(title, message);
+}
+
+function endMapsSearchLoading() {
+    mapsSearchInFlight = false;
+    endSearchLoading();
+}
+
+window.beginSearchLoading = beginSearchLoading;
+window.endSearchLoading = endSearchLoading;
 
 async function refreshCurrentSearchWithMapsPilot(buttonId = 'btn-maps-pilot-refresh') {
     if (mapsSearchInFlight) {
@@ -7775,6 +7789,7 @@ async function performCnpjSimpleLookup() {
         btn.disabled = true;
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Consultando...';
     }
+    beginSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
     if (resultDiv) {
         resultDiv.classList.remove('hidden');
         resultDiv.innerHTML = '<div class="py-12 text-center text-slate-500 font-bold">Realizando consulta de informações...</div>';
@@ -7846,6 +7861,7 @@ async function performCnpjSimpleLookup() {
     } catch (e) {
         if (resultDiv) resultDiv.innerHTML = `<div class="p-6 text-center text-red-600 font-bold text-sm">Erro ao consultar CNPJ: ${escapeHtml(e.message || 'erro desconhecido')}</div>`;
     } finally {
+        endSearchLoading();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Consultar CNPJ';
@@ -7929,6 +7945,7 @@ async function performCnpjAdvancedSearch() {
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     }
 
+    beginSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
     try {
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
@@ -7969,6 +7986,7 @@ async function performCnpjAdvancedSearch() {
     } catch (e) {
         alert('Erro ao realizar a busca avançada: ' + e.message);
     } finally {
+        endSearchLoading();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Buscar';

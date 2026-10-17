@@ -530,15 +530,25 @@ try {
         'limit_requested' => $limit,
         'only_new' => $onlyNew,
     ];
-    // A pesquisa LinkedIn usa Groq + Browser Search. O coletor autenticado
-    // permanece apenas como fallback operacional; o Apify não é chamado por
-    // este fluxo.
+    // Groq + Browser Search é a fonte principal. Se não retornar perfis,
+    // tenta Apify e mantém o coletor autenticado como fallback final.
     $linkedinSearchStage = 'groq_web_search';
     $completed = function_exists('linkedinRunGroqBrowserSearch')
         ? linkedinRunGroqBrowserSearch($db, $userId, $runPayload, $tenantId, $profile, 'pesquisa concluída')
         : false;
     $source = 'search';
     if (!$completed) {
+        $linkedinSearchStage = 'apify_rotating_fallback';
+        $completed = function_exists('linkedinRunApifyContingency') && linkedinRunApifyContingency(
+            $db,
+            $userId,
+            $runPayload,
+            $tenantId,
+            $profile,
+            'contingência Apify após pesquisa principal sem resultados'
+        );
+    }
+    if (!$completed && function_exists('linkedinRunAuthenticatedSearch')) {
         $linkedinSearchStage = 'authenticated_fallback';
         $completed = linkedinRunAuthenticatedSearch(
             $db,
@@ -546,21 +556,7 @@ try {
             $runPayload,
             $tenantId,
             $profile,
-            'fallback operacional após indisponibilidade da pesquisa principal'
-        );
-    }
-    if (!$completed && function_exists('linkedinRunApifyContingency')) {
-        // A sessão autenticada pode estar expirada mesmo quando o provedor
-        // principal sofre limite temporário. Usa as chaves elegíveis do painel
-        // em sequência antes de devolver erro ao cliente.
-        $linkedinSearchStage = 'apify_rotating_fallback';
-        $completed = linkedinRunApifyContingency(
-            $db,
-            $userId,
-            $runPayload,
-            $tenantId,
-            $profile,
-            'contingência após indisponibilidade das fontes principais'
+            'fallback operacional após indisponibilidade da pesquisa principal e Apify'
         );
     }
     if (!$completed) {

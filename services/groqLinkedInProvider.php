@@ -431,13 +431,7 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
                 }
             }
             if ($candidates === []) {
-                $hasSearchEvidence = $content !== '' || !empty($response['choices'][0]['message']['executed_tools']);
-                if ($hasSearchEvidence) {
-                    $db->prepare(
-                        'UPDATE linkedin_runs SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW() WHERE id = ?'
-                    )->execute(['done', 'groq_web', 'Nenhum perfil público compatível foi encontrado para estes filtros.', (int) $run['id']]);
-                    return true;
-                }
+                error_log('linkedin groq: nenhum perfil encontrado para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
                 return false;
             }
             if (function_exists('linkedinEnsureSeenProfilesTable')) {
