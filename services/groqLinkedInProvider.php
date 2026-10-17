@@ -366,6 +366,7 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
      */
     function linkedinRunGroqBrowserSearch(PDO $db, int $userId, array $run, int $tenantId, string $profile, string $internalMessage = ''): bool
     {
+        $GLOBALS['linkedin_groq_empty_result'] = false;
         try {
             $config = linkedinGroqConfig($db);
             if ($config['api_key'] === '') {
@@ -431,7 +432,11 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
                 }
             }
             if ($candidates === []) {
-                error_log('linkedin groq: nenhum perfil encontrado para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
+                $hasSearchEvidence = $content !== '' || !empty($response['choices'][0]['message']['executed_tools']);
+                if ($hasSearchEvidence) {
+                    $GLOBALS['linkedin_groq_empty_result'] = true;
+                    error_log('linkedin groq: nenhum perfil encontrado para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
+                }
                 return false;
             }
             if (function_exists('linkedinEnsureSeenProfilesTable')) {

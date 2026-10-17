@@ -879,4 +879,31 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         return true;
     }
 
+    function linkedinRunFinalizeEmptyGroqSearch(PDO $db, array $run, int $tenantId): bool
+    {
+        if (function_exists('linkedinApifyContingencyPublicMessage') && linkedinApifyContingencyPublicMessage() !== '') {
+            return false;
+        }
+        $runId = (int) ($run['id'] ?? 0);
+        if ($runId <= 0) {
+            return false;
+        }
+        try {
+            $db->prepare(
+                'UPDATE linkedin_runs
+                 SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW()
+                 WHERE id = ?'
+            )->execute(['done', 'groq_web', 'Nenhum perfil público compatível foi encontrado para estes filtros.', $runId]);
+            if (function_exists('linkedinStatusSaveResults')) {
+                linkedinStatusSaveResults($db, $tenantId, $runId, []);
+            } elseif (function_exists('saveLinkedInRunResults')) {
+                saveLinkedInRunResults($db, $tenantId, $runId, []);
+            }
+            return true;
+        } catch (Throwable $error) {
+            error_log('linkedin empty groq result finalization: ' . $error->getMessage());
+            return false;
+        }
+    }
+
 }

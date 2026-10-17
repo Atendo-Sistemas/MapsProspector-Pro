@@ -559,6 +559,10 @@ try {
             'fallback operacional após indisponibilidade da pesquisa principal e Apify'
         );
     }
+    if (!$completed && !empty($GLOBALS['linkedin_groq_empty_result'])) {
+        $linkedinSearchStage = 'groq_empty_fallback';
+        $completed = linkedinRunFinalizeEmptyGroqSearch($db, $runPayload, $tenantId);
+    }
     if (!$completed) {
         throw new RuntimeException('A coleta autenticada e a contingência não foram concluídas.');
     }

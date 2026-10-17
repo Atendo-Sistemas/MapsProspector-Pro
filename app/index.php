@@ -626,6 +626,7 @@ if (!headers_sent()) {
 </div>
 
 <script src="/assets/js/export-replace.js?v=20260821-65"></script>
+<script src="/assets/js/search-loading.js?v=20261017-linkedin-apify-search-modal-1"></script>
 <script src="/assets/js/linkedin-ui.js?v=20261017-linkedin-apify-search-modal-1"></script>
 <script src="/assets/js/help-ui.js?v=20260821-65"></script>
 <script src="/assets/js/apify-usage-ui.js?v=20260822-88-traffic-referrals-1"></script>
