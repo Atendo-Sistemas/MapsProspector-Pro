@@ -5,6 +5,7 @@
     var startedAt = 0;
     var activeSearches = [];
     var nextSearchId = 0;
+    var returnFocusElement = null;
     function beforeUnloadHandler(event) {
         if (activeSearches.length === 0) return;
         event.preventDefault();
@@ -19,9 +20,24 @@
         return String(minutes).padStart(2, '0') + ':' + String(remainder).padStart(2, '0');
     }
 
+    function trapSearchDialogFocus(event) {
+        if (activeSearches.length === 0) return;
+        var overlay = document.getElementById('maps-search-loading-overlay');
+        if (!overlay) return;
+        if (event.type === 'keydown' && event.key === 'Tab') {
+            event.preventDefault();
+            overlay.focus();
+        } else if (event.type === 'focusin' && !overlay.contains(event.target)) {
+            overlay.focus();
+        }
+    }
+
     function beginSearchLoading(title, message) {
         var wasInactive = activeSearches.length === 0;
-        if (wasInactive) startedAt = Date.now();
+        if (wasInactive) {
+            startedAt = Date.now();
+            returnFocusElement = document.activeElement;
+        }
         var search = {
             id: ++nextSearchId,
             title: title || 'Pesquisando...',
@@ -36,6 +52,7 @@
             overlay.setAttribute('role', 'dialog');
             overlay.setAttribute('aria-modal', 'true');
             overlay.setAttribute('aria-labelledby', 'maps-search-loading-title');
+            overlay.setAttribute('tabindex', '-1');
             overlay.innerHTML = `
                 <div class="w-full max-w-md rounded-[2rem] border border-white/20 bg-white p-7 shadow-2xl dark:bg-slate-800">
                     <div class="flex items-start gap-4">
@@ -68,6 +85,7 @@
         if (messageElement) messageElement.textContent = search.message;
 
         if (wasInactive) {
+            overlay.focus();
             var updateElapsed = function () {
                 var elapsedElement = document.getElementById('maps-search-loading-elapsed');
                 if (elapsedElement) elapsedElement.textContent = formatElapsed(Math.floor((Date.now() - startedAt) / 1000));
@@ -76,6 +94,8 @@
             if (timer) window.clearInterval(timer);
             timer = window.setInterval(updateElapsed, 1000);
             window.addEventListener('beforeunload', beforeUnloadHandler);
+            document.addEventListener('keydown', trapSearchDialogFocus);
+            document.addEventListener('focusin', trapSearchDialogFocus);
         }
         return search.id;
     }
@@ -105,6 +125,12 @@
         var overlay = document.getElementById('maps-search-loading-overlay');
         if (overlay) overlay.remove();
         window.removeEventListener('beforeunload', beforeUnloadHandler);
+        document.removeEventListener('keydown', trapSearchDialogFocus);
+        document.removeEventListener('focusin', trapSearchDialogFocus);
+        if (returnFocusElement && returnFocusElement.isConnected && typeof returnFocusElement.focus === 'function') {
+            returnFocusElement.focus();
+        }
+        returnFocusElement = null;
     }
 
     function beginMapsSearchLoading(mode) {

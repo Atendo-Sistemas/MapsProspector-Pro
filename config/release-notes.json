@@ -1,13 +1,14 @@
 [
   {
-    "version": "20261017-linkedin-apify-search-modal-4",
+    "version": "20261017-linkedin-apify-search-modal-5",
     "date": "2026-10-17",
     "title": "Contingência LinkedIn e modal de pesquisa",
     "items": [
       "A pesquisa LinkedIn aciona a Apify se a busca principal por IA não encontrar perfis, mantendo a sessão autenticada como alternativa.",
       "As consultas de Maps, LinkedIn e CNPJ exibem um modal de carregamento durante a pesquisa.",
       "Resultados vazios só são confirmados quando os provedores indicam ausência real de perfis, mantendo erros de resposta distintos.",
-      "O modal atualiza a descrição da pesquisa ativa e restaura a anterior quando buscas simultâneas terminam."
+      "O modal atualiza a descrição da pesquisa ativa e restaura a anterior quando buscas simultâneas terminam.",
+      "O modal gerencia foco acessível e restaura o foco ao concluir as consultas."
     ]
   },
   {

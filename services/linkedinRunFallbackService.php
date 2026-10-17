@@ -2,11 +2,11 @@
 declare(strict_types=1);
 
 /**
- * Orquestrador de pesquisas LinkedIn com HarvestAPI Full como fonte
- * principal e sessão autenticada temporária como fallback operacional.
+ * Orquestrador de pesquisas LinkedIn com busca web por IA como fonte
+ * principal, Apify como contingência e sessão autenticada como fallback.
  *
- * A pesquisa principal usa o actor HarvestAPI para obter perfis detalhados;
- * o coletor LinkedIn self-hosted permanece disponível quando o actor falhar.
+ * A busca web por IA é tentada primeiro; Apify e o coletor LinkedIn
+ * self-hosted são alternativas quando a pesquisa principal não traz perfis.
  * O usuário nunca vê o motivo técnico da falha; o detalhe permanece apenas
  * em registro interno, e a mensagem de retorno é genérica e positiva.
  *
@@ -24,6 +24,14 @@ declare(strict_types=1);
 
 if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
     define('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED', true);
+    define('LINKEDIN_RUN_RESULT_COMPLETED', 'completed');
+    define('LINKEDIN_RUN_RESULT_EMPTY', 'empty');
+    define('LINKEDIN_RUN_RESULT_FILTERED', 'filtered');
+    define('LINKEDIN_RUN_RESULT_UNAVAILABLE', 'unavailable');
+    define('LINKEDIN_RUN_RESULT_FAILED', 'failed');
+    define('LINKEDIN_RUN_STAGE_GROQ', 'groq_web_search');
+    define('LINKEDIN_RUN_STAGE_APIFY', 'apify_rotating_fallback');
+    define('LINKEDIN_RUN_STAGE_AUTHENTICATED', 'authenticated_fallback');
 
     /**
      * Lê o CSV bruto devolvido pelo coletor e converte para leads LinkedIn,
@@ -242,14 +250,17 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
 
     function linkedinRunFinalizeFallbackEmpty(PDO $db, array $run, int $tenantId, string $apifyResult, string $authenticatedResult): bool
     {
-        if ($apifyResult === 'filtered') {
-            if (!in_array($authenticatedResult, ['empty', 'unavailable'], true)) return false;
+        if ($apifyResult === LINKEDIN_RUN_RESULT_FILTERED) {
+            if (!in_array($authenticatedResult, [LINKEDIN_RUN_RESULT_EMPTY, LINKEDIN_RUN_RESULT_UNAVAILABLE], true)) return false;
             $actor = 'harvestapi_full';
             $message = 'Nenhum perfil novo compatível foi encontrado para estes filtros.';
-        } elseif ($apifyResult === 'empty') {
-            if (!in_array($authenticatedResult, ['empty', 'unavailable'], true)) return false;
+        } elseif ($apifyResult === LINKEDIN_RUN_RESULT_EMPTY) {
+            if (!in_array($authenticatedResult, [LINKEDIN_RUN_RESULT_EMPTY, LINKEDIN_RUN_RESULT_UNAVAILABLE], true)) return false;
             $actor = 'harvestapi_full';
             $message = 'Nenhum perfil retornado pelas chaves elegíveis do actor.';
+        } elseif ($authenticatedResult === LINKEDIN_RUN_RESULT_EMPTY) {
+            $actor = 'authenticated_session';
+            $message = 'Nenhum perfil retornado pelo coletor autenticado.';
         } else {
             return false;
         }
@@ -266,21 +277,21 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         string $apifyMessage,
         string $authenticatedMessage
     ): array {
-        $stage = 'groq_web_search';
+        $stage = LINKEDIN_RUN_STAGE_GROQ;
         $completed = function_exists('linkedinRunGroqBrowserSearch')
             ? linkedinRunGroqBrowserSearch($db, $userId, $run, $tenantId, $profile, $primaryMessage)
             : false;
-        $apifyResult = 'failed';
+        $apifyResult = LINKEDIN_RUN_RESULT_FAILED;
         if (!$completed) {
-            $stage = 'apify_rotating_fallback';
+            $stage = LINKEDIN_RUN_STAGE_APIFY;
             if (function_exists('linkedinRunApifyContingency')) {
                 $apifyResult = linkedinRunApifyContingency($db, $userId, $run, $tenantId, $profile, $apifyMessage);
-                $completed = $apifyResult === 'completed';
+                $completed = $apifyResult === LINKEDIN_RUN_RESULT_COMPLETED;
             }
         }
-        $authenticatedResult = 'unavailable';
+        $authenticatedResult = LINKEDIN_RUN_RESULT_UNAVAILABLE;
         if (!$completed) {
-            $stage = 'authenticated_fallback';
+            $stage = LINKEDIN_RUN_STAGE_AUTHENTICATED;
             if (function_exists('linkedinRunAuthenticatedSearch')) {
                 $authenticatedResult = linkedinRunAuthenticatedSearch(
                     $db,
@@ -290,11 +301,14 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                     $profile,
                     $authenticatedMessage
                 );
-                $completed = $authenticatedResult === 'completed';
+                $completed = $authenticatedResult === LINKEDIN_RUN_RESULT_COMPLETED;
             }
         }
         if (!$completed) {
             $completed = linkedinRunFinalizeFallbackEmpty($db, $run, $tenantId, $apifyResult, $authenticatedResult);
+        }
+        if (!$completed) {
+            error_log('linkedin fallback pipeline failed at stage ' . $stage . ' for run ' . (int) ($run['id'] ?? 0));
         }
         return ['completed' => $completed, 'stage' => $stage];
     }
@@ -330,7 +344,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         try {
             $collector = linkedinFallbackLoadCollectorClient();
             if ($collector === null) {
-                return 'unavailable';
+                return LINKEDIN_RUN_RESULT_UNAVAILABLE;
             }
 
             $jobTitles = json_decode((string) ($run['search_job_titles'] ?? ''), true);
@@ -346,7 +360,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
             $location = trim((string) ($run['search_location'] ?? ''));
             if ($jobTitle === '' || $location === '') {
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
 
             // Normalização simples para o formato aceito pelo coletor.
@@ -358,12 +372,12 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $company = trim((string) ($run['search_company'] ?? ''));
             $collected = linkedinFallbackCollect($collector, $jobTitle, $location, $company, $limit);
             if ($collected === null) {
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
 
             $leads = linkedinFallbackReadCsvLeads($collected['csv'], min($limit, 200));
             if (!$leads) {
-                return 'empty';
+                return LINKEDIN_RUN_RESULT_EMPTY;
             }
 
             $charged = 0;
@@ -430,10 +444,10 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
 
             error_log('linkedin fallback (run ' . $run['id'] . '): concluído pelo coletor próprio com ' . count($leads) . ' perfis — ' . $internalMessage);
-            return 'completed';
+            return LINKEDIN_RUN_RESULT_COMPLETED;
         } catch (Throwable $error) {
             error_log('linkedin fallback (run ' . $run['id'] . '): ' . $error->getMessage());
-            return 'failed';
+            return LINKEDIN_RUN_RESULT_FAILED;
         }
     }
 
@@ -771,7 +785,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
             if ($token === '') {
                 error_log('linkedin apify contingency: chave indisponível para run ' . ($run['id'] ?? '?'));
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             $jobTitles = json_decode((string) ($run['search_job_titles'] ?? ''), true);
             $jobTitle = is_array($jobTitles) && $jobTitles !== [] ? trim((string) $jobTitles[0]) : '';
@@ -780,7 +794,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
             $location = trim((string) ($run['search_location'] ?? ''));
             if ($jobTitle === '' || $location === '') {
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             $limit = max(1, min(625, (int) ($run['limit_requested'] ?? 10)));
             $onlyNew = !array_key_exists('only_new', $run) || (bool) $run['only_new'];
@@ -822,7 +836,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $url = 'https://api.apify.com/v2/acts/harvestapi~linkedin-profile-search/run-sync-get-dataset-items?timeout=300&clean=true&maxTotalChargeUsd=5.00';
             $curl = curl_init($url);
             if ($curl === false) {
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             curl_setopt_array($curl, [
                 CURLOPT_POST => true,
@@ -856,7 +870,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                 if (preg_match('/free user run limit|run limit reached|quota|limit.*run/iu', $providerStatus)) {
                     $GLOBALS['linkedin_apify_public_error'] = 'O limite de pesquisas gratuitas da conta de integração foi atingido. O administrador precisa ativar um plano da Apify ou configurar outra conta para continuar as pesquisas LinkedIn.';
                 }
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             $rows = json_decode((string) $body, true);
             if (is_array($rows) && isset($rows['data']) && is_array($rows['data'])) {
@@ -865,7 +879,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                 $rows = $rows['items'];
             } elseif (is_array($rows) && (isset($rows['error']) || isset($rows['message']))) {
                 error_log('linkedin apify contingency returned an error payload: ' . mb_substr((string) ($rows['message'] ?? $rows['error'] ?? ''), 0, 300));
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             $candidates = linkedinApifyNormalizeLeads(is_array($rows) ? $rows : [], $fetchLimit);
             if (!is_array($candidates) || !$candidates) {
@@ -874,7 +888,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                 if (preg_match('/free user run limit|run limit reached|quota|limit.*run/iu', $providerStatus)) {
                     $GLOBALS['linkedin_apify_public_error'] = 'O limite de pesquisas gratuitas da conta de integração foi atingido. O administrador precisa ativar um plano da Apify ou configurar outra conta para continuar as pesquisas LinkedIn.';
                 }
-                return $validEmptyDataset ? 'empty' : 'failed';
+                return $validEmptyDataset ? LINKEDIN_RUN_RESULT_EMPTY : LINKEDIN_RUN_RESULT_FAILED;
             }
 
             $db->beginTransaction();
@@ -888,7 +902,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                     if ($db->inTransaction()) {
                         $db->rollBack();
                     }
-                    return 'filtered';
+                    return LINKEDIN_RUN_RESULT_FILTERED;
                 }
                 $leadStmt = $db->prepare(
                     'INSERT INTO linkedin_leads
@@ -927,10 +941,10 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                 linkedinStatusWriteCache($db, $tenantId, (int) ($run['user_id'] ?? $userId), (string) ($run['search_company'] ?? ''), is_array($cacheTitles) ? $cacheTitles : [], (string) ($run['search_location'] ?? ''), $leads);
             }
             error_log('linkedin HarvestAPI Full (run ' . $run['id'] . '): concluída — ' . $internalMessage);
-            return 'completed';
+            return LINKEDIN_RUN_RESULT_COMPLETED;
         } catch (Throwable $error) {
             error_log('linkedin apify contingency (run ' . ($run['id'] ?? '?') . '): ' . $error->getMessage());
-            return 'failed';
+            return LINKEDIN_RUN_RESULT_FAILED;
         }
     }
 
@@ -953,7 +967,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $result = linkedinRunApifyContingencySingle($db, $userId, $run, $tenantId, $profile, $internalMessage);
             if (linkedinApifyContingencyPublicMessage() !== '') {
                 linkedinRunFinalizeApifyFailure($db, $run);
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
             return $result;
         }
@@ -968,23 +982,23 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $attempt = $run;
             $attempt['apify_key_override'] = $token;
             $result = linkedinRunApifyContingencySingle($db, $userId, $attempt, $tenantId, $profile, $internalMessage . ' (chave elegível ' . $keyId . ')');
-            if ($result === 'completed') return 'completed';
+            if ($result === LINKEDIN_RUN_RESULT_COMPLETED) return LINKEDIN_RUN_RESULT_COMPLETED;
             if (linkedinApifyContingencyPublicMessage() !== '') {
                 linkedinRunFinalizeApifyFailure($db, $run);
-                return 'failed';
+                return LINKEDIN_RUN_RESULT_FAILED;
             }
-            if ($result === 'empty') {
+            if ($result === LINKEDIN_RUN_RESULT_EMPTY) {
                 $hadEmptyResult = true;
-            } elseif ($result === 'filtered') {
+            } elseif ($result === LINKEDIN_RUN_RESULT_FILTERED) {
                 $hadFilteredResult = true;
             } else {
                 $hadProviderFailure = true;
             }
             error_log('linkedin apify contingency: tentativa sem perfis ou com falha; avaliando a próxima chave elegível.');
         }
-        if ($hadProviderFailure) return 'failed';
-        if ($hadFilteredResult) return 'filtered';
-        return $hadEmptyResult ? 'empty' : 'failed';
+        if ($hadProviderFailure) return LINKEDIN_RUN_RESULT_FAILED;
+        if ($hadFilteredResult) return LINKEDIN_RUN_RESULT_FILTERED;
+        return $hadEmptyResult ? LINKEDIN_RUN_RESULT_EMPTY : LINKEDIN_RUN_RESULT_FAILED;
     }
 
 }

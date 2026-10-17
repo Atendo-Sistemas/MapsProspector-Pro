@@ -542,7 +542,7 @@ try {
         'contingência Apify após pesquisa principal sem resultados',
         'fallback operacional após indisponibilidade da pesquisa principal e Apify'
     );
-    $linkedinSearchStage = (string) ($searchOutcome['stage'] ?? 'groq_web_search');
+    $linkedinSearchStage = (string) ($searchOutcome['stage'] ?? LINKEDIN_RUN_STAGE_GROQ);
     $completed = !empty($searchOutcome['completed']);
     $source = 'search';
     if (!$completed) {
