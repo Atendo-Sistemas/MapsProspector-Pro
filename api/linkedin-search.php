@@ -537,16 +537,20 @@ try {
         ? linkedinRunGroqBrowserSearch($db, $userId, $runPayload, $tenantId, $profile, 'pesquisa concluída')
         : false;
     $source = 'search';
+    $apifyResult = 'failed';
     if (!$completed) {
         $linkedinSearchStage = 'apify_rotating_fallback';
-        $completed = function_exists('linkedinRunApifyContingency') && linkedinRunApifyContingency(
-            $db,
-            $userId,
-            $runPayload,
-            $tenantId,
-            $profile,
-            'contingência Apify após pesquisa principal sem resultados'
-        );
+        if (function_exists('linkedinRunApifyContingency')) {
+            $apifyResult = linkedinRunApifyContingency(
+                $db,
+                $userId,
+                $runPayload,
+                $tenantId,
+                $profile,
+                'contingência Apify após pesquisa principal sem resultados'
+            );
+            $completed = $apifyResult === 'completed';
+        }
     }
     if (!$completed && function_exists('linkedinRunAuthenticatedSearch')) {
         $linkedinSearchStage = 'authenticated_fallback';
@@ -558,6 +562,12 @@ try {
             $profile,
             'fallback operacional após indisponibilidade da pesquisa principal e Apify'
         );
+    }
+    if (!$completed && in_array($apifyResult, ['empty', 'filtered'], true)) {
+        $emptyMessage = $apifyResult === 'filtered'
+            ? 'Nenhum perfil novo compatível foi encontrado para estes filtros.'
+            : 'Nenhum perfil retornado pelas chaves elegíveis do actor.';
+        $completed = linkedinRunFinalizeEmptySearch($db, $runPayload, $tenantId, 'harvestapi_full', $emptyMessage);
     }
     if (!$completed) {
         throw new RuntimeException('A coleta autenticada e a contingência não foram concluídas.');

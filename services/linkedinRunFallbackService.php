@@ -819,7 +819,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                     if ($db->inTransaction()) {
                         $db->rollBack();
                     }
-                    return 'empty';
+                    return 'filtered';
                 }
                 $leadStmt = $db->prepare(
                     'INSERT INTO linkedin_leads
@@ -873,17 +873,24 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         int $tenantId,
         string $profile,
         string $internalMessage
-    ): bool {
+    ): string {
         $GLOBALS['linkedin_apify_public_error'] = '';
         $candidates = function_exists('getRotatingApifyKeyCandidates') ? getRotatingApifyKeyCandidates($db) : [];
         if (!$candidates) {
             $result = linkedinRunApifyContingencySingle($db, $userId, $run, $tenantId, $profile, $internalMessage);
-            if ($result === 'completed') return true;
-            if (linkedinApifyContingencyPublicMessage() !== '') return false;
-            if ($result !== 'empty') return false;
-            return linkedinRunFinalizeEmptySearch($db, $run, $tenantId, 'harvestapi_full', 'Nenhum perfil retornado pelas chaves elegíveis do actor.');
+            if (linkedinApifyContingencyPublicMessage() !== '') {
+                try {
+                    $db->prepare('UPDATE linkedin_runs SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW() WHERE id = ?')
+                        ->execute(['failed', 'harvestapi_full', linkedinApifyContingencyPublicMessage(), (int) ($run['id'] ?? 0)]);
+                } catch (Throwable $error) {
+                    error_log('linkedin apify limit finalization: ' . $error->getMessage());
+                }
+                return 'failed';
+            }
+            return $result;
         }
         $hadEmptyResult = false;
+        $hadFilteredResult = false;
         $hadProviderFailure = false;
         foreach ($candidates as $candidate) {
             $keyId = (int) ($candidate['id'] ?? 0);
@@ -893,7 +900,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $attempt = $run;
             $attempt['apify_key_override'] = $token;
             $result = linkedinRunApifyContingencySingle($db, $userId, $attempt, $tenantId, $profile, $internalMessage . ' (chave elegível ' . $keyId . ')');
-            if ($result === 'completed') return true;
+            if ($result === 'completed') return 'completed';
             if (linkedinApifyContingencyPublicMessage() !== '') {
                 try {
                     $db->prepare('UPDATE linkedin_runs SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW() WHERE id = ?')
@@ -901,18 +908,20 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                 } catch (Throwable $error) {
                     error_log('linkedin apify limit finalization: ' . $error->getMessage());
                 }
-                return false;
+                return 'failed';
             }
             if ($result === 'empty') {
                 $hadEmptyResult = true;
+            } elseif ($result === 'filtered') {
+                $hadFilteredResult = true;
             } else {
                 $hadProviderFailure = true;
             }
             error_log('linkedin apify contingency: tentativa sem perfis ou com falha; avaliando a próxima chave elegível.');
         }
-        return $hadEmptyResult && !$hadProviderFailure
-            ? linkedinRunFinalizeEmptySearch($db, $run, $tenantId, 'harvestapi_full', 'Nenhum perfil retornado pelas chaves elegíveis do actor.')
-            : false;
+        if ($hadProviderFailure) return 'failed';
+        if ($hadFilteredResult) return 'filtered';
+        return $hadEmptyResult ? 'empty' : 'failed';
     }
 
 }

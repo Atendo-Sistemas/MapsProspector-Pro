@@ -4832,6 +4832,10 @@ function hideSearchLoading() {
     if (typeof window.endSearchLoading === 'function') window.endSearchLoading();
 }
 
+function showMapsSearchLoading(mode) {
+    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading(mode);
+}
+
 function updateGPSUI() {
     const indicator = document.getElementById('gps-indicator');
     const status = document.getElementById('gps-status');
@@ -5210,7 +5214,7 @@ async function performSearch() {
     AppState.mapsPilotShowOnlyNew = false;
     
     try {
-        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
+        showMapsSearchLoading('initial');
         var maxPlacesEl = document.getElementById('search-max-places');
         var maxPlaces = 200;
         var tokenUsage = AppState.tokenUsage;
@@ -5487,7 +5491,7 @@ async function refreshCurrentSearchWithMapsPilot() {
     }
     hideError();
     try {
-        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
+        showMapsSearchLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -5619,7 +5623,7 @@ async function runDirectMapsPilotSearch() {
     }
     hideError();
     try {
-        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
+        showMapsSearchLoading('initial');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -5687,7 +5691,7 @@ async function runMapsCheckNewLeads() {
     }
     hideError();
     try {
-        if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
+        showMapsSearchLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot-new-leads.php?search_history_id=' + encodeURIComponent(AppState.searchId), {
             credentials: 'same-origin',
             cache: 'no-store'

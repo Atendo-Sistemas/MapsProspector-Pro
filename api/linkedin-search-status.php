@@ -175,13 +175,22 @@ try {
         ? linkedinRunGroqBrowserSearch($db, $userId, $run, $tenantId, $profile, 'reprocessamento da pesquisa')
         : false;
     $source = 'search';
+    $apifyResult = 'failed';
     if (!$completed) {
-        $completed = function_exists('linkedinRunApifyContingency')
-            && linkedinRunApifyContingency($db, $userId, $run, $tenantId, $profile, 'contingência Apify após pesquisa principal sem resultados');
+        if (function_exists('linkedinRunApifyContingency')) {
+            $apifyResult = linkedinRunApifyContingency($db, $userId, $run, $tenantId, $profile, 'contingência Apify após pesquisa principal sem resultados');
+            $completed = $apifyResult === 'completed';
+        }
     }
     if (!$completed) {
         $completed = function_exists('linkedinRunAuthenticatedSearch')
             && linkedinRunAuthenticatedSearch($db, $userId, $run, $tenantId, $profile, 'fallback operacional após indisponibilidade da pesquisa principal e Apify');
+    }
+    if (!$completed && in_array($apifyResult, ['empty', 'filtered'], true)) {
+        $emptyMessage = $apifyResult === 'filtered'
+            ? 'Nenhum perfil novo compatível foi encontrado para estes filtros.'
+            : 'Nenhum perfil retornado pelas chaves elegíveis do actor.';
+        $completed = linkedinRunFinalizeEmptySearch($db, $run, $tenantId, 'harvestapi_full', $emptyMessage);
     }
     if (!$completed) {
         jsonError('A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
