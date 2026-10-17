@@ -3,7 +3,7 @@
 
     var timer = null;
     var startedAt = 0;
-    var active = false;
+    var activeCount = 0;
 
     function formatElapsed(seconds) {
         var total = Math.max(0, Number(seconds) || 0);
@@ -13,8 +13,8 @@
     }
 
     function beginSearchLoading(title, message) {
-        active = true;
-        startedAt = Date.now();
+        if (activeCount === 0) startedAt = Date.now();
+        activeCount += 1;
         var overlay = document.getElementById('maps-search-loading-overlay');
         if (!overlay) {
             overlay = document.createElement('div');
@@ -40,7 +40,7 @@
         if (timer) window.clearInterval(timer);
         timer = window.setInterval(updateElapsed, 1000);
         window.onbeforeunload = function (event) {
-            if (!active) return undefined;
+            if (activeCount === 0) return undefined;
             event.preventDefault();
             event.returnValue = '';
             return '';
@@ -48,7 +48,8 @@
     }
 
     function endSearchLoading() {
-        active = false;
+        activeCount = Math.max(0, activeCount - 1);
+        if (activeCount > 0) return;
         if (timer) {
             window.clearInterval(timer);
             timer = null;
@@ -58,6 +59,17 @@
         window.onbeforeunload = null;
     }
 
+    function beginMapsLoading(mode) {
+        var isIncremental = mode === 'incremental';
+        beginSearchLoading(
+            isIncremental ? 'Procurando novos leads' : 'Pesquisando empresas no Maps',
+            isIncremental
+                ? 'Estamos procurando leads adicionais para esta pesquisa e removendo os que você já recebeu.'
+                : 'Estamos consultando os filtros informados e organizando os leads encontrados para você.'
+        );
+    }
+
     window.beginSearchLoading = beginSearchLoading;
     window.endSearchLoading = endSearchLoading;
+    window.beginMapsLoading = beginMapsLoading;
 }());

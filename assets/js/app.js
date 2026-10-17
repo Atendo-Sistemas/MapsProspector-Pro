@@ -4824,6 +4824,14 @@ function refreshLocation() {
     }
 }
 
+function showSearchLoading(title, message) {
+    if (typeof window.beginSearchLoading === 'function') window.beginSearchLoading(title, message);
+}
+
+function hideSearchLoading() {
+    if (typeof window.endSearchLoading === 'function') window.endSearchLoading();
+}
+
 function updateGPSUI() {
     const indicator = document.getElementById('gps-indicator');
     const status = document.getElementById('gps-status');
@@ -5195,7 +5203,7 @@ async function performSearch() {
         btn.disabled = true;
     btn.innerHTML = '<span class="inline-block w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     hideError();
-    beginSearchLoading('Pesquisando empresas no Maps...', 'Estamos consultando os filtros informados e organizando os leads encontrados para você.');
+    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
     AppState.leads = [];
     AppState.visibleCount = 12;
     AppState.mapsPilotSummary = null;
@@ -5292,7 +5300,7 @@ async function performSearch() {
     } catch (e) {
         showError('Erro de conexão: ' + e.message);
     } finally {
-        endSearchLoading();
+        hideSearchLoading();
         btn.disabled = false;
         btn.textContent = 'Buscar Tudo';
     }
@@ -5478,7 +5486,7 @@ async function refreshCurrentSearchWithMapsPilot() {
         button.textContent = 'Atualizando...';
     }
     hideError();
-    beginSearchLoading('Procurando novos leads', 'Estamos procurando leads adicionais para esta pesquisa e removendo os que você já recebeu.');
+    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
 
     try {
         const response = await fetch(API_BASE + 'maps-pilot.php', {
@@ -5523,7 +5531,7 @@ async function refreshCurrentSearchWithMapsPilot() {
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível atualizar a pesquisa pela Coleta Atendo.');
     } finally {
-        endSearchLoading();
+        hideSearchLoading();
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Atualizar pesquisa Maps';
@@ -5611,7 +5619,7 @@ async function runDirectMapsPilotSearch() {
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Coletando...';
     }
     hideError();
-    beginSearchLoading('Pesquisando empresas no Maps...', 'Estamos consultando os filtros informados e organizando os leads encontrados para você.');
+    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('initial');
     try {
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
@@ -5657,7 +5665,7 @@ async function runDirectMapsPilotSearch() {
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível executar a busca direta pela Coleta Atendo.');
     } finally {
-        endSearchLoading();
+        hideSearchLoading();
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Buscar no Maps';
@@ -5679,7 +5687,7 @@ async function runMapsCheckNewLeads() {
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Verificando...';
     }
     hideError();
-    beginSearchLoading('Verificando novos leads', 'Estamos atualizando os dados desta pesquisa.');
+    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading('incremental');
     try {
         const response = await fetch(API_BASE + 'maps-pilot-new-leads.php?search_history_id=' + encodeURIComponent(AppState.searchId), {
             credentials: 'same-origin',
@@ -5720,7 +5728,7 @@ async function runMapsCheckNewLeads() {
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível verificar novos leads.');
     } finally {
-        endSearchLoading();
+        hideSearchLoading();
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Verificar novos leads';
@@ -7041,7 +7049,7 @@ async function performCnpjSimpleLookup() {
         btn.disabled = true;
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Consultando...';
     }
-    beginSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
+    showSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
 
     if (resultDiv) {
         resultDiv.classList.remove('hidden');
@@ -7102,7 +7110,7 @@ async function performCnpjSimpleLookup() {
             resultDiv.innerHTML = `<div class="p-6 text-center text-red-600 font-bold text-sm">Erro ao consultar CNPJ: ${e.message}</div>`;
         }
     } finally {
-        endSearchLoading();
+        hideSearchLoading();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Consultar CNPJ';
@@ -7186,7 +7194,7 @@ async function performCnpjAdvancedSearch() {
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     }
 
-    beginSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
+    showSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
     try {
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
@@ -7227,7 +7235,7 @@ async function performCnpjAdvancedSearch() {
     } catch (e) {
         alert('Erro ao realizar a busca avançada: ' + e.message);
     } finally {
-        endSearchLoading();
+        hideSearchLoading();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Buscar';

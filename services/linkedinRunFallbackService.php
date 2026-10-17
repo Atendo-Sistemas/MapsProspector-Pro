@@ -267,7 +267,17 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
 
             $leads = linkedinFallbackReadCsvLeads($collected['csv'], min($limit, 200));
             if (!$leads) {
-                return false;
+                $db->prepare(
+                    'UPDATE linkedin_runs
+                     SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW()
+                     WHERE id = ?'
+                )->execute(['done', 'authenticated_session', 'Nenhum perfil público compatível foi encontrado para estes filtros.', (int) $run['id']]);
+                if (function_exists('linkedinStatusSaveResults')) {
+                    linkedinStatusSaveResults($db, $tenantId, (int) $run['id'], []);
+                } elseif (function_exists('saveLinkedInRunResults')) {
+                    saveLinkedInRunResults($db, $tenantId, (int) $run['id'], []);
+                }
+                return true;
             }
 
             $charged = 0;
@@ -667,6 +677,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         string $internalMessage
     ): bool {
         try {
+            $GLOBALS['linkedin_apify_empty_result'] = false;
             $token = trim((string) ($run['apify_key_override'] ?? ''));
             if ($token === '') {
                 $token = linkedinApifyContingencyKey($db);
@@ -771,7 +782,9 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
             $candidates = linkedinApifyNormalizeLeads(is_array($rows) ? $rows : [], $fetchLimit);
             if (!is_array($candidates) || !$candidates) {
-                // Zero perfis libera a tentativa da próxima chave elegível.
+                if (is_array($rows) && array_is_list($rows)) {
+                    $GLOBALS['linkedin_apify_empty_result'] = true;
+                }
                 $providerStatus = linkedinApifyLastRunStatusMessage($token);
                 if (preg_match('/free user run limit|run limit reached|quota|limit.*run/iu', $providerStatus)) {
                     $GLOBALS['linkedin_apify_public_error'] = 'O limite de pesquisas gratuitas da conta de integração foi atingido. O administrador precisa ativar um plano da Apify ou configurar outra conta para continuar as pesquisas LinkedIn.';
@@ -836,6 +849,28 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         }
     }
 
+    function linkedinRunFinalizeEmptyApifySearch(PDO $db, array $run, int $tenantId): bool
+    {
+        $runId = (int) ($run['id'] ?? 0);
+        if ($runId <= 0) return false;
+        try {
+            $db->prepare(
+                'UPDATE linkedin_runs
+                 SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW()
+                 WHERE id = ?'
+            )->execute(['done', 'harvestapi_full', 'Nenhum perfil retornado pelas chaves elegíveis do actor.', $runId]);
+            if (function_exists('linkedinStatusSaveResults')) {
+                linkedinStatusSaveResults($db, $tenantId, $runId, []);
+            } elseif (function_exists('saveLinkedInRunResults')) {
+                saveLinkedInRunResults($db, $tenantId, $runId, []);
+            }
+            return true;
+        } catch (Throwable $error) {
+            error_log('linkedin apify empty finalization: ' . $error->getMessage());
+            return false;
+        }
+    }
+
     /** Tenta as chaves Apify elegíveis em sequência. */
     function linkedinRunApifyContingency(
         PDO $db,
@@ -847,8 +882,12 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
     ): bool {
         $candidates = function_exists('getRotatingApifyKeyCandidates') ? getRotatingApifyKeyCandidates($db) : [];
         if (!$candidates) {
-            return linkedinRunApifyContingencySingle($db, $userId, $run, $tenantId, $profile, $internalMessage);
+            $completed = linkedinRunApifyContingencySingle($db, $userId, $run, $tenantId, $profile, $internalMessage);
+            if ($completed || empty($GLOBALS['linkedin_apify_empty_result'])) return $completed;
+            return linkedinRunFinalizeEmptyApifySearch($db, $run, $tenantId);
         }
+        $hadEmptyResult = false;
+        $hadProviderFailure = false;
         foreach ($candidates as $candidate) {
             $keyId = (int) ($candidate['id'] ?? 0);
             $token = trim((string) ($candidate['api_key'] ?? ''));
@@ -866,44 +905,16 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
                 }
                 return false;
             }
+            if (!empty($GLOBALS['linkedin_apify_empty_result'])) {
+                $hadEmptyResult = true;
+            } else {
+                $hadProviderFailure = true;
+            }
             error_log('linkedin apify contingency: tentativa sem perfis ou com falha; avaliando a próxima chave elegível.');
         }
-        try {
-            $db->prepare("UPDATE linkedin_runs SET status = 'done', apify_actor = 'harvestapi_full', leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW() WHERE id = ?")
-                ->execute(['Nenhum perfil retornado pelas chaves elegíveis do actor.', (int) ($run['id'] ?? 0)]);
-            if (function_exists('linkedinStatusSaveResults')) linkedinStatusSaveResults($db, $tenantId, (int) ($run['id'] ?? 0), []);
-            elseif (function_exists('saveLinkedInRunResults')) saveLinkedInRunResults($db, $tenantId, (int) ($run['id'] ?? 0), []);
-        } catch (Throwable $error) {
-            error_log('linkedin apify empty finalization: ' . $error->getMessage());
-        }
-        return true;
-    }
-
-    function linkedinRunFinalizeEmptyGroqSearch(PDO $db, array $run, int $tenantId): bool
-    {
-        if (function_exists('linkedinApifyContingencyPublicMessage') && linkedinApifyContingencyPublicMessage() !== '') {
-            return false;
-        }
-        $runId = (int) ($run['id'] ?? 0);
-        if ($runId <= 0) {
-            return false;
-        }
-        try {
-            $db->prepare(
-                'UPDATE linkedin_runs
-                 SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW()
-                 WHERE id = ?'
-            )->execute(['done', 'groq_web', 'Nenhum perfil público compatível foi encontrado para estes filtros.', $runId]);
-            if (function_exists('linkedinStatusSaveResults')) {
-                linkedinStatusSaveResults($db, $tenantId, $runId, []);
-            } elseif (function_exists('saveLinkedInRunResults')) {
-                saveLinkedInRunResults($db, $tenantId, $runId, []);
-            }
-            return true;
-        } catch (Throwable $error) {
-            error_log('linkedin empty groq result finalization: ' . $error->getMessage());
-            return false;
-        }
+        return $hadEmptyResult && !$hadProviderFailure
+            ? linkedinRunFinalizeEmptyApifySearch($db, $run, $tenantId)
+            : false;
     }
 
 }
