@@ -532,42 +532,19 @@ try {
     ];
     // Groq + Browser Search é a fonte principal. Se não retornar perfis,
     // tenta Apify e mantém o coletor autenticado como fallback final.
-    $linkedinSearchStage = 'groq_web_search';
-    $completed = function_exists('linkedinRunGroqBrowserSearch')
-        ? linkedinRunGroqBrowserSearch($db, $userId, $runPayload, $tenantId, $profile, 'pesquisa concluída')
-        : false;
+    $searchOutcome = linkedinRunSearchWithFallbacks(
+        $db,
+        $userId,
+        $runPayload,
+        $tenantId,
+        $profile,
+        'pesquisa concluída',
+        'contingência Apify após pesquisa principal sem resultados',
+        'fallback operacional após indisponibilidade da pesquisa principal e Apify'
+    );
+    $linkedinSearchStage = (string) ($searchOutcome['stage'] ?? 'groq_web_search');
+    $completed = !empty($searchOutcome['completed']);
     $source = 'search';
-    $apifyResult = 'failed';
-    if (!$completed) {
-        $linkedinSearchStage = 'apify_rotating_fallback';
-        if (function_exists('linkedinRunApifyContingency')) {
-            $apifyResult = linkedinRunApifyContingency(
-                $db,
-                $userId,
-                $runPayload,
-                $tenantId,
-                $profile,
-                'contingência Apify após pesquisa principal sem resultados'
-            );
-            $completed = $apifyResult === 'completed';
-        }
-    }
-    $authenticatedResult = 'unavailable';
-    if (!$completed && function_exists('linkedinRunAuthenticatedSearch')) {
-        $linkedinSearchStage = 'authenticated_fallback';
-        $authenticatedResult = linkedinRunAuthenticatedSearch(
-            $db,
-            $userId,
-            $runPayload,
-            $tenantId,
-            $profile,
-            'fallback operacional após indisponibilidade da pesquisa principal e Apify'
-        );
-        $completed = $authenticatedResult === 'completed';
-    }
-    if (!$completed) {
-        $completed = linkedinRunFinalizeFallbackEmpty($db, $runPayload, $tenantId, $apifyResult, $authenticatedResult);
-    }
     if (!$completed) {
         throw new RuntimeException('A coleta autenticada e a contingência não foram concluídas.');
     }

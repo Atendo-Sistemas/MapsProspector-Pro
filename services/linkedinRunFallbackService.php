@@ -256,6 +256,49 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         return linkedinRunFinalizeEmptySearch($db, $run, $tenantId, $actor, $message);
     }
 
+    function linkedinRunSearchWithFallbacks(
+        PDO $db,
+        int $userId,
+        array $run,
+        int $tenantId,
+        string $profile,
+        string $primaryMessage,
+        string $apifyMessage,
+        string $authenticatedMessage
+    ): array {
+        $stage = 'groq_web_search';
+        $completed = function_exists('linkedinRunGroqBrowserSearch')
+            ? linkedinRunGroqBrowserSearch($db, $userId, $run, $tenantId, $profile, $primaryMessage)
+            : false;
+        $apifyResult = 'failed';
+        if (!$completed) {
+            $stage = 'apify_rotating_fallback';
+            if (function_exists('linkedinRunApifyContingency')) {
+                $apifyResult = linkedinRunApifyContingency($db, $userId, $run, $tenantId, $profile, $apifyMessage);
+                $completed = $apifyResult === 'completed';
+            }
+        }
+        $authenticatedResult = 'unavailable';
+        if (!$completed) {
+            $stage = 'authenticated_fallback';
+            if (function_exists('linkedinRunAuthenticatedSearch')) {
+                $authenticatedResult = linkedinRunAuthenticatedSearch(
+                    $db,
+                    $userId,
+                    $run,
+                    $tenantId,
+                    $profile,
+                    $authenticatedMessage
+                );
+                $completed = $authenticatedResult === 'completed';
+            }
+        }
+        if (!$completed) {
+            $completed = linkedinRunFinalizeFallbackEmpty($db, $run, $tenantId, $apifyResult, $authenticatedResult);
+        }
+        return ['completed' => $completed, 'stage' => $stage];
+    }
+
     function linkedinRunFinalizeApifyFailure(PDO $db, array $run): void
     {
         $message = linkedinApifyContingencyPublicMessage();
@@ -710,6 +753,8 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
     /**
      * Consulta o actor HarvestAPI Full e conclui o mesmo run.
      * A cobrança acontece uma única vez, após a gravação dos leads retornados.
+     *
+     * @return string completed, empty, filtered ou failed
      */
     function linkedinRunApifyContingencySingle(
         PDO $db,
@@ -889,7 +934,11 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         }
     }
 
-    /** Tenta as chaves Apify elegíveis em sequência. */
+    /**
+     * Tenta as chaves Apify elegíveis em sequência.
+     *
+     * @return string completed, empty, filtered ou failed
+     */
     function linkedinRunApifyContingency(
         PDO $db,
         int $userId,

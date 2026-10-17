@@ -3,9 +3,10 @@
 
     var timer = null;
     var startedAt = 0;
-    var activeCount = 0;
+    var activeSearches = [];
+    var nextSearchId = 0;
     function beforeUnloadHandler(event) {
-        if (activeCount === 0) return;
+        if (activeSearches.length === 0) return;
         event.preventDefault();
         event.returnValue = '';
         return '';
@@ -19,9 +20,14 @@
     }
 
     function beginSearchLoading(title, message) {
-        var wasInactive = activeCount === 0;
+        var wasInactive = activeSearches.length === 0;
         if (wasInactive) startedAt = Date.now();
-        activeCount += 1;
+        var search = {
+            id: ++nextSearchId,
+            title: title || 'Pesquisando...',
+            message: message || 'Aguarde a conclusão da consulta.'
+        };
+        activeSearches.push(search);
         var overlay = document.getElementById('maps-search-loading-overlay');
         if (!overlay) {
             overlay = document.createElement('div');
@@ -58,8 +64,8 @@
 
         var titleElement = document.getElementById('maps-search-loading-title');
         var messageElement = document.getElementById('maps-search-loading-message');
-        if (titleElement) titleElement.textContent = title || 'Pesquisando...';
-        if (messageElement) messageElement.textContent = message || 'Aguarde a conclusão da consulta.';
+        if (titleElement) titleElement.textContent = search.title;
+        if (messageElement) messageElement.textContent = search.message;
 
         if (wasInactive) {
             var updateElapsed = function () {
@@ -71,12 +77,27 @@
             timer = window.setInterval(updateElapsed, 1000);
             window.addEventListener('beforeunload', beforeUnloadHandler);
         }
+        return search.id;
     }
 
-    function endSearchLoading() {
-        if (activeCount === 0) return;
-        activeCount -= 1;
-        if (activeCount > 0) return;
+    function endSearchLoading(searchId) {
+        if (activeSearches.length === 0) return;
+        var searchIndex = activeSearches.length - 1;
+        if (searchId !== undefined) {
+            searchIndex = activeSearches.findIndex(function (search) {
+                return search.id === searchId;
+            });
+            if (searchIndex < 0) return;
+        }
+        activeSearches.splice(searchIndex, 1);
+        if (activeSearches.length > 0) {
+            var currentSearch = activeSearches[activeSearches.length - 1];
+            var titleElement = document.getElementById('maps-search-loading-title');
+            var messageElement = document.getElementById('maps-search-loading-message');
+            if (titleElement) titleElement.textContent = currentSearch.title;
+            if (messageElement) messageElement.textContent = currentSearch.message;
+            return;
+        }
         if (timer) {
             window.clearInterval(timer);
             timer = null;
@@ -88,7 +109,7 @@
 
     function beginMapsSearchLoading(mode) {
         var isIncremental = mode === 'incremental';
-        beginSearchLoading(
+        return beginSearchLoading(
             isIncremental ? 'Procurando novos leads' : 'Pesquisando empresas no Maps',
             isIncremental
                 ? 'Estamos procurando leads adicionais para esta pesquisa e removendo os que você já recebeu.'

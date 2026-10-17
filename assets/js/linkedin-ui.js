@@ -817,7 +817,7 @@
             event.preventDefault();
             clearLinkedInError();
             setSearching(true);
-            var loadingStarted = false;
+            var loadingToken = null;
             try {
                 await ensureLinkedInConsent();
                 var company = document.getElementById('linkedin-company').value.trim();
@@ -830,9 +830,8 @@
                 var limit = parseInt(document.getElementById('linkedin-limit').value, 10) || 10;
                 if (!location || !jobTitles.length) throw new Error('Informe a localidade e pelo menos um cargo.');
 
-                loadingStarted = typeof window.beginSearchLoading === 'function';
-                if (loadingStarted) {
-                    window.beginSearchLoading('Pesquisando perfis profissionais no LinkedIn...', 'Estamos buscando e preparando os perfis solicitados.');
+                if (typeof window.beginSearchLoading === 'function') {
+                    loadingToken = window.beginSearchLoading('Pesquisando perfis profissionais no LinkedIn...', 'Estamos buscando e preparando os perfis solicitados.');
                 }
                 var response = await fetch(apiUrl('linkedin-search.php'), {
                     method: 'POST',
@@ -871,8 +870,8 @@
             } catch (error) {
                 showLinkedInError(error.message);
             } finally {
-                if (loadingStarted && typeof window.endSearchLoading === 'function') {
-                    window.endSearchLoading();
+                if (loadingToken !== null && typeof window.endSearchLoading === 'function') {
+                    window.endSearchLoading(loadingToken);
                 }
                 setSearching(false);
             }

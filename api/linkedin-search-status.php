@@ -169,27 +169,18 @@ try {
         jsonSuccess(['runId' => (string) $runId, 'pending' => true, 'status' => $run['status'], 'pollAfterMs' => 2000]);
     }
 
-    $internalMessage = trim((string) ($run['error_message'] ?? ''));
-    $internalMessage = $internalMessage !== '' ? $internalMessage : 'execução incompleta reprocessada';
-    $completed = function_exists('linkedinRunGroqBrowserSearch')
-        ? linkedinRunGroqBrowserSearch($db, $userId, $run, $tenantId, $profile, 'reprocessamento da pesquisa')
-        : false;
+    $searchOutcome = linkedinRunSearchWithFallbacks(
+        $db,
+        $userId,
+        $run,
+        $tenantId,
+        $profile,
+        'reprocessamento da pesquisa',
+        'contingência Apify após pesquisa principal sem resultados',
+        'fallback operacional após indisponibilidade da pesquisa principal e Apify'
+    );
+    $completed = !empty($searchOutcome['completed']);
     $source = 'search';
-    $apifyResult = 'failed';
-    if (!$completed) {
-        if (function_exists('linkedinRunApifyContingency')) {
-            $apifyResult = linkedinRunApifyContingency($db, $userId, $run, $tenantId, $profile, 'contingência Apify após pesquisa principal sem resultados');
-            $completed = $apifyResult === 'completed';
-        }
-    }
-    $authenticatedResult = 'unavailable';
-    if (!$completed && function_exists('linkedinRunAuthenticatedSearch')) {
-        $authenticatedResult = linkedinRunAuthenticatedSearch($db, $userId, $run, $tenantId, $profile, 'fallback operacional após indisponibilidade da pesquisa principal e Apify');
-        $completed = $authenticatedResult === 'completed';
-    }
-    if (!$completed) {
-        $completed = linkedinRunFinalizeFallbackEmpty($db, $run, $tenantId, $apifyResult, $authenticatedResult);
-    }
     if (!$completed) {
         jsonError('A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
     }

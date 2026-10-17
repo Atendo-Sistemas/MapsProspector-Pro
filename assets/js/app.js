@@ -5201,10 +5201,9 @@ async function performSearch() {
     AppState.mapsPilotNewLeadIds = [];
     AppState.mapsPilotShowOnlyNew = false;
     
-    var loadingStarted = false;
+    var loadingToken = null;
     try {
-        loadingStarted = typeof window.beginMapsSearchLoading === 'function';
-        if (loadingStarted) window.beginMapsSearchLoading('initial');
+        if (typeof window.beginMapsSearchLoading === 'function') loadingToken = window.beginMapsSearchLoading('initial');
         var maxPlacesEl = document.getElementById('search-max-places');
         var maxPlaces = 200;
         var tokenUsage = AppState.tokenUsage;
@@ -5294,7 +5293,7 @@ async function performSearch() {
     } catch (e) {
         showError('Erro de conexão: ' + e.message);
     } finally {
-        if (loadingStarted) window.endSearchLoading?.();
+        if (loadingToken !== null) window.endSearchLoading?.(loadingToken);
         btn.disabled = false;
         btn.textContent = 'Buscar Tudo';
     }
@@ -5480,10 +5479,9 @@ async function refreshCurrentSearchWithMapsPilot() {
         button.textContent = 'Atualizando...';
     }
     hideError();
-    var loadingStarted = false;
+    var loadingToken = null;
     try {
-        loadingStarted = typeof window.beginMapsSearchLoading === 'function';
-        if (loadingStarted) window.beginMapsSearchLoading('incremental');
+        if (typeof window.beginMapsSearchLoading === 'function') loadingToken = window.beginMapsSearchLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -5526,7 +5524,7 @@ async function refreshCurrentSearchWithMapsPilot() {
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível atualizar a pesquisa pela Coleta Atendo.');
     } finally {
-        if (loadingStarted) window.endSearchLoading?.();
+        if (loadingToken !== null) window.endSearchLoading?.(loadingToken);
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Atualizar pesquisa Maps';
@@ -5614,10 +5612,9 @@ async function runDirectMapsPilotSearch() {
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Coletando...';
     }
     hideError();
-    var loadingStarted = false;
+    var loadingToken = null;
     try {
-        loadingStarted = typeof window.beginMapsSearchLoading === 'function';
-        if (loadingStarted) window.beginMapsSearchLoading('initial');
+        if (typeof window.beginMapsSearchLoading === 'function') loadingToken = window.beginMapsSearchLoading('initial');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
             credentials: 'same-origin',
@@ -5662,7 +5659,7 @@ async function runDirectMapsPilotSearch() {
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível executar a busca direta pela Coleta Atendo.');
     } finally {
-        if (loadingStarted) window.endSearchLoading?.();
+        if (loadingToken !== null) window.endSearchLoading?.(loadingToken);
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Buscar no Maps';
@@ -5684,10 +5681,9 @@ async function runMapsCheckNewLeads() {
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Verificando...';
     }
     hideError();
-    var loadingStarted = false;
+    var loadingToken = null;
     try {
-        loadingStarted = typeof window.beginMapsSearchLoading === 'function';
-        if (loadingStarted) window.beginMapsSearchLoading('incremental');
+        if (typeof window.beginMapsSearchLoading === 'function') loadingToken = window.beginMapsSearchLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot-new-leads.php?search_history_id=' + encodeURIComponent(AppState.searchId), {
             credentials: 'same-origin',
             cache: 'no-store'
@@ -5727,7 +5723,7 @@ async function runMapsCheckNewLeads() {
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível verificar novos leads.');
     } finally {
-        if (loadingStarted) window.endSearchLoading?.();
+        if (loadingToken !== null) window.endSearchLoading?.(loadingToken);
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Verificar novos leads';
@@ -7053,10 +7049,9 @@ async function performCnpjSimpleLookup() {
         resultDiv.innerHTML = '<div class="py-12 text-center text-slate-500 font-bold">Realizando Consulta de inforações</div>';
     }
 
-    var loadingStarted = false;
+    var loadingToken = null;
     try {
-        loadingStarted = typeof window.beginSearchLoading === 'function';
-        if (loadingStarted) window.beginSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
+        if (typeof window.beginSearchLoading === 'function') loadingToken = window.beginSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -7110,7 +7105,7 @@ async function performCnpjSimpleLookup() {
             resultDiv.innerHTML = `<div class="p-6 text-center text-red-600 font-bold text-sm">Erro ao consultar CNPJ: ${e.message}</div>`;
         }
     } finally {
-        if (loadingStarted) window.endSearchLoading?.();
+        if (loadingToken !== null) window.endSearchLoading?.(loadingToken);
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Consultar CNPJ';
@@ -7194,10 +7189,9 @@ async function performCnpjAdvancedSearch() {
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     }
 
-    var loadingStarted = false;
+    var loadingToken = null;
     try {
-        loadingStarted = typeof window.beginSearchLoading === 'function';
-        if (loadingStarted) window.beginSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
+        if (typeof window.beginSearchLoading === 'function') loadingToken = window.beginSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -7237,7 +7231,7 @@ async function performCnpjAdvancedSearch() {
     } catch (e) {
         alert('Erro ao realizar a busca avançada: ' + e.message);
     } finally {
-        if (loadingStarted) window.endSearchLoading?.();
+        if (loadingToken !== null) window.endSearchLoading?.(loadingToken);
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Buscar';
