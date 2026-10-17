@@ -565,14 +565,8 @@ try {
         );
         $completed = $authenticatedResult === 'completed';
     }
-    if (!$completed && (in_array($apifyResult, ['empty', 'filtered'], true) || $authenticatedResult === 'empty')) {
-        $emptyMessage = $apifyResult === 'filtered'
-            ? 'Nenhum perfil novo compatível foi encontrado para estes filtros.'
-            : ($apifyResult === 'empty'
-                ? 'Nenhum perfil retornado pelas chaves elegíveis do actor.'
-                : 'Nenhum perfil público compatível foi encontrado para estes filtros.');
-        $emptyActor = in_array($apifyResult, ['empty', 'filtered'], true) ? 'harvestapi_full' : 'authenticated_session';
-        $completed = linkedinRunFinalizeEmptySearch($db, $runPayload, $tenantId, $emptyActor, $emptyMessage);
+    if (!$completed) {
+        $completed = linkedinRunFinalizeFallbackEmpty($db, $runPayload, $tenantId, $apifyResult);
     }
     if (!$completed) {
         throw new RuntimeException('A coleta autenticada e a contingência não foram concluídas.');

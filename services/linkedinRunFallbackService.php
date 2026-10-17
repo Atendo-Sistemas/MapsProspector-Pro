@@ -240,6 +240,20 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         }
     }
 
+    function linkedinRunFinalizeFallbackEmpty(PDO $db, array $run, int $tenantId, string $apifyResult): bool
+    {
+        if ($apifyResult === 'filtered') {
+            $actor = 'harvestapi_full';
+            $message = 'Nenhum perfil novo compatível foi encontrado para estes filtros.';
+        } elseif ($apifyResult === 'empty') {
+            $actor = 'harvestapi_full';
+            $message = 'Nenhum perfil retornado pelas chaves elegíveis do actor.';
+        } else {
+            return false;
+        }
+        return linkedinRunFinalizeEmptySearch($db, $run, $tenantId, $actor, $message);
+    }
+
     function linkedinRunFinalizeApifyFailure(PDO $db, array $run): void
     {
         $message = linkedinApifyContingencyPublicMessage();

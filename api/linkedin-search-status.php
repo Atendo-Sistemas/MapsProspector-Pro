@@ -187,14 +187,8 @@ try {
         $authenticatedResult = linkedinRunAuthenticatedSearch($db, $userId, $run, $tenantId, $profile, 'fallback operacional após indisponibilidade da pesquisa principal e Apify');
         $completed = $authenticatedResult === 'completed';
     }
-    if (!$completed && (in_array($apifyResult, ['empty', 'filtered'], true) || $authenticatedResult === 'empty')) {
-        $emptyMessage = $apifyResult === 'filtered'
-            ? 'Nenhum perfil novo compatível foi encontrado para estes filtros.'
-            : ($apifyResult === 'empty'
-                ? 'Nenhum perfil retornado pelas chaves elegíveis do actor.'
-                : 'Nenhum perfil público compatível foi encontrado para estes filtros.');
-        $emptyActor = in_array($apifyResult, ['empty', 'filtered'], true) ? 'harvestapi_full' : 'authenticated_session';
-        $completed = linkedinRunFinalizeEmptySearch($db, $run, $tenantId, $emptyActor, $emptyMessage);
+    if (!$completed) {
+        $completed = linkedinRunFinalizeFallbackEmpty($db, $run, $tenantId, $apifyResult);
     }
     if (!$completed) {
         jsonError('A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
