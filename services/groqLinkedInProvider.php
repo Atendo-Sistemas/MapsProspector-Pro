@@ -431,10 +431,7 @@ if (!defined('GROQ_LINKEDIN_PROVIDER_LOADED')) {
                 }
             }
             if ($candidates === []) {
-                $hasSearchEvidence = $content !== '' || !empty($response['choices'][0]['message']['executed_tools']);
-                if ($hasSearchEvidence) {
-                    error_log('linkedin groq: nenhum perfil encontrado para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
-                }
+                error_log('linkedin groq: nenhum perfil retornado para run ' . (int) ($run['id'] ?? 0) . '; acionando contingência.');
                 return false;
             }
             if (function_exists('linkedinEnsureSeenProfilesTable')) {
