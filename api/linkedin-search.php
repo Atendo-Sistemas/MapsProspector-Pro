@@ -552,9 +552,10 @@ try {
             $completed = $apifyResult === 'completed';
         }
     }
+    $authenticatedResult = 'failed';
     if (!$completed && function_exists('linkedinRunAuthenticatedSearch')) {
         $linkedinSearchStage = 'authenticated_fallback';
-        $completed = linkedinRunAuthenticatedSearch(
+        $authenticatedResult = linkedinRunAuthenticatedSearch(
             $db,
             $userId,
             $runPayload,
@@ -562,12 +563,16 @@ try {
             $profile,
             'fallback operacional após indisponibilidade da pesquisa principal e Apify'
         );
+        $completed = $authenticatedResult === 'completed';
     }
-    if (!$completed && in_array($apifyResult, ['empty', 'filtered'], true)) {
+    if (!$completed && (in_array($apifyResult, ['empty', 'filtered'], true) || $authenticatedResult === 'empty')) {
         $emptyMessage = $apifyResult === 'filtered'
             ? 'Nenhum perfil novo compatível foi encontrado para estes filtros.'
-            : 'Nenhum perfil retornado pelas chaves elegíveis do actor.';
-        $completed = linkedinRunFinalizeEmptySearch($db, $runPayload, $tenantId, 'harvestapi_full', $emptyMessage);
+            : ($apifyResult === 'empty'
+                ? 'Nenhum perfil retornado pelas chaves elegíveis do actor.'
+                : 'Nenhum perfil público compatível foi encontrado para estes filtros.');
+        $emptyActor = in_array($apifyResult, ['empty', 'filtered'], true) ? 'harvestapi_full' : 'authenticated_session';
+        $completed = linkedinRunFinalizeEmptySearch($db, $runPayload, $tenantId, $emptyActor, $emptyMessage);
     }
     if (!$completed) {
         throw new RuntimeException('A coleta autenticada e a contingência não foram concluídas.');

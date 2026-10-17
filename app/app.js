@@ -5803,7 +5803,9 @@ async function refreshCurrentSearchWithMapsPilot(buttonId = 'btn-maps-pilot-refr
     }
     hideError();
 
+    let loadingStarted = false;
     try {
+        loadingStarted = true;
         beginMapsSearchLoading('incremental');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
@@ -5850,7 +5852,7 @@ async function refreshCurrentSearchWithMapsPilot(buttonId = 'btn-maps-pilot-refr
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível atualizar a pesquisa pela Coleta Atendo.');
     } finally {
-        endMapsSearchLoading();
+        if (loadingStarted) endMapsSearchLoading();
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Atualizar pesquisa Maps';
@@ -5962,7 +5964,9 @@ async function runDirectMapsPilotSearch() {
         button.innerHTML = '<span class="inline-block w-3.5 h-3.5 border-2 border-white border-t-transparent rounded-full animate-spin mr-1.5"></span>Coletando...';
     }
     hideError();
+    let loadingStarted = false;
     try {
+        loadingStarted = true;
         beginMapsSearchLoading('initial');
         const response = await fetch(API_BASE + 'maps-pilot.php', {
             method: 'POST',
@@ -6017,7 +6021,7 @@ async function runDirectMapsPilotSearch() {
     } catch (error) {
         showError(error && error.message ? error.message : 'Não foi possível executar a busca direta pela Coleta Atendo.');
     } finally {
-        endMapsSearchLoading();
+        if (loadingStarted) endMapsSearchLoading();
         if (button) {
             button.disabled = false;
             button.textContent = originalLabel || 'Buscar no Maps';
@@ -7752,7 +7756,9 @@ async function performCnpjSimpleLookup() {
         resultDiv.classList.remove('hidden');
         resultDiv.innerHTML = '<div class="py-12 text-center text-slate-500 font-bold">Realizando consulta de informações...</div>';
     }
+    let loadingStarted = false;
     try {
+        loadingStarted = true;
         showSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
@@ -7820,7 +7826,7 @@ async function performCnpjSimpleLookup() {
     } catch (e) {
         if (resultDiv) resultDiv.innerHTML = `<div class="p-6 text-center text-red-600 font-bold text-sm">Erro ao consultar CNPJ: ${escapeHtml(e.message || 'erro desconhecido')}</div>`;
     } finally {
-        hideSearchLoading();
+        if (loadingStarted) hideSearchLoading();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Consultar CNPJ';
@@ -7904,7 +7910,9 @@ async function performCnpjAdvancedSearch() {
         btn.innerHTML = '<span class="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></span> Buscando...';
     }
 
+    let loadingStarted = false;
     try {
+        loadingStarted = true;
         showSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
@@ -7945,7 +7953,7 @@ async function performCnpjAdvancedSearch() {
     } catch (e) {
         alert('Erro ao realizar a busca avançada: ' + e.message);
     } finally {
-        hideSearchLoading();
+        if (loadingStarted) hideSearchLoading();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Buscar';

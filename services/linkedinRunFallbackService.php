@@ -205,7 +205,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
      * Mantém o nome histórico da função de coleta como compatibilidade com
      * instalações v64, mas não usa o script público antigo.
      *
-     * @return bool true quando o run foi concluído com perfis autenticados
+     * @return string completed, empty ou failed
      */
     function linkedinRunAuthenticatedSearch(
         PDO $db,
@@ -214,7 +214,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         int $tenantId,
         string $profile,
         string $internalMessage = 'coletor autenticado'
-    ): bool {
+    ): string {
         return linkedinRunFallbackToMapsCollector($db, $userId, $run, $tenantId, $profile, $internalMessage);
     }
 
@@ -240,10 +240,25 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         }
     }
 
+    function linkedinRunFinalizeApifyFailure(PDO $db, array $run): void
+    {
+        $message = linkedinApifyContingencyPublicMessage();
+        if ($message === '') return;
+        try {
+            $db->prepare(
+                'UPDATE linkedin_runs
+                 SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW()
+                 WHERE id = ?'
+            )->execute(['failed', 'harvestapi_full', $message, (int) ($run['id'] ?? 0)]);
+        } catch (Throwable $error) {
+            error_log('linkedin apify limit finalization: ' . $error->getMessage());
+        }
+    }
+
     /**
      * Conclui uma pesquisa LinkedIn pelo coletor autenticado isolado.
      *
-     * @return bool true quando o run ficou concluído com perfis autenticados
+     * @return string completed, empty ou failed
      */
     function linkedinRunFallbackToMapsCollector(
         PDO $db,
@@ -252,11 +267,11 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         int $tenantId,
         string $profile,
         string $internalMessage
-    ): bool {
+    ): string {
         try {
             $collector = linkedinFallbackLoadCollectorClient();
             if ($collector === null) {
-                return false;
+                return 'failed';
             }
 
             $jobTitles = json_decode((string) ($run['search_job_titles'] ?? ''), true);
@@ -272,7 +287,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
             $location = trim((string) ($run['search_location'] ?? ''));
             if ($jobTitle === '' || $location === '') {
-                return false;
+                return 'failed';
             }
 
             // Normalização simples para o formato aceito pelo coletor.
@@ -284,18 +299,12 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $company = trim((string) ($run['search_company'] ?? ''));
             $collected = linkedinFallbackCollect($collector, $jobTitle, $location, $company, $limit);
             if ($collected === null) {
-                return false;
+                return 'failed';
             }
 
             $leads = linkedinFallbackReadCsvLeads($collected['csv'], min($limit, 200));
             if (!$leads) {
-                return linkedinRunFinalizeEmptySearch(
-                    $db,
-                    $run,
-                    $tenantId,
-                    'authenticated_session',
-                    'Nenhum perfil público compatível foi encontrado para estes filtros.'
-                );
+                return 'empty';
             }
 
             $charged = 0;
@@ -362,10 +371,10 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
 
             error_log('linkedin fallback (run ' . $run['id'] . '): concluído pelo coletor próprio com ' . count($leads) . ' perfis — ' . $internalMessage);
-            return true;
+            return 'completed';
         } catch (Throwable $error) {
             error_log('linkedin fallback (run ' . $run['id'] . '): ' . $error->getMessage());
-            return false;
+            return 'failed';
         }
     }
 
@@ -879,12 +888,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         if (!$candidates) {
             $result = linkedinRunApifyContingencySingle($db, $userId, $run, $tenantId, $profile, $internalMessage);
             if (linkedinApifyContingencyPublicMessage() !== '') {
-                try {
-                    $db->prepare('UPDATE linkedin_runs SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW() WHERE id = ?')
-                        ->execute(['failed', 'harvestapi_full', linkedinApifyContingencyPublicMessage(), (int) ($run['id'] ?? 0)]);
-                } catch (Throwable $error) {
-                    error_log('linkedin apify limit finalization: ' . $error->getMessage());
-                }
+                linkedinRunFinalizeApifyFailure($db, $run);
                 return 'failed';
             }
             return $result;
@@ -902,12 +906,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             $result = linkedinRunApifyContingencySingle($db, $userId, $attempt, $tenantId, $profile, $internalMessage . ' (chave elegível ' . $keyId . ')');
             if ($result === 'completed') return 'completed';
             if (linkedinApifyContingencyPublicMessage() !== '') {
-                try {
-                    $db->prepare('UPDATE linkedin_runs SET status = ?, apify_actor = ?, leads_found = 0, credits_charged = 0, error_message = ?, finished_at = NOW() WHERE id = ?')
-                        ->execute(['failed', 'harvestapi_full', linkedinApifyContingencyPublicMessage(), (int) ($run['id'] ?? 0)]);
-                } catch (Throwable $error) {
-                    error_log('linkedin apify limit finalization: ' . $error->getMessage());
-                }
+                linkedinRunFinalizeApifyFailure($db, $run);
                 return 'failed';
             }
             if ($result === 'empty') {
