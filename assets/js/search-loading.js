@@ -23,8 +23,10 @@
         if (wasInactive) startedAt = Date.now();
         activeCount += 1;
         var overlay = document.getElementById('maps-search-loading-overlay');
+        var createdOverlay = false;
         if (!overlay) {
             overlay = document.createElement('div');
+            createdOverlay = true;
             overlay.id = 'maps-search-loading-overlay';
             overlay.className = 'fixed inset-0 z-[9999] flex items-center justify-center bg-slate-950/70 px-4 backdrop-blur-sm';
             overlay.setAttribute('role', 'dialog');
@@ -56,19 +58,23 @@
             document.body.appendChild(overlay);
         }
 
-        var titleElement = document.getElementById('maps-search-loading-title');
-        var messageElement = document.getElementById('maps-search-loading-message');
-        if (titleElement) titleElement.textContent = title || 'Pesquisando...';
-        if (messageElement) messageElement.textContent = message || 'Aguarde a conclusão da consulta.';
+        if (wasInactive || createdOverlay) {
+            var titleElement = document.getElementById('maps-search-loading-title');
+            var messageElement = document.getElementById('maps-search-loading-message');
+            if (titleElement) titleElement.textContent = title || 'Pesquisando...';
+            if (messageElement) messageElement.textContent = message || 'Aguarde a conclusão da consulta.';
+        }
 
-        var updateElapsed = function () {
-            var elapsedElement = document.getElementById('maps-search-loading-elapsed');
-            if (elapsedElement) elapsedElement.textContent = formatElapsed(Math.floor((Date.now() - startedAt) / 1000));
-        };
-        updateElapsed();
-        if (timer) window.clearInterval(timer);
-        timer = window.setInterval(updateElapsed, 1000);
-        if (wasInactive) window.addEventListener('beforeunload', beforeUnloadHandler);
+        if (wasInactive) {
+            var updateElapsed = function () {
+                var elapsedElement = document.getElementById('maps-search-loading-elapsed');
+                if (elapsedElement) elapsedElement.textContent = formatElapsed(Math.floor((Date.now() - startedAt) / 1000));
+            };
+            updateElapsed();
+            if (timer) window.clearInterval(timer);
+            timer = window.setInterval(updateElapsed, 1000);
+            window.addEventListener('beforeunload', beforeUnloadHandler);
+        }
     }
 
     function endSearchLoading() {
@@ -96,5 +102,7 @@
 
     window.beginSearchLoading = beginSearchLoading;
     window.endSearchLoading = endSearchLoading;
-    window.beginMapsLoading = beginMapsLoading;
+    window.showSearchLoading = beginSearchLoading;
+    window.hideSearchLoading = endSearchLoading;
+    window.showMapsSearchLoading = beginMapsLoading;
 }());

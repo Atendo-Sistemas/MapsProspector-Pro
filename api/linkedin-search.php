@@ -566,7 +566,7 @@ try {
         $completed = $authenticatedResult === 'completed';
     }
     if (!$completed) {
-        $completed = linkedinRunFinalizeFallbackEmpty($db, $runPayload, $tenantId, $apifyResult);
+        $completed = linkedinRunFinalizeFallbackEmpty($db, $runPayload, $tenantId, $apifyResult, $authenticatedResult);
     }
     if (!$completed) {
         throw new RuntimeException('A coleta autenticada e a contingência não foram concluídas.');

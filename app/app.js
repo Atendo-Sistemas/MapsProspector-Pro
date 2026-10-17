@@ -5763,22 +5763,14 @@ function displayLeads() {
 }
 let mapsSearchInFlight = false;
 
-function showSearchLoading(title, message) {
-    if (typeof window.beginSearchLoading === 'function') window.beginSearchLoading(title, message);
-}
-
-function hideSearchLoading() {
-    if (typeof window.endSearchLoading === 'function') window.endSearchLoading();
-}
-
 function beginMapsSearchLoading(mode = 'initial') {
     mapsSearchInFlight = true;
-    if (typeof window.beginMapsLoading === 'function') window.beginMapsLoading(mode);
+    window.showMapsSearchLoading?.(mode);
 }
 
 function endMapsSearchLoading() {
     mapsSearchInFlight = false;
-    hideSearchLoading();
+    window.hideSearchLoading?.();
 }
 
 async function refreshCurrentSearchWithMapsPilot(buttonId = 'btn-maps-pilot-refresh') {
@@ -7759,7 +7751,7 @@ async function performCnpjSimpleLookup() {
     let loadingStarted = false;
     try {
         loadingStarted = true;
-        showSearchLoading('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
+        window.showSearchLoading?.('Consultando os dados do CNPJ...', 'A consulta pode levar alguns instantes.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -7826,7 +7818,7 @@ async function performCnpjSimpleLookup() {
     } catch (e) {
         if (resultDiv) resultDiv.innerHTML = `<div class="p-6 text-center text-red-600 font-bold text-sm">Erro ao consultar CNPJ: ${escapeHtml(e.message || 'erro desconhecido')}</div>`;
     } finally {
-        if (loadingStarted) hideSearchLoading();
+        if (loadingStarted) window.hideSearchLoading?.();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Consultar CNPJ';
@@ -7913,7 +7905,7 @@ async function performCnpjAdvancedSearch() {
     let loadingStarted = false;
     try {
         loadingStarted = true;
-        showSearchLoading('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
+        window.showSearchLoading?.('Buscando empresas por segmento e localidade...', 'A pesquisa está sendo processada. Aguarde o retorno.');
         const res = await fetch(API_BASE + 'cnpj-advanced-search.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -7953,7 +7945,7 @@ async function performCnpjAdvancedSearch() {
     } catch (e) {
         alert('Erro ao realizar a busca avançada: ' + e.message);
     } finally {
-        if (loadingStarted) hideSearchLoading();
+        if (loadingStarted) window.hideSearchLoading?.();
         if (btn) {
             btn.disabled = false;
             btn.textContent = 'Buscar';

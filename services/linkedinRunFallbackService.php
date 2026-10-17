@@ -240,9 +240,10 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
         }
     }
 
-    function linkedinRunFinalizeFallbackEmpty(PDO $db, array $run, int $tenantId, string $apifyResult): bool
+    function linkedinRunFinalizeFallbackEmpty(PDO $db, array $run, int $tenantId, string $apifyResult, string $authenticatedResult): bool
     {
         if ($apifyResult === 'filtered') {
+            if ($authenticatedResult !== 'empty') return false;
             $actor = 'harvestapi_full';
             $message = 'Nenhum perfil novo compatível foi encontrado para estes filtros.';
         } elseif ($apifyResult === 'empty') {

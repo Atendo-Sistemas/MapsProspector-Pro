@@ -188,7 +188,7 @@ try {
         $completed = $authenticatedResult === 'completed';
     }
     if (!$completed) {
-        $completed = linkedinRunFinalizeFallbackEmpty($db, $run, $tenantId, $apifyResult);
+        $completed = linkedinRunFinalizeFallbackEmpty($db, $run, $tenantId, $apifyResult, $authenticatedResult);
     }
     if (!$completed) {
         jsonError('A fonte de pesquisa do LinkedIn não respondeu nesta tentativa. Tente novamente em alguns instantes; os filtros e o histórico foram preservados.', 502);
