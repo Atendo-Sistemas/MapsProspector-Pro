@@ -1,5 +1,15 @@
 [
   {
+    "version": "20261112-assinatura-1",
+    "date": "2026-11-12",
+    "title": "Contratação mensal pelo Asaas",
+    "items": [
+      "O botão de assinatura mensal informa quando o pagamento automático está indisponível, sem criar um pedido manual silenciosamente.",
+      "O histórico de solicitações manuais volta a aparecer no painel da empresa e os avisos da contratação ficam visíveis.",
+      "O WhatsApp usa mensagens diferentes para empresas com e sem CPF/CNPJ cadastrado; ambas são editáveis na Central de Notificações."
+    ]
+  },
+  {
     "version": "20261112-creditos-1",
     "date": "2026-11-12",
     "title": "Solicitações e concessão de créditos",

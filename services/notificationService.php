@@ -196,7 +196,7 @@ class NotificationService
     public static function notifyPlanSelection(PDO $db, int $userId, int $planId, string $reference): bool
     {
         $stmt = $db->prepare(
-            'SELECT u.name AS user_name, u.phone, t.name AS company_name, p.name AS plan_name
+            'SELECT u.name AS user_name, u.phone, t.name AS company_name, t.cnpj AS company_document, p.name AS plan_name
                FROM users u
                LEFT JOIN tenants t ON t.id = u.tenant_id
                INNER JOIN plans p ON p.id = ?
@@ -209,8 +209,13 @@ class NotificationService
             return false;
         }
 
-        $template = self::setting($db, 'notif_template:plan-selected-whatsapp')
-            ?: 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Para concluir a compra, atualize o CPF ou CNPJ nos dados cadastrais do seu perfil e depois retorne à contratação do plano.';
+        $document = preg_replace('/\D+/', '', (string) ($contact['company_document'] ?? ''));
+        $hasDocument = in_array(strlen($document), [11, 14], true);
+        $templateKey = $hasDocument ? 'plan-selected-complete-whatsapp' : 'plan-selected-whatsapp';
+        $defaultTemplate = $hasDocument
+            ? 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Acompanhe a solicitação e as informações de pagamento no painel.'
+            : 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Para concluir a compra, atualize o CPF ou CNPJ nos dados cadastrais do seu perfil e depois retorne à contratação do plano.';
+        $template = self::setting($db, 'notif_template:' . $templateKey) ?: $defaultTemplate;
         $message = self::notifFill($template, [
             'plataforma' => self::platformName($db),
             'empresa' => (string) ($contact['company_name'] ?? 'sua empresa'),

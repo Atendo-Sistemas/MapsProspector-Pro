@@ -53,6 +53,10 @@ Na aba Solicitações, o super administrador pode conceder de 1 a 10.000 crédit
 
 Se uma cobrança Asaas ficar pendente sem link após uma falha, confira o pedido e a referência no painel Asaas antes de tomar qualquer ação ou tentar outra cobrança; a aplicação não cria outra cobrança igual enquanto esse pedido estiver pendente. Um webhook de pagamento confirmado continua liberando os créditos.
 
+Para assinar mensalmente pelo Asaas, o gateway precisa estar ativo, com chave e token de webhook configurados, tabelas `asaas_orders` e `asaas_subscriptions` e coluna `asaas_subscriptions.product_kind`. Quando o automático estiver indisponível, o botão informa o erro e não abre pedido manual; a opção manual continua separada. Solicitações manuais pendentes devem ser analisadas antes de iniciar uma contratação automática. Confira no Asaas se já existe assinatura antes de recusar uma solicitação e tentar novamente.
+
+Na Central de Notificações, configure separadamente os textos de seleção de plano com e sem CPF/CNPJ. A escolha usa o documento da empresa cadastrado no perfil (11 ou 14 dígitos); isso não valida o número junto à Receita nem confirma a aceitação pelo Asaas.
+
 Para habilitar pagamentos Asaas em uma instalação nova ou existente, execute `sql/asaas-finance.sql` e depois `database_migration_billing_due_dates.sql`. A migração é reexecutável, completa os campos do catálogo de planos usados pela cobrança, adiciona o tipo de assinatura e cria os campos/tabela de auditoria para vencimentos administrativos.
 
 ## Migrações opcionais (apenas para instalações antigas)

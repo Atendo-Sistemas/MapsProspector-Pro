@@ -749,25 +749,29 @@ if ($action === 'create_subscription') {
         asaJson(false, [], 'Selecione um plano mensal para continuar.', 422);
     }
 
+    try {
+        $pendingManual = $db->prepare("SELECT id FROM plan_requests WHERE tenant_id = ? AND status = 'pending' LIMIT 1");
+        $pendingManual->execute([$tenantId]);
+        if ($pendingManual->fetchColumn()) {
+            asaJson(false, [], 'Existe uma solicitação manual de plano pendente. Peça ao administrador para analisá-la antes de contratar pelo Asaas.', 409);
+        }
+    } catch (Throwable $e) {
+        error_log('asaas manual plan check: ' . $e->getMessage());
+        asaJson(false, [], 'Não foi possível verificar solicitações anteriores. Peça ao administrador para verificar antes de contratar.', 503);
+    }
+
     if (class_exists('MapsProspectorAsaasPaymentGateway') && MapsProspectorAsaasPaymentGateway::isOperational($db)) {
         try {
             $created = MapsProspectorAsaasPaymentGateway::createPlan($db, $user, $tenantId, $planId);
             asaJson(true, $created, 'Assinatura criada no Asaas. Abra o link para concluir o primeiro pagamento.');
         } catch (Throwable $e) {
             error_log('asaas automatic subscription creation: ' . $e->getMessage());
-            asaJson(false, [], 'O Asaas está configurado, mas não foi possível criar a assinatura agora. Nenhuma solicitação manual foi aberta automaticamente.', 502);
+            asaJson(false, [], 'Não foi possível confirmar a assinatura no Asaas. Peça ao administrador para verificar no Asaas antes de tentar novamente. Nenhuma solicitação manual foi aberta.', 502);
         }
     }
 
-    try {
-        $created = mapsCreateManualPaymentRequest($db, $user, $tenantId, 'plan', 0, $planId);
-        asaJson(true, $created, !empty($created['alreadyPending'])
-            ? 'Já existe uma solicitação manual pendente para este plano.'
-            : 'Solicitação de plano enviada para aprovação manual do administrador.');
-    } catch (Throwable $e) {
-        error_log('manual plan request from asaas endpoint: ' . $e->getMessage());
-        asaJson(false, [], 'Não foi possível registrar a solicitação manual agora. Tente novamente.', 500);
-    }
+    error_log('asaas automatic subscription unavailable: verifique a ativação, credenciais e schema Asaas.');
+    asaJson(false, [], 'O pagamento automático Asaas está indisponível. Solicite ao administrador que verifique a configuração. Nenhuma solicitação manual foi aberta.', 503);
 }
 
 if ($action === 'subscription_status') {

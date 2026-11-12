@@ -2451,6 +2451,29 @@ function renderChoosePlanTab(contentArea) {
     loadChoosePlanData(currentPlanId);
     loadCrmAddonPlanBox();
     loadSubscriptionStatus();
+    loadManualPlanRequests();
+}
+
+async function loadManualPlanRequests() {
+    var history = document.getElementById('choose-plan-history');
+    var list = document.getElementById('choose-plan-history-list');
+    if (!history || !list) return;
+    try {
+        var response = await fetch(API_BASE + 'plan-requests.php', { credentials: 'include', cache: 'no-store' });
+        var payload = await response.json();
+        if (!response.ok || !payload.success || !Array.isArray(payload.data?.items)) throw new Error('Falha ao carregar solicitações manuais.');
+        if (!payload.data.items.length) { history.classList.add('hidden'); return; }
+        var labels = { pending: 'Aguardando aprovação manual', approved: 'Aprovada', rejected: 'Recusada' };
+        list.innerHTML = payload.data.items.map(function(item) {
+            var date = item.createdAt ? new Date(item.createdAt).toLocaleString('pt-BR') : '';
+            return '<div class="mb-2 rounded-xl border border-slate-200 dark:border-slate-700 p-4 text-sm"><strong>' + escapeHtml(item.planName || 'Plano') + '</strong> · ' + escapeHtml(labels[item.status] || item.status) + ' · ' + escapeHtml(date) + '</div>';
+        }).join('');
+        history.classList.remove('hidden');
+    } catch (error) {
+        console.error('Falha ao carregar histórico de planos:', error);
+        list.textContent = 'Não foi possível carregar as solicitações manuais.';
+        history.classList.remove('hidden');
+    }
 }
 
 async function loadCrmAddonPlanBox() {
@@ -2583,6 +2606,10 @@ function loadChoosePlanData(currentPlanId) {
             gridEl.querySelectorAll('.btn-request-plan').forEach(function(btn) {
                 btn.onclick = async function() {
                     var planId = btn.getAttribute('data-plan-id');
+                    var errorEl = document.getElementById('choose-plan-error');
+                    var pendingEl = document.getElementById('choose-plan-pending');
+                    if (errorEl) errorEl.classList.add('hidden');
+                    if (pendingEl) pendingEl.classList.add('hidden');
                     btn.disabled = true;
                     btn.textContent = 'Criando assinatura...';
 
@@ -2598,19 +2625,27 @@ function loadChoosePlanData(currentPlanId) {
                         const data = await res.json().catch(function() { return null; });
 
                         if (data && data.success) {
-                            var pendingEl = document.getElementById('choose-plan-pending');
                             if (pendingEl) {
                                 var isAutomaticPlan = data.data && data.data.mode === 'asaas';
                                 var automaticLink = isAutomaticPlan && data.data.payment_url ? ' <a class="underline font-black" target="_blank" rel="noopener noreferrer" href="' + dashboardMetricEscape(data.data.payment_url) + '">Concluir primeiro pagamento</a>' : '';
                                 pendingEl.innerHTML = dashboardMetricEscape(data.message || (isAutomaticPlan ? 'Assinatura mensal criada. Consulte o status para acompanhar a confirmação.' : 'Solicitação enviada para aprovação manual.')) + ' <strong>Após a confirmação, serão liberados +50 créditos de bônus de contratação.</strong>' + automaticLink;
                                 pendingEl.className = isAutomaticPlan ? 'mb-8 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-700 text-sm font-medium' : 'mb-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium';
+                                pendingEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             }
                             if (data.data && data.data.mode === 'asaas') loadSubscriptionStatus();
                         } else {
-                            alert((data && data.error) ? data.error : 'Erro ao criar a assinatura mensal.');
+                            if (errorEl) {
+                                errorEl.textContent = (data && data.error) ? data.error : 'Não foi possível confirmar a assinatura. Confira no Asaas antes de tentar novamente.';
+                                errorEl.classList.remove('hidden');
+                                errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
                         }
                     } catch (e) {
-                        alert('Erro de conexão ao criar a assinatura mensal.');
+                        if (errorEl) {
+                            errorEl.textContent = 'Não foi possível confirmar a assinatura. Peça ao administrador para conferir no Asaas antes de tentar novamente.';
+                            errorEl.classList.remove('hidden');
+                            errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
                     } finally {
                         btn.disabled = false;
                         btn.textContent = 'Assinar mensalmente';
@@ -2637,7 +2672,9 @@ function loadChoosePlanData(currentPlanId) {
                         if (pendingEl) {
                             pendingEl.textContent = result.message || 'Solicitação enviada. A ativação depende da conferência do pagamento pelo administrador.';
                             pendingEl.className = 'mb-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium';
+                            pendingEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
+                        loadManualPlanRequests();
                         btn.textContent = 'Aguardando aprovação';
                     } catch (error) {
                         alert(error.message || 'Erro de conexão ao solicitar aprovação manual.');

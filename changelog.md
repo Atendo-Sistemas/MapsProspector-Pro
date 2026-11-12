@@ -4,6 +4,15 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+## [1.4.10] - 2026-11-12
+
+- O botão de assinatura mensal informa falhas de configuração do Asaas sem criar uma solicitação manual automaticamente.
+- Solicitações manuais de planos voltam a aparecer no histórico da empresa; avisos e links de pagamento são exibidos em local visível.
+- Uma solicitação manual pendente precisa ser analisada antes de uma contratação automática.
+- A mensagem de seleção de plano só orienta atualizar CPF/CNPJ quando o documento não está cadastrado com 11 ou 14 dígitos; a confirmação possui texto editável separado.
+
+---
+
 ## [1.4.9] - 2026-11-12
 
 - Concessão direta de créditos pelo super administrador, sem cobrança, com registro e proteção contra repetição no período vigente.
