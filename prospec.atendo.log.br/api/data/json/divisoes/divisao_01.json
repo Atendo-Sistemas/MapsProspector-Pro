@@ -1,0 +1,7666 @@
+{
+  "divisao": "01",
+  "total_termos": 766,
+  "termos": [
+    {
+      "termo": "Cultivo de arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111301",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111301",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arroz",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de arroz",
+      "codigo_cnae": "0111301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de milho",
+      "codigo_cnae": "0111302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111302",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111302",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "0111302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Milho",
+      "codigo_cnae": "0111302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "milho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de milho",
+      "codigo_cnae": "0111302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111303",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111303",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trigo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de trigo",
+      "codigo_cnae": "0111303",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outros cereais não especificados anteriormente",
+      "codigo_cnae": "0111399",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111399",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111399",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cereais",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cereais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cereais",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cereais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0111399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outros cereais não especificados anteriormente",
+      "codigo_cnae": "0111399",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de algodão herbáceo",
+      "codigo_cnae": "0112101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Algodão",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Algodao",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Herbáceo",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "herbáceo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Herbaceo",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "herbáceo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de algodão herbáceo",
+      "codigo_cnae": "0112101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de juta",
+      "codigo_cnae": "0112102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Juta",
+      "codigo_cnae": "0112102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "juta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Juta",
+      "codigo_cnae": "0112102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "juta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de juta",
+      "codigo_cnae": "0112102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras fibras de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0112199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras fibras de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0112199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cana-de-açúcar",
+      "codigo_cnae": "0113000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0113000",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0113000",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cana-de-açúcar",
+      "codigo_cnae": "0113000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0114800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0114800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de soja",
+      "codigo_cnae": "0115600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0115600",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0115600",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Soja",
+      "codigo_cnae": "0115600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "soja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Soja",
+      "codigo_cnae": "0115600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "soja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de soja",
+      "codigo_cnae": "0115600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116401",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116401",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amendoim",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amendoim",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de amendoim",
+      "codigo_cnae": "0116401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116402",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116402",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "girassol",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "girassol",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de girassol",
+      "codigo_cnae": "0116402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116403",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116403",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mamona",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mamona",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamona",
+      "codigo_cnae": "0116403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras oleaginosas de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0116499",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116499",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116499",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Oleaginosas",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "oleaginosas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Oleaginosas",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "oleaginosas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "0116499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras oleaginosas de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0116499",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de abacaxi",
+      "codigo_cnae": "0119901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119901",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119901",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Abacaxi",
+      "codigo_cnae": "0119901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abacaxi",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Abacaxi",
+      "codigo_cnae": "0119901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "abacaxi",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de abacaxi",
+      "codigo_cnae": "0119901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de alho",
+      "codigo_cnae": "0119902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119902",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119902",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Alho",
+      "codigo_cnae": "0119902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Alho",
+      "codigo_cnae": "0119902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de alho",
+      "codigo_cnae": "0119902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de batata-inglesa",
+      "codigo_cnae": "0119903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119903",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119903",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Batata",
+      "codigo_cnae": "0119903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "batata",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Batata",
+      "codigo_cnae": "0119903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "batata",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inglesa",
+      "codigo_cnae": "0119903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inglesa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inglesa",
+      "codigo_cnae": "0119903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inglesa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de batata-inglesa",
+      "codigo_cnae": "0119903",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cebola",
+      "codigo_cnae": "0119904",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119904",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119904",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cebola",
+      "codigo_cnae": "0119904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cebola",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cebola",
+      "codigo_cnae": "0119904",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cebola",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cebola",
+      "codigo_cnae": "0119904",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de feijão",
+      "codigo_cnae": "0119905",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119905",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119905",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Feijão",
+      "codigo_cnae": "0119905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feijão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Feijao",
+      "codigo_cnae": "0119905",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feijão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de feijão",
+      "codigo_cnae": "0119905",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mandioca",
+      "codigo_cnae": "0119906",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119906",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119906",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mandioca",
+      "codigo_cnae": "0119906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mandioca",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mandioca",
+      "codigo_cnae": "0119906",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mandioca",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mandioca",
+      "codigo_cnae": "0119906",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de melão",
+      "codigo_cnae": "0119907",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119907",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119907",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Melão",
+      "codigo_cnae": "0119907",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "melão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Melao",
+      "codigo_cnae": "0119907",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "melão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de melão",
+      "codigo_cnae": "0119907",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de melancia",
+      "codigo_cnae": "0119908",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119908",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119908",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Melancia",
+      "codigo_cnae": "0119908",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "melancia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Melancia",
+      "codigo_cnae": "0119908",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "melancia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de melancia",
+      "codigo_cnae": "0119908",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de tomate rasteiro",
+      "codigo_cnae": "0119909",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119909",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119909",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tomate",
+      "codigo_cnae": "0119909",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tomate",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tomate",
+      "codigo_cnae": "0119909",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tomate",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Rasteiro",
+      "codigo_cnae": "0119909",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rasteiro",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Rasteiro",
+      "codigo_cnae": "0119909",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rasteiro",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de tomate rasteiro",
+      "codigo_cnae": "0119909",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras plantas de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0119999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119999",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0119999",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "0119999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras plantas de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0119999",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Horticultura, exceto morango",
+      "codigo_cnae": "0121101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Horticultura",
+      "codigo_cnae": "0121101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "horticultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Horticultura",
+      "codigo_cnae": "0121101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "horticultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Horticultura, exceto morango",
+      "codigo_cnae": "0121101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de morango",
+      "codigo_cnae": "0121102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0121102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0121102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de morango",
+      "codigo_cnae": "0121102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de flores e plantas ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122900",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122900",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Flores",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "flores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Flores",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "flores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ornamentais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ornamentais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de flores e plantas ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0131800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0131800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laranja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laranja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de uva",
+      "codigo_cnae": "0132600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0132600",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0132600",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Uva",
+      "codigo_cnae": "0132600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uva",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Uva",
+      "codigo_cnae": "0132600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uva",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de uva",
+      "codigo_cnae": "0132600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de açaí",
+      "codigo_cnae": "0133401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133401",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133401",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Açaí",
+      "codigo_cnae": "0133401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açaí",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Acai",
+      "codigo_cnae": "0133401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açaí",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de açaí",
+      "codigo_cnae": "0133401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de banana",
+      "codigo_cnae": "0133402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133402",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133402",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Banana",
+      "codigo_cnae": "0133402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "banana",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Banana",
+      "codigo_cnae": "0133402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "banana",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de banana",
+      "codigo_cnae": "0133402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de caju",
+      "codigo_cnae": "0133403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133403",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133403",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caju",
+      "codigo_cnae": "0133403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caju",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caju",
+      "codigo_cnae": "0133403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caju",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de caju",
+      "codigo_cnae": "0133403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cítricos, exceto laranja",
+      "codigo_cnae": "0133404",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133404",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133404",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cítricos",
+      "codigo_cnae": "0133404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cítricos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Citricos",
+      "codigo_cnae": "0133404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cítricos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Laranja",
+      "codigo_cnae": "0133404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laranja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Laranja",
+      "codigo_cnae": "0133404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laranja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cítricos, exceto laranja",
+      "codigo_cnae": "0133404",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de coco-da-baía",
+      "codigo_cnae": "0133405",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133405",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133405",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Coco",
+      "codigo_cnae": "0133405",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coco",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Coco",
+      "codigo_cnae": "0133405",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coco",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Baía",
+      "codigo_cnae": "0133405",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baía",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Baia",
+      "codigo_cnae": "0133405",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baía",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de coco-da-baía",
+      "codigo_cnae": "0133405",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de guaraná",
+      "codigo_cnae": "0133406",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133406",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133406",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Guaraná",
+      "codigo_cnae": "0133406",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "guaraná",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Guarana",
+      "codigo_cnae": "0133406",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "guaraná",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de guaraná",
+      "codigo_cnae": "0133406",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de maçã",
+      "codigo_cnae": "0133407",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133407",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133407",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Maçã",
+      "codigo_cnae": "0133407",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "maçã",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Maca",
+      "codigo_cnae": "0133407",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "maçã",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de maçã",
+      "codigo_cnae": "0133407",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamão",
+      "codigo_cnae": "0133408",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133408",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133408",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mamão",
+      "codigo_cnae": "0133408",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mamão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mamao",
+      "codigo_cnae": "0133408",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mamão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamão",
+      "codigo_cnae": "0133408",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de maracujá",
+      "codigo_cnae": "0133409",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133409",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133409",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Maracujá",
+      "codigo_cnae": "0133409",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "maracujá",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Maracuja",
+      "codigo_cnae": "0133409",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "maracujá",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de maracujá",
+      "codigo_cnae": "0133409",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de manga",
+      "codigo_cnae": "0133410",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133410",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133410",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manga",
+      "codigo_cnae": "0133410",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manga",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manga",
+      "codigo_cnae": "0133410",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manga",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de manga",
+      "codigo_cnae": "0133410",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de pêssego",
+      "codigo_cnae": "0133411",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133411",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133411",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pêssego",
+      "codigo_cnae": "0133411",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pêssego",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pessego",
+      "codigo_cnae": "0133411",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pêssego",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de pêssego",
+      "codigo_cnae": "0133411",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de frutas de lavoura permanente não especificadas anteriormente",
+      "codigo_cnae": "0133499",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133499",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0133499",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "0133499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Frutas",
+      "codigo_cnae": "0133499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frutas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0133499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0133499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Permanente",
+      "codigo_cnae": "0133499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "permanente",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Permanente",
+      "codigo_cnae": "0133499",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "permanente",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de frutas de lavoura permanente não especificadas anteriormente",
+      "codigo_cnae": "0133499",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de café",
+      "codigo_cnae": "0134200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0134200",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0134200",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Café",
+      "codigo_cnae": "0134200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cafe",
+      "codigo_cnae": "0134200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de café",
+      "codigo_cnae": "0134200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cacau",
+      "codigo_cnae": "0135100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0135100",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0135100",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "0135100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cacau",
+      "codigo_cnae": "0135100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cacau",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cacau",
+      "codigo_cnae": "0135100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de chá-da-índia",
+      "codigo_cnae": "0139301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139301",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139301",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Chá",
+      "codigo_cnae": "0139301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chá",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cha",
+      "codigo_cnae": "0139301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chá",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Índia",
+      "codigo_cnae": "0139301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "índia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "India",
+      "codigo_cnae": "0139301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "índia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de chá-da-índia",
+      "codigo_cnae": "0139301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de erva-mate",
+      "codigo_cnae": "0139302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139302",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139302",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Erva",
+      "codigo_cnae": "0139302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "erva",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Erva",
+      "codigo_cnae": "0139302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "erva",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mate",
+      "codigo_cnae": "0139302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mate",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mate",
+      "codigo_cnae": "0139302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mate",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de erva-mate",
+      "codigo_cnae": "0139302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de pimenta-do-reino",
+      "codigo_cnae": "0139303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139303",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139303",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pimenta",
+      "codigo_cnae": "0139303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pimenta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pimenta",
+      "codigo_cnae": "0139303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pimenta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Reino",
+      "codigo_cnae": "0139303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reino",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Reino",
+      "codigo_cnae": "0139303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reino",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de pimenta-do-reino",
+      "codigo_cnae": "0139303",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de plantas para condimento, exceto pimenta-do-reino",
+      "codigo_cnae": "0139304",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139304",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139304",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Condimento",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condimento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Condimento",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condimento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pimenta",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pimenta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pimenta",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pimenta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Reino",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reino",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Reino",
+      "codigo_cnae": "0139304",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reino",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de plantas para condimento, exceto pimenta-do-reino",
+      "codigo_cnae": "0139304",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de dendê",
+      "codigo_cnae": "0139305",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139305",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139305",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Dendê",
+      "codigo_cnae": "0139305",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dendê",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Dende",
+      "codigo_cnae": "0139305",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dendê",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de dendê",
+      "codigo_cnae": "0139305",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de seringueira",
+      "codigo_cnae": "0139306",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139306",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139306",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Seringueira",
+      "codigo_cnae": "0139306",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seringueira",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Seringueira",
+      "codigo_cnae": "0139306",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seringueira",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de seringueira",
+      "codigo_cnae": "0139306",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras plantas de lavoura permanente não especificadas anteriormente",
+      "codigo_cnae": "0139399",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139399",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0139399",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Permanente",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "permanente",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Permanente",
+      "codigo_cnae": "0139399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "permanente",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras plantas de lavoura permanente não especificadas anteriormente",
+      "codigo_cnae": "0139399",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas, exceto de forrageiras para pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas, exceto de forrageiras para pasto",
+      "codigo_cnae": "0141501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas de forrageiras para formação de pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Sementes",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sementes",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Forrageiras",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "forrageiras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formação",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formacao",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pasto",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas de forrageiras para formação de pasto",
+      "codigo_cnae": "0141502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de mudas e outras formas de propagação vegetal, certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mudas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mudas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Mudas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mudas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Formas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "formas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Propagação",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "propagação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Propagacao",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "propagação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "certificadas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de mudas e outras formas de propagação vegetal, certificadas",
+      "codigo_cnae": "0142300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos para corte",
+      "codigo_cnae": "0151201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos para corte",
+      "codigo_cnae": "0151201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos para leite",
+      "codigo_cnae": "0151202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos para leite",
+      "codigo_cnae": "0151202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos, exceto para corte e leite",
+      "codigo_cnae": "0151203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bovinos",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Leite",
+      "codigo_cnae": "0151203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "leite",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos, exceto para corte e leite",
+      "codigo_cnae": "0151203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de eqüinos",
+      "codigo_cnae": "0152102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Eqüinos",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Equinos",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de eqüinos",
+      "codigo_cnae": "0152102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de asininos e muares",
+      "codigo_cnae": "0152103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Asininos",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "asininos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Asininos",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "asininos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Muares",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "muares",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Muares",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "muares",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de asininos e muares",
+      "codigo_cnae": "0152103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caprinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de caprinos",
+      "codigo_cnae": "0153901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de ovinos, inclusive para produção de lã",
+      "codigo_cnae": "0153902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "0153902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de ovinos, inclusive para produção de lã",
+      "codigo_cnae": "0153902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de suínos",
+      "codigo_cnae": "0154700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0154700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0154700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Suínos",
+      "codigo_cnae": "0154700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Suinos",
+      "codigo_cnae": "0154700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "suínos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de suínos",
+      "codigo_cnae": "0154700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de frangos para corte",
+      "codigo_cnae": "0155501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Frangos",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frangos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Frangos",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "frangos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de frangos para corte",
+      "codigo_cnae": "0155501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de pintos de um dia",
+      "codigo_cnae": "0155502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pintos",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pintos",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Dia",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Dia",
+      "codigo_cnae": "0155502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dia",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de pintos de um dia",
+      "codigo_cnae": "0155502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros galináceos, exceto para corte",
+      "codigo_cnae": "0155503",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galináceos",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galinaceos",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Corte",
+      "codigo_cnae": "0155503",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corte",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros galináceos, exceto para corte",
+      "codigo_cnae": "0155503",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de aves, exceto galináceos",
+      "codigo_cnae": "0155504",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Aves",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aves",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galináceos",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Galinaceos",
+      "codigo_cnae": "0155504",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "galináceos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de aves, exceto galináceos",
+      "codigo_cnae": "0155504",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de ovos",
+      "codigo_cnae": "0155505",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "apicultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "apicultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0159801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de animais de estimação",
+      "codigo_cnae": "0159802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Estimação",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estimação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Estimacao",
+      "codigo_cnae": "0159802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estimação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de animais de estimação",
+      "codigo_cnae": "0159802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de escargô",
+      "codigo_cnae": "0159803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Escargô",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escargô",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Escargo",
+      "codigo_cnae": "0159803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escargô",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de escargô",
+      "codigo_cnae": "0159803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bicho-da-seda",
+      "codigo_cnae": "0159804",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bicho",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bicho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bicho",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bicho",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Seda",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Seda",
+      "codigo_cnae": "0159804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "seda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bicho-da-seda",
+      "codigo_cnae": "0159804",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros animais não especificados anteriormente",
+      "codigo_cnae": "0159899",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0159899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros animais não especificados anteriormente",
+      "codigo_cnae": "0159899",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de pulverização e controle de pragas agrícolas",
+      "codigo_cnae": "0161001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pulverização",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pulverização",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pulverizacao",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pulverização",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agrícolas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agricolas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de pulverização e controle de pragas agrícolas",
+      "codigo_cnae": "0161001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de poda de árvores para lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Poda",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Poda",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Árvores",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "árvores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Arvores",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "árvores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavouras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavouras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de poda de árvores para lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de preparação de terreno, cultivo e colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Terreno",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terreno",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Terreno",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terreno",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0161003",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0161003",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de preparação de terreno, cultivo e colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à agricultura não especificadas anteriormente",
+      "codigo_cnae": "0161099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0161099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0161099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agricultura",
+      "codigo_cnae": "0161099",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "agricultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agricultura",
+      "codigo_cnae": "0161099",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "agricultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à agricultura não especificadas anteriormente",
+      "codigo_cnae": "0161099",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de inseminação artificial em animais",
+      "codigo_cnae": "0162801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inseminação",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inseminação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inseminacao",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inseminação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Artificial",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificial",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Artificial",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificial",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de inseminação artificial em animais",
+      "codigo_cnae": "0162801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de tosquiamento de ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tosquiamento",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tosquiamento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tosquiamento",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tosquiamento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de tosquiamento de ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de manejo de animais",
+      "codigo_cnae": "0162803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manejo",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manejo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manejo",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manejo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de manejo de animais",
+      "codigo_cnae": "0162803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à pecuária não especificadas anteriormente",
+      "codigo_cnae": "0162899",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pecuária",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pecuaria",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à pecuária não especificadas anteriormente",
+      "codigo_cnae": "0162899",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de pós-colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pós",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pos",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de pós-colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caça e serviços relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caça",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caça",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caca",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caça",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Caça e serviços relacionados",
+      "codigo_cnae": "0170900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de sorgo",
+      "codigo_cnae": "0111304",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111304",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "sorgo",
+      "codigo_cnae": "0111304",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cevada",
+      "codigo_cnae": "0111305",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0111305",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "cevada",
+      "codigo_cnae": "0111305",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de fumo",
+      "codigo_cnae": "0114801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0114801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "fumo",
+      "codigo_cnae": "0114801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de soja",
+      "codigo_cnae": "0115601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0115601",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "soja",
+      "codigo_cnae": "0115601",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de amendoim",
+      "codigo_cnae": "0115602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0115602",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "amendoim",
+      "codigo_cnae": "0115602",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de girassol",
+      "codigo_cnae": "0115603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0115603",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "girassol",
+      "codigo_cnae": "0115603",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamona",
+      "codigo_cnae": "0115604",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0115604",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "mamona",
+      "codigo_cnae": "0115604",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de grão-de-bico",
+      "codigo_cnae": "0116404",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116404",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "grão",
+      "codigo_cnae": "0116404",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "bico",
+      "codigo_cnae": "0116404",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "cultivo de grãodebico",
+      "codigo_cnae": "0116404",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de fava",
+      "codigo_cnae": "0116405",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0116405",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "fava",
+      "codigo_cnae": "0116405",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de batata-inglesa",
+      "codigo_cnae": "0117201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0117201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "batata",
+      "codigo_cnae": "0117201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "inglesa",
+      "codigo_cnae": "0117201",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "cultivo de batatainglesa",
+      "codigo_cnae": "0117201",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de batata-doce",
+      "codigo_cnae": "0117202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0117202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "batata",
+      "codigo_cnae": "0117202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "doce",
+      "codigo_cnae": "0117202",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "cultivo de batatadoce",
+      "codigo_cnae": "0117202",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mandioca",
+      "codigo_cnae": "0117203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0117203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "mandioca",
+      "codigo_cnae": "0117203",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de inhame",
+      "codigo_cnae": "0117204",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0117204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "inhame",
+      "codigo_cnae": "0117204",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de taro",
+      "codigo_cnae": "0117205",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0117205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "taro",
+      "codigo_cnae": "0117205",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de limão e lima",
+      "codigo_cnae": "0121103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0121103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "limão",
+      "codigo_cnae": "0121103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "lima",
+      "codigo_cnae": "0121103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de uva",
+      "codigo_cnae": "0122901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122901",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "uva",
+      "codigo_cnae": "0122901",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de banana",
+      "codigo_cnae": "0122902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "banana",
+      "codigo_cnae": "0122902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de mamão",
+      "codigo_cnae": "0122903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "mamão",
+      "codigo_cnae": "0122903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de melão",
+      "codigo_cnae": "0122904",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "melão",
+      "codigo_cnae": "0122904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de melancia",
+      "codigo_cnae": "0122905",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "melancia",
+      "codigo_cnae": "0122905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de morango",
+      "codigo_cnae": "0122906",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122906",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "morango",
+      "codigo_cnae": "0122906",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de abacate",
+      "codigo_cnae": "0122907",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122907",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "abacate",
+      "codigo_cnae": "0122907",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de manga",
+      "codigo_cnae": "0122908",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122908",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "manga",
+      "codigo_cnae": "0122908",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras frutas de lavoura permanente não especificadas anteriormente",
+      "codigo_cnae": "0122909",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122909",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "outras frutas",
+      "codigo_cnae": "0122909",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "lavoura permanente não especificadas anteriormente",
+      "codigo_cnae": "0122909",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de açaí",
+      "codigo_cnae": "0125301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0125301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "açaí",
+      "codigo_cnae": "0125301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de guaraná",
+      "codigo_cnae": "0125302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0125302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "guaraná",
+      "codigo_cnae": "0125302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas, exceto de forrageiras para pasto",
+      "codigo_cnae": "0131801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção",
+      "codigo_cnae": "0131801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "sementes certificadas",
+      "codigo_cnae": "0131801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "de forrageiras",
+      "codigo_cnae": "0131801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "produção de sementes certificadas exceto de forrageiras para pasto",
+      "codigo_cnae": "0131801",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de sementes certificadas de forrageiras para formação de pastagens",
+      "codigo_cnae": "0131802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção",
+      "codigo_cnae": "0131802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "sementes certificadas",
+      "codigo_cnae": "0131802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "forrageiras",
+      "codigo_cnae": "0131802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bovinos, exceto para corte e leite",
+      "codigo_cnae": "0141503",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0141503",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "bovinos",
+      "codigo_cnae": "0141503",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "para corte",
+      "codigo_cnae": "0141503",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "criação de bovinos exceto para corte e leite",
+      "codigo_cnae": "0141503",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bufalinos",
+      "codigo_cnae": "0142301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0142301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "bufalinos",
+      "codigo_cnae": "0142301",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de eqüinos",
+      "codigo_cnae": "0142302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0142302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "eqüinos",
+      "codigo_cnae": "0142302",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de asininos e muares",
+      "codigo_cnae": "0142303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0142303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "asininos",
+      "codigo_cnae": "0142303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "muares",
+      "codigo_cnae": "0142303",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de caprinos",
+      "codigo_cnae": "0143101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0143101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "caprinos",
+      "codigo_cnae": "0143101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de ovinos, inclusive para produção de lã",
+      "codigo_cnae": "0143102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0143102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "ovinos",
+      "codigo_cnae": "0143102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "inclusive",
+      "codigo_cnae": "0143102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "criação de ovinos inclusive para produção de lã",
+      "codigo_cnae": "0143102",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de suínos",
+      "codigo_cnae": "0144000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0144000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "suínos",
+      "codigo_cnae": "0144000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de frangos para corte",
+      "codigo_cnae": "0145801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0145801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "frangos",
+      "codigo_cnae": "0145801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "corte",
+      "codigo_cnae": "0145801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção de pintos de um dia",
+      "codigo_cnae": "0145802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Produção",
+      "codigo_cnae": "0145802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "pintos",
+      "codigo_cnae": "0145802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "um dia",
+      "codigo_cnae": "0145802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros galináceos, exceto para corte",
+      "codigo_cnae": "0145803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0145803",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "outros galináceos",
+      "codigo_cnae": "0145803",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "para corte",
+      "codigo_cnae": "0145803",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "criação de outros galináceos exceto para corte",
+      "codigo_cnae": "0145803",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de aves, exceto galináceos",
+      "codigo_cnae": "0145804",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0145804",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "aves",
+      "codigo_cnae": "0145804",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "galináceos",
+      "codigo_cnae": "0145804",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "criação de aves exceto galináceos",
+      "codigo_cnae": "0145804",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Incubação de ovos para eclosão",
+      "codigo_cnae": "0145805",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Incubação",
+      "codigo_cnae": "0145805",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "ovos",
+      "codigo_cnae": "0145805",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "eclosão",
+      "codigo_cnae": "0145805",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0149101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apicultura",
+      "codigo_cnae": "0149101",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de animais de estimação",
+      "codigo_cnae": "0149102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0149102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "animais",
+      "codigo_cnae": "0149102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "estimação",
+      "codigo_cnae": "0149102",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de escargô",
+      "codigo_cnae": "0149103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0149103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "escargô",
+      "codigo_cnae": "0149103",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bicho-da-seda",
+      "codigo_cnae": "0149104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0149104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "bicho",
+      "codigo_cnae": "0149104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "seda",
+      "codigo_cnae": "0149104",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "criação de bichodaseda",
+      "codigo_cnae": "0149104",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de outros animais não especificados anteriormente",
+      "codigo_cnae": "0149199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0149199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "outros animais não especificados anteriormente",
+      "codigo_cnae": "0149199",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

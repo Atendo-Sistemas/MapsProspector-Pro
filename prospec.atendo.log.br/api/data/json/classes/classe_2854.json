@@ -1,0 +1,189 @@
+{
+  "classe": "2854",
+  "grupo": "285",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Fabricação de máquinas e equipamentos para terraplenagem, pavimentação e construção, peças e acessórios, exceto tratores",
+      "codigo_cnae": "2854200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Terraplenagem",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terraplenagem",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Terraplenagem",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terraplenagem",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pavimentação",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pavimentação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pavimentacao",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pavimentação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Tratores",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Tratores",
+      "codigo_cnae": "2854200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratores",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas e equipamentos para terraplenagem, pavimentação e construção, peças e acessórios, exceto tratores",
+      "codigo_cnae": "2854200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

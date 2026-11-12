@@ -1,0 +1,668 @@
+{
+  "grupo": "016",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 66,
+  "termos": [
+    {
+      "termo": "Serviço de pulverização e controle de pragas agrícolas",
+      "codigo_cnae": "0161001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pulverização",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pulverização",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pulverizacao",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pulverização",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agrícolas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agricolas",
+      "codigo_cnae": "0161001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícolas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de pulverização e controle de pragas agrícolas",
+      "codigo_cnae": "0161001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de poda de árvores para lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Poda",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Poda",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "poda",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Árvores",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "árvores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Arvores",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "árvores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavouras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavouras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de poda de árvores para lavouras",
+      "codigo_cnae": "0161002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de preparação de terreno, cultivo e colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Terreno",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terreno",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Terreno",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terreno",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0161003",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0161003",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de preparação de terreno, cultivo e colheita",
+      "codigo_cnae": "0161003",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à agricultura não especificadas anteriormente",
+      "codigo_cnae": "0161099",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0161099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0161099",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agricultura",
+      "codigo_cnae": "0161099",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "agricultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Agricultura",
+      "codigo_cnae": "0161099",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "agricultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à agricultura não especificadas anteriormente",
+      "codigo_cnae": "0161099",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de inseminação artificial em animais",
+      "codigo_cnae": "0162801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inseminação",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inseminação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inseminacao",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inseminação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Artificial",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificial",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Artificial",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificial",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de inseminação artificial em animais",
+      "codigo_cnae": "0162801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de tosquiamento de ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tosquiamento",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tosquiamento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tosquiamento",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tosquiamento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de tosquiamento de ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de manejo de animais",
+      "codigo_cnae": "0162803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manejo",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manejo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manejo",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manejo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de manejo de animais",
+      "codigo_cnae": "0162803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à pecuária não especificadas anteriormente",
+      "codigo_cnae": "0162899",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pecuária",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pecuaria",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à pecuária não especificadas anteriormente",
+      "codigo_cnae": "0162899",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de pós-colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pós",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pos",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de pós-colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

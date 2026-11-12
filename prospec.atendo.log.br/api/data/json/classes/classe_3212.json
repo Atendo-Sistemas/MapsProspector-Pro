@@ -1,0 +1,89 @@
+{
+  "classe": "3212",
+  "grupo": "321",
+  "divisao": "32",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de bijuterias e artefatos semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bijuterias",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bijuterias",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Bijuterias",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bijuterias",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de bijuterias e artefatos semelhantes",
+      "codigo_cnae": "3212400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    }
+  ]
+}

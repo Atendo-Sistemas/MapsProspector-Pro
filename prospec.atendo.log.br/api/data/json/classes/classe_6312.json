@@ -1,0 +1,149 @@
+{
+  "classe": "6312",
+  "grupo": "631",
+  "divisao": "63",
+  "secao": "J",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Portais, provedores de conteúdo e outros serviços de informação na internet",
+      "codigo_cnae": "6312000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Portais",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "portais",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Portais",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "portais",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Provedores",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "provedores",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Provedores",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "provedores",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Conteúdo",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conteúdo",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Conteudo",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conteúdo",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Informação",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informação",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Informacao",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informação",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "6312000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Portais, provedores de conteúdo e outros serviços de informação na internet",
+      "codigo_cnae": "6312000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "63"
+    }
+  ]
+}

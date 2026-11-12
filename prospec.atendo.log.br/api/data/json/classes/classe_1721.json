@@ -1,0 +1,49 @@
+{
+  "classe": "1721",
+  "grupo": "172",
+  "divisao": "17",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de papel",
+      "codigo_cnae": "1721400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Papel",
+      "codigo_cnae": "1721400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "papel",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Papel",
+      "codigo_cnae": "1721400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "papel",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Fabricação de papel",
+      "codigo_cnae": "1721400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "17"
+    }
+  ]
+}

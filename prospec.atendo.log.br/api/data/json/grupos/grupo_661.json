@@ -1,0 +1,428 @@
+{
+  "grupo": "661",
+  "divisao": "66",
+  "secao": "K",
+  "total_termos": 42,
+  "termos": [
+    {
+      "termo": "Bolsa de valores",
+      "codigo_cnae": "6611801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "6611801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "6611801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "6611801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "6611801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa de valores",
+      "codigo_cnae": "6611801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa de mercadorias",
+      "codigo_cnae": "6611802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "6611802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "6611802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "6611802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "6611802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa de mercadorias",
+      "codigo_cnae": "6611802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa de mercadorias e futuros",
+      "codigo_cnae": "6611803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "6611803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa",
+      "codigo_cnae": "6611803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bolsa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "6611803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "6611803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Futuros",
+      "codigo_cnae": "6611803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "futuros",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Futuros",
+      "codigo_cnae": "6611803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "futuros",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bolsa de mercadorias e futuros",
+      "codigo_cnae": "6611803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Administração de consórcios para aquisição de bens e direitos",
+      "codigo_cnae": "6611804",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Administração",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administração",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Administracao",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administração",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Consórcios",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "consórcios",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Consorcios",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "consórcios",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Aquisição",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aquisição",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Aquisicao",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aquisição",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bens",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bens",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Bens",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bens",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Direitos",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "direitos",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Direitos",
+      "codigo_cnae": "6611804",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "direitos",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Administração de consórcios para aquisição de bens e direitos",
+      "codigo_cnae": "6611804",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Corretoras de títulos e valores mobiliários",
+      "codigo_cnae": "6612600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Corretoras",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corretoras",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Corretoras",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corretoras",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Títulos",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "títulos",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Titulos",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "títulos",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Mobiliários",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mobiliários",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Mobiliarios",
+      "codigo_cnae": "6612600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mobiliários",
+      "secao": "K",
+      "divisao": "66"
+    },
+    {
+      "termo": "Corretoras de títulos e valores mobiliários",
+      "codigo_cnae": "6612600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "66"
+    }
+  ]
+}

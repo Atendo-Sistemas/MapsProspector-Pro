@@ -1,0 +1,69 @@
+{
+  "classe": "2591",
+  "grupo": "259",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de embalagens metálicas",
+      "codigo_cnae": "2591800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "2591800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "2591800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metálicas",
+      "codigo_cnae": "2591800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metalicas",
+      "codigo_cnae": "2591800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de embalagens metálicas",
+      "codigo_cnae": "2591800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

@@ -1,0 +1,129 @@
+{
+  "classe": "7020",
+  "grupo": "702",
+  "divisao": "70",
+  "secao": "M",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Atividades de consultoria em gestão empresarial, exceto consultoria técnica específica",
+      "codigo_cnae": "7020400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Consultoria",
+      "codigo_cnae": "7020400",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "consultoria",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Consultoria",
+      "codigo_cnae": "7020400",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "consultoria",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Gestao",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Empresarial",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresarial",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Empresarial",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresarial",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Técnica",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnica",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Tecnica",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnica",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Específica",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "específica",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Especifica",
+      "codigo_cnae": "7020400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "específica",
+      "secao": "M",
+      "divisao": "70"
+    },
+    {
+      "termo": "Atividades de consultoria em gestão empresarial, exceto consultoria técnica específica",
+      "codigo_cnae": "7020400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "70"
+    }
+  ]
+}

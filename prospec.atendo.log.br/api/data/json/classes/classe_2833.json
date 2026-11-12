@@ -1,0 +1,169 @@
+{
+  "classe": "2833",
+  "grupo": "283",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Fabricação de máquinas e equipamentos para a agricultura e pecuária, peças e acessórios, exceto para irrigação",
+      "codigo_cnae": "2833000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Agricultura",
+      "codigo_cnae": "2833000",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "agricultura",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Agricultura",
+      "codigo_cnae": "2833000",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "agricultura",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecuária",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecuaria",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Irrigação",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "irrigação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Irrigacao",
+      "codigo_cnae": "2833000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "irrigação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas e equipamentos para a agricultura e pecuária, peças e acessórios, exceto para irrigação",
+      "codigo_cnae": "2833000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

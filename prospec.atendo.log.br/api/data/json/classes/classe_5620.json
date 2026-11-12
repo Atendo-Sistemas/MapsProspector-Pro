@@ -1,0 +1,129 @@
+{
+  "classe": "5620",
+  "grupo": "562",
+  "divisao": "56",
+  "secao": "I",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fornecimento de alimentos preparados preponderantemente para empresas",
+      "codigo_cnae": "5620101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Fornecimento",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornecimento",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Alimentos",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentos",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Preparados",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparados",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Preparados",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparados",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Preponderantemente",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preponderantemente",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Preponderantemente",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preponderantemente",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Empresas",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresas",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Empresas",
+      "codigo_cnae": "5620101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresas",
+      "secao": "I",
+      "divisao": "56"
+    },
+    {
+      "termo": "Fornecimento de alimentos preparados preponderantemente para empresas",
+      "codigo_cnae": "5620101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "56"
+    }
+  ]
+}

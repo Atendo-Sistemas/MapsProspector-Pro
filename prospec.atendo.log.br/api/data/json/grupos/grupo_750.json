@@ -1,0 +1,48 @@
+{
+  "grupo": "750",
+  "divisao": "75",
+  "secao": "M",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Atividades veterinárias",
+      "codigo_cnae": "7500100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "75"
+    },
+    {
+      "termo": "Veterinárias",
+      "codigo_cnae": "7500100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veterinárias",
+      "secao": "M",
+      "divisao": "75"
+    },
+    {
+      "termo": "Veterinarias",
+      "codigo_cnae": "7500100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veterinárias",
+      "secao": "M",
+      "divisao": "75"
+    },
+    {
+      "termo": "Atividades veterinárias",
+      "codigo_cnae": "7500100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "75"
+    }
+  ]
+}

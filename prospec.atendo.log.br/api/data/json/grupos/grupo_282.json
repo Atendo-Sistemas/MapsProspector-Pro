@@ -1,0 +1,1648 @@
+{
+  "grupo": "282",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 164,
+  "termos": [
+    {
+      "termo": "Fabricação de fornos industriais, aparelhos e equipamentos não-elétricos para instalação térmica, peças e acessórios",
+      "codigo_cnae": "2821601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Térmica",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "térmica",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Termica",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "térmica",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2821601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de fornos industriais, aparelhos e equipamentos não-elétricos para instalação térmica, peças e acessórios",
+      "codigo_cnae": "2821601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de estufas e fornos elétricos para fins industriais, peças e acessórios",
+      "codigo_cnae": "2821602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Estufas",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estufas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Estufas",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estufas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fornos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fornos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2821602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de estufas e fornos elétricos para fins industriais, peças e acessórios",
+      "codigo_cnae": "2821602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas, equipamentos e aparelhos para transporte e elevação de pessoas, peças e acessórios",
+      "codigo_cnae": "2822401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elevação",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elevação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elevacao",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elevação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pessoas",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pessoas",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pessoas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2822401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas, equipamentos e aparelhos para transporte e elevação de pessoas, peças e acessórios",
+      "codigo_cnae": "2822401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas, equipamentos e aparelhos para transporte e elevação de cargas, peças e acessórios",
+      "codigo_cnae": "2822402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elevação",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elevação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Elevacao",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elevação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Cargas",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cargas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Cargas",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cargas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2822402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas, equipamentos e aparelhos para transporte e elevação de cargas, peças e acessórios",
+      "codigo_cnae": "2822402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas e aparelhos de refrigeração e ventilação para uso industrial e comercial, peças e acessórios",
+      "codigo_cnae": "2823200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Refrigeração",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeração",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Refrigeracao",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeração",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Ventilação",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ventilação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Ventilacao",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ventilação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Comercial",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comercial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2823200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas e aparelhos de refrigeração e ventilação para uso industrial e comercial, peças e acessórios",
+      "codigo_cnae": "2823200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso não-industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso não-industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas e equipamentos para saneamento básico e ambiental, peças e acessórios",
+      "codigo_cnae": "2825900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Saneamento",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saneamento",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Saneamento",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saneamento",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Básico",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "básico",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Basico",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "básico",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Ambiental",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ambiental",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Ambiental",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ambiental",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2825900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas e equipamentos para saneamento básico e ambiental, peças e acessórios",
+      "codigo_cnae": "2825900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas de escrever, calcular e outros equipamentos não-eletrônicos para escritório, peças e acessórios",
+      "codigo_cnae": "2829101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Escrever",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escrever",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Escrever",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escrever",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Calcular",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calcular",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Calcular",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calcular",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Eletrônicos",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônicos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Eletronicos",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletrônicos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Escritório",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Escritorio",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2829101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de máquinas de escrever, calcular e outros equipamentos não-eletrônicos para escritório, peças e acessórios",
+      "codigo_cnae": "2829101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de outras máquinas e equipamentos de uso geral não especificados anteriormente, peças e acessórios",
+      "codigo_cnae": "2829199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Máquinas",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Maquinas",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "máquinas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2829199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de outras máquinas e equipamentos de uso geral não especificados anteriormente, peças e acessórios",
+      "codigo_cnae": "2829199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

@@ -1,0 +1,110 @@
+{
+  "classe": "2423",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Produção de tubos de aço com costura",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423703",
+      "descricao_cnae": "Produção de tubos de aço com costura",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423703",
+      "descricao_cnae": "Produção de tubos de aço com costura",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "tubos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423703",
+      "descricao_cnae": "Produção de tubos de aço com costura",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "costura",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423703",
+      "descricao_cnae": "Produção de tubos de aço com costura",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "Produção de outros tubos de ferro e aço",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423704",
+      "descricao_cnae": "Produção de outros tubos de ferro e aço",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423704",
+      "descricao_cnae": "Produção de outros tubos de ferro e aço",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "tubos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423704",
+      "descricao_cnae": "Produção de outros tubos de ferro e aço",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "ferro",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2423704",
+      "descricao_cnae": "Produção de outros tubos de ferro e aço",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "242",
+      "classe": "2423",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

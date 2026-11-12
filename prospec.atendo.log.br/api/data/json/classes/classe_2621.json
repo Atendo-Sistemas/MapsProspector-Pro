@@ -1,0 +1,69 @@
+{
+  "classe": "2621",
+  "grupo": "262",
+  "divisao": "26",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamentos de informática",
+      "codigo_cnae": "2621300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2621300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2621300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Informática",
+      "codigo_cnae": "2621300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informática",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Informatica",
+      "codigo_cnae": "2621300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "informática",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de equipamentos de informática",
+      "codigo_cnae": "2621300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    }
+  ]
+}

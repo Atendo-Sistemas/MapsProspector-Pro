@@ -1,0 +1,89 @@
+{
+  "classe": "2442",
+  "grupo": "244",
+  "divisao": "24",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Metalurgia dos metais preciosos",
+      "codigo_cnae": "2442300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metalurgia",
+      "codigo_cnae": "2442300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metalurgia",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metalurgia",
+      "codigo_cnae": "2442300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metalurgia",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metais",
+      "codigo_cnae": "2442300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metais",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metais",
+      "codigo_cnae": "2442300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metais",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Preciosos",
+      "codigo_cnae": "2442300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preciosos",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Preciosos",
+      "codigo_cnae": "2442300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preciosos",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Metalurgia dos metais preciosos",
+      "codigo_cnae": "2442300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    }
+  ]
+}

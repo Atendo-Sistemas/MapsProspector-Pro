@@ -1,0 +1,250 @@
+/**
+ * Maps Prospector — aba de Ajuda / Guia de Uso das pesquisas.
+ * Este arquivo depende de API_BASE, AppState e setActiveTab do app.js.
+ * Integração: adicionar 'help' ao mapa de títulos/loadTab no app.js e
+ * inserir o botão da aba no index.php.
+ */
+
+(function () {
+    'use strict';
+
+    function escapeHtml(value) {
+        return String(value == null ? '' : value)
+            .replace(/&/g, '&amp;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;')
+            .replace(/"/g, '&quot;')
+            .replace(/'/g, '&#039;');
+    }
+
+    /**
+     * Renderiza a aba de Ajuda no container de conteúdo principal.
+     * Usa renderHelpTab(contentArea) — igual aos demais módulos.
+     */
+    function renderHelpTab(contentArea) {
+        if (!contentArea) return;
+
+        var card = '';
+        var label = 'block text-xs font-black uppercase tracking-wider text-slate-500 mb-2';
+        var pill = 'inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold border';
+
+        contentArea.innerHTML = '\n            <div class="max-w-6xl mx-auto space-y-8 pb-20">\n'
+            + '                <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">\n'
+            + '                    <div>\n'
+            + '                        <p class="text-xs font-black uppercase tracking-[0.2em] text-blue-600">Central de Ajuda</p>\n'
+            + '                        <h2 class="text-3xl font-black text-slate-900 dark:text-slate-100 mt-2">Guia de Uso das Pesquisas</h2>\n'
+            + '                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-2 max-w-2xl">\n'
+            + '                            Aprenda a usar cada sistema de prospecção para encontrar mais leads\n'
+            + '                            com melhores termos de busca.\n'
+            + '                        </p>\n'
+            + '                    </div>\n'
+            + '                </div>\n'
+            + '\n'
+            + '                <nav id="help-nav" class="flex flex-wrap gap-2">\n'
+            + '                    <button data-help="linkedin" class="help-nav-btn rounded-full bg-blue-600 text-white px-4 py-2 text-sm font-bold border border-blue-600">LinkedIn</button>\n'
+            + '                    <button data-help="maps" class="help-nav-btn rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-2 text-sm font-bold border border-slate-200 dark:border-slate-600">Google Maps</button>\n'
+            + '                    <button data-help="cnpj" class="help-nav-btn rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-2 text-sm font-bold border border-slate-200 dark:border-slate-600">CNPJ</button>\n'
+            + '                </nav>\n'
+            + '\n'
+            + '                <div id="help-content"></div>\n'
+            + '            </div>\n';
+
+        // Navegação entre as guias
+        var buttons = contentArea.querySelectorAll('.help-nav-btn');
+        var switchHelp = function (section) {
+            buttons.forEach(function (btn) {
+                if (btn.dataset.help === section) {
+                    btn.className = 'help-nav-btn rounded-full bg-blue-600 text-white px-4 py-2 text-sm font-bold border border-blue-600';
+                } else {
+                    btn.className = 'help-nav-btn rounded-full bg-slate-100 dark:bg-slate-700 text-slate-600 dark:text-slate-300 px-4 py-2 text-sm font-bold border border-slate-200 dark:border-slate-600';
+                }
+            });
+            renderHelpSection(section, contentArea.querySelector('#help-content'));
+        };
+        buttons.forEach(function (btn) {
+            btn.addEventListener('click', function () { switchHelp(btn.dataset.help); });
+        });
+        switchHelp('linkedin');
+    }
+
+    /**
+     * Conteúdo de cada seção de ajuda.
+     */
+    var HELP_SECTIONS = {
+        linkedin: function (c, p) {
+            return c
+                + '        <section class="' + c + '">\n'
+                + '            <h3 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-4">\n'
+                + '                Pesquisa LinkedIn <span class="' + p + ' bg-blue-50 text-blue-700 border-blue-100">Prospecção de pessoas</span>\n'
+                + '            </h3>\n'
+                + '            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">\n'
+                + '                Encontre profissionais pelo <strong>cargo atual</strong>, <strong>localidade</strong> e <strong>empresa de referência</strong>.<br>\n'
+                + '                Não exige login no LinkedIn e cada lead importado consome 1 crédito.\n'
+                + '            </p>\n'
+                + '            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-6">\n'
+                + '                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/50 p-4">\n'
+                + '                    <p class="text-xs font-black uppercase tracking-wider text-blue-600 mb-1">1. Empresa (opcional)</p>\n'
+                + '                    <p class="text-sm text-slate-600 dark:text-slate-300">Use como referência para direcionar a busca. Ex.: <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">Atendo Sistemas</code></p>\n'
+                + '                </div>\n'
+                + '                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/50 p-4">\n'
+                + '                    <p class="text-xs font-black uppercase tracking-wider text-blue-600 mb-1">2. Cargos ou funções (essencial)</p>\n'
+                + '                    <p class="text-sm text-slate-600 dark:text-slate-300">O filtro mais importante. Separe vários com vírgula ou linha. Ex.: <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">Gerente Comercial, Diretor, Sócio</code></p>\n'
+                + '                </div>\n'
+                + '                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/50 p-4">\n'
+                + '                    <p class="text-xs font-black uppercase tracking-wider text-blue-600 mb-1">3. Localidade</p>\n'
+                + '                    <p class="text-sm text-slate-600 dark:text-slate-300">Qualquer forma funciona: <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">Brasil</code>, <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">SP</code>, <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">Curitiba</code> — o sistema traduz automaticamente.</p>\n'
+                + '                </div>\n'
+                + '            </div>\n'
+                + '            <h4 class="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">Exemplos que funcionam bem</h4>\n'
+                + '            <div class="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 mb-6">\n'
+                + '                <table class="w-full text-sm">\n'
+                + '                    <thead class="bg-slate-100 dark:bg-slate-700 text-left">\n'
+                + '                        <tr>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Empresa</th>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Cargos</th>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Localidade</th>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Resultado típico</th>\n'
+                + '                        </tr>\n'
+                + '                    </thead>\n'
+                + '                    <tbody class="divide-y divide-slate-100 dark:divide-slate-700">\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5 text-slate-500">—</td>\n'
+                + '                            <td class="px-4 py-2.5">Gerente Comercial</td>\n'
+                + '                            <td class="px-4 py-2.5">São Paulo</td>\n'
+                + '                            <td class="px-4 py-2.5">Gerentes comerciais de qualquer empresa em SP</td>\n'
+                + '                        </tr>\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5 text-slate-500">—</td>\n'
+                + '                            <td class="px-4 py-2.5">CEO, Sócio, Diretor</td>\n'
+                + '                            <td class="px-4 py-2.5">Brasil</td>\n'
+                + '                            <td class="px-4 py-2.5">Tomadores de decisão em todo o Brasil</td>\n'
+                + '                        </tr>\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5">Natura</td>\n'
+                + '                            <td class="px-4 py-2.5">Gerente</td>\n'
+                + '                            <td class="px-4 py-2.5">Brasil</td>\n'
+                + '                            <td class="px-4 py-2.5">Busca direcionada a perfis relacionados à Natura</td>\n'
+                + '                        </tr>\n'
+                + '                    </tbody>\n'
+                + '                </table>\n'
+                + '            </div>\n'
+                + '            <h4 class="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">Dicas práticas</h4>\n'
+                + '            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">\n'
+                + '                <li class="flex gap-2"><span class="text-blue-600 font-black">&#8226;</span> O <strong>cargo</strong> é o campo mais importante — use o nome como aparece nos perfis: <em>Gerente, Diretor, Sócio, Supervisor, Buyer</em>.</li>\n'
+                + '                <li class="flex gap-2"><span class="text-blue-600 font-black">&#8226;</span> Se vierem poucos leads, use a localidade mais ampla (<em>Brasil</em>) e cargos mais genéricos.</li>\n'
+                + '                <li class="flex gap-2"><span class="text-blue-600 font-black">&#8226;</span> Perfis com URL tipo <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">linkedin.com/in/ACwAA...</code> são normais: os dados continuam completos.</li>\n'
+                + '                <li class="flex gap-2"><span class="text-blue-600 font-black">&#8226;</span> Cada pesquisa leva de 15 a 40 segundos (busca + enriquecimento dos perfis).</li>\n'
+                + '                <li class="flex gap-2"><span class="text-blue-600 font-black">&#8226;</span> Se o resultado vier vazio, tente novamente em um minuto.</li>\n'
+                + '            </ul>\n'
+                + '        </section>\n';
+        },
+        maps: function (c, p) {
+            return c
+                + '        <section class="' + c + '">\n'
+                + '            <h3 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-4">\n'
+                + '                Pesquisa Google Maps <span class="' + p + ' bg-emerald-50 text-emerald-700 border-emerald-100">Prospecção de empresas</span>\n'
+                + '            </h3>\n'
+                + '            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">\n'
+                + '                Encontre <strong>empresas e estabelecimentos</strong> pelo segmento e pela cidade, extraindo telefone, endereço, avaliação e site.\n'
+                + '            </p>\n'
+                + '            <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">\n'
+                + '                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/50 p-4">\n'
+                + '                    <p class="text-xs font-black uppercase tracking-wider text-emerald-600 mb-1">1. Segmento / categoria</p>\n'
+                + '                    <p class="text-sm text-slate-600 dark:text-slate-300">Use a palavra-chave do ramo: <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">oficinas</code>, <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">clínicas odontológicas</code>, <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">pet shop</code>.</p>\n'
+                + '                </div>\n'
+                + '                <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/50 p-4">\n'
+                + '                    <p class="text-xs font-black uppercase tracking-wider text-emerald-600 mb-1">2. Cidade / região</p>\n'
+                + '                    <p class="text-sm text-slate-600 dark:text-slate-300">Informe a cidade e o estado: <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">Sorocaba, SP</code>. Quanto mais ampla a região, mais resultados.</p>\n'
+                + '                </div>\n'
+                + '            </div>\n'
+                + '            <h4 class="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">Exemplos que funcionam bem</h4>\n'
+                + '            <div class="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 mb-6">\n'
+                + '                <table class="w-full text-sm">\n'
+                + '                    <thead class="bg-slate-100 dark:bg-slate-700 text-left">\n'
+                + '                        <tr>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Segmento</th>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Cidade</th>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Resultado típico</th>\n'
+                + '                        </tr>\n'
+                + '                    </thead>\n'
+                + '                    <tbody class="divide-y divide-slate-100 dark:divide-slate-700">\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5">oficinas mecânicas</td>\n'
+                + '                            <td class="px-4 py-2.5">Sorocaba, SP</td>\n'
+                + '                            <td class="px-4 py-2.5">Oficinas da cidade com telefone e endereço</td>\n'
+                + '                        </tr>\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5">clínicas odontológicas</td>\n'
+                + '                            <td class="px-4 py-2.5">Campinas, SP</td>\n'
+                + '                            <td class="px-4 py-2.5">Clínicas com avaliação e site</td>\n'
+                + '                        </tr>\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5">pet shop</td>\n'
+                + '                            <td class="px-4 py-2.5">Araraquara, SP</td>\n'
+                + '                            <td class="px-4 py-2.5">Pet shops da região com contatos</td>\n'
+                + '                        </tr>\n'
+                + '                    </tbody>\n'
+                + '                </table>\n'
+                + '            </div>\n'
+                + '            <h4 class="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">Dicas práticas</h4>\n'
+                + '            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">\n'
+                + '                <li class="flex gap-2"><span class="text-emerald-600 font-black">&#8226;</span> Use a palavra-chave do ramo no plural: <em>dentistas</em> costuma trazer mais que <em>dentista</em>.</li>\n'
+                + '                <li class="flex gap-2"><span class="text-emerald-600 font-black">&#8226;</span> Combine bairro ou cidade + segmento para resultados mais precisos.</li>\n'
+                + '                <li class="flex gap-2"><span class="text-emerald-600 font-black">&#8226;</span> Use os filtros de avaliação mínima e "tem site/telefone" para leads de melhor qualidade.</li>\n'
+                + '            </ul>\n'
+                + '        </section>\n';
+        },
+        cnpj: function (c, p) {
+            return c
+                + '        <section class="' + c + '">\n'
+                + '            <h3 class="text-xl font-black text-slate-900 dark:text-slate-100 mb-4">\n'
+                + '                Pesquisa CNPJ <span class="' + p + ' bg-violet-50 text-violet-700 border-violet-100">Dados empresariais</span>\n'
+                + '            </h3>\n'
+                + '            <p class="text-sm text-slate-600 dark:text-slate-400 mb-6">\n'
+                + '                Consulte informações oficiais de qualquer empresa pelo <strong>CNPJ</strong>: situação cadastral, endereço, atividade (CNAE) e quadro societário.\n'
+                + '            </p>\n'
+                + '            <div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-slate-50 dark:bg-slate-700/50 p-4 mb-6">\n'
+                + '                <p class="text-xs font-black uppercase tracking-wider text-violet-600 mb-1">Como pesquisar</p>\n'
+                + '                <p class="text-sm text-slate-600 dark:text-slate-300">Informe o CNPJ completo, com ou sem pontuação: <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">12.345.678/0001-90</code> ou <code class="bg-slate-200 dark:bg-slate-600 rounded px-1">12345678000190</code>. O sistema retorna o dossiê completo da empresa.</p>\n'
+                + '            </div>\n'
+                + '            <h4 class="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">Exemplos que funcionam bem</h4>\n'
+                + '            <div class="overflow-hidden rounded-2xl border border-slate-200 dark:border-slate-700 mb-6">\n'
+                + '                <table class="w-full text-sm">\n'
+                + '                    <thead class="bg-slate-100 dark:bg-slate-700 text-left">\n'
+                + '                        <tr>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">O que digitar</th>\n'
+                + '                            <th class="px-4 py-2 font-black text-slate-700 dark:text-slate-200">Resultado típico</th>\n'
+                + '                        </tr>\n'
+                + '                    </thead>\n'
+                + '                    <tbody class="divide-y divide-slate-100 dark:divide-slate-700">\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5">CNPJ completo</td>\n'
+                + '                            <td class="px-4 py-2.5">Dossiê completo da empresa (situação, CNAE, sócios)</td>\n'
+                + '                        </tr>\n'
+                + '                        <tr>\n'
+                + '                            <td class="px-4 py-2.5">CNPJ básico (8 dígitos) ou da filial</td>\n'
+                + '                            <td class="px-4 py-2.5">Informações da matriz ou da unidade correspondente</td>\n'
+                + '                        </tr>\n'
+                + '                    </tbody>\n'
+                + '                </table>\n'
+                + '            </div>\n'
+                + '            <h4 class="text-sm font-black uppercase tracking-wider text-slate-700 dark:text-slate-300 mb-3">Dicas práticas</h4>\n'
+                + '            <ul class="space-y-2 text-sm text-slate-600 dark:text-slate-400">\n'
+                + '                <li class="flex gap-2"><span class="text-violet-600 font-black">&#8226;</span> O CNPJ com pontuação ou sem pontuação funciona da mesma forma.</li>\n'
+                + '                <li class="flex gap-2"><span class="text-violet-600 font-black">&#8226;</span> Se não tiver o CNPJ, encontre a empresa na Pesquisa Google Maps e copie o CNPJ exibido na ficha dela.</li>\n'
+                + '                <li class="flex gap-2"><span class="text-violet-600 font-black">&#8226;</span> Verifique a <strong>situação cadastral</strong> antes de prospectar: empresas "Inapta" ou "Baixada" não são bons alvos.</li>\n'
+                + '            </ul>\n'
+                + '        </section>\n';
+        }
+    };
+
+    function renderHelpSection(section, container) {
+        if (!container || !HELP_SECTIONS[section]) return;
+        var c = '';
+        var p = 'inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-bold border ml-2';
+        container.innerHTML = HELP_SECTIONS[section](c, p);
+    }
+
+    // Expõe globalmente para o app.js chamar como as demais abas.
+    window.renderHelpTab = renderHelpTab;
+})();

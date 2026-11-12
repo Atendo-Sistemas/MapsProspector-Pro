@@ -1,0 +1,89 @@
+{
+  "classe": "8531",
+  "grupo": "853",
+  "divisao": "85",
+  "secao": "P",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Educação superior - graduação",
+      "codigo_cnae": "8531700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educacao",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Superior",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "superior",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Superior",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "superior",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Graduação",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "graduação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Graduacao",
+      "codigo_cnae": "8531700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "graduação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação superior - graduação",
+      "codigo_cnae": "8531700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    }
+  ]
+}

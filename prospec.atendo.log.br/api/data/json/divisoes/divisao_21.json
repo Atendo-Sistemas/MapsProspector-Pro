@@ -1,0 +1,506 @@
+{
+  "divisao": "21",
+  "total_termos": 50,
+  "termos": [
+    {
+      "termo": "Fabricação de insumos farmacêuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Insumos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "insumos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Insumos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "insumos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Farmacêuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farmacêuticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Farmaceuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farmacêuticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de insumos farmacêuticos",
+      "codigo_cnae": "2110600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos alopáticos para uso humano",
+      "codigo_cnae": "2121101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Alopáticos",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alopáticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Alopaticos",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alopáticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Humano",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humano",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Humano",
+      "codigo_cnae": "2121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humano",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos alopáticos para uso humano",
+      "codigo_cnae": "2121101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos homeopáticos para uso humano",
+      "codigo_cnae": "2121102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Homeopáticos",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "homeopáticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Homeopaticos",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "homeopáticos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Humano",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humano",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Humano",
+      "codigo_cnae": "2121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humano",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos homeopáticos para uso humano",
+      "codigo_cnae": "2121102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos fitoterápicos para uso humano",
+      "codigo_cnae": "2121103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fitoterápicos",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fitoterápicos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fitoterapicos",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fitoterápicos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Humano",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humano",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Humano",
+      "codigo_cnae": "2121103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "humano",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos fitoterápicos para uso humano",
+      "codigo_cnae": "2121103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos para uso veterinário",
+      "codigo_cnae": "2122000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Medicamentos",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medicamentos",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Veterinário",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veterinário",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Veterinario",
+      "codigo_cnae": "2122000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veterinário",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de medicamentos para uso veterinário",
+      "codigo_cnae": "2122000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de preparações farmacêuticas",
+      "codigo_cnae": "2123800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Preparações",
+      "codigo_cnae": "2123800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparações",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Preparacoes",
+      "codigo_cnae": "2123800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparações",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Farmacêuticas",
+      "codigo_cnae": "2123800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farmacêuticas",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Farmaceuticas",
+      "codigo_cnae": "2123800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "farmacêuticas",
+      "secao": "C",
+      "divisao": "21"
+    },
+    {
+      "termo": "Fabricação de preparações farmacêuticas",
+      "codigo_cnae": "2123800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "21"
+    }
+  ]
+}

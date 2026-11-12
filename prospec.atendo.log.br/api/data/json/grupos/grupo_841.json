@@ -1,0 +1,288 @@
+{
+  "grupo": "841",
+  "divisao": "84",
+  "secao": "O",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Administração pública em geral",
+      "codigo_cnae": "8411600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Administração",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administração",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Administracao",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administração",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Pública",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Publica",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Administração pública em geral",
+      "codigo_cnae": "8411600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação das atividades de saúde, educação, serviços culturais e outros serviços sociais",
+      "codigo_cnae": "8412400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regulação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulacao",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regulação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Saúde",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saúde",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Saude",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "saúde",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Educação",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Educacao",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Culturais",
+      "codigo_cnae": "8412400",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "culturais",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Culturais",
+      "codigo_cnae": "8412400",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "culturais",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "8412400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação das atividades de saúde, educação, serviços culturais e outros serviços sociais",
+      "codigo_cnae": "8412400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação das atividades econômicas",
+      "codigo_cnae": "8413200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regulação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulacao",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "regulação",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Econômicas",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "econômicas",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Economicas",
+      "codigo_cnae": "8413200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "econômicas",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Regulação das atividades econômicas",
+      "codigo_cnae": "8413200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    }
+  ]
+}

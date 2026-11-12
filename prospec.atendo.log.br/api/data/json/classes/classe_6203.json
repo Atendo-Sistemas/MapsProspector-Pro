@@ -1,0 +1,129 @@
+{
+  "classe": "6203",
+  "grupo": "620",
+  "divisao": "62",
+  "secao": "J",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Desenvolvimento e licenciamento de programas de computador não-customizáveis",
+      "codigo_cnae": "6203100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Licenciamento",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "licenciamento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Licenciamento",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "licenciamento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Computador",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computador",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Computador",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computador",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Customizáveis",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "customizáveis",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Customizaveis",
+      "codigo_cnae": "6203100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "customizáveis",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento e licenciamento de programas de computador não-customizáveis",
+      "codigo_cnae": "6203100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "62"
+    }
+  ]
+}

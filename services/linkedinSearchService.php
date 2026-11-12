@@ -454,9 +454,37 @@ class LinkedInSearchService
             ? trim($firstName . ' ' . $lastName)
             : $this->firstString($item, ['fullName', 'full_name', 'name']);
 
-        $jobTitle = $this->firstString($item, ['jobTitle', 'job_title', 'title', 'headline']);
+        $jobTitle = $this->firstString($item, [
+            'jobTitle', 'job_title', 'currentJobTitle', 'current_job_title',
+            'position', 'role', 'occupation', 'title', 'headline'
+        ]);
         if (!$jobTitle && is_array($currentPosition)) {
-            $jobTitle = $this->firstString($currentPosition, ['title', 'jobTitle', 'job_title']);
+            $jobTitle = $this->firstString($currentPosition, [
+                'title', 'jobTitle', 'job_title', 'position', 'role', 'name'
+            ]);
+        }
+        if (!$jobTitle) {
+            foreach (['currentPosition', 'current_position', 'positionCurrent'] as $positionKey) {
+                if (!isset($item[$positionKey]) || !is_array($item[$positionKey])) continue;
+                $nestedPosition = $item[$positionKey];
+                if (isset($nestedPosition[0]) && is_array($nestedPosition[0])) {
+                    $nestedPosition = $nestedPosition[0];
+                }
+                $jobTitle = $this->firstString($nestedPosition, [
+                    'title', 'jobTitle', 'job_title', 'position', 'role', 'name'
+                ]);
+                if ($jobTitle) break;
+            }
+        }
+        if (!$jobTitle) {
+            foreach (['experience', 'experiences', 'positions'] as $experienceKey) {
+                if (!isset($item[$experienceKey]) || !is_array($item[$experienceKey])) continue;
+                foreach ($item[$experienceKey] as $experience) {
+                    if (!is_array($experience)) continue;
+                    $jobTitle = $this->firstString($experience, ['position', 'title', 'jobTitle', 'job_title', 'role']);
+                    if ($jobTitle) break 2;
+                }
+            }
         }
 
         $location = $this->firstString($item, ['locationName', 'city', 'geoLocationName']);

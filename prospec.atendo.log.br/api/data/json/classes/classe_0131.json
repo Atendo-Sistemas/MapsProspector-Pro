@@ -1,0 +1,69 @@
+{
+  "classe": "0131",
+  "grupo": "013",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Cultivo de laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0131800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0131800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laranja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laranja",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de laranja",
+      "codigo_cnae": "0131800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

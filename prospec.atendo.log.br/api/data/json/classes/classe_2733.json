@@ -1,0 +1,129 @@
+{
+  "classe": "2733",
+  "grupo": "273",
+  "divisao": "27",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de fios, cabos e condutores elétricos isolados",
+      "codigo_cnae": "2733300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fios",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fios",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Cabos",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Cabos",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Condutores",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Condutores",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Isolados",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "isolados",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Isolados",
+      "codigo_cnae": "2733300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "isolados",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de fios, cabos e condutores elétricos isolados",
+      "codigo_cnae": "2733300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    }
+  ]
+}

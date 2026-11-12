@@ -1,0 +1,89 @@
+{
+  "classe": "1314",
+  "grupo": "131",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de linhas para costurar e bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Linhas",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "linhas",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Linhas",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "linhas",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Costurar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "costurar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Costurar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "costurar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bordar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bordar",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de linhas para costurar e bordar",
+      "codigo_cnae": "1314600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

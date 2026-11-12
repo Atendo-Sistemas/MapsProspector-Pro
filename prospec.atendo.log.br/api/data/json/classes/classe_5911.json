@@ -1,0 +1,84 @@
+{
+  "classe": "5911",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "5911199",
+      "descricao_cnae": "Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5911",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "atividades",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "5911199",
+      "descricao_cnae": "Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5911",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "5911199",
+      "descricao_cnae": "Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5911",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "cinematográfica,",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "5911199",
+      "descricao_cnae": "Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5911",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "vídeos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "5911199",
+      "descricao_cnae": "Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5911",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "programas",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "5911199",
+      "descricao_cnae": "Atividades de produção cinematográfica, de vídeos e de programas de televisão não especificadas anteriormente",
+      "secao": "J",
+      "divisao": "59",
+      "grupo": "591",
+      "classe": "5911",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

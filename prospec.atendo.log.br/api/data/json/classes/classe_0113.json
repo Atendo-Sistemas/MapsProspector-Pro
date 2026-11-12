@@ -1,0 +1,89 @@
+{
+  "classe": "0113",
+  "grupo": "011",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Cultivo de cana-de-açúcar",
+      "codigo_cnae": "0113000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0113000",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0113000",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cana",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cana",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "0113000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de cana-de-açúcar",
+      "codigo_cnae": "0113000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

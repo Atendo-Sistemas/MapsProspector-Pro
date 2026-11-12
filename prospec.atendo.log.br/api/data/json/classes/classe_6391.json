@@ -1,0 +1,69 @@
+{
+  "classe": "6391",
+  "grupo": "639",
+  "divisao": "63",
+  "secao": "J",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Agências de notícias",
+      "codigo_cnae": "6391700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Agências",
+      "codigo_cnae": "6391700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Agencias",
+      "codigo_cnae": "6391700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agências",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Notícias",
+      "codigo_cnae": "6391700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "notícias",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Noticias",
+      "codigo_cnae": "6391700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "notícias",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Agências de notícias",
+      "codigo_cnae": "6391700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "63"
+    }
+  ]
+}

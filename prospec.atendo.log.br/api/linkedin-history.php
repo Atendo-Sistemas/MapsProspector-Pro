@@ -1,0 +1,342 @@
+<?php
+/**
+ * Histórico de pesquisas LinkedIn.
+ * Endpoint: GET /api/linkedin-history.php?limit=50
+ *
+ * Usa linkedin_runs, tabela já alimentada tanto por pesquisas novas quanto por
+ * resultados recuperados do cache. O retorno é restrito ao tenant da sessão.
+ */
+ini_set('display_errors', 0);
+error_reporting(E_ALL);
+ob_start();
+
+register_shutdown_function(function () {
+    $error = error_get_last();
+    if ($error !== null && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        if (!headers_sent()) {
+            if (ob_get_length() > 0) {
+                ob_clean();
+            }
+            http_response_code(500);
+            header('Content-Type: application/json; charset=utf-8');
+            echo json_encode([
+                'success' => false,
+                'error' => 'Não foi possível carregar o histórico de pesquisas agora.',
+            ], JSON_UNESCAPED_UNICODE);
+        }
+    }
+});
+
+function linkedinHistoryLoadFile($relativePath) {
+    static $roots = null;
+
+    if ($roots === null) {
+        $documentRoot = rtrim((string) (getenv('DOCUMENT_ROOT') ?: ($_SERVER['DOCUMENT_ROOT'] ?? '')), '/');
+        $home = rtrim((string) (getenv('HOME') ?: ''), '/');
+        $roots = array_values(array_unique(array_filter([
+            dirname(__DIR__),
+            $documentRoot,
+            $documentRoot ? dirname($documentRoot) : null,
+            $home ? $home . '/prospec.atendo.log.br' : null,
+            $home ? $home . '/public_html' : null,
+        ], 'is_dir')));
+    }
+
+    foreach ($roots as $root) {
+        $path = rtrim($root, '/') . '/' . ltrim($relativePath, '/');
+        if (is_file($path)) {
+            return $path;
+        }
+    }
+
+    return null;
+}
+
+function linkedinHistoryTenantMapSql(PDO $db): string
+{
+    $sources = [];
+    try {
+        if ((bool) $db->query("SHOW TABLES LIKE 'legal_consents'")->fetchColumn()) {
+            $sources[] = "SELECT lc.user_id, lc.tenant_id
+                            FROM legal_consents lc
+                            JOIN tenants t ON t.id = lc.tenant_id AND t.id <> 1
+                            JOIN users legacy_user ON legacy_user.id = lc.user_id
+                             AND legacy_user.tenant_id = 1
+                             AND LOWER(COALESCE(legacy_user.profile, '')) <> 'super_admin'";
+        }
+    } catch (Throwable $e) {
+        // Tabela opcional em instalações antigas.
+    }
+    try {
+        if ((bool) $db->query("SHOW TABLES LIKE 'settings'")->fetchColumn()) {
+            $sources[] = "SELECT s.user_id, t.id AS tenant_id
+                            FROM settings s
+                            JOIN users legacy_user ON legacy_user.id = s.user_id
+                             AND legacy_user.tenant_id = 1
+                             AND LOWER(COALESCE(legacy_user.profile, '')) <> 'super_admin'
+                            JOIN tenants t ON t.id <> 1
+                             AND LOWER(TRIM(t.name)) = LOWER(TRIM(s.tenant_name))
+                           WHERE (SELECT COUNT(*) FROM tenants t_unique
+                                   WHERE LOWER(TRIM(t_unique.name)) = LOWER(TRIM(t.name))) = 1";
+        }
+    } catch (Throwable $e) {
+        // O vínculo por aceite legal continua disponível sem settings.
+    }
+    if ($sources === []) {
+        return 'SELECT NULL AS user_id, NULL AS tenant_id WHERE 1 = 0';
+    }
+    return 'SELECT candidates.user_id, MIN(candidates.tenant_id) AS tenant_id
+              FROM (' . implode(' UNION ALL ', $sources) . ') candidates
+          GROUP BY candidates.user_id
+            HAVING COUNT(DISTINCT candidates.tenant_id) = 1';
+}
+
+foreach (['config/config.php', 'config/database.php', 'includes/functions.php'] as $relativePath) {
+    $path = linkedinHistoryLoadFile($relativePath);
+    if ($path === null) {
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode([
+            'success' => false,
+            'error' => 'Não foi possível inicializar o histórico de pesquisas.',
+        ], JSON_UNESCAPED_UNICODE);
+        exit;
+    }
+    require_once $path;
+}
+
+if (!function_exists('requireAuth') || !function_exists('getAuthUser') || !function_exists('jsonSuccess') || !function_exists('jsonError') || !class_exists('Database')) {
+    http_response_code(500);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode([
+        'success' => false,
+        'error' => 'Não foi possível inicializar o histórico de pesquisas.',
+    ], JSON_UNESCAPED_UNICODE);
+    exit;
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    jsonError('Método não permitido.', 405);
+}
+
+try {
+    requireAuth();
+    $authUser = getAuthUser();
+    $db = Database::getInstance()->getConnection();
+    $profile = strtolower((string) ($authUser['profile'] ?? ''));
+    $isSuperAdmin = $profile === 'super_admin';
+    $tenantId = mpResolveEffectiveTenantId($db, $authUser);
+    if ($isSuperAdmin && !empty($_GET['tenant_id'])) {
+        $tenantId = max(0, (int) $_GET['tenant_id']);
+    }
+    $memberIds = $tenantId > 1 ? mpTenantMemberUserIds($db, $tenantId, (int) ($authUser['id'] ?? 0)) : [(int) ($authUser['id'] ?? 0)];
+    if (!$memberIds) $memberIds = [(int) ($authUser['id'] ?? 0)];
+    $memberIds = array_values(array_unique(array_filter(array_map('intval', $memberIds), static fn(int $id): bool => $id > 0)));
+    $memberPlaceholders = implode(',', array_fill(0, count($memberIds), '?'));
+    $canSeeCompanyHistory = !$isSuperAdmin && $tenantId > 1;
+    $tenantMapSql = linkedinHistoryTenantMapSql($db);
+    $limit = filter_var($_GET['limit'] ?? 50, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1, 'max_range' => 100]]);
+    if ($limit === false) {
+        $limit = 50;
+    }
+
+    $tableExists = $db->query("SHOW TABLES LIKE 'linkedin_runs'")->fetch();
+    if (!$tableExists) {
+        jsonSuccess([
+            'items' => [],
+            'total' => 0,
+        ], 'Histórico ainda não está disponível.');
+    }
+
+    // Ao informar run_id, devolve somente os perfis vinculados à pesquisa.
+    // A consulta é sempre limitada ao tenant da sessão para impedir acesso cruzado.
+    $requestedRunId = isset($_GET['run_id']) ? (int) $_GET['run_id'] : 0;
+    if ($requestedRunId > 0) {
+        if ($isSuperAdmin) {
+            $runTenantScope = '1 = 1';
+        } elseif ($canSeeCompanyHistory) {
+            $runTenantScope = "user_id IN ({$memberPlaceholders})";
+        } else {
+            $runTenantScope = 'user_id = ?';
+        }
+        $runStmt = $db->prepare(
+            "SELECT id, tenant_id, leads_found, search_company, search_job_titles, search_location
+             FROM linkedin_runs
+             WHERE id = ? AND {$runTenantScope} AND status = 'done'
+             LIMIT 1"
+        );
+        $runParams = [$requestedRunId];
+        if ($isSuperAdmin) {
+            // Visão administrativa global mantida.
+        } elseif ($canSeeCompanyHistory) {
+            $runParams = array_merge($runParams, $memberIds);
+        } else {
+            $runParams[] = (int) ($authUser['id'] ?? 0);
+        }
+        $runStmt->execute($runParams);
+        $run = $runStmt->fetch(PDO::FETCH_ASSOC);
+        if (!$run) {
+            jsonError('Pesquisa não encontrada.', 404);
+        }
+        $runTenantId = (int) ($run['tenant_id'] ?? $tenantId);
+
+        $leads = [];
+        $savedResultsTableExists = (bool) $db->query("SHOW TABLES LIKE 'linkedin_run_results'")->fetch();
+        if ($savedResultsTableExists) {
+            $savedStmt = $db->prepare(
+                'SELECT leads_json FROM linkedin_run_results WHERE tenant_id = ? AND run_id = ? LIMIT 1'
+            );
+            $savedStmt->execute([$runTenantId, $requestedRunId]);
+            $savedJson = $savedStmt->fetchColumn();
+            $savedLeads = is_string($savedJson) ? json_decode($savedJson, true) : null;
+            if (is_array($savedLeads)) {
+                $leads = $savedLeads;
+            }
+        }
+
+        // Compatibilidade com buscas já concluídas antes desta melhoria.
+        if (!$leads) {
+            $leadsTableExists = (bool) $db->query("SHOW TABLES LIKE 'linkedin_leads'")->fetch();
+            if ($leadsTableExists) {
+                $leadStmt = $db->prepare(
+                    'SELECT profile_url, full_name, job_title, company_name, location, industry, photo_url
+                     FROM linkedin_leads
+                     WHERE tenant_id = ? AND run_id = ?
+                     ORDER BY id ASC'
+                );
+                $leadStmt->execute([$runTenantId, $requestedRunId]);
+                $leads = $leadStmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+            }
+        }
+
+        // Para consultas antigas que ainda não possuíam resultados próprios,
+        // tenta recuperar a cópia correspondente de resultados da pesquisa.
+        if (!$leads && (int) ($run['leads_found'] ?? 0) > 0) {
+            $cacheTableExists = (bool) $db->query("SHOW TABLES LIKE 'linkedin_search_cache'")->fetch();
+            if ($cacheTableExists) {
+                $jobTitles = json_decode((string) ($run['search_job_titles'] ?? ''), true);
+                if (!is_array($jobTitles)) {
+                    $jobTitles = array_values(array_filter(array_map('trim', preg_split('/[,;\\n]+/', (string) ($run['search_job_titles'] ?? '')) ?: [])));
+                }
+                $jobTitlesJson = json_encode($jobTitles, JSON_UNESCAPED_UNICODE);
+                $cacheStmt = $db->prepare(
+                    'SELECT leads_json
+                     FROM linkedin_search_cache
+                     WHERE tenant_id = ?
+                       AND COALESCE(NULLIF(company_lower, \'\'), \'\') = ?
+                       AND job_titles_lower = ?
+                       AND location_lower = ?
+                     ORDER BY created_at DESC
+                     LIMIT 1'
+                );
+                $cacheStmt->execute([
+                    $runTenantId,
+                    mb_strtolower(trim((string) ($run['search_company'] ?? ''))),
+                    mb_strtolower((string) $jobTitlesJson),
+                    mb_strtolower(trim((string) ($run['search_location'] ?? ''))),
+                ]);
+                $cacheJson = $cacheStmt->fetchColumn();
+                $cachedLeads = is_string($cacheJson) ? json_decode($cacheJson, true) : null;
+                if (is_array($cachedLeads)) {
+                    $leads = $cachedLeads;
+                }
+            }
+        }
+
+        jsonSuccess([
+            'runId' => (string) $requestedRunId,
+            'leads' => array_map(function ($lead) {
+                if (!is_array($lead)) {
+                    return [];
+                }
+                return [
+                    'profile_url' => (string) ($lead['profile_url'] ?? ''),
+                    'full_name' => (string) ($lead['full_name'] ?? ''),
+                    'first_name' => (string) ($lead['first_name'] ?? ''),
+                    'last_name' => (string) ($lead['last_name'] ?? ''),
+                    'public_identifier' => (string) ($lead['public_identifier'] ?? ''),
+                    'linkedin_id' => (string) ($lead['linkedin_id'] ?? ''),
+                    'job_title' => (string) ($lead['job_title'] ?? ''),
+                    'headline' => (string) ($lead['headline'] ?? $lead['job_title'] ?? ''),
+                    'company_name' => (string) ($lead['company_name'] ?? ''),
+                    'location' => (string) ($lead['location'] ?? ''),
+                    'industry' => (string) ($lead['industry'] ?? ''),
+                    'photo_url' => (string) ($lead['photo_url'] ?? ''),
+                    'cover_photo_url' => (string) ($lead['cover_photo_url'] ?? ''),
+                    'about' => (string) ($lead['about'] ?? ''),
+                    'skills' => is_array($lead['skills'] ?? null) ? $lead['skills'] : [],
+                    'experience' => is_array($lead['experience'] ?? null) ? $lead['experience'] : [],
+                    'education' => is_array($lead['education'] ?? null) ? $lead['education'] : [],
+                    'certifications' => is_array($lead['certifications'] ?? null) ? $lead['certifications'] : [],
+                    'languages' => is_array($lead['languages'] ?? null) ? $lead['languages'] : [],
+                    'projects' => is_array($lead['projects'] ?? null) ? $lead['projects'] : [],
+                    'connections_count' => isset($lead['connections_count']) ? (int) $lead['connections_count'] : null,
+                    'followers_count' => isset($lead['followers_count']) ? (int) $lead['followers_count'] : null,
+                    'open_to_work' => !empty($lead['open_to_work']),
+                    'hiring' => !empty($lead['hiring']),
+                    'premium' => !empty($lead['premium']),
+                    'verified' => !empty($lead['verified']),
+                    'email' => (string) ($lead['email'] ?? ''),
+                    'website' => (string) ($lead['website'] ?? ''),
+                    'source' => (string) ($lead['source'] ?? 'harvestapi_full'),
+                ];
+            }, $leads),
+            'count' => count($leads),
+            'expectedCount' => (int) ($run['leads_found'] ?? 0),
+        ], 'Perfis carregados com sucesso.');
+    }
+
+    $listWhere = ["status = 'done'"];
+    $listParams = [];
+    if ($isSuperAdmin && empty($_GET['tenant_id'])) {
+        // Todos os tenants para a visão global do super administrador.
+    } elseif (($isSuperAdmin && $tenantId > 1) || $canSeeCompanyHistory) {
+        $listWhere[] = "user_id IN ({$memberPlaceholders})";
+        $listParams = array_merge($listParams, $memberIds);
+    } else {
+        $listWhere[] = 'user_id = ?';
+        $listParams[] = (int) ($authUser['id'] ?? 0);
+    }
+    $whereSql = implode(' AND ', $listWhere);
+    $stmtTotal = $db->prepare('SELECT COUNT(*) FROM linkedin_runs WHERE ' . $whereSql);
+    $stmtTotal->execute($listParams);
+    $total = (int) $stmtTotal->fetchColumn();
+    $stmt = $db->prepare(
+        "SELECT id, search_title, search_company, search_location, search_job_titles,
+                status, leads_found, credits_charged, created_at, finished_at
+         FROM linkedin_runs
+         WHERE {$whereSql}
+         ORDER BY created_at DESC, id DESC
+         LIMIT " . $limit
+    );
+    $stmt->execute($listParams);
+    $rows = $stmt->fetchAll(PDO::FETCH_ASSOC) ?: [];
+
+    $items = array_map(function ($row) {
+        $jobTitles = json_decode((string) ($row['search_job_titles'] ?? ''), true);
+        if (!is_array($jobTitles)) {
+            $jobTitles = array_values(array_filter(array_map('trim', preg_split('/[,;\\n]+/', (string) ($row['search_job_titles'] ?? '')) ?: [])));
+        }
+
+        return [
+            'id' => (string) $row['id'],
+            'title' => (string) ($row['search_title'] ?: 'Pesquisa LinkedIn'),
+            'company' => (string) ($row['search_company'] ?? ''),
+            'location' => (string) ($row['search_location'] ?? ''),
+            'jobTitles' => array_values(array_filter(array_map('strval', $jobTitles))),
+            'status' => (string) ($row['status'] ?? 'done'),
+            'leadsFound' => (int) ($row['leads_found'] ?? 0),
+            'creditsCharged' => (int) ($row['credits_charged'] ?? 0),
+            'createdAt' => (string) ($row['created_at'] ?? ''),
+            'finishedAt' => $row['finished_at'] !== null ? (string) $row['finished_at'] : null,
+        ];
+    }, $rows);
+
+    jsonSuccess([
+        'items' => $items,
+        'total' => $total,
+    ], 'Histórico carregado com sucesso.');
+} catch (Throwable $e) {
+    error_log('linkedin-history.php: ' . $e->getMessage());
+    jsonError('Não foi possível carregar o histórico de pesquisas agora.', 500);
+}

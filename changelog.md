@@ -4,6 +4,13 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+## [1.4.8] - 2026-11-12
+
+- Integradas as atualizações recentes de pesquisa com os banners e notificações, preservando a pesquisa Instagram.
+- Adicionada a opção de exibir banners na pesquisa Instagram.
+
+---
+
 ## [1.4.7] - 2026-11-12
 
 - Campanha de banner configurável pelo super administrador em Empresa SaaS, com imagem HTTPS, destino, páginas e período.

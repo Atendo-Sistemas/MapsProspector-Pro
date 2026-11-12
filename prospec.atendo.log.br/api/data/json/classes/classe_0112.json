@@ -1,0 +1,269 @@
+{
+  "classe": "0112",
+  "grupo": "011",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 26,
+  "termos": [
+    {
+      "termo": "Cultivo de algodão herbáceo",
+      "codigo_cnae": "0112101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Algodão",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Algodao",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "algodão",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Herbáceo",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "herbáceo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Herbaceo",
+      "codigo_cnae": "0112101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "herbáceo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de algodão herbáceo",
+      "codigo_cnae": "0112101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de juta",
+      "codigo_cnae": "0112102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Juta",
+      "codigo_cnae": "0112102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "juta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Juta",
+      "codigo_cnae": "0112102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "juta",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de juta",
+      "codigo_cnae": "0112102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras fibras de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0112199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0112199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Lavoura",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lavoura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporária",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Temporaria",
+      "codigo_cnae": "0112199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "temporária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de outras fibras de lavoura temporária não especificadas anteriormente",
+      "codigo_cnae": "0112199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

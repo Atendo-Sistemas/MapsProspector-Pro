@@ -1,0 +1,288 @@
+{
+  "grupo": "267",
+  "divisao": "26",
+  "secao": "C",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamentos e instrumentos ópticos, fotográficos e cinematográficos, exceto filmadoras",
+      "codigo_cnae": "2670101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Instrumentos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instrumentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Instrumentos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instrumentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Ópticos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ópticos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Opticos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ópticos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fotográficos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotográficos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fotograficos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotográficos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Cinematográficos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cinematográficos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Cinematograficos",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cinematográficos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Filmadoras",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmadoras",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Filmadoras",
+      "codigo_cnae": "2670101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmadoras",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de equipamentos e instrumentos ópticos, fotográficos e cinematográficos, exceto filmadoras",
+      "codigo_cnae": "2670101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de filmadoras, câmeras fotográficas e outros equipamentos fotográficos",
+      "codigo_cnae": "2670102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Filmadoras",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmadoras",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Filmadoras",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmadoras",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Câmeras",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "câmeras",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Cameras",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "câmeras",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fotográficas",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotográficas",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fotograficas",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotográficas",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fotográficos",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotográficos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fotograficos",
+      "codigo_cnae": "2670102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotográficos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de filmadoras, câmeras fotográficas e outros equipamentos fotográficos",
+      "codigo_cnae": "2670102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    }
+  ]
+}

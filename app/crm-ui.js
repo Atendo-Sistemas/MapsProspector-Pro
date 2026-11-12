@@ -31,7 +31,7 @@
         return String(lead.leadName || lead.companyName || lead.jobTitle || 'Lead sem nome').trim() || 'Lead sem nome';
     }
     function crmOriginLabel(source) {
-        return source === 'linkedin' ? 'LinkedIn' : source === 'maps' ? 'Google Maps' : 'Origem não identificada';
+        return source === 'linkedin' ? 'LinkedIn' : source === 'instagram' ? 'Instagram' : source === 'maps' ? 'Google Maps' : 'Origem não identificada';
     }
     function crmFetch(url, options) {
         return fetch(API_BASE + url, Object.assign({ credentials: 'include', headers: { 'Accept': 'application/json' } }, options || {}))
@@ -65,15 +65,15 @@
             '<div id="crm-license" class="rounded-2xl border border-blue-200 bg-blue-50 p-5 text-sm text-blue-900 dark:border-blue-900 dark:bg-blue-950/30 dark:text-blue-100">Carregando licença CRM…</div>' +
             '<div id="crm-addon-box" class="hidden rounded-2xl border border-amber-200 bg-amber-50 p-5 text-sm text-amber-900 dark:border-amber-900 dark:bg-amber-950/30 dark:text-amber-100"></div>' +
             '<form id="crm-add-form" class="rounded-[2rem] border border-slate-200 bg-white p-6 shadow-sm dark:border-slate-600 dark:bg-slate-800">' +
-                '<div class="mb-4"><h4 class="font-black text-slate-900 dark:text-slate-100">Adicionar lead ao pipeline</h4><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Busque somente entre os resultados salvos do LinkedIn e do Google Maps. A busca não consulta CNPJ nem consome créditos.</p></div>' +
+                '<div class="mb-4"><h4 class="font-black text-slate-900 dark:text-slate-100">Adicionar lead ao pipeline</h4><p class="mt-1 text-xs text-slate-500 dark:text-slate-400">Busque entre os resultados salvos do LinkedIn, Instagram e Google Maps. A busca não consulta CNPJ nem consome créditos.</p></div>' +
                 '<div class="grid grid-cols-1 gap-3 md:grid-cols-[minmax(0,1fr)_10rem]">' +
                     '<input id="crm-lead-search" type="search" minlength="2" autocomplete="off" placeholder="Buscar lead por nome, empresa, e-mail ou telefone" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">' +
-                    '<select id="crm-lead-source" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"><option value="all">LinkedIn e Google Maps</option><option value="maps">Google Maps</option><option value="linkedin">LinkedIn</option></select>' +
+                    '<select id="crm-lead-source" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100"><option value="all">LinkedIn, Instagram e Google Maps</option><option value="maps">Google Maps</option><option value="linkedin">LinkedIn</option><option value="instagram">Instagram</option></select>' +
                 '</div>' +
                 '<div id="crm-search-status" class="mt-2 hidden text-xs font-semibold text-slate-500 dark:text-slate-400"></div>' +
                 '<div id="crm-search-results" class="mt-3 hidden max-h-72 space-y-2 overflow-y-auto rounded-2xl border border-slate-200 bg-slate-50 p-2 dark:border-slate-600 dark:bg-slate-900"></div>' +
                 '<div id="crm-selected-lead" class="mt-3 hidden rounded-xl border border-emerald-200 bg-emerald-50 px-4 py-3 text-sm font-bold text-emerald-800 dark:border-emerald-900 dark:bg-emerald-950/30 dark:text-emerald-200"></div>' +
-                '<input id="crm-add-lead-id" type="hidden"><input id="crm-add-linkedin-id" type="hidden">' +
+                '<input id="crm-add-lead-id" type="hidden"><input id="crm-add-linkedin-id" type="hidden"><input id="crm-add-instagram-id" type="hidden">' +
                 '<div class="mt-3 grid grid-cols-1 gap-3 md:grid-cols-[minmax(0,1fr)_auto]">' +
                     '<select id="crm-add-stage" class="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-sm outline-none focus:border-blue-500 dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100">' + crmStageOptions('novo') + '</select>' +
                     '<button type="submit" id="crm-add-submit" disabled class="rounded-xl bg-blue-600 px-4 py-3 text-sm font-black text-white hover:bg-blue-700 disabled:cursor-not-allowed disabled:opacity-50">Adicionar lead selecionado</button>' +
@@ -126,6 +126,7 @@
             selectedLead = null;
             document.getElementById('crm-add-lead-id').value = '';
             document.getElementById('crm-add-linkedin-id').value = '';
+            document.getElementById('crm-add-instagram-id').value = '';
             if (selectedEl) { selectedEl.textContent = ''; selectedEl.classList.add('hidden'); }
             if (submitButton) submitButton.disabled = true;
         }
@@ -133,8 +134,9 @@
             selectedLead = lead;
             document.getElementById('crm-add-lead-id').value = lead.leadId || '';
             document.getElementById('crm-add-linkedin-id').value = lead.linkedinLeadId || '';
+            document.getElementById('crm-add-instagram-id').value = lead.instagramLeadId || '';
             if (selectedEl) {
-                var detail = [crmOriginLabel(lead.source), lead.companyName || lead.jobTitle || '', lead.email || lead.phone || lead.location || ''].filter(Boolean).join(' · ');
+                var detail = [crmOriginLabel(lead.source), lead.companyName || lead.jobTitle || '', lead.email || lead.phone || lead.location || '', lead.interestLevel ? 'Interesse: ' + lead.interestLevel : ''].filter(Boolean).join(' · ');
                 selectedEl.textContent = 'Selecionado: ' + crmLeadDisplayName(lead) + (detail ? ' — ' + detail : '');
                 selectedEl.classList.remove('hidden');
             }
@@ -157,7 +159,7 @@
             }
             resultsEl.innerHTML = items.map(function (lead, index) {
                 var origin = crmOriginLabel(lead.source);
-                var detail = [lead.companyName || lead.jobTitle || '', lead.email || lead.phone || '', lead.location || ''].filter(Boolean).join(' · ');
+                var detail = [lead.companyName || lead.jobTitle || '', lead.email || lead.phone || '', lead.location || '', lead.source === 'instagram' && lead.commentText ? 'Comentário: ' + lead.commentText : ''].filter(Boolean).join(' · ');
                 var state = lead.inPipeline ? ' · Já está no pipeline' : '';
                 return '<button type="button" data-lead-index="' + index + '" class="crm-search-result block w-full rounded-xl border border-slate-200 bg-white px-4 py-3 text-left hover:border-blue-400 hover:bg-blue-50 dark:border-slate-700 dark:bg-slate-800 dark:hover:border-blue-500 dark:hover:bg-slate-900"><span class="block text-sm font-black text-slate-900 dark:text-slate-100">' + crmEscape(crmLeadDisplayName(lead)) + '</span><span class="mt-1 block text-xs text-slate-500 dark:text-slate-400">' + crmEscape(origin + (detail ? ' · ' + detail : '') + state) + '</span></button>';
             }).join('');
@@ -227,7 +229,7 @@
             if (submitButton) submitButton.disabled = true;
             var targetStage = document.getElementById('crm-add-stage').value;
             var selectedName = crmLeadDisplayName(selectedLead);
-            crmFetch('crm.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'add', lead_id: selectedLead.leadId || null, linkedin_lead_id: selectedLead.linkedinLeadId || null, stage: targetStage }) })
+            crmFetch('crm.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ action: 'add', lead_id: selectedLead.leadId || null, linkedin_lead_id: selectedLead.linkedinLeadId || null, instagram_lead_id: selectedLead.instagramLeadId || null, stage: targetStage }) })
                 .then(function (response) {
                     CRM_LAST_ADDED_ID = Number(response.data && response.data.id) || 0;
                     message.className = 'mt-3 text-xs font-bold text-emerald-700';
@@ -361,11 +363,18 @@
             var stageItems = items.filter(function (item) { return item.stage === stage; });
             var cards = stageItems.map(function (item) {
                 var isRecentlyAdded = CRM_LAST_ADDED_ID > 0 && Number(item.id) === CRM_LAST_ADDED_ID;
+                var instagramDetails = item.source === 'instagram' ?
+                    (item.instagramUsername ? '<p class="truncate">@' + crmEscape(String(item.instagramUsername).replace(/^@/, '')) + '</p>' : '') +
+                    (item.instagramInterestLevel ? '<p>Interesse: ' + crmEscape(item.instagramInterestLevel) + (item.instagramCommentsCount ? ' · ' + Number(item.instagramCommentsCount) + ' comentário(s)' : '') + '</p>' : '') +
+                    (item.instagramCommentText ? '<p class="line-clamp-3">“' + crmEscape(item.instagramCommentText) + '”</p>' : '') +
+                    (item.instagramProfileUrl ? '<p><a class="font-bold text-pink-700 underline" target="_blank" rel="noopener noreferrer" href="' + crmEscape(item.instagramProfileUrl) + '">Abrir perfil Instagram</a></p>' : '') +
+                    (item.instagramSourcePostUrl ? '<p><a class="font-bold text-pink-700 underline" target="_blank" rel="noopener noreferrer" href="' + crmEscape(item.instagramSourcePostUrl) + '">Abrir publicação</a></p>' : '') : '';
                 return '<article class="min-w-0 overflow-hidden rounded-2xl border border-slate-200 bg-white p-4 shadow-sm transition dark:border-slate-600 dark:bg-slate-800' + (isRecentlyAdded ? ' ring-2 ring-emerald-500 ring-offset-2' : '') + '" data-crm-id="' + Number(item.id) + '">' +
                         '<div class="flex items-start justify-between gap-2"><label class="flex items-start gap-2"><input type="checkbox" class="crm-select-lead mt-1 h-4 w-4 accent-blue-600" data-crm-id="' + Number(item.id) + '" ' + (CRM_SELECTED_IDS[Number(item.id)] ? 'checked' : '') + '><span><h5 class="font-black text-slate-900 dark:text-slate-100">' + crmEscape(crmLeadDisplayName(item)) + '</h5><p class="mt-1 text-xs font-bold text-slate-500 dark:text-slate-400">' + crmEscape(item.companyName || item.source || 'Lead') + '</p></span></label><span class="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-black uppercase text-slate-500 dark:bg-slate-700 dark:text-slate-300">' + crmEscape(item.source) + '</span></div>' +
                     '<div class="mt-3 space-y-2 text-xs text-slate-600 dark:text-slate-300">' +
                         (item.email ? '<p class="truncate">' + crmEscape(item.email) + '</p>' : '') +
                         (item.phone ? '<p>' + crmEscape(item.phone) + '</p>' : '') +
+                        instagramDetails +
                         '<p>Próximo contato: ' + crmEscape(crmDate(item.nextContactAt)) + '</p>' +
                     '</div>' +
                     '<select class="crm-stage mt-3 w-full rounded-lg border border-slate-200 bg-slate-50 px-2 py-2 text-xs font-bold dark:border-slate-600 dark:bg-slate-700 dark:text-slate-100" data-crm-previous-stage="' + crmEscape(item.stage) + '">' + crmStageOptions(item.stage) + '</select>' +

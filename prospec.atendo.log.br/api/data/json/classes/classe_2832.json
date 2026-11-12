@@ -1,0 +1,129 @@
+{
+  "classe": "2832",
+  "grupo": "283",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamentos para irrigação agrícola, peças e acessórios",
+      "codigo_cnae": "2832100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Irrigação",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "irrigação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Irrigacao",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "irrigação",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Agrícola",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícola",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Agricola",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrícola",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2832100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos para irrigação agrícola, peças e acessórios",
+      "codigo_cnae": "2832100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

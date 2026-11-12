@@ -57,7 +57,7 @@
             '<div class="grid gap-4 sm:grid-cols-2"><label class="block text-sm font-bold">Início (opcional)<input name="start" type="date" class="mt-1 w-full rounded-xl border p-3 dark:bg-slate-700"></label>' +
             '<label class="block text-sm font-bold">Fim (opcional)<input name="end" type="date" class="mt-1 w-full rounded-xl border p-3 dark:bg-slate-700"></label></div>' +
             '<fieldset><legend class="text-sm font-bold">Páginas</legend><div class="mt-2 flex flex-wrap gap-4 text-sm">' +
-            '<label><input type="checkbox" name="pages" value="maps"> Maps</label><label><input type="checkbox" name="pages" value="linkedin"> LinkedIn</label>' +
+            '<label><input type="checkbox" name="pages" value="maps"> Maps</label><label><input type="checkbox" name="pages" value="linkedin"> LinkedIn</label><label><input type="checkbox" name="pages" value="instagram"> Instagram</label>' +
             '<label><input type="checkbox" name="pages" value="cnpj"> CNPJ</label><label><input type="checkbox" name="pages" value="history"> Histórico</label></div></fieldset>' +
             '<p class="text-xs text-slate-500">As datas usam o horário do servidor e incluem o dia final.</p><button type="submit" disabled class="rounded-xl bg-blue-600 px-5 py-3 text-sm font-bold text-white disabled:opacity-50">Salvar banner</button>' +
             '<p role="status" class="banner-feedback text-sm"></p></form>';

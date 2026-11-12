@@ -1,0 +1,48 @@
+{
+  "grupo": "822",
+  "divisao": "82",
+  "secao": "N",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Atividades de teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teleatendimento",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teleatendimento",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Atividades de teleatendimento",
+      "codigo_cnae": "8220200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    }
+  ]
+}

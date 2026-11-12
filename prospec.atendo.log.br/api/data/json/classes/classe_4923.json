@@ -1,0 +1,169 @@
+{
+  "classe": "4923",
+  "grupo": "492",
+  "divisao": "49",
+  "secao": "H",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Serviço de táxi",
+      "codigo_cnae": "4923001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Táxi",
+      "codigo_cnae": "4923001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "táxi",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Taxi",
+      "codigo_cnae": "4923001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "táxi",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Serviço de táxi",
+      "codigo_cnae": "4923001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Serviço de transporte de passageiros - locação de automóveis com motorista",
+      "codigo_cnae": "4923002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Motorista",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motorista",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Motorista",
+      "codigo_cnae": "4923002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motorista",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Serviço de transporte de passageiros - locação de automóveis com motorista",
+      "codigo_cnae": "4923002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "49"
+    }
+  ]
+}

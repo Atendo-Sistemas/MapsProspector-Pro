@@ -1,0 +1,604 @@
+{
+  "divisao": "91",
+  "total_termos": 58,
+  "termos": [
+    {
+      "termo": "Atividades de bibliotecas e arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Bibliotecas",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bibliotecas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Bibliotecas",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bibliotecas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquivos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquivos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de bibliotecas e arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "codigo_cnae": "9102301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Museus",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "museus",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Museus",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "museus",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Exploração",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exploração",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Exploracao",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exploração",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Lugares",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lugares",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Lugares",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lugares",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Prédios",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Predios",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Históricos",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "históricos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Historicos",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "históricos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atrações",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atrações",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atracoes",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atrações",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "9102301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "codigo_cnae": "9102301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Restauração e conservação de lugares e prédios históricos",
+      "codigo_cnae": "9102302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Restauração",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "restauração",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Restauracao",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "restauração",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Conservação",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservação",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Conservacao",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "conservação",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Lugares",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lugares",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Lugares",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lugares",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Prédios",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Predios",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Históricos",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "históricos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Historicos",
+      "codigo_cnae": "9102302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "históricos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Restauração e conservação de lugares e prédios históricos",
+      "codigo_cnae": "9102302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de jardins botânicos, zoológicos, parques nacionais, reservas ecológicas e áreas de proteção ambiental",
+      "codigo_cnae": "9103100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Jardins",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jardins",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Jardins",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jardins",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Botânicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "botânicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Botanicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "botânicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Zoológicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "zoológicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Zoologicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "zoológicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Parques",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "parques",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Parques",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "parques",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Nacionais",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nacionais",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Nacionais",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nacionais",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Ecológicas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ecológicas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Ecologicas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ecológicas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Áreas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "áreas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Areas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "áreas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de jardins botânicos, zoológicos, parques nacionais, reservas ecológicas e áreas de proteção ambiental",
+      "codigo_cnae": "9103100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "atividades",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "museus",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "exploração",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "lugares",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "prédios",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9102300",
+      "descricao_cnae": "Atividades de museus e de exploração de lugares e prédios históricos e atrações similares",
+      "secao": "R",
+      "divisao": "91",
+      "grupo": "910",
+      "classe": "9102",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

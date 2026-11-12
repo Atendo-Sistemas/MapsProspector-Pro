@@ -1,0 +1,288 @@
+{
+  "grupo": "202",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos petroquímicos básicos",
+      "codigo_cnae": "2021500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Petroquímicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "petroquímicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Petroquimicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "petroquímicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Básicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "básicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Basicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "básicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos petroquímicos básicos",
+      "codigo_cnae": "2021500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de intermediários para plastificantes, resinas e fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Intermediários",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermediários",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Intermediarios",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "intermediários",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Plastificantes",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plastificantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Plastificantes",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plastificantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fibras",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de intermediários para plastificantes, resinas e fibras",
+      "codigo_cnae": "2022300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos químicos orgânicos não especificados anteriormente",
+      "codigo_cnae": "2029100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Químicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Quimicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "químicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Orgânicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "orgânicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Organicos",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "orgânicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2029100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos químicos orgânicos não especificados anteriormente",
+      "codigo_cnae": "2029100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+{
+  "secao": "U",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Organismos internacionais e outras instituições extraterritoriais",
+      "codigo_cnae": "9900800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Organismos",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organismos",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Organismos",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organismos",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Internacionais",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internacionais",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Internacionais",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internacionais",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Instituições",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instituições",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Instituicoes",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instituições",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Extraterritoriais",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extraterritoriais",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Extraterritoriais",
+      "codigo_cnae": "9900800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extraterritoriais",
+      "secao": "U",
+      "divisao": "99"
+    },
+    {
+      "termo": "Organismos internacionais e outras instituições extraterritoriais",
+      "codigo_cnae": "9900800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "U",
+      "divisao": "99"
+    }
+  ]
+}

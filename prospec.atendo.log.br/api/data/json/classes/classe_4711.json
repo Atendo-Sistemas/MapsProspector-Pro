@@ -1,0 +1,369 @@
+{
+  "classe": "4711",
+  "grupo": "471",
+  "divisao": "47",
+  "secao": "G",
+  "total_termos": 36,
+  "termos": [
+    {
+      "termo": "Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - hipermercados",
+      "codigo_cnae": "4711301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Hipermercados",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hipermercados",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Hipermercados",
+      "codigo_cnae": "4711301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hipermercados",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - hipermercados",
+      "codigo_cnae": "4711301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - supermercados",
+      "codigo_cnae": "4711302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Supermercados",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "supermercados",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Supermercados",
+      "codigo_cnae": "4711302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "supermercados",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - supermercados",
+      "codigo_cnae": "4711302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    }
+  ]
+}

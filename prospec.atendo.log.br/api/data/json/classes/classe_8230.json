@@ -1,0 +1,209 @@
+{
+  "classe": "8230",
+  "grupo": "823",
+  "divisao": "82",
+  "secao": "N",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Serviços de organização de feiras, congressos, exposições e festas",
+      "codigo_cnae": "8230001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Organização",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organização",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Organizacao",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organização",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Feiras",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feiras",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Feiras",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "feiras",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Congressos",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "congressos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Congressos",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "congressos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Exposições",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exposições",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Exposicoes",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exposições",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços de organização de feiras, congressos, exposições e festas",
+      "codigo_cnae": "8230001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas de festas e eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Casas de festas e eventos",
+      "codigo_cnae": "8230002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    }
+  ]
+}

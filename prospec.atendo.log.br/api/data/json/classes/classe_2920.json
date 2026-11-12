@@ -1,0 +1,149 @@
+{
+  "classe": "2920",
+  "grupo": "292",
+  "divisao": "29",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de caminhões e ônibus",
+      "codigo_cnae": "2920401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Caminhões",
+      "codigo_cnae": "2920401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caminhões",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Caminhoes",
+      "codigo_cnae": "2920401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caminhões",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Ônibus",
+      "codigo_cnae": "2920401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ônibus",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Onibus",
+      "codigo_cnae": "2920401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ônibus",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de caminhões e ônibus",
+      "codigo_cnae": "2920401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de motores para caminhões e ônibus",
+      "codigo_cnae": "2920402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2920402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2920402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Caminhões",
+      "codigo_cnae": "2920402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caminhões",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Caminhoes",
+      "codigo_cnae": "2920402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caminhões",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Ônibus",
+      "codigo_cnae": "2920402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ônibus",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Onibus",
+      "codigo_cnae": "2920402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ônibus",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de motores para caminhões e ônibus",
+      "codigo_cnae": "2920402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "29"
+    }
+  ]
+}

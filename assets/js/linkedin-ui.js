@@ -332,7 +332,14 @@
 
     function repairLinkedInCardLead(rawLead) {
         var lead = Object.assign({}, rawLead || {});
-        var jobTitle = String(lead.job_title || '').trim();
+        var currentPosition = lead.currentPosition || lead.current_position || lead.positionCurrent || {};
+        if (Array.isArray(currentPosition)) currentPosition = currentPosition[0] || {};
+        var currentPositions = lead.currentPositions || lead.positionsCurrent || [];
+        if ((!currentPosition || !Object.keys(currentPosition).length) && Array.isArray(currentPositions)) currentPosition = currentPositions[0] || {};
+        var experience = Array.isArray(lead.experience) ? lead.experience[0] : {};
+        var jobTitle = String(lead.job_title || lead.jobTitle || lead.currentJobTitle || lead.current_job_title || lead.position || lead.role || lead.occupation || lead.title || lead.headline || (currentPosition && (currentPosition.title || currentPosition.jobTitle || currentPosition.job_title || currentPosition.position || currentPosition.role || currentPosition.name)) || (experience && (experience.position || experience.title || experience.jobTitle || experience.job_title || experience.role)) || '').trim();
+        if (jobTitle && !lead.job_title) lead.job_title = jobTitle;
+        if (jobTitle && !lead.headline) lead.headline = jobTitle;
         var companyName = String(lead.company_name || '').trim();
         var location = String(lead.location || '').trim();
         var roleLike = /^(?:ceo|cfo|cto|coo|cio|cmo|professor(?:a)?|teacher|diretor(?:a)?(?:\s+.+)?|gerente(?:\s+.+)?|manager(?:\s+.+)?|coordenador(?:a)?(?:\s+.+)?|analista(?:\s+.+)?|consultor(?:a)?(?:\s+.+)?|presidente|founder|fundador(?:a)?|s[oó]cio(?:a)?)$/i;
@@ -571,7 +578,7 @@
             </div>
             ${meta && meta.partialMessage ? '<p class="rounded-xl border border-amber-200 bg-amber-50 px-4 py-3 text-xs font-semibold text-amber-900 dark:border-amber-900/60 dark:bg-amber-950/30 dark:text-amber-100">' + escapeHtml(meta.partialMessage) + '</p>' : ''}
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
-                ${leads.map(function (lead, index) {
+                ${currentLinkedInLeads.map(function (lead, index) {
                     var isNewBadge = lead.__isNew ? '<div class="absolute -top-3 right-5 bg-emerald-600 text-white text-[9px] font-black py-1.5 px-3 rounded-lg uppercase tracking-wider shadow-lg shadow-emerald-200 z-10">Novo</div>' : '';
                     var showOnlyNew = !!document.getElementById('linkedin-filter-only-new') && document.getElementById('linkedin-filter-only-new').getAttribute('data-active') === '1';
                     if (showOnlyNew && !lead.__isNew) return '';

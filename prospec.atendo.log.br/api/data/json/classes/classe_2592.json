@@ -1,0 +1,97 @@
+{
+  "classe": "2592",
+  "total_termos": 7,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos de trefilados de metal",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2592600",
+      "descricao_cnae": "Fabricação de produtos de trefilados de metal",
+      "secao": "C",
+      "divisao": "25",
+      "grupo": "259",
+      "classe": "2592",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "fabricação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2592600",
+      "descricao_cnae": "Fabricação de produtos de trefilados de metal",
+      "secao": "C",
+      "divisao": "25",
+      "grupo": "259",
+      "classe": "2592",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produtos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2592600",
+      "descricao_cnae": "Fabricação de produtos de trefilados de metal",
+      "secao": "C",
+      "divisao": "25",
+      "grupo": "259",
+      "classe": "2592",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "trefilados",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2592600",
+      "descricao_cnae": "Fabricação de produtos de trefilados de metal",
+      "secao": "C",
+      "divisao": "25",
+      "grupo": "259",
+      "classe": "2592",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "metal",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2592600",
+      "descricao_cnae": "Fabricação de produtos de trefilados de metal",
+      "secao": "C",
+      "divisao": "25",
+      "grupo": "259",
+      "classe": "2592",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2592600",
+      "descricao_cnae": "Fabricação de produtos de trefilados de metal",
+      "secao": "C",
+      "divisao": "25",
+      "grupo": "259",
+      "classe": "2592",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "manufatura",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2592600",
+      "descricao_cnae": "Fabricação de produtos de trefilados de metal",
+      "secao": "C",
+      "divisao": "25",
+      "grupo": "259",
+      "classe": "2592",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

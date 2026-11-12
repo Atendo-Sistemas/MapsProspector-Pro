@@ -1,0 +1,49 @@
+{
+  "classe": "3104",
+  "grupo": "310",
+  "divisao": "31",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de colchões",
+      "codigo_cnae": "3104700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Colchões",
+      "codigo_cnae": "3104700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colchões",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Colchoes",
+      "codigo_cnae": "3104700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colchões",
+      "secao": "C",
+      "divisao": "31"
+    },
+    {
+      "termo": "Fabricação de colchões",
+      "codigo_cnae": "3104700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "31"
+    }
+  ]
+}

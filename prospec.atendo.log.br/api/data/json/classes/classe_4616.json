@@ -1,0 +1,189 @@
+{
+  "classe": "4616",
+  "grupo": "461",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Representantes comerciais e agentes do comércio de têxteis, vestuário, calçados e artigos de viagem",
+      "codigo_cnae": "4616800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Têxteis",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Texteis",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "têxteis",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Vestuário",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Vestuario",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vestuário",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Calçados",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçados",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Calcados",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçados",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "4616800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de têxteis, vestuário, calçados e artigos de viagem",
+      "codigo_cnae": "4616800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

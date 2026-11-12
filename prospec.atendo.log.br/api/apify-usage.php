@@ -1,0 +1,549 @@
+<?php
+/**
+ * Consulta administrativa do uso mensal, limite e saldo das contas Apify.
+ * Endpoint: GET /api/apify-usage.php
+ *
+ * Os tokens são lidos apenas no servidor e enviados no cabeçalho
+ * Authorization. Eles nunca são devolvidos ao navegador.
+ */
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+ob_start();
+
+register_shutdown_function(function (): void {
+    $error = error_get_last();
+    if ($error === null || !in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        return;
+    }
+    if (!headers_sent()) {
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+    }
+    if (ob_get_length()) {
+        ob_clean();
+    }
+    echo json_encode([
+        'success' => false,
+        'error' => 'Erro interno ao consultar o uso das contas de pesquisa.',
+    ], JSON_UNESCAPED_UNICODE);
+});
+
+function apifyUsageLoadFile(string $relativePath): ?string
+{
+    static $roots;
+    if ($roots === null) {
+        $documentRoot = rtrim((string) (getenv('DOCUMENT_ROOT') ?: ($_SERVER['DOCUMENT_ROOT'] ?? '')), '/');
+        $home = '';
+        if (function_exists('posix_geteuid') && function_exists('posix_getpwuid')) {
+            $user = @posix_getpwuid(posix_geteuid());
+            $home = rtrim((string) ($user['dir'] ?? ''), '/');
+        }
+        $roots = array_values(array_unique(array_filter([
+            dirname(__DIR__),
+            $documentRoot,
+            $documentRoot ? dirname($documentRoot) : '',
+            $home ? $home . '/prospec.atendo.log.br' : '',
+            $home ? $home . '/public_html' : '',
+        ], 'is_dir')));
+    }
+
+    foreach ($roots as $root) {
+        $candidate = rtrim($root, '/') . '/' . ltrim($relativePath, '/');
+        if (is_file($candidate)) {
+            return $candidate;
+        }
+    }
+    return null;
+}
+
+function apifyUsageJson(array $payload, int $status = 200): never
+{
+    if (ob_get_length()) {
+        ob_clean();
+    }
+    http_response_code($status);
+    header('Content-Type: application/json; charset=utf-8');
+    echo json_encode($payload, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    exit;
+}
+
+function apifyUsageNumber(mixed $value): ?float
+{
+    return is_numeric($value) ? (float) $value : null;
+}
+
+function apifyUsagePath(array $data, array $path): mixed
+{
+    $value = $data;
+    foreach ($path as $segment) {
+        if (!is_array($value) || !array_key_exists($segment, $value)) {
+            return null;
+        }
+        $value = $value[$segment];
+    }
+    return $value;
+}
+
+/**
+ * As APIs de uso e limites retornam os campos dentro de {"data": {...}}.
+ * Mantemos fallback para respostas já desembrulhadas, facilitando compatibilidade.
+ */
+function apifyUsageUnwrapData(array $response): array
+{
+    return is_array($response['data'] ?? null) ? $response['data'] : $response;
+}
+
+function apifyUsageFirstNumber(array $data, array $paths): ?float
+{
+    foreach ($paths as $path) {
+        $value = apifyUsageNumber(apifyUsagePath($data, $path));
+        if ($value !== null) {
+            return $value;
+        }
+    }
+    return null;
+}
+
+function apifyUsageDateValue(mixed $value): ?string
+{
+    if (!is_string($value) || trim($value) === '') {
+        return null;
+    }
+    $timestamp = strtotime($value);
+    return $timestamp === false ? null : gmdate('Y-m-d', $timestamp);
+}
+
+function apifyUsageCycleData(array $usageData, array $limitsData): ?array
+{
+    $cycle = is_array($usageData['usageCycle'] ?? null)
+        ? $usageData['usageCycle']
+        : (is_array($limitsData['monthlyUsageCycle'] ?? null) ? $limitsData['monthlyUsageCycle'] : []);
+    $startAt = apifyUsageDateValue($cycle['startAt'] ?? null);
+    $endAt = apifyUsageDateValue($cycle['endAt'] ?? null);
+    if ($startAt === null && $endAt === null) {
+        return null;
+    }
+    return [
+        'startAt' => $startAt,
+        'endAt' => $endAt,
+        'label' => trim(($startAt ?? '—') . ' a ' . ($endAt ?? '—')),
+    ];
+}
+
+function apifyUsageServiceRows(mixed $services): array
+{
+    if (!is_array($services)) {
+        return [];
+    }
+    $rows = [];
+    foreach ($services as $service => $payload) {
+        if (!is_array($payload)) {
+            continue;
+        }
+        $amount = apifyUsageFirstNumber($payload, [
+            ['amountAfterVolumeDiscountUsd'],
+            ['priceUsd'],
+            ['baseAmountUsd'],
+        ]);
+        $quantity = apifyUsageNumber($payload['quantity'] ?? null);
+        $rows[] = [
+            'key' => (string) $service,
+            'quantity' => $quantity,
+            'amountUsd' => $amount,
+        ];
+    }
+    usort($rows, static function (array $left, array $right): int {
+        return ($right['amountUsd'] ?? -1) <=> ($left['amountUsd'] ?? -1);
+    });
+    return array_slice($rows, 0, 20);
+}
+
+function apifyUsageDailyRows(mixed $dailyUsages): array
+{
+    if (!is_array($dailyUsages)) {
+        return [];
+    }
+    $rows = [];
+    foreach ($dailyUsages as $day) {
+        if (!is_array($day)) {
+            continue;
+        }
+        $date = apifyUsageDateValue($day['date'] ?? null);
+        if ($date === null) {
+            continue;
+        }
+        $rows[] = [
+            'date' => $date,
+            'totalUsageCreditsUsd' => apifyUsageNumber($day['totalUsageCreditsUsd'] ?? null),
+            'services' => apifyUsageServiceRows($day['serviceUsage'] ?? []),
+        ];
+    }
+    usort($rows, static fn (array $left, array $right): int => strcmp($left['date'], $right['date']));
+    return $rows;
+}
+
+function apifyUsageLimitMetrics(array $limitsData): array
+{
+    $limits = is_array($limitsData['limits'] ?? null) ? $limitsData['limits'] : [];
+    $current = is_array($limitsData['current'] ?? null) ? $limitsData['current'] : [];
+    $pairs = [
+        'monthlyUsageUsd' => ['max' => 'maxMonthlyUsageUsd', 'current' => 'monthlyUsageUsd'],
+        'monthlyActorComputeUnits' => ['max' => 'maxMonthlyActorComputeUnits', 'current' => 'monthlyActorComputeUnits'],
+        'monthlyExternalDataTransferGbytes' => ['max' => 'maxMonthlyExternalDataTransferGbytes', 'current' => 'monthlyExternalDataTransferGbytes'],
+        'monthlyProxySerps' => ['max' => 'maxMonthlyProxySerps', 'current' => 'monthlyProxySerps'],
+        'monthlyUnblockerUnits' => ['max' => 'maxMonthlyUnblockerUnits', 'current' => 'monthlyUnblockerUnits'],
+        'monthlyResidentialProxyGbytes' => ['max' => 'maxMonthlyResidentialProxyGbytes', 'current' => 'monthlyResidentialProxyGbytes'],
+        'actorMemoryGbytes' => ['max' => 'maxActorMemoryGbytes', 'current' => 'actorMemoryGbytes'],
+        'actorCount' => ['max' => 'maxActorCount', 'current' => 'actorCount'],
+        'actorTaskCount' => ['max' => 'maxActorTaskCount', 'current' => 'actorTaskCount'],
+        'scheduleCount' => ['max' => 'maxScheduleCount', 'current' => 'scheduleCount'],
+        'concurrentActorJobs' => ['max' => 'maxConcurrentActorJobs', 'current' => 'activeActorJobCount'],
+        'teamAccountSeatCount' => ['max' => 'maxTeamAccountSeatCount', 'current' => 'teamAccountSeatCount'],
+        'dataRetentionDays' => ['max' => 'dataRetentionDays', 'current' => null],
+    ];
+    $metrics = [];
+    foreach ($pairs as $name => $pair) {
+        $max = apifyUsageNumber($limits[$pair['max']] ?? null);
+        $used = $pair['current'] !== null
+            ? apifyUsageNumber($current[$pair['current']] ?? null)
+            : null;
+        $metrics[$name] = [
+            'current' => $used,
+            'max' => $max,
+            'percent' => ($max !== null && $max > 0 && $used !== null) ? min(999.999, ($used / $max) * 100) : null,
+        ];
+    }
+    return $metrics;
+}
+
+function apifyUsageRequest(string $url, string $token): array
+{
+    if (!function_exists('curl_init')) {
+        throw new RuntimeException('O servidor não possui cURL habilitado.');
+    }
+    $ch = curl_init($url);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => [
+            'Accept: application/json',
+            'Authorization: Bearer ' . $token,
+        ],
+        CURLOPT_CONNECTTIMEOUT => 8,
+        CURLOPT_TIMEOUT => 20,
+        CURLOPT_FOLLOWLOCATION => false,
+    ]);
+    $body = curl_exec($ch);
+    $curlError = curl_error($ch);
+    $httpCode = (int) curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+
+    if ($body === false || $curlError !== '') {
+        throw new RuntimeException('Falha de comunicação com o serviço de uso.');
+    }
+    $decoded = json_decode((string) $body, true);
+    if (!is_array($decoded)) {
+        throw new RuntimeException('Resposta inválida do serviço de uso.');
+    }
+    if ($httpCode < 200 || $httpCode >= 300) {
+        $providerMessage = $decoded['error']['message'] ?? null;
+        if (is_string($providerMessage) && stripos($providerMessage, 'insufficient permissions') !== false) {
+            $providerMessage = 'Token sem permissão para consultar o uso e os limites da conta Apify. Ative a leitura de uso da conta ou use um token com escopo de consulta de conta.';
+        }
+        if (is_string($providerMessage)) {
+            $providerMessage = function_exists('mb_substr')
+                ? mb_substr($providerMessage, 0, 400)
+                : substr($providerMessage, 0, 400);
+        }
+        throw new RuntimeException(is_string($providerMessage) ? $providerMessage : 'A conta não autorizou a consulta.');
+    }
+    return $decoded;
+}
+
+function apifyUsagePersistSnapshot(PDO $db, int $keyId, string $cycleKey, ?float $monthlyUsage, ?float $monthlyLimit, ?float $balance, ?float $percent, string $status, array $usage, array $limits): bool
+{
+    try {
+        $stmt = $db->prepare(
+            'INSERT INTO apify_account_usage
+                (provider_key_id, usage_cycle, monthly_usage_usd, monthly_limit_usd, monthly_balance_usd, usage_percent, status, usage_payload_json, limits_payload_json, error_message, checked_at)
+             VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, NOW())
+             ON DUPLICATE KEY UPDATE
+                monthly_usage_usd = VALUES(monthly_usage_usd),
+                monthly_limit_usd = VALUES(monthly_limit_usd),
+                monthly_balance_usd = VALUES(monthly_balance_usd),
+                usage_percent = VALUES(usage_percent),
+                status = VALUES(status),
+                usage_payload_json = VALUES(usage_payload_json),
+                limits_payload_json = VALUES(limits_payload_json),
+                error_message = NULL,
+                checked_at = NOW()'
+        );
+        $stmt->execute([
+            $keyId,
+            $cycleKey,
+            $monthlyUsage,
+            $monthlyLimit,
+            $balance,
+            $percent,
+            $status,
+            json_encode($usage, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+            json_encode($limits, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES),
+        ]);
+        return true;
+    } catch (Throwable $e) {
+        error_log('Falha ao salvar snapshot de uso da conta ' . $keyId . ': ' . $e->getMessage());
+        return false;
+    }
+}
+
+function apifyUsagePersistError(PDO $db, int $keyId, string $cycleKey, string $message): void
+{
+    try {
+        $stmt = $db->prepare(
+            'INSERT INTO apify_account_usage (provider_key_id, usage_cycle, status, error_message, checked_at)
+             VALUES (?, ?, ?, ?, NOW())
+             ON DUPLICATE KEY UPDATE status = VALUES(status), error_message = VALUES(error_message), checked_at = NOW()'
+        );
+        $stmt->execute([$keyId, $cycleKey, 'error', substr($message, 0, 500)]);
+    } catch (Throwable $snapshotError) {
+        error_log('Falha ao salvar erro de uso da conta ' . $keyId . ': ' . $snapshotError->getMessage());
+    }
+}
+
+foreach (['config/config.php', 'config/database.php', 'includes/functions.php'] as $dependency) {
+    $path = apifyUsageLoadFile($dependency);
+    if ($path === null) {
+        apifyUsageJson(['success' => false, 'error' => 'Dependência do sistema não encontrada: ' . $dependency], 500);
+    }
+    require_once $path;
+}
+
+if (!class_exists('Database') || !function_exists('getAuthUser')) {
+    apifyUsageJson(['success' => false, 'error' => 'Dependências de autenticação não carregadas.'], 500);
+}
+
+if ($_SERVER['REQUEST_METHOD'] !== 'GET') {
+    apifyUsageJson(['success' => false, 'error' => 'Método não permitido.'], 405);
+}
+
+if (function_exists('requireAuth')) {
+    requireAuth();
+}
+$user = getAuthUser();
+if (!is_array($user)) {
+    apifyUsageJson(['success' => false, 'error' => 'Não autenticado.'], 401);
+}
+$profile = strtolower((string) ($user['profile'] ?? $user['role'] ?? ''));
+if (!in_array($profile, ['admin', 'super_admin', 'owner'], true)) {
+    apifyUsageJson(['success' => false, 'error' => 'Acesso restrito ao administrador.'], 403);
+}
+
+try {
+    $db = Database::getInstance()->getConnection();
+    try {
+        $keys = $db->query(
+            "SELECT k.id, k.label, k.api_key, k.is_active, k.tokens_used, k.last_used_at,
+                    COALESCE(p.role, 'production') AS key_role,
+                    COALESCE(p.priority, 100) AS key_priority,
+                    COALESCE(p.state, 'active') AS policy_state
+             FROM apify_keys k
+             LEFT JOIN apify_key_policies p ON p.provider_key_id = k.id
+             WHERE k.is_active = 1
+             ORDER BY CASE WHEN COALESCE(p.state, 'active') = 'disabled' THEN 2
+                                WHEN COALESCE(p.role, 'production') = 'reserve' THEN 1
+                                ELSE 0 END,
+                      COALESCE(p.priority, 100), k.id ASC"
+        )->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Throwable $policyError) {
+        error_log('Tabela de políticas indisponível no monitoramento: ' . $policyError->getMessage());
+        $keys = $db->query(
+            "SELECT id, label, api_key, is_active, tokens_used, last_used_at,
+                    'production' AS key_role, 100 AS key_priority, 'active' AS policy_state
+             FROM apify_keys
+             WHERE is_active = 1
+             ORDER BY last_used_at ASC, id ASC"
+        )->fetchAll(PDO::FETCH_ASSOC);
+    }
+} catch (Throwable $e) {
+    apifyUsageJson(['success' => false, 'error' => 'Não foi possível carregar as contas de pesquisa.'], 500);
+}
+
+$results = [];
+foreach ($keys as $key) {
+    $keyId = (int) ($key['id'] ?? 0);
+    $token = trim((string) ($key['api_key'] ?? ''));
+    $accountLabel = trim((string) ($key['label'] ?? ''));
+    if ($accountLabel === '') {
+        $accountLabel = 'Conta de pesquisa #' . $keyId;
+    }
+    $row = [
+        'id' => $keyId,
+        'name' => $accountLabel,
+        'label' => $accountLabel,
+        'isActive' => (int) ($key['is_active'] ?? 0) === 1,
+        'role' => (($key['policy_state'] ?? 'active') === 'disabled')
+            ? 'disabled'
+            : ((($key['key_role'] ?? 'production') === 'reserve') ? 'reserve' : 'production'),
+        'priority' => (int) ($key['key_priority'] ?? 100),
+        'policyState' => (string) ($key['policy_state'] ?? 'active'),
+        'tokensUsedByRotation' => (int) ($key['tokens_used'] ?? 0),
+        'lastUsedAt' => $key['last_used_at'] ?? null,
+        'providerStatus' => 'pending',
+        'isOperational' => false,
+        'usageCycle' => null,
+        'usageCycleData' => null,
+        'monthlyUsageUsd' => null,
+        'monthlyLimitUsd' => null,
+        'monthlyBalanceUsd' => null,
+        'usagePercent' => null,
+        'monthlyServices' => [],
+        'dailyUsages' => [],
+        'limitMetrics' => [],
+        'limits' => [],
+        'status' => 'unknown',
+        'checkedAt' => date('Y-m-d H:i:s'),
+        'error' => null,
+    ];
+
+    if ($row['role'] === 'disabled') {
+        $row['status'] = 'disabled';
+        $row['providerStatus'] = 'disabled';
+        $row['isOperational'] = false;
+        $results[] = $row;
+        continue;
+    }
+
+    if ($token === '') {
+        $row['status'] = 'error';
+        $row['providerStatus'] = 'error';
+        $row['error'] = 'Conta sem token configurado.';
+        $results[] = $row;
+        continue;
+    }
+
+    try {
+        $usageResponse = apifyUsageRequest('https://api.apify.com/v2/users/me/usage/monthly', $token);
+        $limitsResponse = apifyUsageRequest('https://api.apify.com/v2/users/me/limits', $token);
+        $usage = apifyUsageUnwrapData($usageResponse);
+        $limits = apifyUsageUnwrapData($limitsResponse);
+
+        $usageCycleData = apifyUsageCycleData($usage, $limits);
+        $usageCycle = $usageCycleData['label'] ?? null;
+        $monthlyUsage = apifyUsageFirstNumber($usage, [
+            ['totalUsageCreditsUsdAfterVolumeDiscount'],
+            ['totalUsageCreditsUsdBeforeVolumeDiscount'],
+            ['current', 'monthlyUsageUsd'],
+        ]);
+        $monthlyLimit = apifyUsageFirstNumber($limits, [
+            ['limits', 'maxMonthlyUsageUsd'],
+            ['maxMonthlyUsageUsd'],
+        ]);
+        $currentFromLimits = apifyUsageFirstNumber($limits, [
+            ['current', 'monthlyUsageUsd'],
+            ['current', 'monthlyUsageUsdAfterVolumeDiscount'],
+        ]);
+        if ($monthlyUsage === null) {
+            $monthlyUsage = $currentFromLimits;
+        }
+
+        $balance = ($monthlyLimit !== null && $monthlyUsage !== null)
+            ? max(0, $monthlyLimit - $monthlyUsage)
+            : null;
+        $percent = ($monthlyLimit !== null && $monthlyLimit > 0 && $monthlyUsage !== null)
+            ? min(999.999, ($monthlyUsage / $monthlyLimit) * 100)
+            : null;
+        $status = 'unknown';
+        if ($percent !== null) {
+            $status = $percent >= 100 ? 'limit_reached' : ($percent >= 85 ? 'critical' : ($percent >= 70 ? 'warning' : 'ok'));
+        }
+
+        $row = array_merge($row, [
+            'providerStatus' => $status === 'limit_reached' ? 'limit_reached' : 'active',
+            'isOperational' => true,
+            'usageCycle' => is_scalar($usageCycle) ? (string) $usageCycle : null,
+            'usageCycleData' => $usageCycleData,
+            'monthlyUsageUsd' => $monthlyUsage,
+            'monthlyLimitUsd' => $monthlyLimit,
+            'monthlyBalanceUsd' => $balance,
+            'usagePercent' => $percent,
+            'monthlyServices' => apifyUsageServiceRows(apifyUsagePath($usage, ['monthlyServiceUsage'])),
+            'dailyUsages' => apifyUsageDailyRows(apifyUsagePath($usage, ['dailyServiceUsages'])),
+            'limitMetrics' => apifyUsageLimitMetrics($limits),
+            'limits' => is_array($limits['limits'] ?? null) ? $limits['limits'] : [],
+            'status' => $status,
+        ]);
+
+        $cycleKey = $row['usageCycle'] ?: date('Y-m');
+        $row['snapshotSaved'] = apifyUsagePersistSnapshot(
+            $db,
+            $keyId,
+            $cycleKey,
+            $monthlyUsage,
+            $monthlyLimit,
+            $balance,
+            $percent,
+            $status,
+            $usageResponse,
+            $limitsResponse
+        );
+    } catch (Throwable $e) {
+        $row['status'] = 'error';
+        $row['providerStatus'] = 'error';
+        $row['isOperational'] = false;
+        $row['error'] = $e->getMessage();
+        apifyUsagePersistError($db, $keyId, date('Y-m'), $row['error']);
+    }
+    $results[] = $row;
+}
+
+$summary = [
+    'configuredActive' => 0,
+    'configuredTotal' => count($results),
+    'disabled' => 0,
+    'operational' => 0,
+    'limitReached' => 0,
+    'attention' => 0,
+    'errors' => 0,
+    'monthlyUsageUsd' => 0.0,
+    'monthlyLimitUsd' => 0.0,
+    'monthlyBalanceUsd' => 0.0,
+    'hasMonthlyTotals' => false,
+];
+foreach ($results as $result) {
+    if (($result['role'] ?? '') === 'disabled') {
+        $summary['disabled']++;
+        continue;
+    }
+    $summary['configuredActive']++;
+    if (($result['providerStatus'] ?? '') === 'error') {
+        $summary['errors']++;
+        continue;
+    }
+    if (($result['providerStatus'] ?? '') === 'limit_reached') {
+        $summary['limitReached']++;
+    } else {
+        $summary['operational']++;
+    }
+    if (in_array($result['status'] ?? '', ['warning', 'critical'], true)) {
+        $summary['attention']++;
+    }
+    if ($result['monthlyUsageUsd'] !== null) {
+        $summary['monthlyUsageUsd'] += (float) $result['monthlyUsageUsd'];
+        $summary['hasMonthlyTotals'] = true;
+    }
+    if ($result['monthlyLimitUsd'] !== null) {
+        $summary['monthlyLimitUsd'] += (float) $result['monthlyLimitUsd'];
+    }
+    if ($result['monthlyBalanceUsd'] !== null) {
+        $summary['monthlyBalanceUsd'] += (float) $result['monthlyBalanceUsd'];
+    }
+}
+
+apifyUsageJson([
+    'success' => true,
+    'data' => [
+        'checkedAt' => date('Y-m-d H:i:s'),
+        'accounts' => $results,
+        'totalAccounts' => count($results),
+        'summary' => $summary,
+    ],
+]);

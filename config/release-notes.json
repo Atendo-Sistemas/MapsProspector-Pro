@@ -1,5 +1,14 @@
 [
   {
+    "version": "20261112-integracao-1",
+    "date": "2026-11-12",
+    "title": "Integração das atualizações",
+    "items": [
+      "A configuração de scripts preserva a pesquisa Instagram e as melhorias recentes junto aos banners e notificações.",
+      "O super administrador também pode habilitar banners entre o formulário e os resultados do Instagram."
+    ]
+  },
+  {
     "version": "20261112-banner-1",
     "date": "2026-11-12",
     "title": "Banners de publicidade",

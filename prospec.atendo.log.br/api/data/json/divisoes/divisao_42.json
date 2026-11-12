@@ -1,0 +1,906 @@
+{
+  "divisao": "42",
+  "total_termos": 90,
+  "termos": [
+    {
+      "termo": "Construção de rodovias e ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferrovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferrovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de rodovias e ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura para sinalização em pistas rodoviárias e aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintura",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintura",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Sinalização",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Sinalizacao",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pistas",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pistas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pistas",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pistas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodoviárias",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviárias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodoviarias",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviárias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura para sinalização em pistas rodoviárias e aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de obras de arte especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Arte",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arte",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Arte",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arte",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de obras de arte especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras de urbanização - ruas, praças e calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Urbanização",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Urbanizacao",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ruas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ruas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ruas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ruas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Praças",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "praças",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pracas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "praças",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçadas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Calcadas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçadas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras de urbanização - ruas, praças e calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de barragens e represas para geração de energia elétrica",
+      "codigo_cnae": "4221901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Barragens",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "barragens",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Barragens",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "barragens",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Represas",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "represas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Represas",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "represas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Geração",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geração",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Geracao",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geração",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "4221901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de barragens e represas para geração de energia elétrica",
+      "codigo_cnae": "4221901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de estações e redes de distribuição de energia elétrica",
+      "codigo_cnae": "4221902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4221902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "estações",
+      "codigo_cnae": "4221902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "redes",
+      "codigo_cnae": "4221902",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Manutenção de redes de distribuição de energia elétrica",
+      "codigo_cnae": "4221903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "4221903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "redes",
+      "codigo_cnae": "4221903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "distribuição",
+      "codigo_cnae": "4221903",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de estações e redes de telecomunicações",
+      "codigo_cnae": "4221904",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4221904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "estações",
+      "codigo_cnae": "4221904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "redes",
+      "codigo_cnae": "4221904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Manutenção de estações e redes de telecomunicações",
+      "codigo_cnae": "4221905",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "4221905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "estações",
+      "codigo_cnae": "4221905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "redes",
+      "codigo_cnae": "4221905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras portuárias, marítimas e fluviais",
+      "codigo_cnae": "4291000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras portuárias",
+      "codigo_cnae": "4291000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "marítimas",
+      "codigo_cnae": "4291000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "fluviais",
+      "codigo_cnae": "4291000",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "obras portuárias marítimas e fluviais",
+      "codigo_cnae": "4291000",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Montagem de estruturas metálicas",
+      "codigo_cnae": "4292801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Montagem",
+      "codigo_cnae": "4292801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "estruturas metálicas",
+      "codigo_cnae": "4292801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras de montagem industrial",
+      "codigo_cnae": "4292802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4292802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "montagem industrial",
+      "codigo_cnae": "4292802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de instalações esportivas e recreativas",
+      "codigo_cnae": "4299501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4299501",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "instalações esportivas",
+      "codigo_cnae": "4299501",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "recreativas",
+      "codigo_cnae": "4299501",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Outras obras de engenharia civil não especificadas anteriormente",
+      "codigo_cnae": "4299599",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Outras obras",
+      "codigo_cnae": "4299599",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "engenharia civil não especificadas anteriormente",
+      "codigo_cnae": "4299599",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    }
+  ]
+}

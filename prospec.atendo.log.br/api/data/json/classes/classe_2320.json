@@ -1,0 +1,49 @@
+{
+  "classe": "2320",
+  "grupo": "232",
+  "divisao": "23",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de cimento",
+      "codigo_cnae": "2320600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Cimento",
+      "codigo_cnae": "2320600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cimento",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Cimento",
+      "codigo_cnae": "2320600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cimento",
+      "secao": "C",
+      "divisao": "23"
+    },
+    {
+      "termo": "Fabricação de cimento",
+      "codigo_cnae": "2320600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "23"
+    }
+  ]
+}

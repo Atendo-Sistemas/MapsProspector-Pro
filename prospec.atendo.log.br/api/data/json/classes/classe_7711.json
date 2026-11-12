@@ -1,0 +1,109 @@
+{
+  "classe": "7711",
+  "grupo": "771",
+  "divisao": "77",
+  "secao": "N",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Locação de automóveis sem condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de automóveis sem condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    }
+  ]
+}

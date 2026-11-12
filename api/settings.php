@@ -247,7 +247,7 @@ try {
             ? (string)(getPlatformSetting($db, 'webhook_default_url') ?? '')
             : '';
         $tenantName = $isSuperAdmin && function_exists('getPlatformSetting')
-            ? (string)(getPlatformSetting($db, 'platform_name') ?? 'Nome da empresa SaaS')
+            ? (string)(getPlatformSetting($db, 'platform_name') ?: (getPlatformSetting($db, 'saas_company_name') ?: 'Nome da empresa SaaS'))
             : (string)($settingsRow['tenant_name'] ?? 'Nome da empresa SaaS');
 
         // Para contas de empresa, o nome canônico pertence ao tenant. O webhook
@@ -287,6 +287,7 @@ try {
             'baseUrl' => $baseUrl,
             'atendoWaBaseUrl' => $baseUrl,
             'tenantName' => $tenantName ?: 'Nome da empresa SaaS',
+            'platformName' => $tenantName ?: 'Nome da empresa SaaS',
             'atendoWaAdminNumber' => $adminNumber,
             'atendoWaTokenConfigured' => $storedToken !== '',
             'atendoWaTokenMasked' => settingsMaskSecret($storedToken),
@@ -461,6 +462,9 @@ try {
         }
         if ($tenantName !== '') {
             setPlatformSetting($db, 'platform_name', sanitizeInput($tenantName));
+            // Compatibilidade: o cabeçalho, a tela inicial e módulos antigos
+            // consultam saas_company_name.
+            setPlatformSetting($db, 'saas_company_name', sanitizeInput($tenantName));
         }
         if ($newToken !== '') {
             setPlatformSetting($db, 'atendo_wa_token', $newToken);

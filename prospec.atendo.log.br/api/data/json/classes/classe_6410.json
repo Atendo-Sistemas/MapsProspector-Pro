@@ -1,0 +1,45 @@
+{
+  "classe": "6410",
+  "total_termos": 3,
+  "termos": [
+    {
+      "termo": "Banco Central",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "6410701",
+      "descricao_cnae": "Banco Central",
+      "secao": "K",
+      "divisao": "64",
+      "grupo": "641",
+      "classe": "6410",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "banco",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "6410701",
+      "descricao_cnae": "Banco Central",
+      "secao": "K",
+      "divisao": "64",
+      "grupo": "641",
+      "classe": "6410",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "central",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "6410701",
+      "descricao_cnae": "Banco Central",
+      "secao": "K",
+      "divisao": "64",
+      "grupo": "641",
+      "classe": "6410",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

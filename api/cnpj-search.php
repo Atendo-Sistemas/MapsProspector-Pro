@@ -193,9 +193,23 @@ try {
             'credits_spent' => $tokenCost,
         ]);
         
-        $log_query = "CNPJ/Busca: " . ($params['cnpj'] ?? $params['razao_social'] ?? $params['date'] ?? 'Consulta');
-        $pdo->prepare("INSERT INTO searches (tenant_id, user_id, query, results_count, created_at) VALUES (?, ?, ?, ?, NOW())")
-            ->execute([$tenant_id, $user_id, $log_query, 1]);
+        // O painel lê o histórico pela tabela search_history. A tabela
+        // `searches` pertence a um fluxo legado e não era exibida no painel.
+        $log_query = "Consulta CNPJ: " . ($params['cnpj'] ?? $params['razao_social'] ?? $params['date'] ?? 'Consulta');
+        $userIp = $_SERVER['HTTP_CLIENT_IP'] ?? $_SERVER['HTTP_X_FORWARDED_FOR'] ?? $_SERVER['REMOTE_ADDR'] ?? '127.0.0.1';
+        if (strpos($userIp, ',') !== false) $userIp = trim(explode(',', $userIp)[0]);
+        try {
+            $hasUserIp = (bool) $pdo->query("SHOW COLUMNS FROM search_history LIKE 'user_ip'")->fetch();
+            if ($hasUserIp) {
+                $pdo->prepare("INSERT INTO search_history (user_id, query, location, tag, results_count, user_ip, created_at) VALUES (?, ?, ?, ?, ?, ?, NOW())")
+                    ->execute([$user_id, $log_query, 'Consulta CNPJ', 'CNPJ_AVANCADA', 1, substr((string) $userIp, 0, 64)]);
+            } else {
+                $pdo->prepare("INSERT INTO search_history (user_id, query, location, tag, results_count, created_at) VALUES (?, ?, ?, ?, ?, NOW())")
+                    ->execute([$user_id, $log_query, 'Consulta CNPJ', 'CNPJ_AVANCADA', 1]);
+            }
+        } catch (Throwable $historyError) {
+            error_log('cnpj-search histórico: ' . $historyError->getMessage());
+        }
             
         echo json_encode([
             'success' => true,

@@ -1,0 +1,874 @@
+<?php
+declare(strict_types=1);
+
+/**
+ * Busca Maps self-hosted para perfis autenticados e elegíveis.
+ *
+ * Atualiza uma pesquisa Maps já existente ou cria uma nova pesquisa para o
+ * usuário autenticado. Antes da coleta, resultados recentes de termos
+ * normalizados podem ser reaproveitados de forma isolada: a empresa atual
+ * recebe somente seus próprios registros de histórico, sem acesso à origem.
+ * O endpoint nunca usa ou devolve tokens da Apify nem o segredo HMAC.
+ */
+
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+@set_time_limit(330);
+ob_start();
+
+register_shutdown_function(static function (): void {
+    $error = error_get_last();
+    if ($error !== null && in_array($error['type'], [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR], true)) {
+        if (ob_get_length()) {
+            ob_clean();
+        }
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+        echo json_encode(['success' => false, 'error' => 'Não foi possível concluir a atualização do piloto Maps.'], JSON_UNESCAPED_UNICODE);
+    }
+});
+
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/AtendoMapsCollectorClient.php';
+
+function mapsPilotError(string $message, int $status = 400): never
+{
+    if (ob_get_length()) {
+        ob_clean();
+    }
+    jsonError($message, $status);
+    exit;
+}
+
+function mapsPilotSessionUser(PDO $db): array
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        @session_start();
+    }
+
+    $userId = (int) ($_SESSION['user_id'] ?? $_SESSION['auth_user_id'] ?? ($_SESSION['ncSessionUser']['id'] ?? 0));
+    $email = trim((string) ($_SESSION['email'] ?? $_SESSION['user_email'] ?? ''));
+
+    foreach (['ncSessionUser', 'user', 'auth_user', 'current_user', 'user_data'] as $sessionKey) {
+        $candidate = $_SESSION[$sessionKey] ?? null;
+        if (is_array($candidate)) {
+            $userId = $userId ?: (int) ($candidate['id'] ?? $candidate['user_id'] ?? 0);
+            $email = $email !== '' ? $email : trim((string) ($candidate['email'] ?? ''));
+        }
+    }
+
+    if ($userId <= 0 && $email === '') {
+        mapsPilotError('Não autenticado.', 401);
+    }
+
+    // A versão antiga do sistema, que ainda funciona em algumas contas cPanel,
+    // não possui a coluna can_search. Não deixe essa coluna opcional impedir a
+    // consulta Maps; quando ela existir, a autorização continua sendo aplicada.
+    $hasCanSearch = false;
+    try {
+        $columnCheck = $db->query("SHOW COLUMNS FROM users LIKE 'can_search'");
+        $hasCanSearch = (bool) $columnCheck->fetch(PDO::FETCH_ASSOC);
+    } catch (Throwable $schemaError) {
+        error_log('maps-pilot can_search schema check: ' . $schemaError->getMessage());
+    }
+    $userColumns = 'id, tenant_id, profile, current_session_token'
+        . ($hasCanSearch ? ', can_search' : '');
+    $stmt = $userId > 0
+        ? $db->prepare("SELECT {$userColumns} FROM users WHERE id = ? LIMIT 1")
+        : $db->prepare("SELECT {$userColumns} FROM users WHERE email = ? LIMIT 1");
+    $stmt->execute([$userId > 0 ? $userId : $email]);
+    $user = $stmt->fetch(PDO::FETCH_ASSOC);
+    if (!$user) {
+        mapsPilotError('Sessão não reconhecida. Faça login novamente.', 401);
+    }
+
+    $sessionToken = (string) ($_SESSION['session_token'] ?? '');
+    if ($sessionToken !== '' && !empty($user['current_session_token']) && !hash_equals((string) $user['current_session_token'], $sessionToken)) {
+        mapsPilotError('Sua sessão foi substituída por outro login. Faça login novamente.', 401);
+    }
+
+    $allowedProfiles = ['super_admin', 'admin', 'supervisor', 'normal', 'user', 'manager', 'gerente'];
+    if (!in_array(strtolower((string) ($user['profile'] ?? '')), $allowedProfiles, true)) {
+        mapsPilotError('Seu perfil não possui permissão para usar a busca Maps.', 403);
+    }
+    if ($hasCanSearch
+        && strtolower((string) ($user['profile'] ?? '')) !== 'super_admin'
+        && !(bool) ($user['can_search'] ?? false)
+    ) {
+        mapsPilotError('Seu administrador desativou a permissão para realizar pesquisas.', 403);
+    }
+
+    $user['tenant_id'] = mpResolveEffectiveTenantId($db, $user);
+    if (strtolower((string) ($user['profile'] ?? '')) !== 'super_admin' && (int) $user['tenant_id'] <= 1) {
+        mapsPilotError('Sua conta não está vinculada a uma empresa apta para realizar pesquisas Maps.', 403);
+    }
+
+    try {
+        $touch = $db->prepare('UPDATE users SET last_activity = NOW() WHERE id = ?');
+        $touch->execute([(int) $user['id']]);
+    } catch (Throwable $activityError) {
+        error_log('maps-pilot activity touch: ' . $activityError->getMessage());
+    }
+
+    return $user;
+}
+
+function mapsPilotNormalizeText(?string $value): string
+{
+    $value = mb_strtolower(trim((string) $value), 'UTF-8');
+    $value = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $value) ?: $value;
+    return preg_replace('/[^a-z0-9]+/', '', $value) ?: '';
+}
+
+function mapsPilotNormalizePhone(?string $value): string
+{
+    return preg_replace('/\D+/', '', (string) $value) ?: '';
+}
+
+function mapsPilotNormalizeEmail(?string $value): string
+{
+    return strtolower(trim((string) $value));
+}
+
+function mapsPilotNormalizeCnpj(?string $value): string
+{
+    $digits = preg_replace('/\D+/', '', (string) $value) ?: '';
+    return strlen($digits) === 14 ? $digits : '';
+}
+
+function mapsPilotNormalizeDomain(?string $value): string
+{
+    $website = trim((string) $value);
+    if ($website === '') {
+        return '';
+    }
+    if (!preg_match('#^https?://#i', $website)) {
+        $website = 'https://' . $website;
+    }
+    $host = strtolower((string) parse_url($website, PHP_URL_HOST));
+    return preg_replace('/^www\./', '', $host) ?: '';
+}
+
+function mapsPilotNormalizeMapsUri(?string $value): string
+{
+    $url = trim((string) $value);
+    if ($url === '') {
+        return '';
+    }
+    $parts = parse_url($url);
+    if ($parts === false || empty($parts['host'])) {
+        return mapsPilotNormalizeText($url);
+    }
+    $host = strtolower((string) $parts['host']);
+    $path = rtrim((string) ($parts['path'] ?? ''), '/');
+    $query = [];
+    parse_str((string) ($parts['query'] ?? ''), $query);
+    foreach (array_keys($query) as $key) {
+        if (preg_match('/^(utm_|gclid|fbclid)/i', (string) $key)) {
+            unset($query[$key]);
+        }
+    }
+    ksort($query);
+    return $host . $path . ($query ? '?' . http_build_query($query) : '');
+}
+
+function mapsPilotLeadKeys(array $lead): array
+{
+    $keys = [];
+    $mapsKey = mapsPilotNormalizeMapsUri($lead['maps_uri'] ?? $lead['mapsUri'] ?? '');
+    if ($mapsKey !== '') {
+        $keys[] = 'maps:' . $mapsKey;
+    }
+    $cnpj = mapsPilotNormalizeCnpj($lead['cnpj'] ?? '');
+    if ($cnpj !== '') {
+        $keys[] = 'cnpj:' . $cnpj;
+    }
+    $email = mapsPilotNormalizeEmail($lead['email'] ?? '');
+    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
+        $keys[] = 'email:' . $email;
+    }
+    $name = mapsPilotNormalizeText($lead['name'] ?? '');
+    $address = mapsPilotNormalizeText($lead['address'] ?? '');
+    $phone = mapsPilotNormalizePhone($lead['phone'] ?? '');
+    $domain = mapsPilotNormalizeDomain($lead['website'] ?? '');
+    if ($name !== '' && $phone !== '' && $address !== '') {
+        $keys[] = 'phone_name_address:' . $phone . '|' . $name . '|' . $address;
+    }
+    if ($name !== '' && $domain !== '' && $address !== '') {
+        $keys[] = 'domain_name_address:' . $domain . '|' . $name . '|' . $address;
+    }
+    if ($name !== '' && $address !== '') {
+        $keys[] = 'name_address:' . $name . '|' . $address;
+    }
+    return array_values(array_unique($keys));
+}
+
+function mapsPilotLeadScore(array $lead, string $query, string $location): int
+{
+    $name = mapsPilotNormalizeText($lead['name'] ?? '');
+    $normalizedQuery = mb_strtolower(trim((string) $query), 'UTF-8');
+    $normalizedQuery = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $normalizedQuery) ?: $normalizedQuery;
+    $queryTokens = preg_split('/[^a-z0-9]+/', $normalizedQuery, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    $score = 0;
+    foreach ($queryTokens as $token) {
+        if (strlen($token) >= 3 && strpos($name, $token) !== false) {
+            $score += 10;
+        }
+    }
+    if (trim((string) ($lead['phone'] ?? '')) !== '') $score += 3;
+    if (trim((string) ($lead['email'] ?? '')) !== '') $score += 3;
+    if (trim((string) ($lead['website'] ?? '')) !== '') $score += 2;
+    if (trim((string) ($lead['address'] ?? '')) !== '') $score += 1;
+    if (mapsPilotAddressMatchesLocation((string) ($lead['address'] ?? ''), $location)) $score += 5;
+    return $score;
+}
+
+/**
+ * Mantém somente resultados compatíveis com a cidade/UF solicitada.
+ * O coletor pode retornar localidades vizinhas quando o Google amplia a
+ * intenção da busca; esses registros não devem ser gravados como se fossem
+ * da região pedida pelo cliente.
+ */
+function mapsPilotLocationConstraint(string $location): array
+{
+    $clean = trim($location);
+    $uf = '';
+    if (preg_match('/(?:,|\s|-)+([A-Z]{2})\s*$/iu', $clean, $match)) {
+        $uf = strtoupper((string) $match[1]);
+        $clean = trim((string) preg_replace('/(?:,|\s|-)+[A-Z]{2}\s*$/iu', '', $clean));
+    }
+    return [
+        'city' => mapsPilotNormalizeText($clean),
+        'uf' => mapsPilotNormalizeText($uf),
+        'label' => trim($location),
+    ];
+}
+
+function mapsPilotAddressMatchesLocation(string $address, string $location): bool
+{
+    $constraint = mapsPilotLocationConstraint($location);
+    $normalizedAddress = mapsPilotNormalizeText($address);
+    $city = (string) ($constraint['city'] ?? '');
+    $uf = (string) ($constraint['uf'] ?? '');
+    if ($city !== '' && strpos($normalizedAddress, $city) === false) {
+        return false;
+    }
+    if ($uf !== '') {
+        $normalizedUf = mapsPilotNormalizeText($uf);
+        if ($normalizedUf !== '' && strpos($normalizedAddress, $normalizedUf) === false) {
+            return false;
+        }
+    }
+    return $city !== '';
+}
+
+function mapsPilotAuditLocationLeads(array $leads, string $location, int &$mismatchCount): array
+{
+    $audited = [];
+    foreach ($leads as $lead) {
+        if (!is_array($lead)) {
+            continue;
+        }
+        if (!mapsPilotAddressMatchesLocation((string) ($lead['address'] ?? ''), $location)) {
+            $mismatchCount++;
+        }
+        // Não descartamos automaticamente: o próprio Google Maps pode
+        // exibir localidades vizinhas na mesma consulta. A divergência é
+        // informada ao usuário para não ocultar resultados legítimos.
+        $audited[] = $lead;
+    }
+    return $audited;
+}
+
+function mapsPilotReadCsv(string $csv): array
+{
+    $handle = fopen('php://temp', 'r+');
+    if ($handle === false) {
+        throw new RuntimeException('Não foi possível ler o resultado do coletor Maps.');
+    }
+    fwrite($handle, $csv);
+    rewind($handle);
+    $headers = fgetcsv($handle);
+    if (!is_array($headers)) {
+        fclose($handle);
+        throw new RuntimeException('O coletor Maps retornou um CSV sem cabeçalho.');
+    }
+    $headers = array_map(static function ($header): string {
+        return strtolower(trim(preg_replace('/^\xEF\xBB\xBF/', '', (string) $header) ?: ''));
+    }, $headers);
+
+    $rows = [];
+    while (($values = fgetcsv($handle)) !== false) {
+        if (count($values) === 1 && trim((string) $values[0]) === '') {
+            continue;
+        }
+        $row = [];
+        foreach ($headers as $index => $header) {
+            if ($header !== '') {
+                $row[$header] = trim((string) ($values[$index] ?? ''));
+            }
+        }
+        $rows[] = $row;
+    }
+    fclose($handle);
+    return $rows;
+}
+
+function mapsPilotEmailFromCsv(array $row): string
+{
+    $raw = trim((string) ($row['email'] ?? $row['emails'] ?? ''));
+    if ($raw === '') {
+        return '';
+    }
+    $decoded = json_decode($raw, true);
+    if (is_array($decoded)) {
+        foreach ($decoded as $value) {
+            if (is_string($value) && filter_var($value, FILTER_VALIDATE_EMAIL)) {
+                return $value;
+            }
+        }
+    }
+    if (preg_match('/[A-Z0-9._%+\-]+@[A-Z0-9.\-]+\.[A-Z]{2,}/i', $raw, $match)) {
+        return $match[0];
+    }
+    return '';
+}
+
+function mapsPilotFrontendLead(array $row, string $query = '', string $location = ''): array
+{
+    $mapsUri = (string) ($row['maps_uri'] ?? '');
+    $normalizedQuery = mb_strtolower(trim($query), 'UTF-8');
+    $normalizedQuery = iconv('UTF-8', 'ASCII//TRANSLIT//IGNORE', $normalizedQuery) ?: $normalizedQuery;
+    $queryTokens = preg_split('/[^a-z0-9]+/', $normalizedQuery, -1, PREG_SPLIT_NO_EMPTY) ?: [];
+    $normalizedName = mapsPilotNormalizeText((string) ($row['name'] ?? ''));
+    $matchedTerms = array_values(array_filter($queryTokens, static function (string $token) use ($normalizedName): bool {
+        return strlen($token) >= 3 && strpos($normalizedName, $token) !== false;
+    }));
+    $locationConfirmed = $location !== '' && mapsPilotAddressMatchesLocation((string) ($row['address'] ?? ''), $location);
+    $matchReasons = [];
+    if ($matchedTerms) $matchReasons[] = 'Nome compatível com: ' . implode(', ', array_unique($matchedTerms));
+    if ($locationConfirmed) $matchReasons[] = 'Endereço compatível com a região informada';
+    return [
+        'id' => 'lead-' . (int) $row['id'],
+        'dbId' => (int) $row['id'],
+        'name' => $row['name'] ?? '',
+        'address' => $row['address'] ?? '',
+        'phone' => $row['phone'] ?? '',
+        'email' => $row['email'] ?? '',
+        'website' => $row['website'] ?? '',
+        'mapsUri' => $mapsUri,
+        'maps_uri' => $mapsUri,
+        'cnpj' => $row['cnpj'] ?? '',
+        'partners' => $row['partners'] ?? '',
+        'tag' => $row['tag'] ?? '',
+        'latitude' => $row['latitude'] ?? null,
+        'longitude' => $row['longitude'] ?? null,
+        'matchReason' => $matchReasons
+            ? implode(' · ', $matchReasons)
+            : 'Resultado retornado para os filtros selecionados; confira os dados antes do contato',
+        'locked' => false,
+    ];
+}
+
+function mapsPilotCharge(PDO $db, int $tenantId, int $credits): void
+{
+    mpChargeTenantCredits($db, $tenantId, $credits);
+}
+
+function mapsPilotSearchSignature(string $query, string $location): string
+{
+    return mapsPilotNormalizeText($query) . '|' . mapsPilotNormalizeText($location);
+}
+
+/**
+ * Reaproveita somente os resultados de uma consulta recente com termos
+ * equivalentes. O histórico de origem nunca é devolvido ao navegador.
+ */
+function mapsPilotLoadSharedLeadCandidates(PDO $db, int $currentHistoryId, string $query, string $location, int $currentTenantId = 0, int $currentUserId = 0, array $currentMemberIds = []): array
+{
+    $signature = mapsPilotSearchSignature($query, $location);
+    if ($signature === '|') {
+        return ['history_id' => 0, 'history_ids' => [], 'leads' => [], 'tenant_seen_keys' => []];
+    }
+
+    $historyStmt = $db->prepare(
+        'SELECT sh.id, sh.query, sh.location
+           FROM search_history sh
+          WHERE sh.id <> ?
+          ORDER BY sh.id DESC'
+    );
+    $historyStmt->execute([$currentHistoryId]);
+    $matchingHistoryIds = [];
+    foreach ($historyStmt->fetchAll(PDO::FETCH_ASSOC) as $candidateHistory) {
+        if (mapsPilotSearchSignature((string) $candidateHistory['query'], (string) $candidateHistory['location']) === $signature) {
+            $matchingHistoryIds[] = (int) $candidateHistory['id'];
+        }
+    }
+    if (!$matchingHistoryIds) {
+        return ['history_id' => 0, 'history_ids' => [], 'leads' => [], 'tenant_seen_keys' => []];
+    }
+
+    $placeholders = implode(',', array_fill(0, count($matchingHistoryIds), '?'));
+    $leadStmt = $db->prepare(
+        "SELECT name, address, phone, email, website, maps_uri, latitude, longitude
+           FROM leads
+          WHERE search_history_id IN ({$placeholders})
+          ORDER BY id ASC"
+    );
+    $leadStmt->execute($matchingHistoryIds);
+    $leads = [];
+    $seenKeys = [];
+    $tenantSeenKeys = [];
+    $currentMemberIds = array_values(array_unique(array_filter(array_map('intval', $currentMemberIds), static fn(int $id): bool => $id > 0)));
+    if (!$currentMemberIds && $currentUserId > 0) $currentMemberIds = [$currentUserId];
+    if ($currentMemberIds) {
+        $memberPlaceholders = implode(',', array_fill(0, count($currentMemberIds), '?'));
+        $tenantLeadStmt = $db->prepare(
+            "SELECT l.name, l.address, l.phone, l.email, l.website, l.maps_uri
+               FROM leads l
+               INNER JOIN search_history prior_sh ON prior_sh.id = l.search_history_id
+              WHERE prior_sh.id IN ({$placeholders})
+                AND prior_sh.user_id IN ({$memberPlaceholders})"
+        );
+        $tenantLeadStmt->execute(array_merge($matchingHistoryIds, $currentMemberIds));
+        foreach ($tenantLeadStmt->fetchAll(PDO::FETCH_ASSOC) as $priorLead) {
+            foreach (mapsPilotLeadKeys($priorLead) as $key) {
+                $tenantSeenKeys[$key] = true;
+            }
+        }
+    }
+    foreach ($leadStmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+        $name = trim((string) ($row['name'] ?? ''));
+        $address = trim((string) ($row['address'] ?? ''));
+        if ($name === '' && $address === '') {
+            continue;
+        }
+        $lead = [
+            'name' => $name,
+            'address' => $address,
+            'phone' => trim((string) ($row['phone'] ?? '')),
+            'email' => trim((string) ($row['email'] ?? '')),
+            'website' => trim((string) ($row['website'] ?? '')),
+            'maps_uri' => trim((string) ($row['maps_uri'] ?? '')),
+            'latitude' => is_numeric($row['latitude'] ?? null) ? (float) $row['latitude'] : null,
+            'longitude' => is_numeric($row['longitude'] ?? null) ? (float) $row['longitude'] : null,
+        ];
+        $keys = mapsPilotLeadKeys($lead);
+        $isDuplicate = false;
+        $isSameTenantReuse = false;
+        foreach ($keys as $key) {
+            if (isset($tenantSeenKeys[$key])) {
+                $isSameTenantReuse = true;
+                break;
+            }
+        }
+        foreach ($keys as $key) {
+            if (isset($seenKeys[$key])) {
+                $isDuplicate = true;
+                break;
+            }
+        }
+        if ($isDuplicate) {
+            continue;
+        }
+        foreach ($keys as $key) {
+            $seenKeys[$key] = true;
+        }
+        // Mantém a origem do reaproveitamento somente em memória; ela não é
+        // exibida como detalhe técnico nem persistida no lead.
+        if ($isSameTenantReuse) {
+            $lead['_reused_for_same_tenant'] = true;
+        }
+        $leads[] = $lead;
+    }
+    return [
+        'history_id' => $matchingHistoryIds[0] ?? 0,
+        'history_ids' => $matchingHistoryIds,
+        'leads' => $leads,
+        'tenant_seen_keys' => array_keys($tenantSeenKeys),
+    ];
+}
+
+try {
+    $mapsPilotStage = 'inicialização';
+    $qualityStartedAt = microtime(true);
+    $qualityProvider = 'maps_shared_cache';
+    $qualityDuplicateCount = 0;
+    if (strtoupper((string) ($_SERVER['REQUEST_METHOD'] ?? '')) !== 'POST') {
+        mapsPilotError('Método não permitido.', 405);
+    }
+
+    $db = Database::getInstance()->getConnection();
+    $currentUser = mapsPilotSessionUser($db);
+    $input = json_decode((string) file_get_contents('php://input'), true);
+    if (!is_array($input)) {
+        mapsPilotError('Dados de atualização inválidos.', 400);
+    }
+
+    $action = strtolower(trim((string) ($input['action'] ?? 'refresh')));
+    $isDirectPlatformSearch = in_array($action, ['create', 'new', 'direct'], true);
+    $searchHistoryId = filter_var($input['search_history_id'] ?? null, FILTER_VALIDATE_INT, ['options' => ['min_range' => 1]]);
+    $directQuery = trim((string) ($input['query'] ?? ''));
+    $directLocation = trim((string) ($input['location'] ?? ''));
+    // O painel pode exibir a origem administrativa entre parênteses; essa
+    // etiqueta não deve ser enviada ao coletor nem gravada no histórico.
+    $directLocation = trim((string) (preg_replace('/\s*\(por\s+[^)]+\)\s*$/iu', '', $directLocation) ?: $directLocation));
+    $directTag = trim((string) ($input['tag'] ?? ''));
+    $mapsSearchTag = $directTag !== '' ? $directTag : 'Pesquisa Maps';
+    if (!$isDirectPlatformSearch && !$searchHistoryId) {
+        mapsPilotError('Selecione uma pesquisa Maps válida para atualizar.', 422);
+    }
+    if ($isDirectPlatformSearch && $directQuery === '') {
+        mapsPilotError('Informe o ramo de atividade para a busca direta do piloto.', 422);
+    }
+    if ($isDirectPlatformSearch && $directLocation === '') {
+        mapsPilotError('Informe a cidade ou região para a busca direta do piloto.', 422);
+    }
+    // A quantidade vem da interface. Zero mantém o modo compatível sem teto
+    // comercial explícito; a quantidade final respeita o saldo disponível e o
+    // teto técnico de 1.000 leads por execução.
+    $requestedMax = min(1000, max(0, (int) ($input['max_results'] ?? 0)));
+
+    if ($isDirectPlatformSearch) {
+        $history = [
+            'id' => null,
+            'query' => $directQuery,
+            'location' => $directLocation,
+            'tag' => $mapsSearchTag,
+            'tenant_id' => strtolower((string) ($currentUser['profile'] ?? '')) === 'super_admin' ? 0 : (int) ($currentUser['tenant_id'] ?? 0),
+        ];
+        $newHistory = $db->prepare('INSERT INTO search_history (user_id, query, location, tag, results_count, credits_spent, user_ip) VALUES (?, ?, ?, ?, 0, 0, ?)');
+        $newHistory->execute([
+            (int) $currentUser['id'],
+            $directQuery,
+            $directLocation,
+            $mapsSearchTag,
+            substr((string) ($_SERVER['REMOTE_ADDR'] ?? ''), 0, 64),
+        ]);
+        $searchHistoryId = (int) $db->lastInsertId();
+        if ($searchHistoryId < 1) {
+            throw new RuntimeException('Não foi possível registrar a nova pesquisa Maps.');
+        }
+    } else {
+        $currentUserTenantId = (int) ($currentUser['tenant_id'] ?? 0);
+        $currentProfile = strtolower((string) ($currentUser['profile'] ?? ''));
+        $isPlatformAdmin = $currentProfile === 'super_admin';
+        $currentMemberIds = $currentUserTenantId > 1
+            ? mpTenantMemberUserIds($db, $currentUserTenantId, (int) $currentUser['id'])
+            : [(int) $currentUser['id']];
+        if (!$currentMemberIds) $currentMemberIds = [(int) $currentUser['id']];
+        $memberPlaceholders = implode(',', array_fill(0, count($currentMemberIds), '?'));
+        $historyStmt = $db->prepare(
+            'SELECT sh.id, sh.query, sh.location, sh.tag, u.tenant_id, sh.user_id as owner_user_id'
+            . ' FROM search_history sh'
+            . ' INNER JOIN users u ON u.id = sh.user_id'
+            . " WHERE sh.id = ? AND (sh.user_id IN ({$memberPlaceholders}) OR ? = 1)"
+            . ' LIMIT 1'
+        );
+        $historyStmt->execute(array_merge([$searchHistoryId], $currentMemberIds, [$isPlatformAdmin ? 1 : 0]));
+        $history = $historyStmt->fetch(PDO::FETCH_ASSOC);
+        if (!$history) {
+            mapsPilotError('A pesquisa selecionada não existe mais ou não está disponível para o seu perfil.', 404);
+        }
+        // O histórico visível a gestores da mesma empresa mantém o tenant do
+        // autor como referência de cobrança, sem revelar identidades externas.
+        if ($currentUserTenantId <= 1 && !$isPlatformAdmin) {
+            mapsPilotError('A pesquisa selecionada não está vinculada a uma empresa disponível para este perfil.', 404);
+        }
+    }
+    $billingTenantId = strtolower((string) ($currentUser['profile'] ?? '')) === 'super_admin'
+        ? 0
+        : (int) ($currentUser['tenant_id'] ?? 0);
+    // O super_admin de plataforma pode manter pesquisas próprias, sem tenant.
+    // Nesse caso o piloto continua disponível exclusivamente para validação,
+    // mas não há empresa a debitar; portanto a execução é explicitamente
+    // identificada como teste de plataforma e não registra consumo de créditos.
+    $isPlatformTestWithoutBillingTenant = $billingTenantId <= 0 && strtolower((string) ($currentUser['profile'] ?? '')) === 'super_admin';
+    if ($billingTenantId <= 0 && !$isPlatformTestWithoutBillingTenant) {
+        mapsPilotError('Sua conta não está vinculada a uma empresa apta para realizar pesquisas Maps.', 403);
+    }
+    $billingMode = $isPlatformTestWithoutBillingTenant ? 'platform_test_no_charge' : 'tenant';
+
+    $effectiveMax = $requestedMax;
+    $availableCredits = null;
+    $noCreditsForNewLeads = false;
+    if ($billingTenantId > 0) {
+        $balance = mpTenantCreditBalance($db, $billingTenantId);
+        if ($balance['available'] !== null) {
+            $available = max(0, (int) $balance['available']);
+            if ($available < 1) {
+                // A consulta histórica própria ainda pode ser reaberta sem cobrança;
+                // bloquearemos somente a coleta de leads novos após ler o banco.
+                $noCreditsForNewLeads = true;
+            }
+            $availableCredits = $available;
+            $effectiveMax = $requestedMax > 0 ? min($requestedMax, $available) : $available;
+        }
+    }
+    if ($effectiveMax < 1) {
+        // Sem teto comercial informado, permite-se a quantidade configurável
+        // até o teto técnico de 1.000 leads por execução.
+        $effectiveMax = 1000;
+    }
+
+    $shared = mapsPilotLoadSharedLeadCandidates(
+        $db,
+        (int) $searchHistoryId,
+        (string) $history['query'],
+        (string) $history['location'],
+        (int) ($currentUser['tenant_id'] ?? 0),
+        (int) ($currentUser['id'] ?? 0),
+        isset($currentMemberIds) && is_array($currentMemberIds) ? $currentMemberIds : mpTenantMemberUserIds($db, (int) ($currentUser['tenant_id'] ?? 0), (int) ($currentUser['id'] ?? 0))
+    );
+    $reusedSharedHistoryId = (int) ($shared['history_id'] ?? 0);
+    $locationMismatchCount = 0;
+    $candidateLeads = is_array($shared['leads'] ?? null) ? $shared['leads'] : [];
+    $candidateLeads = mapsPilotAuditLocationLeads($candidateLeads, (string) $history['location'], $locationMismatchCount);
+    $tenantSeenKeys = array_fill_keys(
+        is_array($shared['tenant_seen_keys'] ?? null) ? $shared['tenant_seen_keys'] : [],
+        true
+    );
+    if ($noCreditsForNewLeads) {
+        $reusableCandidates = array_values(array_filter($candidateLeads, static function (array $lead): bool {
+            return !empty($lead['_reused_for_same_tenant']);
+        }));
+        if (!$reusableCandidates) {
+            mapsPilotError('Esta empresa não possui créditos disponíveis para buscar leads novos e não há resultado próprio reutilizável para esta pesquisa.', 403);
+        }
+        if ($requestedMax > 0) {
+            $reusableCandidates = array_slice($reusableCandidates, 0, $requestedMax);
+        }
+        $candidateLeads = $reusableCandidates;
+        $effectiveMax = count($candidateLeads);
+    }
+    // A origem dos candidatos é detalhe operacional: para o usuário a resposta
+    // é sempre a de uma busca comum, sem revelar reaproveitamento interno.
+    $searchSource = 'maps_self_hosted';
+
+    // O banco é sempre a primeira fonte. Se ainda não houver candidatos
+    // suficientes para a quantidade solicitada, o coletor busca somente um
+    // complemento; a deduplicação final acontece dentro da transação.
+    if (count($candidateLeads) < $effectiveMax) {
+        $qualityProvider = $reusedSharedHistoryId > 0 ? 'maps_shared_cache+collector' : 'maps_collector';
+        $collector = new AtendoMapsCollectorClient();
+        if (!$collector->isEnabled()) {
+            mapsPilotError('A busca Maps está temporariamente indisponível. Tente novamente em alguns instantes.', 503);
+        }
+
+        $collectorQuery = trim((string) $history['query'] . ' em ' . (string) $history['location']);
+        $collectorLimit = max(1, $effectiveMax - count($candidateLeads));
+        $requestId = 'maps-' . $searchHistoryId . '-' . date('YmdHis') . '-' . bin2hex(random_bytes(4));
+        $mapsPilotStage = 'criação da coleta no gateway';
+        $created = $collector->createJob($requestId, $collectorQuery, $collectorLimit, 'pt');
+        $createdData = is_array($created['data'] ?? null) ? $created['data'] : $created;
+        // O contrato exige um identificador, mas não fixa UUID como formato.
+        // Alguns builds do gateway retornam job_id, id ou jobId.
+        $jobId = trim((string) ($createdData['job_id'] ?? $createdData['jobId'] ?? $createdData['id'] ?? ''));
+        if ($jobId === '' || strlen($jobId) > 200 || !preg_match('/^[A-Za-z0-9._:-]+$/', $jobId)) {
+            throw new RuntimeException('A busca Maps não retornou um identificador de coleta válido.');
+        }
+
+        $terminalStates = ['finished', 'completed', 'complete', 'done', 'success', 'succeeded', 'ok'];
+        $failedStates = ['failed', 'error', 'cancelled', 'canceled'];
+        $deadline = time() + 300;
+        $state = 'pending';
+        $mapsPilotStage = 'acompanhamento do job ' . $jobId;
+        while (time() < $deadline) {
+            sleep(3);
+            $job = $collector->getJob($jobId);
+            $jobData = is_array($job['data'] ?? null) ? $job['data'] : $job;
+            $state = strtolower(trim((string) ($jobData['Status'] ?? $jobData['status'] ?? $jobData['state'] ?? $state)));
+            if (in_array($state, $terminalStates, true)) {
+                break;
+            }
+            if (in_array($state, $failedStates, true)) {
+                throw new RuntimeException('A busca Maps encerrou a coleta com estado: ' . $state . '.');
+            }
+        }
+        if (!in_array($state, $terminalStates, true)) {
+            throw new RuntimeException('A busca Maps não concluiu a coleta dentro do tempo esperado.');
+        }
+
+        $mapsPilotStage = 'download do CSV do job ' . $jobId;
+        $candidateRows = mapsPilotReadCsv($collector->downloadAndDeleteJob($jobId));
+        foreach ($candidateRows as $row) {
+            $candidate = [
+                'name' => trim((string) ($row['title'] ?? $row['name'] ?? '')),
+                'address' => trim((string) ($row['address'] ?? '')),
+                'phone' => trim((string) ($row['phone'] ?? '')),
+                'email' => mapsPilotEmailFromCsv($row),
+                'website' => trim((string) ($row['website'] ?? '')),
+                'maps_uri' => trim((string) ($row['link'] ?? $row['maps_uri'] ?? '')),
+                'latitude' => is_numeric($row['latitude'] ?? null) ? (float) $row['latitude'] : null,
+                'longitude' => is_numeric($row['longitude'] ?? null) ? (float) $row['longitude'] : null,
+            ];
+            if ($candidate['name'] === '' && $candidate['address'] === '') {
+                continue;
+            }
+            if (!mapsPilotAddressMatchesLocation($candidate['address'], (string) $history['location'])) {
+                $locationMismatchCount++;
+            }
+            $candidateLeads[] = $candidate;
+        }
+    }
+
+    usort($candidateLeads, static function (array $left, array $right) use ($history): int {
+        $scoreDifference = mapsPilotLeadScore($right, (string) $history['query'], (string) $history['location'])
+            <=> mapsPilotLeadScore($left, (string) $history['query'], (string) $history['location']);
+        return $scoreDifference !== 0
+            ? $scoreDifference
+            : strcasecmp((string) ($left['name'] ?? ''), (string) ($right['name'] ?? ''));
+    });
+
+    $mapsPilotStage = 'gravação dos leads no banco';
+    $db->beginTransaction();
+    try {
+        $lockedHistory = $db->prepare('SELECT id, tag FROM search_history WHERE id = ? FOR UPDATE');
+        $lockedHistory->execute([$searchHistoryId]);
+        $locked = $lockedHistory->fetch(PDO::FETCH_ASSOC);
+        if (!$locked) {
+            throw new RuntimeException('A pesquisa selecionada deixou de existir durante a atualização.');
+        }
+
+        $existingStmt = $db->prepare('SELECT id, name, address, phone, website, maps_uri FROM leads WHERE search_history_id = ? ORDER BY id ASC');
+        $existingStmt->execute([$searchHistoryId]);
+        $existingRows = $existingStmt->fetchAll(PDO::FETCH_ASSOC);
+        // Não bloqueia o reuso por tenant: o mesmo lead será copiado para o
+        // histórico atual, mas ficará separado de novos leads para não cobrar.
+        $seenKeys = [];
+        foreach ($existingRows as $lead) {
+            foreach (mapsPilotLeadKeys($lead) as $key) {
+                $seenKeys[$key] = true;
+            }
+        }
+        $newLeads = [];
+        $reusedLeads = [];
+        $selectedCount = 0;
+        foreach ($candidateLeads as $candidate) {
+            if ($selectedCount >= $effectiveMax) {
+                break;
+            }
+            $candidateKeys = mapsPilotLeadKeys($candidate);
+            $duplicate = false;
+            foreach ($candidateKeys as $key) {
+                if (isset($seenKeys[$key])) {
+                    $duplicate = true;
+                    break;
+                }
+            }
+            if ($duplicate) {
+                $qualityDuplicateCount++;
+                continue;
+            }
+            foreach ($candidateKeys as $key) {
+                $seenKeys[$key] = true;
+            }
+            if (!empty($candidate['_reused_for_same_tenant'])) {
+                $reusedLeads[] = $candidate;
+                $selectedCount++;
+                continue;
+            }
+            if ($availableCredits !== null && count($newLeads) >= $availableCredits) {
+                break;
+            }
+            $newLeads[] = $candidate;
+            $selectedCount++;
+        }
+        $insert = $db->prepare('INSERT INTO leads (search_history_id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude) VALUES (?, ?, ?, ?, ?, ?, ?, NULL, NULL, ?, ?, ?)');
+        $newLeadIds = [];
+        $reusedLeadIds = [];
+        foreach (array_merge($reusedLeads, $newLeads) as $lead) {
+            $insert->execute([$searchHistoryId, $lead['name'], $lead['address'], $lead['phone'] ?: null, $lead['email'] ?: null, $lead['website'] ?: null, $lead['maps_uri'] ?: null, $locked['tag'] ?: 'prospect_maps', $lead['latitude'], $lead['longitude']]);
+            $insertedLeadId = (int) $db->lastInsertId();
+            if ($insertedLeadId > 0) {
+                if (!empty($lead['_reused_for_same_tenant'])) {
+                    $reusedLeadIds[] = $insertedLeadId;
+                } else {
+                    $newLeadIds[] = $insertedLeadId;
+                }
+            }
+        }
+        $newCount = count($newLeads);
+        $reusedCount = count($reusedLeads);
+        $totalCount = count($existingRows) + $reusedCount + $newCount;
+        $updateHistory = $db->prepare('UPDATE search_history SET results_count = ?, credits_spent = CASE WHEN credits_spent IS NULL THEN NULL ELSE credits_spent + ? END WHERE id = ?');
+        $updateHistory->execute([$totalCount, $newCount, $searchHistoryId]);
+        if (!$isPlatformTestWithoutBillingTenant) {
+            mapsPilotCharge($db, $billingTenantId, $newCount);
+        }
+        $db->commit();
+    } catch (Throwable $transactionError) {
+        if ($db->inTransaction()) {
+            $db->rollBack();
+        }
+        throw $transactionError;
+    }
+
+    $allLeadsStmt = $db->prepare('SELECT id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude FROM leads WHERE search_history_id = ? ORDER BY id ASC');
+    $allLeadsStmt->execute([$searchHistoryId]);
+    $allLeads = array_map(static function (array $row) use ($history): array {
+        return mapsPilotFrontendLead($row, (string) ($history['query'] ?? ''), (string) ($history['location'] ?? ''));
+    }, $allLeadsStmt->fetchAll(PDO::FETCH_ASSOC));
+    $qualityResultCount = count($allLeads);
+    $qualityMissingContacts = count(array_filter($allLeads, static function (array $lead): bool {
+        return trim((string) ($lead['phone'] ?? '')) === '' && trim((string) ($lead['email'] ?? '')) === '';
+    }));
+    recordSearchQualityEvent($db, 'maps', [
+        'provider' => $qualityProvider,
+        'status' => $qualityResultCount === 0 ? 'empty' : (($requestedMax > 0 && $qualityResultCount < $requestedMax) ? 'partial' : 'success'),
+        'result_count' => $qualityResultCount,
+        'duplicate_count' => $qualityDuplicateCount,
+        'missing_contact_count' => $qualityMissingContacts,
+        'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+        'cache_hit' => $reusedSharedHistoryId > 0,
+        'credits_spent' => $newCount,
+    ]);
+
+    if (ob_get_length()) {
+        ob_clean();
+    }
+    jsonSuccess([
+        'searchId' => (string) $searchHistoryId,
+        'leads' => $allLeads,
+        'leads_existing' => count($existingRows),
+        'leads_new' => $newCount,
+        'leads_reused' => $reusedCount,
+        'reused_lead_ids' => $reusedLeadIds,
+        'new_lead_ids' => $newLeadIds,
+        'credits_charged' => $isPlatformTestWithoutBillingTenant ? 0 : $newCount,
+        'billing_mode' => $billingMode,
+        'search_source' => $searchSource,
+        'source_notice' => 'Dados coletados do Google Maps pelo serviço de prospecção. Confirme as informações antes de entrar em contato.',
+        'reused_cached_results' => $reusedSharedHistoryId > 0,
+        'reused_history_count' => is_array($shared['history_ids'] ?? null) ? count($shared['history_ids']) : 0,
+        'billing_notice' => $isPlatformTestWithoutBillingTenant
+            ? 'Teste de plataforma sem empresa de cobrança vinculada; nenhum crédito foi consumido.'
+            : null,
+        'is_new_search' => $isDirectPlatformSearch,
+        'total_count' => count($allLeads),
+        'requested_limit' => $requestedMax,
+        'effective_limit' => $effectiveMax,
+        'new_lead_limit_applied' => min($effectiveMax, $availableCredits ?? $effectiveMax),
+        'location_check_applied' => true,
+        'location_check_label' => (string) $history['location'],
+        'location_mismatch_count' => $locationMismatchCount,
+    ], ($reusedCount > 0 ? $reusedCount . ' lead(s) reutilizado(s) sem nova cobrança. ' : '')
+        . ($newCount > 0 ? '+' . $newCount . ' novos leads encontrados.' : 'Nenhum novo lead novo nesta atualização.'));
+} catch (Throwable $error) {
+    error_log('maps-pilot.php: ' . $error->getMessage());
+    if (isset($db) && $db instanceof PDO && isset($qualityStartedAt)) {
+        recordSearchQualityEvent($db, 'maps', [
+            'provider' => $qualityProvider ?? 'maps_collector',
+            'status' => 'error',
+            'latency_ms' => (int) round((microtime(true) - $qualityStartedAt) * 1000),
+            'error_category' => 'maps_collection_failed',
+        ]);
+    }
+    $isSuperAdmin = strtolower((string) ($currentUser['profile'] ?? '')) === 'super_admin';
+    $diagnostic = $isSuperAdmin && trim($error->getMessage()) !== ''
+        ? ' Etapa: ' . ($mapsPilotStage ?? 'desconhecida') . '. Detalhe técnico: ' . trim($error->getMessage())
+        : '';
+    mapsPilotError('Não foi possível concluir a busca Maps agora. Tente novamente em alguns instantes.' . $diagnostic, 502);
+}

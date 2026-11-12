@@ -1,0 +1,149 @@
+{
+  "classe": "2721",
+  "grupo": "272",
+  "divisao": "27",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de pilhas, baterias e acumuladores elétricos, exceto para veículos automotores",
+      "codigo_cnae": "2721000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Pilhas",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pilhas",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Pilhas",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pilhas",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Baterias",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baterias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Baterias",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "baterias",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Acumuladores",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acumuladores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Acumuladores",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acumuladores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Automotores",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automotores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Automotores",
+      "codigo_cnae": "2721000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automotores",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de pilhas, baterias e acumuladores elétricos, exceto para veículos automotores",
+      "codigo_cnae": "2721000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    }
+  ]
+}

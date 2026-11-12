@@ -1,0 +1,89 @@
+{
+  "classe": "5222",
+  "grupo": "522",
+  "divisao": "52",
+  "secao": "H",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Terminais rodoviários e ferroviários",
+      "codigo_cnae": "5222200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terminais",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terminais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terminais",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terminais",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodoviários",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodoviarios",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Ferroviários",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferroviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Ferroviarios",
+      "codigo_cnae": "5222200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferroviários",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Terminais rodoviários e ferroviários",
+      "codigo_cnae": "5222200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    }
+  ]
+}

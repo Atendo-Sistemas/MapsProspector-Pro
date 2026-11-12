@@ -1,0 +1,109 @@
+{
+  "classe": "8211",
+  "grupo": "821",
+  "divisao": "82",
+  "secao": "N",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Serviços combinados de escritório e apoio administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Combinados",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combinados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Escritório",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Escritorio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escritório",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Serviços combinados de escritório e apoio administrativo",
+      "codigo_cnae": "8211300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    }
+  ]
+}

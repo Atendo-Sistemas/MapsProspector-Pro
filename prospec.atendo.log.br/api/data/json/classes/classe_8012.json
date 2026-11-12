@@ -1,0 +1,69 @@
+{
+  "classe": "8012",
+  "grupo": "801",
+  "divisao": "80",
+  "secao": "N",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de transporte de valores",
+      "codigo_cnae": "8012900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Valores",
+      "codigo_cnae": "8012900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "valores",
+      "secao": "N",
+      "divisao": "80"
+    },
+    {
+      "termo": "Atividades de transporte de valores",
+      "codigo_cnae": "8012900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "80"
+    }
+  ]
+}

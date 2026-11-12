@@ -1,0 +1,49 @@
+{
+  "classe": "8423",
+  "grupo": "842",
+  "divisao": "84",
+  "secao": "O",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Justiça",
+      "codigo_cnae": "8423000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Justiça",
+      "codigo_cnae": "8423000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "justiça",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Justica",
+      "codigo_cnae": "8423000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "justiça",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Justiça",
+      "codigo_cnae": "8423000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    }
+  ]
+}

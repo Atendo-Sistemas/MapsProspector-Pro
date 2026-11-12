@@ -129,7 +129,7 @@ function crmLicensePayload(PDO $db, int $tenantId): array
     ];
 }
 
-function crmLeadOwnership(PDO $db, int $tenantId, ?int $leadId, ?int $linkedinLeadId): bool
+function crmLeadOwnership(PDO $db, int $tenantId, ?int $leadId, ?int $linkedinLeadId, ?int $instagramLeadId = null): bool
 {
     if ($leadId !== null && $leadId > 0) {
         $stmt = $db->prepare('SELECT l.id FROM leads l INNER JOIN search_history sh ON sh.id = l.search_history_id INNER JOIN users owner_user ON owner_user.id = sh.user_id AND owner_user.tenant_id = ? WHERE l.id = ? LIMIT 1');
@@ -141,25 +141,35 @@ function crmLeadOwnership(PDO $db, int $tenantId, ?int $leadId, ?int $linkedinLe
         $stmt->execute([$linkedinLeadId, $tenantId]);
         return (bool) $stmt->fetchColumn();
     }
+    if ($instagramLeadId !== null && $instagramLeadId > 0) {
+        $stmt = $db->prepare('SELECT id FROM instagram_leads WHERE id = ? AND tenant_id = ? LIMIT 1');
+        $stmt->execute([$instagramLeadId, $tenantId]);
+        return (bool) $stmt->fetchColumn();
+    }
     return false;
 }
 
 function crmLeadSelectSql(): string
 {
-    return "SELECT c.id, c.tenant_id, c.lead_id, c.linkedin_lead_id, c.source, c.stage,
+    return "SELECT c.id, c.tenant_id, c.lead_id, c.linkedin_lead_id, c.instagram_lead_id, c.source, c.stage,
                    c.assignee_user_id, c.next_contact_at, c.notes, c.created_at, c.updated_at,
-                   COALESCE(CASE WHEN lead_owner.id IS NOT NULL THEN l.name END, ll.full_name) AS lead_name,
-                   COALESCE(NULLIF(l.name, ''), ll.company_name, '') AS company_name,
+                   COALESCE(CASE WHEN lead_owner.id IS NOT NULL THEN l.name END, ll.full_name, il.full_name, NULLIF(CONCAT('@', il.username), '@'), 'Perfil Instagram') AS lead_name,
+                   COALESCE(NULLIF(l.name, ''), ll.company_name, NULLIF(CONCAT('@', il.username), '@'), 'Perfil Instagram') AS company_name,
                    COALESCE(CASE WHEN lead_owner.id IS NOT NULL THEN l.email END, '') AS email,
                    COALESCE(CASE WHEN lead_owner.id IS NOT NULL THEN l.phone END, '') AS phone,
-                   COALESCE(CASE WHEN lead_owner.id IS NOT NULL THEN l.website END, ll.profile_url) AS website,
+                   COALESCE(CASE WHEN lead_owner.id IS NOT NULL THEN l.website END, ll.profile_url, il.profile_url) AS website,
                    COALESCE(CASE WHEN lead_owner.id IS NOT NULL THEN l.address END, ll.location) AS location,
+                   il.username AS instagram_username, il.profile_url AS instagram_profile_url,
+                   il.comment_text AS instagram_comment_text, il.commented_at AS instagram_commented_at,
+                   il.source_post_url AS instagram_source_post_url, il.interest_level AS instagram_interest_level,
+                   il.comments_count AS instagram_comments_count,
                    u.name AS assignee_name
               FROM crm_leads c
               LEFT JOIN leads l ON l.id = c.lead_id
               LEFT JOIN search_history sh ON sh.id = l.search_history_id
               LEFT JOIN users lead_owner ON lead_owner.id = sh.user_id AND lead_owner.tenant_id = c.tenant_id
               LEFT JOIN linkedin_leads ll ON ll.id = c.linkedin_lead_id AND ll.tenant_id = c.tenant_id
+              LEFT JOIN instagram_leads il ON il.id = c.instagram_lead_id AND il.tenant_id = c.tenant_id
               LEFT JOIN users u ON u.id = c.assignee_user_id AND u.tenant_id = c.tenant_id";
 }
 
@@ -170,7 +180,7 @@ function crmSearchLeadCandidates(PDO $db, int $tenantId, string $query, string $
         return [];
     }
     $source = strtolower(trim($source));
-    if (!in_array($source, ['all', 'maps', 'linkedin'], true)) {
+    if (!in_array($source, ['all', 'maps', 'linkedin', 'instagram'], true)) {
         $source = 'all';
     }
     $term = '%' . $query . '%';
@@ -226,6 +236,34 @@ function crmSearchLeadCandidates(PDO $db, int $tenantId, string $query, string $
         }
     }
 
+    if ($source === 'all' || $source === 'instagram') {
+        $sql = "SELECT il.id AS instagram_lead_id, il.username, il.full_name, il.profile_url,
+                       il.comment_text, il.commented_at, il.source_post_url, il.interest_level,
+                       il.comments_count, il.created_at,
+                       CASE WHEN existing.id IS NULL THEN 0 ELSE 1 END AS in_pipeline
+                  FROM instagram_leads il
+                  LEFT JOIN crm_leads existing ON existing.tenant_id = ? AND existing.instagram_lead_id = il.id
+                 WHERE il.tenant_id = ?
+                   AND (il.username LIKE ? OR il.full_name LIKE ? OR il.comment_text LIKE ? OR il.source_post_url LIKE ? OR il.profile_url LIKE ?)
+                 ORDER BY il.created_at DESC
+                 LIMIT {$limit}";
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$tenantId, $tenantId, $term, $term, $term, $term, $term]);
+        foreach ($stmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $username = ltrim((string) ($row['username'] ?? ''), '@');
+            $items[] = [
+                'leadId' => null, 'linkedinLeadId' => null, 'instagramLeadId' => (int) $row['instagram_lead_id'], 'source' => 'instagram',
+                'leadName' => (string) ($row['full_name'] ?: ($username !== '' ? '@' . $username : 'Perfil Instagram')),
+                'companyName' => $username !== '' ? '@' . $username : 'Perfil Instagram',
+                'username' => $username, 'profileUrl' => (string) ($row['profile_url'] ?? ''),
+                'commentText' => (string) ($row['comment_text'] ?? ''), 'commentedAt' => (string) ($row['commented_at'] ?? ''),
+                'sourcePostUrl' => (string) ($row['source_post_url'] ?? ''), 'interestLevel' => (string) ($row['interest_level'] ?? 'low'),
+                'commentsCount' => (int) ($row['comments_count'] ?? 1), 'location' => '', 'website' => (string) ($row['profile_url'] ?? ''),
+                'inPipeline' => (bool) $row['in_pipeline'],
+            ];
+        }
+    }
+
     usort($items, static function (array $a, array $b): int {
         if ($a['inPipeline'] !== $b['inPipeline']) return $a['inPipeline'] <=> $b['inPipeline'];
         return strcasecmp((string) ($a['leadName'] ?? ''), (string) ($b['leadName'] ?? ''));
@@ -239,6 +277,7 @@ function crmFormatLead(array $row): array
         'id' => (int) ($row['id'] ?? 0),
         'leadId' => $row['lead_id'] !== null ? (int) $row['lead_id'] : null,
         'linkedinLeadId' => $row['linkedin_lead_id'] !== null ? (int) $row['linkedin_lead_id'] : null,
+        'instagramLeadId' => $row['instagram_lead_id'] !== null ? (int) $row['instagram_lead_id'] : null,
         'source' => (string) ($row['source'] ?? 'maps'),
         'stage' => (string) ($row['stage'] ?? 'novo'),
         'leadName' => (string) ($row['lead_name'] ?? 'Lead sem nome'),
@@ -247,6 +286,13 @@ function crmFormatLead(array $row): array
         'phone' => (string) ($row['phone'] ?? ''),
         'website' => (string) ($row['website'] ?? ''),
         'location' => (string) ($row['location'] ?? ''),
+        'instagramUsername' => (string) ($row['instagram_username'] ?? ''),
+        'instagramProfileUrl' => (string) ($row['instagram_profile_url'] ?? ''),
+        'instagramCommentText' => (string) ($row['instagram_comment_text'] ?? ''),
+        'instagramCommentedAt' => (string) ($row['instagram_commented_at'] ?? ''),
+        'instagramSourcePostUrl' => (string) ($row['instagram_source_post_url'] ?? ''),
+        'instagramInterestLevel' => (string) ($row['instagram_interest_level'] ?? ''),
+        'instagramCommentsCount' => (int) ($row['instagram_comments_count'] ?? 0),
         'assigneeUserId' => $row['assignee_user_id'] !== null ? (int) $row['assignee_user_id'] : null,
         'assigneeName' => (string) ($row['assignee_name'] ?? ''),
         'nextContactAt' => $row['next_contact_at'] !== null ? (string) $row['next_contact_at'] : null,
@@ -308,9 +354,9 @@ try {
         }
         $search = trim((string) ($_GET['q'] ?? ''));
         if ($search !== '') {
-            $where[] = '(l.name LIKE ? OR l.email LIKE ? OR l.phone LIKE ? OR l.address LIKE ? OR l.cnpj LIKE ? OR ll.full_name LIKE ? OR ll.company_name LIKE ? OR ll.job_title LIKE ? OR ll.location LIKE ? OR ll.profile_url LIKE ?)';
+            $where[] = '(l.name LIKE ? OR l.email LIKE ? OR l.phone LIKE ? OR l.address LIKE ? OR l.cnpj LIKE ? OR ll.full_name LIKE ? OR ll.company_name LIKE ? OR ll.job_title LIKE ? OR ll.location LIKE ? OR ll.profile_url LIKE ? OR il.username LIKE ? OR il.full_name LIKE ? OR il.comment_text LIKE ? OR il.source_post_url LIKE ? OR il.profile_url LIKE ?)';
             $term = '%' . $search . '%';
-            array_push($params, $term, $term, $term, $term, $term, $term, $term, $term, $term, $term);
+            array_push($params, $term, $term, $term, $term, $term, $term, $term, $term, $term, $term, $term, $term, $term, $term, $term);
         }
         $limit = min(200, max(1, (int) ($_GET['limit'] ?? 100)));
         $sql = crmLeadSelectSql() . ' WHERE ' . implode(' AND ', $where) . ' ORDER BY FIELD(c.stage, \'novo\', \'qualificado\', \'contato\', \'proposta\', \'negociacao\', \'ganho\', \'perdido\'), c.updated_at DESC LIMIT ' . $limit;
@@ -325,13 +371,14 @@ try {
         if ($action === 'add' || ($action === 'upsert' && empty($input['id']))) {
             $leadId = isset($input['lead_id']) && (int) $input['lead_id'] > 0 ? (int) $input['lead_id'] : null;
             $linkedinLeadId = isset($input['linkedin_lead_id']) && (int) $input['linkedin_lead_id'] > 0 ? (int) $input['linkedin_lead_id'] : null;
-            if (!$leadId && !$linkedinLeadId) {
-                crmFail('Informe lead_id ou linkedin_lead_id para adicionar ao pipeline.', 400);
+            $instagramLeadId = isset($input['instagram_lead_id']) && (int) $input['instagram_lead_id'] > 0 ? (int) $input['instagram_lead_id'] : null;
+            if (!$leadId && !$linkedinLeadId && !$instagramLeadId) {
+                crmFail('Informe a origem do lead para adicionar ao pipeline.', 400);
             }
-            if ($leadId && $linkedinLeadId) {
+            if (($leadId ? 1 : 0) + ($linkedinLeadId ? 1 : 0) + ($instagramLeadId ? 1 : 0) > 1) {
                 crmFail('Escolha apenas uma origem de lead.', 400);
             }
-            if (!crmLeadOwnership($db, $tenantId, $leadId, $linkedinLeadId)) {
+            if (!crmLeadOwnership($db, $tenantId, $leadId, $linkedinLeadId, $instagramLeadId)) {
                 crmFail('Lead não encontrado ou não pertence à sua empresa.', 404);
             }
             $stage = strtolower(trim((string) ($input['stage'] ?? 'novo')));
@@ -342,16 +389,18 @@ try {
             if ($assignee !== null && !crmReadTenantUser($db, $tenantId, $assignee)) {
                 crmFail('Responsável não pertence à empresa.', 400);
             }
-            $source = $linkedinLeadId ? 'linkedin' : 'maps';
-            $checkSql = $leadId ? 'SELECT id FROM crm_leads WHERE tenant_id = ? AND lead_id = ? LIMIT 1' : 'SELECT id FROM crm_leads WHERE tenant_id = ? AND linkedin_lead_id = ? LIMIT 1';
+            $source = $instagramLeadId ? 'instagram' : ($linkedinLeadId ? 'linkedin' : 'maps');
+            $checkSql = $instagramLeadId
+                ? 'SELECT id FROM crm_leads WHERE tenant_id = ? AND instagram_lead_id = ? LIMIT 1'
+                : ($leadId ? 'SELECT id FROM crm_leads WHERE tenant_id = ? AND lead_id = ? LIMIT 1' : 'SELECT id FROM crm_leads WHERE tenant_id = ? AND linkedin_lead_id = ? LIMIT 1');
             $check = $db->prepare($checkSql);
             $check->execute([$tenantId, $leadId ?? $linkedinLeadId]);
             $existingId = $check->fetchColumn();
             if ($existingId) {
                 crmFail('Este lead já está no pipeline.', 409);
             }
-            $stmt = $db->prepare('INSERT INTO crm_leads (tenant_id, lead_id, linkedin_lead_id, source, stage, assignee_user_id, next_contact_at, notes, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())');
-            $stmt->execute([$tenantId, $leadId, $linkedinLeadId, $source, $stage, $assignee, crmDateOrNull($input['next_contact_at'] ?? null), mb_substr(trim((string) ($input['notes'] ?? '')), 0, 10000)]);
+            $stmt = $db->prepare('INSERT INTO crm_leads (tenant_id, lead_id, linkedin_lead_id, instagram_lead_id, source, stage, assignee_user_id, next_contact_at, notes, created_at, updated_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW(), NOW())');
+            $stmt->execute([$tenantId, $leadId, $linkedinLeadId, $instagramLeadId, $source, $stage, $assignee, crmDateOrNull($input['next_contact_at'] ?? null), mb_substr(trim((string) ($input['notes'] ?? '')), 0, 10000)]);
             $newId = (int) $db->lastInsertId();
             $row = $db->prepare(crmLeadSelectSql() . ' WHERE c.tenant_id = ? AND c.id = ? LIMIT 1');
             $row->execute([$tenantId, $newId]);

@@ -1,0 +1,89 @@
+{
+  "classe": "2021",
+  "grupo": "202",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos petroquímicos básicos",
+      "codigo_cnae": "2021500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Petroquímicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "petroquímicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Petroquimicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "petroquímicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Básicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "básicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Basicos",
+      "codigo_cnae": "2021500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "básicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de produtos petroquímicos básicos",
+      "codigo_cnae": "2021500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "classe": "1392",
+  "grupo": "139",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de artigos de tricô e crochê",
+      "codigo_cnae": "1392300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "1392300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "1392300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tricô",
+      "codigo_cnae": "1392300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tricô",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Trico",
+      "codigo_cnae": "1392300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tricô",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Crochê",
+      "codigo_cnae": "1392300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crochê",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Croche",
+      "codigo_cnae": "1392300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crochê",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de artigos de tricô e crochê",
+      "codigo_cnae": "1392300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

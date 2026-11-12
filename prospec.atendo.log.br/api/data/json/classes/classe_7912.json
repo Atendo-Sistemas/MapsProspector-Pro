@@ -1,0 +1,69 @@
+{
+  "classe": "7912",
+  "grupo": "791",
+  "divisao": "79",
+  "secao": "N",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Operadores turísticos",
+      "codigo_cnae": "7912100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Operadores",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "operadores",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Operadores",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "operadores",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turísticos",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turísticos",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turisticos",
+      "codigo_cnae": "7912100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turísticos",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Operadores turísticos",
+      "codigo_cnae": "7912100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "79"
+    }
+  ]
+}

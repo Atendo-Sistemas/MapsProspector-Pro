@@ -1,0 +1,468 @@
+{
+  "grupo": "711",
+  "divisao": "71",
+  "secao": "M",
+  "total_termos": 46,
+  "termos": [
+    {
+      "termo": "Serviços de arquitetura",
+      "codigo_cnae": "7111100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Arquitetura",
+      "codigo_cnae": "7111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquitetura",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Arquitetura",
+      "codigo_cnae": "7111100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquitetura",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de arquitetura",
+      "codigo_cnae": "7111100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "engenharia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "engenharia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de engenharia",
+      "codigo_cnae": "7112000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de cartografia, topografia e geodésia",
+      "codigo_cnae": "7119701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Cartografia",
+      "codigo_cnae": "7119701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cartografia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Cartografia",
+      "codigo_cnae": "7119701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cartografia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Topografia",
+      "codigo_cnae": "7119701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "topografia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Topografia",
+      "codigo_cnae": "7119701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "topografia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Geodésia",
+      "codigo_cnae": "7119701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geodésia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Geodesia",
+      "codigo_cnae": "7119701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geodésia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de cartografia, topografia e geodésia",
+      "codigo_cnae": "7119701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Atividades de estudos geológicos",
+      "codigo_cnae": "7119702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Estudos",
+      "codigo_cnae": "7119702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estudos",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Estudos",
+      "codigo_cnae": "7119702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estudos",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Geológicos",
+      "codigo_cnae": "7119702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geológicos",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Geologicos",
+      "codigo_cnae": "7119702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geológicos",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Atividades de estudos geológicos",
+      "codigo_cnae": "7119702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de desenho técnico relacionados à arquitetura e engenharia",
+      "codigo_cnae": "7119703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Desenho",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenho",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Desenho",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenho",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Técnico",
+      "codigo_cnae": "7119703",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnico",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Tecnico",
+      "codigo_cnae": "7119703",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnico",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Arquitetura",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquitetura",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Arquitetura",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquitetura",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Engenharia",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "engenharia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Engenharia",
+      "codigo_cnae": "7119703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "engenharia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de desenho técnico relacionados à arquitetura e engenharia",
+      "codigo_cnae": "7119703",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de perícia técnica relacionados à segurança do trabalho",
+      "codigo_cnae": "7119704",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Perícia",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perícia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Pericia",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "perícia",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Técnica",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnica",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Tecnica",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "técnica",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Trabalho",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trabalho",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Trabalho",
+      "codigo_cnae": "7119704",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trabalho",
+      "secao": "M",
+      "divisao": "71"
+    },
+    {
+      "termo": "Serviços de perícia técnica relacionados à segurança do trabalho",
+      "codigo_cnae": "7119704",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "71"
+    }
+  ]
+}

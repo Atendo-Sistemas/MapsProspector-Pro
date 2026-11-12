@@ -1,0 +1,69 @@
+{
+  "classe": "9101",
+  "grupo": "910",
+  "divisao": "91",
+  "secao": "R",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de bibliotecas e arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Bibliotecas",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bibliotecas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Bibliotecas",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bibliotecas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquivos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arquivos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de bibliotecas e arquivos",
+      "codigo_cnae": "9101500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "91"
+    }
+  ]
+}

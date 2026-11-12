@@ -226,13 +226,11 @@ async function loadConfig() {
             if (typeof updateApiStatusDisplay === 'function') updateApiStatusDisplay();
 
             var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
-            var instanceName = (AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Nome da empresa SaaS';
+            var instanceName = (AppState.config.platformName && String(AppState.config.platformName).trim()) ? String(AppState.config.platformName).trim() : ((AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Nome da empresa SaaS');
             var instanceEl = document.getElementById('sidebar-instance-name');
             if (instanceEl) instanceEl.textContent = instanceName;
-            if (!isSuperAdmin) {
-                var subtitleEl = document.getElementById('header-dashboard-subtitle');
-                if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
-            }
+            var subtitleEl = document.getElementById('header-dashboard-subtitle');
+            if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
             updateDocumentTitle();
         } else {
             throw new Error(data.error || 'Não foi possível carregar as configurações.');
@@ -1406,8 +1404,10 @@ function logout() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'logout' }),
-        credentials: 'same-origin'
-    }).then(function() {
+        credentials: 'include',
+        cache: 'no-store'
+    }).then(function(response) {
+        if (!response.ok) throw new Error('Não foi possível encerrar a sessão.');
         AppState.user = null;
         AppState.tenant = null;
         AppState.tokenUsage = null;
@@ -1418,8 +1418,11 @@ function logout() {
         if (tokenBanner) tokenBanner.classList.add('hidden');
         var userDropdown = document.getElementById('user-dropdown');
         if (userDropdown) userDropdown.classList.add('hidden');
-        showLogin();
+        window.location.replace(window.location.pathname + window.location.search);
     }).catch(function() {
+        AppState.user = null;
+        AppState.tenant = null;
+        AppState.tokenUsage = null;
         showLogin();
     });
 }
@@ -5553,6 +5556,10 @@ function renderMapsPilotMetrics(payload) {
             </div>
             <span class="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${available ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200' : 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200'}">${available ? 'Pronto para teste' : 'Verificar coletor'}</span>
         </div>
+        <div class="mt-3 flex flex-wrap items-center gap-3">
+            <button type="button" id="btn-test-maps-collector" class="rounded-xl bg-sky-700 px-4 py-2 text-xs font-black text-white hover:bg-sky-800 disabled:opacity-60">Testar conexão do coletor</button>
+            <span id="maps-pilot-connection-test-result" class="text-[11px] font-semibold"></span>
+        </div>
         <div class="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
             <div><span class="block text-[10px] uppercase tracking-wider opacity-70">Limite efetivo</span><strong>${Number(collector.max_results_per_run) || 50} resultados</strong></div>
             <div><span class="block text-[10px] uppercase tracking-wider opacity-70">Buscas diretas</span><strong>${Number(platform.searches) || 0}</strong></div>
@@ -5562,6 +5569,41 @@ function renderMapsPilotMetrics(payload) {
         ${latest ? `<p class="mt-3 border-t border-sky-200 pt-3 text-[11px] dark:border-sky-900/70">Última busca direta: <strong>${dashboardMetricEscape(latest.query || '—')}</strong> em <strong>${dashboardMetricEscape(latest.location || '—')}</strong> · ${Number(latest.results_count) || 0} resultados · ${formatMapsPilotDate(latest.created_at)}</p>` : '<p class="mt-3 border-t border-sky-200 pt-3 text-[11px] dark:border-sky-900/70">Nenhuma busca direta registrada ainda. As buscas seguem disponíveis normalmente.</p>'}
     `;
     container.classList.remove('hidden');
+    const testButton = document.getElementById('btn-test-maps-collector');
+    if (testButton) testButton.addEventListener('click', testMapsPilotConnection);
+}
+
+async function testMapsPilotConnection() {
+    const button = document.getElementById('btn-test-maps-collector');
+    const result = document.getElementById('maps-pilot-connection-test-result');
+    if (!button || !result) return;
+    button.disabled = true;
+    button.textContent = 'Testando...';
+    result.className = 'text-[11px] font-semibold text-slate-600 dark:text-slate-300';
+    result.textContent = 'Validando endpoint, assinatura HMAC e disponibilidade do coletor...';
+    try {
+        const response = await fetch(API_BASE + 'maps-pilot-metrics.php?test=1', {
+            credentials: 'include', cache: 'no-store', headers: { 'Accept': 'application/json' }
+        });
+        const payload = await response.json().catch(() => null);
+        if (!response.ok || !payload || !payload.success || !payload.test) {
+            throw new Error((payload && payload.error) || 'O servidor não retornou um diagnóstico válido.');
+        }
+        const test = payload.test;
+        if (test.ok) {
+            result.className = 'text-[11px] font-semibold text-emerald-700 dark:text-emerald-300';
+            result.textContent = test.message + (test.http_status ? ' HTTP ' + test.http_status + '.' : '');
+        } else {
+            result.className = 'text-[11px] font-semibold text-red-700 dark:text-red-300';
+            result.textContent = 'Falha: ' + String(test.message || 'erro não informado');
+        }
+    } catch (error) {
+        result.className = 'text-[11px] font-semibold text-red-700 dark:text-red-300';
+        result.textContent = 'Falha ao consultar o diagnóstico: ' + (error.message || 'resposta inválida');
+    } finally {
+        button.disabled = false;
+        button.textContent = 'Testar conexão do coletor';
+    }
 }
 
 async function loadMapsPilotMetrics() {

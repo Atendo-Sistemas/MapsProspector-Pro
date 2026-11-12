@@ -1,0 +1,129 @@
+{
+  "classe": "3092",
+  "grupo": "309",
+  "divisao": "30",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de bicicletas e triciclos não-motorizados, peças e acessórios",
+      "codigo_cnae": "3092000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Bicicletas",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bicicletas",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Bicicletas",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bicicletas",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Triciclos",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "triciclos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Triciclos",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "triciclos",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Motorizados",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motorizados",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Motorizados",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motorizados",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "3092000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Fabricação de bicicletas e triciclos não-motorizados, peças e acessórios",
+      "codigo_cnae": "3092000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    }
+  ]
+}

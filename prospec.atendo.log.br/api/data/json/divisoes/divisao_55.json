@@ -1,0 +1,276 @@
+{
+  "divisao": "55",
+  "total_termos": 27,
+  "termos": [
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hoteis",
+      "codigo_cnae": "5510801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart-hotéis",
+      "codigo_cnae": "5510802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apart",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apart",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hoteis",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart-hotéis",
+      "codigo_cnae": "5510802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Motéis",
+      "codigo_cnae": "5510803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Motéis",
+      "codigo_cnae": "5510803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Moteis",
+      "codigo_cnae": "5510803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Motéis",
+      "codigo_cnae": "5510803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Albergues, exceto assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Albergues",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "albergues",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Albergues",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "albergues",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistenciais",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "assistenciais",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Albergues, exceto assistenciais",
+      "codigo_cnae": "5590601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Campings",
+      "codigo_cnae": "5590602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Campings",
+      "codigo_cnae": "5590602",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Pensões (alojamento)",
+      "codigo_cnae": "5590603",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Pensões (alojamento)",
+      "codigo_cnae": "5590603",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "pensões alojamento",
+      "codigo_cnae": "5590603",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Outros alojamentos não especificados anteriormente",
+      "codigo_cnae": "5590699",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Outros alojamentos não especificados anteriormente",
+      "codigo_cnae": "5590699",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    }
+  ]
+}

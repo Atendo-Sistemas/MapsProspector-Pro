@@ -1,0 +1,149 @@
+{
+  "classe": "2223",
+  "grupo": "222",
+  "divisao": "22",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de tubos e acessórios de material plástico para uso na construção",
+      "codigo_cnae": "2223400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Tubos",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tubos",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Tubos",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tubos",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Plástico",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plástico",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Plastico",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plástico",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "2223400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Fabricação de tubos e acessórios de material plástico para uso na construção",
+      "codigo_cnae": "2223400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "22"
+    }
+  ]
+}

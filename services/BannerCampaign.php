@@ -16,16 +16,16 @@ function bannerCampaignValidate(array $input): array
     $end = trim((string) ($input['end'] ?? ''));
     $pages = $input['pages'] ?? [];
     $enabled = $input['enabled'] ?? false;
-    if (!is_bool($enabled) || !is_array($pages) || count($pages) > 4) {
+    if (!is_bool($enabled) || !is_array($pages) || count($pages) > 5) {
         throw new InvalidArgumentException('Configuração de banner inválida.');
     }
     foreach ($pages as $page) {
-        if (!is_string($page) || !in_array($page, ['maps', 'linkedin', 'cnpj', 'history'], true)) {
+        if (!is_string($page) || !in_array($page, ['maps', 'linkedin', 'instagram', 'cnpj', 'history'], true)) {
             throw new InvalidArgumentException('Página de exibição inválida.');
         }
-        if (count($pages) !== count(array_unique($pages))) {
-            throw new InvalidArgumentException('Página de exibição duplicada.');
-        }
+    }
+    if (count($pages) !== count(array_unique($pages))) {
+        throw new InvalidArgumentException('Página de exibição duplicada.');
     }
     foreach ([$image, $link] as $url) {
         if ($url !== '' && (strlen($url) > 2048 || !filter_var($url, FILTER_VALIDATE_URL) || strtolower((string) parse_url($url, PHP_URL_SCHEME)) !== 'https')) {

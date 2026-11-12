@@ -1,0 +1,309 @@
+{
+  "classe": "6201",
+  "grupo": "620",
+  "divisao": "62",
+  "secao": "J",
+  "total_termos": 30,
+  "termos": [
+    {
+      "termo": "Desenvolvimento de programas de computador sob encomenda",
+      "codigo_cnae": "6201500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Computador",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computador",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Computador",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computador",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Encomenda",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "encomenda",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Encomenda",
+      "codigo_cnae": "6201500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "encomenda",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento de programas de computador sob encomenda",
+      "codigo_cnae": "6201500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento de programas de computador sob encomenda",
+      "codigo_cnae": "6201501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Programas",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "programas",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Computador",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computador",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Computador",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "computador",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Encomenda",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "encomenda",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Encomenda",
+      "codigo_cnae": "6201501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "encomenda",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Desenvolvimento de programas de computador sob encomenda",
+      "codigo_cnae": "6201501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Web design",
+      "codigo_cnae": "6201502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Web",
+      "codigo_cnae": "6201502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "web",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Web",
+      "codigo_cnae": "6201502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "web",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "6201502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "6201502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "J",
+      "divisao": "62"
+    },
+    {
+      "termo": "Web design",
+      "codigo_cnae": "6201502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "62"
+    }
+  ]
+}

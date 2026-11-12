@@ -8,7 +8,7 @@ $campaign = bannerCampaignValidate([
     'image' => 'https://example.com/banner.png',
     'link' => 'https://example.com/',
     'description' => 'Campanha de teste',
-    'pages' => ['maps', 'history'],
+    'pages' => ['maps', 'instagram', 'history'],
     'start' => '2026-11-12',
     'end' => '2026-11-15',
 ]);
@@ -17,6 +17,7 @@ foreach ([
     ['maps', '2026-11-11', false],
     ['maps', '2026-11-12', true],
     ['history', '2026-11-15', true],
+    ['instagram', '2026-11-13', true],
     ['history', '2026-11-16', false],
     ['linkedin', '2026-11-13', false],
 ] as [$page, $day, $expected]) {

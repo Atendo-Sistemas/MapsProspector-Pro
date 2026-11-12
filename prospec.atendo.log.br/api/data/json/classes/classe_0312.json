@@ -1,0 +1,469 @@
+{
+  "classe": "0312",
+  "grupo": "031",
+  "divisao": "03",
+  "secao": "A",
+  "total_termos": 46,
+  "termos": [
+    {
+      "termo": "Pesca de peixes em água doce",
+      "codigo_cnae": "0312401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca de peixes em água doce",
+      "codigo_cnae": "0312401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca de crustáceos e moluscos em água doce",
+      "codigo_cnae": "0312402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Crustáceos",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crustáceos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Crustaceos",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "crustáceos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Moluscos",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moluscos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Moluscos",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "moluscos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca de crustáceos e moluscos em água doce",
+      "codigo_cnae": "0312402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Coleta de outros produtos aquáticos de água doce",
+      "codigo_cnae": "0312403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Coleta",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "coleta",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Aquáticos",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aquáticos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Aquaticos",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aquáticos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Coleta de outros produtos aquáticos de água doce",
+      "codigo_cnae": "0312403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Atividades de apoio à pesca em água doce",
+      "codigo_cnae": "0312404",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0312404",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Atividades de apoio à pesca em água doce",
+      "codigo_cnae": "0312404",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    }
+  ]
+}

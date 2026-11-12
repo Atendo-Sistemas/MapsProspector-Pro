@@ -1,0 +1,209 @@
+{
+  "classe": "2092",
+  "grupo": "209",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Fabricação de pólvoras, explosivos e detonadores",
+      "codigo_cnae": "2092401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Pólvoras",
+      "codigo_cnae": "2092401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pólvoras",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Polvoras",
+      "codigo_cnae": "2092401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pólvoras",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Explosivos",
+      "codigo_cnae": "2092401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "explosivos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Explosivos",
+      "codigo_cnae": "2092401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "explosivos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Detonadores",
+      "codigo_cnae": "2092401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "detonadores",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Detonadores",
+      "codigo_cnae": "2092401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "detonadores",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de pólvoras, explosivos e detonadores",
+      "codigo_cnae": "2092401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de artigos pirotécnicos",
+      "codigo_cnae": "2092402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2092402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2092402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Pirotécnicos",
+      "codigo_cnae": "2092402",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pirotécnicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Pirotecnicos",
+      "codigo_cnae": "2092402",
+      "tipo": "profissao",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pirotécnicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de artigos pirotécnicos",
+      "codigo_cnae": "2092402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de fósforos de segurança",
+      "codigo_cnae": "2092403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fósforos",
+      "codigo_cnae": "2092403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fósforos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fosforos",
+      "codigo_cnae": "2092403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fósforos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Segurança",
+      "codigo_cnae": "2092403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Seguranca",
+      "codigo_cnae": "2092403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "segurança",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de fósforos de segurança",
+      "codigo_cnae": "2092403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "classe": "6021",
+  "grupo": "602",
+  "divisao": "60",
+  "secao": "J",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de televisão aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisão",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Televisao",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "televisão",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aberta",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aberta",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Atividades de televisão aberta",
+      "codigo_cnae": "6021700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "60"
+    }
+  ]
+}

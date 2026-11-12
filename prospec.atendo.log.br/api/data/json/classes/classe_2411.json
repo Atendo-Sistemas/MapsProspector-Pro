@@ -1,0 +1,69 @@
+{
+  "classe": "2411",
+  "grupo": "241",
+  "divisao": "24",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Produção de ferro-gusa",
+      "codigo_cnae": "2411300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Ferro",
+      "codigo_cnae": "2411300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferro",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Ferro",
+      "codigo_cnae": "2411300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferro",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Gusa",
+      "codigo_cnae": "2411300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gusa",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Gusa",
+      "codigo_cnae": "2411300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gusa",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Produção de ferro-gusa",
+      "codigo_cnae": "2411300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    }
+  ]
+}

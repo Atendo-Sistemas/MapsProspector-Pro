@@ -1,0 +1,989 @@
+{
+  "classe": "0210",
+  "grupo": "021",
+  "divisao": "02",
+  "secao": "A",
+  "total_termos": 98,
+  "termos": [
+    {
+      "termo": "Cultivo de eucalipto",
+      "codigo_cnae": "0210101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Eucalipto",
+      "codigo_cnae": "0210101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eucalipto",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Eucalipto",
+      "codigo_cnae": "0210101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eucalipto",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de eucalipto",
+      "codigo_cnae": "0210101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de acácia-negra",
+      "codigo_cnae": "0210102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Acácia",
+      "codigo_cnae": "0210102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acácia",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Acacia",
+      "codigo_cnae": "0210102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acácia",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Negra",
+      "codigo_cnae": "0210102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "negra",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Negra",
+      "codigo_cnae": "0210102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "negra",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de acácia-negra",
+      "codigo_cnae": "0210102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de pinus",
+      "codigo_cnae": "0210103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210103",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210103",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Pinus",
+      "codigo_cnae": "0210103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pinus",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Pinus",
+      "codigo_cnae": "0210103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pinus",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de pinus",
+      "codigo_cnae": "0210103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de teca",
+      "codigo_cnae": "0210104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210104",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210104",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Teca",
+      "codigo_cnae": "0210104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teca",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Teca",
+      "codigo_cnae": "0210104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teca",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de teca",
+      "codigo_cnae": "0210104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de espécies madeireiras, exceto eucalipto, acácia-negra, pinus e teca",
+      "codigo_cnae": "0210105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210105",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210105",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Espécies",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espécies",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Especies",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espécies",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeireiras",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeireiras",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeireiras",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeireiras",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Eucalipto",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eucalipto",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Eucalipto",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eucalipto",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Acácia",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acácia",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Acacia",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acácia",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Negra",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "negra",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Negra",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "negra",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Pinus",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pinus",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Pinus",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pinus",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Teca",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teca",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Teca",
+      "codigo_cnae": "0210105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teca",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de espécies madeireiras, exceto eucalipto, acácia-negra, pinus e teca",
+      "codigo_cnae": "0210105",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de mudas em viveiros florestais",
+      "codigo_cnae": "0210106",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210106",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0210106",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Mudas",
+      "codigo_cnae": "0210106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mudas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Mudas",
+      "codigo_cnae": "0210106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mudas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Viveiros",
+      "codigo_cnae": "0210106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viveiros",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Viveiros",
+      "codigo_cnae": "0210106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "viveiros",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestais",
+      "codigo_cnae": "0210106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestais",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestais",
+      "codigo_cnae": "0210106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestais",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Cultivo de mudas em viveiros florestais",
+      "codigo_cnae": "0210106",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Extração de madeira em florestas plantadas",
+      "codigo_cnae": "0210107",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Extração de madeira em florestas plantadas",
+      "codigo_cnae": "0210107",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de carvão vegetal - florestas plantadas",
+      "codigo_cnae": "0210108",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Carvão",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Carvao",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Vegetal",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vegetal",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210108",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de carvão vegetal - florestas plantadas",
+      "codigo_cnae": "0210108",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de casca de acácia-negra - florestas plantadas",
+      "codigo_cnae": "0210109",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Casca",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casca",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Casca",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casca",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Acácia",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acácia",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Acacia",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acácia",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Negra",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "negra",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Negra",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "negra",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210109",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de casca de acácia-negra - florestas plantadas",
+      "codigo_cnae": "0210109",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de produtos não-madeireiros não especificados anteriormente em florestas plantadas",
+      "codigo_cnae": "0210199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeireiros",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeireiros",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Madeireiros",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeireiros",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Florestas",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "florestas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Plantadas",
+      "codigo_cnae": "0210199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantadas",
+      "secao": "A",
+      "divisao": "02"
+    },
+    {
+      "termo": "Produção de produtos não-madeireiros não especificados anteriormente em florestas plantadas",
+      "codigo_cnae": "0210199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "02"
+    }
+  ]
+}

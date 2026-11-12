@@ -1,0 +1,189 @@
+{
+  "classe": "4617",
+  "grupo": "461",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Representantes comerciais e agentes do comércio de produtos alimentícios, bebidas e fumo",
+      "codigo_cnae": "4617600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "representantes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comerciais",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "comerciais",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Agentes",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agentes",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Bebidas",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bebidas",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "4617600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Representantes comerciais e agentes do comércio de produtos alimentícios, bebidas e fumo",
+      "codigo_cnae": "4617600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "classe": "2019",
+  "grupo": "201",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Elaboração de combustíveis nucleares",
+      "codigo_cnae": "2019301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Elaboração",
+      "codigo_cnae": "2019301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elaboração",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Elaboracao",
+      "codigo_cnae": "2019301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elaboração",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Combustíveis",
+      "codigo_cnae": "2019301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combustíveis",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Combustiveis",
+      "codigo_cnae": "2019301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "combustíveis",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Nucleares",
+      "codigo_cnae": "2019301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nucleares",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Nucleares",
+      "codigo_cnae": "2019301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nucleares",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Elaboração de combustíveis nucleares",
+      "codigo_cnae": "2019301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de outros produtos inorgânicos não especificados anteriormente",
+      "codigo_cnae": "2019399",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Inorgânicos",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inorgânicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Inorganicos",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inorgânicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "2019399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de outros produtos inorgânicos não especificados anteriormente",
+      "codigo_cnae": "2019399",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

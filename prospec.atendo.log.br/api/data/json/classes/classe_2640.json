@@ -1,0 +1,169 @@
+{
+  "classe": "2640",
+  "grupo": "264",
+  "divisao": "26",
+  "secao": "C",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Fabricação de aparelhos de recepção, reprodução, gravação e amplificação de áudio e vídeo",
+      "codigo_cnae": "2640000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Recepção",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recepção",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Recepcao",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recepção",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Reprodução",
+      "codigo_cnae": "2640000",
+      "tipo": "produto",
+      "origem": "atividade industrial",
+      "relevancia": 85,
+      "categoria": "reprodução",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Reproducao",
+      "codigo_cnae": "2640000",
+      "tipo": "produto",
+      "origem": "atividade industrial",
+      "relevancia": 85,
+      "categoria": "reprodução",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Gravação",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gravação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Gravacao",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gravação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Amplificação",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amplificação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Amplificacao",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "amplificação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Áudio",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "áudio",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Audio",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "áudio",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Vídeo",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeo",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Video",
+      "codigo_cnae": "2640000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeo",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de aparelhos de recepção, reprodução, gravação e amplificação de áudio e vídeo",
+      "codigo_cnae": "2640000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    }
+  ]
+}

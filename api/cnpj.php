@@ -56,6 +56,19 @@ try {
     $localLead = $stmtCache->fetch(PDO::FETCH_ASSOC);
 
     if ($localLead) {
+        // Mesmo quando o dado é reaproveitado do cache, esta é uma nova
+        // consulta do usuário e precisa aparecer no histórico da conta.
+        saveCnpjToHistory($db, $userId, $cnpj, [
+            'razao_social' => $localLead['name'] ?? '',
+            'estabelecimento' => [
+                'cnpj' => $localLead['cnpj'] ?? $cnpjFormatted,
+                'nome_fantasia' => $localLead['website'] ?? '',
+                'logradouro' => $localLead['address'] ?? '',
+                'telefone1' => $localLead['phone'] ?? '',
+                'email' => $localLead['email'] ?? '',
+            ],
+            'socios' => $localLead['partners'] ?? [],
+        ]);
         jsonSuccess([
             'razao_social' => $localLead['name'],
             'estabelecimento' => [
@@ -117,11 +130,11 @@ if ($method === 'GET') {
 
 function saveCnpjToHistory($db, $userId, $cnpj, $data) {
     $est = $data['estabelecimento'] ?? [];
-    $stmtHist = $db->prepare("INSERT INTO search_history (user_id, query, location, tag, results_count, created_at) VALUES (?, ?, 'Receita Federal', 'cnpj_cache', 1, NOW())");
+    $stmtHist = $db->prepare("INSERT INTO search_history (user_id, query, location, tag, results_count, created_at) VALUES (?, ?, 'Receita Federal', 'CNPJ_AVANCADA', 1, NOW())");
     $stmtHist->execute([$userId, "CNPJ: " . formatCnpj($cnpj)]);
     $shId = $db->lastInsertId();
     
-    $stmtLead = $db->prepare("INSERT INTO leads (search_history_id, name, address, phone, email, website, cnpj, partners, tag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'cnpj_cache')");
+    $stmtLead = $db->prepare("INSERT INTO leads (search_history_id, name, address, phone, email, website, cnpj, partners, tag) VALUES (?, ?, ?, ?, ?, ?, ?, ?, 'CNPJ_AVANCADA')");
     $rawPartners = $data['socios'] ?? $data['qsa'] ?? [];
     $partnerNames = [];
     foreach ((array) $rawPartners as $partner) {

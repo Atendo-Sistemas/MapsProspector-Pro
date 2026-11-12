@@ -1,0 +1,89 @@
+{
+  "classe": "2513",
+  "grupo": "251",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de obras de caldeiraria pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Caldeiraria",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caldeiraria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Caldeiraria",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caldeiraria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesada",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesada",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de obras de caldeiraria pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

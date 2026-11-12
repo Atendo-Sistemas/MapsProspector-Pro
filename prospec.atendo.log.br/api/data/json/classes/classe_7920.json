@@ -1,0 +1,109 @@
+{
+  "classe": "7920",
+  "grupo": "792",
+  "divisao": "79",
+  "secao": "N",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Atividades de reservas e outros serviços de turismo não especificados anteriormente",
+      "codigo_cnae": "7920200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turismo",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turismo",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Turismo",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "turismo",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7920200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "79"
+    },
+    {
+      "termo": "Atividades de reservas e outros serviços de turismo não especificados anteriormente",
+      "codigo_cnae": "7920200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "79"
+    }
+  ]
+}

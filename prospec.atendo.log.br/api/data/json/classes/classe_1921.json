@@ -1,0 +1,89 @@
+{
+  "classe": "1921",
+  "grupo": "192",
+  "divisao": "19",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos do refino de petróleo",
+      "codigo_cnae": "1921700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "19"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1921700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "19"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "1921700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "C",
+      "divisao": "19"
+    },
+    {
+      "termo": "Refino",
+      "codigo_cnae": "1921700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refino",
+      "secao": "C",
+      "divisao": "19"
+    },
+    {
+      "termo": "Refino",
+      "codigo_cnae": "1921700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refino",
+      "secao": "C",
+      "divisao": "19"
+    },
+    {
+      "termo": "Petróleo",
+      "codigo_cnae": "1921700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "petróleo",
+      "secao": "C",
+      "divisao": "19"
+    },
+    {
+      "termo": "Petroleo",
+      "codigo_cnae": "1921700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "petróleo",
+      "secao": "C",
+      "divisao": "19"
+    },
+    {
+      "termo": "Fabricação de produtos do refino de petróleo",
+      "codigo_cnae": "1921700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "19"
+    }
+  ]
+}

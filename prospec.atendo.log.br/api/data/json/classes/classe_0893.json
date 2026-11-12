@@ -1,0 +1,129 @@
+{
+  "classe": "0893",
+  "grupo": "089",
+  "divisao": "08",
+  "secao": "B",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Extração de gemas (pedras preciosas e semipreciosas)",
+      "codigo_cnae": "0893200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gemas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gemas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gemas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gemas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedras",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedras",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Pedras",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pedras",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Preciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Preciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Semipreciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semipreciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Semipreciosas",
+      "codigo_cnae": "0893200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semipreciosas",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de gemas (pedras preciosas e semipreciosas)",
+      "codigo_cnae": "0893200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    }
+  ]
+}

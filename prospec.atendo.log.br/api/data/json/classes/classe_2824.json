@@ -1,0 +1,249 @@
+{
+  "classe": "2824",
+  "grupo": "282",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 24,
+  "termos": [
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso industrial",
+      "codigo_cnae": "2824101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso não-industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Uso",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uso",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industrial",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos de ar condicionado para uso não-industrial",
+      "codigo_cnae": "2824102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

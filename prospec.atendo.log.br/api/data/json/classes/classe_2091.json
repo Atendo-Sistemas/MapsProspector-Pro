@@ -1,0 +1,109 @@
+{
+  "classe": "2091",
+  "grupo": "209",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de adesivos, selantes, revestimentos e colas",
+      "codigo_cnae": "2091600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Adesivos",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adesivos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Adesivos",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "adesivos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Selantes",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "selantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Selantes",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "selantes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Revestimentos",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "revestimentos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Revestimentos",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "revestimentos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Colas",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Colas",
+      "codigo_cnae": "2091600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de adesivos, selantes, revestimentos e colas",
+      "codigo_cnae": "2091600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

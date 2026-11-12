@@ -1,0 +1,269 @@
+{
+  "classe": "0162",
+  "grupo": "016",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 26,
+  "termos": [
+    {
+      "termo": "Serviço de inseminação artificial em animais",
+      "codigo_cnae": "0162801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inseminação",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inseminação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Inseminacao",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inseminação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Artificial",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificial",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Artificial",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artificial",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de inseminação artificial em animais",
+      "codigo_cnae": "0162801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de tosquiamento de ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tosquiamento",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tosquiamento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Tosquiamento",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tosquiamento",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ovinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de tosquiamento de ovinos",
+      "codigo_cnae": "0162802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de manejo de animais",
+      "codigo_cnae": "0162803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manejo",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manejo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Manejo",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manejo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Animais",
+      "codigo_cnae": "0162803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "animais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Serviço de manejo de animais",
+      "codigo_cnae": "0162803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à pecuária não especificadas anteriormente",
+      "codigo_cnae": "0162899",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pecuária",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pecuaria",
+      "codigo_cnae": "0162899",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pecuária",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de apoio à pecuária não especificadas anteriormente",
+      "codigo_cnae": "0162899",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

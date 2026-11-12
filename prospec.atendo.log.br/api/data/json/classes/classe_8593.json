@@ -1,0 +1,57 @@
+{
+  "classe": "8593",
+  "total_registros": 3,
+  "registros": [
+    {
+      "termo": "Ensino de idiomas",
+      "termo_normalizado": "ensino de idiomas",
+      "codigo_cnae": "8593700",
+      "codigo_formatado": "8593-7/00",
+      "descricao": "Ensino de idiomas",
+      "relevancia": 100,
+      "categoria": "nome_oficial",
+      "secao": "P",
+      "divisao": "85",
+      "grupo": "859",
+      "classe": "8593",
+      "subclasse": "8593700",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial",
+      "busca_fulltext": "ensino de idiomas ensino de idiomas"
+    },
+    {
+      "termo": "ensino",
+      "termo_normalizado": "ensino",
+      "codigo_cnae": "8593700",
+      "codigo_formatado": "8593-7/00",
+      "descricao": "Ensino de idiomas",
+      "relevancia": 60,
+      "categoria": "palavra_chave",
+      "secao": "P",
+      "divisao": "85",
+      "grupo": "859",
+      "classe": "8593",
+      "subclasse": "8593700",
+      "origem": "extração semântica",
+      "tipo": "palavra_chave",
+      "busca_fulltext": "ensino ensino de idiomas"
+    },
+    {
+      "termo": "idiomas",
+      "termo_normalizado": "idiomas",
+      "codigo_cnae": "8593700",
+      "codigo_formatado": "8593-7/00",
+      "descricao": "Ensino de idiomas",
+      "relevancia": 60,
+      "categoria": "palavra_chave",
+      "secao": "P",
+      "divisao": "85",
+      "grupo": "859",
+      "classe": "8593",
+      "subclasse": "8593700",
+      "origem": "extração semântica",
+      "tipo": "palavra_chave",
+      "busca_fulltext": "idiomas ensino de idiomas"
+    }
+  ]
+}

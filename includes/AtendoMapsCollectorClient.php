@@ -10,8 +10,9 @@ final class AtendoMapsCollectorClient
 {
     private array $config;
 
-    public function __construct(string $configPath = '/home/naciona4/atendo-secrets/maps-collector.php')
+    public function __construct(?string $configPath = null)
     {
+        $configPath = $configPath ?: self::resolveConfigPath();
         if (!is_file($configPath) || !is_readable($configPath)) {
             throw new RuntimeException('Configuração privada do coletor Maps indisponível.');
         }
@@ -21,6 +22,43 @@ final class AtendoMapsCollectorClient
             throw new RuntimeException('Configuração privada do coletor Maps inválida.');
         }
         $this->config = $config;
+    }
+
+    /**
+     * Resolve a configuração fora da raiz pública. Em hospedagens cPanel o
+     * usuário da conta pode mudar entre ambientes, portanto o caminho antigo
+     * /home/naciona4 não pode ser obrigatório.
+     */
+    private static function resolveConfigPath(): string
+    {
+        $configured = trim((string) (
+            getenv('ATENDO_MAPS_COLLECTOR_CONFIG')
+            ?: getenv('MAPS_COLLECTOR_CONFIG')
+            ?: ($_ENV['ATENDO_MAPS_COLLECTOR_CONFIG'] ?? '')
+            ?: ($_SERVER['ATENDO_MAPS_COLLECTOR_CONFIG'] ?? '')
+        ));
+        $candidates = [];
+        if ($configured !== '') {
+            $candidates[] = $configured;
+        }
+
+        $home = trim((string) (getenv('HOME') ?: ($_SERVER['HOME'] ?? '')));
+        if ($home !== '') {
+            $candidates[] = rtrim($home, DIRECTORY_SEPARATOR) . '/atendo-secrets/maps-collector.php';
+        }
+
+        $projectRoot = dirname(__DIR__);
+        $accountHome = dirname($projectRoot);
+        $candidates[] = $accountHome . '/atendo-secrets/maps-collector.php';
+        // Compatibilidade com a instalação anterior.
+        $candidates[] = '/home/naciona4/atendo-secrets/maps-collector.php';
+
+        foreach (array_unique($candidates) as $candidate) {
+            if (is_file($candidate) && is_readable($candidate)) {
+                return $candidate;
+            }
+        }
+        return $configured !== '' ? $configured : $candidates[0];
     }
 
     public function isEnabled(): bool
@@ -84,7 +122,16 @@ final class AtendoMapsCollectorClient
     {
         $response = $this->send($method, $path, '');
         if ($response['status'] < 200 || $response['status'] >= 300) {
-            throw new RuntimeException('Resultado Maps ainda não disponível.');
+            $detail = trim((string) ($response['body'] ?? ''));
+            if (strlen($detail) > 300) {
+                $detail = substr($detail, 0, 300);
+            }
+            throw new RuntimeException(
+                'Download do resultado Maps falhou (HTTP ' . (int) $response['status'] . ')' . ($detail !== '' ? ': ' . $detail : '.')
+            );
+        }
+        if (trim((string) ($response['body'] ?? '')) === '') {
+            throw new RuntimeException('Download do resultado Maps retornou um arquivo vazio.');
         }
         return $response['body'];
     }

@@ -1,0 +1,89 @@
+{
+  "classe": "8411",
+  "grupo": "841",
+  "divisao": "84",
+  "secao": "O",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Administração pública em geral",
+      "codigo_cnae": "8411600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Administração",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administração",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Administracao",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administração",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Pública",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Publica",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pública",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "8411600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "O",
+      "divisao": "84"
+    },
+    {
+      "termo": "Administração pública em geral",
+      "codigo_cnae": "8411600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "O",
+      "divisao": "84"
+    }
+  ]
+}

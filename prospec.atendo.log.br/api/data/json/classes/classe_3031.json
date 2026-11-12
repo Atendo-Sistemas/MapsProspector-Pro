@@ -1,0 +1,129 @@
+{
+  "classe": "3031",
+  "grupo": "303",
+  "divisao": "30",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de locomotivas, vagões e outros materiais rodantes",
+      "codigo_cnae": "3031800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Locomotivas",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locomotivas",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Locomotivas",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locomotivas",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Vagões",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vagões",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Vagoes",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vagões",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Materiais",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "materiais",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Rodantes",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodantes",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Rodantes",
+      "codigo_cnae": "3031800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodantes",
+      "secao": "C",
+      "divisao": "30"
+    },
+    {
+      "termo": "Fabricação de locomotivas, vagões e outros materiais rodantes",
+      "codigo_cnae": "3031800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "30"
+    }
+  ]
+}

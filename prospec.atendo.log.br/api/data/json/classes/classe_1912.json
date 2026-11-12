@@ -1,0 +1,81 @@
+{
+  "classe": "1912",
+  "total_termos": 5,
+  "termos": [
+    {
+      "termo": "Fabricação de produtos derivados do petróleo, exceto combustíveis",
+      "termo_normalizado": "fabricacao de produtos derivados do petroleo exceto combustiveis",
+      "codigo_cnae": "1912500",
+      "descricao": "Fabricação de produtos derivados do petróleo, exceto combustíveis",
+      "relevancia": 100,
+      "categoria": "191",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "191",
+      "classe": "1912",
+      "subclasse": "1912500",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "produtos",
+      "termo_normalizado": "produtos",
+      "codigo_cnae": "1912500",
+      "descricao": "Fabricação de produtos derivados do petróleo, exceto combustíveis",
+      "relevancia": 85,
+      "categoria": "191",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "191",
+      "classe": "1912",
+      "subclasse": "1912500",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "derivados",
+      "termo_normalizado": "derivados",
+      "codigo_cnae": "1912500",
+      "descricao": "Fabricação de produtos derivados do petróleo, exceto combustíveis",
+      "relevancia": 85,
+      "categoria": "191",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "191",
+      "classe": "1912",
+      "subclasse": "1912500",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "petróleo,",
+      "termo_normalizado": "petroleo",
+      "codigo_cnae": "1912500",
+      "descricao": "Fabricação de produtos derivados do petróleo, exceto combustíveis",
+      "relevancia": 85,
+      "categoria": "191",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "191",
+      "classe": "1912",
+      "subclasse": "1912500",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "combustíveis",
+      "termo_normalizado": "combustiveis",
+      "codigo_cnae": "1912500",
+      "descricao": "Fabricação de produtos derivados do petróleo, exceto combustíveis",
+      "relevancia": 85,
+      "categoria": "191",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "191",
+      "classe": "1912",
+      "subclasse": "1912500",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

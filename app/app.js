@@ -243,13 +243,11 @@ async function loadConfig() {
             if (typeof updateApiStatusDisplay === 'function') updateApiStatusDisplay();
 
             var isSuperAdmin = AppState.user && String(AppState.user.profile).toLowerCase() === 'super_admin';
-            var instanceName = (AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Nome da empresa SaaS';
+            var instanceName = (AppState.config.platformName && String(AppState.config.platformName).trim()) ? String(AppState.config.platformName).trim() : ((AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : (AppState.tenant && AppState.tenant.name) ? AppState.tenant.name : 'Nome da empresa SaaS');
             var instanceEl = document.getElementById('sidebar-instance-name');
             if (instanceEl) instanceEl.textContent = instanceName;
-            if (!isSuperAdmin) {
-                var subtitleEl = document.getElementById('header-dashboard-subtitle');
-                if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
-            }
+            var subtitleEl = document.getElementById('header-dashboard-subtitle');
+            if (subtitleEl) subtitleEl.textContent = 'Dashboard ' + instanceName.toUpperCase();
             updateDocumentTitle();
         } else {
             throw new Error(data.error || 'Não foi possível carregar as configurações.');
@@ -330,7 +328,12 @@ async function handleLogin(e) {
                 statusEl.textContent = 'Login realizado. Abrindo seu painel...';
                 statusEl.classList.remove('hidden');
             }
-            window.location.reload();
+            // A sessão já foi criada no backend. Não recarregue a página aqui:
+            // durante o reload o navegador pode mostrar o painel antigo, depois
+            // o HTML inicial de login e, por fim, o painel novamente. Isso causa
+            // o efeito visual de painel → login → painel após autenticar.
+            await loadConfig();
+            showDashboard();
         } else {
             if (errorEl) {
                 errorEl.textContent = data.error || 'Falha no login. Tente novamente.';
@@ -949,7 +952,7 @@ function updateDocumentTitle() {
     var companyName = isSuperAdmin
         ? (AppState.platformCompanyName && String(AppState.platformCompanyName).trim() ? AppState.platformCompanyName.trim() : 'MapsProspector Pro')
         : (AppState.tenant && AppState.tenant.name ? String(AppState.tenant.name).trim() : 'Empresa');
-    var instanceName = (AppState.config && AppState.config.tenantName && String(AppState.config.tenantName).trim()) ? String(AppState.config.tenantName).trim() : 'Nome da empresa SaaS';
+    var instanceName = (AppState.config && (AppState.config.platformName || AppState.config.tenantName) && String(AppState.config.platformName || AppState.config.tenantName).trim()) ? String(AppState.config.platformName || AppState.config.tenantName).trim() : 'Nome da empresa SaaS';
     document.title = companyName + ' | ' + instanceName;
 }
 
@@ -1459,8 +1462,10 @@ function logout() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ action: 'logout' }),
-        credentials: 'same-origin'
-    }).then(function() {
+        credentials: 'include',
+        cache: 'no-store'
+    }).then(function(response) {
+        if (!response.ok) throw new Error('Não foi possível encerrar a sessão.');
         AppState.user = null;
         AppState.tenant = null;
         AppState.tokenUsage = null;
@@ -1471,8 +1476,11 @@ function logout() {
         if (tokenBanner) tokenBanner.classList.add('hidden');
         var userDropdown = document.getElementById('user-dropdown');
         if (userDropdown) userDropdown.classList.add('hidden');
-        showLogin();
+        window.location.replace(window.location.pathname + window.location.search);
     }).catch(function() {
+        AppState.user = null;
+        AppState.tenant = null;
+        AppState.tokenUsage = null;
         showLogin();
     });
 }
@@ -1791,14 +1799,6 @@ function setupEventListeners() {
     const loginForm = document.getElementById('login-form');
     if (loginForm) {
         loginForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            handleLogin(e);
-        });
-    }
-
-    const btnLogin = document.getElementById('btn-login');
-    if (btnLogin) {
-        btnLogin.addEventListener('click', function(e) {
             e.preventDefault();
             handleLogin(e);
         });
@@ -2736,6 +2736,9 @@ function setActiveTab(tab) {
     if (tab === 'linkedin' && !AppState.user) {
         tab = 'dashboard';
     }
+    if (tab === 'instagram' && !AppState.user) {
+        tab = 'dashboard';
+    }
     var now = Date.now();
     if (AppState._lastTabRequest === tab && (now - (AppState._lastTabRequestAt || 0)) < 300) {
         return;
@@ -2778,6 +2781,7 @@ function setActiveTab(tab) {
         'api-busca': 'API de Busca',
         notifications: 'Notificações',
         linkedin: 'Pesquisa LinkedIn',
+        instagram: 'Instagram · Comentários',
         settings: 'Integração CRM',
         requests: 'Solicitações',
         'landing-page': 'Landing Page'
@@ -2845,6 +2849,11 @@ function loadTab(tab) {
         }
 
         if (tab === 'linkedin' && !canUseLinkedIn) {
+            setActiveTab('dashboard');
+            return;
+        }
+
+        if (tab === 'instagram' && !AppState.user) {
             setActiveTab('dashboard');
             return;
         }
@@ -2941,6 +2950,12 @@ function loadTab(tab) {
             if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('linkedin-banner'), 'linkedin');
         } else {
             contentArea.innerHTML = '<div class="p-8 text-sm font-semibold text-red-600">A interface de pesquisa LinkedIn não foi carregada. Verifique a inclusão de assets/js/linkedin-ui.js no index.php.</div>';
+        }
+    } else if (tab === 'instagram') {
+        if (typeof window.renderInstagramTab === 'function') {
+            window.renderInstagramTab(contentArea);
+        } else {
+            contentArea.innerHTML = '<div class="p-8 text-sm font-semibold text-red-600">A interface de pesquisa Instagram não foi carregada. Verifique a inclusão de assets/js/instagram-ui.js no index.php.</div>';
         }
     } else if (tab === 'api-busca') {
         contentArea.innerHTML = getApiBuscaHTML();
@@ -5692,7 +5707,11 @@ function displayLeads() {
     const btnExportWebhook = document.getElementById('btn-export-webhook');
     if (btnExportWebhook) {
         // Verifica se existe URL configurada no config global ou no tenant
-        const hasWebhookUrl = (AppState.config && AppState.config.baseUrl && String(AppState.config.baseUrl).trim() !== '') ||
+        const hasWebhookUrl = (AppState.config && (
+                                  (AppState.config.baseUrl && String(AppState.config.baseUrl).trim() !== '') ||
+                                  (AppState.config.personalWebhookUrl && String(AppState.config.personalWebhookUrl).trim() !== '') ||
+                                  (AppState.config.platformWebhookUrl && String(AppState.config.platformWebhookUrl).trim() !== '')
+                              )) ||
                               (AppState.tenant && AppState.tenant.webhookUrl && String(AppState.tenant.webhookUrl).trim() !== '');
         
         btnExportWebhook.classList.toggle('hidden', !hasWebhookUrl);
@@ -5909,6 +5928,10 @@ function renderMapsPilotMetrics(payload) {
             </div>
             <span class="rounded-full px-3 py-1 text-[10px] font-black uppercase tracking-wider ${available ? 'bg-emerald-100 text-emerald-800 dark:bg-emerald-900/50 dark:text-emerald-200' : 'bg-amber-100 text-amber-800 dark:bg-amber-900/50 dark:text-amber-200'}">${available ? 'Pronto para teste' : 'Verificar coletor'}</span>
         </div>
+        <div class="mt-3 flex flex-wrap items-center gap-3">
+            <button type="button" id="btn-test-maps-collector" class="rounded-xl bg-sky-700 px-4 py-2 text-xs font-black text-white hover:bg-sky-800 disabled:opacity-60">Testar conexão do coletor</button>
+            <span id="maps-pilot-connection-test-result" class="text-[11px] font-semibold"></span>
+        </div>
         <div class="mt-3 grid grid-cols-2 gap-3 md:grid-cols-4">
             <div><span class="block text-[10px] uppercase tracking-wider opacity-70">Limite efetivo</span><strong>${Number(collector.max_results_per_run) || 50} resultados</strong></div>
             <div><span class="block text-[10px] uppercase tracking-wider opacity-70">Buscas diretas</span><strong>${Number(platform.searches) || 0}</strong></div>
@@ -5918,6 +5941,41 @@ function renderMapsPilotMetrics(payload) {
         ${latest ? `<p class="mt-3 border-t border-sky-200 pt-3 text-[11px] dark:border-sky-900/70">Última busca direta: <strong>${dashboardMetricEscape(latest.query || '—')}</strong> em <strong>${dashboardMetricEscape(latest.location || '—')}</strong> · ${Number(latest.results_count) || 0} resultados · ${formatMapsPilotDate(latest.created_at)}</p>` : '<p class="mt-3 border-t border-sky-200 pt-3 text-[11px] dark:border-sky-900/70">Nenhuma busca direta registrada ainda. As buscas seguem disponíveis normalmente.</p>'}
     `;
     container.classList.remove('hidden');
+    const testButton = document.getElementById('btn-test-maps-collector');
+    if (testButton) testButton.addEventListener('click', testMapsPilotConnection);
+}
+
+async function testMapsPilotConnection() {
+    const button = document.getElementById('btn-test-maps-collector');
+    const result = document.getElementById('maps-pilot-connection-test-result');
+    if (!button || !result) return;
+    button.disabled = true;
+    button.textContent = 'Testando...';
+    result.className = 'text-[11px] font-semibold text-slate-600 dark:text-slate-300';
+    result.textContent = 'Validando endpoint, assinatura HMAC e disponibilidade do coletor...';
+    try {
+        const response = await fetch(API_BASE + 'maps-pilot-metrics.php?test=1', {
+            credentials: 'include', cache: 'no-store', headers: { 'Accept': 'application/json' }
+        });
+        const payload = await response.json().catch(() => null);
+        if (!response.ok || !payload || !payload.success || !payload.test) {
+            throw new Error((payload && payload.error) || 'O servidor não retornou um diagnóstico válido.');
+        }
+        const test = payload.test;
+        if (test.ok) {
+            result.className = 'text-[11px] font-semibold text-emerald-700 dark:text-emerald-300';
+            result.textContent = test.message + (test.http_status ? ' HTTP ' + test.http_status + '.' : '');
+        } else {
+            result.className = 'text-[11px] font-semibold text-red-700 dark:text-red-300';
+            result.textContent = 'Falha: ' + String(test.message || 'erro não informado');
+        }
+    } catch (error) {
+        result.className = 'text-[11px] font-semibold text-red-700 dark:text-red-300';
+        result.textContent = 'Falha ao consultar o diagnóstico: ' + (error.message || 'resposta inválida');
+    } finally {
+        button.disabled = false;
+        button.textContent = 'Testar conexão do coletor';
+    }
 }
 
 async function loadMapsPilotMetrics() {
@@ -6242,7 +6300,29 @@ function applyHistoryFilters(history, searchText, dateFrom, dateTo) {
 function isLinkedInHistoryItem(item) {
     return !!(item && (item.isLinkedIn === true || item.source === 'linkedin'));
 }
+function isInstagramHistoryItem(item) {
+    return !!(item && (item.isInstagram === true || item.source === 'instagram'));
+}
+function isCnpjHistoryItem(item) {
+    if (!item) return false;
+    var tag = String(item.tag || '').toUpperCase();
+    var query = String(item.query || '');
+    return tag === 'CNPJ_AVANCADA' || tag === 'CNPJ_CACHE' || /^CNPJ\s*:/i.test(query) || /^Consulta CNPJ\s*:/i.test(query);
+}
+function getHistorySource(item) {
+    if (isInstagramHistoryItem(item)) return 'instagram';
+    if (isLinkedInHistoryItem(item)) return 'linkedin';
+    if (isCnpjHistoryItem(item)) return 'cnpj';
+    return 'maps';
+}
 function getLinkedInHistoryStatusLabel(status) {
+    var normalized = String(status || '').toLowerCase();
+    if (normalized === 'done' || normalized === 'completed' || normalized === 'success') return 'Concluída';
+    if (normalized === 'failed' || normalized === 'error') return 'Falhou';
+    if (normalized === 'running' || normalized === 'pending' || normalized === 'queued') return 'Em processamento';
+    return normalized ? normalized : 'Status não informado';
+}
+function getInstagramHistoryStatusLabel(status) {
     var normalized = String(status || '').toLowerCase();
     if (normalized === 'done' || normalized === 'completed' || normalized === 'success') return 'Concluída';
     if (normalized === 'failed' || normalized === 'error') return 'Falhou';
@@ -6258,25 +6338,29 @@ function renderHistoryList(listEl, filtered) {
         var count = getHistoryItemCount(item);
         var dateTime = formatHistoryTimestamp(item.timestamp);
         var isLinkedIn = isLinkedInHistoryItem(item);
-        var tagLabel = (item.tag && item.tag.trim()) ? item.tag.trim() : (isLinkedIn ? 'LinkedIn' : 'Maps');
-        var isCnpjHistory = String(item.tag || '').toUpperCase() === 'CNPJ_AVANCADA';
-        var title = item.companyName || item.query || (isLinkedIn ? 'Pesquisa LinkedIn' : '');
+        var isInstagram = isInstagramHistoryItem(item);
+        var isCnpj = isCnpjHistoryItem(item);
+        var tagLabel = (item.tag && item.tag.trim()) ? item.tag.trim() : (isLinkedIn ? 'LinkedIn' : (isInstagram ? 'Instagram' : 'Maps'));
+        var isCnpjHistory = isCnpjHistoryItem(item);
+        var title = item.companyName || item.query || (isLinkedIn ? 'Pesquisa LinkedIn' : (isInstagram ? 'Comentários Instagram' : ''));
         var queryLabel = item.companyName && isCnpjHistory ? '<span class="ml-2 text-slate-500"> · CNPJ: ' + escapeHtml(String(item.query || '').replace(/\D/g, '').slice(0, 14)) + '</span>' : '';
-        var sourceBadge = '<span class="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider ' + (isLinkedIn ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300' : 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300') + '">' + escapeHtml(isLinkedIn ? 'LinkedIn' : 'Maps') + '</span>';
+        var sourceBadge = '<span class="inline-flex items-center rounded-full px-2.5 py-1 text-[10px] font-black uppercase tracking-wider ' + (isLinkedIn ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300' : (isInstagram ? 'bg-pink-50 text-pink-700 dark:bg-pink-950/30 dark:text-pink-300' : (isCnpj ? 'bg-amber-50 text-amber-700 dark:bg-amber-950/30 dark:text-amber-300' : 'bg-slate-100 text-slate-600 dark:bg-slate-700 dark:text-slate-300'))) + '">' + escapeHtml(isLinkedIn ? 'LinkedIn' : (isInstagram ? 'Instagram' : (isCnpj ? 'CNPJ' : 'Maps'))) + '</span>';
         var actorInfo = [];
         if (item.userName) actorInfo.push('Usuário: ' + escapeHtml(String(item.userName)));
         if (item.tenantName) actorInfo.push('Empresa: ' + escapeHtml(String(item.tenantName)));
         var jobsLabel = isLinkedIn && Array.isArray(item.jobTitles) && item.jobTitles.length ? '<p class="text-xs font-semibold text-slate-500 dark:text-slate-400 mt-2">Cargos: ' + escapeHtml(item.jobTitles.join(', ')) + '</p>' : '';
-        var statusLabel = isLinkedIn ? getLinkedInHistoryStatusLabel(item.linkedinStatus) : '';
-        var statusBadge = isLinkedIn ? '<span class="ml-2 text-' + (statusLabel === 'Concluída' ? 'emerald' : (statusLabel === 'Falhou' ? 'red' : 'amber')) + '-600">' + escapeHtml(statusLabel) + '</span>' : '';
+        var statusLabel = isLinkedIn ? getLinkedInHistoryStatusLabel(item.linkedinStatus) : (isInstagram ? getInstagramHistoryStatusLabel(item.instagramStatus) : '');
+        var statusBadge = (isLinkedIn || isInstagram) ? '<span class="ml-2 text-' + (statusLabel === 'Concluída' ? 'emerald' : (statusLabel === 'Falhou' ? 'red' : 'amber')) + '-600">' + escapeHtml(statusLabel) + '</span>' : '';
         var action = isLinkedIn
             ? (String(item.linkedinStatus || '').toLowerCase() === 'done'
                 ? '<button class="btn-open-linkedin-history bg-blue-600 text-white font-bold px-5 py-3 rounded-2xl text-xs hover:bg-blue-700 transition-colors" data-history-id="' + escapeHtml(String(item.id)) + '" data-linkedin-run-id="' + escapeHtml(String(item.linkedinRunId || '')) + '">Ver perfis</button>'
                 : '<span class="inline-flex items-center rounded-2xl bg-slate-100 dark:bg-slate-700 px-5 py-3 text-xs font-bold text-slate-500 dark:text-slate-300">' + escapeHtml(statusLabel) + '</span>')
-            : '<button class="btn-use-history bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl text-xs hover:bg-blue-600 transition-colors" data-history-id="' + escapeHtml(String(item.id)) + '">Ver Novamente</button>';
+            : (isInstagram
+                ? '<button class="btn-open-instagram-history bg-pink-600 text-white font-bold px-5 py-3 rounded-2xl text-xs hover:bg-pink-700 transition-colors" data-instagram-run-id="' + escapeHtml(String(item.instagramRunId || '')) + '">Ver comentários</button>'
+                : '<button class="btn-use-history bg-slate-900 text-white font-bold px-6 py-3 rounded-2xl text-xs hover:bg-blue-600 transition-colors" data-history-id="' + escapeHtml(String(item.id)) + '">Ver Novamente</button>');
         return '<div class="bg-white dark:bg-slate-800 p-5 md:p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600 flex flex-col md:flex-row md:items-center md:justify-between gap-5 group hover:border-blue-300 transition-all hover:shadow-md">' +
             '<div class="flex items-start gap-4 min-w-0">' +
-            '<div class="w-12 h-12 shrink-0 ' + (isLinkedIn ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300' : 'bg-slate-50 dark:bg-slate-800/50') + ' rounded-xl flex items-center justify-center text-xl">' + (isLinkedIn ? 'in' : '⌕') + '</div>' +
+            '<div class="w-12 h-12 shrink-0 ' + (isLinkedIn ? 'bg-blue-50 text-blue-700 dark:bg-blue-950/30 dark:text-blue-300' : (isInstagram ? 'bg-pink-50 text-pink-700 dark:bg-pink-950/30 dark:text-pink-300' : 'bg-slate-50 dark:bg-slate-800/50')) + ' rounded-xl flex items-center justify-center text-xl">' + (isLinkedIn ? 'in' : (isInstagram ? '◎' : '⌕')) + '</div>' +
             '<div class="min-w-0">' +
             '<div class="flex flex-wrap items-center gap-2">' + sourceBadge + '<h4 class="font-extrabold text-slate-900 dark:text-slate-100 text-lg capitalize truncate">' + escapeHtml(title) + '</h4></div>' +
             '<p class="text-[11px] font-bold text-slate-400 mt-2 uppercase tracking-wider">📍 ' + escapeHtml(item.location || 'Local Automático') + ' <span class="ml-2">🏷 ' + escapeHtml(tagLabel) + '</span>' + queryLabel + ' <span class="ml-2 text-slate-500">' + escapeHtml(dateTime) + '</span> <span class="ml-2 text-blue-500">(' + count + ' leads)</span>' + statusBadge + '</p>' +
@@ -6300,13 +6384,27 @@ function renderHistoryList(listEl, filtered) {
             }
         });
     });
+    listEl.querySelectorAll('.btn-open-instagram-history').forEach(function(btn) {
+        btn.addEventListener('click', function() {
+            var runId = btn.getAttribute('data-instagram-run-id');
+            if (!runId) {
+                showToast('Não foi possível identificar esta pesquisa Instagram.', 'warning');
+                return;
+            }
+            if (typeof window.openInstagramHistoryRun === 'function') {
+                window.openInstagramHistoryRun(runId);
+            } else {
+                showToast('A interface Instagram ainda está carregando. Tente novamente.', 'warning');
+            }
+        });
+    });
     listEl.querySelectorAll('.btn-use-history').forEach(function(btn) {
         btn.addEventListener('click', function() {
             var historyId = btn.dataset.historyId;
             var item = AppState.history.find(function(h) { return String(h.id) === String(historyId); });
             if (item) {
                 // Se for uma Consulta de CNPJ
-                if (item.tag === 'CNPJ_AVANCADA' || (item.query && item.query.includes('Consulta CNPJ:'))) {
+                if (isCnpjHistoryItem(item) || (item.query && item.query.includes('Consulta CNPJ:'))) {
                     var cnpjBuscado = item.query.replace(/\D/g, '');
                     if (cnpjBuscado && cnpjBuscado.length >= 14) {
                         setActiveTab('cnpj-lookup');
@@ -6360,6 +6458,13 @@ function displayHistory() {
         <div class="max-w-5xl mx-auto">
             <div class="bg-slate-50 dark:bg-slate-800/50 p-5 rounded-2xl border border-slate-200 dark:border-slate-600 mb-6">
                 <label class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-3">Buscar resultados</label>
+                <div id="history-source-tabs" class="flex flex-wrap gap-2 mb-4">
+                    <button type="button" data-history-source="all" class="history-source-tab rounded-xl bg-blue-600 px-4 py-2 text-xs font-black text-white">Todas</button>
+                    <button type="button" data-history-source="maps" class="history-source-tab rounded-xl bg-white px-4 py-2 text-xs font-black text-slate-600 dark:bg-slate-700 dark:text-slate-200">Maps</button>
+                    <button type="button" data-history-source="cnpj" class="history-source-tab rounded-xl bg-white px-4 py-2 text-xs font-black text-slate-600 dark:bg-slate-700 dark:text-slate-200">CNPJ</button>
+                    <button type="button" data-history-source="linkedin" class="history-source-tab rounded-xl bg-white px-4 py-2 text-xs font-black text-slate-600 dark:bg-slate-700 dark:text-slate-200">LinkedIn</button>
+                    <button type="button" data-history-source="instagram" class="history-source-tab rounded-xl bg-white px-4 py-2 text-xs font-black text-slate-600 dark:bg-slate-700 dark:text-slate-200">Instagram</button>
+                </div>
                 <div class="flex flex-wrap gap-3 items-end">
                     <div class="flex-1 min-w-[200px]">
                         <input id="history-search" type="text" class="w-full px-4 py-2.5 rounded-xl bg-white dark:bg-slate-700 border border-slate-200 dark:border-slate-600 text-slate-900 dark:text-slate-100 font-bold text-sm placeholder-slate-400 focus:border-blue-500 outline-none" placeholder="Termo, local ou tag">
@@ -6384,11 +6489,14 @@ function displayHistory() {
     `;
     if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('history-banner'), 'history');
     var listEl = document.getElementById('history-list');
+    var selectedHistorySource = 'all';
     function refreshFilteredList() {
         var searchVal = (document.getElementById('history-search') && document.getElementById('history-search').value) || '';
         var fromVal = (document.getElementById('history-date-from') && document.getElementById('history-date-from').value) || '';
         var toVal = (document.getElementById('history-date-to') && document.getElementById('history-date-to').value) || '';
-        var filtered = applyHistoryFilters(AppState.history, searchVal, fromVal, toVal);
+        var filtered = applyHistoryFilters(AppState.history, searchVal, fromVal, toVal).filter(function(item) {
+            return selectedHistorySource === 'all' || getHistorySource(item) === selectedHistorySource;
+        });
         renderHistoryList(listEl, filtered);
     }
     refreshFilteredList();
@@ -6398,6 +6506,19 @@ function displayHistory() {
     if (searchInput) searchInput.addEventListener('input', refreshFilteredList);
     if (dateFromInput) dateFromInput.addEventListener('change', refreshFilteredList);
     if (dateToInput) dateToInput.addEventListener('change', refreshFilteredList);
+    document.querySelectorAll('.history-source-tab').forEach(function(tab) {
+        tab.addEventListener('click', function() {
+            selectedHistorySource = tab.getAttribute('data-history-source') || 'all';
+            document.querySelectorAll('.history-source-tab').forEach(function(other) {
+                var active = other === tab;
+                other.classList.toggle('bg-blue-600', active);
+                other.classList.toggle('text-white', active);
+                other.classList.toggle('bg-white', !active);
+                other.classList.toggle('text-slate-600', !active);
+            });
+            refreshFilteredList();
+        });
+    });
     
     document.getElementById('btn-clear-history').addEventListener('click', async () => {
         if (confirm('Deseja apagar o histórico de buscas?')) {
@@ -7687,6 +7808,26 @@ function cnpjDisplayValue(value) {
     }
     return String(value);
 }
+function cnpjDisplayStateRegistrations(value) {
+    if (value === null || value === undefined || value === '') return '';
+    var entries = Array.isArray(value) ? value : [value];
+    var formatted = entries.map(function (entry) {
+        if (!entry || typeof entry !== 'object') return cnpjDisplayValue(entry);
+        var state = entry.estado && typeof entry.estado === 'object' ? entry.estado : {};
+        var number = entry.inscricao_estadual || entry.inscricao || entry.numero || entry.ie || '';
+        var stateName = state.nome || entry.estado_nome || entry.uf || '';
+        var stateCode = state.sigla || entry.sigla || '';
+        var active = entry.ativo;
+        var updated = entry.atualizado_em || entry.atualizadoEm || entry.updated_at || '';
+        var parts = [];
+        if (number) parts.push('IE: ' + number);
+        if (stateName || stateCode) parts.push('Estado: ' + stateName + (stateCode ? ' (' + stateCode + ')' : ''));
+        if (active !== undefined && active !== null && active !== '') parts.push(active === true || active === 1 || active === 'true' ? 'Ativa' : 'Inativa');
+        if (updated) parts.push('Atualizada em: ' + cnpjDisplayDate(updated));
+        return parts.length ? parts.join(' · ') : cnpjDisplayValue(entry);
+    }).filter(Boolean);
+    return formatted.length ? formatted.join(' | ') : '';
+}
 function renderCnpjAdditionalRows(rows) {
     var visible = rows.filter(function (row) { return row[1] !== null && row[1] !== undefined && row[1] !== '' && !(Array.isArray(row[1]) && row[1].length === 0); });
     if (!visible.length) return '<p class="text-xs font-semibold text-slate-500">Nenhum dado complementar informado.</p>';
@@ -7706,7 +7847,7 @@ function renderCnpjAdditionalData(emp) {
     html += '<section><h5 class="text-xs font-black text-slate-700 dark:text-slate-200 mb-3">Estabelecimento e situações especiais</h5>' + renderCnpjAdditionalRows([
         ['Tipo de estabelecimento', establishment.branch_type], ['Identificação matriz/filial', establishment.branch_identifier],
         ['Situação especial', establishment.special_situation], ['Data da situação especial', establishment.special_situation_date],
-        ['Inscrições estaduais', establishment.state_registrations], ['Suframa', establishment.suframa]
+        ['Inscrições estaduais', cnpjDisplayStateRegistrations(establishment.state_registrations !== undefined ? establishment.state_registrations : establishment.inscricoes_estaduais)], ['Suframa', establishment.suframa]
     ]) + '</section>';
     html += '<section><h5 class="text-xs font-black text-slate-700 dark:text-slate-200 mb-3">Regimes e opções tributárias</h5>' + renderCnpjAdditionalRows([
         ['Simples Nacional', tax.opcao_pelo_simples !== undefined ? tax.opcao_pelo_simples : tax.simples],

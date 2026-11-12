@@ -63,9 +63,21 @@ function mapsPilotSessionUser(PDO $db): array
         mapsPilotError('Não autenticado.', 401);
     }
 
+    // A versão antiga do sistema, que ainda funciona em algumas contas cPanel,
+    // não possui a coluna can_search. Não deixe essa coluna opcional impedir a
+    // consulta Maps; quando ela existir, a autorização continua sendo aplicada.
+    $hasCanSearch = false;
+    try {
+        $columnCheck = $db->query("SHOW COLUMNS FROM users LIKE 'can_search'");
+        $hasCanSearch = (bool) $columnCheck->fetch(PDO::FETCH_ASSOC);
+    } catch (Throwable $schemaError) {
+        error_log('maps-pilot can_search schema check: ' . $schemaError->getMessage());
+    }
+    $userColumns = 'id, tenant_id, profile, current_session_token'
+        . ($hasCanSearch ? ', can_search' : '');
     $stmt = $userId > 0
-        ? $db->prepare('SELECT id, tenant_id, profile, can_search, current_session_token FROM users WHERE id = ? LIMIT 1')
-        : $db->prepare('SELECT id, tenant_id, profile, can_search, current_session_token FROM users WHERE email = ? LIMIT 1');
+        ? $db->prepare("SELECT {$userColumns} FROM users WHERE id = ? LIMIT 1")
+        : $db->prepare("SELECT {$userColumns} FROM users WHERE email = ? LIMIT 1");
     $stmt->execute([$userId > 0 ? $userId : $email]);
     $user = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$user) {
@@ -81,7 +93,10 @@ function mapsPilotSessionUser(PDO $db): array
     if (!in_array(strtolower((string) ($user['profile'] ?? '')), $allowedProfiles, true)) {
         mapsPilotError('Seu perfil não possui permissão para usar a busca Maps.', 403);
     }
-    if (strtolower((string) ($user['profile'] ?? '')) !== 'super_admin' && !(bool) ($user['can_search'] ?? false)) {
+    if ($hasCanSearch
+        && strtolower((string) ($user['profile'] ?? '')) !== 'super_admin'
+        && !(bool) ($user['can_search'] ?? false)
+    ) {
         mapsPilotError('Seu administrador desativou a permissão para realizar pesquisas.', 403);
     }
 
@@ -478,6 +493,7 @@ function mapsPilotLoadSharedLeadCandidates(PDO $db, int $currentHistoryId, strin
 }
 
 try {
+    $mapsPilotStage = 'inicialização';
     $qualityStartedAt = microtime(true);
     $qualityProvider = 'maps_shared_cache';
     $qualityDuplicateCount = 0;
@@ -636,7 +652,7 @@ try {
     // complemento; a deduplicação final acontece dentro da transação.
     if (count($candidateLeads) < $effectiveMax) {
         $qualityProvider = $reusedSharedHistoryId > 0 ? 'maps_shared_cache+collector' : 'maps_collector';
-        $collector = new AtendoMapsCollectorClient('/home/naciona4/atendo-secrets/maps-collector.php');
+        $collector = new AtendoMapsCollectorClient();
         if (!$collector->isEnabled()) {
             mapsPilotError('A busca Maps está temporariamente indisponível. Tente novamente em alguns instantes.', 503);
         }
@@ -644,20 +660,26 @@ try {
         $collectorQuery = trim((string) $history['query'] . ' em ' . (string) $history['location']);
         $collectorLimit = max(1, $effectiveMax - count($candidateLeads));
         $requestId = 'maps-' . $searchHistoryId . '-' . date('YmdHis') . '-' . bin2hex(random_bytes(4));
+        $mapsPilotStage = 'criação da coleta no gateway';
         $created = $collector->createJob($requestId, $collectorQuery, $collectorLimit, 'pt');
-        $jobId = trim((string) ($created['job_id'] ?? ''));
-        if (!preg_match('/^[0-9a-f-]{36}$/i', $jobId)) {
+        $createdData = is_array($created['data'] ?? null) ? $created['data'] : $created;
+        // O contrato exige um identificador, mas não fixa UUID como formato.
+        // Alguns builds do gateway retornam job_id, id ou jobId.
+        $jobId = trim((string) ($createdData['job_id'] ?? $createdData['jobId'] ?? $createdData['id'] ?? ''));
+        if ($jobId === '' || strlen($jobId) > 200 || !preg_match('/^[A-Za-z0-9._:-]+$/', $jobId)) {
             throw new RuntimeException('A busca Maps não retornou um identificador de coleta válido.');
         }
 
-        $terminalStates = ['finished', 'completed', 'done', 'success', 'ok'];
+        $terminalStates = ['finished', 'completed', 'complete', 'done', 'success', 'succeeded', 'ok'];
         $failedStates = ['failed', 'error', 'cancelled', 'canceled'];
         $deadline = time() + 300;
         $state = 'pending';
+        $mapsPilotStage = 'acompanhamento do job ' . $jobId;
         while (time() < $deadline) {
             sleep(3);
             $job = $collector->getJob($jobId);
-            $state = strtolower(trim((string) ($job['Status'] ?? $job['status'] ?? $state)));
+            $jobData = is_array($job['data'] ?? null) ? $job['data'] : $job;
+            $state = strtolower(trim((string) ($jobData['Status'] ?? $jobData['status'] ?? $jobData['state'] ?? $state)));
             if (in_array($state, $terminalStates, true)) {
                 break;
             }
@@ -669,6 +691,7 @@ try {
             throw new RuntimeException('A busca Maps não concluiu a coleta dentro do tempo esperado.');
         }
 
+        $mapsPilotStage = 'download do CSV do job ' . $jobId;
         $candidateRows = mapsPilotReadCsv($collector->downloadAndDeleteJob($jobId));
         foreach ($candidateRows as $row) {
             $candidate = [
@@ -699,6 +722,7 @@ try {
             : strcasecmp((string) ($left['name'] ?? ''), (string) ($right['name'] ?? ''));
     });
 
+    $mapsPilotStage = 'gravação dos leads no banco';
     $db->beginTransaction();
     try {
         $lockedHistory = $db->prepare('SELECT id, tag FROM search_history WHERE id = ? FOR UPDATE');
@@ -842,5 +866,9 @@ try {
             'error_category' => 'maps_collection_failed',
         ]);
     }
-    mapsPilotError('Não foi possível concluir a busca Maps agora. Tente novamente em alguns instantes.', 502);
+    $isSuperAdmin = strtolower((string) ($currentUser['profile'] ?? '')) === 'super_admin';
+    $diagnostic = $isSuperAdmin && trim($error->getMessage()) !== ''
+        ? ' Etapa: ' . ($mapsPilotStage ?? 'desconhecida') . '. Detalhe técnico: ' . trim($error->getMessage())
+        : '';
+    mapsPilotError('Não foi possível concluir a busca Maps agora. Tente novamente em alguns instantes.' . $diagnostic, 502);
 }

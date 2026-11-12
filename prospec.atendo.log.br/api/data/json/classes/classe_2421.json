@@ -1,0 +1,69 @@
+{
+  "classe": "2421",
+  "grupo": "242",
+  "divisao": "24",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Produção de semiacabados de aço",
+      "codigo_cnae": "2421100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Semiacabados",
+      "codigo_cnae": "2421100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semiacabados",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Semiacabados",
+      "codigo_cnae": "2421100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semiacabados",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aço",
+      "codigo_cnae": "2421100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aco",
+      "codigo_cnae": "2421100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Produção de semiacabados de aço",
+      "codigo_cnae": "2421100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    }
+  ]
+}

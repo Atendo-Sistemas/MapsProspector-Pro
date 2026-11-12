@@ -39,7 +39,7 @@ try {
         jsonSuccess($campaign);
     }
     $page = (string) ($_GET['page'] ?? '');
-    if (!in_array($page, ['maps', 'linkedin', 'cnpj', 'history'], true)) jsonError('Página inválida.', 400);
+    if (!in_array($page, ['maps', 'linkedin', 'instagram', 'cnpj', 'history'], true)) jsonError('Página inválida.', 400);
     jsonSuccess(bannerCampaignVisible($campaign, $page, date('Y-m-d'))
         ? ['image' => $campaign['image'], 'link' => $campaign['link'], 'description' => $campaign['description']]
         : null);
