@@ -2451,6 +2451,29 @@ function renderChoosePlanTab(contentArea) {
     loadChoosePlanData(currentPlanId);
     loadCrmAddonPlanBox();
     loadSubscriptionStatus();
+    loadManualPlanRequests();
+}
+
+async function loadManualPlanRequests() {
+    var history = document.getElementById('choose-plan-history');
+    var list = document.getElementById('choose-plan-history-list');
+    if (!history || !list) return;
+    try {
+        var response = await fetch(API_BASE + 'plan-requests.php', { credentials: 'include', cache: 'no-store' });
+        var payload = await response.json();
+        if (!response.ok || !payload.success || !Array.isArray(payload.data?.items)) throw new Error('Falha ao carregar solicitações manuais.');
+        if (!payload.data.items.length) { history.classList.add('hidden'); return; }
+        var labels = { pending: 'Aguardando aprovação manual', approved: 'Aprovada', rejected: 'Recusada' };
+        list.innerHTML = payload.data.items.map(function(item) {
+            var date = item.createdAt ? new Date(item.createdAt).toLocaleString('pt-BR') : '';
+            return '<div class="mb-2 rounded-xl border border-slate-200 dark:border-slate-700 p-4 text-sm"><strong>' + escapeHtml(item.planName || 'Plano') + '</strong> · ' + escapeHtml(labels[item.status] || item.status) + ' · ' + escapeHtml(date) + '</div>';
+        }).join('');
+        history.classList.remove('hidden');
+    } catch (error) {
+        console.error('Falha ao carregar histórico de planos:', error);
+        list.textContent = 'Não foi possível carregar as solicitações manuais.';
+        history.classList.remove('hidden');
+    }
 }
 
 async function loadCrmAddonPlanBox() {
@@ -2583,6 +2606,10 @@ function loadChoosePlanData(currentPlanId) {
             gridEl.querySelectorAll('.btn-request-plan').forEach(function(btn) {
                 btn.onclick = async function() {
                     var planId = btn.getAttribute('data-plan-id');
+                    var errorEl = document.getElementById('choose-plan-error');
+                    var pendingEl = document.getElementById('choose-plan-pending');
+                    if (errorEl) errorEl.classList.add('hidden');
+                    if (pendingEl) pendingEl.classList.add('hidden');
                     btn.disabled = true;
                     btn.textContent = 'Criando assinatura...';
 
@@ -2598,19 +2625,27 @@ function loadChoosePlanData(currentPlanId) {
                         const data = await res.json().catch(function() { return null; });
 
                         if (data && data.success) {
-                            var pendingEl = document.getElementById('choose-plan-pending');
                             if (pendingEl) {
                                 var isAutomaticPlan = data.data && data.data.mode === 'asaas';
                                 var automaticLink = isAutomaticPlan && data.data.payment_url ? ' <a class="underline font-black" target="_blank" rel="noopener noreferrer" href="' + dashboardMetricEscape(data.data.payment_url) + '">Concluir primeiro pagamento</a>' : '';
                                 pendingEl.innerHTML = dashboardMetricEscape(data.message || (isAutomaticPlan ? 'Assinatura mensal criada. Consulte o status para acompanhar a confirmação.' : 'Solicitação enviada para aprovação manual.')) + ' <strong>Após a confirmação, serão liberados +50 créditos de bônus de contratação.</strong>' + automaticLink;
                                 pendingEl.className = isAutomaticPlan ? 'mb-8 p-4 bg-emerald-50 border border-emerald-200 rounded-2xl text-emerald-700 text-sm font-medium' : 'mb-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium';
+                                pendingEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                             }
                             if (data.data && data.data.mode === 'asaas') loadSubscriptionStatus();
                         } else {
-                            alert((data && data.error) ? data.error : 'Erro ao criar a assinatura mensal.');
+                            if (errorEl) {
+                                errorEl.textContent = (data && data.error) ? data.error : 'Não foi possível confirmar a assinatura. Confira no Asaas antes de tentar novamente.';
+                                errorEl.classList.remove('hidden');
+                                errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                            }
                         }
                     } catch (e) {
-                        alert('Erro de conexão ao criar a assinatura mensal.');
+                        if (errorEl) {
+                            errorEl.textContent = 'Não foi possível confirmar a assinatura. Peça ao administrador para conferir no Asaas antes de tentar novamente.';
+                            errorEl.classList.remove('hidden');
+                            errorEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        }
                     } finally {
                         btn.disabled = false;
                         btn.textContent = 'Assinar mensalmente';
@@ -2637,7 +2672,9 @@ function loadChoosePlanData(currentPlanId) {
                         if (pendingEl) {
                             pendingEl.textContent = result.message || 'Solicitação enviada. A ativação depende da conferência do pagamento pelo administrador.';
                             pendingEl.className = 'mb-8 p-4 bg-amber-50 border border-amber-200 rounded-2xl text-amber-800 text-sm font-medium';
+                            pendingEl.scrollIntoView({ behavior: 'smooth', block: 'center' });
                         }
+                        loadManualPlanRequests();
                         btn.textContent = 'Aguardando aprovação';
                     } catch (error) {
                         alert(error.message || 'Erro de conexão ao solicitar aprovação manual.');
@@ -3422,7 +3459,7 @@ function renderRequestsTab(contentArea) {
                 <div>
                     <p class="text-xs font-black uppercase tracking-[0.18em] text-blue-600 mb-2">Aprovação manual</p>
                     <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Solicitações</h3>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Analise os pedidos pendentes de créditos e planos das empresas.</p>
+                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Analise pedidos manuais e consulte o histórico de planos das empresas.</p>
                 </div>
                 <button type="button" id="requests-refresh" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold px-4 py-3 rounded-2xl text-xs">Atualizar</button>
             </div>
@@ -3538,21 +3575,19 @@ function loadRequestsTab() {
     creditsSection.innerHTML = loading;
     plansSection.innerHTML = loading;
 
-    Promise.all([
-        fetch(API_BASE + 'credit-requests.php', { credentials: 'include' }).then(r => r.json()),
-        fetch(API_BASE + 'plan-requests.php', { credentials: 'include' }).then(r => r.json())
-    ]).then(([creditsData, plansData]) => {
-        if (!creditsData?.success || !Array.isArray(creditsData.data?.items)) throw new Error(creditsData?.error || 'Erro ao listar créditos.');
-        if (!plansData?.success || !Array.isArray(plansData.data?.items)) throw new Error(plansData?.error || 'Erro ao listar planos.');
-        const credits = creditsData.data.items;
-        const plans = plansData.data.items;
-        renderRequestsSection(creditsSection, 'Solicitações de créditos', credits, 'credit');
-        renderRequestsSection(plansSection, 'Solicitações de planos', plans, 'plan');
-    }).catch(error => {
-        console.error('Falha ao carregar solicitações:', error);
-        const errorHtml = '<div class="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-950/30 dark:border-red-900 p-5 text-sm font-bold text-red-700 dark:text-red-300">Não foi possível carregar as solicitações agora. Atualize a página e tente novamente.</div>';
-        creditsSection.innerHTML = errorHtml;
-        plansSection.innerHTML = '';
+    [
+        { section: creditsSection, endpoint: 'credit-requests.php', title: 'Solicitações de créditos', kind: 'credit' },
+        { section: plansSection, endpoint: 'plan-requests.php', title: 'Solicitações de planos', kind: 'plan' }
+    ].forEach(({ section, endpoint, title, kind }) => {
+        fetch(API_BASE + endpoint, { credentials: 'include', cache: 'no-store' })
+            .then(r => r.json())
+            .then(data => {
+                if (!data?.success || !Array.isArray(data.data?.items)) throw new Error(data?.error || 'Resposta inválida.');
+                renderRequestsSection(section, title, data.data.items, kind);
+            }).catch(error => {
+                console.error('Falha ao carregar ' + title + ':', error);
+                section.innerHTML = '<div class="rounded-2xl border border-red-200 bg-red-50 dark:bg-red-950/30 dark:border-red-900 p-5 text-sm font-bold text-red-700 dark:text-red-300">' + escapeHtml(title) + ': não foi possível carregar. Consulte os registros do servidor.</div>';
+            });
     });
 }
 
@@ -3568,10 +3603,6 @@ function escapeHtml(value) {
 
 function renderRequestsSection(sectionEl, title, items, kind) {
     const pending = items.filter(item => item.status === 'pending');
-    if (!pending.length) {
-        sectionEl.innerHTML = `<div class="rounded-[1.5rem] border border-dashed border-slate-200 dark:border-slate-700 p-6"><h4 class="font-black text-slate-800 dark:text-slate-100">${title}</h4><p class="text-sm text-slate-400 mt-1">Nenhuma solicitação pendente.</p></div>`;
-        return;
-    }
     const rows = pending.map(item => {
         const company = escapeHtml(item.tenantName || 'Empresa');
         const requester = escapeHtml(item.requestedByName || item.requestedByEmail || '—');
@@ -3582,7 +3613,20 @@ function renderRequestsSection(sectionEl, title, items, kind) {
         const approveLabel = kind === 'credit' ? 'Aprovar créditos' : 'Aprovar plano';
         return `<div class="bg-white dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded-2xl p-5 flex flex-wrap items-center justify-between gap-4"><div><h5 class="font-black text-slate-900 dark:text-slate-100">${company}</h5><p class="text-xs font-bold text-slate-500 mt-1">${requester} · ${details}</p><p class="text-[11px] text-slate-400 mt-1">${date}</p></div><div class="flex gap-2"><button class="request-approve bg-emerald-600 hover:bg-emerald-700 text-white font-bold px-4 py-2 rounded-xl text-xs" data-id="${item.id}" data-kind="${kind}">${approveLabel}</button><button class="request-reject bg-red-50 hover:bg-red-100 text-red-700 font-bold px-4 py-2 rounded-xl text-xs" data-id="${item.id}" data-kind="${kind}">Recusar</button></div></div>`;
     }).join('');
-    sectionEl.innerHTML = `<h4 class="font-black text-slate-900 dark:text-slate-100 mb-4">${title} <span class="text-sm text-amber-600">(${pending.length} pendente${pending.length > 1 ? 's' : ''})</span></h4><div class="space-y-3">${rows}</div>`;
+    const empty = '<p class="text-sm text-slate-400">Nenhuma solicitação pendente.</p>';
+    let html = `<h4 class="font-black text-slate-900 dark:text-slate-100 mb-4">${title} <span class="text-sm text-amber-600">(${pending.length} pendente${pending.length === 1 ? '' : 's'})</span></h4><div class="space-y-3">${rows || empty}</div>`;
+    if (kind === 'plan') {
+        const reviewed = items.filter(item => item.status === 'approved' || item.status === 'rejected');
+        if (reviewed.length) {
+            const history = reviewed.map(item => {
+                const date = item.reviewedAt ? new Date(item.reviewedAt).toLocaleString('pt-BR') : '';
+                const status = item.status === 'approved' ? 'Aprovada' : 'Recusada';
+                return `<div class="rounded-2xl border border-slate-200 dark:border-slate-700 bg-white dark:bg-slate-800 p-4 text-sm"><strong>${escapeHtml(item.tenantName || 'Empresa')}</strong> · ${escapeHtml(item.planName || 'Plano')} · ${status}${date ? ' · ' + escapeHtml(date) : ''}</div>`;
+            }).join('');
+            html += `<details class="mt-5"><summary class="cursor-pointer font-bold text-slate-700 dark:text-slate-200">Histórico de solicitações manuais (${reviewed.length})</summary><div class="mt-3 space-y-3">${history}</div></details>`;
+        }
+    }
+    sectionEl.innerHTML = html;
     sectionEl.querySelectorAll('.request-approve, .request-reject').forEach(button => {
         button.onclick = () => {
             const status = button.classList.contains('request-approve') ? 'approved' : 'rejected';

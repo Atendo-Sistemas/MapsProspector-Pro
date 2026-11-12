@@ -79,12 +79,8 @@ if ($method === 'GET') {
         }
         jsonSuccess(['items' => $items, 'total' => count($items)]);
     } catch (PDOException $e) {
-        if (strpos($e->getMessage(), 'exist') !== false || strpos($e->getMessage(), '1146') !== false) {
-            jsonSuccess(['items' => [], 'total' => 0]);
-            exit;
-        }
         error_log("plan-requests GET: " . $e->getMessage());
-        jsonError('Erro ao listar solicitações de plano. Execute database_migration_plan_requests.sql no banco.', 500);
+        jsonError('Erro ao listar solicitações de plano. Consulte os registros do servidor.', 500);
     }
 } elseif ($method === 'POST') {
     if ($isSuperAdmin) {
