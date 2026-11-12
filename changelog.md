@@ -4,6 +4,13 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+## [1.4.11] - 2026-11-12
+
+- Exibido o histórico de solicitações manuais de planos aprovadas e recusadas na área de solicitações.
+- As listas de créditos e planos são carregadas separadamente; erros de leitura não são exibidos como ausência de pedidos.
+
+---
+
 ## [1.4.10] - 2026-11-12
 
 - O botão de assinatura mensal informa falhas de configuração do Asaas sem criar uma solicitação manual automaticamente.

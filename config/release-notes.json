@@ -1,5 +1,14 @@
 [
   {
+    "version": "20261112-historico-1",
+    "date": "2026-11-12",
+    "title": "Histórico de solicitações de planos",
+    "items": [
+      "A área de solicitações exibe o histórico de pedidos manuais de planos aprovados e recusados.",
+      "Falhas ao carregar solicitações de créditos não ocultam os pedidos de planos, e erros de banco deixam de ser apresentados como histórico vazio."
+    ]
+  },
+  {
     "version": "20261112-assinatura-1",
     "date": "2026-11-12",
     "title": "Contratação mensal pelo Asaas",
