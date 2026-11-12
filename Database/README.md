@@ -55,6 +55,8 @@ Se uma cobrança Asaas ficar pendente sem link após uma falha, confira o pedido
 
 Para assinar mensalmente pelo Asaas, o gateway precisa estar ativo, com chave e token de webhook configurados, tabelas `asaas_orders` e `asaas_subscriptions` e coluna `asaas_subscriptions.product_kind`. Quando o automático estiver indisponível, o botão informa o erro e não abre pedido manual; a opção manual continua separada. Solicitações manuais pendentes devem ser analisadas antes de iniciar uma contratação automática. Confira no Asaas se já existe assinatura antes de recusar uma solicitação e tentar novamente.
 
+A configuração do Asaas fica em **Empresa SaaS → Pagamentos (Asaas)**. A chave de API autoriza chamadas ao Asaas; o token de webhook, distinto da chave, autentica as notificações recebidas. Campos de credenciais vazios mantêm os valores existentes. Ao gerar ou rotacionar o token, ele é alterado imediatamente: copie o novo valor exibido e atualize o token do webhook no painel Asaas, ou as notificações deixarão de ser autenticadas. Se a operação não puder ser confirmada, verifique a configuração antes de tentar novamente.
+
 Na Central de Notificações, configure separadamente os textos de seleção de plano com e sem CPF/CNPJ. A escolha usa o documento da empresa cadastrado no perfil (11 ou 14 dígitos); isso não valida o número junto à Receita nem confirma a aceitação pelo Asaas.
 
 Para habilitar pagamentos Asaas em uma instalação nova ou existente, execute `sql/asaas-finance.sql` e depois `database_migration_billing_due_dates.sql`. A migração é reexecutável, completa os campos do catálogo de planos usados pela cobrança, adiciona o tipo de assinatura e cria os campos/tabela de auditoria para vencimentos administrativos.

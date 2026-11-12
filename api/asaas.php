@@ -678,7 +678,7 @@ if ($action === 'saveConfig') {
         $cleared = asaSetSetting($db, 'asaas_api_key', '')
             && asaSetSetting($db, 'asaas_webhook_token', '')
             && asaSetSetting($db, 'asaas_active', '0');
-        if (!$cleared || asaGetSetting($db, 'asaas_api_key') !== '') {
+        if (!$cleared || asaGetSetting($db, 'asaas_api_key') !== '' || asaGetSetting($db, 'asaas_webhook_token') !== '') {
             asaJson(false, [], 'Não foi possível confirmar a remoção da configuração Asaas no banco. Tente novamente.');
         }
         asaJson(true, ['api_key_configured' => false, 'webhook_token_configured' => false], 'Configuração de pagamento removida.');
@@ -721,7 +721,8 @@ if ($action === 'saveConfig') {
     $persistedEnvironment = asaGetSetting($db, 'asaas_environment');
     $persistedActive = asaGetSetting($db, 'asaas_active');
     $maskedToken = $webhookToken !== '' ? preg_replace('/^(.{4}).+(.{4})$/', '$1*****$2', $webhookToken) : '';
-    if ($persistedApiKey === ''
+    if (!$saved || $persistedApiKey !== $apiKey
+        || asaGetSetting($db, 'asaas_webhook_token') !== $webhookToken
         || $persistedEnvironment !== $environment
         || $persistedActive !== $active) {
         asaJson(false, [], 'A conexão foi validada, mas não foi possível confirmar a gravação da configuração no banco. Nenhuma ativação foi assumida.');

@@ -3667,7 +3667,7 @@ function renderSaasConfigTab(contentArea) {
                 <div id="asaas-admin-panel" class="bg-[#0F172A] p-8 rounded-[2rem] border border-slate-800 text-white space-y-6 relative overflow-hidden">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-emerald-600/10 rounded-full blur-3xl"></div>
                     <h4 class="text-lg font-black text-white border-b border-slate-800 pb-3 flex items-center gap-2">💳 Pagamentos (Asaas)</h4>
-                    <p class="text-xs text-slate-400">Painel exclusivo da plataforma. Configure a chave de API, o ambiente e o webhook. Os planos pagos usam assinatura mensal recorrente; o cancelamento interrompe apenas a próxima cobrança, sem estorno automático.</p>
+                    <p class="text-xs text-slate-400">Configure aqui a integração Asaas. A chave de API permite criar cobranças; o token do webhook autentica as confirmações de pagamento. São credenciais diferentes.</p>
                     <div id="asaas-status" class="hidden"></div>
                     <div id="asaas-credentials" class="hidden rounded-2xl border border-emerald-500/30 bg-emerald-500/10 p-4 space-y-2 text-xs">
                         <p class="text-[10px] font-black text-emerald-300 uppercase">Credenciais registradas no servidor</p>
@@ -3677,6 +3677,7 @@ function renderSaasConfigTab(contentArea) {
                     <div id="asaas-message" class="hidden text-sm font-medium"></div>
                     <div class="flex flex-wrap items-center gap-3">
                         <button type="button" id="asaas-toggle" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-xl transition-all">Configurar</button>
+                        <button type="button" id="asaas-test-connection" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold rounded-xl transition-all">Testar conexão</button>
                         <button type="button" id="asaas-buy" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold rounded-xl transition-all">Criar link de teste</button>
                         <button type="button" id="asaas-refresh" class="px-5 py-2.5 bg-white/10 hover:bg-white/20 border border-white/20 text-white text-sm font-bold rounded-xl transition-all">Atualizar</button>
                     </div>
@@ -3697,10 +3698,12 @@ function renderSaasConfigTab(contentArea) {
                         <div>
                             <label class="block text-[10px] font-black text-slate-300 uppercase mb-1">Chave de API do Asaas (X-ACCESS-TOKEN)</label>
                             <input id="asaas-apikey" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 font-semibold text-white placeholder:text-slate-600" placeholder="Cole a chave de Integrações do painel Asaas" />
+                            <p class="mt-2 text-[10px] text-slate-400">Deixe vazio para manter a chave atual.</p>
                         </div>
                         <div>
                             <label class="block text-[10px] font-black text-slate-300 uppercase mb-1">Token de segurança do webhook</label>
-                            <input id="asaas-webhook-token" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 font-semibold text-white placeholder:text-slate-600" placeholder="Gerado automaticamente se deixado vazio" />
+                            <input id="asaas-webhook-token" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 font-semibold text-white placeholder:text-slate-600" placeholder="Token do webhook Asaas" />
+                            <p class="mt-2 text-[10px] text-slate-400">Deixe vazio para manter o token atual. Na primeira configuração informe um token ou gere-o abaixo. Copie o mesmo token para o webhook no Asaas.</p>
                         </div>
                         <div class="flex items-center gap-3">
                             <button type="button" id="asaas-save" class="px-5 py-2.5 bg-emerald-600 hover:bg-emerald-500 text-white text-sm font-bold rounded-xl transition-all">Salvar e testar conexão</button>
@@ -3714,6 +3717,14 @@ function renderSaasConfigTab(contentArea) {
                             <button type="button" id="asaas-copy-webhook" class="shrink-0 px-3 py-1.5 bg-blue-600 hover:bg-blue-500 text-white text-[10px] font-black rounded-lg">Copiar</button>
                         </div>
                         <p class="text-[10px] font-bold text-blue-300">Token: <span id="asaas-webhook-token-display" class="text-blue-100">configure a chave de API primeiro</span></p>
+                        <div class="flex flex-wrap gap-2">
+                            <button type="button" id="asaas-generate-token" class="px-3 py-1.5 border border-amber-500/60 text-amber-200 rounded-lg text-[10px] font-black">Gerar/rotacionar token</button>
+                            <button type="button" id="asaas-copy-token" class="px-3 py-1.5 border border-blue-500/60 text-blue-200 rounded-lg text-[10px] font-black">Copiar token recém-gerado</button>
+                        </div>
+                        <div id="asaas-generated-token-box" class="hidden">
+                            <label for="asaas-generated-token" class="block text-[10px] font-black text-blue-300">Token recém-gerado (copie antes de sair da página)</label>
+                            <input id="asaas-generated-token" type="text" readonly class="mt-1 w-full bg-slate-900 border border-slate-700 rounded-lg px-3 py-2 text-xs text-white" />
+                        </div>
                     </div>
                     <div id="asaas-orders" class="hidden pt-2">
                         <h5 class="text-xs font-black text-slate-400 uppercase mb-2">Resumo de pedidos</h5>
@@ -3899,6 +3910,9 @@ function setupPaymentsPanel() {
     var refreshBtn = document.getElementById('asaas-refresh');
     var saveBtn = document.getElementById('asaas-save');
     var removeBtn = document.getElementById('asaas-remove');
+    var generatedToken = '';
+    var webhookConfigured = false;
+    var statusLoaded = false;
 
     function payMessage(success, text) {
         if (!messageEl) return;
@@ -3908,13 +3922,17 @@ function setupPaymentsPanel() {
     }
 
     function loadPaymentStatus() {
+        statusLoaded = false;
         fetch(API_BASE + 'asaas.php?action=getConfig', { credentials: 'include' })
             .then(function(r) { return r.json(); })
             .then(function(data) {
                 if (!statusEl) return;
-                var cfg = data.success && data.data ? data.data : {};
+                if (!data.success || !data.data) throw new Error(data.error || 'Não foi possível carregar a configuração Asaas.');
+                var cfg = data.data;
                 var on = !!cfg.api_key_configured;
                 var active = !!cfg.active;
+                webhookConfigured = !!cfg.webhook_token_configured;
+                statusLoaded = true;
                 var connectLabel = cfg.asaas_connected === true ? 'conectado' : cfg.asaas_connected === false ? 'sem conexão' : 'não testado';
                 statusEl.textContent = 'Asaas: ' + (on ? 'chave configurada' : 'chave não configurada') + ' · ' + (cfg.environment === 'sandbox' ? 'sandbox' : 'produção') + ' · gateway ' + (active ? 'ativo' : 'desativado') + ' · ' + connectLabel + ' · ' + (cfg.orders_total != null ? cfg.orders_total + ' pedido(s)' : '0 pedidos');
                 statusEl.className = 'p-3 rounded-xl text-xs font-bold ' + (on && active ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30' : 'bg-amber-500/10 text-amber-200 border border-amber-500/30');
@@ -3926,7 +3944,7 @@ function setupPaymentsPanel() {
                 var urlEl = document.getElementById('asaas-webhook-url');
                 var tokEl = document.getElementById('asaas-webhook-token-display');
                 if (urlEl) urlEl.textContent = cfg.webhook_url || '';
-                if (tokEl) tokEl.textContent = cfg.webhook_token_configured ? 'já definido (não exibido por segurança)' : 'gerado automaticamente ao salvar a chave';
+                if (tokEl) tokEl.textContent = cfg.webhook_token_configured ? 'já definido (não exibido por segurança)' : 'não configurado';
                 if (webhookBoxEl && cfg.webhook_url) webhookBoxEl.classList.remove('hidden');
                 var credEl = document.getElementById('asaas-credentials');
                 var keyMaskedEl = document.getElementById('asaas-apikey-masked');
@@ -3942,7 +3960,13 @@ function setupPaymentsPanel() {
                 loadPaymentOrders(cfg.orders_by_status || {});
                 renderSubscriptionSummary(cfg.subscriptions_by_status || {});
             })
-            .catch(function() {});
+            .catch(function(error) {
+                if (statusEl) {
+                    statusEl.textContent = error.message || 'Não foi possível carregar a configuração Asaas.';
+                    statusEl.className = 'p-3 rounded-xl text-xs font-bold bg-red-500/15 text-red-300';
+                    statusEl.classList.remove('hidden');
+                }
+            });
     }
 
     function loadPaymentOrders(byStatus) {
@@ -4006,6 +4030,56 @@ function setupPaymentsPanel() {
         refreshBtn.onclick = loadPaymentStatus;
     }
 
+    var testBtn = document.getElementById('asaas-test-connection');
+    if (testBtn) testBtn.onclick = async function() {
+        testBtn.disabled = true;
+        try {
+            var response = await fetch(API_BASE + 'asaas.php?action=testConnection', { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: '{}' });
+            var data = await response.json();
+            if (!response.ok || !data.success) throw new Error(data.error || data.message || 'Não foi possível testar a conexão.');
+            payMessage(true, data.message || 'Conexão confirmada. Nenhuma cobrança foi criada.');
+        } catch (error) {
+            payMessage(false, error.message || 'Não foi possível testar a conexão.');
+        } finally { testBtn.disabled = false; }
+    };
+
+    var generateBtn = document.getElementById('asaas-generate-token');
+    if (generateBtn) generateBtn.onclick = async function() {
+        if (!window.confirm('O token atual deixará de funcionar imediatamente. É necessário atualizar o webhook no Asaas com o novo token. Continuar?')) return;
+        generateBtn.disabled = true;
+        generatedToken = '';
+        var oldGeneratedBox = document.getElementById('asaas-generated-token-box');
+        var oldGeneratedInput = document.getElementById('asaas-generated-token');
+        if (oldGeneratedBox) oldGeneratedBox.classList.add('hidden');
+        if (oldGeneratedInput) oldGeneratedInput.value = '';
+        try {
+            var response = await fetch(API_BASE + 'settings.php', { method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ asaasGenerateWebhookToken: true }) });
+            var data = await response.json();
+            if (!response.ok || !data.success || !data.data?.webhookToken) throw new Error(data.error || 'Não foi possível gerar o token.');
+            generatedToken = data.data.webhookToken;
+            webhookConfigured = true;
+            var generatedBox = document.getElementById('asaas-generated-token-box');
+            var generatedInput = document.getElementById('asaas-generated-token');
+            var tokenInput = document.getElementById('asaas-webhook-token');
+            if (tokenInput) tokenInput.value = '';
+            if (generatedInput) generatedInput.value = generatedToken;
+            if (generatedBox) generatedBox.classList.remove('hidden');
+            payMessage(true, 'Token alterado. Copie-o agora e atualize o webhook no Asaas para continuar recebendo confirmações.');
+            loadPaymentStatus();
+        } catch (error) {
+            payMessage(false, (error.message || 'Não foi possível confirmar a operação.') + ' Verifique a configuração do webhook antes de tentar novamente.');
+            loadPaymentStatus();
+        } finally { generateBtn.disabled = false; }
+    };
+    var copyTokenBtn = document.getElementById('asaas-copy-token');
+    if (copyTokenBtn) copyTokenBtn.onclick = function() {
+        if (!generatedToken) { payMessage(false, 'Gere um token nesta tela antes de copiá-lo.'); return; }
+        if (!navigator.clipboard || !navigator.clipboard.writeText) { payMessage(false, 'Não foi possível copiar automaticamente. Selecione e copie o token exibido.'); return; }
+        navigator.clipboard.writeText(generatedToken).then(function() {
+            payMessage(true, 'Token copiado. Atualize o webhook no Asaas.');
+        }).catch(function() { payMessage(false, 'Não foi possível copiar automaticamente. Selecione e copie o token exibido.'); });
+    };
+
     if (saveBtn) {
         saveBtn.onclick = function() {
             var keyEl = document.getElementById('asaas-apikey');
@@ -4014,13 +4088,28 @@ function setupPaymentsPanel() {
             var activeEl = document.getElementById('asaas-active');
             var apiKey = keyEl ? keyEl.value.trim() : '';
             var token = tokenEl ? tokenEl.value.trim() : '';
+            if (!statusLoaded) {
+                payMessage(false, 'Aguarde ou atualize a configuração Asaas antes de salvar.');
+                return;
+            }
+            if (!webhookConfigured && !token) {
+                payMessage(false, 'Informe ou gere um token do webhook e copie-o para o Asaas antes de ativar a integração.');
+                return;
+            }
             saveBtn.disabled = true;
             saveBtn.textContent = 'Testando conexão...';
             fetch(API_BASE + 'asaas.php?action=saveConfig', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ api_key: apiKey, webhook_token: token, environment: environmentEl ? environmentEl.value : 'production', active: !!(activeEl && activeEl.checked) }) })
                 .then(function(r) { return r.json(); })
                 .then(function(data) {
-                    payMessage(!!data.success, data.message || (data.success ? 'Salvo.' : 'Erro ao salvar.'));
+                    payMessage(!!data.success, data.success ? (data.message || 'Salvo.') : (data.error || data.message || 'Erro ao salvar.'));
                     if (data.success) {
+                        if (token && token !== generatedToken) {
+                            generatedToken = '';
+                            var generatedBox = document.getElementById('asaas-generated-token-box');
+                            var generatedInput = document.getElementById('asaas-generated-token');
+                            if (generatedBox) generatedBox.classList.add('hidden');
+                            if (generatedInput) generatedInput.value = '';
+                        }
                         formEl.classList.add('hidden');
                         toggleBtn.textContent = 'Configurar';
                         var keyDisplay = document.getElementById('asaas-apikey');
@@ -4040,7 +4129,17 @@ function setupPaymentsPanel() {
             if (!confirm('Remover a configuração de pagamento Asaas? Os pedidos existentes continuarão visíveis.')) return;
             fetch(API_BASE + 'asaas.php?action=saveConfig', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ remove: true }) })
                 .then(function(r) { return r.json(); })
-                .then(function(data) { payMessage(!!data.success, data.message || (data.success ? 'Removido.' : 'Erro ao remover.')); loadPaymentStatus(); })
+                .then(function(data) {
+                    payMessage(!!data.success, data.error || data.message || (data.success ? 'Removido.' : 'Erro ao remover.'));
+                    if (data.success) {
+                        generatedToken = '';
+                        var generatedBox = document.getElementById('asaas-generated-token-box');
+                        var generatedInput = document.getElementById('asaas-generated-token');
+                        if (generatedBox) generatedBox.classList.add('hidden');
+                        if (generatedInput) generatedInput.value = '';
+                    }
+                    loadPaymentStatus();
+                })
                 .catch(function() { payMessage(false, 'Erro de conexão.'); });
         };
     }
@@ -7400,37 +7499,6 @@ function loadSettingsForm() {
         }
     }
 
-    // As credenciais do Asaas nunca retornam em texto puro. Quando existirem,
-    // a máscara exibida confirma que o valor permaneceu armazenado após salvar
-    // ou atualizar a página, sem permitir que a máscara seja reenviada como chave.
-    var asaasKeyEl = document.getElementById('saas-config-asaas-apikey');
-    var asaasWebhookTokenEl = document.getElementById('saas-config-asaas-webhook-token');
-    var asaasKeyMasked = cfg.asaasApiKeyMasked || '';
-    var asaasWebhookTokenMasked = cfg.asaasWebhookTokenMasked || '';
-    if (asaasKeyEl) {
-        asaasKeyEl.value = asaasKeyMasked;
-        asaasKeyEl.dataset.asaasMasked = asaasKeyMasked ? 'true' : 'false';
-        asaasKeyEl.placeholder = asaasKeyMasked ? 'Chave configurada — digite outra somente para substituir' : 'Cole a chave de Integrações do painel Asaas';
-    }
-    if (asaasWebhookTokenEl) {
-        asaasWebhookTokenEl.value = asaasWebhookTokenMasked;
-        asaasWebhookTokenEl.dataset.asaasMasked = asaasWebhookTokenMasked ? 'true' : 'false';
-        asaasWebhookTokenEl.placeholder = asaasWebhookTokenMasked ? 'Token configurado — digite outro somente para substituir' : 'Deixe vazio para gerar automaticamente';
-    }
-    var asaasWebhookUrlEl = document.getElementById('asaas-settings-webhook-url');
-    if (asaasWebhookUrlEl) asaasWebhookUrlEl.textContent = cfg.asaasWebhookUrl || 'URL indisponível';
-    var asaasActiveEl = document.getElementById('saas-config-asaas-active');
-    if (asaasActiveEl) asaasActiveEl.checked = !!cfg.asaasActive;
-    AppState._asaasWebhookToken = '';
-    var asaasStatusEl = document.getElementById('setting-asaas-status');
-    if (asaasStatusEl) {
-        var asaasConfigured = !!(cfg.asaasApiKeyConfigured || asaasKeyMasked);
-        var asaasActive = !!cfg.asaasActive;
-        asaasStatusEl.textContent = asaasConfigured
-            ? (asaasActive ? 'Asaas configurado e cobrança automática ATIVA. A chave permanece protegida no servidor.' : 'Asaas configurado, mas cobrança automática DESATIVADA. O sistema seguirá por aprovação manual.')
-            : 'Nenhuma chave Asaas configurada. O sistema seguirá automaticamente por aprovação manual.';
-        asaasStatusEl.className = 'text-[11px] font-semibold mt-3 ' + (asaasActive ? 'text-emerald-300' : 'text-amber-300');
-    }
 }
 
 
@@ -7519,47 +7587,11 @@ function getSettingsHTML() {
                         </div>
                     </div>
 
-                    ${isSuperAdmin ? `
-                    <!-- CAIXA ASAAS -->
-                    <div class="bg-[#0F172A] p-6 rounded-[2rem] border border-slate-800 text-white space-y-4">
-                        <h4 class="font-black text-lg text-emerald-400 flex items-center gap-2">💳 Gateway de Recebimento (Asaas)</h4>
-                        <p class="text-xs text-slate-400">Configure a chave de API e o token do webhook do Asaas. A recarga de créditos dos usuários passa a ser liberada automaticamente após a confirmação do pagamento.</p>
-                        <div class="space-y-3">
-                            <div>
-                                <label class="block text-[10px] font-black text-slate-300 uppercase mb-1">Chave de API do Asaas (X-ACCESS-TOKEN)</label>
-                                <input id="saas-config-asaas-apikey" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 font-bold text-white text-xs" placeholder="Cole a chave de Integrações do painel Asaas" />
-                            </div>
-                            <div>
-                                <label class="block text-[10px] font-black text-slate-300 uppercase mb-1">Token de segurança do webhook</label>
-                                <input id="saas-config-asaas-webhook-token" type="password" class="w-full bg-slate-900/50 border border-slate-700 rounded-xl px-4 py-3 outline-none focus:border-emerald-500 font-bold text-white text-xs" placeholder="Deixe vazio para gerar automaticamente" />
-                                <p class="mt-2 text-[10px] leading-relaxed text-slate-400">O token salvo aparece apenas mascarado. Ao gerar um novo token, copie-o imediatamente para a configuração do webhook no Asaas.</p>
-                            </div>
-                            <div class="rounded-2xl border border-slate-700 bg-slate-900/60 p-4 space-y-3">
-                                <div>
-                                    <p class="text-[10px] font-black uppercase tracking-wider text-slate-300">URL para copiar no Asaas</p>
-                                    <div class="mt-2 flex items-center gap-2">
-                                        <code id="asaas-settings-webhook-url" class="min-w-0 flex-1 break-all rounded-xl bg-slate-950 px-3 py-2 text-[11px] font-semibold text-blue-200">Carregando…</code>
-                                        <button type="button" id="btn-copy-asaas-webhook-url" class="shrink-0 rounded-xl bg-blue-600 px-3 py-2 text-[10px] font-black text-white hover:bg-blue-500">Copiar URL</button>
-                                    </div>
-                                </div>
-                                <div class="flex flex-wrap gap-2">
-                                    <button type="button" id="btn-generate-asaas-webhook-token" class="rounded-xl border border-amber-500/60 px-3 py-2 text-[10px] font-black text-amber-200 hover:bg-amber-500/10">Gerar/rotacionar token</button>
-                                    <button type="button" id="btn-copy-asaas-webhook-token" class="rounded-xl border border-blue-500/60 px-3 py-2 text-[10px] font-black text-blue-200 hover:bg-blue-500/10">Copiar token recém-gerado</button>
-                                    <button type="button" id="btn-remove-asaas-config" class="rounded-xl border border-rose-500/60 px-3 py-2 text-[10px] font-black text-rose-200 hover:bg-rose-500/10">Remover configuração</button>
-                                </div>
-                            </div>
-                            <label class="flex items-center gap-3 rounded-xl border border-slate-700 bg-slate-900/40 px-3 py-3 text-xs font-bold text-slate-200">
-                                <input id="saas-config-asaas-active" type="checkbox" class="h-4 w-4 accent-emerald-500">
-                                <span>Ativar cobrança automática quando a chave for validada</span>
-                            </label>
-                            <p id="setting-asaas-status" class="text-[11px] font-semibold mt-3 text-slate-400">Carregando status da configuração Asaas...</p>
-                            <div class="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                                <p class="text-[10px] leading-relaxed text-slate-400">O teste confirma a comunicação com o Asaas e não cria cobranças.</p>
-                                <button id="btn-test-asaas-connection" type="button" class="shrink-0 rounded-xl border border-emerald-500/50 px-4 py-2 text-xs font-black text-emerald-300 transition-colors hover:bg-emerald-500/10 disabled:cursor-not-allowed disabled:opacity-60">Testar conexão Asaas</button>
-                            </div>
-	                        </div>
+                    <div class="bg-slate-50 dark:bg-slate-700/60 p-6 rounded-[2rem] border border-slate-200 dark:border-slate-600">
+                        <h4 class="font-black text-lg text-slate-900 dark:text-slate-100">Pagamentos Asaas</h4>
+                        <p class="text-xs text-slate-500 dark:text-slate-300 mt-1">A configuração de pagamentos fica em Empresa SaaS, no painel Pagamentos (Asaas).</p>
+                        <button type="button" id="settings-open-asaas" class="mt-3 rounded-xl bg-blue-600 px-4 py-2 text-xs font-bold text-white">Abrir Empresa SaaS</button>
                     </div>
-                    ` : ''}
 
                     <div class="mt-6">
                         <button id="btn-save-settings" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-black py-5 rounded-[1.5rem] shadow-xl shadow-blue-100 dark:shadow-blue-900/30 transition-all active:scale-[0.98]">Salvar Alterações</button>
@@ -7578,12 +7610,8 @@ function setupSettingsEvents() {
 		};
 	}
 
-	var btnTestAsaas = document.getElementById('btn-test-asaas-connection');
-	if (btnTestAsaas) {
-		btnTestAsaas.onclick = function() {
-			testAsaasConnection();
-		};
-	}
+    var openAsaas = document.getElementById('settings-open-asaas');
+    if (openAsaas) openAsaas.onclick = function() { setActiveTab('saas-config'); };
 
     var toggleTokenBtn = document.getElementById('btn-toggle-atendo-token');
     var tokenInput = document.getElementById('setting-token');
@@ -7599,94 +7627,6 @@ function setupSettingsEvents() {
         };
     }
 
-    ['saas-config-asaas-apikey', 'saas-config-asaas-webhook-token'].forEach(function(id) {
-        var secretInput = document.getElementById(id);
-        if (secretInput) {
-            secretInput.oninput = function() {
-                secretInput.dataset.asaasMasked = 'false';
-            };
-        }
-    });
-
-    var copyUrlBtn = document.getElementById('btn-copy-asaas-webhook-url');
-    if (copyUrlBtn) copyUrlBtn.onclick = function() {
-        var url = (document.getElementById('asaas-settings-webhook-url') || {}).textContent || '';
-        if (!url || url === 'URL indisponível') return;
-        navigator.clipboard.writeText(url).then(function() { copyUrlBtn.textContent = 'URL copiada!'; setTimeout(function() { copyUrlBtn.textContent = 'Copiar URL'; }, 2200); }).catch(function() { showToast('Não foi possível copiar automaticamente a URL.'); });
-    };
-    var copyTokenBtn = document.getElementById('btn-copy-asaas-webhook-token');
-    if (copyTokenBtn) copyTokenBtn.onclick = function() {
-        var token = AppState._asaasWebhookToken || '';
-        if (!token) { showToast('Gere ou altere o token antes de copiá-lo.'); return; }
-        navigator.clipboard.writeText(token).then(function() { copyTokenBtn.textContent = 'Token copiado!'; setTimeout(function() { copyTokenBtn.textContent = 'Copiar token recém-gerado'; }, 2200); }).catch(function() { showToast('Não foi possível copiar automaticamente o token.'); });
-    };
-    var generateTokenBtn = document.getElementById('btn-generate-asaas-webhook-token');
-    if (generateTokenBtn) generateTokenBtn.onclick = async function() {
-        if (!window.confirm('Gerar um novo token invalidará o token anterior do webhook. Deseja continuar?')) return;
-        generateTokenBtn.disabled = true;
-        generateTokenBtn.textContent = 'Gerando...';
-        try {
-            var response = await fetch(API_BASE + 'settings.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ asaasGenerateWebhookToken: true }) });
-            var payload = await response.json();
-            if (!response.ok || !payload.success || !payload.data || !payload.data.webhookToken) throw new Error(payload.error || 'Não foi possível gerar o token.');
-            AppState._asaasWebhookToken = payload.data.webhookToken;
-            var tokenInput = document.getElementById('saas-config-asaas-webhook-token');
-            if (tokenInput) { tokenInput.value = payload.data.webhookToken; tokenInput.dataset.asaasMasked = 'false'; tokenInput.type = 'text'; }
-            if (payload.data.asaasWebhookUrl) { var urlInput = document.getElementById('asaas-settings-webhook-url'); if (urlInput) urlInput.textContent = payload.data.asaasWebhookUrl; }
-            showToast('Token gerado. Copie-o agora e cole no webhook do Asaas.');
-        } catch (error) { showToast(error.message || 'Não foi possível gerar o token.'); }
-        finally { generateTokenBtn.disabled = false; generateTokenBtn.textContent = 'Gerar/rotacionar token'; }
-    };
-    var removeAsaasBtn = document.getElementById('btn-remove-asaas-config');
-    if (removeAsaasBtn) removeAsaasBtn.onclick = async function() {
-        if (!window.confirm('Remover a chave e o token do Asaas? O sistema voltará ao fluxo de aprovação manual.')) return;
-        removeAsaasBtn.disabled = true;
-        removeAsaasBtn.textContent = 'Removendo...';
-        try {
-            var response = await fetch(API_BASE + 'settings.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, credentials: 'include', body: JSON.stringify({ asaasRemove: true }) });
-            var payload = await response.json();
-            if (!response.ok || !payload.success) throw new Error(payload.error || 'Não foi possível remover a configuração.');
-            AppState._asaasWebhookToken = '';
-            await loadConfig();
-            loadSettingsForm();
-            showToast('Asaas removido. O fluxo manual está ativo.');
-        } catch (error) { showToast(error.message || 'Não foi possível remover a configuração.'); }
-        finally { removeAsaasBtn.disabled = false; removeAsaasBtn.textContent = 'Remover configuração'; }
-    };
-}
-
-async function testAsaasConnection() {
-    var btn = document.getElementById('btn-test-asaas-connection');
-    var status = document.getElementById('setting-asaas-status');
-    if (!btn || !status) return;
-
-    btn.disabled = true;
-    btn.textContent = 'Testando...';
-    status.textContent = 'Testando a conexão segura com o Asaas...';
-    status.className = 'text-[11px] font-semibold mt-3 text-sky-300';
-
-    try {
-        var res = await fetch(API_BASE + 'asaas.php?action=testConnection', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            credentials: 'include',
-            body: '{}'
-        });
-        var data = await res.json();
-        if (!res.ok || !data.success) {
-            throw new Error(data.error || 'O Asaas não confirmou a conexão.');
-        }
-
-        status.textContent = 'Conexão com o Asaas confirmada. Nenhuma cobrança foi criada.';
-        status.className = 'text-[11px] font-semibold mt-3 text-emerald-300';
-        showToast('Conexão com o Asaas confirmada.');
-    } catch (error) {
-        status.textContent = error && error.message ? error.message : 'Não foi possível testar a conexão com o Asaas.';
-        status.className = 'text-[11px] font-semibold mt-3 text-rose-300';
-    } finally {
-        btn.disabled = false;
-        btn.textContent = 'Testar conexão Asaas';
-    }
 }
 
 async function saveSettings() {
@@ -7764,16 +7704,6 @@ async function saveSettings() {
         payload.openrouterApiKey = openrouterEl ? openrouterEl.value.trim() : '';
         payload.mapboxAccessToken = mapboxEl ? mapboxEl.value.trim() : '';
         payload.cnpjApiUrl = cnpjUrlEl ? cnpjUrlEl.value.trim() : '';
-        var asaasKeyEl = document.getElementById('saas-config-asaas-apikey');
-        var asaasWebhookTokenEl = document.getElementById('saas-config-asaas-webhook-token');
-        var asaasActiveEl = document.getElementById('saas-config-asaas-active');
-        if (asaasKeyEl && asaasKeyEl.value.trim() && asaasKeyEl.dataset.asaasMasked !== 'true') {
-            payload.asaasApiKey = asaasKeyEl.value.trim();
-        }
-        if (asaasWebhookTokenEl && asaasWebhookTokenEl.value.trim() && asaasWebhookTokenEl.dataset.asaasMasked !== 'true') {
-            payload.asaasWebhookToken = asaasWebhookTokenEl.value.trim();
-        }
-        if (asaasActiveEl) payload.asaasActive = !!asaasActiveEl.checked;
     }
 
     try {
@@ -7786,24 +7716,10 @@ async function saveSettings() {
         const data = await res.json();
         
         if (data.success) {
-            // O backend devolve a configuração Asaas que acabou de reler do
-            // banco. Nunca confirme o salvamento se uma chave enviada não
-            // estiver marcada como persistida nessa confirmação.
-            if (payload.asaasApiKey && !(data.data && data.data.asaasApiKeyConfigured)) {
-                throw new Error('A chave do Asaas não foi confirmada após o salvamento. Ela não foi considerada configurada.');
-            }
-            if (payload.asaasWebhookToken && !(data.data && data.data.asaasWebhookTokenConfigured)) {
-                throw new Error('O token de segurança do webhook Asaas não foi confirmado após o salvamento.');
-            }
-
             AppState.config = Object.assign({}, AppState.config || {}, data.data || {}, {
                 cnpjApiUrl: payload.cnpjApiUrl || 'https://publica.cnpj.ws/cnpj/{cnpj}'
             });
             await loadConfig();
-
-            if (payload.asaasApiKey && !(AppState.config && AppState.config.asaasApiKeyConfigured)) {
-                throw new Error('A chave do Asaas não permaneceu gravada após a releitura das configurações.');
-            }
 
             loadSettingsForm();
             showToast('Configurações de conexão salvas e confirmadas!');
