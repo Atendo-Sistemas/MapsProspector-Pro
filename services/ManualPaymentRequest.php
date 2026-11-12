@@ -18,29 +18,35 @@ function mapsCreateManualPaymentRequest(PDO $db, array $user, int $tenantId, str
         throw new InvalidArgumentException('Informe o plano a ser solicitado.');
     }
 
-    if ($type === 'credits') {
-        $pending = $db->prepare("SELECT id FROM credit_requests WHERE tenant_id = ? AND tokens_requested = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
-        $pending->execute([$tenantId, $credits]);
-    } else {
-        if ((bool) $db->query("SHOW TABLES LIKE 'asaas_subscriptions'")->fetchColumn()) {
-            $hasProductKind = (bool) $db->query("SHOW COLUMNS FROM asaas_subscriptions LIKE 'product_kind'")->fetchColumn();
-            $productFilter = $hasProductKind ? " AND COALESCE(product_kind, 'prospecting') = 'prospecting'" : '';
-            $activeAsaas = $db->prepare("SELECT id FROM asaas_subscriptions WHERE tenant_id = ?{$productFilter} AND status IN ('pending', 'active', 'overdue') ORDER BY id DESC LIMIT 1");
-            $activeAsaas->execute([$tenantId]);
-            if ($activeAsaas->fetchColumn()) {
-                throw new InvalidArgumentException('Já existe uma assinatura Asaas em andamento para esta empresa. Cancele-a antes de solicitar aprovação manual.');
-            }
-        }
-        $pending = $db->prepare("SELECT id FROM plan_requests WHERE tenant_id = ? AND plan_id = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
-        $pending->execute([$tenantId, $planId]);
-    }
-    $existing = $pending->fetch(PDO::FETCH_ASSOC);
-    if (is_array($existing)) {
-        return ['mode' => 'manual', 'requestId' => (int) $existing['id'], 'alreadyPending' => true];
-    }
-
     $db->beginTransaction();
     try {
+        $tenantLock = $db->prepare('SELECT id FROM tenants WHERE id = ? FOR UPDATE');
+        $tenantLock->execute([$tenantId]);
+        if (!$tenantLock->fetchColumn()) {
+            throw new InvalidArgumentException('Empresa não encontrada.');
+        }
+        if ($type === 'credits') {
+            $pending = $db->prepare("SELECT id FROM credit_requests WHERE tenant_id = ? AND tokens_requested = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
+            $pending->execute([$tenantId, $credits]);
+        } else {
+            if ((bool) $db->query("SHOW TABLES LIKE 'asaas_subscriptions'")->fetchColumn()) {
+                $hasProductKind = (bool) $db->query("SHOW COLUMNS FROM asaas_subscriptions LIKE 'product_kind'")->fetchColumn();
+                $productFilter = $hasProductKind ? " AND COALESCE(product_kind, 'prospecting') = 'prospecting'" : '';
+                $activeAsaas = $db->prepare("SELECT id FROM asaas_subscriptions WHERE tenant_id = ?{$productFilter} AND status IN ('pending', 'active', 'overdue') ORDER BY id DESC LIMIT 1");
+                $activeAsaas->execute([$tenantId]);
+                if ($activeAsaas->fetchColumn()) {
+                    throw new InvalidArgumentException('Já existe uma assinatura Asaas em andamento para esta empresa. Cancele-a antes de solicitar aprovação manual.');
+                }
+            }
+            $pending = $db->prepare("SELECT id FROM plan_requests WHERE tenant_id = ? AND plan_id = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
+            $pending->execute([$tenantId, $planId]);
+        }
+        $existing = $pending->fetch(PDO::FETCH_ASSOC);
+        if (is_array($existing)) {
+            $db->commit();
+            return ['mode' => 'manual', 'requestId' => (int) $existing['id'], 'alreadyPending' => true];
+        }
+
         if ($type === 'plan') {
             $planCheck = $db->prepare("SELECT id FROM plans WHERE id = ? AND status = 'active' LIMIT 1");
             $planCheck->execute([$planId]);
@@ -103,6 +109,17 @@ function mapsCreateManualPaymentRequest(PDO $db, array $user, int $tenantId, str
             }
         } catch (Throwable $notificationError) {
             error_log('manual payment request notification: ' . $notificationError->getMessage());
+        }
+        if ($type === 'plan') {
+            try {
+                require_once __DIR__ . '/notificationService.php';
+                $sent = NotificationService::notifyPlanSelection($db, (int) ($user['id'] ?? 0), $planId, (string) $requestId);
+                if (!$sent) {
+                    error_log('manual plan selection WhatsApp notification was not delivered.');
+                }
+            } catch (Throwable $notificationError) {
+                error_log('manual plan selection WhatsApp notification: ' . $notificationError->getMessage());
+            }
         }
 
         return ['mode' => 'manual', 'requestId' => $requestId, 'alreadyPending' => false];

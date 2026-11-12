@@ -102,6 +102,9 @@ try {
                         'alreadyPending' => true,
                     ], 'Já existe uma cobrança Asaas pendente para esta recarga.');
                 }
+                if (is_array($existingOrder)) {
+                    manualRequestResponse(false, null, 'Existe uma cobrança em processamento sem link disponível. Peça ao administrador para conferir no Asaas antes de solicitar novamente.', 409);
+                }
                 $result = MapsProspectorAsaasPaymentGateway::createCredits($db, $authUser, $tenantId, $credits);
                 manualRequestResponse(true, $result, 'Cobrança criada no Asaas. Abra o link para concluir o pagamento.');
             }
@@ -125,7 +128,7 @@ try {
             manualRequestResponse(true, $result, 'Assinatura criada no Asaas. Abra o link para concluir o primeiro pagamento.');
         } catch (Throwable $e) {
             error_log('automatic payment creation error: ' . $e->getMessage());
-            manualRequestResponse(false, null, 'O Asaas está configurado, mas não foi possível criar a cobrança agora. Nenhuma solicitação manual foi aberta automaticamente; tente novamente ou verifique a configuração do Asaas.', 502);
+            manualRequestResponse(false, null, 'Não foi possível confirmar a cobrança no Asaas. Nenhuma solicitação manual foi aberta; peça ao administrador para conferir a cobrança antes de tentar novamente.', 502);
         }
     }
 

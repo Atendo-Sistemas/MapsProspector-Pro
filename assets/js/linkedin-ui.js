@@ -177,6 +177,7 @@
                     </form>
                 </section>
 
+                <div id="linkedin-banner"></div>
                 <section id="linkedin-results" class="hidden space-y-4"></section>
 
                 <div class="rounded-2xl border border-blue-100 bg-blue-50/70 dark:bg-blue-950/20 dark:border-blue-900 px-5 py-4 text-sm text-blue-800 dark:text-blue-200">

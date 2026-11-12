@@ -228,6 +228,7 @@ function notifDefaultTemplate(string $key): string
         'reengagement-2d-whatsapp' => 'Olá, *{usuario}*! Sentimos sua falta na {plataforma}. Faz {dias} dias que você não acessa o sistema. Volte ao painel para continuar suas pesquisas. Acesse: https://prospec.atendo.log.br/app/',
         'reengagement-2d-email-subject' => 'Sentimos sua falta na {plataforma}',
         'reengagement-2d-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px"><h2 style="color:#2563eb">Sentimos sua falta, {usuario}!</h2><p>Faz <strong>{dias} dias</strong> que você não acessa a plataforma <strong>{plataforma}</strong>.</p><p>Volte ao painel para continuar suas pesquisas e aproveitar os recursos disponíveis para a empresa <strong>{empresa}</strong>.</p><p><a href="https://prospec.atendo.log.br/app/" style="display:inline-block;background:#2563eb;color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px">Acessar o painel</a></p><p style="font-size:12px;color:#64748b">Se você já voltou a acessar o sistema, ignore esta mensagem.</p></div>',
+        'plan-selected-whatsapp' => 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Para concluir a compra, atualize o CPF ou CNPJ nos dados cadastrais do seu perfil e depois retorne à contratação do plano.',
     ];
     return $defaults[$key] ?? '';
 }
@@ -265,6 +266,7 @@ const NOTIF_TEMPLATE_KEYS = [
     'plan-request-whatsapp'  => ['label' => 'Solicitação de plano (WhatsApp admin)', 'channel' => 'whatsapp'],
     'plan-request-email-subject' => ['label' => 'Assunto: solicitação de plano', 'channel' => 'email'],
     'plan-request-email'     => ['label' => 'E-mail: solicitação de plano', 'channel' => 'email'],
+    'plan-selected-whatsapp' => ['label' => 'Orientação ao selecionar plano (WhatsApp cliente)', 'channel' => 'whatsapp'],
     'plan-approved-whatsapp' => ['label' => 'Plano aprovado (WhatsApp cliente)', 'channel' => 'whatsapp'],
     'crm-approved-whatsapp' => ['label' => 'CRM aprovado (WhatsApp cliente)', 'channel' => 'whatsapp'],
     'reengagement-2d-whatsapp' => ['label' => 'Reengajamento após 2 dias (WhatsApp)', 'channel' => 'whatsapp'],

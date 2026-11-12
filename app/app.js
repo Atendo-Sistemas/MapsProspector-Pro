@@ -1612,6 +1612,11 @@ function showModalPerfil() {
     
     var phone = document.getElementById('perfil-phone');
     if (phone && AppState.user) phone.value = AppState.user.phone || '';
+    var documentWrap = document.getElementById('perfil-document-wrap');
+    var companyDocument = document.getElementById('perfil-company-document');
+    var canEditCompanyDocument = String(AppState.user && AppState.user.profile || '').toLowerCase() === 'admin';
+    if (documentWrap) documentWrap.classList.toggle('hidden', !canEditCompanyDocument);
+    if (companyDocument && canEditCompanyDocument) companyDocument.value = (AppState.tenant && AppState.tenant.companyDocument) || '';
     document.body.style.overflow = 'hidden';
 }
 
@@ -1628,6 +1633,9 @@ async function handlePerfilSenhaSubmit(e) {
     var newPassword = document.getElementById('perfil-senha-nova')?.value || '';
     var newPasswordConfirm = document.getElementById('perfil-senha-confirm')?.value || '';
     var newPhone = document.getElementById('perfil-phone')?.value || '';
+    var companyDocumentEl = document.getElementById('perfil-company-document');
+    var canEditCompanyDocument = String(AppState.user && AppState.user.profile || '').toLowerCase() === 'admin';
+    var companyDocument = companyDocumentEl ? companyDocumentEl.value.replace(/\D/g, '') : '';
     var errorEl = document.getElementById('perfil-error');
     var successEl = document.getElementById('perfil-success');
     var btn = document.getElementById('btn-perfil-salvar');
@@ -1654,13 +1662,15 @@ async function handlePerfilSenhaSubmit(e) {
                 action: 'update_profile', 
                 currentPassword: currentPassword, 
                 newPassword: newPassword,
-                phone: newPhone 
+                phone: newPhone,
+                companyDocument: canEditCompanyDocument ? companyDocument : undefined
             })
         });
         var data = await res.json();
         if (data.success) {
             if (successEl) { successEl.textContent = 'Perfil atualizado com sucesso.'; successEl.classList.remove('hidden'); }
             if (AppState.user) AppState.user.phone = newPhone;
+            if (canEditCompanyDocument && AppState.tenant) AppState.tenant.companyDocument = companyDocument;
             setTimeout(hideModalPerfil, 1500);
         } else {
             errorEl.textContent = data.error || 'Erro ao atualizar perfil.';
@@ -2354,7 +2364,7 @@ function setupRequestCreditsEvents() {
         } catch (err) {
             console.error('Falha ao confirmar solicitação de créditos:', err);
             if (errEl) {
-                errEl.textContent = 'Não foi possível confirmar a solicitação agora. Atualize a página antes de tentar novamente.';
+                errEl.textContent = 'Não foi possível confirmar o resultado. Consulte suas solicitações e cobranças antes de tentar novamente para evitar duplicidade.';
                 errEl.classList.remove('hidden');
             }
         } finally {
@@ -2660,10 +2670,7 @@ function loadCreditsAdminList() {
     listEl.innerHTML = '<div class="py-12 text-center"><span class="w-8 h-8 border-2 border-blue-600 border-t-transparent rounded-full animate-spin inline-block"></span></div>';
     if (errEl) errEl.classList.add('hidden');
     fetch(API_BASE + 'credit-requests.php', { credentials: 'include' }).then(function(r) { return r.json(); }).then(function(data) {
-        if (!data.success || !data.data || !data.data.items) {
-            listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
-            return;
-        }
+        if (!data.success || !data.data || !Array.isArray(data.data.items)) throw new Error(data.error || 'Erro ao carregar solicitações de créditos.');
         var items = data.data.items;
         if (items.length === 0) {
             listEl.innerHTML = '<div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]"><p class="text-slate-400 font-bold uppercase text-[10px]">Nenhuma solicitação de créditos</p></div>';
@@ -2701,20 +2708,24 @@ function loadCreditsAdminList() {
     });
 }
 
-function reviewCreditRequest(id, status) {
+function reviewCreditRequest(id, status, button, onSuccess) {
     var errEl = document.getElementById('credits-admin-error');
     if (errEl) errEl.classList.add('hidden');
+    if (button) button.disabled = true;
     fetch(API_BASE + 'credit-requests.php', {
         method: 'PUT',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify({ id: id, status: status })
     }).then(function(r) { return r.json(); }).then(function(data) {
-        if (data.success) loadCreditsAdminList();
-        else if (errEl) { errEl.textContent = data.error || 'Erro ao processar.'; errEl.classList.remove('hidden'); }
+        if (data.success) {
+            if (onSuccess) onSuccess(); else loadCreditsAdminList();
+        } else if (errEl) { errEl.textContent = data.error || 'Erro ao processar.'; errEl.classList.remove('hidden'); }
+        else if (typeof showToast === 'function') showToast(data.error || 'Erro ao processar solicitação.', 'error');
     }).catch(function() {
         if (errEl) { errEl.textContent = 'Erro de conexão.'; errEl.classList.remove('hidden'); }
-    });
+        else if (typeof showToast === 'function') showToast('Não foi possível confirmar o resultado. Atualize as solicitações antes de tentar novamente.', 'error');
+    }).finally(function() { if (button) button.disabled = false; });
 }
 function setActiveTab(tab) {
     // Bloqueia antes de alterar estado, título ou conteúdo. Isso protege
@@ -2879,12 +2890,15 @@ function loadTab(tab) {
     } else if (tab === 'search') {
         contentArea.innerHTML = getProspectingHTML();
         setupProspectingEvents();
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('maps-banner'), 'maps');
     } else if (tab === 'history') {
         loadHistory();
     } else if (tab === 'cnpj-lookup') {
         renderCnpjLookupTab(contentArea);
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('cnpj-banner'), 'cnpj');
     } else if (tab === 'cnpj-advanced') {
         renderCnpjAdvancedTab(contentArea);
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('cnpj-banner'), 'cnpj');
     } else if (tab === 'choose-plan') {
         renderChoosePlanTab(contentArea);
     } else if (tab === 'credits') {
@@ -2895,15 +2909,25 @@ function loadTab(tab) {
         renderRequestsTab(contentArea);
     } else if (tab === 'saas-config') {
         renderSaasConfigTab(contentArea);
+        if (window.BannerCampaign) window.BannerCampaign.admin(contentArea);
     } else if (tab === 'plans') {
         loadPlansTab(contentArea);
     } else if (tab === 'companies') {
         loadCompaniesTab(contentArea);
     } else if (tab === 'notifications') {
         // O Super Admin acessa o editor de modelos; os demais perfis acessam
-        // somente a caixa de entrada autorizada pela API.
+        // também podem enviar comunicados internos para toda a plataforma.
         if (isSuperAdmin && typeof window.renderNotificationsTab === 'function') {
             window.renderNotificationsTab(contentArea);
+            if (window.NotificationCenter && typeof window.NotificationCenter.renderInboxTab === 'function') {
+                var broadcastHeading = document.createElement('div');
+                broadcastHeading.className = 'mx-auto mt-10 max-w-5xl border-t border-slate-200 pt-8 dark:border-slate-700';
+                broadcastHeading.innerHTML = '<h3 class="text-xl font-black text-slate-900 dark:text-slate-100">Comunicados internos</h3><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Use o formulário abaixo para enviar uma orientação a toda a plataforma ou a um público específico.</p>';
+                contentArea.appendChild(broadcastHeading);
+                var broadcastInbox = document.createElement('div');
+                contentArea.appendChild(broadcastInbox);
+                window.NotificationCenter.renderInboxTab(broadcastInbox);
+            }
         } else if (typeof window.renderInboxTab === 'function') {
             window.renderInboxTab(contentArea);
         } else {
@@ -2924,6 +2948,7 @@ function loadTab(tab) {
     } else if (tab === 'linkedin') {
         if (typeof window.renderLinkedInTab === 'function') {
             window.renderLinkedInTab(contentArea);
+            if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('linkedin-banner'), 'linkedin');
         } else {
             contentArea.innerHTML = '<div class="p-8 text-sm font-semibold text-red-600">A interface de pesquisa LinkedIn não foi carregada. Verifique a inclusão de assets/js/linkedin-ui.js no index.php.</div>';
         }
@@ -3401,11 +3426,107 @@ function renderRequestsTab(contentArea) {
                 </div>
                 <button type="button" id="requests-refresh" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold px-4 py-3 rounded-2xl text-xs">Atualizar</button>
             </div>
+            <form id="credit-grant-form" class="mb-8 rounded-2xl border border-slate-200 dark:border-slate-700 p-5 space-y-4">
+                <h4 class="font-black text-slate-900 dark:text-slate-100">Adicionar créditos avulsos</h4>
+                <p class="text-sm text-slate-500">A concessão é imediata e válida no período atual do plano da empresa. Não gera cobrança.</p>
+                <div class="flex flex-wrap gap-3">
+                    <select id="credit-grant-tenant" required aria-label="Empresa" class="rounded-xl border border-slate-300 p-3 text-slate-900"><option value="">Carregando empresas...</option></select>
+                    <input id="credit-grant-amount" type="number" min="1" max="10000" step="1" required placeholder="Quantidade" aria-label="Quantidade de créditos" class="rounded-xl border border-slate-300 p-3 text-slate-900">
+                    <button id="credit-grant-submit" type="submit" class="bg-blue-600 hover:bg-blue-700 text-white font-bold px-4 py-3 rounded-xl text-xs">Adicionar créditos</button>
+                </div>
+                <p id="credit-grant-message" role="status" class="text-sm font-bold text-slate-600 dark:text-slate-300"></p>
+            </form>
             <div id="requests-credits-section" class="mb-8"></div>
             <div id="requests-plans-section" class="mb-8"></div>
         </div>`;
     document.getElementById('requests-refresh').onclick = loadRequestsTab;
+    if (String(AppState.user?.profile || '').toLowerCase() === 'super_admin') setupCreditGrantForm();
+    else document.getElementById('credit-grant-form').remove();
     loadRequestsTab();
+}
+
+function setupCreditGrantForm() {
+    const form = document.getElementById('credit-grant-form');
+    const tenant = document.getElementById('credit-grant-tenant');
+    const amount = document.getElementById('credit-grant-amount');
+    const button = document.getElementById('credit-grant-submit');
+    const message = document.getElementById('credit-grant-message');
+    const storageKey = 'credit-grant-pending-' + String(AppState.user.id);
+    let pending = null;
+    try { pending = JSON.parse(sessionStorage.getItem(storageKey) || 'null'); }
+    catch (error) {
+        message.textContent = 'Não foi possível acessar o armazenamento da sessão. A concessão está indisponível.';
+        button.disabled = true;
+        return;
+    }
+    fetch(API_BASE + 'tenants.php', { credentials: 'include' }).then(r => r.json()).then(data => {
+        if (!data.success || !Array.isArray(data.data?.items)) throw new Error(data.error || 'Erro ao listar empresas.');
+        tenant.innerHTML = '<option value="">Selecione a empresa</option>';
+        data.data.items.forEach(item => {
+            const option = document.createElement('option');
+            option.value = item.id;
+            option.textContent = item.name;
+            tenant.appendChild(option);
+        });
+        if (pending) {
+            tenant.value = String(pending.tenantId);
+            amount.value = pending.credits;
+            tenant.disabled = true;
+            amount.disabled = true;
+            message.textContent = 'Operação anterior sem confirmação. Clique novamente para consultar ou concluir sem duplicar.';
+        }
+    }).catch(error => {
+        tenant.innerHTML = '<option value="">Erro ao carregar empresas</option>';
+        button.disabled = true;
+        message.textContent = error.message || 'Erro ao carregar empresas.';
+    });
+    form.onsubmit = async function(event) {
+        event.preventDefault();
+        if (!pending) {
+            if (!window.crypto || !window.crypto.getRandomValues) {
+                message.textContent = 'O navegador não permite gerar uma referência segura para esta operação.';
+                return;
+            }
+            const bytes = new Uint8Array(16);
+            window.crypto.getRandomValues(bytes);
+            pending = { action: 'grant', tenantId: Number(tenant.value), credits: Number(amount.value), reference: Array.from(bytes, b => b.toString(16).padStart(2, '0')).join('') };
+            if (!confirm('Adicionar ' + pending.credits + ' créditos à empresa selecionada, sem gerar cobrança?')) { pending = null; return; }
+            try { sessionStorage.setItem(storageKey, JSON.stringify(pending)); }
+            catch (error) { pending = null; message.textContent = 'Não foi possível salvar a referência da operação. Nenhum crédito foi enviado.'; return; }
+            tenant.disabled = true;
+            amount.disabled = true;
+        }
+        button.disabled = true;
+        message.textContent = 'Processando...';
+        try {
+            const response = await fetch(API_BASE + 'credit-requests.php', {
+                method: 'POST', credentials: 'include', headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(pending)
+            });
+            const data = await response.json();
+            if (!response.ok || !data.success) {
+                message.textContent = data.error || 'Não foi possível processar a operação.';
+                if (response.status === 404 || response.status === 422) {
+                    sessionStorage.removeItem(storageKey);
+                    pending = null;
+                    tenant.disabled = false;
+                    amount.disabled = false;
+                } else {
+                    message.textContent += ' Mantenha esta aba e tente novamente com a mesma operação após resolver o problema.';
+                }
+            } else {
+                sessionStorage.removeItem(storageKey);
+                pending = null;
+                tenant.disabled = false;
+                amount.disabled = false;
+                amount.value = '';
+                message.textContent = data.message || 'Créditos adicionados.';
+            }
+        } catch (error) {
+            console.error('Concessão de créditos sem confirmação:', error);
+            message.textContent = 'Resultado não confirmado. Clique novamente para consultar ou concluir sem duplicar.';
+        } finally { button.disabled = false; }
+    };
 }
 
 function loadRequestsTab() {
@@ -3421,8 +3542,10 @@ function loadRequestsTab() {
         fetch(API_BASE + 'credit-requests.php', { credentials: 'include' }).then(r => r.json()),
         fetch(API_BASE + 'plan-requests.php', { credentials: 'include' }).then(r => r.json())
     ]).then(([creditsData, plansData]) => {
-        const credits = creditsData?.success && Array.isArray(creditsData.data?.items) ? creditsData.data.items : [];
-        const plans = plansData?.success && Array.isArray(plansData.data?.items) ? plansData.data.items : [];
+        if (!creditsData?.success || !Array.isArray(creditsData.data?.items)) throw new Error(creditsData?.error || 'Erro ao listar créditos.');
+        if (!plansData?.success || !Array.isArray(plansData.data?.items)) throw new Error(plansData?.error || 'Erro ao listar planos.');
+        const credits = creditsData.data.items;
+        const plans = plansData.data.items;
         renderRequestsSection(creditsSection, 'Solicitações de créditos', credits, 'credit');
         renderRequestsSection(plansSection, 'Solicitações de planos', plans, 'plan');
     }).catch(error => {
@@ -3463,7 +3586,7 @@ function renderRequestsSection(sectionEl, title, items, kind) {
     sectionEl.querySelectorAll('.request-approve, .request-reject').forEach(button => {
         button.onclick = () => {
             const status = button.classList.contains('request-approve') ? 'approved' : 'rejected';
-            if (button.dataset.kind === 'credit') reviewCreditRequest(button.dataset.id, status);
+            if (button.dataset.kind === 'credit') reviewCreditRequest(button.dataset.id, status, button, loadRequestsTab);
             else reviewPlanRequest(button.dataset.id, status, document.getElementById('content-area'), button, loadRequestsTab);
         };
     });
@@ -5217,6 +5340,7 @@ function getProspectingHTML() {
                     </div>
                 </div>
             </div>
+            <div id="maps-banner"></div>
             ${isPilotSuperAdmin ? '<div id="maps-pilot-live-metrics" class="mb-6 hidden rounded-2xl border border-sky-200 bg-sky-50 px-5 py-4 text-xs text-sky-900 dark:border-sky-900/70 dark:bg-sky-950/35 dark:text-sky-100"></div>' : ''}
             
             <div id="error-info" class="hidden mb-8 p-5 bg-amber-50 border-l-4 border-amber-400 text-amber-900 rounded-r-2xl shadow-sm"></div>
@@ -6420,11 +6544,13 @@ function displayHistory() {
     if (AppState.history.length === 0) {
         contentArea.innerHTML = `
             <div class="max-w-5xl mx-auto">
+                <div id="history-banner"></div>
                 <div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]">
                     <p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum registro encontrado</p>
                 </div>
             </div>
         `;
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('history-banner'), 'history');
         return;
     }
     contentArea.innerHTML = `
@@ -6452,6 +6578,7 @@ function displayHistory() {
                     </div>
                 </div>
             </div>
+            <div id="history-banner"></div>
             <div class="flex justify-between items-center mb-10">
                 <div><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Histórico Recente</h3></div>
                 <button id="btn-clear-history" class="text-xs font-extrabold text-red-500 hover:bg-red-50 px-5 py-2 rounded-xl">Limpar Tudo</button>
@@ -6459,6 +6586,7 @@ function displayHistory() {
             <div class="space-y-4" id="history-list"></div>
         </div>
     `;
+    if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('history-banner'), 'history');
     var listEl = document.getElementById('history-list');
     var selectedHistorySource = 'all';
     function refreshFilteredList() {
@@ -7742,6 +7870,7 @@ function renderCnpjLookupTab(contentArea) {
                 </div>
             </div>
 
+            <div id="cnpj-banner"></div>
             <!-- Resultado da Consulta -->
             <div id="cnpj-simple-result" class="hidden"></div>
         </div>
@@ -8000,6 +8129,7 @@ function renderCnpjAdvancedTab(contentArea) {
                 </div>
             </div>
 
+            <div id="cnpj-banner"></div>
             <!-- Header dos Resultados -->
             <div id="adv-results-header" class="hidden mb-6 flex justify-between items-center px-2">
                 <h4 class="text-lg font-black text-slate-900 dark:text-slate-100">Empresas Encontradas (<span id="adv-total-count">0</span>)</h4>

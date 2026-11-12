@@ -1,5 +1,43 @@
 [
   {
+    "version": "20261112-creditos-1",
+    "date": "2026-11-12",
+    "title": "Solicitações e concessão de créditos",
+    "items": [
+      "O super administrador pode adicionar créditos avulsos sem cobrança a uma empresa para o período atual.",
+      "O Asaas usa os dados cadastrais do usuário e evita repetir uma cobrança que ainda não foi confirmada.",
+      "A análise de solicitações de créditos informa falhas e impede a aprovação duplicada."
+    ]
+  },
+  {
+    "version": "20261112-integracao-1",
+    "date": "2026-11-12",
+    "title": "Integração das atualizações",
+    "items": [
+      "A configuração de scripts preserva a pesquisa Instagram e as melhorias recentes junto aos banners e notificações.",
+      "O super administrador também pode habilitar banners entre o formulário e os resultados do Instagram."
+    ]
+  },
+  {
+    "version": "20261112-banner-1",
+    "date": "2026-11-12",
+    "title": "Banners de publicidade",
+    "items": [
+      "O super administrador pode configurar uma campanha com imagem, destino, páginas e período em Empresa SaaS.",
+      "O banner identificado como publicidade aparece entre os filtros e os resultados das pesquisas e do histórico."
+    ]
+  },
+  {
+    "version": "20261112-plan-data-reminder-1",
+    "date": "2026-11-12",
+    "title": "Orientação de contratação de planos",
+    "items": [
+      "O administrador da empresa pode atualizar o CPF/CNPJ cadastral diretamente no perfil.",
+      "A seleção de um plano envia ao WhatsApp cadastrado uma mensagem editável na Central de Notificações, orientando a atualização dos dados.",
+      "A Central mantém o envio manual de comunicados internos para toda a plataforma, e a contratação não é bloqueada pelo aviso."
+    ]
+  },
+  {
     "version": "20261017-linkedin-apify-search-modal-7",
     "date": "2026-10-17",
     "title": "Contingência LinkedIn e modal de pesquisa",
