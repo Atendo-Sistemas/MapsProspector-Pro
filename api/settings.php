@@ -347,7 +347,7 @@ try {
         if (function_exists('setPlatformSetting')) {
             setPlatformSetting($db, 'asaas_active', '0');
         }
-        if (!$cleared || asaSecretGet($db, 'asaas_api_key') !== '' || asaSecretGet($db, 'asaas_webhook_token') !== '') {
+        if (!$cleared || asaSecretGet('asaas_api_key') !== '' || asaSecretGet('asaas_webhook_token') !== '') {
             settingsError('Não foi possível confirmar a remoção da configuração Asaas.', 500);
         }
         settingsSuccess([
@@ -360,7 +360,7 @@ try {
 
     if ($isSuperAdmin && !empty($input['asaasGenerateWebhookToken'])) {
         $generatedToken = strtolower(bin2hex(random_bytes(16)));
-        if (!asaSecretPersist($db, 'asaas_webhook_token', $generatedToken) || asaSecretGet($db, 'asaas_webhook_token') !== $generatedToken) {
+        if (!asaSecretPersist($db, 'asaas_webhook_token', $generatedToken) || asaSecretGet('asaas_webhook_token') !== $generatedToken) {
             settingsError('Não foi possível gerar e confirmar o token do webhook Asaas.', 500);
         }
         $forwardedProto = strtolower(trim((string) ($_SERVER['HTTP_X_FORWARDED_PROTO'] ?? '')));

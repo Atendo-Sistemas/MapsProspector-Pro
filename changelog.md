@@ -4,6 +4,13 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+## [1.4.12] - 2026-11-12
+
+- Centralizada a configuração Asaas em Empresa SaaS, mantendo as credenciais existentes e o resumo de pagamentos.
+- A rotação do token de webhook informa que ele deve ser atualizado no Asaas; a gravação confirma as credenciais persistidas.
+
+---
+
 ## [1.4.11] - 2026-11-12
 
 - Exibido o histórico de solicitações manuais de planos aprovadas e recusadas na área de solicitações.

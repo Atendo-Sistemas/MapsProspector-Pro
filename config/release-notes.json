@@ -1,5 +1,14 @@
 [
   {
+    "version": "20261112-asaas-config-1",
+    "date": "2026-11-12",
+    "title": "Configuração centralizada do Asaas",
+    "items": [
+      "A configuração de pagamentos Asaas fica apenas em Empresa SaaS, preservando a chave de API e o token de webhook existentes.",
+      "A geração de token alerta sobre a atualização necessária no painel Asaas e exibe o novo valor para cópia."
+    ]
+  },
+  {
     "version": "20261112-historico-1",
     "date": "2026-11-12",
     "title": "Histórico de solicitações de planos",
