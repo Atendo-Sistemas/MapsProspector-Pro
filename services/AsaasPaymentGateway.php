@@ -129,6 +129,15 @@ final class MapsProspectorAsaasPaymentGateway
              VALUES (?, ?, ?, ?, 'prospecting', ?, ?, ?, ?, 'pending', ?)"
         );
         $insert->execute([(int) $tenantId, (int) $user['id'], (int) $plan['id'], (string) $plan['slug'], $amountCents, $customerId, $subscriptionId, $paymentUrl !== '' ? $paymentUrl : null, $nextDueDate]);
+        try {
+            require_once __DIR__ . '/notificationService.php';
+            $sent = NotificationService::notifyPlanSelection($db, (int) $user['id'], (int) $plan['id'], $subscriptionId);
+            if (!$sent) {
+                error_log('Asaas plan selection WhatsApp notification was not delivered.');
+            }
+        } catch (Throwable $notificationError) {
+            error_log('Asaas plan selection WhatsApp notification: ' . $notificationError->getMessage());
+        }
         return [
             'mode' => 'asaas',
             'payment_url' => $paymentUrl,

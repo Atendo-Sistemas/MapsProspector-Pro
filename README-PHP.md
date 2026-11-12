@@ -147,3 +147,9 @@ Proprietário - **Atendo Sistemas** em parceria com **GFSISTEMA**
 
 **Versão PHP** - Desenvolvido para XAMPP  
 **Baseado na versão React original**
+
+## Banner de publicidade
+
+Em **Empresa SaaS**, o super administrador pode ativar uma campanha, informar a URL HTTPS da imagem, o link de destino opcional, uma descrição acessível, as páginas e o período de exibição. A data final é inclusiva e as datas usam o horário do servidor. O banner aparece identificado como publicidade entre os filtros e os resultados de Maps, LinkedIn, CNPJ e histórico.
+
+A configuração usa a tabela existente `platform_settings`; não é necessária uma nova migração. Imagens externas são carregadas pelo navegador e seu servidor pode receber o IP do visitante; prefira imagens hospedadas pela própria plataforma.

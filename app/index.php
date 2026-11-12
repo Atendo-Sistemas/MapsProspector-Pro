@@ -485,6 +485,12 @@ if (!headers_sent()) {
                         <input type="text" id="perfil-phone" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="(00) 00000-0000">
                     </div>
 
+                    <div id="perfil-document-wrap" class="hidden">
+                        <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">CPF ou CNPJ da empresa</label>
+                        <input type="text" id="perfil-company-document" inputmode="numeric" maxlength="18" autocomplete="off" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="Informe 11 dígitos (CPF) ou 14 (CNPJ)">
+                        <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Necessário para concluir a contratação de planos. Pode ser atualizado a qualquer momento.</p>
+                    </div>
+
                     <div class="pt-2">
                         <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">Senha Atual</label>
                         <input type="password" id="perfil-senha-atual" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="••••••••">
@@ -627,14 +633,15 @@ if (!headers_sent()) {
 
 <script src="/assets/js/export-replace.js?v=20260821-65"></script>
 <script src="/assets/js/search-loading.js?v=20261017-linkedin-apify-search-modal-7"></script>
-<script src="/assets/js/linkedin-ui.js?v=20261017-linkedin-apify-search-modal-7"></script>
+<script src="/assets/js/linkedin-ui.js?v=20261112-banner-1"></script>
 <script src="/assets/js/help-ui.js?v=20260821-65"></script>
 <script src="/assets/js/apify-usage-ui.js?v=20260822-88-traffic-referrals-1"></script>
-<script src="/assets/js/notification-ui.js?v=20261010-reengagement-editor-1"></script>
+<script src="/assets/js/notification-ui.js?v=20261112-plan-data-reminder-1"></script>
 <script src="/assets/js/notification-center.js?v=20261009-reengagement-1"></script>
+<script src="/assets/js/banner-campaign.js?v=20261112-banner-1"></script>
 <script src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
 <script src="/assets/js/site-traffic.js?v=20261009-traffic-1" defer></script>
-<script src="/app/app.js?v=20261017-linkedin-apify-search-modal-7"></script>
+<script src="/app/app.js?v=20261112-banner-1"></script>
 <script src="/assets/js/help.js?v=20260821-65"></script>
 <script src="/assets/js/help-admin.js?v=20260821-65"></script>
 <script src="/assets/js/pwa.js?v=20261009-pwa-1"></script>

@@ -193,6 +193,38 @@ class NotificationService
         self::sendWhatsApp($db, self::platformAdminNumber($db), self::notifFill($template, ['plataforma' => self::platformName($db), 'empresa' => $companyName, 'acao' => $planName]), self::makeEventKey('plan-request', [$companyName, $planName]));
     }
 
+    public static function notifyPlanSelection(PDO $db, int $userId, int $planId, string $reference): bool
+    {
+        $stmt = $db->prepare(
+            'SELECT u.name AS user_name, u.phone, t.name AS company_name, p.name AS plan_name
+               FROM users u
+               LEFT JOIN tenants t ON t.id = u.tenant_id
+               INNER JOIN plans p ON p.id = ?
+              WHERE u.id = ?
+              LIMIT 1'
+        );
+        $stmt->execute([$planId, $userId]);
+        $contact = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!is_array($contact) || trim((string) ($contact['phone'] ?? '')) === '') {
+            return false;
+        }
+
+        $template = self::setting($db, 'notif_template:plan-selected-whatsapp')
+            ?: 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Para concluir a compra, atualize o CPF ou CNPJ nos dados cadastrais do seu perfil e depois retorne à contratação do plano.';
+        $message = self::notifFill($template, [
+            'plataforma' => self::platformName($db),
+            'empresa' => (string) ($contact['company_name'] ?? 'sua empresa'),
+            'usuario' => (string) ($contact['user_name'] ?? 'Usuário'),
+            'acao' => (string) ($contact['plan_name'] ?? 'plano selecionado'),
+        ]);
+        return self::sendWhatsApp(
+            $db,
+            (string) $contact['phone'],
+            $message,
+            self::makeEventKey('plan-selected', [$userId, $planId, $reference])
+        );
+    }
+
     public static function notifyPlanApproval(PDO $db, string $companyName, string $planName, string $clientEmail, ?string $clientPhone = null, ?string $paymentReference = null): void
     {
         if ($clientPhone) {

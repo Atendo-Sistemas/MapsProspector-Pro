@@ -4,6 +4,24 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+## [1.4.7] - 2026-11-12
+
+- Campanha de banner configurável pelo super administrador em Empresa SaaS, com imagem HTTPS, destino, páginas e período.
+- Publicidade identificada entre os filtros e resultados de Maps, LinkedIn, CNPJ e histórico.
+- Imagens hospedadas externamente são carregadas diretamente pelo navegador; o servidor da imagem pode receber o IP do visitante.
+
+---
+
+## [1.4.6] - 2026-11-12
+
+### Orientação de contratação de planos
+
+- O administrador da empresa pode atualizar o CPF/CNPJ cadastral diretamente no perfil.
+- A seleção de um plano envia ao WhatsApp cadastrado uma mensagem editável na Central de Notificações, orientando a atualização dos dados.
+- A Central já permite comunicados internos para toda a plataforma; o novo aviso de contratação não bloqueia o fluxo de compra.
+
+---
+
 # 📢 Changelog – MapsProspector Pro v2.0 (PHP/XAMPP)
 
 ## 🚀 Novidades Principais

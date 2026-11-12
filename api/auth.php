@@ -76,15 +76,17 @@ if ($method === 'POST') {
         $tokenUsage = ['used' => 0, 'limit' => 0, 'planLimit' => 0, 'bonus' => 0, 'available' => 0, 'limitReached' => false, 'modules' => []];
         $tenantPlanId = '';
         $tenantPlanName = '';
+        $tenantDocument = '';
         $trialDaysLeft = 30;
         $trialExpired = false;
 
         if ($tenantId) {
-            $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+            $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
             $stmtT->execute([$tenantId]);
             $row = $stmtT->fetch();
             if ($row) {
                 $tenantName = $row['name'];
+                $tenantDocument = (string) ($row['cnpj'] ?? '');
                 $tenantStatus = $row['status'] ?? 'active';
                 $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
                 $tenantPlanName = $row['plan_name'] ?? '';
@@ -144,6 +146,7 @@ if ($method === 'POST') {
                 'status' => $tenantStatus,
                 'planId' => $tenantPlanId,
                 'planName' => $tenantPlanName,
+                'companyDocument' => $tenantDocument,
                 'trialDaysLeft' => $trialDaysLeft,
                 'trialExpired' => $trialExpired
             ],
@@ -170,15 +173,17 @@ if ($method === 'POST') {
                 $tokenUsage = ['used' => 0, 'limit' => 0, 'planLimit' => 0, 'bonus' => 0, 'available' => 0, 'limitReached' => false, 'modules' => []];
                 $tenantPlanId = '';
                 $tenantPlanName = '';
+                $tenantDocument = '';
                 $trialDaysLeft = 30;
                 $trialExpired = false;
 
                 if ($tenantId) {
-                    $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+                    $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
                     $stmtT->execute([$tenantId]);
                     $row = $stmtT->fetch();
                     if ($row) {
                         $tenantName = $row['name'];
+                        $tenantDocument = (string) ($row['cnpj'] ?? '');
                         $tenantStatus = $row['status'] ?? 'active';
                         $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
                         $tenantPlanName = $row['plan_name'] ?? '';
@@ -225,6 +230,7 @@ if ($method === 'POST') {
                         'status' => $tenantStatus,
                         'planId' => $tenantPlanId,
                         'planName' => $tenantPlanName,
+                        'companyDocument' => $tenantDocument,
                         'trialDaysLeft' => $trialDaysLeft,
                         'trialExpired' => $trialExpired
                     ],
@@ -299,14 +305,16 @@ if ($method === 'POST') {
         $tokenUsage = ['used' => 0, 'limit' => 0, 'planLimit' => 0, 'bonus' => 0, 'available' => 0, 'limitReached' => false, 'modules' => []];
         $tenantPlanId = '';
         $tenantPlanName = '';
+        $tenantDocument = '';
         $trialDaysLeft = 30;
         $trialExpired = false;
 
-        $stmtT = $db->prepare("SELECT t.name, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+        $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
         $stmtT->execute([$tenantId]);
         $row = $stmtT->fetch();
         if ($row) {
             $tenantName = $row['name'];
+            $tenantDocument = (string) ($row['cnpj'] ?? '');
             $tenantStatus = $row['status'] ?? 'active';
             $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
             $tenantPlanName = $row['plan_name'] ?? '';
@@ -348,6 +356,7 @@ if ($method === 'POST') {
                 'status' => $tenantStatus,
                 'planId' => $tenantPlanId,
                 'planName' => $tenantPlanName,
+                'companyDocument' => $tenantDocument,
                 'trialDaysLeft' => $trialDaysLeft,
                 'trialExpired' => $trialExpired
             ],
@@ -381,6 +390,13 @@ if ($method === 'POST') {
         $currentPassword = $input['currentPassword'] ?? '';
         $newPassword = $input['newPassword'] ?? '';
         $newPhone = isset($input['phone']) ? sanitizeInput($input['phone']) : null;
+        $companyDocument = null;
+        if (array_key_exists('companyDocument', $input)) {
+            $companyDocument = preg_replace('/\D+/', '', (string) $input['companyDocument']);
+            if ($companyDocument !== '' && !in_array(strlen($companyDocument), [11, 14], true)) {
+                jsonError('Informe um CPF ou CNPJ válido, ou deixe o campo em branco.', 422);
+            }
+        }
         
         try {
             $db = Database::getInstance()->getConnection();
@@ -388,7 +404,7 @@ if ($method === 'POST') {
             jsonError($e->getMessage(), 500);
         }
 
-        $stmt = $db->prepare("SELECT id, password FROM users WHERE id = ?");
+        $stmt = $db->prepare("SELECT id, password, tenant_id, profile FROM users WHERE id = ?");
         $stmt->execute([$_SESSION['user_id']]);
         $user = $stmt->fetch();
         
@@ -396,21 +412,39 @@ if ($method === 'POST') {
             jsonError('Usuário não encontrado.', 404);
         }
 
-        // Verifica a senha atual se o usuário estiver tentando mudar a senha
-        if (!empty($newPassword)) {
-            if (empty($currentPassword) || !password_verify($currentPassword, $user['password'])) {
-                jsonError('Senha atual incorreta.');
+        if ($companyDocument !== null && (strtolower((string) $user['profile']) !== 'admin' || (int) ($user['tenant_id'] ?? 0) <= 0)) {
+            jsonError('Somente o administrador da empresa pode atualizar o CPF/CNPJ.', 403);
+        }
+
+        $db->beginTransaction();
+        try {
+            if (!empty($newPassword)) {
+                if (empty($currentPassword) || !password_verify($currentPassword, $user['password'])) {
+                    $db->rollBack();
+                    jsonError('Senha atual incorreta.');
+                }
+                if (strlen($newPassword) < 6) {
+                    $db->rollBack();
+                    jsonError('A nova senha deve ter no mínimo 6 caracteres.');
+                }
+                $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
+                $stmt = $db->prepare("UPDATE users SET password = ?, phone = ? WHERE id = ?");
+                $stmt->execute([$newHash, $newPhone, $_SESSION['user_id']]);
+            } else {
+                $stmt = $db->prepare("UPDATE users SET phone = ? WHERE id = ?");
+                $stmt->execute([$newPhone, $_SESSION['user_id']]);
             }
-            if (strlen($newPassword) < 6) {
-                jsonError('A nova senha deve ter no mínimo 6 caracteres.');
+            if ($companyDocument !== null) {
+                $stmt = $db->prepare('UPDATE tenants SET cnpj = ? WHERE id = ?');
+                $stmt->execute([$companyDocument !== '' ? $companyDocument : null, (int) $user['tenant_id']]);
             }
-            $newHash = password_hash($newPassword, PASSWORD_DEFAULT);
-            $stmt = $db->prepare("UPDATE users SET password = ?, phone = ? WHERE id = ?");
-            $stmt->execute([$newHash, $newPhone, $_SESSION['user_id']]);
-        } else {
-            // Apenas atualiza o telefone, sem mudar a senha
-            $stmt = $db->prepare("UPDATE users SET phone = ? WHERE id = ?");
-            $stmt->execute([$newPhone, $_SESSION['user_id']]);
+            $db->commit();
+        } catch (Throwable $e) {
+            if ($db->inTransaction()) {
+                $db->rollBack();
+            }
+            error_log('auth update_profile failed: ' . $e->getMessage());
+            jsonError('Não foi possível atualizar o perfil agora.', 500);
         }
         
         jsonSuccess(null, 'Perfil atualizado com sucesso.');

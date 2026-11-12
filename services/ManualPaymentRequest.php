@@ -104,6 +104,17 @@ function mapsCreateManualPaymentRequest(PDO $db, array $user, int $tenantId, str
         } catch (Throwable $notificationError) {
             error_log('manual payment request notification: ' . $notificationError->getMessage());
         }
+        if ($type === 'plan') {
+            try {
+                require_once __DIR__ . '/notificationService.php';
+                $sent = NotificationService::notifyPlanSelection($db, (int) ($user['id'] ?? 0), $planId, (string) $requestId);
+                if (!$sent) {
+                    error_log('manual plan selection WhatsApp notification was not delivered.');
+                }
+            } catch (Throwable $notificationError) {
+                error_log('manual plan selection WhatsApp notification: ' . $notificationError->getMessage());
+            }
+        }
 
         return ['mode' => 'manual', 'requestId' => $requestId, 'alreadyPending' => false];
     } catch (Throwable $e) {

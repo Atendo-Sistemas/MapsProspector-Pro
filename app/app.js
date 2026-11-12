@@ -1604,6 +1604,11 @@ function showModalPerfil() {
     
     var phone = document.getElementById('perfil-phone');
     if (phone && AppState.user) phone.value = AppState.user.phone || '';
+    var documentWrap = document.getElementById('perfil-document-wrap');
+    var companyDocument = document.getElementById('perfil-company-document');
+    var canEditCompanyDocument = String(AppState.user && AppState.user.profile || '').toLowerCase() === 'admin';
+    if (documentWrap) documentWrap.classList.toggle('hidden', !canEditCompanyDocument);
+    if (companyDocument && canEditCompanyDocument) companyDocument.value = (AppState.tenant && AppState.tenant.companyDocument) || '';
     document.body.style.overflow = 'hidden';
 }
 
@@ -1620,6 +1625,9 @@ async function handlePerfilSenhaSubmit(e) {
     var newPassword = document.getElementById('perfil-senha-nova')?.value || '';
     var newPasswordConfirm = document.getElementById('perfil-senha-confirm')?.value || '';
     var newPhone = document.getElementById('perfil-phone')?.value || '';
+    var companyDocumentEl = document.getElementById('perfil-company-document');
+    var canEditCompanyDocument = String(AppState.user && AppState.user.profile || '').toLowerCase() === 'admin';
+    var companyDocument = companyDocumentEl ? companyDocumentEl.value.replace(/\D/g, '') : '';
     var errorEl = document.getElementById('perfil-error');
     var successEl = document.getElementById('perfil-success');
     var btn = document.getElementById('btn-perfil-salvar');
@@ -1646,13 +1654,15 @@ async function handlePerfilSenhaSubmit(e) {
                 action: 'update_profile', 
                 currentPassword: currentPassword, 
                 newPassword: newPassword,
-                phone: newPhone 
+                phone: newPhone,
+                companyDocument: canEditCompanyDocument ? companyDocument : undefined
             })
         });
         var data = await res.json();
         if (data.success) {
             if (successEl) { successEl.textContent = 'Perfil atualizado com sucesso.'; successEl.classList.remove('hidden'); }
             if (AppState.user) AppState.user.phone = newPhone;
+            if (canEditCompanyDocument && AppState.tenant) AppState.tenant.companyDocument = companyDocument;
             setTimeout(hideModalPerfil, 1500);
         } else {
             errorEl.textContent = data.error || 'Erro ao atualizar perfil.';
@@ -2870,12 +2880,15 @@ function loadTab(tab) {
     } else if (tab === 'search') {
         contentArea.innerHTML = getProspectingHTML();
         setupProspectingEvents();
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('maps-banner'), 'maps');
     } else if (tab === 'history') {
         loadHistory();
     } else if (tab === 'cnpj-lookup') {
         renderCnpjLookupTab(contentArea);
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('cnpj-banner'), 'cnpj');
     } else if (tab === 'cnpj-advanced') {
         renderCnpjAdvancedTab(contentArea);
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('cnpj-banner'), 'cnpj');
     } else if (tab === 'choose-plan') {
         renderChoosePlanTab(contentArea);
     } else if (tab === 'credits') {
@@ -2886,15 +2899,25 @@ function loadTab(tab) {
         renderRequestsTab(contentArea);
     } else if (tab === 'saas-config') {
         renderSaasConfigTab(contentArea);
+        if (window.BannerCampaign) window.BannerCampaign.admin(contentArea);
     } else if (tab === 'plans') {
         loadPlansTab(contentArea);
     } else if (tab === 'companies') {
         loadCompaniesTab(contentArea);
     } else if (tab === 'notifications') {
         // O Super Admin acessa o editor de modelos; os demais perfis acessam
-        // somente a caixa de entrada autorizada pela API.
+        // também podem enviar comunicados internos para toda a plataforma.
         if (isSuperAdmin && typeof window.renderNotificationsTab === 'function') {
             window.renderNotificationsTab(contentArea);
+            if (window.NotificationCenter && typeof window.NotificationCenter.renderInboxTab === 'function') {
+                var broadcastHeading = document.createElement('div');
+                broadcastHeading.className = 'mx-auto mt-10 max-w-5xl border-t border-slate-200 pt-8 dark:border-slate-700';
+                broadcastHeading.innerHTML = '<h3 class="text-xl font-black text-slate-900 dark:text-slate-100">Comunicados internos</h3><p class="mt-1 text-sm text-slate-500 dark:text-slate-400">Use o formulário abaixo para enviar uma orientação a toda a plataforma ou a um público específico.</p>';
+                contentArea.appendChild(broadcastHeading);
+                var broadcastInbox = document.createElement('div');
+                contentArea.appendChild(broadcastInbox);
+                window.NotificationCenter.renderInboxTab(broadcastInbox);
+            }
         } else if (typeof window.renderInboxTab === 'function') {
             window.renderInboxTab(contentArea);
         } else {
@@ -2915,6 +2938,7 @@ function loadTab(tab) {
     } else if (tab === 'linkedin') {
         if (typeof window.renderLinkedInTab === 'function') {
             window.renderLinkedInTab(contentArea);
+            if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('linkedin-banner'), 'linkedin');
         } else {
             contentArea.innerHTML = '<div class="p-8 text-sm font-semibold text-red-600">A interface de pesquisa LinkedIn não foi carregada. Verifique a inclusão de assets/js/linkedin-ui.js no index.php.</div>';
         }
@@ -5202,6 +5226,7 @@ function getProspectingHTML() {
                     </div>
                 </div>
             </div>
+            <div id="maps-banner"></div>
             ${isPilotSuperAdmin ? '<div id="maps-pilot-live-metrics" class="mb-6 hidden rounded-2xl border border-sky-200 bg-sky-50 px-5 py-4 text-xs text-sky-900 dark:border-sky-900/70 dark:bg-sky-950/35 dark:text-sky-100"></div>' : ''}
             
             <div id="error-info" class="hidden mb-8 p-5 bg-amber-50 border-l-4 border-amber-400 text-amber-900 rounded-r-2xl shadow-sm"></div>
@@ -6322,11 +6347,13 @@ function displayHistory() {
     if (AppState.history.length === 0) {
         contentArea.innerHTML = `
             <div class="max-w-5xl mx-auto">
+                <div id="history-banner"></div>
                 <div class="py-24 text-center border-2 border-dashed border-slate-200 dark:border-slate-600 rounded-[2rem]">
                     <p class="text-slate-400 font-bold uppercase text-[10px]">Nenhum registro encontrado</p>
                 </div>
             </div>
         `;
+        if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('history-banner'), 'history');
         return;
     }
     contentArea.innerHTML = `
@@ -6347,6 +6374,7 @@ function displayHistory() {
                     </div>
                 </div>
             </div>
+            <div id="history-banner"></div>
             <div class="flex justify-between items-center mb-10">
                 <div><h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Histórico Recente</h3></div>
                 <button id="btn-clear-history" class="text-xs font-extrabold text-red-500 hover:bg-red-50 px-5 py-2 rounded-xl">Limpar Tudo</button>
@@ -6354,6 +6382,7 @@ function displayHistory() {
             <div class="space-y-4" id="history-list"></div>
         </div>
     `;
+    if (window.BannerCampaign) window.BannerCampaign.render(document.getElementById('history-banner'), 'history');
     var listEl = document.getElementById('history-list');
     function refreshFilteredList() {
         var searchVal = (document.getElementById('history-search') && document.getElementById('history-search').value) || '';
@@ -7621,6 +7650,7 @@ function renderCnpjLookupTab(contentArea) {
                 </div>
             </div>
 
+            <div id="cnpj-banner"></div>
             <!-- Resultado da Consulta -->
             <div id="cnpj-simple-result" class="hidden"></div>
         </div>
@@ -7859,6 +7889,7 @@ function renderCnpjAdvancedTab(contentArea) {
                 </div>
             </div>
 
+            <div id="cnpj-banner"></div>
             <!-- Header dos Resultados -->
             <div id="adv-results-header" class="hidden mb-6 flex justify-between items-center px-2">
                 <h4 class="text-lg font-black text-slate-900 dark:text-slate-100">Empresas Encontradas (<span id="adv-total-count">0</span>)</h4>
