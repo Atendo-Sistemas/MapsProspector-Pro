@@ -1,0 +1,789 @@
+{
+  "classe": "0322",
+  "grupo": "032",
+  "divisao": "03",
+  "secao": "A",
+  "total_termos": 78,
+  "termos": [
+    {
+      "termo": "Criação de peixes em água doce",
+      "codigo_cnae": "0322101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de peixes em água doce",
+      "codigo_cnae": "0322101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de camarões em água doce",
+      "codigo_cnae": "0322102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Camarões",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camarões",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Camaroes",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camarões",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de camarões em água doce",
+      "codigo_cnae": "0322102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de ostras e mexilhões em água doce",
+      "codigo_cnae": "0322103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ostras",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ostras",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ostras",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ostras",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Mexilhões",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mexilhões",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Mexilhoes",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mexilhões",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de ostras e mexilhões em água doce",
+      "codigo_cnae": "0322103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de peixes ornamentais em água doce",
+      "codigo_cnae": "0322104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Peixes",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixes",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ornamentais",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ornamentais",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ornamentais",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ornamentais",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de peixes ornamentais em água doce",
+      "codigo_cnae": "0322104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ranicultura",
+      "codigo_cnae": "0322105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ranicultura",
+      "codigo_cnae": "0322105",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "ranicultura",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ranicultura",
+      "codigo_cnae": "0322105",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "ranicultura",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Ranicultura",
+      "codigo_cnae": "0322105",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de jacaré",
+      "codigo_cnae": "0322106",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0322106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0322106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Jacaré",
+      "codigo_cnae": "0322106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jacaré",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Jacare",
+      "codigo_cnae": "0322106",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jacaré",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Criação de jacaré",
+      "codigo_cnae": "0322106",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Atividades de apoio à aqüicultura em água doce",
+      "codigo_cnae": "0322107",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0322107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "0322107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Aqüicultura",
+      "codigo_cnae": "0322107",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "aqüicultura",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Aquicultura",
+      "codigo_cnae": "0322107",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "aqüicultura",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0322107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0322107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322107",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Atividades de apoio à aqüicultura em água doce",
+      "codigo_cnae": "0322107",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Cultivos e semicultivos da aqüicultura em água doce não especificados anteriormente",
+      "codigo_cnae": "0322199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Cultivos",
+      "codigo_cnae": "0322199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Cultivos",
+      "codigo_cnae": "0322199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Semicultivos",
+      "codigo_cnae": "0322199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "semicultivos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Semicultivos",
+      "codigo_cnae": "0322199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "semicultivos",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Aqüicultura",
+      "codigo_cnae": "0322199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "aqüicultura",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Aquicultura",
+      "codigo_cnae": "0322199",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "aqüicultura",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Água",
+      "codigo_cnae": "0322199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Agua",
+      "codigo_cnae": "0322199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "água",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Doce",
+      "codigo_cnae": "0322199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "doce",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0322199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "0322199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "A",
+      "divisao": "03"
+    },
+    {
+      "termo": "Cultivos e semicultivos da aqüicultura em água doce não especificados anteriormente",
+      "codigo_cnae": "0322199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "03"
+    }
+  ]
+}

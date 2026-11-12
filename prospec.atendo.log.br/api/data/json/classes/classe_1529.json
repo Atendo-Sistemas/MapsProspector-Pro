@@ -1,0 +1,89 @@
+{
+  "classe": "1529",
+  "grupo": "152",
+  "divisao": "15",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos de couro não especificados anteriormente",
+      "codigo_cnae": "1529700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "1529700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Fabricação de artefatos de couro não especificados anteriormente",
+      "codigo_cnae": "1529700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "15"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "classe": "8219",
+  "grupo": "821",
+  "divisao": "82",
+  "secao": "N",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotocópias",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocopias",
+      "codigo_cnae": "8219901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotocópias",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Fotocópias",
+      "codigo_cnae": "8219901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente",
+      "codigo_cnae": "8219999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Documentos",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "documentos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Documentos",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "documentos",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especializados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especializados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Apoio",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apoio",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Administrativo",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "administrativo",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "8219999",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "82"
+    },
+    {
+      "termo": "Preparação de documentos e serviços especializados de apoio administrativo não especificados anteriormente",
+      "codigo_cnae": "8219999",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "82"
+    }
+  ]
+}

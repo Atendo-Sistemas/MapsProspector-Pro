@@ -1,0 +1,228 @@
+{
+  "grupo": "012",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 22,
+  "termos": [
+    {
+      "termo": "Horticultura, exceto morango",
+      "codigo_cnae": "0121101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Horticultura",
+      "codigo_cnae": "0121101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "horticultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Horticultura",
+      "codigo_cnae": "0121101",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "horticultura",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Horticultura, exceto morango",
+      "codigo_cnae": "0121101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de morango",
+      "codigo_cnae": "0121102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0121102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0121102",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Morango",
+      "codigo_cnae": "0121102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "morango",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de morango",
+      "codigo_cnae": "0121102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de flores e plantas ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122900",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0122900",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Flores",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "flores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Flores",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "flores",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Plantas",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plantas",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ornamentais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ornamentais",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de flores e plantas ornamentais",
+      "codigo_cnae": "0122900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

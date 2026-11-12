@@ -1,0 +1,209 @@
+{
+  "classe": "4211",
+  "grupo": "421",
+  "divisao": "42",
+  "secao": "F",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Construção de rodovias e ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferrovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferrovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de rodovias e ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura para sinalização em pistas rodoviárias e aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintura",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintura",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Sinalização",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Sinalizacao",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pistas",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pistas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pistas",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pistas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodoviárias",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviárias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodoviarias",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviárias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura para sinalização em pistas rodoviárias e aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    }
+  ]
+}

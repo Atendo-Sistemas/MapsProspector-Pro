@@ -1,0 +1,89 @@
+{
+  "classe": "2061",
+  "grupo": "206",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de sabões e detergentes sintéticos",
+      "codigo_cnae": "2061400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Sabões",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sabões",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Saboes",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sabões",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Detergentes",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "detergentes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Detergentes",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "detergentes",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Sintéticos",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sintéticos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Sinteticos",
+      "codigo_cnae": "2061400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sintéticos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de sabões e detergentes sintéticos",
+      "codigo_cnae": "2061400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

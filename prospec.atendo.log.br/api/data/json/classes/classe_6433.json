@@ -1,0 +1,69 @@
+{
+  "classe": "6433",
+  "grupo": "643",
+  "divisao": "64",
+  "secao": "K",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Bancos de desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bancos",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "desenvolvimento",
+      "secao": "K",
+      "divisao": "64"
+    },
+    {
+      "termo": "Bancos de desenvolvimento",
+      "codigo_cnae": "6433600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "K",
+      "divisao": "64"
+    }
+  ]
+}

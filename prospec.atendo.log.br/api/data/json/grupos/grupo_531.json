@@ -1,0 +1,66 @@
+{
+  "grupo": "531",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Distribuição e entrega de encomendas",
+      "termo_normalizado": "distribuicao e entrega de encomendas",
+      "codigo_cnae": "5310503",
+      "descricao": "Distribuição e entrega de encomendas",
+      "relevancia": 100,
+      "categoria": "531",
+      "secao": "H",
+      "divisao": "53",
+      "grupo": "531",
+      "classe": "5310",
+      "subclasse": "5310503",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "distribuição",
+      "termo_normalizado": "distribuicao",
+      "codigo_cnae": "5310503",
+      "descricao": "Distribuição e entrega de encomendas",
+      "relevancia": 85,
+      "categoria": "531",
+      "secao": "H",
+      "divisao": "53",
+      "grupo": "531",
+      "classe": "5310",
+      "subclasse": "5310503",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "entrega",
+      "termo_normalizado": "entrega",
+      "codigo_cnae": "5310503",
+      "descricao": "Distribuição e entrega de encomendas",
+      "relevancia": 85,
+      "categoria": "531",
+      "secao": "H",
+      "divisao": "53",
+      "grupo": "531",
+      "classe": "5310",
+      "subclasse": "5310503",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "encomendas",
+      "termo_normalizado": "encomendas",
+      "codigo_cnae": "5310503",
+      "descricao": "Distribuição e entrega de encomendas",
+      "relevancia": 85,
+      "categoria": "531",
+      "secao": "H",
+      "divisao": "53",
+      "grupo": "531",
+      "classe": "5310",
+      "subclasse": "5310503",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

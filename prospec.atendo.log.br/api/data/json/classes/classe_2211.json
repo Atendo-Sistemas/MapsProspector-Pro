@@ -1,0 +1,69 @@
+{
+  "classe": "2211",
+  "grupo": "221",
+  "divisao": "22",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de pneumáticos e de câmaras-de-ar",
+      "codigo_cnae": "2211100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Pneumáticos",
+      "codigo_cnae": "2211100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pneumáticos",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Pneumaticos",
+      "codigo_cnae": "2211100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pneumáticos",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Câmaras",
+      "codigo_cnae": "2211100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "câmaras",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Camaras",
+      "codigo_cnae": "2211100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "câmaras",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Fabricação de pneumáticos e de câmaras-de-ar",
+      "codigo_cnae": "2211100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "22"
+    }
+  ]
+}

@@ -1,0 +1,228 @@
+{
+  "grupo": "742",
+  "divisao": "74",
+  "secao": "M",
+  "total_termos": 22,
+  "termos": [
+    {
+      "termo": "Atividades de fotografia, exceto aérea",
+      "codigo_cnae": "7420001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Fotografia",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotografia",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Fotografia",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fotografia",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Aérea",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aérea",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Aerea",
+      "codigo_cnae": "7420001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aérea",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de fotografia, exceto aérea",
+      "codigo_cnae": "7420001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de festas e eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Festas",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "festas",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de festas e eventos",
+      "codigo_cnae": "7420002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de vídeos para internet",
+      "codigo_cnae": "7420003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Filmagem",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filmagem",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Vídeos",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Videos",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vídeos",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "7420003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Atividades de filmagem de vídeos para internet",
+      "codigo_cnae": "7420003",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    }
+  ]
+}

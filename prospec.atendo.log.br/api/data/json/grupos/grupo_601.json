@@ -1,0 +1,48 @@
+{
+  "grupo": "601",
+  "divisao": "60",
+  "secao": "J",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Atividades de rádio",
+      "codigo_cnae": "6010100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Rádio",
+      "codigo_cnae": "6010100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rádio",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Radio",
+      "codigo_cnae": "6010100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rádio",
+      "secao": "J",
+      "divisao": "60"
+    },
+    {
+      "termo": "Atividades de rádio",
+      "codigo_cnae": "6010100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "60"
+    }
+  ]
+}

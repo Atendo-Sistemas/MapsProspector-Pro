@@ -507,9 +507,11 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             }
 
             $position = [];
-            foreach (['currentPosition', 'currentPositions', 'positionsCurrent'] as $positionsKey) {
+            foreach (['currentPosition', 'currentPositions', 'positionsCurrent', 'current_position', 'positionCurrent'] as $positionsKey) {
                 if (!empty($row[$positionsKey]) && is_array($row[$positionsKey])) {
-                    $position = is_array($row[$positionsKey][0] ?? null) ? $row[$positionsKey][0] : [];
+                    $position = isset($row[$positionsKey][0]) && is_array($row[$positionsKey][0])
+                        ? $row[$positionsKey][0]
+                        : $row[$positionsKey];
                     if ($position) {
                         break;
                     }
@@ -520,7 +522,7 @@ if (!defined('LINKEDIN_RUN_FALLBACK_SERVICE_LOADED')) {
             if (is_array($location)) {
                 $location = $location['linkedinText'] ?? ($location['parsed']['text'] ?? ($location['text'] ?? ($location['city'] ?? '')));
             }
-            $headline = trim((string) ($row['headline'] ?? $row['job_title'] ?? $position['position'] ?? $position['title'] ?? ''));
+            $headline = trim((string) ($row['headline'] ?? $row['job_title'] ?? $row['jobTitle'] ?? $row['currentJobTitle'] ?? $row['position'] ?? $row['role'] ?? $position['position'] ?? $position['title'] ?? $position['jobTitle'] ?? $position['job_title'] ?? $position['role'] ?? $position['name'] ?? ''));
             $companyName = trim((string) ($row['company_name'] ?? $row['companyName'] ?? $position['companyName'] ?? $position['company'] ?? ''));
             $photoUrl = '';
             $picture = $row['profilePicture'] ?? $row['profile_picture'] ?? $row['photo'] ?? '';

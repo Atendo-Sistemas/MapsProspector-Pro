@@ -1,0 +1,109 @@
+{
+  "classe": "3513",
+  "grupo": "351",
+  "divisao": "35",
+  "secao": "D",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Comércio atacadista de energia elétrica",
+      "codigo_cnae": "3513100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Energia",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "energia",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "3513100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "D",
+      "divisao": "35"
+    },
+    {
+      "termo": "Comércio atacadista de energia elétrica",
+      "codigo_cnae": "3513100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "D",
+      "divisao": "35"
+    }
+  ]
+}

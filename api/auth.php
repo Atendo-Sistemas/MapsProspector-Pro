@@ -369,6 +369,12 @@ if ($method === 'POST') {
         jsonSuccess(['restored' => true], 'Voltou à sua conta');
 
     } elseif ($action === 'logout') {
+        // session_destroy() não remove sozinho o identificador ainda salvo no navegador.
+        $_SESSION = [];
+        if (ini_get('session.use_cookies')) {
+            $params = session_get_cookie_params();
+            setcookie(session_name(), '', time() - 42000, $params['path'], $params['domain'], (bool) $params['secure'], (bool) $params['httponly']);
+        }
         session_destroy();
         jsonSuccess(null, 'Logout realizado com sucesso');
 

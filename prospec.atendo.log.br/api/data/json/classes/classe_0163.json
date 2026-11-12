@@ -1,0 +1,69 @@
+{
+  "classe": "0163",
+  "grupo": "016",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividades de pós-colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pós",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Pos",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pós",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "colheita",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Atividades de pós-colheita",
+      "codigo_cnae": "0163600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

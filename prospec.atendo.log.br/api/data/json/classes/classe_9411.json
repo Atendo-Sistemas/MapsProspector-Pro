@@ -1,0 +1,109 @@
+{
+  "classe": "9411",
+  "grupo": "941",
+  "divisao": "94",
+  "secao": "S",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Atividades de organizações associativas patronais e empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizações",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Organizacoes",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "organizações",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Associativas",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "associativas",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Patronais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "patronais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Patronais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "patronais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresariais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "empresariais",
+      "secao": "S",
+      "divisao": "94"
+    },
+    {
+      "termo": "Atividades de organizações associativas patronais e empresariais",
+      "codigo_cnae": "9411100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "S",
+      "divisao": "94"
+    }
+  ]
+}

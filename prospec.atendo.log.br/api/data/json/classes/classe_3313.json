@@ -1,0 +1,149 @@
+{
+  "classe": "3313",
+  "grupo": "331",
+  "divisao": "33",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Manutenção e reparação de geradores, transformadores e motores elétricos",
+      "codigo_cnae": "3313901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Geradores",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geradores",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Geradores",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geradores",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Transformadores",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transformadores",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Transformadores",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transformadores",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Elétricos",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Eletricos",
+      "codigo_cnae": "3313901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétricos",
+      "secao": "C",
+      "divisao": "33"
+    },
+    {
+      "termo": "Manutenção e reparação de geradores, transformadores e motores elétricos",
+      "codigo_cnae": "3313901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "33"
+    }
+  ]
+}

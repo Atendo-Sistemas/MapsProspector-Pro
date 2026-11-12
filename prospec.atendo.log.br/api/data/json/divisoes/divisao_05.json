@@ -1,0 +1,218 @@
+{
+  "divisao": "05",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Extração de carvão mineral",
+      "codigo_cnae": "0500301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0500301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0500301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Carvão",
+      "codigo_cnae": "0500301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Carvao",
+      "codigo_cnae": "0500301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Mineral",
+      "codigo_cnae": "0500301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mineral",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Mineral",
+      "codigo_cnae": "0500301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mineral",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Extração de carvão mineral",
+      "codigo_cnae": "0500301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Beneficiamento de carvão mineral",
+      "codigo_cnae": "0500302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0500302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Beneficiamento",
+      "codigo_cnae": "0500302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "beneficiamento",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Carvão",
+      "codigo_cnae": "0500302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Carvao",
+      "codigo_cnae": "0500302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carvão",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Mineral",
+      "codigo_cnae": "0500302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mineral",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Mineral",
+      "codigo_cnae": "0500302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mineral",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Beneficiamento de carvão mineral",
+      "codigo_cnae": "0500302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "05"
+    },
+    {
+      "termo": "Coleta de carvão mineral",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "coleta",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "carvão",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "mineral",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

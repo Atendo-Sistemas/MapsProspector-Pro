@@ -1,0 +1,109 @@
+{
+  "classe": "4212",
+  "grupo": "421",
+  "divisao": "42",
+  "secao": "F",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Construção de obras de arte especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Arte",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arte",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Arte",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arte",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de obras de arte especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    }
+  ]
+}

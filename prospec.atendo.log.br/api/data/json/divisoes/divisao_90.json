@@ -1,0 +1,538 @@
+{
+  "divisao": "90",
+  "total_termos": 52,
+  "termos": [
+    {
+      "termo": "Produção teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teatral",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teatral",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção teatral",
+      "codigo_cnae": "9001901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção musical",
+      "codigo_cnae": "9001902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Musical",
+      "codigo_cnae": "9001902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "musical",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Musical",
+      "codigo_cnae": "9001902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "musical",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção musical",
+      "codigo_cnae": "9001902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção de espetáculos de dança",
+      "codigo_cnae": "9001903",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Espetáculos",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espetáculos",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Espetaculos",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "espetáculos",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Dança",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dança",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Danca",
+      "codigo_cnae": "9001903",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dança",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção de espetáculos de dança",
+      "codigo_cnae": "9001903",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção de espetáculos circenses, de marionetes e similares",
+      "codigo_cnae": "9001904",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção",
+      "codigo_cnae": "9001904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "espetáculos circenses",
+      "codigo_cnae": "9001904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "marionetes",
+      "codigo_cnae": "9001904",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "produção de espetáculos circenses de marionetes e similares",
+      "codigo_cnae": "9001904",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção de espetáculos de rodeios, vaquejadas e similares",
+      "codigo_cnae": "9001905",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Produção",
+      "codigo_cnae": "9001905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "espetáculos",
+      "codigo_cnae": "9001905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "rodeios",
+      "codigo_cnae": "9001905",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "produção de espetáculos de rodeios vaquejadas e similares",
+      "codigo_cnae": "9001905",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Atividades de sonorização e de iluminação",
+      "codigo_cnae": "9001906",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9001906",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "sonorização",
+      "codigo_cnae": "9001906",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "de iluminação",
+      "codigo_cnae": "9001906",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Artes cênicas, espetáculos e atividades complementares não especificadas anteriormente",
+      "codigo_cnae": "9001999",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Artes cênicas",
+      "codigo_cnae": "9001999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "espetáculos",
+      "codigo_cnae": "9001999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "atividades complementares não especificadas anteriormente",
+      "codigo_cnae": "9001999",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "artes cênicas espetáculos e atividades complementares não especificadas anteriormente",
+      "codigo_cnae": "9001999",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Atividades de artistas plásticos, jornalistas independentes e escritores",
+      "codigo_cnae": "9002701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Atividades",
+      "codigo_cnae": "9002701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "artistas plásticos",
+      "codigo_cnae": "9002701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "jornalistas independentes",
+      "codigo_cnae": "9002701",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "atividades de artistas plásticos jornalistas independentes e escritores",
+      "codigo_cnae": "9002701",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Restauração de obras-de-arte",
+      "codigo_cnae": "9002702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Restauração",
+      "codigo_cnae": "9002702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "obras",
+      "codigo_cnae": "9002702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "arte",
+      "codigo_cnae": "9002702",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "restauração de obrasdearte",
+      "codigo_cnae": "9002702",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Gestão de espaços para artes cênicas, espetáculos e outras atividades artísticas",
+      "codigo_cnae": "9003500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "9003500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "espaços",
+      "codigo_cnae": "9003500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "artes cênicas",
+      "codigo_cnae": "9003500",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "gestão de espaços para artes cênicas espetáculos e outras atividades artísticas",
+      "codigo_cnae": "9003500",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "90"
+    },
+    {
+      "termo": "Atividades de apoio a espetáculos",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9002700",
+      "descricao_cnae": "Atividades de apoio a espetáculos",
+      "secao": "R",
+      "divisao": "90",
+      "grupo": "900",
+      "classe": "9002",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "atividades",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9002700",
+      "descricao_cnae": "Atividades de apoio a espetáculos",
+      "secao": "R",
+      "divisao": "90",
+      "grupo": "900",
+      "classe": "9002",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "apoio",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9002700",
+      "descricao_cnae": "Atividades de apoio a espetáculos",
+      "secao": "R",
+      "divisao": "90",
+      "grupo": "900",
+      "classe": "9002",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "espetáculos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "9002700",
+      "descricao_cnae": "Atividades de apoio a espetáculos",
+      "secao": "R",
+      "divisao": "90",
+      "grupo": "900",
+      "classe": "9002",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

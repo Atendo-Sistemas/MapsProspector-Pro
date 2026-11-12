@@ -1,0 +1,100 @@
+[
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "01.11-3",
+        "denominacao": "Cultivo de cereais",
+        "tipo": "Classe"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0111-3/01",
+        "denominacao": "Cultivo de arroz",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0111-3/02",
+        "denominacao": "Cultivo de milho",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0111-3/03",
+        "denominacao": "Cultivo de trigo",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0111-3/99",
+        "denominacao": "Cultivo de outros cereais não especificados anteriormente",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "01.12-1",
+        "denominacao": "Cultivo de algodão herbáceo e de outras fibras de lavoura temporária",
+        "tipo": "Classe"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0112-1/01",
+        "denominacao": "Cultivo de algodão herbáceo",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0112-1/02",
+        "denominacao": "Cultivo de juta",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0112-1/99",
+        "denominacao": "Cultivo de outras fibras de lavoura temporária não especificada anteriormente",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0113-0/00",
+        "denominacao": "Cultivo de cana-de-açúcar",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0114-8/00",
+        "denominacao": "Cultivo de fumo",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0115-6/00",
+        "denominacao": "Cultivo de soja",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0116-4/01",
+        "denominacao": "Cultivo de amendoim",
+        "tipo": "Subclasse"
+    },
+    {
+        "secao": "A",
+        "divisao": "01",
+        "codigo": "0116-4/02",
+        "denominacao": "Cultivo de girassol",
+        "tipo": "Subclasse"
+    }
+]

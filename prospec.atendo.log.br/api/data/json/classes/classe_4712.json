@@ -1,0 +1,189 @@
+{
+  "classe": "4712",
+  "grupo": "471",
+  "divisao": "47",
+  "secao": "G",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - minimercados, mercearias e armazéns",
+      "codigo_cnae": "4712100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Mercadorias",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mercadorias",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Geral",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "geral",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominância",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Predominancia",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "predominância",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Alimentícios",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Alimenticios",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "alimentícios",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Minimercados",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minimercados",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Minimercados",
+      "codigo_cnae": "4712100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "minimercados",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de mercadorias em geral, com predominância de produtos alimentícios - minimercados, mercearias e armazéns",
+      "codigo_cnae": "4712100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    }
+  ]
+}

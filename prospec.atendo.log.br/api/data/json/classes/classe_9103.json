@@ -1,0 +1,189 @@
+{
+  "classe": "9103",
+  "grupo": "910",
+  "divisao": "91",
+  "secao": "R",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Atividades de jardins botânicos, zoológicos, parques nacionais, reservas ecológicas e áreas de proteção ambiental",
+      "codigo_cnae": "9103100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Jardins",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jardins",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Jardins",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jardins",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Botânicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "botânicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Botanicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "botânicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Zoológicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "zoológicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Zoologicos",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "zoológicos",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Parques",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "parques",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Parques",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "parques",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Nacionais",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nacionais",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Nacionais",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "nacionais",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Reservas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reservas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Ecológicas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ecológicas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Ecologicas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ecológicas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Áreas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "áreas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Areas",
+      "codigo_cnae": "9103100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "áreas",
+      "secao": "R",
+      "divisao": "91"
+    },
+    {
+      "termo": "Atividades de jardins botânicos, zoológicos, parques nacionais, reservas ecológicas e áreas de proteção ambiental",
+      "codigo_cnae": "9103100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "91"
+    }
+  ]
+}

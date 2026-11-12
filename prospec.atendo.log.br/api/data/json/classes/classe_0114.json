@@ -1,0 +1,69 @@
+{
+  "classe": "0114",
+  "grupo": "011",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Cultivo de fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0114800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo",
+      "codigo_cnae": "0114800",
+      "tipo": "produto",
+      "origem": "atividade agrícola",
+      "relevancia": 85,
+      "categoria": "cultivo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fumo",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Cultivo de fumo",
+      "codigo_cnae": "0114800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

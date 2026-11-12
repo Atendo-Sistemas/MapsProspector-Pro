@@ -1,0 +1,89 @@
+{
+  "classe": "9311",
+  "grupo": "931",
+  "divisao": "93",
+  "secao": "R",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Gestão de instalações de esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Gestao",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Instalações",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Instalacoes",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Gestão de instalações de esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    }
+  ]
+}

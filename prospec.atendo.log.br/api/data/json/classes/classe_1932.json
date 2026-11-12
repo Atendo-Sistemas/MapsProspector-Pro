@@ -1,0 +1,51 @@
+{
+  "classe": "1932",
+  "total_termos": 3,
+  "termos": [
+    {
+      "termo": "Fabricação de briquetes de carvão",
+      "termo_normalizado": "fabricacao de briquetes de carvao",
+      "codigo_cnae": "1932200",
+      "descricao": "Fabricação de briquetes de carvão",
+      "relevancia": 100,
+      "categoria": "193",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "193",
+      "classe": "1932",
+      "subclasse": "1932200",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "briquetes",
+      "termo_normalizado": "briquetes",
+      "codigo_cnae": "1932200",
+      "descricao": "Fabricação de briquetes de carvão",
+      "relevancia": 85,
+      "categoria": "193",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "193",
+      "classe": "1932",
+      "subclasse": "1932200",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "carvão",
+      "termo_normalizado": "carvao",
+      "codigo_cnae": "1932200",
+      "descricao": "Fabricação de briquetes de carvão",
+      "relevancia": 85,
+      "categoria": "193",
+      "secao": "C",
+      "divisao": "19",
+      "grupo": "193",
+      "classe": "1932",
+      "subclasse": "1932200",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

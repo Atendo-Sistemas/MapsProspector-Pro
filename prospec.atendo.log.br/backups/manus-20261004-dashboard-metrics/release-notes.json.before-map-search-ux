@@ -1,0 +1,101 @@
+[
+  {
+    "version": "20261004-dashboard-metrics",
+    "date": "2026-10-04",
+    "title": "Acesso e painel com informações mais confiáveis",
+    "items": [
+      "O aplicativo instalado agora abre diretamente na área de acesso, enquanto o navegador mantém o botão para voltar à página inicial.",
+      "O cadastro passou a enviar o nome da pessoa e o e-mail de acesso corretamente na confirmação, sem exibir marcadores como {email}.",
+      "O Dashboard passou a mostrar a data de cadastro de cada empresa na lista de empresas monitoradas.",
+      "A lista de empresas monitoradas agora apresenta os leads da empresa e os créditos usados no período, com os totais globais corrigidos.",
+      "O indicador de atividade foi esclarecido: ele mostra o último acesso autenticado registrado após o início do monitoramento, e informa quando ainda não existe histórico.",
+      "A busca Maps mantém a coleta pela VPS, reaproveita resultados já armazenados, busca apenas o complemento necessário e pode trabalhar com até 1.000 leads por execução, conforme o saldo da conta."
+    ]
+  },
+  {
+    "version": "65.0.0",
+    "date": "2026-08-21",
+    "title": "Versão 65.0.0 — Assinaturas, controles e mais visibilidade",
+    "items": [
+      "Os planos mensais passam a usar assinatura recorrente, com opção de cancelamento da próxima cobrança pelo próprio painel e preservação do período já pago.",
+      "A área administrativa de pagamentos foi ampliada com ambiente de operação, ativação do gateway, teste seguro da conexão, endereço de recebimento de confirmações e resumo de assinaturas.",
+      "A opção de pesquisa por IA foi temporariamente retirada do painel. As pesquisas disponíveis continuam sendo Google Maps e LinkedIn.",
+      "A área de equipe agora exige telefone e e-mail e mostra quem criou cada acesso e quando ele foi cadastrado.",
+      "A pesquisa de CNPJ recebeu mais dados de contato, situação cadastral, atividades e quadro societário quando disponíveis na consulta.",
+      "A página inicial passou a mostrar automaticamente quantas empresas usam a plataforma. O painel principal do super administrador agora mostra usuários cadastrados e usuários ativos no momento.",
+      "A aba API de busca foi ajustada para atualizar o monitor de disponibilidade ao ser aberta, sem interromper pesquisas caso o monitor esteja indisponível."
+    ]
+  },
+  {
+    "version": "20260820-64f4d",
+    "date": "2026-08-20",
+    "title": "Versão 64f4d — Auditoria e teste de pagamento",
+    "items": [
+      "Revisado o pacote de atualização e confirmado que os recursos das três revisões anteriores permanecem incluídos.",
+      "Reforçado o isolamento dos menus exclusivos da plataforma: somente o super administrador pode visualizá-los.",
+      "Novo botão para testar com segurança a conexão de pagamento, sem criar cobranças.",
+      "Mantida a correção da tela de acesso e renovado o cache do aplicativo para carregar a versão atualizada."
+    ]
+  },
+  {
+    "version": "20260820-64f4b",
+    "date": "2026-08-20",
+    "title": "Versão 64f4b — Correção de acesso",
+    "items": [
+      "Corrigido o carregamento da tela de acesso após a atualização do aplicativo.",
+      "Quando não houver sessão ativa, o formulário de login volta a ser exibido normalmente, tanto no navegador quanto no aplicativo instalado.",
+      "O bloqueio dos menus exclusivos de administração permanece preservado."
+    ]
+  },
+  {
+    "version": "20260820-64f4a",
+    "date": "2026-08-20",
+    "title": "Versão 64f4a — Pagamentos e recebimento de indicações",
+    "items": [
+      "Corrigida a confirmação da configuração de pagamentos: o sistema agora só informa sucesso após confirmar a leitura do dado salvo.",
+      "No programa de indicações, cada participante pode cadastrar sua chave PIX, escolhendo entre CPF, CNPJ, e-mail, telefone ou chave aleatória.",
+      "A solicitação de saque passa a exigir uma chave PIX cadastrada e preserva os dados informados no momento do pedido para conferência operacional.",
+      "O painel consolidado do super administrador mostra a forma e a chave de recebimento necessárias para processar os saques, sem expor esses dados a outros usuários.",
+      "A atualização inclui o endpoint de configuração utilizado pela interface e renova o cache do aplicativo."
+    ]
+  },
+  {
+    "version": "20260820-64",
+    "date": "2026-08-20",
+    "title": "Versão 64 — Novos leads na hora certa e busca LinkedIn sempre ativa",
+    "items": [
+      "Novo botão \"Verificar novos leads\" nas pesquisas do Maps e do LinkedIn: ele compara o banco de dados com o que você já viu nesta sessão e marca os contatos ainda não exibidos com a tag \"Novo\".",
+      "Ao refazer uma pesquisa, o sistema agora mostra no topo quantos leads novos foram adicionados e permite filtrar a lista para ver somente eles.",
+      "A pesquisa do LinkedIn continua funcionando mesmo quando o serviço primário está sem créditos ou fora do ar: a busca é concluída automaticamente pela plataforma, sem exibir erros.",
+      "A busca da sua plataforma ganhou um nome mais comercial no painel: agora aparece como \"Coleta Atendo\".",
+      "Melhorias gerais de segurança e desempenho."
+    ]
+  },
+  {
+    "version": "20260819-63",
+    "date": "2026-08-19",
+    "title": "Versão 63 — Pagamentos, notificações e mais estabilidade",
+    "items": [
+      "Nova Central de Notificações: você recebe avisos diretos sobre seus créditos e solicitações sem precisar procurar.",
+      "Recarga de créditos extras com pagamento automático: agora é possível comprar créditos adicionais direto pelo sistema, e eles são liberados assim que o pagamento é confirmado.",
+      "Novo menu Versões e Atualizações: mostra a versão atual do sistema e o que mudou em cada atualização, em linguagem simples.",
+      "A pesquisa no Maps ficou disponível para todos os perfis, com cobrança apenas pelos contatos novos que ainda não estavam no seu histórico.",
+      "Ao refazer uma pesquisa, o sistema mostra quais contatos são novos e cobra somente por eles.",
+      "Quando há resultado salvo para os mesmos termos de pesquisa, a consulta fica mais rápida.",
+      "O sistema agora funciona mesmo quando um dos serviços de busca está temporariamente fora do ar, sem exibir erros técnicos na tela.",
+      "Ajustes na tela de Ajuda, com conteúdo organizado por tipo de usuário (admin, supervisor e usuário comum).",
+      "Melhorias gerais de segurança e desempenho em todo o sistema."
+    ]
+  },
+  {
+    "version": "20260818-48",
+    "date": "2026-08-18",
+    "title": "Versão 48 — Pesquisa LinkedIn e dados de contato",
+    "items": [
+      "Nova pesquisa de profissionais no LinkedIn: encontre pessoas por cargo e cidade.",
+      "Ao abrir um contato encontrado no LinkedIn, é possível enriquecer os dados e visualizar telefone e e-mail disponíveis publicamente.",
+      "O histórico da pesquisa no LinkedIn agora guarda o resultado para os mesmos termos, deixando novas consultas mais rápidas.",
+      "Agora os contatos novos aparecem marcados quando você refaz uma pesquisa."
+    ]
+  }
+]

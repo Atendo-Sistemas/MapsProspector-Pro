@@ -1,0 +1,69 @@
+{
+  "classe": "5223",
+  "grupo": "522",
+  "divisao": "52",
+  "secao": "H",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Estacionamento de veículos",
+      "codigo_cnae": "5223100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Estacionamento",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estacionamento",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Estacionamento",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estacionamento",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Veículos",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Veiculos",
+      "codigo_cnae": "5223100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "veículos",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Estacionamento de veículos",
+      "codigo_cnae": "5223100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    }
+  ]
+}

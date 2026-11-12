@@ -1,0 +1,109 @@
+{
+  "classe": "4621",
+  "grupo": "462",
+  "divisao": "46",
+  "secao": "G",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Comércio atacadista de café em grão",
+      "codigo_cnae": "4621400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Atacadista",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atacadista",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Café",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Cafe",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "café",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Grão",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grão",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Grao",
+      "codigo_cnae": "4621400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "grão",
+      "secao": "G",
+      "divisao": "46"
+    },
+    {
+      "termo": "Comércio atacadista de café em grão",
+      "codigo_cnae": "4621400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "46"
+    }
+  ]
+}

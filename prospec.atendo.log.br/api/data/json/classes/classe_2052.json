@@ -1,0 +1,69 @@
+{
+  "classe": "2052",
+  "grupo": "205",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de agrotóxicos e afins",
+      "codigo_cnae": "2052500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Agrotóxicos",
+      "codigo_cnae": "2052500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrotóxicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Agrotoxicos",
+      "codigo_cnae": "2052500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "agrotóxicos",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Afins",
+      "codigo_cnae": "2052500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "afins",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Afins",
+      "codigo_cnae": "2052500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "afins",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de agrotóxicos e afins",
+      "codigo_cnae": "2052500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

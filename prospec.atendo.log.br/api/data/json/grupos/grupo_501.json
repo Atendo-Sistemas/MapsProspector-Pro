@@ -1,0 +1,448 @@
+{
+  "grupo": "501",
+  "divisao": "50",
+  "secao": "H",
+  "total_termos": 44,
+  "termos": [
+    {
+      "termo": "Transporte marítimo de cabotagem - Carga",
+      "codigo_cnae": "5011401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Marítimo",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Maritimo",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Cabotagem",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabotagem",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Cabotagem",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabotagem",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5011401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte marítimo de cabotagem - Carga",
+      "codigo_cnae": "5011401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte marítimo de cabotagem - Passageiros",
+      "codigo_cnae": "5011402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Marítimo",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Maritimo",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Cabotagem",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabotagem",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Cabotagem",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cabotagem",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5011402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte marítimo de cabotagem - Passageiros",
+      "codigo_cnae": "5011402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte marítimo de longo curso - Carga",
+      "codigo_cnae": "5012201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Marítimo",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Maritimo",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Longo",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "longo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Longo",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "longo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Curso",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "curso",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Curso",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "curso",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5012201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte marítimo de longo curso - Carga",
+      "codigo_cnae": "5012201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte marítimo de longo curso - Passageiros",
+      "codigo_cnae": "5012202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Marítimo",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Maritimo",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítimo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Longo",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "longo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Longo",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "longo",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Curso",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "curso",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Curso",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "curso",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Passageiros",
+      "codigo_cnae": "5012202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "passageiros",
+      "secao": "H",
+      "divisao": "50"
+    },
+    {
+      "termo": "Transporte marítimo de longo curso - Passageiros",
+      "codigo_cnae": "5012202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "50"
+    }
+  ]
+}

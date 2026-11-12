@@ -1,0 +1,69 @@
+{
+  "classe": "2032",
+  "grupo": "203",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de resinas termofixas",
+      "codigo_cnae": "2032100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2032100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2032100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Termofixas",
+      "codigo_cnae": "2032100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "termofixas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Termofixas",
+      "codigo_cnae": "2032100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "termofixas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de resinas termofixas",
+      "codigo_cnae": "2032100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

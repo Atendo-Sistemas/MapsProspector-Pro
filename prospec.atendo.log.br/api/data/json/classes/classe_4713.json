@@ -1,0 +1,309 @@
+{
+  "classe": "4713",
+  "grupo": "471",
+  "divisao": "47",
+  "secao": "G",
+  "total_termos": 30,
+  "termos": [
+    {
+      "termo": "Lojas de departamentos ou magazines",
+      "codigo_cnae": "4713001",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas",
+      "codigo_cnae": "4713001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lojas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas",
+      "codigo_cnae": "4713001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lojas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Departamentos",
+      "codigo_cnae": "4713001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "departamentos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Departamentos",
+      "codigo_cnae": "4713001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "departamentos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Magazines",
+      "codigo_cnae": "4713001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "magazines",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Magazines",
+      "codigo_cnae": "4713001",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "magazines",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas de departamentos ou magazines",
+      "codigo_cnae": "4713001",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas de variedades, exceto lojas de departamentos ou magazines",
+      "codigo_cnae": "4713002",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lojas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lojas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Variedades",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "variedades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Variedades",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "variedades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Departamentos",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "departamentos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Departamentos",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "departamentos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Magazines",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "magazines",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Magazines",
+      "codigo_cnae": "4713002",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "magazines",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas de variedades, exceto lojas de departamentos ou magazines",
+      "codigo_cnae": "4713002",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas duty free de aeroportos internacionais",
+      "codigo_cnae": "4713003",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lojas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lojas",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Duty",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "duty",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Duty",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "duty",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Free",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "free",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Free",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "free",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Internacionais",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internacionais",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Internacionais",
+      "codigo_cnae": "4713003",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internacionais",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Lojas duty free de aeroportos internacionais",
+      "codigo_cnae": "4713003",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    }
+  ]
+}

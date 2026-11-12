@@ -1,0 +1,66 @@
+{
+  "classe": "3261",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de escovas, pincéis e vassouras",
+      "termo_normalizado": "fabricacao de escovas pinceis e vassouras",
+      "codigo_cnae": "3261500",
+      "descricao": "Fabricação de escovas, pincéis e vassouras",
+      "relevancia": 100,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3261",
+      "subclasse": "3261500",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "escovas,",
+      "termo_normalizado": "escovas",
+      "codigo_cnae": "3261500",
+      "descricao": "Fabricação de escovas, pincéis e vassouras",
+      "relevancia": 85,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3261",
+      "subclasse": "3261500",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "pincéis",
+      "termo_normalizado": "pinceis",
+      "codigo_cnae": "3261500",
+      "descricao": "Fabricação de escovas, pincéis e vassouras",
+      "relevancia": 85,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3261",
+      "subclasse": "3261500",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "vassouras",
+      "termo_normalizado": "vassouras",
+      "codigo_cnae": "3261500",
+      "descricao": "Fabricação de escovas, pincéis e vassouras",
+      "relevancia": 85,
+      "categoria": "326",
+      "secao": "C",
+      "divisao": "32",
+      "grupo": "326",
+      "classe": "3261",
+      "subclasse": "3261500",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

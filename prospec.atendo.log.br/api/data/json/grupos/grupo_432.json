@@ -1,0 +1,1148 @@
+{
+  "grupo": "432",
+  "divisao": "43",
+  "secao": "F",
+  "total_termos": 114,
+  "termos": [
+    {
+      "termo": "Instalação e manutenção elétrica",
+      "codigo_cnae": "4321500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "4321500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação e manutenção elétrica",
+      "codigo_cnae": "4321500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações hidráulicas, sanitárias e de gás",
+      "codigo_cnae": "4322301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacoes",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Hidráulicas",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Hidraulicas",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hidráulicas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sanitárias",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sanitárias",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sanitarias",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sanitárias",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Gás",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gás",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Gas",
+      "codigo_cnae": "4322301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gás",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações hidráulicas, sanitárias e de gás",
+      "codigo_cnae": "4322301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação e manutenção de sistemas centrais de ar condicionado, de ventilação e refrigeração",
+      "codigo_cnae": "4322302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistemas",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistemas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistemas",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistemas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Centrais",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "centrais",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Centrais",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "centrais",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Condicionado",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionado",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Ventilação",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ventilação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Ventilacao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ventilação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Refrigeração",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeração",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Refrigeracao",
+      "codigo_cnae": "4322302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refrigeração",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação e manutenção de sistemas centrais de ar condicionado, de ventilação e refrigeração",
+      "codigo_cnae": "4322302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações de sistema de prevenção contra incêndio",
+      "codigo_cnae": "4322303",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacoes",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistema",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistema",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistema",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistema",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Prevenção",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prevenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Prevencao",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prevenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Contra",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contra",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Contra",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contra",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Incêndio",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "incêndio",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Incendio",
+      "codigo_cnae": "4322303",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "incêndio",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalações de sistema de prevenção contra incêndio",
+      "codigo_cnae": "4322303",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação de painéis publicitários",
+      "codigo_cnae": "4329101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4329101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4329101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Painéis",
+      "codigo_cnae": "4329101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "painéis",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Paineis",
+      "codigo_cnae": "4329101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "painéis",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Publicitários",
+      "codigo_cnae": "4329101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicitários",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Publicitarios",
+      "codigo_cnae": "4329101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "publicitários",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação de painéis publicitários",
+      "codigo_cnae": "4329101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação de equipamentos para orientação à navegação marítima fluvial e lacustre",
+      "codigo_cnae": "4329102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Orientação",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "orientação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Orientacao",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "orientação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Navegação",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "navegação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Navegacao",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "navegação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Marítima",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítima",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Maritima",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marítima",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Fluvial",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fluvial",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Fluvial",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fluvial",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Lacustre",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lacustre",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Lacustre",
+      "codigo_cnae": "4329102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "lacustre",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação de equipamentos para orientação à navegação marítima fluvial e lacustre",
+      "codigo_cnae": "4329102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação, manutenção e reparação de elevadores, escadas e esteiras rolantes",
+      "codigo_cnae": "4329103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutenção",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Manutencao",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "manutenção",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Reparação",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Reparacao",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "reparação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Elevadores",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elevadores",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Elevadores",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elevadores",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Escadas",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escadas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Escadas",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escadas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Esteiras",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esteiras",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Esteiras",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esteiras",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Rolantes",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolantes",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Rolantes",
+      "codigo_cnae": "4329103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolantes",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação, manutenção e reparação de elevadores, escadas e esteiras rolantes",
+      "codigo_cnae": "4329103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Montagem e instalação de sistemas e equipamentos de iluminação e sinalização em vias públicas, portos e aeroportos",
+      "codigo_cnae": "4329104",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Montagem",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "montagem",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Montagem",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "montagem",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistemas",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistemas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sistemas",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sistemas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Iluminação",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "iluminação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Iluminacao",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "iluminação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sinalização",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Sinalizacao",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Vias",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vias",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Vias",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vias",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Públicas",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "públicas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Publicas",
+      "codigo_cnae": "4329104",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "públicas",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Montagem e instalação de sistemas e equipamentos de iluminação e sinalização em vias públicas, portos e aeroportos",
+      "codigo_cnae": "4329104",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Tratamentos térmicos, acústicos ou de vibração",
+      "codigo_cnae": "4329105",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Tratamentos",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamentos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Tratamentos",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamentos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Térmicos",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "térmicos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Termicos",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "térmicos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Acústicos",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acústicos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Acusticos",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acústicos",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Vibração",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vibração",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Vibracao",
+      "codigo_cnae": "4329105",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vibração",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Tratamentos térmicos, acústicos ou de vibração",
+      "codigo_cnae": "4329105",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    }
+  ]
+}

@@ -1,0 +1,149 @@
+{
+  "classe": "1621",
+  "grupo": "162",
+  "divisao": "16",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de madeira laminada e de chapas de madeira compensada, prensada e aglomerada",
+      "codigo_cnae": "1621800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Madeira",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "madeira",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Laminada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laminada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Laminada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "laminada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Chapas",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chapas",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Chapas",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chapas",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Compensada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compensada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Compensada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "compensada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Prensada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prensada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Prensada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prensada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Aglomerada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aglomerada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Aglomerada",
+      "codigo_cnae": "1621800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aglomerada",
+      "secao": "C",
+      "divisao": "16"
+    },
+    {
+      "termo": "Fabricação de madeira laminada e de chapas de madeira compensada, prensada e aglomerada",
+      "codigo_cnae": "1621800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "16"
+    }
+  ]
+}

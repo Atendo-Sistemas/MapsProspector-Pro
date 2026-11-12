@@ -1,0 +1,89 @@
+{
+  "classe": "5120",
+  "grupo": "512",
+  "divisao": "51",
+  "secao": "H",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Transporte aéreo de carga",
+      "codigo_cnae": "5120000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5120000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "5120000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aéreo",
+      "codigo_cnae": "5120000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Aereo",
+      "codigo_cnae": "5120000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aéreo",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5120000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Carga",
+      "codigo_cnae": "5120000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carga",
+      "secao": "H",
+      "divisao": "51"
+    },
+    {
+      "termo": "Transporte aéreo de carga",
+      "codigo_cnae": "5120000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "51"
+    }
+  ]
+}

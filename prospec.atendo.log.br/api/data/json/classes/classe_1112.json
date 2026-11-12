@@ -1,0 +1,49 @@
+{
+  "classe": "1112",
+  "grupo": "111",
+  "divisao": "11",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinho",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "vinho",
+      "secao": "C",
+      "divisao": "11"
+    },
+    {
+      "termo": "Fabricação de vinho",
+      "codigo_cnae": "1112700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "11"
+    }
+  ]
+}

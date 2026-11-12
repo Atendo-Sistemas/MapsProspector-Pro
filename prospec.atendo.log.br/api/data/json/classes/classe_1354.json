@@ -1,0 +1,109 @@
+{
+  "classe": "1354",
+  "grupo": "135",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de tecidos especiais, inclusive artefatos",
+      "codigo_cnae": "1354500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Inclusive",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "inclusive",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "1354500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de tecidos especiais, inclusive artefatos",
+      "codigo_cnae": "1354500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

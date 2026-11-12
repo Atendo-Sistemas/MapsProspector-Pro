@@ -1,0 +1,89 @@
+{
+  "classe": "3230",
+  "grupo": "323",
+  "divisao": "32",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos para pesca e esporte",
+      "codigo_cnae": "3230200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3230200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "3230200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "3230200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Pesca",
+      "codigo_cnae": "3230200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesca",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Esporte",
+      "codigo_cnae": "3230200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esporte",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Esporte",
+      "codigo_cnae": "3230200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esporte",
+      "secao": "C",
+      "divisao": "32"
+    },
+    {
+      "termo": "Fabricação de artefatos para pesca e esporte",
+      "codigo_cnae": "3230200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "32"
+    }
+  ]
+}

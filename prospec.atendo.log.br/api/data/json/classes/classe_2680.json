@@ -1,0 +1,109 @@
+{
+  "classe": "2680",
+  "grupo": "268",
+  "divisao": "26",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de mídias virgens, magnéticas e ópticas",
+      "codigo_cnae": "2680900",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Mídias",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mídias",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Midias",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "mídias",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Virgens",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "virgens",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Virgens",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "virgens",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Magnéticas",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "magnéticas",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Magneticas",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "magnéticas",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Ópticas",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ópticas",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Opticas",
+      "codigo_cnae": "2680900",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ópticas",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de mídias virgens, magnéticas e ópticas",
+      "codigo_cnae": "2680900",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    }
+  ]
+}

@@ -1,0 +1,189 @@
+{
+  "classe": "1531",
+  "grupo": "153",
+  "divisao": "15",
+  "secao": "C",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Fabricação de calçados de couro",
+      "codigo_cnae": "1531901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Calçados",
+      "codigo_cnae": "1531901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Calcados",
+      "codigo_cnae": "1531901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1531901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1531901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Fabricação de calçados de couro",
+      "codigo_cnae": "1531901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Acabamento de calçados de couro sob contrato",
+      "codigo_cnae": "1531902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Acabamento",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acabamento",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Acabamento",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acabamento",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Calçados",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Calcados",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçados",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Couro",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "couro",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Sob",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sob",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Contrato",
+      "codigo_cnae": "1531902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "contrato",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Acabamento de calçados de couro sob contrato",
+      "codigo_cnae": "1531902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "15"
+    }
+  ]
+}

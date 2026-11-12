@@ -145,6 +145,31 @@ try {
     if (($user['profile'] ?? '') !== 'super_admin') {
         mapsPilotMetricsResponse(['success' => false, 'error' => 'Acesso restrito ao super administrador.'], 403);
     }
+
+    // Teste manual acionado pelo painel. Não cria job, não baixa dados e não
+    // consome créditos; apenas executa a sonda HMAC do endpoint de saúde.
+    if (isset($_GET['test']) && (string) $_GET['test'] === '1') {
+        try {
+            $collectorClient = new AtendoMapsCollectorClient();
+            if (!$collectorClient->isEnabled()) {
+                mapsPilotMetricsResponse([
+                    'success' => true,
+                    'test' => ['ok' => false, 'status' => 'disabled', 'message' => 'O coletor está desativado na configuração privada.'],
+                ]);
+            }
+            $status = $collectorClient->probe(10);
+            mapsPilotMetricsResponse([
+                'success' => true,
+                'test' => ['ok' => true, 'status' => 'online', 'http_status' => $status, 'message' => 'Conexão HMAC com o coletor confirmada.'],
+            ]);
+        } catch (Throwable $testError) {
+            error_log('maps-pilot-metrics manual test: ' . $testError->getMessage());
+            mapsPilotMetricsResponse([
+                'success' => true,
+                'test' => ['ok' => false, 'status' => 'error', 'message' => $testError->getMessage() ?: 'Falha desconhecida ao testar o coletor.'],
+            ]);
+        }
+    }
     $superAdminId = (int) ($user['id'] ?? 0);
     $superAdminEmail = trim((string) ($user['email'] ?? ''));
     $useEmailFallback = $superAdminId < 1 && $superAdminEmail !== '';
@@ -257,7 +282,7 @@ try {
         if (!class_exists('AtendoMapsCollectorClient')) {
             throw new RuntimeException('Cliente do coletor não disponível.');
         }
-        $collectorClient = new AtendoMapsCollectorClient('/home/naciona4/atendo-secrets/maps-collector.php');
+        $collectorClient = new AtendoMapsCollectorClient();
         if (!$collectorClient->isEnabled()) {
             $collectorStatus = 'disabled';
             $collectorLabel = 'Coletor desativado na configuração privada';

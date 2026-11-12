@@ -1,0 +1,209 @@
+{
+  "classe": "0152",
+  "grupo": "015",
+  "divisao": "01",
+  "secao": "A",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Criação de bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bufalinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de bufalinos",
+      "codigo_cnae": "0152101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de eqüinos",
+      "codigo_cnae": "0152102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Eqüinos",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Equinos",
+      "codigo_cnae": "0152102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eqüinos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de eqüinos",
+      "codigo_cnae": "0152102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de asininos e muares",
+      "codigo_cnae": "0152103",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criacao",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "criação",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Asininos",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "asininos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Asininos",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "asininos",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Muares",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "muares",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Muares",
+      "codigo_cnae": "0152103",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "muares",
+      "secao": "A",
+      "divisao": "01"
+    },
+    {
+      "termo": "Criação de asininos e muares",
+      "codigo_cnae": "0152103",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "A",
+      "divisao": "01"
+    }
+  ]
+}

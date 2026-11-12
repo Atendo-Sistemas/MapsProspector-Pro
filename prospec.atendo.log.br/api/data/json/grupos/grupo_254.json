@@ -1,0 +1,188 @@
+{
+  "grupo": "254",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Fabricação de artigos de cutelaria",
+      "codigo_cnae": "2541100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2541100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2541100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Cutelaria",
+      "codigo_cnae": "2541100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cutelaria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Cutelaria",
+      "codigo_cnae": "2541100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cutelaria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de artigos de cutelaria",
+      "codigo_cnae": "2541100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de artigos de serralheria, exceto esquadrias",
+      "codigo_cnae": "2542000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2542000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artigos",
+      "codigo_cnae": "2542000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artigos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Serralheria",
+      "codigo_cnae": "2542000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serralheria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Serralheria",
+      "codigo_cnae": "2542000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "serralheria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Esquadrias",
+      "codigo_cnae": "2542000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esquadrias",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Esquadrias",
+      "codigo_cnae": "2542000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esquadrias",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de artigos de serralheria, exceto esquadrias",
+      "codigo_cnae": "2542000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferramentas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferramentas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

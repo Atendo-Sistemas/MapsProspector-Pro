@@ -1,0 +1,84 @@
+{
+  "classe": "2441",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Metalurgia do alumínio e suas ligas em formas primárias",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2441500",
+      "descricao_cnae": "Metalurgia do alumínio e suas ligas em formas primárias",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "244",
+      "classe": "2441",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "metalurgia",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2441500",
+      "descricao_cnae": "Metalurgia do alumínio e suas ligas em formas primárias",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "244",
+      "classe": "2441",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "alumínio",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2441500",
+      "descricao_cnae": "Metalurgia do alumínio e suas ligas em formas primárias",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "244",
+      "classe": "2441",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "suas",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2441500",
+      "descricao_cnae": "Metalurgia do alumínio e suas ligas em formas primárias",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "244",
+      "classe": "2441",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "ligas",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2441500",
+      "descricao_cnae": "Metalurgia do alumínio e suas ligas em formas primárias",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "244",
+      "classe": "2441",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "formas",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2441500",
+      "descricao_cnae": "Metalurgia do alumínio e suas ligas em formas primárias",
+      "secao": "C",
+      "divisao": "24",
+      "grupo": "244",
+      "classe": "2441",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

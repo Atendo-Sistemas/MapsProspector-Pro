@@ -1,0 +1,149 @@
+{
+  "classe": "2813",
+  "grupo": "281",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de válvulas, registros e dispositivos semelhantes, peças e acessórios",
+      "codigo_cnae": "2813500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Válvulas",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Valvulas",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "válvulas",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Registros",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "registros",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Registros",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "registros",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Dispositivos",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dispositivos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Dispositivos",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dispositivos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Semelhantes",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "semelhantes",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Peças",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Pecas",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peças",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessórios",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Acessorios",
+      "codigo_cnae": "2813500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "acessórios",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de válvulas, registros e dispositivos semelhantes, peças e acessórios",
+      "codigo_cnae": "2813500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

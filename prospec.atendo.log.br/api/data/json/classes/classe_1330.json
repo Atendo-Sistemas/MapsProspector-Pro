@@ -1,0 +1,69 @@
+{
+  "classe": "1330",
+  "grupo": "133",
+  "divisao": "13",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de tecidos de malha",
+      "codigo_cnae": "1330800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1330800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Tecidos",
+      "codigo_cnae": "1330800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tecidos",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Malha",
+      "codigo_cnae": "1330800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "malha",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Malha",
+      "codigo_cnae": "1330800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "malha",
+      "secao": "C",
+      "divisao": "13"
+    },
+    {
+      "termo": "Fabricação de tecidos de malha",
+      "codigo_cnae": "1330800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "13"
+    }
+  ]
+}

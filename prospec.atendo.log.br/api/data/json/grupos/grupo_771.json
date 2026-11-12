@@ -1,0 +1,508 @@
+{
+  "grupo": "771",
+  "divisao": "77",
+  "secao": "N",
+  "total_termos": 50,
+  "termos": [
+    {
+      "termo": "Locação de automóveis sem condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de automóveis sem condutor",
+      "codigo_cnae": "7711000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de embarcações sem tripulação, exceto para fins recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Embarcações",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Embarcacoes",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embarcações",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulação",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulacao",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "recreativos",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de embarcações sem tripulação, exceto para fins recreativos",
+      "codigo_cnae": "7719501",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de aeronaves sem tripulação",
+      "codigo_cnae": "7719502",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Aeronaves",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeronaves",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulação",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Tripulacao",
+      "codigo_cnae": "7719502",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tripulação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de aeronaves sem tripulação",
+      "codigo_cnae": "7719502",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de outros meios de transporte não especificados anteriormente, sem condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locacao",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "locação",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Meios",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "meios",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Meios",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "meios",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Sem",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sem",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condutor",
+      "secao": "N",
+      "divisao": "77"
+    },
+    {
+      "termo": "Locação de outros meios de transporte não especificados anteriormente, sem condutor",
+      "codigo_cnae": "7719599",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "77"
+    }
+  ]
+}

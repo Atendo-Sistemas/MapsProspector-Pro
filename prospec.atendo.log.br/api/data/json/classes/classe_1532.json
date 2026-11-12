@@ -1,0 +1,89 @@
+{
+  "classe": "1532",
+  "grupo": "153",
+  "divisao": "15",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de tênis de qualquer material",
+      "codigo_cnae": "1532700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Tênis",
+      "codigo_cnae": "1532700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tênis",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Tenis",
+      "codigo_cnae": "1532700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tênis",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Qualquer",
+      "codigo_cnae": "1532700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "qualquer",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Qualquer",
+      "codigo_cnae": "1532700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "qualquer",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1532700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "1532700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "15"
+    },
+    {
+      "termo": "Fabricação de tênis de qualquer material",
+      "codigo_cnae": "1532700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "15"
+    }
+  ]
+}

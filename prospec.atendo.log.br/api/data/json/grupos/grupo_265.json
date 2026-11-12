@@ -1,0 +1,148 @@
+{
+  "grupo": "265",
+  "divisao": "26",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Fabricação de equipamentos de medição e teste",
+      "codigo_cnae": "2651500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2651500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2651500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Medição",
+      "codigo_cnae": "2651500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medição",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Medicao",
+      "codigo_cnae": "2651500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "medição",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Teste",
+      "codigo_cnae": "2651500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teste",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Teste",
+      "codigo_cnae": "2651500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "teste",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de equipamentos de medição e teste",
+      "codigo_cnae": "2651500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de cronômetros e relógios",
+      "codigo_cnae": "2652300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Cronômetros",
+      "codigo_cnae": "2652300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cronômetros",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Cronometros",
+      "codigo_cnae": "2652300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cronômetros",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Relógios",
+      "codigo_cnae": "2652300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relógios",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Relogios",
+      "codigo_cnae": "2652300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relógios",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de cronômetros e relógios",
+      "codigo_cnae": "2652300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    }
+  ]
+}

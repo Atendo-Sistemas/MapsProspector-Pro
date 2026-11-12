@@ -1,0 +1,288 @@
+{
+  "grupo": "920",
+  "divisao": "92",
+  "secao": "R",
+  "total_termos": 28,
+  "termos": [
+    {
+      "termo": "Casas de bingo",
+      "codigo_cnae": "9200301",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "9200301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Casas",
+      "codigo_cnae": "9200301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "casas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Bingo",
+      "codigo_cnae": "9200301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bingo",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Bingo",
+      "codigo_cnae": "9200301",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bingo",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Casas de bingo",
+      "codigo_cnae": "9200301",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploração de apostas em corridas de cavalos",
+      "codigo_cnae": "9200302",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploração",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exploração",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploracao",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exploração",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Apostas",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apostas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Apostas",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apostas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Corridas",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corridas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Corridas",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "corridas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Cavalos",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cavalos",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Cavalos",
+      "codigo_cnae": "9200302",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cavalos",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploração de apostas em corridas de cavalos",
+      "codigo_cnae": "9200302",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploração de jogos de azar e apostas não especificados anteriormente",
+      "codigo_cnae": "9200399",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploração",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exploração",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploracao",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "exploração",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Jogos",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jogos",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Jogos",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "jogos",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Azar",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "azar",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Azar",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "azar",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Apostas",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apostas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Apostas",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apostas",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "9200399",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "R",
+      "divisao": "92"
+    },
+    {
+      "termo": "Exploração de jogos de azar e apostas não especificados anteriormente",
+      "codigo_cnae": "9200399",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "92"
+    }
+  ]
+}

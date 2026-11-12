@@ -5,7 +5,7 @@ require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 try {
     $db = Database::getInstance()->getConnection();
-    $saasName = getPlatformSetting($db, 'saas_company_name') ?? 'Maps Prospector';
+    $saasName = getPlatformSetting($db, 'saas_company_name') ?: (getPlatformSetting($db, 'platform_name') ?: 'Maps Prospector');
 } catch (Throwable $e) {
     $saasName = 'Maps Prospector';
 }
@@ -266,10 +266,14 @@ if (!headers_sent()) {
                                 Prospecção
                             </button>
                             
-                            <button id="nav-btn-linkedin" data-tab="linkedin" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300 hidden">
+<button id="nav-btn-linkedin" data-tab="linkedin" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300 hidden">
     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 3a2 2 0 110 4 2 2 0 010-4z" /></svg>
     Pesquisa LinkedIn
 </button>
+                            <button id="nav-btn-instagram" data-tab="instagram" class="tab-btn w-full flex items-center gap-4 px-5 py-4 rounded-2xl transition-all font-semibold text-sm hover:bg-slate-100 dark:hover:bg-slate-700/50 text-slate-600 hover:text-slate-900 dark:text-slate-300 dark:hover:text-slate-300">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="5" stroke-width="2"/><circle cx="12" cy="12" r="4" stroke-width="2"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+                                Instagram · Comentários
+                            </button>
 
                             <!-- Bloco Consultas CNPJ com Sub-menu -->
 <div class="space-y-1">
@@ -625,19 +629,20 @@ if (!headers_sent()) {
 
 </div>
 
-<script src="/assets/js/export-replace.js?v=20260821-65"></script>
-<script src="/assets/js/search-loading.js?v=20261017-linkedin-apify-search-modal-7"></script>
-<script src="/assets/js/linkedin-ui.js?v=20261017-linkedin-apify-search-modal-7"></script>
-<script src="/assets/js/help-ui.js?v=20260821-65"></script>
-<script src="/assets/js/apify-usage-ui.js?v=20260822-88-traffic-referrals-1"></script>
-<script src="/assets/js/notification-ui.js?v=20261010-reengagement-editor-1"></script>
-<script src="/assets/js/notification-center.js?v=20261009-reengagement-1"></script>
-<script src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
+<script defer src="/assets/js/export-replace.js?v=20261027-webhook-fix-1"></script>
+<script defer src="/assets/js/search-loading.js?v=20261017-linkedin-apify-search-modal-7"></script>
+<script defer src="/assets/js/linkedin-ui.js?v=20261027-linkedin-job-title-fix-1"></script>
+<script defer src="/assets/js/instagram-ui.js?v=20261026-instagram-comments-1"></script>
+<script defer src="/assets/js/help-ui.js?v=20260821-65"></script>
+<script defer src="/assets/js/apify-usage-ui.js?v=20260822-88-traffic-referrals-1"></script>
+<script defer src="/assets/js/notification-ui.js?v=20261010-reengagement-editor-1"></script>
+<script defer src="/assets/js/notification-center.js?v=20261009-reengagement-1"></script>
+<script defer src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
 <script src="/assets/js/site-traffic.js?v=20261009-traffic-1" defer></script>
-<script src="/app/app.js?v=20261017-linkedin-apify-search-modal-7"></script>
-<script src="/assets/js/help.js?v=20260821-65"></script>
-<script src="/assets/js/help-admin.js?v=20260821-65"></script>
-<script src="/assets/js/pwa.js?v=20261009-pwa-1"></script>
+<script defer src="/app/app.js?v=20261028-maps-collector-test-1"></script>
+<script defer src="/assets/js/help.js?v=20260821-65"></script>
+<script defer src="/assets/js/help-admin.js?v=20260821-65"></script>
+<script defer src="/assets/js/pwa.js?v=20261009-pwa-1"></script>
 
 </body>
 </html>

@@ -1,0 +1,81 @@
+{
+  "classe": "6110",
+  "total_termos": 5,
+  "termos": [
+    {
+      "termo": "Serviços de telecomunicações por fio não especificados anteriormente",
+      "termo_normalizado": "servicos de telecomunicacoes por fio nao especificados anteriormente",
+      "codigo_cnae": "6110899",
+      "descricao": "Serviços de telecomunicações por fio não especificados anteriormente",
+      "relevancia": 100,
+      "categoria": "611",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "611",
+      "classe": "6110",
+      "subclasse": "6110899",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "telecomunicações",
+      "termo_normalizado": "telecomunicacoes",
+      "codigo_cnae": "6110899",
+      "descricao": "Serviços de telecomunicações por fio não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "611",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "611",
+      "classe": "6110",
+      "subclasse": "6110899",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "fio",
+      "termo_normalizado": "fio",
+      "codigo_cnae": "6110899",
+      "descricao": "Serviços de telecomunicações por fio não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "611",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "611",
+      "classe": "6110",
+      "subclasse": "6110899",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "especificados",
+      "termo_normalizado": "especificados",
+      "codigo_cnae": "6110899",
+      "descricao": "Serviços de telecomunicações por fio não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "611",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "611",
+      "classe": "6110",
+      "subclasse": "6110899",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "anteriormente",
+      "termo_normalizado": "anteriormente",
+      "codigo_cnae": "6110899",
+      "descricao": "Serviços de telecomunicações por fio não especificados anteriormente",
+      "relevancia": 85,
+      "categoria": "611",
+      "secao": "J",
+      "divisao": "61",
+      "grupo": "611",
+      "classe": "6110",
+      "subclasse": "6110899",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

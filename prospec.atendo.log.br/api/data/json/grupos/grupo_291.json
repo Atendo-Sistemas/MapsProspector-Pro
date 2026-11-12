@@ -1,0 +1,308 @@
+{
+  "grupo": "291",
+  "divisao": "29",
+  "secao": "C",
+  "total_termos": 30,
+  "termos": [
+    {
+      "termo": "Fabricação de automóveis, camionetas e utilitários",
+      "codigo_cnae": "2910701",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "2910701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "2910701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "2910701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "2910701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Utilitários",
+      "codigo_cnae": "2910701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Utilitarios",
+      "codigo_cnae": "2910701",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de automóveis, camionetas e utilitários",
+      "codigo_cnae": "2910701",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de chassis com motor para automóveis, camionetas e utilitários",
+      "codigo_cnae": "2910702",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Chassis",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chassis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Chassis",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "chassis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Motor",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motor",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Motor",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motor",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Utilitários",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Utilitarios",
+      "codigo_cnae": "2910702",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de chassis com motor para automóveis, camionetas e utilitários",
+      "codigo_cnae": "2910702",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de motores para automóveis, camionetas e utilitários",
+      "codigo_cnae": "2910703",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Motores",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motores",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Automóveis",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Automoveis",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "automóveis",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Camionetas",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "camionetas",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Utilitários",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Utilitarios",
+      "codigo_cnae": "2910703",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "utilitários",
+      "secao": "C",
+      "divisao": "29"
+    },
+    {
+      "termo": "Fabricação de motores para automóveis, camionetas e utilitários",
+      "codigo_cnae": "2910703",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "29"
+    }
+  ]
+}

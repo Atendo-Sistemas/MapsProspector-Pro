@@ -1,0 +1,49 @@
+{
+  "classe": "2094",
+  "grupo": "209",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de catalisadores",
+      "codigo_cnae": "2094100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Catalisadores",
+      "codigo_cnae": "2094100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "catalisadores",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Catalisadores",
+      "codigo_cnae": "2094100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "catalisadores",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de catalisadores",
+      "codigo_cnae": "2094100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

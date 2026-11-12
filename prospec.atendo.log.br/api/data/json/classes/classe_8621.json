@@ -1,0 +1,189 @@
+{
+  "classe": "8621",
+  "grupo": "862",
+  "divisao": "86",
+  "secao": "Q",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "UTI móvel",
+      "codigo_cnae": "8621601",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móvel",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Movel",
+      "codigo_cnae": "8621601",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "UTI móvel",
+      "codigo_cnae": "8621601",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços móveis de atendimento a urgências, exceto por UTI móvel",
+      "codigo_cnae": "8621602",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móveis",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Moveis",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móveis",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Atendimento",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "atendimento",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgências",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Urgencias",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urgências",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Uti",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "uti",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Móvel",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Movel",
+      "codigo_cnae": "8621602",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "móvel",
+      "secao": "Q",
+      "divisao": "86"
+    },
+    {
+      "termo": "Serviços móveis de atendimento a urgências, exceto por UTI móvel",
+      "codigo_cnae": "8621602",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "Q",
+      "divisao": "86"
+    }
+  ]
+}

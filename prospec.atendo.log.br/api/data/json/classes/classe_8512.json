@@ -1,0 +1,109 @@
+{
+  "classe": "8512",
+  "grupo": "851",
+  "divisao": "85",
+  "secao": "P",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Educação infantil - pré-escola",
+      "codigo_cnae": "8512100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educacao",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "educação",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Infantil",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "infantil",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Pré",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pré",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Pre",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pré",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Escola",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escola",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Escola",
+      "codigo_cnae": "8512100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "escola",
+      "secao": "P",
+      "divisao": "85"
+    },
+    {
+      "termo": "Educação infantil - pré-escola",
+      "codigo_cnae": "8512100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "P",
+      "divisao": "85"
+    }
+  ]
+}

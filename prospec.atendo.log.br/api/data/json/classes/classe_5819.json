@@ -1,0 +1,149 @@
+{
+  "classe": "5819",
+  "grupo": "581",
+  "divisao": "58",
+  "secao": "J",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Edição de cadastros, listas e de outros produtos gráficos",
+      "codigo_cnae": "5819100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Edição",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edição",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Edicao",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "edição",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Cadastros",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastros",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Cadastros",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cadastros",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Listas",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "listas",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Listas",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "listas",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Outros",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outros",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Produtos",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produtos",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Gráficos",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gráficos",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Graficos",
+      "codigo_cnae": "5819100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gráficos",
+      "secao": "J",
+      "divisao": "58"
+    },
+    {
+      "termo": "Edição de cadastros, listas e de outros produtos gráficos",
+      "codigo_cnae": "5819100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "58"
+    }
+  ]
+}

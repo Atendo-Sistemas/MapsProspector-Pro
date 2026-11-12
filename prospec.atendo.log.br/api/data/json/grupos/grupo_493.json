@@ -1,0 +1,81 @@
+{
+  "grupo": "493",
+  "total_termos": 5,
+  "termos": [
+    {
+      "termo": "Transporte rodoviário de carga municipal",
+      "termo_normalizado": "transporte rodoviario de carga municipal",
+      "codigo_cnae": "4930201",
+      "descricao": "Transporte rodoviário de carga municipal",
+      "relevancia": 100,
+      "categoria": "493",
+      "secao": "H",
+      "divisao": "49",
+      "grupo": "493",
+      "classe": "4930",
+      "subclasse": "4930201",
+      "origem": "descrição oficial",
+      "tipo": "nome_oficial"
+    },
+    {
+      "termo": "transporte",
+      "termo_normalizado": "transporte",
+      "codigo_cnae": "4930201",
+      "descricao": "Transporte rodoviário de carga municipal",
+      "relevancia": 85,
+      "categoria": "493",
+      "secao": "H",
+      "divisao": "49",
+      "grupo": "493",
+      "classe": "4930",
+      "subclasse": "4930201",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "rodoviário",
+      "termo_normalizado": "rodoviario",
+      "codigo_cnae": "4930201",
+      "descricao": "Transporte rodoviário de carga municipal",
+      "relevancia": 85,
+      "categoria": "493",
+      "secao": "H",
+      "divisao": "49",
+      "grupo": "493",
+      "classe": "4930",
+      "subclasse": "4930201",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "carga",
+      "termo_normalizado": "carga",
+      "codigo_cnae": "4930201",
+      "descricao": "Transporte rodoviário de carga municipal",
+      "relevancia": 85,
+      "categoria": "493",
+      "secao": "H",
+      "divisao": "49",
+      "grupo": "493",
+      "classe": "4930",
+      "subclasse": "4930201",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    },
+    {
+      "termo": "municipal",
+      "termo_normalizado": "municipal",
+      "codigo_cnae": "4930201",
+      "descricao": "Transporte rodoviário de carga municipal",
+      "relevancia": 85,
+      "categoria": "493",
+      "secao": "H",
+      "divisao": "49",
+      "grupo": "493",
+      "classe": "4930",
+      "subclasse": "4930201",
+      "origem": "classificação semântica",
+      "tipo": "palavra_chave"
+    }
+  ]
+}

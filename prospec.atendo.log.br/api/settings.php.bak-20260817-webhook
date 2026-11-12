@@ -1,0 +1,459 @@
+<?php
+/**
+ * API de configurações da plataforma.
+ *
+ * A URL pode ser exibida no painel. O token nunca é devolvido ao navegador:
+ * somente um valor mascarado é retornado. O segredo é atualizado apenas
+ * quando o administrador envia um novo valor não vazio.
+ *
+ * Endpoint: /api/settings.php
+ */
+
+ob_start();
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+header('Content-Type: application/json; charset=utf-8');
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+header('Expires: 0');
+
+// Garante que erros fatais de include/configuração também retornem JSON.
+// Sem este bloco, um fatal antes do try/catch resulta em resposta vazia e o
+// frontend exibe apenas "Unexpected end of JSON input".
+register_shutdown_function(function (): void {
+    $error = error_get_last();
+    $fatalTypes = [E_ERROR, E_PARSE, E_CORE_ERROR, E_COMPILE_ERROR];
+
+    if (!$error || !in_array($error['type'], $fatalTypes, true)) {
+        return;
+    }
+
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
+    if (!headers_sent()) {
+        http_response_code(500);
+        header('Content-Type: application/json; charset=utf-8');
+    }
+
+    echo json_encode([
+        'success' => false,
+        'error' => 'Falha fatal no endpoint de configurações.',
+    ], JSON_UNESCAPED_UNICODE);
+});
+
+require_once __DIR__ . '/../config/config.php';
+require_once __DIR__ . '/../config/database.php';
+require_once __DIR__ . '/../includes/functions.php';
+
+function settingsMaskSecret(string $secret): string
+{
+    $secret = trim($secret);
+    if ($secret === '') {
+        return '';
+    }
+
+    // Nunca revela o início do token: mesmo uma credencial parcial não deve
+    // ser exposta no navegador. Tokens curtos não exibem caractere algum.
+    if (strlen($secret) <= 8) {
+        return str_repeat("\u{2022}", 8);
+    }
+
+    return str_repeat("\u{2022}", 8) . substr($secret, -4);
+}
+
+/**
+ * Respostas locais do endpoint. Não dependem de jsonSuccess/jsonError, pois
+ * algumas versões antigas dessas funções encerram a execução sem imprimir
+ * corpo quando a sessão não está autenticada.
+ */
+function settingsJsonResponse(bool $success, $data = null, string $message = '', int $status = 200): void
+{
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+
+    http_response_code($status);
+    header('Content-Type: application/json; charset=utf-8');
+    header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+    header('Pragma: no-cache');
+    header('Expires: 0');
+
+    $payload = ['success' => $success];
+    if ($success) {
+        $payload['data'] = $data;
+        if ($message !== '') {
+            $payload['message'] = $message;
+        }
+    } else {
+        $payload['error'] = $message !== '' ? $message : 'Erro ao processar a solicitação.';
+    }
+
+    $json = json_encode(
+        $payload,
+        JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES | JSON_INVALID_UTF8_SUBSTITUTE
+    );
+
+    if ($json === false) {
+        http_response_code(500);
+        $json = '{"success":false,"error":"Falha ao serializar a resposta de configurações."}';
+    }
+
+    echo $json;
+    exit;
+}
+
+function settingsSuccess($data = null, string $message = ''): void
+{
+    settingsJsonResponse(true, $data, $message, 200);
+}
+
+function settingsError(string $message, int $status = 400): void
+{
+    settingsJsonResponse(false, null, $message, $status);
+}
+
+function settingsReadRow(PDO $db, int $userId): ?array
+{
+    $stmt = $db->prepare('SELECT id, base_url, tenant_name, token FROM settings WHERE user_id = ? LIMIT 1');
+    $stmt->execute([$userId]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+    return $row ?: null;
+}
+
+/**
+ * Obtém o usuário autenticado diretamente da sessão.
+ *
+ * Não chama getAuthUser(): há uma versão de produção desse helper que pode
+ * executar exit sem imprimir JSON para determinados perfis, especialmente
+ * quando a sessão pertence ao super administrador.
+ */
+function settingsSessionUser(PDO $db): ?array
+{
+    if (session_status() !== PHP_SESSION_ACTIVE) {
+        @session_start();
+    }
+
+    $sessionCandidates = [
+        $_SESSION['user'] ?? null,
+        $_SESSION['auth_user'] ?? null,
+        $_SESSION['current_user'] ?? null,
+        $_SESSION['user_data'] ?? null,
+    ];
+
+    foreach ($sessionCandidates as $candidate) {
+        if (!is_array($candidate)) {
+            continue;
+        }
+
+        $id = $candidate['id'] ?? $candidate['user_id'] ?? null;
+        $profile = strtolower((string)($candidate['profile'] ?? $candidate['role'] ?? $candidate['user_type'] ?? ''));
+        if (($id === null || $id === '') && $profile !== 'super_admin') {
+            continue;
+        }
+
+        return [
+            'id' => $id === null || $id === '' ? 0 : (int)$id,
+            'tenant_id' => $candidate['tenant_id'] ?? $candidate['tenantId'] ?? null,
+            'profile' => $profile,
+            'email' => $candidate['email'] ?? '',
+            'name' => $candidate['name'] ?? '',
+        ];
+    }
+
+    $sessionProfile = strtolower((string)($_SESSION['profile'] ?? $_SESSION['role'] ?? $_SESSION['user_type'] ?? ''));
+    if ($sessionProfile === 'super_admin' || !empty($_SESSION['is_super_admin'])) {
+        return [
+            'id' => 0,
+            'tenant_id' => null,
+            'profile' => 'super_admin',
+            'email' => (string)($_SESSION['email'] ?? $_SESSION['user_email'] ?? ''),
+            'name' => (string)($_SESSION['name'] ?? $_SESSION['user_name'] ?? 'Super administrador'),
+        ];
+    }
+
+    $sessionId = $_SESSION['user_id'] ?? $_SESSION['auth_user_id'] ?? null;
+    $sessionEmail = $_SESSION['email'] ?? $_SESSION['user_email'] ?? null;
+    if (($sessionId === null || $sessionId === '') && ($sessionEmail === null || $sessionEmail === '')) {
+        return null;
+    }
+
+    try {
+        if ($sessionId !== null && $sessionId !== '') {
+            $stmt = $db->prepare('SELECT * FROM users WHERE id = ? LIMIT 1');
+            $stmt->execute([(int)$sessionId]);
+        } else {
+            $stmt = $db->prepare('SELECT * FROM users WHERE email = ? LIMIT 1');
+            $stmt->execute([(string)$sessionEmail]);
+        }
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!$row) {
+            return null;
+        }
+
+        return [
+            'id' => (int)($row['id'] ?? 0),
+            'tenant_id' => $row['tenant_id'] ?? $row['tenantId'] ?? null,
+            'profile' => $row['profile'] ?? $row['role'] ?? $row['user_type'] ?? '',
+            'email' => $row['email'] ?? '',
+            'name' => $row['name'] ?? '',
+        ];
+    } catch (Throwable $e) {
+        error_log('settingsSessionUser: falha ao resolver usuário da sessão: ' . $e->getMessage());
+        return null;
+    }
+}
+
+try {
+    $db = Database::getInstance()->getConnection();
+
+    // Não use getAuthUser()/requireAuth() neste endpoint: algumas versões
+    // encerram silenciosamente para a sessão do super administrador.
+    $authUser = settingsSessionUser($db);
+    $profile = strtolower((string)($authUser['profile'] ?? ''));
+    $isSuperAdmin = $profile === 'super_admin';
+    if (!is_array($authUser) || (!$isSuperAdmin && empty($authUser['id']))) {
+        settingsError('Não autenticado.', 401);
+    }
+    $userId = (int)$authUser['id'];
+    $tenantId = $authUser['tenant_id'] ?? $authUser['tenantId'] ?? null;
+    $method = strtoupper($_SERVER['REQUEST_METHOD'] ?? 'GET');
+    $settingsRow = $isSuperAdmin ? null : settingsReadRow($db, (int)$userId);
+    $storedToken = '';
+
+    if ($isSuperAdmin && function_exists('getPlatformSetting')) {
+        $storedToken = trim((string)(getPlatformSetting($db, 'atendo_wa_token') ?? ''));
+    } elseif ($settingsRow && !empty($settingsRow['token'])) {
+        $storedToken = (string)decryptApikey($settingsRow['token']);
+    }
+
+    if ($method === 'GET') {
+        $baseUrl = $isSuperAdmin && function_exists('getPlatformSetting')
+            ? (string)(getPlatformSetting($db, 'atendo_wa_base_url') ?? '')
+            : (string)($settingsRow['base_url'] ?? '');
+        $tenantName = $isSuperAdmin && function_exists('getPlatformSetting')
+            ? (string)(getPlatformSetting($db, 'platform_name') ?? 'Nome da empresa SaaS')
+            : (string)($settingsRow['tenant_name'] ?? 'Nome da empresa SaaS');
+
+        // Para contas de empresa, o nome canônico pertence ao tenant. O webhook
+        // mantém compatibilidade com registros antigos quando ainda não existe
+        // um valor específico em settings.
+        if (!$isSuperAdmin && $tenantId !== null) {
+            $stmtTenant = $db->prepare('SELECT name, webhook_url FROM tenants WHERE id = ? LIMIT 1');
+            $stmtTenant->execute([$tenantId]);
+            $tenantRow = $stmtTenant->fetch(PDO::FETCH_ASSOC);
+            if ($tenantRow) {
+                if ($baseUrl === '') {
+                    $baseUrl = (string)($tenantRow['webhook_url'] ?? '');
+                }
+                $tenantName = (string)($tenantRow['name'] ?? $tenantName ?: 'Empresa');
+            }
+        }
+
+        if (!$isSuperAdmin) {
+            // Para a empresa, base_url representa exclusivamente o webhook de
+            // integração. Não exponha metadados de tokens ou configuração global.
+            settingsSuccess([
+                'webhookUrl' => $baseUrl,
+                'baseUrl' => $baseUrl,
+                'tenantName' => $tenantName ?: 'Empresa',
+                'webhookConfigured' => $baseUrl !== '',
+                'canEditTenantName' => $profile === 'admin',
+            ]);
+        }
+
+        $adminNumber = '551731981705';
+        if (function_exists('getPlatformSetting')) {
+            $adminNumber = (string)(getPlatformSetting($db, 'atendo_wa_admin_number') ?: $adminNumber);
+        }
+
+        $data = [
+            'baseUrl' => $baseUrl,
+            'atendoWaBaseUrl' => $baseUrl,
+            'tenantName' => $tenantName ?: 'Nome da empresa SaaS',
+            'atendoWaAdminNumber' => $adminNumber,
+            'atendoWaTokenConfigured' => $storedToken !== '',
+            'atendoWaTokenMasked' => settingsMaskSecret($storedToken),
+            'tokenConfigured' => $storedToken !== '',
+            'tokenMasked' => settingsMaskSecret($storedToken),
+            'scraperApiKeyConfigured' => trim((string)(getPlatformSetting($db, 'scraper_api_key') ?? '')) !== '',
+            'openrouterApiKeyConfigured' => trim((string)(getPlatformSetting($db, 'openrouter_api_key') ?? '')) !== '',
+            'iaModel' => getPlatformSetting($db, 'ia_model') ?? 'google/gemini-2.0-flash-001',
+            'iaModelFallback' => getPlatformSetting($db, 'ia_model_fallback') ?? '',
+            'cnpjApiUrl' => getPlatformSetting($db, 'cnpj_api_url') ?? 'https://publica.cnpj.ws/cnpj/{cnpj}',
+        ];
+
+        if ($isSuperAdmin) {
+            $data['scraperApiKey'] = getPlatformSetting($db, 'scraper_api_key') ?? '';
+            $data['openrouterApiKey'] = getPlatformSetting($db, 'openrouter_api_key') ?? '';
+            $data['mapboxAccessToken'] = getPlatformSetting($db, 'mapbox_access_token') ?? '';
+        } else {
+            $data['scraperApiKey'] = '';
+            $data['openrouterApiKey'] = '';
+            $data['mapboxAccessToken'] = '';
+        }
+
+        settingsSuccess($data);
+    }
+
+    if ($method !== 'POST' && $method !== 'PUT') {
+        settingsError('Método não permitido.', 405);
+    }
+
+    if (!$isSuperAdmin && !in_array($profile, ['admin', 'supervisor', 'manager', 'gerente'], true)) {
+        settingsError('Acesso restrito.', 403);
+    }
+
+    $input = json_decode(file_get_contents('php://input'), true);
+    if (!is_array($input)) {
+        settingsError('Dados inválidos.', 400);
+    }
+
+    if (!$isSuperAdmin) {
+        // Usuários de empresas podem administrar somente o webhook e, quando
+        // forem administradores, o nome do próprio tenant.
+        // Bloqueia explicitamente qualquer tentativa de gravar dados globais.
+        $globalFields = ['token', 'atendoWaToken', 'atendoWaAdminNumber', 'scraperApiKey', 'openrouterApiKey', 'mapboxAccessToken', 'cnpjApiUrl'];
+        foreach ($globalFields as $globalField) {
+            if (array_key_exists($globalField, $input)) {
+                settingsError('Configurações globais são exclusivas do super administrador.', 403);
+            }
+        }
+
+        $webhookUrl = trim((string)($input['webhookUrl'] ?? $input['baseUrl'] ?? ''));
+        if ($webhookUrl !== '' && !filter_var($webhookUrl, FILTER_VALIDATE_URL)) {
+            settingsError('A URL do webhook não é válida.', 400);
+        }
+
+        $canEditTenantName = $profile === 'admin';
+        $hasTenantName = array_key_exists('tenantName', $input);
+        $tenantName = trim((string)($input['tenantName'] ?? ''));
+        if ($hasTenantName && !$canEditTenantName) {
+            settingsError('Somente o administrador da empresa pode alterar o nome.', 403);
+        }
+        if ($hasTenantName && ($tenantName === '' || mb_strlen($tenantName) > 120)) {
+            settingsError('Informe um nome de empresa entre 1 e 120 caracteres.', 400);
+        }
+
+        $existing = settingsReadRow($db, (int)$userId);
+        if ($existing) {
+            $stmt = $db->prepare('UPDATE settings SET base_url = ?, tenant_name = ? WHERE user_id = ?');
+            $stmt->execute([$webhookUrl, $hasTenantName ? sanitizeInput($tenantName) : (string)($existing['tenant_name'] ?? 'Empresa'), (int)$userId]);
+        } else {
+            $stmt = $db->prepare('INSERT INTO settings (user_id, base_url, tenant_name) VALUES (?, ?, ?)');
+            $stmt->execute([(int)$userId, $webhookUrl, $hasTenantName ? sanitizeInput($tenantName) : 'Empresa']);
+        }
+
+        // O endpoint de exportação consulta tenants.webhook_url. Salve a URL
+        // recebida pelo frontend (webhookUrl, com compatibilidade para baseUrl)
+        // também no tenant para que a exportação possa usá-la.
+        if ($tenantId !== null) {
+            $stmtTenantWebhook = $db->prepare('UPDATE tenants SET webhook_url = ? WHERE id = ?');
+            $stmtTenantWebhook->execute([$webhookUrl !== '' ? $webhookUrl : null, (int)$tenantId]);
+        }
+
+        if ($hasTenantName && $tenantId !== null) {
+            $stmtTenant = $db->prepare('UPDATE tenants SET name = ? WHERE id = ?');
+            $stmtTenant->execute([sanitizeInput($tenantName), (int)$tenantId]);
+        }
+
+        settingsSuccess(null, 'Configurações da empresa salvas com sucesso.');
+    }
+
+    $baseUrl = trim((string)($input['baseUrl'] ?? $input['atendoWaBaseUrl'] ?? ''));
+    $tenantName = trim((string)($input['tenantName'] ?? ''));
+    $newToken = trim((string)($input['token'] ?? $input['atendoWaToken'] ?? ''));
+    $adminNumber = preg_replace('/\D+/', '', (string)($input['atendoWaAdminNumber'] ?? ''));
+
+    if ($baseUrl !== '' && !filter_var($baseUrl, FILTER_VALIDATE_URL)) {
+        settingsError('A URL da API Atendo não é válida.', 400);
+    }
+
+    if ($adminNumber !== '' && strlen($adminNumber) < 10) {
+        settingsError('O número administrativo precisa estar no formato internacional.', 400);
+    }
+
+    if ($isSuperAdmin) {
+        if (!function_exists('setPlatformSetting')) {
+            settingsError('A função de configurações globais não está disponível.', 500);
+        }
+
+        if ($baseUrl !== '') {
+            setPlatformSetting($db, 'atendo_wa_base_url', $baseUrl);
+        }
+        if ($tenantName !== '') {
+            setPlatformSetting($db, 'platform_name', sanitizeInput($tenantName));
+        }
+        if ($newToken !== '') {
+            setPlatformSetting($db, 'atendo_wa_token', $newToken);
+        }
+        if ($adminNumber !== '') {
+            setPlatformSetting($db, 'atendo_wa_admin_number', $adminNumber);
+        }
+        if (array_key_exists('scraperApiKey', $input)) {
+            setPlatformSetting($db, 'scraper_api_key', trim((string)$input['scraperApiKey']));
+        }
+        if (array_key_exists('openrouterApiKey', $input)) {
+            setPlatformSetting($db, 'openrouter_api_key', trim((string)$input['openrouterApiKey']));
+        }
+        if (array_key_exists('mapboxAccessToken', $input)) {
+            setPlatformSetting($db, 'mapbox_access_token', trim((string)$input['mapboxAccessToken']));
+        }
+        if (array_key_exists('cnpjApiUrl', $input)) {
+            setPlatformSetting($db, 'cnpj_api_url', trim((string)$input['cnpjApiUrl']));
+        }
+
+        settingsSuccess(null, 'Configurações globais salvas com sucesso.');
+    }
+
+    $fields = ['base_url = ?'];
+    $params = [$baseUrl];
+
+    if ($tenantName !== '') {
+        $fields[] = 'tenant_name = ?';
+        $params[] = sanitizeInput($tenantName);
+    }
+
+    // Campo vazio significa “manter o token atual”. Nunca o substitua por vazio.
+    if ($newToken !== '') {
+        $fields[] = 'token = ?';
+        $params[] = encryptApikey($newToken);
+    }
+
+    $existing = settingsReadRow($db, (int)$userId);
+    if ($existing) {
+        $params[] = (int)$userId;
+        $stmt = $db->prepare('UPDATE settings SET ' . implode(', ', $fields) . ' WHERE user_id = ?');
+        $stmt->execute($params);
+    } else {
+        $encryptedToken = $newToken !== '' ? encryptApikey($newToken) : '';
+        $stmt = $db->prepare('INSERT INTO settings (user_id, base_url, token, tenant_name) VALUES (?, ?, ?, ?)');
+        $stmt->execute([(int)$userId, $baseUrl, $encryptedToken, $tenantName !== '' ? sanitizeInput($tenantName) : 'Empresa']);
+    }
+
+    if ($adminNumber !== '' && function_exists('setPlatformSetting')) {
+        setPlatformSetting($db, 'atendo_wa_admin_number', $adminNumber);
+    }
+
+    if ($isSuperAdmin) {
+        if (array_key_exists('scraperApiKey', $input) && function_exists('setPlatformSetting')) {
+            setPlatformSetting($db, 'scraper_api_key', trim((string)$input['scraperApiKey']));
+        }
+        if (array_key_exists('openrouterApiKey', $input) && function_exists('setPlatformSetting')) {
+            setPlatformSetting($db, 'openrouter_api_key', trim((string)$input['openrouterApiKey']));
+        }
+        if (array_key_exists('mapboxAccessToken', $input) && function_exists('setPlatformSetting')) {
+            setPlatformSetting($db, 'mapbox_access_token', trim((string)$input['mapboxAccessToken']));
+        }
+        if (array_key_exists('cnpjApiUrl', $input) && function_exists('setPlatformSetting')) {
+            setPlatformSetting($db, 'cnpj_api_url', trim((string)$input['cnpjApiUrl']));
+        }
+    }
+
+    settingsSuccess(null, 'Configurações salvas com sucesso.');
+} catch (Throwable $e) {
+    settingsError('Falha ao processar as configurações.', 500);
+}

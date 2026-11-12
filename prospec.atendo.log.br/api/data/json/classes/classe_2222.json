@@ -1,0 +1,89 @@
+{
+  "classe": "2222",
+  "grupo": "222",
+  "divisao": "22",
+  "secao": "C",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de embalagens de material plástico",
+      "codigo_cnae": "2222600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "2222600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "2222600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "2222600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Material",
+      "codigo_cnae": "2222600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "material",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Plástico",
+      "codigo_cnae": "2222600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plástico",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Plastico",
+      "codigo_cnae": "2222600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "plástico",
+      "secao": "C",
+      "divisao": "22"
+    },
+    {
+      "termo": "Fabricação de embalagens de material plástico",
+      "codigo_cnae": "2222600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "22"
+    }
+  ]
+}

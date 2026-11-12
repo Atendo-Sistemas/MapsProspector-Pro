@@ -1,0 +1,208 @@
+{
+  "grupo": "251",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Fabricação de estruturas metálicas",
+      "codigo_cnae": "2511000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Estruturas",
+      "codigo_cnae": "2511000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estruturas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Estruturas",
+      "codigo_cnae": "2511000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estruturas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metálicas",
+      "codigo_cnae": "2511000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metalicas",
+      "codigo_cnae": "2511000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metálicas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de estruturas metálicas",
+      "codigo_cnae": "2511000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de esquadrias de metal",
+      "codigo_cnae": "2512800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Esquadrias",
+      "codigo_cnae": "2512800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esquadrias",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Esquadrias",
+      "codigo_cnae": "2512800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esquadrias",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2512800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2512800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de esquadrias de metal",
+      "codigo_cnae": "2512800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de obras de caldeiraria pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Caldeiraria",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caldeiraria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Caldeiraria",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "caldeiraria",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesada",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pesada",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de obras de caldeiraria pesada",
+      "codigo_cnae": "2513600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

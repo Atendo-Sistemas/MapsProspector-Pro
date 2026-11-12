@@ -1,0 +1,69 @@
+{
+  "classe": "2031",
+  "grupo": "203",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de resinas termoplásticas",
+      "codigo_cnae": "2031200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2031200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Resinas",
+      "codigo_cnae": "2031200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "resinas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Termoplásticas",
+      "codigo_cnae": "2031200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "termoplásticas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Termoplasticas",
+      "codigo_cnae": "2031200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "termoplásticas",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de resinas termoplásticas",
+      "codigo_cnae": "2031200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

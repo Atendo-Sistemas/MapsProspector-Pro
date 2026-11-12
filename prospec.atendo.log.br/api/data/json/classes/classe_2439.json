@@ -1,0 +1,69 @@
+{
+  "classe": "2439",
+  "grupo": "243",
+  "divisao": "24",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Trefilação de aço",
+      "codigo_cnae": "2439300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Trefilação",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trefilação",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Trefilacao",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trefilação",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aço",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aco",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Trefilação de aço",
+      "codigo_cnae": "2439300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    }
+  ]
+}

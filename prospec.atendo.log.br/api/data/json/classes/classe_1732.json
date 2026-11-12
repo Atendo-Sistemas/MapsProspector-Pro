@@ -1,0 +1,109 @@
+{
+  "classe": "1732",
+  "grupo": "173",
+  "divisao": "17",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de embalagens de cartolina e papel-cartão",
+      "codigo_cnae": "1732000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Embalagens",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "embalagens",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Cartolina",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cartolina",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Cartolina",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cartolina",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Papel",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "papel",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Papel",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "papel",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Cartão",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cartão",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Cartao",
+      "codigo_cnae": "1732000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cartão",
+      "secao": "C",
+      "divisao": "17"
+    },
+    {
+      "termo": "Fabricação de embalagens de cartolina e papel-cartão",
+      "codigo_cnae": "1732000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "17"
+    }
+  ]
+}

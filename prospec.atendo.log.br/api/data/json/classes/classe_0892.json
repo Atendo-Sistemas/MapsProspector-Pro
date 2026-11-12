@@ -1,0 +1,249 @@
+{
+  "classe": "0892",
+  "grupo": "089",
+  "divisao": "08",
+  "secao": "B",
+  "total_termos": 24,
+  "termos": [
+    {
+      "termo": "Extração de sal marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de sal marinho",
+      "codigo_cnae": "0892401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino de sal marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refino",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "refino",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "marinho",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Refino de sal marinho",
+      "codigo_cnae": "0892402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de sal-gema",
+      "codigo_cnae": "0892403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extracao",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "extração",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Sal",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sal",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gema",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gema",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Gema",
+      "codigo_cnae": "0892403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gema",
+      "secao": "B",
+      "divisao": "08"
+    },
+    {
+      "termo": "Extração de sal-gema",
+      "codigo_cnae": "0892403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "B",
+      "divisao": "08"
+    }
+  ]
+}

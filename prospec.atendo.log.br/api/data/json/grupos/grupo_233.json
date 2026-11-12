@@ -1,0 +1,110 @@
+{
+  "grupo": "233",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "fabricação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "artefatos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produtos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "concreto,",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "cimento,",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "manufatura",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2330399",
+      "descricao_cnae": "Fabricação de outros artefatos e produtos de concreto, cimento, fibrocimento, gesso e materiais semelhantes",
+      "secao": "C",
+      "divisao": "23",
+      "grupo": "233",
+      "classe": "2330",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

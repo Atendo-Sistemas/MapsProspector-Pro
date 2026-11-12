@@ -424,38 +424,60 @@ try {
             $historyQuery = 'Consulta CNPJ: ' . ($cnpjBusca !== '' ? $cnpjBusca : 'Busca avançada');
             if ($firstCompanyName !== '') $historyQuery .= ' — ' . $firstCompanyName;
 
+            $hasUserIp = false;
+            try {
+                $db->query("SELECT user_ip FROM search_history LIMIT 1");
+                $hasUserIp = true;
+            } catch (Throwable $columnError) {}
+            // Confirma o histórico antes de tentar gravar os leads. Assim, uma
+            // incompatibilidade antiga na tabela leads não apaga a pesquisa.
             $db->beginTransaction();
-            $stmtHist = $db->prepare(
-                "INSERT INTO search_history (user_id, query, location, tag, results_count, user_ip, created_at)
-                 VALUES (?, ?, ?, ?, ?, ?, NOW())"
-            );
-            $stmtHist->execute([$userId, $historyQuery, $locationText, 'CNPJ_AVANCADA', $validCount, $userIp]);
+            if ($hasUserIp) {
+                $stmtHist = $db->prepare(
+                    "INSERT INTO search_history (user_id, query, location, tag, results_count, user_ip, created_at)
+                     VALUES (?, ?, ?, ?, ?, ?, NOW())"
+                );
+                $stmtHist->execute([$userId, $historyQuery, $locationText, 'CNPJ_AVANCADA', $validCount, substr((string) $userIp, 0, 64)]);
+            } else {
+                $stmtHist = $db->prepare(
+                    "INSERT INTO search_history (user_id, query, location, tag, results_count, created_at)
+                     VALUES (?, ?, ?, ?, ?, NOW())"
+                );
+                $stmtHist->execute([$userId, $historyQuery, $locationText, 'CNPJ_AVANCADA', $validCount]);
+            }
             $historyId = (int) $db->lastInsertId();
             if ($historyId < 1) throw new RuntimeException('Histórico CNPJ não retornou identificador válido.');
-
-            $leadInsert = $db->prepare(
-                'INSERT INTO leads (search_history_id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude)
-                 VALUES (?, ?, ?, ?, ?, ?, NULL, ?, ?, ?, NULL, NULL)'
-            );
-            foreach ($empresasEncontradas as $empresa) {
-                $leadName = trim((string) ($empresa['name'] ?? ''));
-                if ($leadName === '') $leadName = trim((string) ($empresa['tradeName'] ?? '')) ?: 'Empresa sem razão social';
-                $partnerText = (string) ($empresa['socios'] ?? '');
-                $leadInsert->execute([
-                    $historyId,
-                    mb_substr($leadName, 0, 255),
-                    mb_substr((string) ($empresa['address'] ?? ''), 0, 1000),
-                    mb_substr((string) ($empresa['phone'] ?? ''), 0, 255),
-                    mb_substr((string) ($empresa['email'] ?? ''), 0, 255),
-                    preg_replace('/\\D+/', '', (string) ($empresa['cnpj'] ?? $cnpjBusca)),
-                    mb_substr($partnerText, 0, 2000),
-                    'CNPJ_AVANCADA'
-                ]);
-            }
             $db->commit();
+
+            try {
+                $db->beginTransaction();
+                $leadInsert = $db->prepare(
+                    'INSERT INTO leads (search_history_id, name, address, phone, email, website, maps_uri, cnpj, partners, tag, latitude, longitude)
+                     VALUES (?, ?, ?, ?, ?, NULL, NULL, ?, ?, ?, NULL, NULL)'
+                );
+                foreach ($empresasEncontradas as $empresa) {
+                    $leadName = trim((string) ($empresa['name'] ?? ''));
+                    if ($leadName === '') $leadName = trim((string) ($empresa['tradeName'] ?? '')) ?: 'Empresa sem razão social';
+                    $partnerText = (string) ($empresa['socios'] ?? '');
+                    $leadInsert->execute([
+                        $historyId,
+                        mb_substr($leadName, 0, 255),
+                        mb_substr((string) ($empresa['address'] ?? ''), 0, 1000),
+                        mb_substr((string) ($empresa['phone'] ?? ''), 0, 255),
+                        mb_substr((string) ($empresa['email'] ?? ''), 0, 255),
+                        preg_replace('/\\D+/', '', (string) ($empresa['cnpj'] ?? $cnpjBusca)),
+                        mb_substr($partnerText, 0, 2000),
+                        'CNPJ_AVANCADA'
+                    ]);
+                }
+                $db->commit();
+            } catch (Throwable $leadError) {
+                if ($db->inTransaction()) $db->rollBack();
+                error_log("Erro ao salvar leads CNPJ (histórico preservado): " . $leadError->getMessage());
+            }
         } catch (Throwable $e) {
             if ($db->inTransaction()) $db->rollBack();
-            error_log("Erro ao salvar histórico/leads CNPJ: " . $e->getMessage());
+            error_log("Erro ao salvar histórico CNPJ: " . $e->getMessage());
         }
     }
 

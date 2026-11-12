@@ -1,0 +1,149 @@
+{
+  "classe": "4722",
+  "grupo": "472",
+  "divisao": "47",
+  "secao": "G",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Comércio varejista de carnes - açougues",
+      "codigo_cnae": "4722901",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comercio",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "atividade comercial",
+      "relevancia": 85,
+      "categoria": "comércio",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Varejista",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "varejista",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Carnes",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carnes",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Carnes",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "carnes",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Açougues",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açougues",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Acougues",
+      "codigo_cnae": "4722901",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açougues",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Comércio varejista de carnes - açougues",
+      "codigo_cnae": "4722901",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Peixaria",
+      "codigo_cnae": "4722902",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Peixaria",
+      "codigo_cnae": "4722902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Peixaria",
+      "codigo_cnae": "4722902",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "peixaria",
+      "secao": "G",
+      "divisao": "47"
+    },
+    {
+      "termo": "Peixaria",
+      "codigo_cnae": "4722902",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "G",
+      "divisao": "47"
+    }
+  ]
+}

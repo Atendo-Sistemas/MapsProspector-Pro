@@ -1,0 +1,168 @@
+{
+  "grupo": "741",
+  "divisao": "74",
+  "secao": "M",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "interiores",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "interiores",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de interiores",
+      "codigo_cnae": "7410202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de produto",
+      "codigo_cnae": "7410203",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "design",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Produto",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produto",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Produto",
+      "codigo_cnae": "7410203",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "produto",
+      "secao": "M",
+      "divisao": "74"
+    },
+    {
+      "termo": "Design de produto",
+      "codigo_cnae": "7410203",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "M",
+      "divisao": "74"
+    }
+  ]
+}

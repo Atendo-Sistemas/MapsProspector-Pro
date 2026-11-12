@@ -1,0 +1,428 @@
+{
+  "grupo": "421",
+  "divisao": "42",
+  "secao": "F",
+  "total_termos": 42,
+  "termos": [
+    {
+      "termo": "Construção de rodovias e ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferrovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferrovias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de rodovias e ferrovias",
+      "codigo_cnae": "4211101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura para sinalização em pistas rodoviárias e aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintura",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pintura",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Sinalização",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Sinalizacao",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sinalização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pistas",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pistas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pistas",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pistas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodoviárias",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviárias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Rodoviarias",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodoviárias",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aeroportos",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pintura para sinalização em pistas rodoviárias e aeroportos",
+      "codigo_cnae": "4211102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de obras de arte especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construcao",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "construção",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Arte",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arte",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Arte",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "arte",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especiais",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Construção de obras de arte especiais",
+      "codigo_cnae": "4212000",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras de urbanização - ruas, praças e calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "obras",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Urbanização",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Urbanizacao",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanização",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ruas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ruas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Ruas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ruas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Praças",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "praças",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Pracas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "praças",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçadas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Calcadas",
+      "codigo_cnae": "4213800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "calçadas",
+      "secao": "F",
+      "divisao": "42"
+    },
+    {
+      "termo": "Obras de urbanização - ruas, praças e calçadas",
+      "codigo_cnae": "4213800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "42"
+    }
+  ]
+}

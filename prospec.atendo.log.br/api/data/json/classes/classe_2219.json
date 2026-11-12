@@ -1,0 +1,110 @@
+{
+  "classe": "2219",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de artefatos de material plástico para outros usos",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "fabricação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "artefatos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "material",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "plástico",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "usos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "manufatura",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2219600",
+      "descricao_cnae": "Fabricação de artefatos de material plástico para outros usos",
+      "secao": "C",
+      "divisao": "22",
+      "grupo": "221",
+      "classe": "2219",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

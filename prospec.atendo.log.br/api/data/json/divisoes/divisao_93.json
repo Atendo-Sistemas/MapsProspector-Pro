@@ -1,0 +1,646 @@
+{
+  "divisao": "93",
+  "total_termos": 64,
+  "termos": [
+    {
+      "termo": "Gestão de instalações de esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Gestão",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Gestao",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gestão",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Instalações",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Instalacoes",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalações",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Gestão de instalações de esportes",
+      "codigo_cnae": "9311500",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Clubes sociais, esportivos e similares",
+      "codigo_cnae": "9312300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Clubes",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "clubes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Clubes",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "clubes",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Sociais",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "sociais",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Similares",
+      "codigo_cnae": "9312300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "similares",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Clubes sociais, esportivos e similares",
+      "codigo_cnae": "9312300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Atividades de condicionamento físico",
+      "codigo_cnae": "9313100",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Condicionamento",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionamento",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Condicionamento",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "condicionamento",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Físico",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "físico",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Fisico",
+      "codigo_cnae": "9313100",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "físico",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Atividades de condicionamento físico",
+      "codigo_cnae": "9313100",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Produção e promoção de eventos esportivos",
+      "codigo_cnae": "9319101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Promoção",
+      "codigo_cnae": "9319101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "promoção",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Promocao",
+      "codigo_cnae": "9319101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "promoção",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "9319101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Eventos",
+      "codigo_cnae": "9319101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eventos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "9319101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivos",
+      "codigo_cnae": "9319101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivos",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Produção e promoção de eventos esportivos",
+      "codigo_cnae": "9319101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Outras atividades esportivas não especificadas anteriormente",
+      "codigo_cnae": "9319199",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "9319199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Outras",
+      "codigo_cnae": "9319199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "outras",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivas",
+      "codigo_cnae": "9319199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivas",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Esportivas",
+      "codigo_cnae": "9319199",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "esportivas",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Outras atividades esportivas não especificadas anteriormente",
+      "codigo_cnae": "9319199",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Parques de diversão e parques temáticos",
+      "codigo_cnae": "9321200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Parques",
+      "codigo_cnae": "9321200",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "diversão",
+      "codigo_cnae": "9321200",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "parques temáticos",
+      "codigo_cnae": "9321200",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Discotecas, danceterias e salões de dança",
+      "codigo_cnae": "9329801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Discotecas",
+      "codigo_cnae": "9329801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "danceterias",
+      "codigo_cnae": "9329801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "salões",
+      "codigo_cnae": "9329801",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "discotecas danceterias e salões de dança",
+      "codigo_cnae": "9329801",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Providenciamento de serviços de entretenimento, exceto os prestados por bingos, casas de máquinas caça-níqueis e similares",
+      "codigo_cnae": "9329802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Providenciamento",
+      "codigo_cnae": "9329802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "serviços",
+      "codigo_cnae": "9329802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "entretenimento",
+      "codigo_cnae": "9329802",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "providenciamento de serviços de entretenimento exceto os prestados por bingos casas de máquinas caçaníqueis e similares",
+      "codigo_cnae": "9329802",
+      "tipo": "variante_normalizada",
+      "origem": "normalização automática",
+      "relevancia": 70,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Exploração de máquinas de contagem de cédulas e moedas",
+      "codigo_cnae": "9329803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Exploração",
+      "codigo_cnae": "9329803",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "máquinas",
+      "codigo_cnae": "9329803",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "contagem",
+      "codigo_cnae": "9329803",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Exploração de bilhares e sinuca",
+      "codigo_cnae": "9329804",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Exploração",
+      "codigo_cnae": "9329804",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "bilhares",
+      "codigo_cnae": "9329804",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "sinuca",
+      "codigo_cnae": "9329804",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Outras atividades de recreação e lazer não especificadas anteriormente",
+      "codigo_cnae": "9329899",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "Outras atividades",
+      "codigo_cnae": "9329899",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "recreação",
+      "codigo_cnae": "9329899",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    },
+    {
+      "termo": "lazer não especificadas anteriormente",
+      "codigo_cnae": "9329899",
+      "tipo": "produto",
+      "origem": "palavra-chave da descrição",
+      "relevancia": 80,
+      "categoria": "atividades",
+      "secao": "R",
+      "divisao": "93"
+    }
+  ]
+}

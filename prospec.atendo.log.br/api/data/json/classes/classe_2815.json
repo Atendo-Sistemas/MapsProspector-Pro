@@ -1,0 +1,209 @@
+{
+  "classe": "2815",
+  "grupo": "281",
+  "divisao": "28",
+  "secao": "C",
+  "total_termos": 20,
+  "termos": [
+    {
+      "termo": "Fabricação de rolamentos para fins industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de rolamentos para fins industriais",
+      "codigo_cnae": "2815101",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos de transmissão para fins industriais, exceto rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transmissão",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissão",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Transmissao",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transmissão",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fins",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "fins",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rolamentos",
+      "secao": "C",
+      "divisao": "28"
+    },
+    {
+      "termo": "Fabricação de equipamentos de transmissão para fins industriais, exceto rolamentos",
+      "codigo_cnae": "2815102",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "28"
+    }
+  ]
+}

@@ -1,0 +1,49 @@
+{
+  "classe": "2543",
+  "grupo": "254",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Fabricação de ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferramentas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "ferramentas",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Fabricação de ferramentas",
+      "codigo_cnae": "2543800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+{
+  "grupo": "863",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "atividade",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "médica",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "ambulatorial",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "recursos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "procedimentos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "8630507",
+      "descricao_cnae": "Atividade médica ambulatorial sem recursos para procedimentos cirúrgicos e exames complementares",
+      "secao": "Q",
+      "divisao": "86",
+      "grupo": "863",
+      "classe": "8630",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

@@ -1,0 +1,89 @@
+{
+  "classe": "4911",
+  "grupo": "491",
+  "divisao": "49",
+  "secao": "H",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Transporte férreo de cargas",
+      "codigo_cnae": "4911600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4911600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte",
+      "codigo_cnae": "4911600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "transporte",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Férreo",
+      "codigo_cnae": "4911600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "férreo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Ferreo",
+      "codigo_cnae": "4911600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "férreo",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Cargas",
+      "codigo_cnae": "4911600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cargas",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Cargas",
+      "codigo_cnae": "4911600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cargas",
+      "secao": "H",
+      "divisao": "49"
+    },
+    {
+      "termo": "Transporte férreo de cargas",
+      "codigo_cnae": "4911600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "49"
+    }
+  ]
+}

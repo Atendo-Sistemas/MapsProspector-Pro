@@ -1,0 +1,148 @@
+{
+  "grupo": "243",
+  "divisao": "24",
+  "secao": "C",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Produção de tubos de aço com costura",
+      "codigo_cnae": "2431800",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Tubos",
+      "codigo_cnae": "2431800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tubos",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Tubos",
+      "codigo_cnae": "2431800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tubos",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aço",
+      "codigo_cnae": "2431800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aco",
+      "codigo_cnae": "2431800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Costura",
+      "codigo_cnae": "2431800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "costura",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Costura",
+      "codigo_cnae": "2431800",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "costura",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Produção de tubos de aço com costura",
+      "codigo_cnae": "2431800",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Trefilação de aço",
+      "codigo_cnae": "2439300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Trefilação",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trefilação",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Trefilacao",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "trefilação",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aço",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Aco",
+      "codigo_cnae": "2439300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aço",
+      "secao": "C",
+      "divisao": "24"
+    },
+    {
+      "termo": "Trefilação de aço",
+      "codigo_cnae": "2439300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "24"
+    }
+  ]
+}

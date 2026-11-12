@@ -1,0 +1,129 @@
+{
+  "classe": "2532",
+  "grupo": "253",
+  "divisao": "25",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Produção de artefatos estampados de metal",
+      "codigo_cnae": "2532201",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "2532201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Artefatos",
+      "codigo_cnae": "2532201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "artefatos",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Estampados",
+      "codigo_cnae": "2532201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estampados",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Estampados",
+      "codigo_cnae": "2532201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "estampados",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2532201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metal",
+      "codigo_cnae": "2532201",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metal",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Produção de artefatos estampados de metal",
+      "codigo_cnae": "2532201",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metalurgia do pó",
+      "codigo_cnae": "2532202",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metalurgia",
+      "codigo_cnae": "2532202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metalurgia",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metalurgia",
+      "codigo_cnae": "2532202",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "metalurgia",
+      "secao": "C",
+      "divisao": "25"
+    },
+    {
+      "termo": "Metalurgia do pó",
+      "codigo_cnae": "2532202",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "25"
+    }
+  ]
+}

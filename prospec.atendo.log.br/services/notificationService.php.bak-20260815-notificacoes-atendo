@@ -1,0 +1,264 @@
+<?php
+/**
+ * Serviço de Notificações por E-mail (SMTP) e WhatsApp (API Atendo)
+ * MapsProspector Pro
+ */
+
+class NotificationService {
+
+    /**
+     * Envia mensagem via WhatsApp usando a API do Atendo
+     */
+    public static function sendWhatsApp($db, $phone, $message) {
+        $apiUrl = getPlatformSetting($db, 'whatsapp_api_url');
+        $apiToken = getPlatformSetting($db, 'whatsapp_api_token');
+
+        if (empty($apiUrl) || empty($apiToken)) return false;
+
+        $cleanPhone = preg_replace('/[^0-9]/', '', $phone);
+        if (strlen($cleanPhone) === 11) {
+            $cleanPhone = '55' . $cleanPhone;
+        }
+
+        $payload = json_encode([
+            'number' => $cleanPhone . '@s.whatsapp.net', // Algumas instâncias exigem o sufixo @s.whatsapp.net
+            'body' => $message
+        ]);
+
+        $curl = curl_init();
+        curl_setopt_array($curl, [
+            CURLOPT_URL => trim($apiUrl),
+            CURLOPT_RETURNTRANSFER => true,
+            CURLOPT_POST => true,
+            CURLOPT_POSTFIELDS => $payload,
+            CURLOPT_TIMEOUT => 15, // Aumentei para 15s para evitar timeout
+            CURLOPT_HTTPHEADER => [
+                'Content-Type: application/json',
+                'Authorization: Bearer ' . trim($apiToken),
+                'apikey: ' . trim($apiToken)
+            ],
+        ]);
+
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $err = curl_error($curl);
+        curl_close($curl);
+if ($httpCode >= 200 && $httpCode < 300) {
+                return true;
+            } else {
+                error_log("API ATENDO DEVOLVEU ERRO $httpCode: " . $response);
+                return false;
+            }
+    }
+    /**
+     * Envia e-mail formatado usando SMTP autenticado ou função nativa mail() como fallback
+     */
+    public static function sendEmail($db, $to, $subject, $messageHtml) {
+        $host = getPlatformSetting($db, 'smtp_host');
+        $port = (int)(getPlatformSetting($db, 'smtp_port') ?: 587);
+        $user = getPlatformSetting($db, 'smtp_user');
+        $pass = getPlatformSetting($db, 'smtp_pass');
+        $secure = getPlatformSetting($db, 'smtp_secure') ?: 'tls';
+        $fromEmail = getPlatformSetting($db, 'smtp_from_email') ?: 'noreply@atendo.log.br';
+        $fromName = getPlatformSetting($db, 'smtp_from_name') ?: 'Maps Prospector';
+
+        // Se o SMTP não estiver configurado, usa a função nativa mail() do cPanel (Fallback de segurança)
+        if (empty($host) || empty($user) || empty($pass)) {
+            $headers = "MIME-Version: 1.0" . "\r\n";
+            $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+            $headers .= "From: =?UTF-8?B?" . base64_encode($fromName) . "?= <" . $fromEmail . ">\r\n";
+            return @mail($to, $subject, $messageHtml, $headers);
+        }
+
+        // Cliente SMTP leve escrito em PHP puro (via sockets)
+        try {
+            $connectionHost = ($secure === 'ssl' ? 'ssl://' : '') . $host;
+            $socket = @fsockopen($connectionHost, $port, $errno, $errstr, 10);
+            
+            if (!$socket) {
+                error_log("NotificationService SMTP Connection Error: $errstr ($errno)");
+                return false;
+            }
+
+            fgets($socket, 512); // Lê o banner inicial do servidor
+            
+            fwrite($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
+            fgets($socket, 512);
+
+            if ($secure === 'tls') {
+                fwrite($socket, "STARTTLS\r\n");
+                fgets($socket, 512);
+                if (!stream_socket_enable_crypto($socket, true, STREAM_CRYPTO_METHOD_TLS_CLIENT)) {
+                    error_log("NotificationService SMTP: Falha ao iniciar encriptação TLS.");
+                    fclose($socket);
+                    return false;
+                }
+                fwrite($socket, "EHLO " . $_SERVER['SERVER_NAME'] . "\r\n");
+                fgets($socket, 512);
+            }
+
+            // Autenticação SMTP
+            fwrite($socket, "AUTH LOGIN\r\n");
+            fgets($socket, 512);
+            fwrite($socket, base64_encode($user) . "\r\n");
+            fgets($socket, 512);
+            fwrite($socket, base64_encode($pass) . "\r\n");
+            $response = fgets($socket, 512);
+
+            if (strpos($response, '235') === false) {
+                error_log("NotificationService SMTP: Falha na autenticação (Usuário/Senha incorretos).");
+                fclose($socket);
+                return false;
+            }
+
+            // Define Remetente e Destinatário
+            fwrite($socket, "MAIL FROM: <$fromEmail>\r\n");
+            fgets($socket, 512);
+            fwrite($socket, "RCPT TO: <$to>\r\n");
+            fgets($socket, 512);
+
+            // Envia o Corpo do E-mail
+            fwrite($socket, "DATA\r\n");
+            fgets($socket, 512);
+
+            $headers = "MIME-Version: 1.0\r\n";
+            $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+            $headers .= "From: =?UTF-8?B?" . base64_encode($fromName) . "?= <$fromEmail>\r\n";
+            $headers .= "To: <$to>\r\n";
+            $headers .= "Subject: =?UTF-8?B?" . base64_encode($subject) . "?=\r\n\r\n";
+
+            fwrite($socket, $headers . $messageHtml . "\r\n.\r\n");
+            fgets($socket, 512);
+
+            fwrite($socket, "QUIT\r\n");
+            fclose($socket);
+            return true;
+
+        } catch (Exception $e) {
+            error_log("NotificationService SMTP Exception: " . $e->getMessage());
+            return false;
+        }
+    }
+
+    /**
+     * NOTIFICAÇÃO: Nova Empresa Cadastrada (Boas-vindas para o Cliente + Alerta para o Administrador)
+     */
+    public static function notifyNewRegistration($db, $companyName, $adminEmail, $adminPhone = null) {
+        $saasName = getPlatformSetting($db, 'saas_company_name') ?? 'Maps Prospector';
+        
+        // 1. Envia Boas-vindas para o Cliente
+        $subject = "Bem-vindo ao $saasName! 🚀";
+        $messageHtml = "
+            <div style='font-family: Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; rounded-radius: 10px;'>
+                <h2 style='color: #2563eb;'>Olá, Administrador da $companyName!</h2>
+                <p>Sua empresa foi cadastrada com sucesso na plataforma <strong>$saasName</strong>!</p>
+                <p>Agora você já pode acessar o seu painel de prospecção do Google Maps e começar a capturar milhares de leads qualificados diariamente.</p>
+                <p style='margin-top: 30px; font-size: 12px; color: #64748b;'>Atenciosamente,<br>Equipe $saasName - Atendo Sistemas</p>
+            </div>
+        ";
+        self::sendEmail($db, $adminEmail, $subject, $messageHtml);
+
+        if (!empty($adminPhone)) {
+            $msgWhatsapp = "Olá! Seja muito bem-vindo à plataforma *$saasName*!\n\nA empresa *$companyName* foi cadastrada com sucesso. Acesse o seu painel e inicie suas prospecções de forma inteligente agora mesmo! 🚀";
+            self::sendWhatsApp($db, $adminPhone, $msgWhatsapp);
+        }
+
+        // 2. Avisar o Super Admin Global (Você)
+        $superAdminEmail = 'admin@atendo.log.br'; // Seu e-mail de administrador
+        $subjectAdmin = "Nova Empresa Cadastrada: $companyName 🏢";
+        $messageAdminHtml = "
+            <div style='font-family: Arial, sans-serif; color: #1e293b;'>
+                <h3>Notificação de Nova Empresa</h3>
+                <p>Uma nova empresa acaba de se cadastrar no sistema:</p>
+                <ul>
+                    <li><strong>Nome da Empresa:</strong> $companyName</li>
+                    <li><strong>E-mail do Admin:</strong> $adminEmail</li>
+                </ul>
+            </div>
+        ";
+        self::sendEmail($db, $superAdminEmail, $subjectAdmin, $messageAdminHtml);
+    }
+
+    /**
+     * NOTIFICAÇÃO: Nova Solicitação de Plano Pendente (Aviso para o Super Admin)
+     */
+    public static function notifyPlanRequest($db, $companyName, $planName) {
+        $superAdminEmail = 'admin@atendo.log.br';
+        $subject = "Solicitação de Plano Pendente: $companyName 📝";
+        $messageHtml = "
+            <div style='font-family: Arial, sans-serif;'>
+                <h3>Aviso de Solicitação de Plano</h3>
+                <p>A empresa <strong>$companyName</strong> solicitou alteração de plano para o plano: <strong>$planName</strong>.</p>
+                <p>Acesse o painel Super Admin > Planos para aprovar ou recusar.</p>
+            </div>
+        ";
+        self::sendEmail($db, $superAdminEmail, $subject, $messageHtml);
+    }
+
+    /**
+     * NOTIFICAÇÃO: Plano Ativado / Aprovado (Aviso para o Cliente)
+     */
+    public static function notifyPlanApproval($db, $companyName, $planName, $clientEmail, $clientPhone = null) {
+        $saasName = getPlatformSetting($db, 'saas_company_name') ?? 'Maps Prospector';
+        $subject = "Seu plano foi ativado! 🌟";
+        $messageHtml = "
+            <div style='font-family: Arial, sans-serif;'>
+                <h3>Parabéns, seu plano foi ativado!</h3>
+                <p>A alteração do plano da empresa <strong>$companyName</strong> para o plano <strong>$planName</strong> foi aprovada e já está ativa.</p>
+                <p>Aproveite seus novos limites de busca para decolar as suas vendas!</p>
+            </div>
+        ";
+        self::sendEmail($db, $clientEmail, $subject, $messageHtml);
+
+        if (!empty($clientPhone)) {
+            $msgWhatsapp = "Olá! Ótima notícia: o plano da empresa *$companyName* foi atualizado com sucesso para o plano *$planName*! Seus novos limites já estão ativos no painel. Boas prospecções! 🚀";
+            self::sendWhatsApp($db, $clientPhone, $msgWhatsapp);
+        }
+    }
+
+    /**
+     * NOTIFICAÇÃO: Solicitação de Créditos Pendente (Aviso para o Super Admin)
+     */
+    public static function notifyCreditRequest($db, $companyName, $credits) {
+        $superAdminEmail = 'admin@atendo.log.br';
+        $subject = "Solicitação de Créditos Pendente: $companyName 💰";
+        $messageHtml = "
+            <div style='font-family: Arial, sans-serif;'>
+                <h3>Pedido de Créditos Pendente</h3>
+                <p>A empresa <strong>$companyName</strong> solicitou o pacote avulso de <strong>$credits créditos</strong>.</p>
+                <p>Acesse o painel Super Admin > Créditos para aprovar e faturar.</p>
+            </div>
+        ";
+        self::sendEmail($db, $superAdminEmail, $subject, $messageHtml);
+    }
+
+    /**
+     * NOTIFICAÇÃO: Créditos Liberados (Aviso para o Cliente)
+     */
+    public static function notifyCreditApproval($db, $companyName, $credits, $clientEmail, $clientPhone = null) {
+        $saasName = getPlatformSetting($db, 'saas_company_name') ?? 'Maps Prospector';
+        $subject = "Seus créditos foram liberados! 💰";
+        $messageHtml = "
+            <div style='font-family: Arial, sans-serif;'>
+                <h3>Seus créditos chegaram!</h3>
+                <p>Sua solicitação de <strong>$credits créditos adicionais</strong> para a empresa <strong>$companyName</strong> foi aprovada pelo administrador e liberada.</p>
+                <p>Seu novo saldo já está atualizado na tela inicial do seu sistema.</p>
+            </div>
+        ";
+        self::sendEmail($db, $clientEmail, $subject, $messageHtml);
+
+        if (!empty($clientPhone)) {
+            $msgWhatsapp = "Olá! Passando para avisar que a sua solicitação de *$credits créditos adicionais* para a empresa *$companyName* foi aprovada e já está liberada na sua conta! 💰";
+            self::sendWhatsApp($db, $clientPhone, $msgWhatsapp);
+        }
+    }
+/**
+     * NOTIFICAÇÃO: Aviso de Saldo Baixo (WhatsApp)
+     */
+    public static function notifyLowBalance($db, $tenantId, $clientPhone, $companyName) {
+        $saasName = getPlatformSetting($db, 'saas_company_name') ?? 'Maps Prospector';
+        $msg = "Olá! O saldo de créditos da empresa *$companyName* na plataforma *$saasName* está baixo (menos de 10%).\n\nPara não interromper suas prospecções, acesse seu painel e solicite mais créditos agora mesmo! 🚀";
+        
+        self::sendWhatsApp($db, $clientPhone, $msg);
+    }
+} // <--- ESTA CHAVE FECHA A CLASSE NotificationService

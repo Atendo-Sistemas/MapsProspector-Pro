@@ -1,0 +1,110 @@
+{
+  "classe": "2945",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "fabricação",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "material",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "elétrico",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "eletrônico",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "veículos",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "produção",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "manufatura",
+      "tipo": "sinônimo",
+      "relevancia": 70,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "2945000",
+      "descricao_cnae": "Fabricação de material elétrico e eletrônico para veículos automotores, exceto baterias",
+      "secao": "C",
+      "divisao": "29",
+      "grupo": "294",
+      "classe": "2945",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

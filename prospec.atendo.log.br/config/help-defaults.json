@@ -1,0 +1,91 @@
+{
+ "profiles": {
+  "super_admin": {
+   "label": "Administrador da plataforma",
+   "eyebrow": "Guia do administrador da plataforma",
+   "intro": "Você acompanha empresas, créditos e configurações globais da operação. Este guia apresenta a rotina administrativa sem misturar funções de usuários de empresas.",
+   "meta": {
+    "heading": "",
+    "body": ""
+   },
+   "sections": {
+    "overview": {
+     "title": "Comece pelo Dashboard e sua visão de plataforma",
+     "body": "Você visualiza a operação da plataforma, empresas cadastradas, solicitações, planos e as configurações globais. Use cada módulo apenas para finalidades administrativas legítimas.\n\n1. Comece pelo Dashboard — Acompanhe o total de empresas, usuários, pesquisas e créditos em uma visão consolidada.\n2. Verifique Empresas e Solicitações — Analise cadastros, solicitações de créditos e demandas de plano antes de realizar alterações.\n3. Configure integrações globais com cuidado — O webhook padrão da plataforma é usado somente quando a empresa e o usuário não possuem uma configuração própria."
+    },
+    "research": {
+     "title": "Pesquisas e exportação",
+     "body": "Os três módulos de pesquisa estão disponíveis para contas autenticadas. Use cada consulta de forma responsável, com filtros necessários e finalidade de prospecção legítima.\n\nMódulos: Google Maps (empresas por segmento e cidade), Consulta CNPJ (dados cadastrais e situação da empresa) e LinkedIn (perfis por cargo, localidade e empresa de referência; o aceite de uso responsável é solicitado na primeira consulta).\n\nRoteiro recomendado: 1. Defina o público (segmento, cidade, cargo ou CNPJ). 2. Aplique filtros para reduzir resultados irrelevantes antes de consumir créditos ou exportar. 3. Revise e use o histórico antes de iniciar uma pesquisa semelhante. 4. Exporte apenas o necessário e confirme o webhook ou destino de integração antes de concluir.\n\nO aceite específico de uso responsável é exigido na primeira busca LinkedIn. Independentemente do módulo, trate dados de forma proporcional, segura e compatível com a finalidade declarada."
+    },
+    "routine": {
+     "title": "Rotina do administrador da plataforma",
+     "body": "Empresas, planos e créditos — Use as abas administrativas para acompanhar empresas, analisar solicitações e aplicar decisões comerciais registradas.\nConfigurações globais — Mantenha o webhook padrão apenas como alternativa de fallback. Não use credenciais sensíveis em campos que sejam expostos no navegador.\n\nControle de acesso: não compartilhe a conta de super administrador. Ações administrativas devem ser realizadas somente por pessoas autorizadas."
+    }
+   }
+  },
+  "admin": {
+   "label": "Administrador da empresa",
+   "eyebrow": "Guia do administrador",
+   "intro": "Você administra a operação da sua empresa: acompanha a equipe, solicita créditos, consulta o plano e define a integração geral do CRM.",
+   "meta": {
+    "heading": "",
+    "body": ""
+   },
+   "sections": {
+    "overview": {
+     "title": "Confira a atividade da empresa e organize a equipe",
+     "body": "1. Confira a atividade da empresa — No Dashboard, acompanhe a atividade da equipe e os indicadores consolidados da sua empresa.\n2. Organize sua equipe — Em Minha Equipe, cadastre ou ajuste integrantes de acordo com as responsabilidades de cada pessoa.\n3. Defina o webhook da empresa — Use Configurações para salvar o destino geral do CRM. Um webhook pessoal do integrante, quando configurado, tem prioridade.\n4. Acompanhe créditos e plano — Use Solicitar Créditos e Meu Plano para acompanhar consumo, pedidos e condições comerciais da empresa."
+    },
+    "research": null,
+    "routine": {
+     "title": "Rotina do administrador da empresa",
+     "body": "Minha Equipe — Mantenha apenas membros ativos, atribua perfis compatíveis com a função e revise o uso pelos indicadores disponíveis.\nIntegração CRM — O webhook da empresa é a alternativa padrão. Teste o recebimento no seu CRM após qualquer alteração de URL.\n\nBoa prática: evite exportar dados sem finalidade definida. Revise filtros, destino do webhook e permissões da equipe antes de enviar leads ao CRM."
+    }
+   }
+  },
+  "supervisor": {
+   "label": "Supervisor",
+   "eyebrow": "Guia do supervisor",
+   "intro": "Você acompanha o trabalho da equipe e também pode realizar pesquisas. A gestão comercial, créditos e plano permanecem com o administrador da empresa.",
+   "meta": {
+    "heading": "",
+    "body": ""
+   },
+   "sections": {
+    "overview": {
+     "title": "Acompanhe a equipe no Dashboard",
+     "body": "1. Acompanhe a equipe no Dashboard — Use os indicadores para entender o volume de pesquisas e a atividade do time sob sua supervisão.\n2. Use Minha Equipe quando necessário — Consulte os integrantes autorizados e acompanhe a rotina, sem alterar dados financeiros da empresa.\n3. Configure seu destino pessoal — Em Configurações, você pode salvar somente o seu webhook pessoal para receber as próprias exportações."
+    },
+    "research": null,
+    "routine": {
+     "title": "Rotina do supervisor",
+     "body": "Quando pedir apoio — Para créditos, plano, acesso comercial da empresa ou webhook geral, procure o administrador responsável."
+    }
+   }
+  },
+  "user": {
+   "label": "Usuário",
+   "eyebrow": "Guia do usuário",
+   "intro": "Você utiliza os módulos de pesquisa, acompanha sua própria atividade, consulta o histórico e pode configurar o destino pessoal das suas exportações.",
+   "meta": {
+    "heading": "",
+    "body": ""
+   },
+   "sections": {
+    "overview": {
+     "title": "Comece pelo Dashboard e escolha o módulo de pesquisa",
+     "body": "1. Comece pelo Dashboard — Veja seu resumo de atividade e retome suas tarefas a partir do menu lateral.\n2. Escolha o módulo de pesquisa — Google Maps localiza empresas; CNPJ consulta dados empresariais; LinkedIn encontra perfis profissionais por filtros.\n3. Consulte o Histórico — Use o histórico para recuperar pesquisas anteriores e evitar repetir uma busca sem necessidade.\n4. Configure seu webhook pessoal — Em Configurações, informe o seu destino somente se você tiver autorização para enviar os seus leads a um CRM ou automação."
+    },
+    "research": null,
+    "routine": {
+     "title": "Rotina do usuário",
+     "body": "Antes de pesquisar — Use termos específicos, escolha uma localidade apropriada e verifique se a pesquisa atende à finalidade comercial legítima.\nAntes de exportar — Revise os leads selecionados, confirme o destino e não exporte informações para canais pessoais ou não autorizados.\n\nPrecisa de acesso adicional? Solicitações de créditos, plano e gestão de equipe devem ser encaminhadas ao administrador da sua empresa."
+    }
+   }
+  }
+ },
+ "shared_research_guide": {
+  "title": "Pesquisas e exportação (guia compartilhado)",
+  "body": "Os três módulos de pesquisa estão disponíveis para contas autenticadas. Use cada consulta de forma responsável, com filtros necessários e finalidade de prospecção legítima.\n\nMódulos: Google Maps (empresas por segmento e cidade), Consulta CNPJ (dados cadastrais e situação da empresa) e LinkedIn (perfis por cargo, localidade e empresa de referência; o aceite de uso responsável é solicitado na primeira consulta).\n\nRoteiro recomendado: 1. Defina o público (segmento, cidade, cargo ou CNPJ). 2. Aplique filtros para reduzir resultados irrelevantes antes de consumir créditos ou exportar. 3. Revise e use o histórico antes de iniciar uma pesquisa semelhante. 4. Exporte apenas o necessário e confirme o webhook ou destino de integração antes de concluir.\n\nO aceite específico de uso responsável é exigido na primeira busca LinkedIn. Independentemente do módulo, trate dados de forma proporcional, segura e compatível com a finalidade declarada."
+ }
+}

@@ -1,0 +1,128 @@
+{
+  "grupo": "266",
+  "divisao": "26",
+  "secao": "C",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Fabricação de aparelhos eletromédicos e eletroterapêuticos e equipamentos de irradiação",
+      "codigo_cnae": "2660400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Eletromédicos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletromédicos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Eletromedicos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletromédicos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Eletroterapêuticos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletroterapêuticos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Eletroterapeuticos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "eletroterapêuticos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Irradiação",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "irradiação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Irradiacao",
+      "codigo_cnae": "2660400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "irradiação",
+      "secao": "C",
+      "divisao": "26"
+    },
+    {
+      "termo": "Fabricação de aparelhos eletromédicos e eletroterapêuticos e equipamentos de irradiação",
+      "codigo_cnae": "2660400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "26"
+    }
+  ]
+}

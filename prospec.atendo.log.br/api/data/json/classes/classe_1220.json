@@ -1,0 +1,169 @@
+{
+  "classe": "1220",
+  "grupo": "122",
+  "divisao": "12",
+  "secao": "C",
+  "total_termos": 16,
+  "termos": [
+    {
+      "termo": "Fabricação de cigarros",
+      "codigo_cnae": "1220401",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Cigarros",
+      "codigo_cnae": "1220401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cigarros",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Cigarros",
+      "codigo_cnae": "1220401",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cigarros",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Fabricação de cigarros",
+      "codigo_cnae": "1220401",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Fabricação de cigarrilhas e charutos",
+      "codigo_cnae": "1220402",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Cigarrilhas",
+      "codigo_cnae": "1220402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cigarrilhas",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Cigarrilhas",
+      "codigo_cnae": "1220402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cigarrilhas",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Charutos",
+      "codigo_cnae": "1220402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "charutos",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Charutos",
+      "codigo_cnae": "1220402",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "charutos",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Fabricação de cigarrilhas e charutos",
+      "codigo_cnae": "1220402",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Fabricação de filtros para cigarros",
+      "codigo_cnae": "1220403",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Filtros",
+      "codigo_cnae": "1220403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filtros",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Filtros",
+      "codigo_cnae": "1220403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "filtros",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Cigarros",
+      "codigo_cnae": "1220403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cigarros",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Cigarros",
+      "codigo_cnae": "1220403",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "cigarros",
+      "secao": "C",
+      "divisao": "12"
+    },
+    {
+      "termo": "Fabricação de filtros para cigarros",
+      "codigo_cnae": "1220403",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "12"
+    }
+  ]
+}

@@ -1,0 +1,109 @@
+{
+  "classe": "2731",
+  "grupo": "273",
+  "divisao": "27",
+  "secao": "C",
+  "total_termos": 10,
+  "termos": [
+    {
+      "termo": "Fabricação de aparelhos e equipamentos para instalação elétrica",
+      "codigo_cnae": "2731700",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Aparelhos",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aparelhos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Equipamentos",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "equipamentos",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Instalação",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Instalacao",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "instalação",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Elétrica",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Eletrica",
+      "codigo_cnae": "2731700",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "elétrica",
+      "secao": "C",
+      "divisao": "27"
+    },
+    {
+      "termo": "Fabricação de aparelhos e equipamentos para instalação elétrica",
+      "codigo_cnae": "2731700",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "27"
+    }
+  ]
+}

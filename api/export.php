@@ -18,8 +18,9 @@ $userId = requireAuth();
 $authUser = getAuthUser();
 $db = Database::getInstance()->getConnection();
 
-$tenantId = $authUser['tenant_id'] ?? null;
-$profile = strtolower((string)($authUser['profile'] ?? ''));
+$tenantId = (int)($authUser['tenant_id'] ?? $authUser['tenantId'] ?? 0);
+$profile = strtolower(trim((string)($authUser['profile'] ?? $authUser['role'] ?? $authUser['user_type'] ?? '')));
+$isSuperAdmin = in_array(str_replace(['-', ' '], '_', $profile), ['super_admin', 'superadmin'], true);
 
 $input = json_decode(file_get_contents('php://input'), true);
 $leadIdStr = $input['leadId'] ?? '';
@@ -33,14 +34,14 @@ if (preg_match('/lead-(\d+)/', $leadIdStr, $matches)) {
 }
 
 // Lógica de busca do lead considerando o isolamento por empresa (Tenant)
-$isCompanyAdmin = in_array($profile, ['admin', 'supervisor', 'manager', 'gerente', 'super_admin'], true);
+$isCompanyAdmin = in_array($profile, ['admin', 'supervisor', 'manager', 'gerente'], true) || $isSuperAdmin;
 
 if (!$leadId) {
     $leadName = $input['leadName'] ?? '';
     $leadAddress = $input['leadAddress'] ?? '';
     
     if ($leadName && $leadAddress) {
-        if ($isCompanyAdmin && $tenantId !== null) {
+        if ($isCompanyAdmin && $tenantId > 0) {
             $stmt = $db->prepare("
                 SELECT l.*, sh.user_id 
                 FROM leads l
@@ -67,7 +68,7 @@ if (!$leadId) {
         jsonError('ID do lead não informado');
     }
 } else {
-    if ($isCompanyAdmin && $tenantId !== null) {
+    if ($isCompanyAdmin && $tenantId > 0) {
         $stmt = $db->prepare("
             SELECT l.*, sh.user_id 
             FROM leads l
@@ -92,25 +93,39 @@ if (!$lead) {
     jsonError('Lead não encontrado', 404);
 }
 
-// 💡 Busca a URL do Webhook com prioridade para a tabela tenants (da empresa)
-$webhookUrl = '';
-if ($tenantId !== null) {
-    $stmtT = $db->prepare("SELECT webhook_url FROM tenants WHERE id = ?");
+// Resolve o destino na mesma ordem da exportação em lote. O endpoint antigo
+// consultava apenas settings.base_url e, por isso, ignorava o webhook geral
+// configurado pelo super administrador e o webhook pessoal salvo no painel.
+$companyWebhookUrl = '';
+if ($tenantId > 0) {
+    $stmtT = $db->prepare("SELECT webhook_url FROM tenants WHERE id = ? LIMIT 1");
     $stmtT->execute([$tenantId]);
-    $rowT = $stmtT->fetch();
-    if ($rowT && !empty($rowT['webhook_url'])) {
-        $webhookUrl = trim($rowT['webhook_url']);
-    }
+    $rowT = $stmtT->fetch(PDO::FETCH_ASSOC);
+    $companyWebhookUrl = trim((string)($rowT['webhook_url'] ?? ''));
 }
 
-// Fallback para a tabela settings se necessário
-if (empty($webhookUrl)) {
-    $stmtS = $db->prepare("SELECT base_url, token FROM settings WHERE user_id = ? LIMIT 1");
-    $stmtS->execute([$userId]);
-    $config = $stmtS->fetch();
-    if ($config && !empty($config['base_url'])) {
-        $webhookUrl = trim($config['base_url']);
-    }
+$personalWebhookUrl = '';
+$personalToken = '';
+$stmtS = $db->prepare("SELECT base_url, token FROM settings WHERE user_id = ? LIMIT 1");
+$stmtS->execute([(int)$userId]);
+$config = $stmtS->fetch(PDO::FETCH_ASSOC);
+if ($config) {
+    $personalWebhookUrl = trim((string)($config['base_url'] ?? ''));
+    $personalToken = decryptApikey($config['token'] ?? '');
+}
+
+$platformWebhookUrl = '';
+if (function_exists('getPlatformSetting')) {
+    $platformWebhookUrl = trim((string)(getPlatformSetting($db, 'webhook_default_url') ?? ''));
+}
+
+if ($isSuperAdmin && $tenantId <= 0) {
+    // A conta da plataforma não possui tenant próprio: usa o webhook geral.
+    $webhookUrl = $platformWebhookUrl !== '' ? $platformWebhookUrl : $personalWebhookUrl;
+} else {
+    $webhookUrl = $personalWebhookUrl !== ''
+        ? $personalWebhookUrl
+        : ($companyWebhookUrl !== '' ? $companyWebhookUrl : $platformWebhookUrl);
 }
 
 if (empty($webhookUrl)) {
@@ -133,11 +148,8 @@ $payload = $contactData;
 // Headers
 $headers = ['Content-Type: application/json'];
 
-// Busca token/apikey se existir na tabela settings
-$stmtToken = $db->prepare("SELECT token FROM settings WHERE user_id = ? LIMIT 1");
-$stmtToken->execute([$userId]);
-$tokenRow = $stmtToken->fetch();
-$apikeyValue = decryptApikey($tokenRow['token'] ?? '');
+// Busca token/apikey se existir na configuração pessoal.
+$apikeyValue = $personalToken;
 if ($apikeyValue !== '') {
     $headers[] = 'apikey: ' . trim($apikeyValue);
 }

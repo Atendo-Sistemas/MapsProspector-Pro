@@ -1,0 +1,238 @@
+<?php
+/**
+ * Maps Prospector — Webhook Asaas para créditos e assinaturas recorrentes v65.0.0.
+ *
+ * URL configurada no Asaas: https://seudominio.com/webhook-asaas.php
+ * O Asaas envia dois formatos:
+ *   1. Evento (POST /v3/webhooks): JSON { id, event, payment: {...} }
+ *      com header "asaas-access-token: <token configurado no painel>".
+ *   2. Chamada simples de teste (GET): respondemos 200.
+ *
+ * Eventos de pagamento de assinatura mantêm o plano ativo apenas após a
+ * confirmação. Inadimplência e cancelamento preservam o período já pago;
+ * o rebaixamento é realizado pela rotina diária, também de forma idempotente.
+ */
+
+declare(strict_types=1);
+
+ob_start();
+ini_set('display_errors', '0');
+error_reporting(E_ALL);
+
+require_once __DIR__ . '/config/config.php';
+require_once __DIR__ . '/config/database.php';
+require_once __DIR__ . '/includes/functions.php';
+require_once __DIR__ . '/includes/asaas-secrets.php';
+require_once __DIR__ . '/services/AsaasSubscriptionService.php';
+
+header('Content-Type: application/json; charset=utf-8');
+
+function whJson(int $status = 200, array $data = []): void
+{
+    while (ob_get_level() > 0) {
+        ob_end_clean();
+    }
+    http_response_code($status);
+    echo json_encode($data, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+    exit;
+}
+
+function whGetSetting(PDO $db, string $key): string
+{
+    if (asaSecretKeyAllowed($key)) {
+        return asaSecretGetOrMigrate($db, $key);
+    }
+    try {
+        $stmt = $db->prepare('SELECT setting_value FROM platform_settings WHERE setting_key = ? LIMIT 1');
+        $stmt->execute([$key]);
+        $value = $stmt->fetchColumn();
+        if ($value !== false) {
+            return trim((string) $value);
+        }
+    } catch (Throwable $e) {
+        error_log('webhook-asaas: setting read: ' . $e->getMessage());
+    }
+    if (function_exists('getPlatformSetting')) {
+        return trim((string) (getPlatformSetting($db, $key) ?? ''));
+    }
+    return '';
+}
+
+try {
+    $db = Database::getInstance()->getConnection();
+} catch (Throwable $e) {
+    error_log('webhook-asaas: db connection: ' . $e->getMessage());
+    whJson(200, []);
+}
+
+// Teste de configuração do Asaas (GET).
+if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+    whJson(200, ['ok' => true]);
+}
+
+$token = trim((string) ($_SERVER['HTTP_ASAAS_ACCESS_TOKEN'] ?? ''));
+$configuredToken = whGetSetting($db, 'asaas_webhook_token');
+
+$rawInput = (string) file_get_contents('php://input');
+$payload = json_decode($rawInput, true);
+if (!is_array($payload)) {
+    $payload = [];
+}
+
+// O token pode vir do cabeçalho padrão do Asaas ou, para testes via painel,
+// da query string ?token=... . Se nenhum token foi configurado, o webhook
+// responde 200 mas não processa eventos (sem processar duplicados).
+$authorized = $token !== '' && $configuredToken !== '' && hash_equals($configuredToken, $token);
+if (!$authorized) {
+    $queryToken = trim((string) ($_GET['token'] ?? ''));
+    if ($queryToken !== '' && $configuredToken !== '' && hash_equals($configuredToken, $queryToken)) {
+        $authorized = true;
+    }
+}
+
+if (!$authorized) {
+    whJson(200, []);
+}
+
+// O Asaas entrega o id da assinatura no pagamento recorrente ou no objeto
+// subscription, dependendo do tipo do evento configurado.
+$eventId = isset($payload['id']) ? substr((string) $payload['id'], 0, 64) : '';
+$payment = is_array($payload['payment'] ?? null) ? $payload['payment'] : [];
+$eventType = (string) ($payload['event'] ?? '');
+$paymentStatus = is_string($payment['status'] ?? null) ? strtoupper((string) $payment['status']) : '';
+$paymentId = isset($payment['id']) ? substr((string) $payment['id'], 0, 64) : '';
+$subscriptionPayload = $payload['subscription'] ?? null;
+$subscriptionId = '';
+if (isset($payment['subscription']) && is_string($payment['subscription'])) {
+    $subscriptionId = trim((string) $payment['subscription']);
+} elseif (is_array($subscriptionPayload) && isset($subscriptionPayload['id'])) {
+    $subscriptionId = trim((string) $subscriptionPayload['id']);
+} elseif (is_string($subscriptionPayload)) {
+    $subscriptionId = trim($subscriptionPayload);
+}
+if ($eventId === '') {
+    $eventId = substr(hash('sha256', $eventType . '|' . $paymentId . '|' . $subscriptionId . '|' . $rawInput), 0, 64);
+}
+
+// Idempotência única para pagamentos avulsos e recorrentes: um mesmo evento
+// só entra uma vez, mesmo quando o provedor faz novas tentativas de entrega.
+try {
+    $insert = $db->prepare(
+        'INSERT IGNORE INTO asaas_webhook_events (webhook_event_id, payment_id, event_type, payload_json, processed)
+         VALUES (?, ?, ?, ?, 0)'
+    );
+    $insert->execute([$eventId, $paymentId !== '' ? $paymentId : null, $eventType, mb_substr($rawInput, 0, 65000)]);
+    if ($insert->rowCount() === 0) {
+        whJson(200, []);
+    }
+} catch (Throwable $e) {
+    error_log('webhook-asaas: event insert: ' . $e->getMessage());
+    whJson(200, []);
+}
+
+try {
+    $confirmedEvents = ['PAYMENT_RECEIVED', 'PAYMENT_CONFIRMED', 'SUBSCRIPTION_PAYMENT_CONFIRMED'];
+    $overdueEvents = ['PAYMENT_OVERDUE', 'SUBSCRIPTION_PAYMENT_OVERDUE'];
+    $cancelledEvents = ['SUBSCRIPTION_DELETED', 'SUBSCRIPTION_CANCELLED'];
+    $isConfirmedPayment = in_array($eventType, $confirmedEvents, true)
+        && in_array($paymentStatus, ['RECEIVED', 'CONFIRMED', 'SETTLED'], true);
+
+    if ($subscriptionId !== '' && $isConfirmedPayment) {
+        mpAsaasConfirmSubscriptionPayment($db, $subscriptionId, $payment);
+    } elseif ($subscriptionId !== '' && in_array($eventType, $overdueEvents, true)) {
+        mpAsaasMarkSubscriptionOverdue($db, $subscriptionId, $payment);
+    } elseif ($subscriptionId !== '' && in_array($eventType, $cancelledEvents, true)) {
+        mpAsaasMarkSubscriptionCancelled($db, $subscriptionId);
+    } elseif ($subscriptionId === '' && $eventType === 'PAYMENT_RECEIVED' && $isConfirmedPayment) {
+        // Cobrança avulsa de créditos: comportamento legado preservado.
+        $externalReference = isset($payment['externalReference']) ? (string) $payment['externalReference'] : '';
+
+        // Localiza o pedido pelo external_reference (order_nsu) ou pelo
+        // asaas_payment_id gravado na criação da cobrança.
+        $stmt = $db->prepare(
+            'SELECT * FROM asaas_orders
+              WHERE status = \'pending\'
+                AND (order_nsu = ? OR asaas_payment_id = ?)
+              ORDER BY id ASC LIMIT 1'
+        );
+        $stmt->execute([$externalReference, $paymentId !== '' ? $paymentId : null]);
+        $order = $stmt->fetch(PDO::FETCH_ASSOC);
+
+        if (is_array($order) && (int) $order['amount_cents'] > 0) {
+            // Idempotência dupla: somente o primeiro acerto libera os créditos.
+            $update = $db->prepare(
+                'UPDATE asaas_orders
+                   SET status = \'paid\', paid_at = NOW(), asaas_payment_id = COALESCE(asaas_payment_id, ?)
+                 WHERE id = ? AND status = \'pending\''
+            );
+            $update->execute([$paymentId !== '' ? $paymentId : null, (int) $order['id']]);
+            if ((int) $update->rowCount() > 0) {
+                $amountCents = (int) $order['amount_cents'];
+                $creditQuantity = (int) ($order['quantity'] ?? 0);
+                $plan = $db->prepare('SELECT p.period FROM tenants t INNER JOIN plans p ON p.id = t.plan_id WHERE t.id = ? LIMIT 1');
+                $plan->execute([$order['tenant_id']]);
+                $period = (string) (($plan->fetch(PDO::FETCH_ASSOC)['period'] ?? 'monthly'));
+                $periodStart = $period === 'yearly' ? date('Y-01-01') : date('Y-m-01');
+                if ($creditQuantity > 0) {
+                    $usage = $db->prepare('INSERT INTO tenant_usage (tenant_id, period_start, tokens_used, token_bonus) VALUES (?, ?, 0, ?) ON DUPLICATE KEY UPDATE token_bonus = COALESCE(token_bonus, 0) + ?');
+                    $usage->execute([$order['tenant_id'], $periodStart, $creditQuantity, $creditQuantity]);
+                }
+
+                // Comissão do programa de indicações (valor por conversão).
+                try {
+                    $payout = 10.00;
+                    if (function_exists('refSettingFloat')) {
+                        $payout = refSettingFloat($db, 'payout_per_conversion', 10.00);
+                    } else {
+                        $ps = $db->prepare('SELECT setting_value FROM referral_settings WHERE setting_key = ? LIMIT 1');
+                        $ps->execute(['payout_per_conversion']);
+                        $psv = $ps->fetchColumn();
+                        if ($psv !== false && is_numeric((string) $psv)) {
+                            $payout = (float) $psv;
+                        }
+                    }
+                    $ref = $db->prepare(
+                        "SELECT id, referrer_user_id AS user_id, referrer_tenant_id AS tenant_id, 0.00 AS payout_amount
+                           FROM referral_visits
+                          WHERE signup_tenant_id = ? AND status IN ('registered', 'converted')
+                          ORDER BY attributed_at DESC, id DESC LIMIT 1"
+                    );
+                    $ref->execute([$order['tenant_id']]);
+                    $refRow = $ref->fetch(PDO::FETCH_ASSOC);
+                    if (is_array($refRow)) {
+                        $db->prepare("UPDATE referral_visits SET status = 'converted', converted_at = COALESCE(converted_at, NOW()) WHERE id = ?")
+                            ->execute([(int) $refRow['id']]);
+                        $amount = $refRow['payout_amount'] > 0 ? (float) $refRow['payout_amount'] : $payout;
+                        $com = $db->prepare(
+                            'INSERT INTO referral_commissions
+                                (referrer_user_id, referrer_tenant_id, payer_tenant_id, order_id, amount, status)
+                             VALUES (?, ?, ?, ?, ?, \'pending\')
+                             ON DUPLICATE KEY UPDATE status = status'
+                        );
+                        $com->execute([(int) $refRow['user_id'], $refRow['tenant_id'], $order['tenant_id'], (int) $order['id'], $amount]);
+                    }
+                } catch (Throwable $e) {
+                    error_log('webhook-asaas: commission: ' . $e->getMessage());
+                }
+
+                // Notificação interna de crédito aprovado.
+                if (is_file(__DIR__ . '/services/notificationService.php')) {
+                    require_once __DIR__ . '/services/notificationService.php';
+                    if (class_exists('NotificationService')) {
+                        NotificationService::notifyPaymentConfirmed(
+                            $db,
+                            ['id' => $order['user_id'], 'tenant_id' => $order['tenant_id'], 'name' => '', 'email' => ''],
+                            $amountCents
+                        );
+                    }
+                }
+            }
+        }
+    }
+    $mark = $db->prepare('UPDATE asaas_webhook_events SET processed = 1 WHERE webhook_event_id = ? LIMIT 1');
+    $mark->execute([$eventId]);
+} catch (Throwable $e) {
+    error_log('webhook-asaas: processing: ' . $e->getMessage());
+}
+
+whJson(200, []);

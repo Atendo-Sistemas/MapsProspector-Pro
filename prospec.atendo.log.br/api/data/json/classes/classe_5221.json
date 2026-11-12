@@ -1,0 +1,129 @@
+{
+  "classe": "5221",
+  "grupo": "522",
+  "divisao": "52",
+  "secao": "H",
+  "total_termos": 12,
+  "termos": [
+    {
+      "termo": "Concessionárias de rodovias, pontes, túneis e serviços relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Concessionárias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concessionárias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Concessionarias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "concessionárias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Rodovias",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "rodovias",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Pontes",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pontes",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Pontes",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pontes",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Túneis",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "túneis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Tuneis",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "túneis",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "relacionados",
+      "secao": "H",
+      "divisao": "52"
+    },
+    {
+      "termo": "Concessionárias de rodovias, pontes, túneis e serviços relacionados",
+      "codigo_cnae": "5221400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "H",
+      "divisao": "52"
+    }
+  ]
+}

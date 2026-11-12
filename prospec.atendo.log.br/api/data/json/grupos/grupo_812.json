@@ -1,0 +1,188 @@
+{
+  "grupo": "812",
+  "divisao": "81",
+  "secao": "N",
+  "total_termos": 18,
+  "termos": [
+    {
+      "termo": "Limpeza em prédios e em domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "limpeza",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Prédios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Predios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "prédios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Domicilios",
+      "codigo_cnae": "8121400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "domicílios",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Limpeza em prédios e em domicílios",
+      "codigo_cnae": "8121400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização e controle de pragas urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imunização",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunizacao",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "imunização",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Controle",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "controle",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Pragas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "pragas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "urbanas",
+      "secao": "N",
+      "divisao": "81"
+    },
+    {
+      "termo": "Imunização e controle de pragas urbanas",
+      "codigo_cnae": "8122200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "N",
+      "divisao": "81"
+    }
+  ]
+}

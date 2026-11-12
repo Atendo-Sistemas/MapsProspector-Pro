@@ -1,0 +1,148 @@
+{
+  "grupo": "551",
+  "divisao": "55",
+  "secao": "I",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510801",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hoteis",
+      "codigo_cnae": "5510801",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510801",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart-hotéis",
+      "codigo_cnae": "5510802",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apart",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "apart",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hotéis",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Hoteis",
+      "codigo_cnae": "5510802",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hotéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Apart-hotéis",
+      "codigo_cnae": "5510802",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Motéis",
+      "codigo_cnae": "5510803",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Motéis",
+      "codigo_cnae": "5510803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Moteis",
+      "codigo_cnae": "5510803",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "motéis",
+      "secao": "I",
+      "divisao": "55"
+    },
+    {
+      "termo": "Motéis",
+      "codigo_cnae": "5510803",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "I",
+      "divisao": "55"
+    }
+  ]
+}

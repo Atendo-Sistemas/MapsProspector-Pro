@@ -1,0 +1,58 @@
+{
+  "grupo": "050",
+  "total_termos": 4,
+  "termos": [
+    {
+      "termo": "Coleta de carvão mineral",
+      "tipo": "descricao-oficial",
+      "relevancia": 100,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "coleta",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "carvão",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    },
+    {
+      "termo": "mineral",
+      "tipo": "palavra-chave",
+      "relevancia": 85,
+      "data_hora": "2026-07-28 11:54:10",
+      "codigo_cnae": "0500303",
+      "descricao_cnae": "Coleta de carvão mineral",
+      "secao": "B",
+      "divisao": "05",
+      "grupo": "050",
+      "classe": "0500",
+      "data_criacao": "2026-07-28 11:54:10"
+    }
+  ]
+}

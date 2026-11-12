@@ -1,0 +1,149 @@
+{
+  "classe": "6319",
+  "grupo": "631",
+  "divisao": "63",
+  "secao": "J",
+  "total_termos": 14,
+  "termos": [
+    {
+      "termo": "Tratamento de dados, provedores de serviços de aplicação e serviços de hospedagem na internet",
+      "codigo_cnae": "6319400",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Tratamento",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamento",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Tratamento",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "tratamento",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Dados",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dados",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Dados",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "dados",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Provedores",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "provedores",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Provedores",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "provedores",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Aplicação",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aplicação",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Aplicacao",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "aplicação",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Hospedagem",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospedagem",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Hospedagem",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "hospedagem",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Internet",
+      "codigo_cnae": "6319400",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "internet",
+      "secao": "J",
+      "divisao": "63"
+    },
+    {
+      "termo": "Tratamento de dados, provedores de serviços de aplicação e serviços de hospedagem na internet",
+      "codigo_cnae": "6319400",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "J",
+      "divisao": "63"
+    }
+  ]
+}

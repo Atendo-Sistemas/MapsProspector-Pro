@@ -1,0 +1,69 @@
+{
+  "classe": "2014",
+  "grupo": "201",
+  "divisao": "20",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de gases industriais",
+      "codigo_cnae": "2014200",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Gases",
+      "codigo_cnae": "2014200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gases",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Gases",
+      "codigo_cnae": "2014200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "gases",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2014200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Industriais",
+      "codigo_cnae": "2014200",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "industriais",
+      "secao": "C",
+      "divisao": "20"
+    },
+    {
+      "termo": "Fabricação de gases industriais",
+      "codigo_cnae": "2014200",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "20"
+    }
+  ]
+}

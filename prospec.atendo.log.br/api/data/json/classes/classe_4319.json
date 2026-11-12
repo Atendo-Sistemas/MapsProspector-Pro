@@ -1,0 +1,89 @@
+{
+  "classe": "4319",
+  "grupo": "431",
+  "divisao": "43",
+  "secao": "F",
+  "total_termos": 8,
+  "termos": [
+    {
+      "termo": "Serviços de preparação do terreno não especificados anteriormente",
+      "codigo_cnae": "4319300",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Preparação",
+      "codigo_cnae": "4319300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Preparacao",
+      "codigo_cnae": "4319300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "preparação",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Terreno",
+      "codigo_cnae": "4319300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terreno",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Terreno",
+      "codigo_cnae": "4319300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "terreno",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "4319300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Especificados",
+      "codigo_cnae": "4319300",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "especificados",
+      "secao": "F",
+      "divisao": "43"
+    },
+    {
+      "termo": "Serviços de preparação do terreno não especificados anteriormente",
+      "codigo_cnae": "4319300",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "F",
+      "divisao": "43"
+    }
+  ]
+}

@@ -1,0 +1,69 @@
+{
+  "classe": "1071",
+  "grupo": "107",
+  "divisao": "10",
+  "secao": "C",
+  "total_termos": 6,
+  "termos": [
+    {
+      "termo": "Fabricação de açúcar em bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "nome_oficial",
+      "origem": "descrição oficial",
+      "relevancia": 100,
+      "categoria": "atividades",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Açúcar",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Acucar",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "açúcar",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "atividade",
+      "origem": "classificação semântica",
+      "relevancia": 85,
+      "categoria": "bruto",
+      "secao": "C",
+      "divisao": "10"
+    },
+    {
+      "termo": "Fabricação de açúcar em bruto",
+      "codigo_cnae": "1071600",
+      "tipo": "palavra_chave",
+      "origem": "classificação semântica",
+      "relevancia": 90,
+      "categoria": "descricao_completa",
+      "secao": "C",
+      "divisao": "10"
+    }
+  ]
+}

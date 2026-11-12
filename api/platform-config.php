@@ -24,7 +24,7 @@ try {
     $method = $_SERVER['REQUEST_METHOD'];
 
     if ($method === 'GET') {
-        $saasCompanyName = getPlatformSetting($db, 'saas_company_name') ?? 'Maps Prospector';
+        $saasCompanyName = getPlatformSetting($db, 'saas_company_name') ?: (getPlatformSetting($db, 'platform_name') ?: 'Maps Prospector');
         $creditPriceAvulso = getPlatformSetting($db, 'credit_price_avulso') ?? 0.00;
         
         $whatsappApiUrl = getPlatformSetting($db, 'whatsapp_api_url') ?? '';
@@ -73,7 +73,11 @@ try {
             jsonError('Dados não fornecidos', 400);
         }
 
-        if (array_key_exists('saasCompanyName', $input)) setPlatformSetting($db, 'saas_company_name', sanitizeInput($input['saasCompanyName']));
+        if (array_key_exists('saasCompanyName', $input)) {
+            $saasCompanyName = sanitizeInput($input['saasCompanyName']);
+            setPlatformSetting($db, 'saas_company_name', $saasCompanyName);
+            setPlatformSetting($db, 'platform_name', $saasCompanyName);
+        }
         if (array_key_exists('creditPriceAvulso', $input)) setPlatformSetting($db, 'credit_price_avulso', (float) $input['creditPriceAvulso']);
         if (array_key_exists('whatsappApiUrl', $input)) setPlatformSetting($db, 'whatsapp_api_url', trim($input['whatsappApiUrl']));
         if (array_key_exists('whatsappApiToken', $input) && trim((string) $input['whatsappApiToken']) !== '') setPlatformSetting($db, 'whatsapp_api_token', trim((string) $input['whatsappApiToken']));
