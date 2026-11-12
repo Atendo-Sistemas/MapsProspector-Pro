@@ -100,10 +100,10 @@ CREATE TABLE `apify_keys` (
 --
 
 INSERT INTO `apify_keys` (`id`, `api_key`, `label`, `tokens_used`, `is_active`, `last_used_at`) VALUES
-(1, 'apify_api_A2Ornk7hyDG02GvFxzssnX3ZFW5KLL1MlI5n', 'Atendo', 64, 1, '2026-10-08 09:19:28'),
-(3, 'apify_api_fvKNhOWPj2LJwOSZoAiFxvPkT30U1B1eBCcj', 'Ivan Gondoas', 49, 1, '2026-10-08 08:50:27'),
-(14, 'apify_api_TohOeA73esjlfneaS0GhM0eQAS6b622bjTQ8', 'Pastoral 2', 1, 1, '2026-10-26 19:06:17'),
-(15, 'apify_api_7ndfxapXGrGH0AvCaTyN8WiYJDGdsu3wMuAr', 'hand123abx@gmail.com', 0, 1, '2026-10-26 19:10:08');
+(1, 'Usar sua API', 'Nome1', 64, 1, '2026-10-08 09:19:28'),
+(3, 'Usar sua API', 'Nome2', 49, 1, '2026-10-08 08:50:27'),
+(14, 'Usar sua API', 'Nome3', 1, 1, '2026-10-26 19:06:17'),
+(15, 'Usar sua API', 'Nome4', 0, 1, '2026-10-26 19:10:08');
 
 -- --------------------------------------------------------
 
