@@ -1,5 +1,15 @@
 [
   {
+    "version": "20261112-creditos-1",
+    "date": "2026-11-12",
+    "title": "Solicitações e concessão de créditos",
+    "items": [
+      "O super administrador pode adicionar créditos avulsos sem cobrança a uma empresa para o período atual.",
+      "O Asaas usa os dados cadastrais do usuário e evita repetir uma cobrança que ainda não foi confirmada.",
+      "A análise de solicitações de créditos informa falhas e impede a aprovação duplicada."
+    ]
+  },
+  {
     "version": "20261112-integracao-1",
     "date": "2026-11-12",
     "title": "Integração das atualizações",

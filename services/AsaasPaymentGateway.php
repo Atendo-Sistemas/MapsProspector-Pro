@@ -44,15 +44,45 @@ final class MapsProspectorAsaasPaymentGateway
         $description = 'MapsProspector | Origem: créditos avulsos | Empresa #' . $tenantId . ' | ' . $credits . ' créditos';
         $orderNsu = 'MP-' . strtolower(bin2hex(random_bytes(8))) . '-' . time();
         $externalReference = 'MP-CREDITS|T' . $tenantId . '|' . $orderNsu;
-        $insert = $db->prepare(
-            'INSERT INTO asaas_orders (order_nsu, user_id, tenant_id, amount_cents, quantity, description, status)
-             VALUES (?, ?, ?, ?, ?, ?, \'pending\')'
-        );
-        $insert->execute([$orderNsu, (int) $user['id'], $tenantId, $amountCents, $credits, $description]);
-        $orderId = (int) $db->lastInsertId();
-
+        $db->beginTransaction();
         try {
-            $customerId = self::ensureCustomer($db, $user);
+            $lock = $db->prepare('SELECT id FROM tenants WHERE id = ? FOR UPDATE');
+            $lock->execute([$tenantId]);
+            if (!$lock->fetchColumn()) {
+                throw new RuntimeException('Empresa não encontrada.');
+            }
+            $pending = $db->prepare("SELECT order_nsu, payment_url, amount_cents FROM asaas_orders WHERE tenant_id = ? AND quantity = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
+            $pending->execute([$tenantId, $credits]);
+            $existing = $pending->fetch(PDO::FETCH_ASSOC);
+            if (is_array($existing)) {
+                if (trim((string) ($existing['payment_url'] ?? '')) === '') {
+                    throw new RuntimeException('Existe uma cobrança pendente sem link. Confira no Asaas antes de solicitar novamente.');
+                }
+                $db->commit();
+                return [
+                    'mode' => 'asaas',
+                    'payment_url' => (string) $existing['payment_url'],
+                    'order_nsu' => (string) $existing['order_nsu'],
+                    'amount_brl' => ((int) $existing['amount_cents']) / 100,
+                    'alreadyPending' => true,
+                ];
+            }
+            $insert = $db->prepare(
+                'INSERT INTO asaas_orders (order_nsu, user_id, tenant_id, amount_cents, quantity, description, status)
+                 VALUES (?, ?, ?, ?, ?, ?, \'pending\')'
+            );
+            $insert->execute([$orderNsu, (int) $user['id'], $tenantId, $amountCents, $credits, $description]);
+            $orderId = (int) $db->lastInsertId();
+            $db->commit();
+        } catch (Throwable $e) {
+            if ($db->inTransaction()) $db->rollBack();
+            throw $e;
+        }
+
+        $chargeStarted = false;
+        try {
+            $customerId = self::ensureCustomer($db, $user, $tenantId);
+            $chargeStarted = true;
             $charge = self::request($db, '/payments', [
                 'customer' => $customerId,
                 'billingType' => 'UNDEFINED',
@@ -62,9 +92,17 @@ final class MapsProspectorAsaasPaymentGateway
                 'externalReference' => $externalReference,
             ]);
             $paymentId = trim((string) ($charge['id'] ?? ''));
+            if ($paymentId === '') {
+                throw new RuntimeException('O Asaas não retornou a identificação da cobrança.');
+            }
             $paymentUrl = trim((string) ($charge['invoiceUrl'] ?? $charge['invoiceLink'] ?? ''));
+            $update = $db->prepare('UPDATE asaas_orders SET asaas_payment_id = ?, asaas_customer_id = ? WHERE id = ? LIMIT 1');
+            $update->execute([$paymentId, $customerId, $orderId]);
             if ($paymentUrl === '' && $paymentId !== '') {
                 $paymentUrl = self::paymentUrl($db, $paymentId);
+            }
+            if ($paymentUrl === '') {
+                throw new RuntimeException('O Asaas não retornou o link da cobrança.');
             }
             $update = $db->prepare('UPDATE asaas_orders SET asaas_payment_id = ?, asaas_customer_id = ?, payment_url = ? WHERE id = ? LIMIT 1');
             $update->execute([$paymentId !== '' ? $paymentId : null, $customerId !== '' ? $customerId : null, $paymentUrl !== '' ? $paymentUrl : null, $orderId]);
@@ -76,8 +114,10 @@ final class MapsProspectorAsaasPaymentGateway
                 'amount_brl' => $amountCents / 100,
             ];
         } catch (Throwable $e) {
-            $db->prepare("UPDATE asaas_orders SET status = 'failed' WHERE id = ? AND status = 'pending' LIMIT 1")
-                ->execute([$orderId]);
+            if (!$chargeStarted) {
+                $db->prepare("UPDATE asaas_orders SET status = 'failed' WHERE id = ? AND status = 'pending' LIMIT 1")
+                    ->execute([$orderId]);
+            }
             throw $e;
         }
     }
@@ -101,7 +141,7 @@ final class MapsProspectorAsaasPaymentGateway
             throw new RuntimeException('O plano selecionado não possui cobrança mensal válida.');
         }
 
-        $customerId = self::ensureCustomer($db, $user);
+        $customerId = self::ensureCustomer($db, $user, $tenantId);
         $subscription = self::request($db, '/subscriptions', [
             'customer' => $customerId,
             'billingType' => 'UNDEFINED',
@@ -164,7 +204,7 @@ final class MapsProspectorAsaasPaymentGateway
         if ($amountCents <= 0 || (string) ($plan['period'] ?? 'monthly') !== 'monthly') {
             throw new RuntimeException('A oferta de CRM não possui cobrança mensal válida.');
         }
-        $customerId = self::ensureCustomer($db, $user);
+        $customerId = self::ensureCustomer($db, $user, $tenantId);
         $subscription = self::request($db, '/subscriptions', [
             'customer' => $customerId,
             'billingType' => 'UNDEFINED',
@@ -267,9 +307,10 @@ final class MapsProspectorAsaasPaymentGateway
         return $decoded;
     }
 
-    private static function ensureCustomer(PDO $db, array $user): string
+    private static function ensureCustomer(PDO $db, array $user, int $tenantId): string
     {
-        $email = trim((string) ($user['email'] ?? ''));
+        $customerData = self::loadCustomerData($db, $user, $tenantId);
+        $email = trim((string) ($customerData['email'] ?? ''));
         if ($email === '') {
             throw new RuntimeException('O usuário responsável precisa ter um e-mail cadastrado antes do pagamento.');
         }
@@ -278,15 +319,31 @@ final class MapsProspectorAsaasPaymentGateway
         if (is_array($first) && !empty($first['id'])) {
             return (string) $first['id'];
         }
-        $customer = self::request($db, '/customers', [
-            'name' => mb_substr(trim((string) ($user['name'] ?? 'Cliente da plataforma')) ?: 'Cliente da plataforma', 0, 120),
+        $customerPayload = [
+            'name' => mb_substr(trim((string) ($customerData['name'] ?? 'Cliente da plataforma')) ?: 'Cliente da plataforma', 0, 120),
             'email' => $email,
-        ]);
+        ];
+        $document = preg_replace('/\D+/', '', (string) ($customerData['cnpj'] ?? ''));
+        if (in_array(strlen($document), [11, 14], true)) {
+            $customerPayload['cpfCnpj'] = $document;
+        }
+        $customer = self::request($db, '/customers', $customerPayload);
         $customerId = trim((string) ($customer['id'] ?? ''));
         if ($customerId === '') {
             throw new RuntimeException('O Asaas não retornou a identificação do cliente.');
         }
         return $customerId;
+    }
+
+    private static function loadCustomerData(PDO $db, array $user, int $tenantId): array
+    {
+        $stmt = $db->prepare("SELECT u.name, u.email, t.cnpj FROM users u INNER JOIN tenants t ON t.id = ? WHERE u.id = ? AND (u.tenant_id = t.id OR (u.tenant_id IS NULL AND u.profile = 'super_admin' AND t.id = 1)) LIMIT 1");
+        $stmt->execute([$tenantId, (int) ($user['id'] ?? 0)]);
+        $customerData = $stmt->fetch(PDO::FETCH_ASSOC);
+        if (!is_array($customerData)) {
+            throw new RuntimeException('Usuário responsável não encontrado para esta empresa.');
+        }
+        return $customerData;
     }
 
     private static function paymentUrl(PDO $db, string $paymentId): string

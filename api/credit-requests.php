@@ -74,20 +74,55 @@ if ($method === 'GET') {
         $pricePerCredit = ($priceAvulso !== null && $priceAvulso !== '') ? (float) str_replace(',', '.', trim($priceAvulso)) : 0;
         jsonSuccess(['items' => $items, 'total' => count($items), 'pricePerCredit' => $pricePerCredit]);
     } catch (PDOException $e) {
-        if (strpos($e->getMessage(), 'exist') !== false || strpos($e->getMessage(), '1146') !== false) {
-            $priceAvulso = getPlatformSetting($db, 'credit_price_avulso');
-            $pricePerCredit = ($priceAvulso !== null && $priceAvulso !== '') ? (float) str_replace(',', '.', trim($priceAvulso)) : 0;
-            jsonSuccess(['items' => [], 'total' => 0, 'pricePerCredit' => $pricePerCredit]);
-            exit;
-        }
         error_log("credit-requests GET: " . $e->getMessage());
-        jsonError('Erro ao listar solicitações. Execute database_migration_credit_requests.sql no banco.', 500);
+        jsonError('Erro ao listar solicitações de créditos. Consulte os registros do servidor.', 500);
     }
 } elseif ($method === 'POST') {
+    $input = json_decode(file_get_contents('php://input'), true) ?? [];
+    if (($input['action'] ?? '') === 'grant') {
+        if (!$isSuperAdmin) jsonError('Apenas o administrador da plataforma pode adicionar créditos.', 403);
+        $targetTenant = filter_var($input['tenantId'] ?? null, FILTER_VALIDATE_INT);
+        $amount = filter_var($input['credits'] ?? null, FILTER_VALIDATE_INT);
+        $reference = (string) ($input['reference'] ?? '');
+        if (!$targetTenant || $targetTenant < 1 || !$amount || $amount < 1 || $amount > 10000 || !preg_match('/^[a-f0-9]{32}$/', $reference)) {
+            jsonError('Selecione uma empresa e informe entre 1 e 10.000 créditos.', 422);
+        }
+        try {
+            $db->beginTransaction();
+            $tenant = $db->prepare('SELECT t.id, p.period FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ? FOR UPDATE');
+            $tenant->execute([$targetTenant]);
+            $row = $tenant->fetch(PDO::FETCH_ASSOC);
+            if (!$row) {
+                $db->rollBack();
+                jsonError('Empresa não encontrada.', 404);
+            }
+            $bonusCode = 'admin_credit_' . (int) $userId;
+            $grant = $db->prepare("INSERT INTO payment_bonus_grants (tenant_id, bonus_code, source_type, source_id, credits, created_at) VALUES (?, ?, 'admin_credit', ?, ?, NOW()) ON DUPLICATE KEY UPDATE id = id");
+            $grant->execute([$targetTenant, $bonusCode, $reference, $amount]);
+            if ($grant->rowCount() === 0) {
+                $existing = $db->prepare("SELECT credits FROM payment_bonus_grants WHERE tenant_id = ? AND bonus_code = ? AND source_type = 'admin_credit' AND source_id = ?");
+                $existing->execute([$targetTenant, $bonusCode, $reference]);
+                if ((int) $existing->fetchColumn() !== $amount) {
+                    $db->rollBack();
+                    jsonError('Esta operação já foi registrada com outra quantidade.', 409);
+                }
+                $db->commit();
+                jsonSuccess(['alreadyApplied' => true], 'Esta operação já havia sido aplicada.');
+            }
+            $periodStart = getCurrentPeriodStart((string) ($row['period'] ?? 'monthly'));
+            $usage = $db->prepare('INSERT INTO tenant_usage (tenant_id, period_start, tokens_used, token_bonus) VALUES (?, ?, 0, ?) ON DUPLICATE KEY UPDATE token_bonus = COALESCE(token_bonus, 0) + ?');
+            $usage->execute([$targetTenant, $periodStart, $amount, $amount]);
+            $db->commit();
+            jsonSuccess(['alreadyApplied' => false, 'periodStart' => $periodStart], 'Créditos adicionados ao período atual da empresa.');
+        } catch (Throwable $e) {
+            if ($db->inTransaction()) $db->rollBack();
+            error_log('credit-requests grant: ' . $e->getMessage());
+            jsonError('Não foi possível adicionar créditos. Consulte os registros do servidor.', 500);
+        }
+    }
     if ($tenantId === null) {
         jsonError('Apenas usuários vinculados a uma empresa podem solicitar créditos.', 403);
     }
-    $input = json_decode(file_get_contents('php://input'), true) ?? [];
     $tokensRequested = isset($input['tokensRequested']) ? (int) $input['tokensRequested'] : 0;
     if ($tokensRequested < 100 || $tokensRequested > 10000) {
         jsonError('Informe uma quantidade entre 100 e 10.000 tokens.', 400);
@@ -140,17 +175,18 @@ if ($method === 'GET') {
         jsonError('Informe o id da solicitação e o status (approved ou rejected).', 400);
     }
     try {
-        // Seleciona também o requested_by_user_id para sabermos quem notificar no sucesso
-        $stmt = $db->prepare("SELECT id, tenant_id, requested_by_user_id, tokens_requested, status FROM credit_requests WHERE id = ?");
+        $db->beginTransaction();
+        $stmt = $db->prepare("SELECT id, tenant_id, requested_by_user_id, tokens_requested, status FROM credit_requests WHERE id = ? FOR UPDATE");
         $stmt->execute([$id]);
         $req = $stmt->fetch();
         if (!$req) {
+            $db->rollBack();
             jsonError('Solicitação não encontrada.', 404);
         }
         if ($req['status'] !== 'pending') {
-            jsonError('Esta solicitação já foi avaliada.', 400);
+            $db->rollBack();
+            jsonError('Esta solicitação já foi avaliada.', 409);
         }
-        $db->beginTransaction();
         $stmt = $db->prepare("UPDATE credit_requests SET status = ?, reviewed_at = NOW(), reviewed_by_user_id = ? WHERE id = ?");
         $stmt->execute([$status, $userId, $id]);
         if ($status === 'approved') {
@@ -199,7 +235,7 @@ if ($method === 'GET') {
         }
 
         jsonSuccess(['id' => (string) $id, 'status' => $status], $status === 'approved' ? 'Créditos aprovados e adicionados à empresa.' : 'Solicitação recusada.');
-    } catch (PDOException $e) {
+    } catch (Throwable $e) {
         if ($db->inTransaction()) {
             $db->rollBack();
         }

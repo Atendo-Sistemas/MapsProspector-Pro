@@ -646,7 +646,7 @@ if (!headers_sent()) {
 <script defer src="/assets/js/banner-campaign.js?v=20261112-integracao-1"></script>
 <script defer src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
 <script src="/assets/js/site-traffic.js?v=20261009-traffic-1" defer></script>
-<script defer src="/app/app.js?v=20261112-integracao-1"></script>
+<script defer src="/app/app.js?v=20261112-creditos-1"></script>
 <script defer src="/assets/js/help.js?v=20260821-65"></script>
 <script defer src="/assets/js/help-admin.js?v=20260821-65"></script>
 <script defer src="/assets/js/pwa.js?v=20261009-pwa-1"></script>

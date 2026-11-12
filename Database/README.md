@@ -49,6 +49,10 @@ Scripts SQL para importação do schema em outro ambiente (MySQL/MariaDB).
 
 O schema completo já cria `payments` e `payment_bonus_grants`. Em bancos existentes, execute `database_migration_manual_payments.sql` para que a criação e a aprovação manuais de compras funcionem; essa migração é segura para reexecução. Ela usa o banco `maps`; ajuste a cláusula `USE` se necessário.
 
+Na aba Solicitações, o super administrador pode conceder de 1 a 10.000 créditos sem cobrança. Eles integram o bônus do período atual (mensal ou anual); o registro da operação, administrador e quantidade fica em `payment_bonus_grants`. A tabela deve existir antes do uso. Se a resposta de uma concessão não chegar, mantenha a mesma aba e use o botão novamente para conferir a operação sem duplicá-la.
+
+Se uma cobrança Asaas ficar pendente sem link após uma falha, confira o pedido e a referência no painel Asaas antes de tomar qualquer ação ou tentar outra cobrança; a aplicação não cria outra cobrança igual enquanto esse pedido estiver pendente. Um webhook de pagamento confirmado continua liberando os créditos.
+
 Para habilitar pagamentos Asaas em uma instalação nova ou existente, execute `sql/asaas-finance.sql` e depois `database_migration_billing_due_dates.sql`. A migração é reexecutável, completa os campos do catálogo de planos usados pela cobrança, adiciona o tipo de assinatura e cria os campos/tabela de auditoria para vencimentos administrativos.
 
 ## Migrações opcionais (apenas para instalações antigas)

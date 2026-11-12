@@ -4,6 +4,14 @@ Todos as **mudanças** deste projeto serão documentados neste arquivo.
 
 ---
 
+## [1.4.9] - 2026-11-12
+
+- Concessão direta de créditos pelo super administrador, sem cobrança, com registro e proteção contra repetição no período vigente.
+- Corrigida a busca de nome e e-mail para cobranças Asaas; falhas de confirmação exigem conferência antes de nova cobrança.
+- Corrigida a atualização e exibição de erros na análise de solicitações e protegida a aprovação simultânea.
+
+---
+
 ## [1.4.8] - 2026-11-12
 
 - Integradas as atualizações recentes de pesquisa com os banners e notificações, preservando a pesquisa Instagram.
