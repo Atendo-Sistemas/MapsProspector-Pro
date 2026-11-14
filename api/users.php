@@ -27,7 +27,7 @@ $isSuperAdmin = ($profile === 'super_admin');
 $isAdmin = ($profile === 'admin');
 $isSupervisor = in_array($profile, ['supervisor', 'manager', 'gerente'], true);
 
-function usersSeatQuota(PDO $db, int $tenantId): array
+function usersSeatQuota(PDO $db, int $tenantId, int $includedUserId = 0): array
 {
     $included = 1;
     $source = 'Plano atual';
@@ -54,12 +54,12 @@ function usersSeatQuota(PDO $db, int $tenantId): array
         error_log('users quota crm: ' . $e->getMessage());
     }
     try {
-        $stmt = $db->prepare("SELECT COUNT(*) FROM users WHERE tenant_id = ? AND (status IS NULL OR status = 'active')");
-        $stmt->execute([$tenantId]);
+        $stmt = $db->prepare("SELECT COUNT(DISTINCT id) FROM users WHERE (tenant_id = ? OR id = ?) AND (status IS NULL OR status = 'active')");
+        $stmt->execute([$tenantId, $includedUserId]);
         $current = (int) $stmt->fetchColumn();
     } catch (Throwable $e) {
-        $stmt = $db->prepare('SELECT COUNT(*) FROM users WHERE tenant_id = ?');
-        $stmt->execute([$tenantId]);
+        $stmt = $db->prepare('SELECT COUNT(DISTINCT id) FROM users WHERE tenant_id = ? OR id = ?');
+        $stmt->execute([$tenantId, $includedUserId]);
         $current = (int) $stmt->fetchColumn();
     }
     return [
@@ -81,11 +81,15 @@ if ($tenantId === null) {
     $tenantId = 1;
 }
 
+// Durante uma impersonação autorizada, o administrador legado pode continuar
+// gravado no tenant padrão, mas pertence ao tenant selecionado nesta sessão.
+$impersonatedAdminUserId = !empty($_SESSION['impersonating']) && $isAdmin ? (int) $userId : 0;
+
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
     if (strtolower((string) ($_GET['action'] ?? '')) === 'quota') {
-        jsonSuccess(usersSeatQuota($db, (int) $tenantId));
+        jsonSuccess(usersSeatQuota($db, (int) $tenantId, $impersonatedAdminUserId));
     }
     // Listar somente usuários da mesma empresa. A autoria do cadastro é uma
     // trilha de auditoria interna; nunca é consultada fora do tenant atual.
@@ -97,10 +101,10 @@ if ($method === 'GET') {
                              ELSE CONCAT('Usuário #', u.created_by_user_id) END) AS created_by_name
         FROM users u
         LEFT JOIN users creator ON creator.id = u.created_by_user_id
-        WHERE u.tenant_id = ? AND LOWER(u.profile) != 'super_admin'
+        WHERE (u.tenant_id = ? OR u.id = ?) AND LOWER(u.profile) != 'super_admin'
         ORDER BY u.name ASC
     ");
-    $stmt->execute([$tenantId]);
+    $stmt->execute([$tenantId, $impersonatedAdminUserId]);
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     jsonSuccess($users);

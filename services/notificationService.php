@@ -66,6 +66,57 @@ class NotificationService
         }
     }
 
+    public static function notifyMissingCompanyDocument(PDO $db, int $userId, int $tenantId, string $profile): void
+    {
+        if ($userId <= 0 || $tenantId <= 0 || strtolower($profile) !== 'admin' || !self::ensureTables($db)) {
+            return;
+        }
+
+        $sourceReference = 'tenant:' . $tenantId . ':user:' . $userId;
+        try {
+            $tenant = $db->prepare('SELECT cnpj FROM tenants WHERE id = ? LIMIT 1');
+            $tenant->execute([$tenantId]);
+            $document = $tenant->fetchColumn();
+            if ($document === false || trim((string) $document) !== '') {
+                return;
+            }
+
+            $existing = $db->prepare("SELECT id FROM internal_notifications WHERE source_type = 'profile_document' AND source_reference = ? AND (expires_at IS NULL OR expires_at > NOW()) LIMIT 1");
+            $existing->execute([$sourceReference]);
+            if ($existing->fetchColumn()) {
+                return;
+            }
+
+            self::emit($db, [
+                'recipient_scope' => 'user',
+                'target_user_id' => $userId,
+                'target_tenant_id' => $tenantId,
+                'category' => 'account',
+                'priority' => 'normal',
+                'title' => 'Atualize o CPF/CNPJ da empresa',
+                'message' => 'O CPF/CNPJ ainda não está cadastrado. Acesse Meu Perfil e informe o documento da empresa para manter o cadastro completo e concluir a contratação de planos.',
+                'source_type' => 'profile_document',
+                'source_reference' => $sourceReference,
+                'expires_at' => (new DateTimeImmutable('+30 days'))->format('Y-m-d H:i:s'),
+            ]);
+        } catch (Throwable $error) {
+            error_log('NotificationService: aviso de documento pendente não registrado.');
+        }
+    }
+
+    public static function resolveMissingCompanyDocument(PDO $db, int $userId, int $tenantId): void
+    {
+        if ($userId <= 0 || $tenantId <= 0 || !self::ensureTables($db)) {
+            return;
+        }
+        try {
+            $db->prepare("UPDATE internal_notifications SET expires_at = NOW() WHERE recipient_scope = 'user' AND target_user_id = ? AND source_type = 'profile_document' AND source_reference = ? AND (expires_at IS NULL OR expires_at > NOW())")
+                ->execute([$userId, 'tenant:' . $tenantId . ':user:' . $userId]);
+        } catch (Throwable $error) {
+            error_log('NotificationService: aviso de documento atualizado não foi encerrado.');
+        }
+    }
+
     /** Compatível com a assinatura atual e com a chamada legada de solicitações. */
     public static function notifyCreditRequest(PDO $db, $requesterUser, int $amount, int $requestId = 0): ?int
     {

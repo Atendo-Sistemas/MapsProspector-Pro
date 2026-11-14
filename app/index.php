@@ -492,6 +492,7 @@ if (!headers_sent()) {
                     <div id="perfil-document-wrap" class="hidden">
                         <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">CPF ou CNPJ da empresa</label>
                         <input type="text" id="perfil-company-document" inputmode="numeric" maxlength="18" autocomplete="off" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="Informe 11 dígitos (CPF) ou 14 (CNPJ)">
+                        <p id="perfil-document-warning" class="hidden mt-2 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs font-bold text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-100" role="status" aria-live="polite">O CPF/CNPJ da empresa está pendente. Informe o documento para completar o cadastro no painel.</p>
                         <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Necessário para concluir a contratação de planos. Pode ser atualizado a qualquer momento.</p>
                     </div>
 

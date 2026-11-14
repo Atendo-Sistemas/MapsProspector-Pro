@@ -1554,6 +1554,15 @@ function showModalPerfil() {
     
     var phone = document.getElementById('perfil-phone');
     if (phone && AppState.user) phone.value = AppState.user.phone || '';
+
+    var isCompanyAdmin = String(AppState.user?.profile || '').toLowerCase() === 'admin';
+    var documentWrap = document.getElementById('perfil-document-wrap');
+    var documentInput = document.getElementById('perfil-company-document');
+    var documentWarning = document.getElementById('perfil-document-warning');
+    var companyDocument = String(AppState.tenant?.companyDocument || '').replace(/\D/g, '');
+    if (documentWrap) documentWrap.classList.toggle('hidden', !isCompanyAdmin);
+    if (documentInput) documentInput.value = companyDocument;
+    if (documentWarning) documentWarning.classList.toggle('hidden', !isCompanyAdmin || companyDocument !== '');
     document.body.style.overflow = 'hidden';
 }
 
@@ -1570,6 +1579,9 @@ async function handlePerfilSenhaSubmit(e) {
     var newPassword = document.getElementById('perfil-senha-nova')?.value || '';
     var newPasswordConfirm = document.getElementById('perfil-senha-confirm')?.value || '';
     var newPhone = document.getElementById('perfil-phone')?.value || '';
+    var isCompanyAdmin = String(AppState.user?.profile || '').toLowerCase() === 'admin';
+    var documentInput = document.getElementById('perfil-company-document');
+    var companyDocument = isCompanyAdmin ? String(documentInput?.value || '').replace(/\D/g, '') : null;
     var errorEl = document.getElementById('perfil-error');
     var successEl = document.getElementById('perfil-success');
     var btn = document.getElementById('btn-perfil-salvar');
@@ -1586,23 +1598,36 @@ async function handlePerfilSenhaSubmit(e) {
         errorEl.classList.remove('hidden'); 
         return; 
     }
+    if (companyDocument !== null && companyDocument !== '' && ![11, 14].includes(companyDocument.length)) {
+        errorEl.textContent = 'Informe um CPF ou CNPJ válido, ou deixe o campo em branco.';
+        errorEl.classList.remove('hidden');
+        return;
+    }
 
     if (btn) btn.disabled = true;
     try {
+        var profilePayload = {
+            action: 'update_profile',
+            currentPassword: currentPassword,
+            newPassword: newPassword,
+            phone: newPhone
+        };
+        if (companyDocument !== null) profilePayload.companyDocument = companyDocument;
         var res = await fetch(API_BASE + 'auth.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                action: 'update_profile', 
-                currentPassword: currentPassword, 
-                newPassword: newPassword,
-                phone: newPhone 
-            })
+            body: JSON.stringify(profilePayload)
         });
         var data = await res.json();
         if (data.success) {
             if (successEl) { successEl.textContent = 'Perfil atualizado com sucesso.'; successEl.classList.remove('hidden'); }
             if (AppState.user) AppState.user.phone = newPhone;
+            if (companyDocument !== null && AppState.tenant) {
+                AppState.tenant.companyDocument = companyDocument;
+                var documentWarning = document.getElementById('perfil-document-warning');
+                if (documentWarning) documentWarning.classList.toggle('hidden', companyDocument !== '');
+                if (window.NotificationCenter?.refreshBadge) window.NotificationCenter.refreshBadge();
+            }
             setTimeout(hideModalPerfil, 1500);
         } else {
             errorEl.textContent = data.error || 'Erro ao atualizar perfil.';

@@ -13,6 +13,7 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/module-access.php';
+require_once __DIR__ . '/../services/notificationService.php';
 
 // Limpa qualquer output buffer
 ob_clean();
@@ -134,6 +135,7 @@ if ($method === 'POST') {
         } catch (Throwable $activityError) {
             error_log('auth login activity touch: ' . $activityError->getMessage());
         }
+        NotificationService::notifyMissingCompanyDocument($db, (int) $user['id'], (int) ($tenantId ?? 0), (string) ($user['profile'] ?? ''));
         
         jsonSuccess([
             'user' => [
@@ -221,6 +223,7 @@ if ($method === 'POST') {
                 } else {
                     $tenantName = 'Plataforma (Super Admin)';
                 }
+                NotificationService::notifyMissingCompanyDocument($db, (int) $user['id'], (int) ($tenantId ?? 0), (string) ($user['profile'] ?? ''));
                 $payload = [
                     'user' => [
                         'id' => (string)$user['id'],
@@ -365,6 +368,7 @@ if ($method === 'POST') {
 'modules' => mpTenantModules($db, $tenantId, $targetUser)
             ];
         }
+        NotificationService::notifyMissingCompanyDocument($db, (int) $targetUser['id'], $tenantId, (string) ($targetUser['profile'] ?? ''));
         jsonSuccess([
             'user' => [
                 'id' => (string) $targetUser['id'],
@@ -445,7 +449,10 @@ if ($method === 'POST') {
             jsonError('Usuário não encontrado.', 404);
         }
 
-        if ($companyDocument !== null && (strtolower((string) $user['profile']) !== 'admin' || (int) ($user['tenant_id'] ?? 0) <= 0)) {
+        $effectiveTenantId = !empty($_SESSION['impersonating']) && isset($_SESSION['tenant_id'])
+            ? (int) $_SESSION['tenant_id']
+            : (int) ($user['tenant_id'] ?? 0);
+        if ($companyDocument !== null && (strtolower((string) $user['profile']) !== 'admin' || $effectiveTenantId <= 0)) {
             jsonError('Somente o administrador da empresa pode atualizar o CPF/CNPJ.', 403);
         }
 
@@ -469,9 +476,12 @@ if ($method === 'POST') {
             }
             if ($companyDocument !== null) {
                 $stmt = $db->prepare('UPDATE tenants SET cnpj = ? WHERE id = ?');
-                $stmt->execute([$companyDocument !== '' ? $companyDocument : null, (int) $user['tenant_id']]);
+                $stmt->execute([$companyDocument !== '' ? $companyDocument : null, $effectiveTenantId]);
             }
             $db->commit();
+            if ($companyDocument !== null && $companyDocument !== '') {
+                NotificationService::resolveMissingCompanyDocument($db, (int) $user['id'], $effectiveTenantId);
+            }
         } catch (Throwable $e) {
             if ($db->inTransaction()) {
                 $db->rollBack();
