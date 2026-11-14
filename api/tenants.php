@@ -46,6 +46,12 @@ if ($method === 'GET') {
         $tenant['plan'] = $tenant['plan_name'] ?? 'Básico';
         $tenant['planTokenLimit'] = isset($tenant['plan_token_limit']) ? (int) $tenant['plan_token_limit'] : 100;
         $tenant['email'] = isset($tenant['admin_email']) ? trim($tenant['admin_email']) : '';
+        if ($tenant['email'] === '' && (int) $tenant['id'] !== 1) {
+            $legacyAdmins = mpFindLegacyTenantAdmins($db, (int) $tenant['id']);
+            if (count($legacyAdmins) === 1) {
+                $tenant['email'] = trim((string) ($legacyAdmins[0]['email'] ?? ''));
+            }
+        }
         $tenant['createdAt'] = $tenant['created_at'];
         $tenant['updatedAt'] = $tenant['updated_at'];
         unset($tenant['plan_id'], $tenant['plan_access_until'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['admin_email'], $tenant['created_at'], $tenant['updated_at']);
@@ -74,6 +80,13 @@ if ($method === 'GET') {
             $row['planTokenLimit'] = isset($row['plan_token_limit']) ? (int) $row['plan_token_limit'] : 100;
             $row['usersCount'] = (int) ($row['users_count'] ?? 0);
             $row['email'] = isset($row['admin_email']) ? trim($row['admin_email']) : '';
+            if ($row['usersCount'] === 0) {
+                $legacyAdmins = mpFindLegacyTenantAdmins($db, $tenantId);
+                $row['usersCount'] = count($legacyAdmins);
+                if (count($legacyAdmins) === 1) {
+                    $row['email'] = trim((string) ($legacyAdmins[0]['email'] ?? ''));
+                }
+            }
             $row['createdAt'] = isset($row['created_at']) ? (string) $row['created_at'] : '';
             $planLimit = getTenantPlanTokenLimit($db, $tenantId);
             $bonus = getTenantTokenBonus($db, $tenantId, null);
@@ -284,20 +297,26 @@ if ($method === 'GET') {
         if (!validateEmail($emailRaw)) {
             jsonError('E-mail inválido.', 400);
         }
-        $stmt = $db->prepare("SELECT id FROM users WHERE email = ? AND tenant_id = ?");
-        $stmt->execute([$emailRaw, $id]);
-        $currentUser = $stmt->fetch();
-        $stmt = $db->prepare("SELECT id FROM users WHERE email = ? AND (tenant_id IS NULL OR tenant_id != ?)");
-        $stmt->execute([$emailRaw, $id]);
+        $adminUser = $db->prepare("SELECT id FROM users WHERE tenant_id = ? ORDER BY (profile = 'admin') DESC, id ASC LIMIT 1");
+        $adminUser->execute([$id]);
+        $adminRow = $adminUser->fetch(PDO::FETCH_ASSOC);
+        if (!$adminRow) {
+            $legacyAdmins = mpFindLegacyTenantAdmins($db, $id);
+            if (count($legacyAdmins) > 1) {
+                jsonError('Há mais de uma conta legada possível para esta empresa. Revise o vínculo antes de alterar o e-mail.', 409);
+            }
+            $adminRow = $legacyAdmins[0] ?? null;
+        }
+        if (!$adminRow) {
+            jsonError('Não foi encontrada uma conta de administrador vinculada a esta empresa.', 404);
+        }
+
+        $stmt = $db->prepare('SELECT id FROM users WHERE email = ? AND id != ? LIMIT 1');
+        $stmt->execute([$emailRaw, (int) $adminRow['id']]);
         if ($stmt->fetch()) {
             jsonError('Este e-mail já está em uso por outra conta.', 400);
         }
-        $adminUser = $db->prepare("SELECT id FROM users WHERE tenant_id = ? ORDER BY (profile = 'admin') DESC, id ASC LIMIT 1");
-        $adminUser->execute([$id]);
-        $adminRow = $adminUser->fetch();
-        if ($adminRow) {
-            $db->prepare("UPDATE users SET email = ? WHERE id = ?")->execute([$emailRaw, $adminRow['id']]);
-        }
+        $db->prepare('UPDATE users SET email = ? WHERE id = ?')->execute([$emailRaw, (int) $adminRow['id']]);
     }
 
     if (empty($updates)) {
@@ -322,6 +341,12 @@ if ($method === 'GET') {
     $tenant['plan'] = $tenant['plan_name'] ?? 'Básico';
     $tenant['planTokenLimit'] = isset($tenant['plan_token_limit']) ? (int) $tenant['plan_token_limit'] : 100;
     $tenant['email'] = isset($tenant['admin_email']) ? trim($tenant['admin_email']) : '';
+    if ($tenant['email'] === '') {
+        $legacyAdmins = mpFindLegacyTenantAdmins($db, $id);
+        if (count($legacyAdmins) === 1) {
+            $tenant['email'] = trim((string) ($legacyAdmins[0]['email'] ?? ''));
+        }
+    }
     $tenant['createdAt'] = $tenant['created_at'];
     $tenant['updatedAt'] = $tenant['updated_at'];
     unset($tenant['plan_id'], $tenant['plan_name'], $tenant['plan_token_limit'], $tenant['admin_email'], $tenant['created_at'], $tenant['updated_at']);
