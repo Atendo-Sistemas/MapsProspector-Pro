@@ -66,6 +66,12 @@ class NotificationService
         }
     }
 
+    private static function configuredNotificationText(PDO $db, string $key, string $fallback, array $values): string
+    {
+        $template = self::setting($db, 'notif_template:' . $key) ?: $fallback;
+        return self::notifFill($template, $values);
+    }
+
     public static function notifyMissingCompanyDocument(PDO $db, int $userId, int $tenantId, string $profile): void
     {
         if ($userId <= 0 || $tenantId <= 0 || strtolower($profile) !== 'admin' || !self::ensureTables($db)) {
@@ -74,12 +80,13 @@ class NotificationService
 
         $sourceReference = 'tenant:' . $tenantId . ':user:' . $userId;
         try {
-            $tenant = $db->prepare('SELECT cnpj FROM tenants WHERE id = ? LIMIT 1');
+            $tenant = $db->prepare('SELECT name, cnpj FROM tenants WHERE id = ? LIMIT 1');
             $tenant->execute([$tenantId]);
-            $document = $tenant->fetchColumn();
-            if ($document === false || trim((string) $document) !== '') {
+            $tenantRow = $tenant->fetch(PDO::FETCH_ASSOC);
+            if (!is_array($tenantRow) || trim((string) ($tenantRow['cnpj'] ?? '')) !== '') {
                 return;
             }
+            $companyName = (string) ($tenantRow['name'] ?? 'sua empresa');
 
             $existing = $db->prepare("SELECT id FROM internal_notifications WHERE source_type = 'profile_document' AND source_reference = ? AND (expires_at IS NULL OR expires_at > NOW()) LIMIT 1");
             $existing->execute([$sourceReference]);
@@ -93,8 +100,13 @@ class NotificationService
                 'target_tenant_id' => $tenantId,
                 'category' => 'account',
                 'priority' => 'normal',
-                'title' => 'Atualize o CPF/CNPJ da empresa',
-                'message' => 'O CPF/CNPJ ainda não está cadastrado. Acesse Meu Perfil e informe o documento da empresa para manter o cadastro completo e concluir a contratação de planos.',
+                'title' => self::configuredNotificationText($db, 'profile-document-title', 'Atualize o CPF/CNPJ da empresa', ['empresa' => $companyName]),
+                'message' => self::configuredNotificationText(
+                    $db,
+                    'profile-document-reminder',
+                    'O CPF/CNPJ da empresa {empresa} ainda não está cadastrado. Acesse Meu Perfil e informe o documento para completar o cadastro e concluir a contratação de planos.',
+                    ['empresa' => $companyName, 'plataforma' => self::platformName($db)]
+                ),
                 'source_type' => 'profile_document',
                 'source_reference' => $sourceReference,
                 'expires_at' => (new DateTimeImmutable('+30 days'))->format('Y-m-d H:i:s'),
@@ -123,13 +135,14 @@ class NotificationService
         if (is_array($requesterUser)) {
             $tenantName = (string) ($requesterUser['tenant_name'] ?? '');
             $userName = (string) ($requesterUser['name'] ?? 'Usuário');
+            $values = ['usuario' => $userName ?: 'Usuário', 'empresa' => $tenantName ?: 'Sem empresa', 'creditos' => number_format($amount, 0, ',', '.'), 'pedido' => (string) $requestId];
             return self::emit($db, [
                 'recipient_scope' => 'profile',
                 'target_profile' => 'super_admin',
                 'category' => 'credit_pending',
                 'priority' => 'high',
-                'title' => 'Solicitação de créditos pendente de análise',
-                'message' => sprintf('%s (%s) solicitou %s créditos. Pedido #%d aguarda análise em Solicitar Créditos.', $userName ?: 'Usuário', $tenantName ?: 'Sem empresa', number_format($amount, 0, ',', '.'), $requestId),
+                'title' => self::configuredNotificationText($db, 'internal-credit-request-title', 'Solicitação de créditos pendente de análise', $values),
+                'message' => self::configuredNotificationText($db, 'internal-credit-request-message', '{usuario} ({empresa}) solicitou {creditos} créditos. Pedido #{pedido} aguarda análise em Solicitar Créditos.', $values),
                 'source_type' => 'credit_request',
                 'source_reference' => (string) $requestId,
                 'expires_at' => (new DateTimeImmutable('+30 days'))->format('Y-m-d H:i:s'),
@@ -145,13 +158,14 @@ class NotificationService
 
     public static function notifyCreditDecision(PDO $db, int $requesterUserId, bool $approved, int $amount): ?int
     {
+        $values = ['creditos' => number_format($amount, 0, ',', '.')];
         return self::emit($db, [
             'recipient_scope' => 'user',
             'target_user_id' => $requesterUserId,
             'category' => $approved ? 'credit_approved' : 'credit_rejected',
             'priority' => 'high',
-            'title' => $approved ? 'Créditos aprovados' : 'Solicitação de créditos não aprovada',
-            'message' => $approved ? sprintf('Sua solicitação de %s créditos foi aprovada e já está disponível na conta.', number_format($amount, 0, ',', '.')) : sprintf('Sua solicitação de %s créditos não foi aprovada. Entre em contato com o administrador da sua empresa para mais detalhes.', number_format($amount, 0, ',', '.')),
+            'title' => self::configuredNotificationText($db, $approved ? 'internal-credit-approved-title' : 'internal-credit-rejected-title', $approved ? 'Créditos aprovados' : 'Solicitação de créditos não aprovada', $values),
+            'message' => self::configuredNotificationText($db, $approved ? 'internal-credit-approved-message' : 'internal-credit-rejected-message', $approved ? 'Sua solicitação de {creditos} créditos foi aprovada e já está disponível na conta.' : 'Sua solicitação de {creditos} créditos não foi aprovada. Entre em contato com o administrador da sua empresa para mais detalhes.', $values),
             'source_type' => 'credit_decision',
             'source_reference' => (string) $requesterUserId,
             'expires_at' => (new DateTimeImmutable('+60 days'))->format('Y-m-d H:i:s'),
@@ -163,8 +177,9 @@ class NotificationService
     {
         $valueLabel = 'R$ ' . number_format(max(0, $amountCents) / 100, 2, ',', '.');
         $phone = (string) ($buyerUser['phone'] ?? '');
+        $values = ['usuario' => (string) ($buyerUser['name'] ?? 'Usuário'), 'empresa' => (string) ($buyerUser['tenant_name'] ?? ''), 'valor' => $valueLabel];
         if ($phone !== '') {
-            $template = self::setting($db, 'notif_template:credits-approved-whatsapp') ?: 'Seu pagamento de {valor} foi confirmado e os créditos já estão disponíveis na conta.';
+            $template = self::setting($db, 'notif_template:payment-confirmed-whatsapp') ?: 'Olá, {usuario}. Seu pagamento de {valor} foi confirmado e os créditos já estão disponíveis para a empresa {empresa}.';
             self::sendWhatsApp($db, $phone, self::notifFill($template, ['plataforma' => self::platformName($db), 'empresa' => (string) ($buyerUser['tenant_name'] ?? ''), 'usuario' => (string) ($buyerUser['name'] ?? 'Usuário'), 'valor' => $valueLabel]), self::makeEventKey('payment-confirmed', [(string) ($buyerUser['id'] ?? ''), (string) $amountCents]));
         }
         self::emit($db, [
@@ -172,8 +187,8 @@ class NotificationService
             'target_user_id' => isset($buyerUser['id']) ? (int) $buyerUser['id'] : null,
             'category' => 'payment',
             'priority' => 'high',
-            'title' => 'Pagamento confirmado',
-            'message' => sprintf('Seu pagamento de %s foi confirmado e os créditos já estão disponíveis na conta.', $valueLabel),
+            'title' => self::configuredNotificationText($db, 'internal-payment-user-title', 'Pagamento confirmado', $values),
+            'message' => self::configuredNotificationText($db, 'internal-payment-user-message', 'Seu pagamento de {valor} foi confirmado e os créditos já estão disponíveis na conta.', $values),
             'source_type' => 'payment',
             'expires_at' => (new DateTimeImmutable('+60 days'))->format('Y-m-d H:i:s'),
         ]);
@@ -182,8 +197,8 @@ class NotificationService
             'target_profile' => 'super_admin',
             'category' => 'payment',
             'priority' => 'normal',
-            'title' => 'Pagamento confirmado na plataforma',
-            'message' => sprintf('Um pagamento de %s foi confirmado e os créditos foram creditados na empresa.', $valueLabel),
+            'title' => self::configuredNotificationText($db, 'internal-payment-admin-title', 'Pagamento confirmado na plataforma', $values),
+            'message' => self::configuredNotificationText($db, 'internal-payment-admin-message', 'Um pagamento de {valor} foi confirmado e os créditos foram creditados na empresa {empresa}.', $values),
             'source_type' => 'payment',
             'expires_at' => (new DateTimeImmutable('+30 days'))->format('Y-m-d H:i:s'),
         ]);
@@ -193,13 +208,14 @@ class NotificationService
     public static function notifyNewRegistration(PDO $db, $companyOrUser, $tenantIdOrEmail, $emailOrPhone = null, $adminName = null): ?int
     {
         if (is_array($companyOrUser)) {
+            $values = ['usuario' => (string) ($companyOrUser['name'] ?? 'Usuário'), 'empresa' => (string) ($companyOrUser['tenant_name'] ?? 'Sem empresa')];
             return self::emit($db, [
                 'recipient_scope' => 'profile',
                 'target_profile' => 'super_admin',
                 'category' => 'account',
                 'priority' => 'normal',
-                'title' => 'Novo cadastro na plataforma',
-                'message' => sprintf('%s cadastrou a empresa %s.', (string) ($companyOrUser['name'] ?? 'Usuário'), (string) ($companyOrUser['tenant_name'] ?? 'Sem empresa')),
+                'title' => self::configuredNotificationText($db, 'internal-registration-title', 'Novo cadastro na plataforma', $values),
+                'message' => self::configuredNotificationText($db, 'internal-registration-message', '{usuario} cadastrou a empresa {empresa}.', $values),
                 'source_type' => 'registration',
                 'source_reference' => (string) ($companyOrUser['id'] ?? $tenantIdOrEmail ?? ''),
                 'expires_at' => (new DateTimeImmutable('+14 days'))->format('Y-m-d H:i:s'),
@@ -227,7 +243,16 @@ class NotificationService
             self::sendWhatsApp($db, $adminPhone, self::notifFill($template, $templateValues), self::makeEventKey('registration', [$adminEmail, $companyName]));
         }
         if (filter_var($adminEmail, FILTER_VALIDATE_EMAIL)) {
-            self::sendEmail($db, $adminEmail, 'Cadastro confirmado em ' . $platform, '<p>Olá, <strong>' . self::html($adminName) . '</strong>!</p><p>O cadastro da empresa <strong>' . self::html($companyName) . '</strong> foi confirmado em <strong>' . self::html($platform) . '</strong>.</p><p>E-mail de acesso: <strong>' . self::html($adminEmail) . '</strong></p><p>Use esse e-mail para acessar o painel.</p>');
+            $emailSubject = self::setting($db, 'notif_template:welcome-email-subject') ?: 'Cadastro confirmado em {plataforma}';
+            $emailTemplate = self::setting($db, 'notif_template:welcome-email') ?: '<p>Olá, <strong>{usuario}</strong>!</p><p>A empresa <strong>{empresa}</strong> foi cadastrada com sucesso em <strong>{plataforma}</strong>.</p><p>E-mail de acesso: <strong>{email}</strong></p><p>Use esse e-mail para acessar o painel.</p>';
+            $escapedEmailValues = array_map(static fn($value): string => self::html((string) $value), $templateValues);
+            self::sendEmail(
+                $db,
+                $adminEmail,
+                self::notifFill($emailSubject, $templateValues),
+                self::notifFill($emailTemplate, $escapedEmailValues),
+                self::makeEventKey('registration-email', [$adminEmail, $companyName])
+            );
         }
         return null;
     }
@@ -320,7 +345,7 @@ class NotificationService
             $values = ['plataforma' => $platform, 'empresa' => (string) ($row['tenant_name'] ?? 'sua empresa'), 'usuario' => (string) ($row['name'] ?? 'Usuário'), 'nome' => (string) ($row['name'] ?? 'Usuário'), 'email' => (string) ($row['email'] ?? ''), 'dias' => (string) $days, 'ultimo_acesso' => $last, 'acao' => 'retomar suas pesquisas'];
             $exists->execute([$ref]); $already = (bool) $exists->fetchColumn(); $internalId = null;
             if (!$already) {
-                $internalId = self::emit($db, ['recipient_scope' => 'user', 'target_user_id' => $uid, 'target_tenant_id' => $tid, 'category' => 'reengagement', 'priority' => 'normal', 'title' => 'Sentimos sua falta', 'message' => self::notifFill('Faz {dias} dias que você não acessa a plataforma. Volte ao painel para continuar suas pesquisas.', $values), 'source_type' => 'reengagement', 'source_reference' => $ref, 'expires_at' => (new DateTimeImmutable('+14 days'))->format('Y-m-d H:i:s')]);
+                $internalId = self::emit($db, ['recipient_scope' => 'user', 'target_user_id' => $uid, 'target_tenant_id' => $tid, 'category' => 'reengagement', 'priority' => 'normal', 'title' => self::configuredNotificationText($db, 'internal-reengagement-title', 'Sentimos sua falta', $values), 'message' => self::configuredNotificationText($db, 'internal-reengagement-message', 'Faz {dias} dias que você não acessa a plataforma. Volte ao painel para continuar suas pesquisas.', $values), 'source_type' => 'reengagement', 'source_reference' => $ref, 'expires_at' => (new DateTimeImmutable('+14 days'))->format('Y-m-d H:i:s')]);
                 if ($internalId !== null) ++$result['internal'];
             }
             if (self::normalizeBrazilianPhone((string) ($row['phone'] ?? '')) !== '' && self::sendWhatsApp($db, (string) $row['phone'], self::notifFill($wa, $values), 'reengagement-wa-' . $uid . '-' . $inactiveDays . '-' . $bucket)) ++$result['whatsapp'];
