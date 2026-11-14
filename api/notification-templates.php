@@ -228,6 +228,11 @@ function notifDefaultTemplate(string $key): string
         'welcome-whatsapp' => 'Olá, {usuario}! Seu cadastro da empresa *{empresa}* foi confirmado em *{plataforma}*. Acesse o painel usando {email}.',
         'welcome-email-subject' => 'Cadastro confirmado em {plataforma}',
         'welcome-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px"><h2 style="color:#2563eb">Cadastro confirmado</h2><p>A empresa <strong>{empresa}</strong> foi cadastrada com sucesso em <strong>{plataforma}</strong>.</p><p>Use o e-mail <strong>{email}</strong> para acessar o painel.</p><p style="margin-top:30px;font-size:12px;color:#64748b">Atenciosamente,<br>Equipe {plataforma} — Atendo Sistemas</p></div>',
+        'employee-welcome-whatsapp' => 'Olá, *{usuario}*! Você foi cadastrado na equipe de *{empresa}* na plataforma *{plataforma}*. Acesse: {link}. Seu e-mail é {email}. A senha foi definida pelo administrador; se precisar, solicite a redefinição pelo painel.',
+        'employee-welcome-email-subject' => 'Sua conta de colaborador foi criada em {plataforma}',
+        'employee-welcome-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px;border:1px solid #e2e8f0;border-radius:10px"><h2 style="color:#2563eb">Olá, {usuario}!</h2><p>Sua conta de colaborador foi criada na plataforma <strong>{plataforma}</strong> para atuar na empresa <strong>{empresa}</strong>.</p><p>Acesse: <a href="{link}">{link}</a><br>E-mail: <strong>{email}</strong><br>A senha foi definida pelo administrador. Se necessário, solicite a redefinição no painel.</p></div>',
+        'password-reset-email-subject' => 'Redefinição de senha - {plataforma}',
+        'password-reset-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:24px"><h2>Redefinição de senha</h2><p>Olá, <strong>{usuario}</strong>.</p><p>Recebemos uma solicitação para redefinir sua senha em {plataforma}.</p><p><a href="{reset_url}">Criar uma nova senha</a></p><p>Este link expira em {expiracao}. Se você não solicitou a redefinição, ignore esta mensagem.</p></div>',
         'credit-request-whatsapp' => 'Nova solicitação: *{empresa}* solicitou *{creditos} créditos*.',
         'credit-request-email-subject' => 'Solicitação de créditos: {empresa}',
         'credit-request-email' => '<p>A empresa <strong>{empresa}</strong> solicitou <strong>{creditos} créditos adicionais</strong>.</p>',
@@ -296,6 +301,11 @@ const NOTIF_TEMPLATE_KEYS = [
     'welcome-whatsapp'       => ['label' => 'Boas-vindas (WhatsApp)', 'channel' => 'whatsapp'],
     'welcome-email-subject'  => ['label' => 'Assunto do e-mail de boas-vindas', 'channel' => 'email'],
     'welcome-email'          => ['label' => 'E-mail de boas-vindas', 'channel' => 'email'],
+    'employee-welcome-whatsapp' => ['label' => 'Boas-vindas ao novo colaborador (WhatsApp)', 'channel' => 'whatsapp'],
+    'employee-welcome-email-subject' => ['label' => 'Assunto: boas-vindas ao colaborador', 'channel' => 'email'],
+    'employee-welcome-email' => ['label' => 'E-mail de boas-vindas ao colaborador', 'channel' => 'email'],
+    'password-reset-email-subject' => ['label' => 'Assunto: redefinição de senha', 'channel' => 'email'],
+    'password-reset-email' => ['label' => 'E-mail de redefinição de senha', 'channel' => 'email'],
     'credit-request-whatsapp' => ['label' => 'Solicitação de créditos (WhatsApp admin)', 'channel' => 'whatsapp'],
     'credit-request-email-subject' => ['label' => 'Assunto: solicitação de créditos', 'channel' => 'email'],
     'credit-request-email'   => ['label' => 'E-mail: solicitação de créditos', 'channel' => 'email'],
@@ -564,7 +574,10 @@ if ($action === 'testtemplate') {
         'empresa' => $platform,
         'usuario' => 'Super administrador',
         'acao' => 'executa um teste de notificação',
-        'email' => '',
+        'email' => 'teste@empresa.com',
+        'link' => 'https://prospec.atendo.log.br/app/',
+        'reset_url' => 'https://prospec.atendo.log.br/app/?reset=TOKEN_DE_TESTE',
+        'expiracao' => 'uma hora',
         'creditos' => '100',
         'restante' => '10',
         'total' => '100',
@@ -596,11 +609,17 @@ if ($action === 'testtemplate') {
     }
 
     $testValues['email'] = $email;
-    $subject = NotificationService::notifFill(
-        notifReadSetting($db, 'notif_template:' . $templateKey . '-subject') ?: notifDefaultTemplate($templateKey . '-subject'),
-        $testValues
-    );
-    $body = NotificationService::notifFill($template, $testValues);
+    $isSubjectTemplate = substr($templateKey, -8) === '-subject';
+    $subjectKey = $isSubjectTemplate ? $templateKey : $templateKey . '-subject';
+    $bodyKey = $isSubjectTemplate ? substr($templateKey, 0, -8) : $templateKey;
+    $subjectTemplate = notifReadSetting($db, 'notif_template:' . $subjectKey) ?: notifDefaultTemplate($subjectKey);
+    $bodyTemplate = notifReadSetting($db, 'notif_template:' . $bodyKey) ?: notifDefaultTemplate($bodyKey);
+    if (trim($bodyTemplate) === '') {
+        notifJson(false, null, 'Não há um corpo de e-mail associado a este assunto.');
+        exit;
+    }
+    $subject = NotificationService::notifFill($subjectTemplate, $testValues);
+    $body = NotificationService::notifFill($bodyTemplate, $testValues);
 
     $eventKey = 'test-tpl-' . $templateKey . '-' . substr(hash('sha256', $email . microtime(true)), 0, 32);
     $sent = NotificationService::sendEmail($db, $email, $subject !== '' ? $subject : 'Teste: ' . NOTIF_TEMPLATE_KEYS[$templateKey]['label'], $body);

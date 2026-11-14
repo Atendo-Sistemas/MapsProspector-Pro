@@ -46,15 +46,18 @@ if ($action === 'request') {
 
                     $platform = getPlatformSetting($db, 'saas_company_name') ?: 'Maps Prospector';
                     $resetUrl = BASE_URL . 'app/?reset=' . rawurlencode($token);
-                    $safeName = htmlspecialchars((string) ($user['name'] ?? 'usuário'), ENT_QUOTES, 'UTF-8');
-                    $safePlatform = htmlspecialchars((string) $platform, ENT_QUOTES, 'UTF-8');
-                    $safeUrl = htmlspecialchars($resetUrl, ENT_QUOTES, 'UTF-8');
-                    $body = '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:24px">'
-                        . '<h2>Redefinição de senha</h2><p>Olá, <strong>' . $safeName . '</strong>.</p>'
-                        . '<p>Recebemos uma solicitação para redefinir sua senha em ' . $safePlatform . '.</p>'
-                        . '<p><a href="' . $safeUrl . '">Criar uma nova senha</a></p>'
-                        . '<p>Este link expira em uma hora. Se você não solicitou a redefinição, ignore esta mensagem.</p></div>';
-                    if (!NotificationService::sendEmail($db, $email, 'Redefinição de senha - ' . $platform, $body)) {
+                    $templateValues = [
+                        'usuario' => (string) ($user['name'] ?? 'usuário'),
+                        'plataforma' => (string) $platform,
+                        'reset_url' => $resetUrl,
+                        'expiracao' => 'uma hora',
+                    ];
+                    $safeTemplateValues = array_map(static fn($value): string => htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8'), $templateValues);
+                    $subjectTemplate = getPlatformSetting($db, 'notif_template:password-reset-email-subject') ?: 'Redefinição de senha - {plataforma}';
+                    $bodyTemplate = getPlatformSetting($db, 'notif_template:password-reset-email') ?: '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:24px"><h2>Redefinição de senha</h2><p>Olá, <strong>{usuario}</strong>.</p><p>Recebemos uma solicitação para redefinir sua senha em {plataforma}.</p><p><a href="{reset_url}">Criar uma nova senha</a></p><p>Este link expira em {expiracao}. Se você não solicitou a redefinição, ignore esta mensagem.</p></div>';
+                    $subject = NotificationService::notifFill($subjectTemplate, $templateValues);
+                    $body = NotificationService::notifFill($bodyTemplate, $safeTemplateValues);
+                    if (!NotificationService::sendEmail($db, $email, $subject, $body)) {
                         error_log('Password reset email could not be sent.');
                     }
                 }
