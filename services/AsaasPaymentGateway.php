@@ -11,14 +11,42 @@ require_once __DIR__ . '/../includes/asaas-secrets.php';
  */
 final class MapsProspectorAsaasPaymentGateway
 {
+    public static function readiness(PDO $db, ?bool $activeOverride = null): array
+    {
+        $enabled = $activeOverride ?? (self::setting($db, 'asaas_active') === '1');
+        $issues = [];
+        if (!$enabled) $issues[] = 'gateway_inactive';
+        if (self::setting($db, 'asaas_api_key') === '') $issues[] = 'api_key_missing';
+        if (self::setting($db, 'asaas_webhook_token') === '') $issues[] = 'webhook_token_missing';
+        if (!self::tableReady($db, 'asaas_orders')) $issues[] = 'orders_table_missing';
+        if (!self::tableReady($db, 'asaas_subscriptions')) {
+            $issues[] = 'subscriptions_table_missing';
+        } elseif (!self::columnReady($db, 'asaas_subscriptions', 'product_kind')) {
+            $issues[] = 'product_kind_missing';
+        }
+        return ['enabled' => $enabled, 'ready' => $issues === [], 'issues' => $issues];
+    }
+
+    public static function readinessMessage(array $readiness): string
+    {
+        $labels = [
+            'gateway_inactive' => 'ative a opção "Ativar gateway Asaas" no painel super admin',
+            'api_key_missing' => 'cadastre a chave de API do Asaas',
+            'webhook_token_missing' => 'gere e configure o token do webhook',
+            'orders_table_missing' => 'instale sql/asaas-finance.sql',
+            'subscriptions_table_missing' => 'instale sql/asaas-finance.sql',
+            'product_kind_missing' => 'aplique Database/database_migration_billing_due_dates.sql',
+        ];
+        $missing = [];
+        foreach ((array) ($readiness['issues'] ?? []) as $issue) {
+            if (isset($labels[$issue])) $missing[] = $labels[$issue];
+        }
+        return $missing === [] ? 'O gateway Asaas está pronto.' : 'Para ativar o pagamento automático, ' . implode('; ', $missing) . '.';
+    }
+
     public static function isOperational(PDO $db): bool
     {
-        return self::setting($db, 'asaas_active') === '1'
-            && self::setting($db, 'asaas_api_key') !== ''
-            && self::setting($db, 'asaas_webhook_token') !== ''
-            && self::tableReady($db, 'asaas_orders')
-            && self::tableReady($db, 'asaas_subscriptions')
-            && self::columnReady($db, 'asaas_subscriptions', 'product_kind');
+        return self::readiness($db)['ready'];
     }
 
     public static function creditPrice(PDO $db): float

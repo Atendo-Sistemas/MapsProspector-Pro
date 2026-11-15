@@ -283,9 +283,9 @@ if ($method === 'GET') {
                 'empresa' => $companyName,
                 'plataforma' => $saasName,
                 'email' => $email,
-                'link' => 'https://prospec.atendo.log.br/app/',
+                'link' => 'https://prospec.atendo.log.br',
             ];
-            $waTemplate = getPlatformSetting($db, 'notif_template:employee-welcome-whatsapp') ?: 'Olá, *{usuario}*! Você foi cadastrado na equipe de *{empresa}* na plataforma *{plataforma}*. Acesse: {link}. Seu e-mail é {email}. A senha foi definida pelo administrador; se precisar, solicite a redefinição pelo painel.';
+            $waTemplate = getPlatformSetting($db, 'notif_template:employee-welcome-whatsapp') ?: 'Olá, *{usuario}*! Você foi cadastrado como colaborador no painel de prospecção da empresa *{empresa}* na plataforma *{plataforma}*.\n\n*Dados de acesso:*\n🌐 Link do Painel: {link}\n✉️ Seu e-mail: {email}\n\nPor segurança, a senha não é enviada por WhatsApp. Use a senha definida no cadastro ou solicite a redefinição ao administrador. Bons negócios!';
             NotificationService::sendWhatsApp($db, $phone, NotificationService::notifFill($waTemplate, $messageValues), 'user-registration-' . $userId);
         } catch (Exception $e) {
             error_log("users.php error sending onboarding whatsapp: " . $e->getMessage());

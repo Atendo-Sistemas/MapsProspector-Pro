@@ -82,6 +82,10 @@ try {
         $activeLicense = crmAddonActiveLicense($db, $tenantId);
         if ($activeLicense) crmAddonJson(false, null, 'Sua empresa já possui uma licença CRM ativa.', 409);
         if (!class_exists('MapsProspectorAsaasPaymentGateway')) require_once __DIR__ . '/../services/AsaasPaymentGateway.php';
+        $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
+        if ($gatewayReadiness['enabled'] && !$gatewayReadiness['ready']) {
+            crmAddonJson(false, ['gateway_ready' => false, 'gateway_issues' => $gatewayReadiness['issues']], 'O gateway Asaas está marcado como ativo, mas não pode cobrar ainda: ' . MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness) . ' Nenhuma solicitação manual foi criada.', 503);
+        }
         if (MapsProspectorAsaasPaymentGateway::isOperational($db)) {
             try {
                 $result = MapsProspectorAsaasPaymentGateway::createCrmAddon($db, $user, $tenantId, $planId);

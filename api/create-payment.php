@@ -69,6 +69,15 @@ try {
     }
 
     $db = Database::getInstance()->getConnection();
+    $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
+    if ($paymentMode !== 'manual' && $gatewayReadiness['enabled'] && !$gatewayReadiness['ready']) {
+        manualRequestResponse(
+            false,
+            ['gateway_ready' => false, 'gateway_issues' => $gatewayReadiness['issues']],
+            'O gateway Asaas está marcado como ativo, mas não pode cobrar ainda: ' . MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness) . ' Nenhuma solicitação manual foi criada.',
+            503
+        );
+    }
 
     // Idempotência do fluxo manual: não abre uma segunda solicitação igual.
     if ($type === 'credits') {

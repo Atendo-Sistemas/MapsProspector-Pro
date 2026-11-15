@@ -3931,11 +3931,22 @@ function setupPaymentsPanel() {
                 var cfg = data.data;
                 var on = !!cfg.api_key_configured;
                 var active = !!cfg.active;
+                var gatewayReady = !!cfg.gateway_ready;
+                var gatewayIssueLabels = {
+                    gateway_inactive: 'marque “Ativar gateway Asaas”',
+                    api_key_missing: 'cadastre a chave de API',
+                    webhook_token_missing: 'gere e configure o token do webhook',
+                    orders_table_missing: 'instale sql/asaas-finance.sql (tabela de cobranças)',
+                    subscriptions_table_missing: 'instale sql/asaas-finance.sql (tabela de assinaturas)',
+                    product_kind_missing: 'aplique Database/database_migration_billing_due_dates.sql'
+                };
+                var gatewayIssues = Array.isArray(cfg.gateway_issues) ? cfg.gateway_issues : [];
+                var gatewayReason = gatewayIssues.map(function(issue) { return gatewayIssueLabels[issue] || issue; }).join('; ');
                 webhookConfigured = !!cfg.webhook_token_configured;
                 statusLoaded = true;
                 var connectLabel = cfg.asaas_connected === true ? 'conectado' : cfg.asaas_connected === false ? 'sem conexão' : 'não testado';
-                statusEl.textContent = 'Asaas: ' + (on ? 'chave configurada' : 'chave não configurada') + ' · ' + (cfg.environment === 'sandbox' ? 'sandbox' : 'produção') + ' · gateway ' + (active ? 'ativo' : 'desativado') + ' · ' + connectLabel + ' · ' + (cfg.orders_total != null ? cfg.orders_total + ' pedido(s)' : '0 pedidos');
-                statusEl.className = 'p-3 rounded-xl text-xs font-bold ' + (on && active ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30' : 'bg-amber-500/10 text-amber-200 border border-amber-500/30');
+                statusEl.textContent = 'Asaas: ' + (on ? 'chave configurada' : 'chave não configurada') + ' · ' + (cfg.environment === 'sandbox' ? 'sandbox' : 'produção') + ' · gateway ' + (active ? 'ativo' : 'desativado') + ' · cobrança automática ' + (gatewayReady ? 'pronta' : 'incompleta: ' + (gatewayReason || 'verifique a configuração')) + ' · ' + connectLabel + ' · ' + (cfg.orders_total != null ? cfg.orders_total + ' pedido(s)' : '0 pedidos');
+                statusEl.className = 'p-3 rounded-xl text-xs font-bold ' + (gatewayReady ? 'bg-emerald-500/15 text-emerald-300 border border-emerald-500/30' : 'bg-amber-500/10 text-amber-200 border border-amber-500/30');
                 statusEl.classList.remove('hidden');
                 var environmentEl = document.getElementById('asaas-environment');
                 var activeEl = document.getElementById('asaas-active');

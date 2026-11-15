@@ -110,6 +110,10 @@ if ($method === 'GET') {
                 'Já existe uma solicitação manual pendente para análise.'
             );
         }
+        $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
+        if ($gatewayReadiness['enabled'] && !$gatewayReadiness['ready']) {
+            jsonError('O gateway Asaas está marcado como ativo, mas não pode cobrar ainda: ' . MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness) . ' Nenhuma solicitação manual foi criada.', 503);
+        }
         if (class_exists('MapsProspectorAsaasPaymentGateway') && MapsProspectorAsaasPaymentGateway::isOperational($db)) {
             try {
                 $created = MapsProspectorAsaasPaymentGateway::createPlan($db, $authUser, (int) $tenantId, $planId);

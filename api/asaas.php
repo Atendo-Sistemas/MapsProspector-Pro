@@ -599,8 +599,10 @@ function asaasTablesReady(PDO $db): bool
 
 try {
     $db = Database::getInstance()->getConnection();
-    asaRequireTable($db);
     $action = trim((string) ($_GET['action'] ?? ($_POST['action'] ?? '')));
+    if (!in_array($action, ['getConfig', 'saveConfig', 'testConnection'], true)) {
+        asaRequireTable($db);
+    }
 } catch (Throwable $e) {
     error_log('asaas: db connection: ' . $e->getMessage());
     asaJson(false, ['pending_install' => true], 'O módulo de pagamentos ainda não foi instalado. Execute o arquivo sql/asaas-finance.sql.', 503);
@@ -612,14 +614,17 @@ if ($action === 'getConfig') {
     $maskedKey = $apiKey !== '' ? preg_replace('/^(.{6}).+(.{4})$/', '$1***********$2', $apiKey) : '';
     $webhookToken = asaGetSetting($db, 'asaas_webhook_token');
     $maskedToken = $webhookToken !== '' ? preg_replace('/^(.{4}).+(.{4})$/', '$1*****$2', $webhookToken) : '';
-    $ordersStmt = $db->prepare('SELECT status, COUNT(*) AS total, COALESCE(SUM(amount_cents), 0) AS value_cents FROM asaas_orders GROUP BY status');
-    $ordersStmt->execute();
     $totals = [];
     $valueByStatus = [];
-    foreach ($ordersStmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
-        $totals[$row['status']] = (int) $row['total'];
-        $valueByStatus[$row['status']] = (float) $row['value_cents'] / 100;
+    if (asaasTablesReady($db)) {
+        $ordersStmt = $db->prepare('SELECT status, COUNT(*) AS total, COALESCE(SUM(amount_cents), 0) AS value_cents FROM asaas_orders GROUP BY status');
+        $ordersStmt->execute();
+        foreach ($ordersStmt->fetchAll(PDO::FETCH_ASSOC) as $row) {
+            $totals[$row['status']] = (int) $row['total'];
+            $valueByStatus[$row['status']] = (float) $row['value_cents'] / 100;
+        }
     }
+    $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
     $connected = null;
     try {
         if ($apiKey !== '') {
@@ -642,6 +647,8 @@ if ($action === 'getConfig') {
         'webhook_token_masked' => $maskedToken,
         'environment' => asaEnvironment($db),
         'active' => asaGatewayActive($db),
+        'gateway_ready' => $gatewayReadiness['ready'],
+        'gateway_issues' => $gatewayReadiness['issues'],
         'webhook_url' => asaasOriginUrl() . '/webhook-asaas.php',
         'orders_total' => array_sum($totals),
         'orders_by_status' => $totals,
@@ -713,10 +720,22 @@ if ($action === 'saveConfig') {
     if ($webhookToken === '' && asaGetSetting($db, 'asaas_webhook_token') === '') {
         $webhookToken = strtolower(bin2hex(random_bytes(16)));
     }
-    $saved = asaSetSetting($db, 'asaas_api_key', $apiKey)
+    $credentialsSaved = asaSetSetting($db, 'asaas_api_key', $apiKey)
         && asaSetSetting($db, 'asaas_webhook_token', $webhookToken)
-        && asaSetSetting($db, 'asaas_environment', $environment)
-        && asaSetSetting($db, 'asaas_active', $active);
+        && asaSetSetting($db, 'asaas_environment', $environment);
+    if (!$credentialsSaved) {
+        asaJson(false, [], 'As credenciais foram validadas, mas não puderam ser salvas com segurança.');
+    }
+
+    $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db, $active === '1');
+    if ($active === '1' && !$gatewayReadiness['ready']) {
+        if (!asaSetSetting($db, 'asaas_active', '0')) {
+            asaJson(false, ['gateway_ready' => false, 'gateway_issues' => $gatewayReadiness['issues']], 'Não foi possível desativar o gateway incompleto. Peça ao administrador para conferir o estado da configuração.', 500);
+        }
+        asaJson(false, ['gateway_ready' => false, 'gateway_issues' => $gatewayReadiness['issues']], 'As credenciais foram salvas, mas o gateway não foi ativado: ' . MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness), 422);
+    }
+
+    $saved = asaSetSetting($db, 'asaas_active', $active);
     $persistedApiKey = asaGetSetting($db, 'asaas_api_key');
     $persistedEnvironment = asaGetSetting($db, 'asaas_environment');
     $persistedActive = asaGetSetting($db, 'asaas_active');
@@ -732,6 +751,8 @@ if ($action === 'saveConfig') {
         'webhook_token_configured' => $webhookToken !== '',
         'environment' => $environment,
         'active' => $active === '1',
+        'gateway_ready' => $gatewayReadiness['ready'],
+        'gateway_issues' => $gatewayReadiness['issues'],
         'webhook_url' => asaasOriginUrl() . '/webhook-asaas.php',
         'webhook_token' => '',
         'webhook_token_masked' => $maskedToken,
@@ -748,6 +769,11 @@ if ($action === 'create_subscription') {
     $planId = max(0, (int) ($input['plan_id'] ?? 0));
     if ($planId <= 0) {
         asaJson(false, [], 'Selecione um plano mensal para continuar.', 422);
+    }
+
+    $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
+    if (!$gatewayReadiness['ready']) {
+        asaJson(false, ['gateway_ready' => false, 'gateway_issues' => $gatewayReadiness['issues']], MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness) . ' Nenhuma assinatura foi criada.', 503);
     }
 
     try {
@@ -891,6 +917,11 @@ if ($action === 'create') {
     $quantity = isset($input['quantity']) ? max(1, (int) $input['quantity']) : 100;
     if ($quantity < 100 || $quantity > 10000) {
         asaJson(false, [], 'Informe uma quantidade entre 100 e 10.000 créditos.', 422);
+    }
+
+    $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
+    if ($gatewayReadiness['enabled'] && !$gatewayReadiness['ready']) {
+        asaJson(false, ['gateway_ready' => false, 'gateway_issues' => $gatewayReadiness['issues']], 'O gateway Asaas está marcado como ativo, mas não pode cobrar ainda: ' . MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness) . ' Nenhuma solicitação manual foi criada.', 503);
     }
 
     if (class_exists('MapsProspectorAsaasPaymentGateway') && MapsProspectorAsaasPaymentGateway::isOperational($db)) {

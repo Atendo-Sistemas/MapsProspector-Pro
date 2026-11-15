@@ -127,6 +127,10 @@ if ($method === 'GET') {
     if ($tokensRequested < 100 || $tokensRequested > 10000) {
         jsonError('Informe uma quantidade entre 100 e 10.000 tokens.', 400);
     }
+    $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
+    if ($gatewayReadiness['enabled'] && !$gatewayReadiness['ready']) {
+        jsonError('O gateway Asaas está marcado como ativo, mas não pode cobrar ainda: ' . MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness) . ' Nenhuma solicitação manual foi criada.', 503);
+    }
     if (class_exists('MapsProspectorAsaasPaymentGateway') && MapsProspectorAsaasPaymentGateway::isOperational($db)) {
         try {
             $created = MapsProspectorAsaasPaymentGateway::createCredits($db, $authUser, (int) $tenantId, $tokensRequested);

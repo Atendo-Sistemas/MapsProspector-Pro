@@ -53,6 +53,7 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/asaas-secrets.php';
+require_once __DIR__ . '/../services/AsaasPaymentGateway.php';
 
 function settingsMaskSecret(string $secret): string
 {
@@ -522,6 +523,13 @@ try {
         if ($asaasActiveSubmitted) {
             if ($requestedAsaasActive && $savedAsaasKey === '') {
                 settingsError('Configure e valide a chave do Asaas antes de ativar a cobrança automática.', 422);
+            }
+            if ($requestedAsaasActive) {
+                $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db, true);
+                if (!$gatewayReadiness['ready']) {
+                    setPlatformSetting($db, 'asaas_active', '0');
+                    settingsError('As credenciais foram salvas, mas o gateway não foi ativado: ' . MapsProspectorAsaasPaymentGateway::readinessMessage($gatewayReadiness), 422);
+                }
             }
             setPlatformSetting($db, 'asaas_active', $requestedAsaasActive ? '1' : '0');
         }
