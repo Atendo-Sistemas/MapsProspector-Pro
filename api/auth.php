@@ -13,56 +13,14 @@ require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
 require_once __DIR__ . '/../includes/module-access.php';
+require_once __DIR__ . '/../services/notificationService.php';
 
 // Limpa qualquer output buffer
 ob_clean();
 
-/**
- * Recupera o administrador legado somente quando houver evidência inequívoca
- * de vínculo com a empresa selecionada. A consulta não altera registros.
- */
 function authFindLegacyTenantAdmins(PDO $db, int $tenantId): array
 {
-    $evidence = [];
-    try {
-        if ($db->query("SHOW TABLES LIKE 'legal_consents'")->fetchColumn()) {
-            $evidence[] = 'EXISTS (SELECT 1 FROM legal_consents lc WHERE lc.tenant_id = t.id AND lc.user_id = u.id)';
-        }
-    } catch (Throwable $error) {
-        // Migração opcional; os demais critérios continuam disponíveis.
-    }
-
-    try {
-        if ($db->query("SHOW TABLES LIKE 'settings'")->fetchColumn()) {
-            $evidence[] = "EXISTS (
-                SELECT 1 FROM settings s
-                 WHERE s.user_id = u.id
-                   AND LOWER(TRIM(COALESCE(s.tenant_name, ''))) = LOWER(TRIM(t.name))
-                   AND (SELECT COUNT(*) FROM tenants t_unique
-                         WHERE LOWER(TRIM(t_unique.name)) = LOWER(TRIM(t.name))) = 1
-            )";
-        }
-    } catch (Throwable $error) {
-        // A associação direta por tenant_id não depende da tabela settings.
-    }
-
-    if ($evidence === []) {
-        return [];
-    }
-
-    $sql = "SELECT DISTINCT u.id, u.name, u.email, u.tenant_id, u.profile, u.current_session_token
-              FROM tenants t
-              JOIN users u ON u.tenant_id = 1 AND LOWER(COALESCE(u.profile, '')) = 'admin'
-             WHERE t.id = ? AND (" . implode(' OR ', $evidence) . ')
-             ORDER BY u.id ASC';
-    try {
-        $stmt = $db->prepare($sql);
-        $stmt->execute([$tenantId]);
-        return $stmt->fetchAll(PDO::FETCH_ASSOC);
-    } catch (Throwable $error) {
-        error_log('auth legacy tenant lookup failed.');
-        return [];
-    }
+    return mpFindLegacyTenantAdmins($db, $tenantId);
 }
 
 $method = $_SERVER['REQUEST_METHOD'];
@@ -177,6 +135,7 @@ if ($method === 'POST') {
         } catch (Throwable $activityError) {
             error_log('auth login activity touch: ' . $activityError->getMessage());
         }
+        NotificationService::notifyMissingCompanyDocument($db, (int) $user['id'], (int) ($tenantId ?? 0), (string) ($user['profile'] ?? ''));
         
         jsonSuccess([
             'user' => [
@@ -264,6 +223,7 @@ if ($method === 'POST') {
                 } else {
                     $tenantName = 'Plataforma (Super Admin)';
                 }
+                NotificationService::notifyMissingCompanyDocument($db, (int) $user['id'], (int) ($tenantId ?? 0), (string) ($user['profile'] ?? ''));
                 $payload = [
                     'user' => [
                         'id' => (string)$user['id'],
@@ -408,6 +368,7 @@ if ($method === 'POST') {
 'modules' => mpTenantModules($db, $tenantId, $targetUser)
             ];
         }
+        NotificationService::notifyMissingCompanyDocument($db, (int) $targetUser['id'], $tenantId, (string) ($targetUser['profile'] ?? ''));
         jsonSuccess([
             'user' => [
                 'id' => (string) $targetUser['id'],
@@ -488,7 +449,10 @@ if ($method === 'POST') {
             jsonError('Usuário não encontrado.', 404);
         }
 
-        if ($companyDocument !== null && (strtolower((string) $user['profile']) !== 'admin' || (int) ($user['tenant_id'] ?? 0) <= 0)) {
+        $effectiveTenantId = !empty($_SESSION['impersonating']) && isset($_SESSION['tenant_id'])
+            ? (int) $_SESSION['tenant_id']
+            : (int) ($user['tenant_id'] ?? 0);
+        if ($companyDocument !== null && (strtolower((string) $user['profile']) !== 'admin' || $effectiveTenantId <= 0)) {
             jsonError('Somente o administrador da empresa pode atualizar o CPF/CNPJ.', 403);
         }
 
@@ -512,9 +476,12 @@ if ($method === 'POST') {
             }
             if ($companyDocument !== null) {
                 $stmt = $db->prepare('UPDATE tenants SET cnpj = ? WHERE id = ?');
-                $stmt->execute([$companyDocument !== '' ? $companyDocument : null, (int) $user['tenant_id']]);
+                $stmt->execute([$companyDocument !== '' ? $companyDocument : null, $effectiveTenantId]);
             }
             $db->commit();
+            if ($companyDocument !== null && $companyDocument !== '') {
+                NotificationService::resolveMissingCompanyDocument($db, (int) $user['id'], $effectiveTenantId);
+            }
         } catch (Throwable $e) {
             if ($db->inTransaction()) {
                 $db->rollBack();

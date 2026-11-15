@@ -29,14 +29,26 @@
     const NOTIF_API = (typeof window.API_BASE_URL !== 'undefined' ? window.API_BASE_URL : 'api/') + 'notification-templates.php';
     const TEMPLATE_KEYS = [
         'welcome-whatsapp', 'welcome-email-subject', 'welcome-email',
+        'employee-welcome-whatsapp', 'employee-welcome-email-subject', 'employee-welcome-email',
+        'password-reset-email-subject', 'password-reset-email',
         'credit-request-whatsapp', 'credit-request-email-subject', 'credit-request-email',
         'credits-approved-whatsapp', 'credits-approved-email-subject', 'credits-approved-email',
+        'payment-confirmed-whatsapp',
         'credit-rejected-whatsapp', 'credit-rejected-email-subject', 'credit-rejected-email',
         'plan-request-whatsapp', 'plan-request-email-subject', 'plan-request-email', 'plan-selected-whatsapp', 'plan-selected-complete-whatsapp',
         'plan-approved-whatsapp', 'plan-approved-email-subject', 'plan-approved-email',
+        'crm-approved-whatsapp',
         'plan-rejected-whatsapp', 'plan-rejected-email-subject', 'plan-rejected-email',
         'low-balance-whatsapp',
         'reengagement-2d-whatsapp', 'reengagement-2d-email-subject', 'reengagement-2d-email',
+        'profile-document-title', 'profile-document-reminder',
+        'internal-credit-request-title', 'internal-credit-request-message',
+        'internal-credit-approved-title', 'internal-credit-approved-message',
+        'internal-credit-rejected-title', 'internal-credit-rejected-message',
+        'internal-payment-user-title', 'internal-payment-user-message',
+        'internal-payment-admin-title', 'internal-payment-admin-message',
+        'internal-registration-title', 'internal-registration-message',
+        'internal-reengagement-title', 'internal-reengagement-message',
         'test-whatsapp'
     ];
 
@@ -82,7 +94,7 @@
                     <div>
                         <p class="text-xs font-black uppercase tracking-[0.18em] text-blue-600 mb-2">Central de notificações</p>
                         <h3 class="text-2xl font-black text-slate-900 dark:text-slate-100">Notificações</h3>
-                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Edite os textos das mensagens automáticas de WhatsApp e e-mail. Use {empresa}, {plataforma}, {creditos}, {plano}, {restante}, {total}, {percentual}, {dias}, {email}, {usuario} e {acao} como marcadores. O marcador {usuario} informa o nome da pessoa, {dias} informa há quantos dias não há acesso e {acao} descreve o que ela está fazendo.</p>
+                        <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Edite modelos automáticos de WhatsApp, e-mail e avisos internos. Marcadores disponíveis incluem {empresa}, {plataforma}, {usuario}, {email}, {creditos}, {pedido}, {valor}, {dias}, {link}, {reset_url} e {expiracao}. Avisos internos aparecem na caixa de entrada do painel.</p>
                     </div>
                     <div class="flex gap-3">
                         <button type="button" id="notif-restore-defaults" class="bg-slate-100 dark:bg-slate-700 hover:bg-slate-200 dark:hover:bg-slate-600 text-slate-700 dark:text-slate-200 font-bold px-4 py-3 rounded-2xl text-xs">Restaurar padrão</button>
@@ -139,8 +151,11 @@
         // Organiza os templates em grupos temáticos para o painel.
         var topics = {
             'Boas-vindas': ['welcome-whatsapp', 'welcome-email-subject', 'welcome-email'],
+            'Boas-vindas da equipe': ['employee-welcome-whatsapp', 'employee-welcome-email-subject', 'employee-welcome-email'],
+            'Redefinição de senha': ['password-reset-email-subject', 'password-reset-email'],
             'Solicitação de créditos': ['credit-request-whatsapp', 'credit-request-email-subject', 'credit-request-email'],
             'Créditos aprovados': ['credits-approved-whatsapp', 'credits-approved-email-subject', 'credits-approved-email'],
+            'Pagamento confirmado': ['payment-confirmed-whatsapp'],
             'Créditos recusados': ['credit-rejected-whatsapp', 'credit-rejected-email-subject', 'credit-rejected-email'],
             'Solicitação de plano': ['plan-request-whatsapp', 'plan-request-email-subject', 'plan-request-email', 'plan-selected-whatsapp', 'plan-selected-complete-whatsapp'],
             'Plano aprovado': ['plan-approved-whatsapp', 'plan-approved-email-subject', 'plan-approved-email'],
@@ -148,6 +163,16 @@
             'Plano recusado': ['plan-rejected-whatsapp', 'plan-rejected-email-subject', 'plan-rejected-email'],
             'Saldo baixo (10%)': ['low-balance-whatsapp'],
             'Reengajamento após 2 dias': ['reengagement-2d-whatsapp', 'reengagement-2d-email-subject', 'reengagement-2d-email'],
+            'Cadastro da empresa': ['profile-document-title', 'profile-document-reminder'],
+            'Avisos internos automáticos': [
+                'internal-credit-request-title', 'internal-credit-request-message',
+                'internal-credit-approved-title', 'internal-credit-approved-message',
+                'internal-credit-rejected-title', 'internal-credit-rejected-message',
+                'internal-payment-user-title', 'internal-payment-user-message',
+                'internal-payment-admin-title', 'internal-payment-admin-message',
+                'internal-registration-title', 'internal-registration-message',
+                'internal-reengagement-title', 'internal-reengagement-message'
+            ],
             'Testes': ['test-whatsapp']
         };
         var meta = {};
@@ -160,17 +185,24 @@
             topics[topic].forEach(function (key) {
                 var t = meta[key];
                 if (!t) return;
-                var isTextarea = t.value.length > 90 || key.indexOf('-email') === key.length - 6;
+                var isInternal = t.channel === 'internal';
+                var isTextarea = isInternal || t.value.length > 90 || key.indexOf('-email') === key.length - 6;
+                var channelLabel = t.channel === 'whatsapp' ? 'WhatsApp' : (isInternal ? 'Aviso interno' : 'E-mail');
+                var channelClass = t.channel === 'whatsapp' ? 'text-emerald-600 dark:text-emerald-400' : (isInternal ? 'text-violet-600 dark:text-violet-400' : 'text-blue-600 dark:text-blue-400');
                 html += '<div>';
-                html += '<label for="notif-tpl-' + escapeHtml(key) + '" class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">' + escapeHtml(t.label) + ' <span class="normal-case font-semibold ' + (t.channel === 'whatsapp' ? 'text-emerald-600 dark:text-emerald-400' : 'text-blue-600 dark:text-blue-400') + '">(' + (t.channel === 'whatsapp' ? 'WhatsApp' : 'E-mail') + ')</span></label>';
+                html += '<label for="notif-tpl-' + escapeHtml(key) + '" class="block text-[10px] font-black text-slate-500 dark:text-slate-400 uppercase mb-1">' + escapeHtml(t.label) + ' <span class="normal-case font-semibold ' + channelClass + '">(' + channelLabel + ')</span></label>';
                 if (isTextarea) {
                     html += '<textarea id="notif-tpl-' + escapeHtml(key) + '" rows="5" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-semibold text-sm font-mono">' + escapeHtml(t.value) + '</textarea>';
                 } else {
                     html += '<input id="notif-tpl-' + escapeHtml(key) + '" type="text" class="w-full bg-slate-50 dark:bg-slate-700 text-slate-900 dark:text-slate-100 border border-slate-200 dark:border-slate-600 rounded-xl px-4 py-3 outline-none focus:border-blue-500 font-semibold" value="' + escapeHtml(t.value) + '" />';
                 }
                 html += '<div class="flex items-center justify-between gap-2 mt-2">';
-                html += '<span id="notif-test-feedback-' + escapeHtml(key) + '" class="text-[11px] font-bold ' + (t.channel === 'whatsapp' ? 'text-emerald-600 dark:text-emerald-400' : 'text-blue-600 dark:text-blue-400') + '"></span>';
-                html += '<button type="button" data-tpl-key="' + escapeHtml(key) + '" class="notif-test-msg-btn whitespace-nowrap rounded-full px-4 py-2 text-[11px] font-black shadow-sm transition-all active:scale-[0.97] ' + (t.channel === 'whatsapp' ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-100 dark:shadow-emerald-900/30' : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-100 dark:shadow-blue-900/30') + '">' + (t.channel === 'whatsapp' ? 'Testar no WhatsApp' : 'Testar por e-mail') + '</button>';
+                html += '<span id="notif-test-feedback-' + escapeHtml(key) + '" class="text-[11px] font-bold ' + channelClass + '"></span>';
+                if (!isInternal) {
+                    html += '<button type="button" data-tpl-key="' + escapeHtml(key) + '" class="notif-test-msg-btn whitespace-nowrap rounded-full px-4 py-2 text-[11px] font-black shadow-sm transition-all active:scale-[0.97] ' + (t.channel === 'whatsapp' ? 'bg-emerald-600 hover:bg-emerald-700 text-white shadow-emerald-100 dark:shadow-emerald-900/30' : 'bg-blue-600 hover:bg-blue-700 text-white shadow-blue-100 dark:shadow-blue-900/30') + '">' + (t.channel === 'whatsapp' ? 'Testar no WhatsApp' : 'Testar por e-mail') + '</button>';
+                } else {
+                    html += '<span class="text-[10px] font-semibold text-slate-400">Exibido na caixa de entrada do usuário</span>';
+                }
                 html += '</div>';
                 html += '</div>';
             });
@@ -287,10 +319,16 @@
             'welcome-whatsapp': 'Olá, *{usuario}*. Você {acao} na empresa *{empresa}*. Use o seu e-mail *{email}* para acessar o painel e iniciar as prospecções.',
             'welcome-email-subject': 'Cadastro confirmado em {plataforma}',
             'welcome-email': '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px;border:1px solid #e2e8f0;border-radius:10px"><h2 style="color:#2563eb">Cadastro confirmado</h2><p>A empresa <strong>{empresa}</strong> foi cadastrada com sucesso em <strong>{plataforma}</strong>.</p><p>Use o e-mail informado no cadastro para acessar seu painel e iniciar as prospecções.</p><p style="margin-top:30px;font-size:12px;color:#64748b">Atenciosamente,<br>Equipe {plataforma} — Atendo Sistemas</p></div>',
+            'employee-welcome-whatsapp': 'Olá, *{usuario}*! Você foi cadastrado como colaborador no painel de prospecção da empresa *{empresa}* na plataforma *{plataforma}*.\n\n*Dados de acesso:*\n🌐 Link do Painel: {link}\n✉️ Seu e-mail: {email}\n\nPor segurança, a senha não é enviada por WhatsApp. Use a senha definida no cadastro ou solicite a redefinição ao administrador. Bons negócios!',
+            'employee-welcome-email-subject': 'Sua conta de colaborador foi criada em {plataforma}',
+            'employee-welcome-email': '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px;border:1px solid #e2e8f0;border-radius:10px"><h2 style="color:#2563eb">Olá, {usuario}!</h2><p>Sua conta de colaborador foi criada na plataforma <strong>{plataforma}</strong> para atuar na empresa <strong>{empresa}</strong>.</p><p>Acesse: <a href="{link}">{link}</a><br>E-mail: <strong>{email}</strong><br>A senha foi definida pelo administrador. Se necessário, solicite a redefinição no painel.</p></div>',
+            'password-reset-email-subject': 'Redefinição de senha - {plataforma}',
+            'password-reset-email': '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:24px"><h2>Redefinição de senha</h2><p>Olá, <strong>{usuario}</strong>.</p><p>Recebemos uma solicitação para redefinir sua senha em {plataforma}.</p><p><a href="{reset_url}">Criar uma nova senha</a></p><p>Este link expira em {expiracao}. Se você não solicitou a redefinição, ignore esta mensagem.</p></div>',
             'credit-request-whatsapp': '*{usuario}* {acao} para a empresa *{empresa}*: *{creditos} créditos*.',
             'credit-request-email-subject': 'Solicitação de créditos: {empresa}',
             'credit-request-email': '<p>A empresa <strong>{empresa}</strong> solicitou <strong>{creditos} créditos adicionais</strong>.</p>',
             'credits-approved-whatsapp': 'Olá, *{usuario}*. Você {acao} para a empresa *{empresa}*: *{creditos} créditos*. O saldo já está disponível no painel.',
+            'payment-confirmed-whatsapp': 'Olá, {usuario}. Seu pagamento de {valor} foi confirmado e os créditos já estão disponíveis para a empresa {empresa}.',
             'credits-approved-email-subject': 'Créditos liberados em {plataforma}',
             'credits-approved-email': '<p>Foram liberados <strong>{creditos} créditos adicionais</strong> para a empresa <strong>{empresa}</strong>.</p>',
             'credit-rejected-whatsapp': 'Olá, *{usuario}*. Você {acao} para a empresa *{empresa}*: *{creditos} créditos*. Entre em contato pelo painel se precisar de mais informações.',
@@ -312,6 +350,22 @@
             'reengagement-2d-whatsapp': 'Olá, *{usuario}*! Sentimos sua falta na {plataforma}. Faz {dias} dias que você não acessa o sistema. Volte ao painel para continuar suas pesquisas de empresas e profissionais. Acesse: https://prospec.atendo.log.br/app/',
             'reengagement-2d-email-subject': 'Sentimos sua falta na {plataforma}',
             'reengagement-2d-email': '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px"><h2 style="color:#2563eb">Sentimos sua falta, {usuario}!</h2><p>Faz <strong>{dias} dias</strong> que você não acessa a plataforma <strong>{plataforma}</strong>.</p><p>Volte ao painel para continuar suas pesquisas e aproveitar os recursos disponíveis para a empresa <strong>{empresa}</strong>.</p><p><a href="https://prospec.atendo.log.br/app/" style="display:inline-block;background:#2563eb;color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px">Acessar o painel</a></p><p style="font-size:12px;color:#64748b">Se você já voltou a acessar o sistema, ignore esta mensagem.</p></div>',
+            'profile-document-title': 'Atualize o CPF/CNPJ da empresa',
+            'profile-document-reminder': 'O CPF/CNPJ da empresa {empresa} ainda não está cadastrado. Acesse Meu Perfil e informe o documento para completar o cadastro e concluir a contratação de planos.',
+            'internal-credit-request-title': 'Solicitação de créditos pendente de análise',
+            'internal-credit-request-message': '{usuario} ({empresa}) solicitou {creditos} créditos. Pedido #{pedido} aguarda análise em Solicitar Créditos.',
+            'internal-credit-approved-title': 'Créditos aprovados',
+            'internal-credit-approved-message': 'Sua solicitação de {creditos} créditos foi aprovada e já está disponível na conta.',
+            'internal-credit-rejected-title': 'Solicitação de créditos não aprovada',
+            'internal-credit-rejected-message': 'Sua solicitação de {creditos} créditos não foi aprovada. Entre em contato com o administrador da sua empresa para mais detalhes.',
+            'internal-payment-user-title': 'Pagamento confirmado',
+            'internal-payment-user-message': 'Seu pagamento de {valor} foi confirmado e os créditos já estão disponíveis na conta.',
+            'internal-payment-admin-title': 'Pagamento confirmado na plataforma',
+            'internal-payment-admin-message': 'Um pagamento de {valor} foi confirmado e os créditos foram creditados na empresa {empresa}.',
+            'internal-registration-title': 'Novo cadastro na plataforma',
+            'internal-registration-message': '{usuario} cadastrou a empresa {empresa}.',
+            'internal-reengagement-title': 'Sentimos sua falta',
+            'internal-reengagement-message': 'Faz {dias} dias que você não acessa a plataforma. Volte ao painel para continuar suas pesquisas.',
             'test-whatsapp': 'Olá, *{usuario}*. Você {acao} em *{plataforma}*. Se você recebeu este aviso, a integração com o WhatsApp está funcionando.'
         };
         var items = TEMPLATE_KEYS.map(function (key) {
@@ -395,7 +449,7 @@
             notifFeedback(feedback, 'Informe um e-mail para o teste.', false);
             return;
         }
-        testTemplateMessage({ getAttribute: function () { return 'test-email'; } });
+        testTemplateMessage({ getAttribute: function () { return 'welcome-email'; } });
     }
 
     function loadHistory() {

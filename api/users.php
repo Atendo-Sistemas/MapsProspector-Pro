@@ -27,7 +27,7 @@ $isSuperAdmin = ($profile === 'super_admin');
 $isAdmin = ($profile === 'admin');
 $isSupervisor = in_array($profile, ['supervisor', 'manager', 'gerente'], true);
 
-function usersSeatQuota(PDO $db, int $tenantId): array
+function usersSeatQuota(PDO $db, int $tenantId, int $includedUserId = 0): array
 {
     $included = 1;
     $source = 'Plano atual';
@@ -54,12 +54,12 @@ function usersSeatQuota(PDO $db, int $tenantId): array
         error_log('users quota crm: ' . $e->getMessage());
     }
     try {
-        $stmt = $db->prepare("SELECT COUNT(*) FROM users WHERE tenant_id = ? AND (status IS NULL OR status = 'active')");
-        $stmt->execute([$tenantId]);
+        $stmt = $db->prepare("SELECT COUNT(DISTINCT id) FROM users WHERE (tenant_id = ? OR id = ?) AND (status IS NULL OR status = 'active')");
+        $stmt->execute([$tenantId, $includedUserId]);
         $current = (int) $stmt->fetchColumn();
     } catch (Throwable $e) {
-        $stmt = $db->prepare('SELECT COUNT(*) FROM users WHERE tenant_id = ?');
-        $stmt->execute([$tenantId]);
+        $stmt = $db->prepare('SELECT COUNT(DISTINCT id) FROM users WHERE tenant_id = ? OR id = ?');
+        $stmt->execute([$tenantId, $includedUserId]);
         $current = (int) $stmt->fetchColumn();
     }
     return [
@@ -81,11 +81,15 @@ if ($tenantId === null) {
     $tenantId = 1;
 }
 
+// Durante uma impersonação autorizada, o administrador legado pode continuar
+// gravado no tenant padrão, mas pertence ao tenant selecionado nesta sessão.
+$impersonatedAdminUserId = !empty($_SESSION['impersonating']) && $isAdmin ? (int) $userId : 0;
+
 $method = $_SERVER['REQUEST_METHOD'];
 
 if ($method === 'GET') {
     if (strtolower((string) ($_GET['action'] ?? '')) === 'quota') {
-        jsonSuccess(usersSeatQuota($db, (int) $tenantId));
+        jsonSuccess(usersSeatQuota($db, (int) $tenantId, $impersonatedAdminUserId));
     }
     // Listar somente usuários da mesma empresa. A autoria do cadastro é uma
     // trilha de auditoria interna; nunca é consultada fora do tenant atual.
@@ -97,10 +101,10 @@ if ($method === 'GET') {
                              ELSE CONCAT('Usuário #', u.created_by_user_id) END) AS created_by_name
         FROM users u
         LEFT JOIN users creator ON creator.id = u.created_by_user_id
-        WHERE u.tenant_id = ? AND LOWER(u.profile) != 'super_admin'
+        WHERE (u.tenant_id = ? OR u.id = ?) AND LOWER(u.profile) != 'super_admin'
         ORDER BY u.name ASC
     ");
-    $stmt->execute([$tenantId]);
+    $stmt->execute([$tenantId, $impersonatedAdminUserId]);
     $users = $stmt->fetchAll(PDO::FETCH_ASSOC);
 
     jsonSuccess($users);
@@ -274,9 +278,15 @@ if ($method === 'GET') {
     if (!empty($phone)) {
         try {
             require_once __DIR__ . '/../services/notificationService.php';
-            $msgWhatsapp = "Olá *$name*!\n\nVocê foi cadastrado como colaborador no painel de prospecção da empresa *$companyName* na plataforma *$saasName*.\n\n*Dados de acesso:*\n🌐 *Link do Painel:* https://prospec.atendo.log.br\n✉️ *Seu e-mail:* $email\n\nPor segurança, a senha não é enviada por WhatsApp. Use a senha definida no cadastro ou solicite a redefinição ao administrador. Bons negócios!";
-            
-            NotificationService::sendWhatsApp($db, $phone, $msgWhatsapp, 'user-registration-' . $userId);
+            $messageValues = [
+                'usuario' => $name,
+                'empresa' => $companyName,
+                'plataforma' => $saasName,
+                'email' => $email,
+                'link' => 'https://prospec.atendo.log.br',
+            ];
+            $waTemplate = getPlatformSetting($db, 'notif_template:employee-welcome-whatsapp') ?: 'Olá, *{usuario}*! Você foi cadastrado como colaborador no painel de prospecção da empresa *{empresa}* na plataforma *{plataforma}*.\n\n*Dados de acesso:*\n🌐 Link do Painel: {link}\n✉️ Seu e-mail: {email}\n\nPor segurança, a senha não é enviada por WhatsApp. Use a senha definida no cadastro ou solicite a redefinição ao administrador. Bons negócios!';
+            NotificationService::sendWhatsApp($db, $phone, NotificationService::notifFill($waTemplate, $messageValues), 'user-registration-' . $userId);
         } catch (Exception $e) {
             error_log("users.php error sending onboarding whatsapp: " . $e->getMessage());
         }
@@ -285,21 +295,11 @@ if ($method === 'GET') {
     // Dispara e-mail de onboarding
     try {
         require_once __DIR__ . '/../services/notificationService.php';
-        $subject = "Sua conta de colaborador foi criada! 🚀";
-        $messageHtml = "
-            <div style='font-family: Arial, sans-serif; color: #1e293b; max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #e2e8f0; border-radius: 10px;'>
-                <h2 style='color: #2563eb;'>Olá, $name!</h2>
-                <p>Sua conta de colaborador foi criada com sucesso na plataforma <strong>$saasName</strong> para atuar na empresa <strong>$companyName</strong>.</p>
-                <p><strong>Aqui estão os seus dados de acesso:</strong></p>
-                <ul>
-                    <li><strong>Link de Acesso:</strong> <a href='https://prospec.atendo.log.br'>https://prospec.atendo.log.br</a></li>
-                    <li><strong>Seu E-mail:</strong> $email</li>
-                    <li><strong>Senha:</strong> definida pelo administrador no cadastro</li>
-                </ul>
-                <p>Guarde estes dados com segurança e boas prospecções!</p>
-                <p style='margin-top: 30px; font-size: 12px; color: #64748b;'>Atenciosamente,<br>Equipe $saasName</p>
-            </div>
-        ";
+        $subjectTemplate = getPlatformSetting($db, 'notif_template:employee-welcome-email-subject') ?: 'Sua conta de colaborador foi criada em {plataforma}';
+        $emailTemplate = getPlatformSetting($db, 'notif_template:employee-welcome-email') ?: '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px;border:1px solid #e2e8f0;border-radius:10px"><h2 style="color:#2563eb">Olá, {usuario}!</h2><p>Sua conta de colaborador foi criada na plataforma <strong>{plataforma}</strong> para atuar na empresa <strong>{empresa}</strong>.</p><p>Acesse: <a href="{link}">{link}</a><br>E-mail: <strong>{email}</strong><br>A senha foi definida pelo administrador. Se necessário, solicite a redefinição no painel.</p></div>';
+        $emailValues = array_map(static fn($value): string => htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8'), $messageValues);
+        $subject = NotificationService::notifFill($subjectTemplate, $messageValues);
+        $messageHtml = NotificationService::notifFill($emailTemplate, $emailValues);
         NotificationService::sendEmail($db, $email, $subject, $messageHtml);
     } catch (Exception $e) {
         error_log("users.php: erro ao enviar e-mail de onboarding: " . $e->getMessage());

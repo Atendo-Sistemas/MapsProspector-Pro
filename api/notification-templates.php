@@ -225,11 +225,57 @@ function notifReadSetting(PDO $db, string $key): string
 function notifDefaultTemplate(string $key): string
 {
     $defaults = [
-        'reengagement-2d-whatsapp' => 'Olá, *{usuario}*! Sentimos sua falta na {plataforma}. Faz {dias} dias que você não acessa o sistema. Volte ao painel para continuar suas pesquisas. Acesse: https://prospec.atendo.log.br/app/',
+        'welcome-whatsapp' => 'Olá, {usuario}! Seu cadastro da empresa *{empresa}* foi confirmado em *{plataforma}*. Acesse o painel usando {email}.',
+        'welcome-email-subject' => 'Cadastro confirmado em {plataforma}',
+        'welcome-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px"><h2 style="color:#2563eb">Cadastro confirmado</h2><p>A empresa <strong>{empresa}</strong> foi cadastrada com sucesso em <strong>{plataforma}</strong>.</p><p>Use o e-mail <strong>{email}</strong> para acessar o painel.</p><p style="margin-top:30px;font-size:12px;color:#64748b">Atenciosamente,<br>Equipe {plataforma} — Atendo Sistemas</p></div>',
+        'employee-welcome-whatsapp' => 'Olá, *{usuario}*! Você foi cadastrado como colaborador no painel de prospecção da empresa *{empresa}* na plataforma *{plataforma}*.\n\n*Dados de acesso:*\n🌐 Link do Painel: {link}\n✉️ Seu e-mail: {email}\n\nPor segurança, a senha não é enviada por WhatsApp. Use a senha definida no cadastro ou solicite a redefinição ao administrador. Bons negócios!',
+        'employee-welcome-email-subject' => 'Sua conta de colaborador foi criada em {plataforma}',
+        'employee-welcome-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px;border:1px solid #e2e8f0;border-radius:10px"><h2 style="color:#2563eb">Olá, {usuario}!</h2><p>Sua conta de colaborador foi criada na plataforma <strong>{plataforma}</strong> para atuar na empresa <strong>{empresa}</strong>.</p><p>Acesse: <a href="{link}">{link}</a><br>E-mail: <strong>{email}</strong><br>A senha foi definida pelo administrador. Se necessário, solicite a redefinição no painel.</p></div>',
+        'password-reset-email-subject' => 'Redefinição de senha - {plataforma}',
+        'password-reset-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:24px"><h2>Redefinição de senha</h2><p>Olá, <strong>{usuario}</strong>.</p><p>Recebemos uma solicitação para redefinir sua senha em {plataforma}.</p><p><a href="{reset_url}">Criar uma nova senha</a></p><p>Este link expira em {expiracao}. Se você não solicitou a redefinição, ignore esta mensagem.</p></div>',
+        'credit-request-whatsapp' => 'Nova solicitação: *{empresa}* solicitou *{creditos} créditos*.',
+        'credit-request-email-subject' => 'Solicitação de créditos: {empresa}',
+        'credit-request-email' => '<p>A empresa <strong>{empresa}</strong> solicitou <strong>{creditos} créditos adicionais</strong>.</p>',
+        'credits-approved-whatsapp' => 'Olá, {usuario}. A solicitação de *{creditos} créditos* para *{empresa}* foi aprovada. O saldo já está disponível no painel.',
+        'credits-approved-email-subject' => 'Créditos liberados em {plataforma}',
+        'credits-approved-email' => '<p>Foram liberados <strong>{creditos} créditos</strong> para a empresa <strong>{empresa}</strong>.</p>',
+        'payment-confirmed-whatsapp' => 'Olá, {usuario}. Seu pagamento de {valor} foi confirmado e os créditos já estão disponíveis para a empresa {empresa}.',
+        'credit-rejected-whatsapp' => 'Olá, {usuario}. A solicitação de {creditos} créditos para {empresa} não foi aprovada. Consulte o painel para mais informações.',
+        'credit-rejected-email-subject' => 'Solicitação de créditos: atualização para {empresa}',
+        'credit-rejected-email' => '<p>A solicitação de <strong>{creditos} créditos</strong> da empresa <strong>{empresa}</strong> não foi aprovada. Consulte o painel para mais informações.</p>',
+        'plan-request-whatsapp' => 'Nova solicitação de plano: *{empresa}* solicitou *{acao}*.',
+        'plan-request-email-subject' => 'Solicitação de plano: {empresa}',
+        'plan-request-email' => '<p>A empresa <strong>{empresa}</strong> solicitou o plano <strong>{plano}</strong>.</p>',
+        'plan-selected-whatsapp' => 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Para concluir a compra, atualize o CPF ou CNPJ no perfil e retorne à contratação.',
+        'plan-selected-complete-whatsapp' => 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Acompanhe a solicitação e as informações de pagamento no painel.',
+        'plan-approved-whatsapp' => 'O plano *{acao}* da empresa *{empresa}* foi aprovado. Os novos limites já estão ativos no painel.',
+        'plan-approved-email-subject' => 'Plano ativado em {plataforma}',
+        'plan-approved-email' => '<p>O plano da empresa <strong>{empresa}</strong> foi atualizado para <strong>{plano}</strong>. Os novos limites já estão ativos.</p>',
+        'crm-approved-whatsapp' => 'O CRM adicional *{acao}* foi ativado para a empresa *{empresa}*. A licença já está disponível no painel.',
+        'reengagement-2d-whatsapp' => 'Olá, *{usuario}*! Sentimos sua falta na {plataforma}. Faz {dias} dias que você não acessa o sistema. Volte ao painel: https://prospec.atendo.log.br/app/',
         'reengagement-2d-email-subject' => 'Sentimos sua falta na {plataforma}',
         'reengagement-2d-email' => '<div style="font-family:Arial,sans-serif;color:#1e293b;max-width:600px;margin:0 auto;padding:20px"><h2 style="color:#2563eb">Sentimos sua falta, {usuario}!</h2><p>Faz <strong>{dias} dias</strong> que você não acessa a plataforma <strong>{plataforma}</strong>.</p><p>Volte ao painel para continuar suas pesquisas e aproveitar os recursos disponíveis para a empresa <strong>{empresa}</strong>.</p><p><a href="https://prospec.atendo.log.br/app/" style="display:inline-block;background:#2563eb;color:#fff;text-decoration:none;padding:12px 18px;border-radius:8px">Acessar o painel</a></p><p style="font-size:12px;color:#64748b">Se você já voltou a acessar o sistema, ignore esta mensagem.</p></div>',
-        'plan-selected-whatsapp' => 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Para concluir a compra, atualize o CPF ou CNPJ nos dados cadastrais do seu perfil e depois retorne à contratação do plano.',
-        'plan-selected-complete-whatsapp' => 'Olá, {usuario}! Você selecionou o plano *{acao}* para *{empresa}*. Acompanhe a solicitação e as informações de pagamento no painel.',
+        'plan-rejected-whatsapp' => 'A solicitação de alteração para o plano *{plano}* da empresa *{empresa}* não foi aprovada. Consulte o painel para mais informações.',
+        'plan-rejected-email-subject' => 'Solicitação de plano: atualização para {empresa}',
+        'plan-rejected-email' => '<p>A solicitação de mudança para o plano <strong>{plano}</strong> da empresa <strong>{empresa}</strong> não foi aprovada. Consulte o painel para mais informações.</p>',
+        'low-balance-whatsapp' => 'O saldo da empresa *{empresa}* está baixo: restam *{restante} de {total} créditos* ({percentual}%). Acesse o painel para solicitar créditos.',
+        'profile-document-title' => 'Atualize o CPF/CNPJ da empresa',
+        'profile-document-reminder' => 'O CPF/CNPJ da empresa {empresa} ainda não está cadastrado. Acesse Meu Perfil e informe o documento para completar o cadastro e concluir a contratação de planos.',
+        'internal-credit-request-title' => 'Solicitação de créditos pendente de análise',
+        'internal-credit-request-message' => '{usuario} ({empresa}) solicitou {creditos} créditos. Pedido #{pedido} aguarda análise em Solicitar Créditos.',
+        'internal-credit-approved-title' => 'Créditos aprovados',
+        'internal-credit-approved-message' => 'Sua solicitação de {creditos} créditos foi aprovada e já está disponível na conta.',
+        'internal-credit-rejected-title' => 'Solicitação de créditos não aprovada',
+        'internal-credit-rejected-message' => 'Sua solicitação de {creditos} créditos não foi aprovada. Entre em contato com o administrador da sua empresa para mais detalhes.',
+        'internal-payment-user-title' => 'Pagamento confirmado',
+        'internal-payment-user-message' => 'Seu pagamento de {valor} foi confirmado e os créditos já estão disponíveis na conta.',
+        'internal-payment-admin-title' => 'Pagamento confirmado na plataforma',
+        'internal-payment-admin-message' => 'Um pagamento de {valor} foi confirmado e os créditos foram creditados na empresa {empresa}.',
+        'internal-registration-title' => 'Novo cadastro na plataforma',
+        'internal-registration-message' => '{usuario} cadastrou a empresa {empresa}.',
+        'internal-reengagement-title' => 'Sentimos sua falta',
+        'internal-reengagement-message' => 'Faz {dias} dias que você não acessa a plataforma. Volte ao painel para continuar suas pesquisas.',
+        'test-whatsapp' => 'Olá, {usuario}. Esta é uma mensagem de teste da plataforma {plataforma}.',
     ];
     return $defaults[$key] ?? '';
 }
@@ -255,12 +301,18 @@ const NOTIF_TEMPLATE_KEYS = [
     'welcome-whatsapp'       => ['label' => 'Boas-vindas (WhatsApp)', 'channel' => 'whatsapp'],
     'welcome-email-subject'  => ['label' => 'Assunto do e-mail de boas-vindas', 'channel' => 'email'],
     'welcome-email'          => ['label' => 'E-mail de boas-vindas', 'channel' => 'email'],
+    'employee-welcome-whatsapp' => ['label' => 'Boas-vindas ao novo colaborador (WhatsApp)', 'channel' => 'whatsapp'],
+    'employee-welcome-email-subject' => ['label' => 'Assunto: boas-vindas ao colaborador', 'channel' => 'email'],
+    'employee-welcome-email' => ['label' => 'E-mail de boas-vindas ao colaborador', 'channel' => 'email'],
+    'password-reset-email-subject' => ['label' => 'Assunto: redefinição de senha', 'channel' => 'email'],
+    'password-reset-email' => ['label' => 'E-mail de redefinição de senha', 'channel' => 'email'],
     'credit-request-whatsapp' => ['label' => 'Solicitação de créditos (WhatsApp admin)', 'channel' => 'whatsapp'],
     'credit-request-email-subject' => ['label' => 'Assunto: solicitação de créditos', 'channel' => 'email'],
     'credit-request-email'   => ['label' => 'E-mail: solicitação de créditos', 'channel' => 'email'],
     'credits-approved-whatsapp' => ['label' => 'Créditos aprovados (WhatsApp cliente)', 'channel' => 'whatsapp'],
     'credits-approved-email-subject' => ['label' => 'Assunto: créditos aprovados', 'channel' => 'email'],
     'credits-approved-email' => ['label' => 'E-mail: créditos aprovados', 'channel' => 'email'],
+    'payment-confirmed-whatsapp' => ['label' => 'Pagamento confirmado (WhatsApp cliente)', 'channel' => 'whatsapp'],
     'credit-rejected-whatsapp' => ['label' => 'Créditos recusados (WhatsApp cliente)', 'channel' => 'whatsapp'],
     'credit-rejected-email-subject' => ['label' => 'Assunto: créditos recusados', 'channel' => 'email'],
     'credit-rejected-email'  => ['label' => 'E-mail: créditos recusados', 'channel' => 'email'],
@@ -280,6 +332,22 @@ const NOTIF_TEMPLATE_KEYS = [
     'plan-rejected-email-subject' => ['label' => 'Assunto: plano recusado', 'channel' => 'email'],
     'plan-rejected-email'    => ['label' => 'E-mail: plano recusado', 'channel' => 'email'],
     'low-balance-whatsapp'   => ['label' => 'Saldo baixo — 10% (WhatsApp cliente)', 'channel' => 'whatsapp'],
+    'profile-document-title' => ['label' => 'Título: CPF/CNPJ pendente', 'channel' => 'internal'],
+    'profile-document-reminder' => ['label' => 'CPF/CNPJ pendente (aviso interno)', 'channel' => 'internal'],
+    'internal-credit-request-title' => ['label' => 'Título: pedido de créditos', 'channel' => 'internal'],
+    'internal-credit-request-message' => ['label' => 'Mensagem: pedido de créditos', 'channel' => 'internal'],
+    'internal-credit-approved-title' => ['label' => 'Título: créditos aprovados', 'channel' => 'internal'],
+    'internal-credit-approved-message' => ['label' => 'Mensagem: créditos aprovados', 'channel' => 'internal'],
+    'internal-credit-rejected-title' => ['label' => 'Título: créditos recusados', 'channel' => 'internal'],
+    'internal-credit-rejected-message' => ['label' => 'Mensagem: créditos recusados', 'channel' => 'internal'],
+    'internal-payment-user-title' => ['label' => 'Título: pagamento confirmado ao cliente', 'channel' => 'internal'],
+    'internal-payment-user-message' => ['label' => 'Mensagem: pagamento confirmado ao cliente', 'channel' => 'internal'],
+    'internal-payment-admin-title' => ['label' => 'Título: pagamento confirmado ao super admin', 'channel' => 'internal'],
+    'internal-payment-admin-message' => ['label' => 'Mensagem: pagamento confirmado ao super admin', 'channel' => 'internal'],
+    'internal-registration-title' => ['label' => 'Título: novo cadastro', 'channel' => 'internal'],
+    'internal-registration-message' => ['label' => 'Mensagem: novo cadastro', 'channel' => 'internal'],
+    'internal-reengagement-title' => ['label' => 'Título: reengajamento interno', 'channel' => 'internal'],
+    'internal-reengagement-message' => ['label' => 'Mensagem: reengajamento interno', 'channel' => 'internal'],
     'test-whatsapp'          => ['label' => 'Teste de WhatsApp', 'channel' => 'whatsapp'],
 ];
 
@@ -463,11 +531,11 @@ if ($action === 'testemail') {
         'acao' => 'executa um teste de notificação',
     ];
     $subject = NotificationService::notifFill(
-        notifReadSetting($db, 'notif_template:welcome-email-subject') ?: 'Teste de notificação em {plataforma}',
+        notifReadSetting($db, 'notif_template:welcome-email-subject') ?: (notifDefaultTemplate('welcome-email-subject') ?: 'Teste de notificação em {plataforma}'),
         $testValues
     );
     $body = NotificationService::notifFill(
-        notifReadSetting($db, 'notif_template:welcome-email') ?: '<p>Teste de notificação da plataforma.</p>',
+        notifReadSetting($db, 'notif_template:welcome-email') ?: (notifDefaultTemplate('welcome-email') ?: '<p>Teste de notificação da plataforma.</p>'),
         $testValues
     );
 
@@ -490,9 +558,13 @@ if ($action === 'testtemplate') {
     }
 
     $channel = (string) NOTIF_TEMPLATE_KEYS[$templateKey]['channel'];
-    $template = notifReadSetting($db, 'notif_template:' . $templateKey);
+    $template = notifReadSetting($db, 'notif_template:' . $templateKey) ?: notifDefaultTemplate($templateKey);
     if (trim($template) === '') {
         notifJson(false, null, 'Esta mensagem ainda não tem texto salvo. Edite o template e tente novamente.');
+        exit;
+    }
+    if ($channel === 'internal') {
+        notifJson(false, null, 'Avisos internos são exibidos na caixa de entrada do painel e não podem ser testados por WhatsApp ou e-mail.');
         exit;
     }
 
@@ -502,7 +574,10 @@ if ($action === 'testtemplate') {
         'empresa' => $platform,
         'usuario' => 'Super administrador',
         'acao' => 'executa um teste de notificação',
-        'email' => '',
+        'email' => 'teste@empresa.com',
+        'link' => 'https://prospec.atendo.log.br/app/',
+        'reset_url' => 'https://prospec.atendo.log.br/app/?reset=TOKEN_DE_TESTE',
+        'expiracao' => 'uma hora',
         'creditos' => '100',
         'restante' => '10',
         'total' => '100',
@@ -534,11 +609,17 @@ if ($action === 'testtemplate') {
     }
 
     $testValues['email'] = $email;
-    $subject = NotificationService::notifFill(
-        notifReadSetting($db, 'notif_template:' . $templateKey . '-subject') ?: '',
-        $testValues
-    );
-    $body = NotificationService::notifFill($template, $testValues);
+    $isSubjectTemplate = substr($templateKey, -8) === '-subject';
+    $subjectKey = $isSubjectTemplate ? $templateKey : $templateKey . '-subject';
+    $bodyKey = $isSubjectTemplate ? substr($templateKey, 0, -8) : $templateKey;
+    $subjectTemplate = notifReadSetting($db, 'notif_template:' . $subjectKey) ?: notifDefaultTemplate($subjectKey);
+    $bodyTemplate = notifReadSetting($db, 'notif_template:' . $bodyKey) ?: notifDefaultTemplate($bodyKey);
+    if (trim($bodyTemplate) === '') {
+        notifJson(false, null, 'Não há um corpo de e-mail associado a este assunto.');
+        exit;
+    }
+    $subject = NotificationService::notifFill($subjectTemplate, $testValues);
+    $body = NotificationService::notifFill($bodyTemplate, $testValues);
 
     $eventKey = 'test-tpl-' . $templateKey . '-' . substr(hash('sha256', $email . microtime(true)), 0, 32);
     $sent = NotificationService::sendEmail($db, $email, $subject !== '' ? $subject : 'Teste: ' . NOTIF_TEMPLATE_KEYS[$templateKey]['label'], $body);

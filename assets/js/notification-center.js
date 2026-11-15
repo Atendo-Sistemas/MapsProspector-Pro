@@ -6,7 +6,8 @@
 (function () {
     'use strict';
 
-    var API_URL = (typeof API_BASE !== 'undefined' ? API_BASE : 'api/') + 'notification-center.php';
+    var apiRoot = window.API_BASE_URL || (typeof window.API_BASE === 'string' ? window.API_BASE : '/api/');
+    var API_URL = apiRoot.replace(/\/?$/, '/') + 'notification-center.php';
     var state = { items: [], filter: 'all', canCompose: false, directory: null, opened: false };
 
     function escapeHtml(value) {

@@ -492,6 +492,7 @@ if (!headers_sent()) {
                     <div id="perfil-document-wrap" class="hidden">
                         <label class="block text-xs font-black text-slate-500 uppercase mb-2 ml-1">CPF ou CNPJ da empresa</label>
                         <input type="text" id="perfil-company-document" inputmode="numeric" maxlength="18" autocomplete="off" class="w-full px-5 py-3 rounded-2xl bg-slate-50 dark:bg-slate-900 border border-slate-200 dark:border-slate-700 focus:ring-2 focus:ring-blue-500 outline-none transition-all text-slate-900 dark:text-slate-100" placeholder="Informe 11 dígitos (CPF) ou 14 (CNPJ)">
+                        <p id="perfil-document-warning" class="hidden mt-2 rounded-xl border border-amber-200 bg-amber-50 p-3 text-xs font-bold text-amber-900 dark:border-amber-800 dark:bg-amber-950/30 dark:text-amber-100" role="status" aria-live="polite">O CPF/CNPJ da empresa está pendente. Informe o documento para completar o cadastro no painel.</p>
                         <p class="mt-2 text-xs text-slate-500 dark:text-slate-400">Necessário para concluir a contratação de planos. Pode ser atualizado a qualquer momento.</p>
                     </div>
 
@@ -641,12 +642,12 @@ if (!headers_sent()) {
 <script defer src="/assets/js/instagram-ui.js?v=20261112-integracao-1"></script>
 <script defer src="/assets/js/help-ui.js?v=20260821-65"></script>
 <script defer src="/assets/js/apify-usage-ui.js?v=20260822-88-traffic-referrals-1"></script>
-<script defer src="/assets/js/notification-ui.js?v=20261112-assinatura-1"></script>
-<script defer src="/assets/js/notification-center.js?v=20261009-reengagement-1"></script>
+<script defer src="/assets/js/notification-ui.js?v=20261115-employee-welcome-1"></script>
+<script defer src="/assets/js/notification-center.js?v=20261114-api-root-2"></script>
 <script defer src="/assets/js/banner-campaign.js?v=20261112-integracao-1"></script>
 <script defer src="/app/crm-ui.js?v=20260822-91-menu-repeat-1"></script>
 <script src="/assets/js/site-traffic.js?v=20261009-traffic-1" defer></script>
-<script defer src="/app/app.js?v=20261112-asaas-config-1"></script>
+<script defer src="/app/app.js?v=20261115-asaas-readiness-1"></script>
 <script defer src="/assets/js/help.js?v=20260821-65"></script>
 <script defer src="/assets/js/help-admin.js?v=20260821-65"></script>
 <script defer src="/assets/js/pwa.js?v=20261009-pwa-1"></script>

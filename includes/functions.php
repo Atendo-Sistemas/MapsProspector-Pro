@@ -106,6 +106,54 @@ function getAuthUser() {
     ];
 }
 
+/**
+ * Localiza uma conta de administrador legada somente quando há evidência
+ * inequívoca de que ela pertence ao tenant informado. Não altera registros.
+ */
+function mpFindLegacyTenantAdmins(PDO $db, int $tenantId): array
+{
+    $evidence = [];
+    try {
+        if ($db->query("SHOW TABLES LIKE 'legal_consents'")->fetchColumn()) {
+            $evidence[] = 'EXISTS (SELECT 1 FROM legal_consents lc WHERE lc.tenant_id = t.id AND lc.user_id = u.id)';
+        }
+    } catch (Throwable $error) {
+        // Migração opcional; os demais critérios continuam disponíveis.
+    }
+
+    try {
+        if ($db->query("SHOW TABLES LIKE 'settings'")->fetchColumn()) {
+            $evidence[] = "EXISTS (
+                SELECT 1 FROM settings s
+                 WHERE s.user_id = u.id
+                   AND LOWER(TRIM(COALESCE(s.tenant_name, ''))) = LOWER(TRIM(t.name))
+                   AND (SELECT COUNT(*) FROM tenants t_unique
+                         WHERE LOWER(TRIM(t_unique.name)) = LOWER(TRIM(t.name))) = 1
+            )";
+        }
+    } catch (Throwable $error) {
+        // A associação direta por tenant_id não depende da tabela settings.
+    }
+
+    if ($evidence === []) {
+        return [];
+    }
+
+    $sql = "SELECT DISTINCT u.id, u.name, u.email, u.tenant_id, u.profile, u.current_session_token
+              FROM tenants t
+              JOIN users u ON u.tenant_id = 1 AND LOWER(COALESCE(u.profile, '')) = 'admin'
+             WHERE t.id = ? AND (" . implode(' OR ', $evidence) . ')
+             ORDER BY u.id ASC';
+    try {
+        $stmt = $db->prepare($sql);
+        $stmt->execute([$tenantId]);
+        return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Throwable $error) {
+        error_log('Legacy tenant account lookup failed.');
+        return [];
+    }
+}
+
 function requireSearchPermission(PDO $db): void {
     $userId = requireAuth();
     if (strtolower((string) ($_SESSION['profile'] ?? '')) === 'super_admin') {
