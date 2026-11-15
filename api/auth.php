@@ -87,7 +87,7 @@ if ($method === 'POST') {
         $trialExpired = false;
 
         if ($tenantId) {
-            $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+            $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name, p.slug as plan_slug, COALESCE(p.price_monthly, 0) as plan_price FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
             $stmtT->execute([$tenantId]);
             $row = $stmtT->fetch();
             if ($row) {
@@ -98,7 +98,7 @@ if ($method === 'POST') {
                 $tenantPlanName = $row['plan_name'] ?? '';
                 
                 // Cálculo de expiração do teste de 30 dias a partir da data de cadastro
-                if (!empty($row['created_at'])) {
+                if ((string) ($row['plan_slug'] ?? '') !== 'freemium-20' && (float) ($row['plan_price'] ?? 0) <= 0 && !empty($row['created_at'])) {
                     $createdAt = new DateTime($row['created_at']);
                     $now = new DateTime();
                     $daysUsed = (int) $now->diff($createdAt)->days;
@@ -187,7 +187,7 @@ if ($method === 'POST') {
                 $trialExpired = false;
 
                 if ($tenantId) {
-                    $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+                    $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name, p.slug as plan_slug, COALESCE(p.price_monthly, 0) as plan_price FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
                     $stmtT->execute([$tenantId]);
                     $row = $stmtT->fetch();
                     if ($row) {
@@ -197,8 +197,8 @@ if ($method === 'POST') {
                         $tenantPlanId = isset($row['plan_id']) ? (string) $row['plan_id'] : '';
                         $tenantPlanName = $row['plan_name'] ?? '';
                         
-                        // Cálculo de expiração do teste de 30 dias
-                        if (!empty($row['created_at'])) {
+                // Apenas o plano legado de teste mantém o prazo de 30 dias.
+                if ((string) ($row['plan_slug'] ?? '') !== 'freemium-20' && (float) ($row['plan_price'] ?? 0) <= 0 && !empty($row['created_at'])) {
                             $createdAt = new DateTime($row['created_at']);
                             $now = new DateTime();
                             $daysUsed = (int) $now->diff($createdAt)->days;
@@ -335,7 +335,7 @@ if ($method === 'POST') {
         $trialDaysLeft = 30;
         $trialExpired = false;
 
-        $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
+        $stmtT = $db->prepare("SELECT t.name, t.cnpj, t.status, t.plan_id, t.created_at, p.name as plan_name, p.slug as plan_slug, COALESCE(p.price_monthly, 0) as plan_price FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
         $stmtT->execute([$tenantId]);
         $row = $stmtT->fetch();
         if ($row) {
@@ -346,7 +346,7 @@ if ($method === 'POST') {
             $tenantPlanName = $row['plan_name'] ?? '';
             
             // Cálculo de expiração do teste
-            if (!empty($row['created_at'])) {
+            if ((string) ($row['plan_slug'] ?? '') !== 'freemium-20' && (float) ($row['plan_price'] ?? 0) <= 0 && !empty($row['created_at'])) {
                 $createdAt = new DateTime($row['created_at']);
                 $now = new DateTime();
                 $daysUsed = (int) $now->diff($createdAt)->days;

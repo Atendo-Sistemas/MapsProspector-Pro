@@ -50,7 +50,7 @@ try {
 
     if (!$isPlatformSuperAdmin && $tenantId !== null) {
         try {
-            $stmtTenant = $db->prepare("SELECT created_at, status FROM tenants WHERE id = ?");
+            $stmtTenant = $db->prepare("SELECT t.created_at, t.status, p.slug AS plan_slug, COALESCE(p.price_monthly, 0) AS plan_price FROM tenants t LEFT JOIN plans p ON p.id = t.plan_id WHERE t.id = ?");
             $stmtTenant->execute([$tenantId]);
             $tenantRow = $stmtTenant->fetch(PDO::FETCH_ASSOC);
 
@@ -59,7 +59,7 @@ try {
                     jsonError('Sua empresa está suspensa (período de teste expirado ou limite atingido). Escolha um plano para continuar.', 403);
                 }
 
-                if (!empty($tenantRow['created_at'])) {
+                if ((string) ($tenantRow['plan_slug'] ?? '') !== 'freemium-20' && (float) ($tenantRow['plan_price'] ?? 0) <= 0 && !empty($tenantRow['created_at'])) {
                     $createdAt = new DateTime($tenantRow['created_at']);
                     $now = new DateTime();
                     $interval = $now->diff($createdAt);

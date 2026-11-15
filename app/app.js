@@ -858,6 +858,7 @@ function renderLandingPlans(plans) {
     }
     container.innerHTML = plans.map(function(plan) {
         var isFree = plan.priceMonthly === 0 || plan.priceMonthly === '0.00' || !plan.priceMonthly;
+        var isFreemium = plan.slug === 'freemium-20';
         var price = isFree ? 'Grátis' : 'R$ ' + parseFloat(plan.priceMonthly).toFixed(2).replace('.', ',');
         var limitText = (plan.tokenLimit || 0).toLocaleString ? Number(plan.tokenLimit || 0).toLocaleString('pt-BR') + ' créditos' : (plan.tokenLimit || 0) + ' créditos';
         var escape = function (value) { return String(value == null ? '' : value).replace(/[&<>'"]/g, function (char) { return ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', "'": '&#39;', '"': '&quot;' })[char]; }); };
@@ -865,7 +866,11 @@ function renderLandingPlans(plans) {
         var modulesText = moduleLabels.length ? moduleLabels.join(' · ') : 'Módulos conforme configuração do plano';
         var includedUsersText = Math.max(1, Number(plan.includedUsers || 1)) + ' usuário(s) incluído(s)';
         var bonus = Number(plan.contractBonusCredits || 0);
-        var bonusText = bonus > 0 ? '<div class="mt-3 rounded-xl bg-emerald-100 px-3 py-2 text-xs font-black text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">+ ' + bonus + ' créditos de bônus na contratação</div>' : '<div class="mt-3 rounded-xl bg-blue-100 px-3 py-2 text-xs font-black text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">Teste com todos os módulos liberados</div>';
+        var bonusText = bonus > 0
+            ? '<div class="mt-3 rounded-xl bg-emerald-100 px-3 py-2 text-xs font-black text-emerald-700 dark:bg-emerald-950/40 dark:text-emerald-300">+ ' + bonus + ' créditos de bônus na contratação</div>'
+            : (isFreemium
+                ? '<div class="mt-3 rounded-xl bg-blue-100 px-3 py-2 text-xs font-black text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">20 créditos por mês para pesquisar. Exportação disponível nos planos profissionais.</div>'
+                : '<div class="mt-3 rounded-xl bg-blue-100 px-3 py-2 text-xs font-black text-blue-700 dark:bg-blue-950/40 dark:text-blue-300">Teste com todos os módulos liberados</div>');
 
         // Botão direcionando diretamente para o cadastro, sem iniciar cobrança.
         return '<div class="bg-slate-50 dark:bg-slate-800 rounded-2xl p-6 ' + (isFree ? 'ring-2 ring-blue-500' : '') + '">' +
@@ -2574,7 +2579,7 @@ function loadChoosePlanData(currentPlanId) {
             var html = '';
             plans.forEach(function(p) {
                 var isCurrent = currentPlanId === String(p.id);
-                var isTrial = p.slug === 'trial';
+                var isTrial = ['trial', 'freemium-20'].includes(p.slug);
                 var priceNum = parseFloat(p.priceMonthly || 0);
                 var priceText = isTrial ? 'Grátis' : 'R$ ' + priceNum.toFixed(2).replace('.', ',');
                 var tokenText = (p.tokenLimit || 0).toLocaleString('pt-BR') + ' créditos';
@@ -5671,58 +5676,103 @@ function getLeadPhoneValue(lead) {
     return lead.phone || lead.phoneNumber || lead.internationalPhone || lead.telephone || lead.phoneNumbers || '';
 }
 
-function exportCurrentSearchToExcel() {
+function currentUserCanExport() {
+    const profile = String(AppState.user?.profile || '').toLowerCase();
+    const tenantId = Number(AppState.user?.tenant_id || AppState.user?.tenantId || AppState.tenant?.id || 0);
+    if (profile === 'super_admin' || (profile === 'admin' && tenantId === 1)) return true;
+    return AppState.tokenUsage?.modules?.export?.enabled === true;
+}
+window.currentUserCanExport = currentUserCanExport;
+
+function showFreemiumExportModal() {
+    const existing = document.getElementById('freemium-export-modal');
+    if (existing) existing.remove();
+    const overlay = document.createElement('div');
+    overlay.id = 'freemium-export-modal';
+    overlay.className = 'fixed inset-0 z-[200] flex items-center justify-center bg-slate-950/70 p-4 backdrop-blur-sm';
+    overlay.innerHTML = '<section role="dialog" aria-modal="true" aria-labelledby="freemium-export-title" class="w-full max-w-lg rounded-[2rem] border border-slate-200 bg-white p-7 shadow-2xl dark:border-slate-700 dark:bg-slate-900 sm:p-9">'
+        + '<div class="mb-5 flex items-start justify-between gap-4"><div><p class="text-[10px] font-black uppercase tracking-[0.18em] text-blue-600">MapsProspector Pro</p><h2 id="freemium-export-title" class="mt-2 text-2xl font-black text-slate-900 dark:text-white">Sua prospecção pode ir mais longe!</h2></div><button type="button" id="freemium-export-close" class="rounded-xl p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800" aria-label="Fechar">×</button></div>'
+        + '<p class="text-sm leading-6 text-slate-600 dark:text-slate-300">Você já encontrou empresas e identificou novas oportunidades comerciais.</p>'
+        + '<p class="mt-3 text-sm leading-6 text-slate-600 dark:text-slate-300">Com um plano profissional, poderá exportar suas pesquisas para Excel e organizar seus contatos para trabalhar sua prospecção com muito mais produtividade.</p>'
+        + '<ul class="mt-5 space-y-2 text-sm font-semibold text-slate-700 dark:text-slate-200"><li>• Exporte suas pesquisas para Excel.</li><li>• Organize suas listas de empresas.</li><li>• Ganhe produtividade na prospecção.</li><li>• Amplie suas oportunidades comerciais.</li></ul>'
+        + (String(AppState.user?.profile || '').toLowerCase() === 'admin' ? '' : '<p class="mt-5 rounded-xl bg-blue-50 p-3 text-xs font-semibold text-blue-800 dark:bg-blue-950/40 dark:text-blue-200">A contratação do plano é feita pelo administrador da empresa.</p>')
+        + '<div class="mt-7 flex flex-col-reverse gap-3 sm:flex-row sm:justify-end"><button type="button" id="freemium-export-continue" class="rounded-xl border border-slate-200 px-5 py-3 text-sm font-bold text-slate-600 hover:bg-slate-50 dark:border-slate-700 dark:text-slate-300 dark:hover:bg-slate-800">Continuar utilizando</button><button type="button" id="freemium-export-plans" class="rounded-xl bg-blue-600 px-5 py-3 text-sm font-black text-white shadow-lg shadow-blue-600/20 hover:bg-blue-700">CONHECER PLANOS</button></div></section>';
+    const previouslyFocused = document.activeElement;
+    document.body.appendChild(overlay);
+    const handleEscape = function (event) {
+        if (event.key === 'Escape') close();
+    };
+    const close = function () {
+        document.removeEventListener('keydown', handleEscape);
+        overlay.remove();
+        if (previouslyFocused && typeof previouslyFocused.focus === 'function') previouslyFocused.focus();
+    };
+    document.addEventListener('keydown', handleEscape);
+    overlay.querySelector('#freemium-export-close').addEventListener('click', close);
+    overlay.querySelector('#freemium-export-continue').addEventListener('click', close);
+    overlay.addEventListener('click', function (event) { if (event.target === overlay) close(); });
+    overlay.querySelector('#freemium-export-plans').addEventListener('click', function () {
+        close();
+        if (String(AppState.user?.profile || '').toLowerCase() === 'admin' && typeof setActiveTab === 'function') {
+            setActiveTab('choose-plan');
+        } else {
+            window.location.href = '/planos-de-prospeccao.php';
+        }
+    });
+    overlay.querySelector('#freemium-export-close').focus();
+}
+window.showFreemiumExportModal = showFreemiumExportModal;
+
+async function exportCurrentSearchToExcel() {
+    if (!currentUserCanExport()) {
+        showFreemiumExportModal();
+        return;
+    }
     if (!AppState.searchId) {
         showError('Sessão da pesquisa expirada. Faça uma nova busca.');
         return;
     }
-    const leads = (AppState.leads || []);
-    if (leads.length === 0) {
-        alert('Nenhum lead encontrado para exportar.');
+    const leads = Array.isArray(AppState.leads) ? AppState.leads : [];
+    const leadIds = leads.map(lead => Number(lead.dbId || String(lead.id || '').replace(/^lead-/, ''))).filter(id => Number.isInteger(id) && id > 0);
+    if (leadIds.length === 0) {
+        showError('Nenhum lead encontrado para exportar.');
         return;
     }
-    const ctx = AppState.currentSearch || {};
-    const queryEl = document.getElementById('search-query');
-    const locationEl = document.getElementById('search-location');
-    const tagEl = document.getElementById('search-tag');
-    const query = (ctx.query !== undefined && ctx.query !== '') ? ctx.query : (queryEl ? queryEl.value.trim() : '');
-    const location = (ctx.location !== undefined && ctx.location !== '') ? ctx.location : ((locationEl && locationEl.value !== undefined) ? String(locationEl.value || '').trim() : '');
-    const tag = (ctx.tag !== undefined && ctx.tag !== '') ? ctx.tag : (tagEl ? tagEl.value.trim() : '');
-    const dateStr = new Date().toLocaleString('pt-BR');
 
-    const rows = [];
-    const headers = ['Pesquisa', 'Local', 'Tag', 'Data da Pesquisa', 'Nome', 'Telefone', 'Email', 'Endereço', 'CNPJ', 'Sócios', 'Site', 'Maps'];
-    rows.push(headers);
-
-    for (const lead of leads) {
-        rows.push([
-            escapeCsv(query),
-            escapeCsv(location),
-            escapeCsv(tag),
-            escapeCsv(dateStr),
-            escapeCsv(lead.name),
-            escapeCsv(formatPhoneDisplay(getLeadPhoneValue(lead))),
-            escapeCsv(lead.email || ''),
-            escapeCsv(lead.address || ''),
-            escapeCsv(lead.cnpj || ''),
-            escapeCsv(lead.partners || ''),
-            escapeCsv(lead.website || ''),
-            escapeCsv(lead.mapsUri || '')
-        ]);
+    try {
+        const response = await fetch(API_BASE + 'export-csv.php', {
+            method: 'POST',
+            credentials: 'include',
+            headers: { 'Content-Type': 'application/json', 'Accept': 'text/csv, application/json' },
+            body: JSON.stringify({ searchId: Number(AppState.searchId), leadIds: leadIds })
+        });
+        if (!response.ok) {
+            const result = await response.json().catch(() => ({}));
+            if (response.status === 403 && result.code === 'export_not_allowed') {
+                showFreemiumExportModal();
+                return;
+            }
+            throw new Error(result.error || 'Não foi possível gerar o arquivo de exportação.');
+        }
+        const blob = await response.blob();
+        const url = URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = 'pesquisa_atual_' + new Date().toISOString().slice(0, 10) + '.csv';
+        document.body.appendChild(link);
+        link.click();
+        link.remove();
+        window.setTimeout(() => URL.revokeObjectURL(url), 1000);
+    } catch (error) {
+        showError(error.message || 'Não foi possível exportar esta pesquisa.');
     }
-
-    const csvContent = rows.map(row => row.join(';')).join('\r\n');
-    const BOM = '\uFEFF';
-    const blob = new Blob([BOM + csvContent], { type: 'text/csv;charset=utf-8' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = 'pesquisa_atual_' + new Date().toISOString().slice(0, 10) + '.csv';
-    a.click();
-    URL.revokeObjectURL(url);
 }
 
 async function exportCurrentSearchToWebhook() {
+    if (!currentUserCanExport()) {
+        showFreemiumExportModal();
+        return;
+    }
     const leads = AppState.leads || [];
     if (leads.length === 0) {
         alert('Nenhum lead na pesquisa atual para enviar.');
@@ -5749,6 +5799,8 @@ async function exportCurrentSearchToWebhook() {
         }
         if (data.success) {
             showToast(data.message || 'Enviado para o Webhook.');
+        } else if (res.status === 403 && data.code === 'export_not_allowed') {
+            showFreemiumExportModal();
         } else {
             alert('❌ Erro: ' + (data.error || 'Erro desconhecido'));
         }
@@ -6436,6 +6488,10 @@ function getLeadCardHTML(lead) {
 }
 
 async function exportLead(leadId) {
+    if (!currentUserCanExport()) {
+        showFreemiumExportModal();
+        return;
+    }
     const lead = AppState.leads.find(l => l.id === leadId);
     if (!lead) {
         alert('Lead não encontrado');
@@ -6455,6 +6511,8 @@ async function exportLead(leadId) {
         const data = await res.json();
         if (data.success) {
             showToast(data.message || 'Enviado com sucesso para o CRM!');
+        } else if (res.status === 403 && data.code === 'export_not_allowed') {
+            showFreemiumExportModal();
         } else {
             alert('❌ Erro no Envio: ' + data.error);
         }

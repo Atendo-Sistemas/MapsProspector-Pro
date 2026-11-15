@@ -2,6 +2,7 @@
     'use strict';
     var timer = null;
     var latestLeads = [];
+    var latestRunId = null;
     function esc(value) { return String(value == null ? '' : value).replace(/[&<>'"]/g, function (c) { return ({'&':'&amp;','<':'&lt;','>':'&gt;',"'":'&#39;','"':'&quot;'})[c]; }); }
     function interestLabel(value) { var normalized = String(value || 'low').toLowerCase(); return normalized === 'high' || normalized === 'alto' || normalized === 'alta' ? 'Alto' : (normalized === 'medium' || normalized === 'médio' || normalized === 'medio' || normalized === 'média' || normalized === 'media' ? 'Médio' : 'Baixo'); }
     function apiBase() { return (typeof API_BASE !== 'undefined' ? API_BASE : '/api/'); }
@@ -10,6 +11,7 @@
     function csvValue(value) { return '"' + String(value == null ? '' : value).replace(/"/g, '""') + '"'; }
     function renderResults(data) {
         latestLeads = Array.isArray(data.leads) ? data.leads : [];
+        latestRunId = Number(data.runId || 0);
         var box = el('instagram-results'); if (!box) return;
         var summary = (data.leadsFound || 0) + ' perfil(is) único(s) · ' + (data.commentsCollected || 0) + ' comentário(s) coletado(s) · ' + (data.creditsCharged || 0) + ' crédito(s)';
         if (!latestLeads.length) { box.innerHTML = '<p class="text-sm text-slate-500">Nenhum perfil público foi encontrado nos comentários analisados.</p>'; box.classList.remove('hidden'); status(summary); return; }
@@ -21,7 +23,43 @@
         box.innerHTML = '<div class="flex flex-wrap items-center justify-between gap-3 mb-3"><p class="text-sm font-black text-slate-900 dark:text-white">' + esc(summary) + '</p><button type="button" id="instagram-export" class="rounded-xl bg-slate-900 px-4 py-2 text-xs font-black text-white hover:bg-slate-700">Exportar CSV</button></div><div class="mobile-table-scroll"><table class="w-full text-left text-xs"><thead class="text-[10px] uppercase text-slate-500"><tr><th class="px-3 py-2"><input id="instagram-select-all" type="checkbox" checked></th><th class="px-3 py-2">Perfil</th><th class="px-3 py-2">Comentário</th><th class="px-3 py-2">Interesse</th><th class="px-3 py-2">Comentários</th><th class="px-3 py-2">Origem</th></tr></thead><tbody>' + rows + '</tbody></table></div>';
         box.classList.remove('hidden');
         el('instagram-select-all').onchange = function () { box.querySelectorAll('.instagram-row').forEach(function (item) { item.checked = this.checked; }, this); };
-        el('instagram-export').onclick = function () { var selected = Array.prototype.slice.call(box.querySelectorAll('.instagram-row:checked')).map(function (item) { return latestLeads[Number(item.dataset.index)]; }); var csv = ['Username,Nome,Perfil,Comentario,Interesse,Data,Publicacao'].concat(selected.map(function (lead) { return [lead.username, lead.name, lead.profile_url, lead.comment_text, lead.interest_level, lead.commented_at, lead.source_post_url].map(csvValue).join(','); })).join('\n'); var link = document.createElement('a'); link.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' })); link.download = 'instagram-comentarios.csv'; link.click(); setTimeout(function () { URL.revokeObjectURL(link.href); }, 500); };
+        el('instagram-export').onclick = async function () {
+            if (typeof window.currentUserCanExport === 'function' && !window.currentUserCanExport()) {
+                if (typeof window.showFreemiumExportModal === 'function') window.showFreemiumExportModal();
+                return;
+            }
+            var selectedIndexes = Array.prototype.slice.call(box.querySelectorAll('.instagram-row:checked')).map(function (item) { return Number(item.dataset.index); });
+            if (!selectedIndexes.length) { status('Selecione ao menos um perfil para exportar.', true); return; }
+            var button = el('instagram-export');
+            button.disabled = true;
+            try {
+                var response = await fetch(apiBase() + 'instagram-export.php', {
+                    method: 'POST', credentials: 'include',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'text/csv, application/json' },
+                    body: JSON.stringify({ runId: latestRunId, leadIndexes: selectedIndexes })
+                });
+                if (!response.ok) {
+                    var payload = await response.json().catch(function () { return {}; });
+                    if (response.status === 403 && payload.code === 'export_not_allowed') {
+                        if (typeof window.showFreemiumExportModal === 'function') window.showFreemiumExportModal();
+                        return;
+                    }
+                    throw new Error(payload.error || 'Não foi possível gerar a exportação.');
+                }
+                var blob = await response.blob();
+                var url = URL.createObjectURL(blob);
+                var link = document.createElement('a');
+                link.href = url;
+                link.download = 'instagram-comentarios.csv';
+                link.click();
+                window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+                status('Arquivo CSV gerado.');
+            } catch (error) {
+                status(error.message || 'Não foi possível exportar os perfis.', true);
+            } finally {
+                button.disabled = false;
+            }
+        };
         status(summary);
     }
     async function poll(runId, button) {

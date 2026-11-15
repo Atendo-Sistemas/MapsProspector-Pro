@@ -51,6 +51,7 @@ define('BASE_PATH', __DIR__ . '/../');
 require_once BASE_PATH . 'config/config.php';
 require_once BASE_PATH . 'config/database.php';
 require_once BASE_PATH . 'includes/functions.php';
+require_once BASE_PATH . 'includes/module-access.php';
 
 // --- Resposta padronizada ---
 function bulkOk(array $data = [], string $message = ''): void
@@ -62,11 +63,13 @@ function bulkOk(array $data = [], string $message = ''): void
     );
     exit;
 }
-function bulkFail(string $message, int $status = 400): void
+function bulkFail(string $message, int $status = 400, ?string $code = null): void
 {
     while (ob_get_level() > 0) { ob_end_clean(); }
     http_response_code($status);
-    echo json_encode(['success' => false, 'error' => $message], JSON_UNESCAPED_UNICODE);
+    $body = ['success' => false, 'error' => $message];
+    if ($code !== null) $body['code'] = $code;
+    echo json_encode($body, JSON_UNESCAPED_UNICODE);
     exit;
 }
 
@@ -124,6 +127,9 @@ if ($tenantId <= 0) {
 }
 if (!$isSuperAdmin && (int)($input['tenantId'] ?? 0) > 0) {
     // Usuário comum não pode trocar de tenant pelo pedido: ignora e usa o dele.
+}
+if (!mpTenantHasModule($pdo, $tenantId, 'export', $user)) {
+    bulkFail('Seu plano não permite exportar pesquisas. Conheça os planos profissionais.', 403, 'export_not_allowed');
 }
 
 $companyWebhookUrl = '';
