@@ -48,40 +48,44 @@
     // OBS: lê AppState no momento do clique (g.AppState) e não no carregamento
     // do script, porque no fluxo do Histórico os leads só entram depois
     // ("Ver Novamente" → AppState.leads preenchido em tempo real).
-    g.exportCurrentSearchToExcel = function () {
+    g.exportCurrentSearchToExcel = async function () {
         var st = g.AppState || {};
         var leads = (st.leads || []).slice(0, st.visibleCount || 200);
-        if (leads.length === 0) {
+        var leadIds = leads.map(function (lead) {
+            var rawId = lead.dbId || lead.id || '';
+            var match = String(rawId).match(/(\d+)$/);
+            return match ? parseInt(match[1], 10) : 0;
+        }).filter(function (id) { return id > 0; });
+        if (!st.searchId || leadIds.length === 0) {
             showToastMsg('Nenhum lead visível para exportar.', true);
             return;
         }
-        var esc = function (v) {
-            if (v == null || v === undefined) return '';
-            var s = String(v).trim();
-            if (/[,"\n\r]/.test(s)) { s = '"' + s.replace(/"/g, '""') + '"'; }
-            return s;
-        };
-        var header = 'Nome;Telefone;E-mail;Endereço;Segmento;Cidade;Estado;Data de Captura\n';
-        var rows = leads.map(function (l) {
-            return [
-                esc(l.nome || l.name || ''),
-                esc(l.telefone || l.phone || ''),
-                esc(l.email || ''),
-                esc(l.endereco || l.address || ''),
-                esc(l.segmento || ''),
-                esc(l.cidade || ''),
-                esc(l.estado || ''),
-                esc(l.data_captura || l.dataCaptura || '')
-            ].join(';');
-        });
-        var blob = new Blob(['\ufeff' + header + rows.join('\n')], { type: 'text/csv;charset=utf-8;' });
-        var link = document.createElement('a');
-        link.href = URL.createObjectURL(blob);
-        link.download = 'leads_' + new Date().toISOString().slice(0, 10) + '.csv';
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-        showToastMsg(leads.length + ' lead(s) exportado(s) para CSV/Excel.');
+        try {
+            var response = await fetch(API + 'export-csv.php', {
+                method: 'POST', credentials: 'include',
+                headers: { 'Content-Type': 'application/json', 'Accept': 'text/csv, application/json' },
+                body: JSON.stringify({ searchId: Number(st.searchId), leadIds: leadIds })
+            });
+            if (!response.ok) {
+                var data = await response.json().catch(function () { return {}; });
+                if (response.status === 403 && data.code === 'export_not_allowed' && typeof g.showFreemiumExportModal === 'function') {
+                    g.showFreemiumExportModal();
+                    return;
+                }
+                throw new Error(data.error || 'Não foi possível gerar a exportação.');
+            }
+            var blob = await response.blob();
+            var url = URL.createObjectURL(blob);
+            var link = document.createElement('a');
+            link.href = url;
+            link.download = 'pesquisa_atual_' + new Date().toISOString().slice(0, 10) + '.csv';
+            document.body.appendChild(link);
+            link.click();
+            link.remove();
+            window.setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+        } catch (error) {
+            showToastMsg(error.message || 'Não foi possível exportar a pesquisa.', true);
+        }
     };
 
     // ---------- Exportar para Webhook (lote) ----------
@@ -107,6 +111,8 @@
             });
             if (result.data && result.data.success) {
                 showToastMsg(result.data.message || 'Enviado para o Webhook.');
+            } else if (result.status === 403 && result.data && result.data.code === 'export_not_allowed' && typeof g.showFreemiumExportModal === 'function') {
+                g.showFreemiumExportModal();
             } else if (result.data && result.data.error) {
                 showToastMsg(result.data.error, true);
             } else {
@@ -141,6 +147,8 @@
             });
             if (result.data && result.data.success) {
                 showToastMsg(result.data.message || '1 lead enviado para o Webhook.');
+            } else if (result.status === 403 && result.data && result.data.code === 'export_not_allowed' && typeof g.showFreemiumExportModal === 'function') {
+                g.showFreemiumExportModal();
             } else if (result.data && result.data.error) {
                 showToastMsg(result.data.error, true);
             } else {

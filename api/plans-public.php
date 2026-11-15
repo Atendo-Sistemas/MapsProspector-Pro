@@ -32,6 +32,7 @@ try {
                COALESCE(p.included_users, 1) AS included_users
         FROM plans p
         WHERE p.status = 'active'
+          AND (COALESCE(p.price_monthly, 0) > 0 OR p.slug = 'freemium-20')
           AND COALESCE(p.catalog_group, 'current') <> 'crm_addon'
         ORDER BY p.token_limit ASC, p.name ASC
     ");
@@ -54,6 +55,9 @@ try {
                 $modules = [];
             }
         }
+        if ((string) $row['slug'] === 'freemium-20') {
+            $modules = array_values(array_diff(array_keys(mpModuleCatalog()), ['export']));
+        }
         $items[] = [
             'id' => (string) $row['id'],
             'name' => $row['name'],
@@ -67,7 +71,7 @@ try {
                 $catalog = mpModuleCatalog();
                 return $catalog[$module] ?? $module;
             }, $modules)),
-            'contractBonusCredits' => $row['slug'] === 'trial' ? 0 : 50,
+            'contractBonusCredits' => in_array((string) $row['slug'], ['trial', 'freemium-20'], true) ? 0 : 50,
         ];
     }
     echo json_encode(['success' => true, 'data' => ['items' => $items, 'total' => count($items), 'crmAddons' => crmAddonAvailablePlans($db)]], JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);

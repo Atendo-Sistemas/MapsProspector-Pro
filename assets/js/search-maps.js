@@ -174,6 +174,10 @@ async function doUnlockLeads(leadIds) {
 }
 
 async function exportLead(leadId) {
+    if (typeof window.currentUserCanExport === 'function' && !window.currentUserCanExport()) {
+        if (typeof window.showFreemiumExportModal === 'function') window.showFreemiumExportModal();
+        return;
+    }
     const lead = AppState.leads.find(l => l.id === leadId);
     if (!lead) return;
     showToast(`Exportando ${lead.name}...`);
@@ -185,6 +189,7 @@ async function exportLead(leadId) {
         });
         const data = await res.json();
         if (data.success) showToast('Exportado com sucesso!');
+        else if (res.status === 403 && data.code === 'export_not_allowed' && typeof window.showFreemiumExportModal === 'function') window.showFreemiumExportModal();
         else alert('Erro: ' + data.error);
     } catch (e) { alert('Erro de conexão'); }
 }

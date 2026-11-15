@@ -201,6 +201,10 @@ window.consultarCnpjRapido = function(cnpj) {
 };
 
 window.exportarLeadIndividual = async function(cnpj, nome) {
+    if (typeof window.currentUserCanExport === 'function' && !window.currentUserCanExport()) {
+        if (typeof window.showFreemiumExportModal === 'function') window.showFreemiumExportModal();
+        return;
+    }
     showToast(`Exportando ${nome}...`);
     try {
         const res = await fetch(API_BASE + 'export.php', {
@@ -210,6 +214,7 @@ window.exportarLeadIndividual = async function(cnpj, nome) {
         });
         const data = await res.json();
         if (data.success) showToast('Exportado!');
+        else if (res.status === 403 && data.code === 'export_not_allowed' && typeof window.showFreemiumExportModal === 'function') window.showFreemiumExportModal();
         else alert('Erro: ' + data.error);
     } catch (e) { alert('Erro de conexão'); }
 };

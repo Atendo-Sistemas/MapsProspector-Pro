@@ -11,6 +11,7 @@ define('BASE_PATH', __DIR__ . '/../');
 require_once BASE_PATH . 'config/config.php';
 require_once BASE_PATH . 'config/database.php';
 require_once BASE_PATH . 'includes/functions.php';
+require_once BASE_PATH . 'includes/module-access.php';
 
 ob_start();
 ini_set('display_errors', '0');
@@ -27,7 +28,7 @@ set_exception_handler(function (Throwable $e) {
     echo json_encode(['success' => false, 'error' => 'Falha fatal ao exportar para o Atendo.'], JSON_UNESCAPED_UNICODE);
 });
 
-function atendoJsonResponse(bool $success, $data = null, string $message = '', int $status = 200): void
+function atendoJsonResponse(bool $success, $data = null, string $message = '', int $status = 200, ?string $code = null): void
 {
     while (ob_get_level() > 0) {
         ob_end_clean();
@@ -36,6 +37,9 @@ function atendoJsonResponse(bool $success, $data = null, string $message = '', i
     header('Content-Type: application/json; charset=utf-8');
     header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
     $body = ['success' => $success];
+    if ($code !== null) {
+        $body['code'] = $code;
+    }
     if ($data !== null) {
         $body['data'] = $data;
     }
@@ -55,6 +59,12 @@ if (!$currentUser) {
     atendoJsonResponse(false, null, 'Sessão expirada. Faça login novamente.', 401);
 }
 
+$db = Database::getInstance()->getConnection();
+$tenantId = $currentUser['tenant_id'] ?? $currentUser['tenantId'] ?? null;
+if (!mpTenantHasModule($db, (int) ($tenantId ?? 0), 'export', $currentUser)) {
+    atendoJsonResponse(false, null, 'Seu plano não permite exportar pesquisas. Conheça os planos profissionais.', 403, 'export_not_allowed');
+}
+
 $input = json_decode(file_get_contents('php://input'), true);
 $leadIdStr = (string)($input['leadId'] ?? '');
 
@@ -69,9 +79,6 @@ if (preg_match('/lead-(\d+)/', $leadIdStr, $matches)) {
 if (!$leadId) {
     atendoJsonResponse(false, null, 'ID do lead não informado ou inválido.', 400);
 }
-
-$db = Database::getInstance()->getConnection();
-$tenantId = $currentUser['tenant_id'] ?? null;
 
 // Busca o lead no banco, garantindo que pertence ao tenant do usuário.
 $stmt = $db->prepare("SELECT * FROM leads WHERE id = ?" . ($tenantId ? " AND tenant_id = ?" : ""));

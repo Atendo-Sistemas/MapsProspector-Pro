@@ -13,6 +13,10 @@ require_once __DIR__ . '/../includes/functions.php';
 
 ob_clean();
 
+// Endpoint antigo mantido apenas por compatibilidade de implantação. Ele não
+// pode criar contas fora do fluxo freemium que valida a identidade do cadastro.
+jsonError('Este endpoint de cadastro foi desativado. Atualize o cliente para usar o formulário atual.', 410, 'legacy_registration_disabled');
+
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     jsonError('Método não permitido', 405);
 }

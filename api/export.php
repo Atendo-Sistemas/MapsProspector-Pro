@@ -10,6 +10,7 @@ ob_start();
 require_once __DIR__ . '/../config/config.php';
 require_once __DIR__ . '/../config/database.php';
 require_once __DIR__ . '/../includes/functions.php';
+require_once __DIR__ . '/../includes/module-access.php';
 
 // Limpa o output buffer
 ob_clean();
@@ -19,6 +20,9 @@ $authUser = getAuthUser();
 $db = Database::getInstance()->getConnection();
 
 $tenantId = (int)($authUser['tenant_id'] ?? $authUser['tenantId'] ?? 0);
+if (!mpTenantHasModule($db, $tenantId, 'export', $authUser)) {
+    jsonError('Seu plano não permite exportar pesquisas. Conheça os planos profissionais.', 403, 'export_not_allowed');
+}
 $profile = strtolower(trim((string)($authUser['profile'] ?? $authUser['role'] ?? $authUser['user_type'] ?? '')));
 $isSuperAdmin = in_array(str_replace(['-', ' '], '_', $profile), ['super_admin', 'superadmin'], true);
 
