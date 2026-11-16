@@ -47,6 +47,7 @@ try {
         $tenantId === null || 
         $authUser['email'] === 'seu-email-de-admin@seu-dominio.com' // Opcional: coloque seu e-mail aqui se quiser
     );
+    $availableCredits = null;
 
     if (!$isPlatformSuperAdmin && $tenantId !== null) {
         try {
@@ -57,6 +58,18 @@ try {
             if ($tenantRow) {
                 if (isset($tenantRow['status']) && $tenantRow['status'] === 'suspended') {
                     jsonError('Sua empresa está suspensa (período de teste expirado ou limite atingido). Escolha um plano para continuar.', 403);
+                }
+
+                // A interface pode ser ignorada por chamadas diretas ao
+                // endpoint; o saldo precisa ser validado antes do coletor.
+                $planLimit = max(0, (int) getTenantPlanTokenLimit($db, (int) $tenantId));
+                $bonus = max(0, (int) getTenantTokenBonus($db, (int) $tenantId));
+                $used = max(0, (int) getTenantTokensUsed($db, (int) $tenantId));
+                if ($planLimit > 0) {
+                    $availableCredits = max(0, $planLimit + $bonus - $used);
+                    if ($availableCredits < 1) {
+                        jsonError('Você atingiu o limite de créditos da conta. Contrate um plano para continuar utilizando a plataforma.', 403, 'credits_exhausted');
+                    }
                 }
 
                 if ((string) ($tenantRow['plan_slug'] ?? '') !== 'freemium-20' && (float) ($tenantRow['plan_price'] ?? 0) <= 0 && !empty($tenantRow['created_at'])) {
@@ -97,6 +110,9 @@ try {
     $coords = $input['coords'] ?? null;
     $locationName = sanitizeInput($input['locationName'] ?? '');
     $maxCrawledPlacesPerSearch = isset($input['maxCrawledPlacesPerSearch']) ? max(1, min(1000, (int) $input['maxCrawledPlacesPerSearch'])) : 200;
+    if ($availableCredits !== null) {
+        $maxCrawledPlacesPerSearch = min($maxCrawledPlacesPerSearch, $availableCredits);
+    }
     if (empty($query)) {
         jsonError('Digite o ramo de atividade (Ex: Petshop).', 400);
     }
@@ -128,6 +144,12 @@ try {
     );
 
     $leads = $searchResult['leads'] ?? [];
+
+    // O provedor pode retornar mais itens que o limite solicitado. Nunca
+    // persista nem cobre além do saldo efetivamente disponível.
+    if ($availableCredits !== null && count($leads) > $availableCredits) {
+        $leads = array_slice($leads, 0, $availableCredits);
+    }
 
     if (empty($leads)) {
         jsonError("Nenhum resultado encontrado para \"$query\" em $locationText.", 204);

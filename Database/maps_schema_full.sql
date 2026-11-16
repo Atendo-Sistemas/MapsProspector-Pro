@@ -15,9 +15,9 @@
 --   search_history, leads, sessions, tenant_usage (token_bonus), credit_requests,
 --   plan_requests, payments, payment_bonus_grants, lead_unlocks,
 --   platform_settings (scraper_api_key, credit_price_avulso, saas_company_name).
--- Planos: Básico + Período de teste. Tenant padrão: Nome da empresa SaaS.
+-- Planos: Básico + Período de teste + Freemium 20. Tenant padrão: Nome da empresa SaaS.
 -- Usuário super_admin: admin@atendo.maps (senha: admin123).
--- Nenhuma migração adicional é necessária para instalação nova.
+-- O controle de benefício freemium também é criado neste schema.
 --
 -- =============================================================================
 
@@ -359,8 +359,24 @@ ALTER TABLE `lead_unlocks`
 -- -----------------------------------------------------------------------------
 INSERT INTO `plans` (`id`, `name`, `slug`, `token_limit`, `price_monthly`, `period`, `status`) VALUES
 (1, 'Básico', 'basic', 100, 0.00, 'monthly', 'active'),
-(2, 'Período de teste', 'trial', 10, 0.00, 'monthly', 'active')
+(2, 'Período de teste', 'trial', 10, 0.00, 'monthly', 'active'),
+(3, 'Freemium 20', 'freemium-20', 20, 0.00, 'monthly', 'active')
 ON DUPLICATE KEY UPDATE `name` = VALUES(`name`), `token_limit` = VALUES(`token_limit`), `price_monthly` = VALUES(`price_monthly`), `period` = VALUES(`period`), `status` = VALUES(`status`);
+
+-- Benefício de cadastro gratuito: cada identificador normalizado só pode
+-- receber o benefício uma vez, mesmo que a empresa anterior seja removida.
+CREATE TABLE IF NOT EXISTS `free_signup_credit_claims` (
+  `id` bigint unsigned NOT NULL AUTO_INCREMENT,
+  `identity_type` varchar(16) NOT NULL,
+  `identity_hash` char(64) CHARACTER SET ascii COLLATE ascii_bin NOT NULL,
+  `tenant_id` int NOT NULL,
+  `user_id` int NOT NULL,
+  `claimed_at` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uq_free_signup_identity` (`identity_type`, `identity_hash`),
+  KEY `idx_free_signup_tenant` (`tenant_id`),
+  KEY `idx_free_signup_user` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `tenants` (`id`, `name`, `slug`, `plan_id`, `plan`, `status`) VALUES
 (1, 'Nome da empresa SaaS', 'nome-da-empresa-saas', 1, 'basic', 'active')
@@ -382,6 +398,7 @@ SET FOREIGN_KEY_CHECKS = 1;
 
 -- =============================================================================
 -- Fim do schema - MapsProspector Pro
--- Instalação nova: este arquivo é suficiente. Nenhuma migração é obrigatória.
+-- Instalação nova: este arquivo inclui o freemium-20 e o controle de benefício.
+-- Migrações continuam necessárias apenas para bancos já existentes.
 -- Planos adicionais: execute database_seed_plans.sql se desejar mais planos.
 -- =============================================================================

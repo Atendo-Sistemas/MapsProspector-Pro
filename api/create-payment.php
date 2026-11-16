@@ -69,6 +69,14 @@ try {
     }
 
     $db = Database::getInstance()->getConnection();
+    if ($type === 'credits') {
+        $planStmt = $db->prepare('SELECT p.slug FROM tenants t INNER JOIN plans p ON p.id = t.plan_id WHERE t.id = ? LIMIT 1');
+        $planStmt->execute([$tenantId]);
+        $planSlug = (string) ($planStmt->fetchColumn() ?: '');
+        if ($planSlug === 'freemium-20') {
+            manualRequestResponse(false, null, 'O período gratuito terminou. Contrate um plano para continuar utilizando a plataforma.', 403);
+        }
+    }
     $gatewayReadiness = MapsProspectorAsaasPaymentGateway::readiness($db);
     if ($paymentMode !== 'manual' && $gatewayReadiness['enabled'] && !$gatewayReadiness['ready']) {
         manualRequestResponse(

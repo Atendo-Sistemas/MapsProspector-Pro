@@ -123,6 +123,11 @@ if ($method === 'GET') {
     if ($tenantId === null) {
         jsonError('Apenas usuários vinculados a uma empresa podem solicitar créditos.', 403);
     }
+    $planStmt = $db->prepare('SELECT p.slug FROM tenants t INNER JOIN plans p ON p.id = t.plan_id WHERE t.id = ? LIMIT 1');
+    $planStmt->execute([(int) $tenantId]);
+    if ((string) ($planStmt->fetchColumn() ?: '') === 'freemium-20') {
+        jsonError('O período gratuito terminou. Contrate um plano para continuar utilizando a plataforma.', 403, 'plan_required');
+    }
     $tokensRequested = isset($input['tokensRequested']) ? (int) $input['tokensRequested'] : 0;
     if ($tokensRequested < 100 || $tokensRequested > 10000) {
         jsonError('Informe uma quantidade entre 100 e 10.000 tokens.', 400);

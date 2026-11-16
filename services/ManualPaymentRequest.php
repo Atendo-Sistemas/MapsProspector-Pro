@@ -26,6 +26,11 @@ function mapsCreateManualPaymentRequest(PDO $db, array $user, int $tenantId, str
             throw new InvalidArgumentException('Empresa não encontrada.');
         }
         if ($type === 'credits') {
+            $planStmt = $db->prepare('SELECT p.slug FROM tenants t INNER JOIN plans p ON p.id = t.plan_id WHERE t.id = ? LIMIT 1');
+            $planStmt->execute([$tenantId]);
+            if ((string) ($planStmt->fetchColumn() ?: '') === 'freemium-20') {
+                throw new InvalidArgumentException('O período gratuito terminou. Contrate um plano para continuar utilizando a plataforma.');
+            }
             $pending = $db->prepare("SELECT id FROM credit_requests WHERE tenant_id = ? AND tokens_requested = ? AND status = 'pending' ORDER BY id DESC LIMIT 1");
             $pending->execute([$tenantId, $credits]);
         } else {

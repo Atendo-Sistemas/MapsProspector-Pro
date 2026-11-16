@@ -129,13 +129,13 @@ try {
     $costs = ['data' => 5, 'difusa' => 2, 'lookup' => 1];
     $tokenCost = $costs[$type] ?? 1;
 
-    $stmt = $pdo->prepare("SELECT tokens_used, tokens_limit FROM tenants WHERE id = ?");
-    $stmt->execute([$tenant_id]);
-    $tenant = $stmt->fetch();
-
-    if ($tenant && $tenant['tokens_limit'] > 0 && ($tenant['tokens_used'] + $tokenCost) > $tenant['tokens_limit']) {
+    $planLimit = max(0, (int) getTenantPlanTokenLimit($pdo, $tenant_id));
+    $bonus = max(0, (int) getTenantTokenBonus($pdo, $tenant_id));
+    $used = max(0, (int) getTenantTokensUsed($pdo, $tenant_id));
+    if ($planLimit > 0 && ($used + $tokenCost) > ($planLimit + $bonus)) {
         ob_clean();
-        echo json_encode(['success' => false, 'error' => 'Saldo insuficiente de tokens.']);
+        http_response_code(403);
+        echo json_encode(['success' => false, 'error' => 'Saldo insuficiente de créditos. Contrate um plano para continuar.'], JSON_UNESCAPED_UNICODE);
         exit;
     }
 
@@ -167,7 +167,7 @@ try {
     ob_clean();
     if ($httpCode === 200) {
         $result = json_decode($response, true);
-        $pdo->prepare("UPDATE tenants SET tokens_used = tokens_used + ? WHERE id = ?")->execute([$tokenCost, $tenant_id]);
+        incrementTenantUsage($pdo, $tenant_id, $tokenCost);
         $qualityResultCount = 0;
         if (is_array($result) && $result) {
             foreach (['results', 'resultados', 'items', 'estabelecimentos'] as $listKey) {
