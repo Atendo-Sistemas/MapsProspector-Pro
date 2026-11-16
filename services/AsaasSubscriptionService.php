@@ -55,6 +55,27 @@ function mpAsaasNextDueDate(?string $dueDate): string
     return $nextMonth->setDate((int) $nextMonth->format('Y'), (int) $nextMonth->format('m'), $day)->format('Y-m-d');
 }
 
+/**
+ * Retorna a data em que o pagamento foi efetivamente confirmado.
+ * `dueDate` é a data prevista no momento da cobrança e não deve iniciar o
+ * novo ciclo quando o cliente paga antes ou depois dela.
+ */
+function mpAsaasEffectivePaymentDate(array $payment): string
+{
+    foreach (['paymentDate', 'confirmedDate', 'clientPaymentDate', 'creditDate'] as $field) {
+        $value = trim((string) ($payment[$field] ?? ''));
+        if ($value === '') {
+            continue;
+        }
+        try {
+            return (new DateTimeImmutable($value))->format('Y-m-d');
+        } catch (Throwable $e) {
+            // Tenta o próximo campo de data fornecido pelo Asaas.
+        }
+    }
+    return date('Y-m-d');
+}
+
 /** Ativa ou renova o plano apenas quando o pagamento recebido é confirmado. */
 function mpAsaasConfirmSubscriptionPayment(PDO $db, string $subscriptionId, array $payment): bool
 {
@@ -63,9 +84,9 @@ function mpAsaasConfirmSubscriptionPayment(PDO $db, string $subscriptionId, arra
     }
     $paymentId = substr((string) ($payment['id'] ?? ''), 0, 64);
     $paymentStatus = strtoupper((string) ($payment['status'] ?? 'RECEIVED'));
-    $dueDate = (string) ($payment['dueDate'] ?? date('Y-m-d'));
-    $accessUntil = mpAsaasAccessUntil($dueDate);
-    $nextDueDate = mpAsaasNextDueDate($dueDate);
+    $purchaseDate = mpAsaasEffectivePaymentDate($payment);
+    $accessUntil = mpAsaasAccessUntil($purchaseDate);
+    $nextDueDate = mpAsaasNextDueDate($purchaseDate);
 
     $db->beginTransaction();
     try {
@@ -79,24 +100,21 @@ function mpAsaasConfirmSubscriptionPayment(PDO $db, string $subscriptionId, arra
         $update = $db->prepare(
             "UPDATE asaas_subscriptions
                 SET status = 'active', next_due_date = ?,
-                    access_until = CASE WHEN access_until IS NULL OR access_until < ? THEN ? ELSE access_until END,
+                    access_until = ?,
                     last_payment_id = ?, last_payment_status = ?, cancelled_at = NULL
               WHERE id = ?"
         );
-        $update->execute([$nextDueDate, $accessUntil, $accessUntil, $paymentId !== '' ? $paymentId : null, $paymentStatus, (int) $subscription['id']]);
+        $update->execute([$nextDueDate, $accessUntil, $paymentId !== '' ? $paymentId : null, $paymentStatus, (int) $subscription['id']]);
         if ((string) ($subscription['product_kind'] ?? 'prospecting') === 'crm_addon') {
             crmAddonActivateLicense($db, (int) $subscription['tenant_id'], (int) $subscription['plan_id'], 'asaas');
         } else {
             $tenant = $db->prepare(
                 'UPDATE tenants
                     SET plan_id = ?,
-                        plan_access_until = CASE
-                            WHEN plan_access_until IS NULL OR plan_access_until < ? THEN ?
-                            ELSE plan_access_until
-                        END
+                        plan_access_until = ?
                   WHERE id = ?'
             );
-            $tenant->execute([(int) $subscription['plan_id'], $accessUntil, $accessUntil, (int) $subscription['tenant_id']]);
+            $tenant->execute([(int) $subscription['plan_id'], $accessUntil, (int) $subscription['tenant_id']]);
             mpGrantPlanContractBonus($db, (int) $subscription['tenant_id'], 'asaas_subscription', $subscriptionId, 50);
         }
         $db->commit();

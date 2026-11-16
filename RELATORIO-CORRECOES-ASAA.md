@@ -25,9 +25,16 @@
    - Incluída a tabela `free_signup_credit_claims` para impedir repetição do benefício.
    - Bancos existentes ainda devem executar as migrações correspondentes.
 
+5. **Vencimento após confirmação do pagamento**
+   - `services/AsaasSubscriptionService.php` agora prioriza `paymentDate`, `confirmedDate`, `clientPaymentDate` e `creditDate` enviados pelo Asaas.
+   - A data prevista (`dueDate`) não é mais usada como data de compra.
+   - Após a confirmação, `next_due_date`, `access_until` e `tenants.plan_access_until` são recalculados a partir da data efetiva do pagamento.
+   - Uma nova compra substitui o vencimento anterior, evitando que uma data antiga futura impeça a renovação.
+
 ## Validação
 
 - Lint PHP executado em 100 arquivos: sem erros de sintaxe.
+- Teste do cálculo: compra em 16/11/2026 gera próxima cobrança em 16/12/2026 e acesso até 15/12/2026.
 - Não foi realizada cobrança real no Asaas; o teste de produção deve ser feito com credenciais sandbox e webhook acessível.
 
 ## Implantação
